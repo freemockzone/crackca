@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="pageTitle">Support Us - Donate for Success</title>
+    <meta name="description" data-i18n="metaDescription" content="Support Current Affairs Hub to help government job aspirants achieve success. Your donations power our mission.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background-color: #f0f4f8; /* Light blue-gray background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .donation-container {
+            max-width: 900px;
+            width: 95%;
+            margin: 20px auto;
+        }
+        .progress-bar-inner {
+            transition: width 0.5s ease-in-out;
+        }
+        /* Animation keyframes */
+        @keyframes fade-in {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slide-down {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .animate-fade-in { animation: fade-in 0.8s ease-out forwards; }
+        .animate-fade-in-delay { animation: fade-in 0.8s ease-out forwards; opacity: 0; /* Starts hidden */ }
+        .animate-slide-down { animation: slide-down 0.8s ease-out forwards; opacity: 0; /* Starts hidden */ }
+
+        /* Specific delay classes */
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+        .delay-600 { animation-delay: 0.6s; }
+        .delay-700 { animation-delay: 0.7s; }
+        .delay-800 { animation-delay: 0.8s; }
+        .delay-900 { animation-delay: 0.9s; }
+
+        /* New styles for the flip button */
+        .language-toggle-button {
+            perspective: 1000px; /* Gives a 3D effect */
+            width: 120px; /* Fixed width for consistent flip */
+            height: 40px; /* Fixed height */
+            /* Ensure the button itself doesn't apply transformation */
+            transform-style: preserve-3d;
+            position: relative;
+        }
+
+        .lang-text {
+            display: flex; /* Ensures text is centered */
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.6s ease-in-out; /* Smooth transition for the flip */
+        }
+
+        .backface-hidden {
+            backface-visibility: hidden; /* Hides the back of the element during flip */
+        }
+
+        /* Initial state for English */
+        .language-toggle-button.en .lang-en {
+            transform: rotateY(0deg);
+        }
+        .language-toggle-button.en .lang-hi {
+            transform: rotateY(180deg);
+        }
+
+        /* State after flip to Hindi */
+        .language-toggle-button.hi .lang-en {
+            transform: rotateY(-180deg);
+        }
+        .language-toggle-button.hi .lang-hi {
+            transform: rotateY(0deg);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased">
+
+    <div class="donation-container bg-white rounded-xl shadow-2xl p-8 md:p-12 border border-blue-100 animate-fade-in">
+
+        <div class="flex justify-end mb-6">
+            <button id="languageToggle" class="language-toggle-button px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 relative overflow-hidden">
+                <span id="langFront" class="lang-text lang-en absolute inset-0 flex items-center justify-center backface-hidden">English</span>
+                <span id="langBack" class="lang-text lang-hi absolute inset-0 flex items-center justify-center backface-hidden rotate-y-180">हिन्दी</span>
+            </button>
+        </div>
+
+        <header class="text-center mb-10">
+            <h1 class="text-5xl font-extrabold text-blue-700 mb-4 animate-slide-down" data-i18n="mainHeading">Empower Future Leaders!</h1>
+            <p class="text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto animate-fade-in-delay delay-100" data-i18n="subHeading">
+                Your small contribution can make a big difference in the lives of thousands of government job aspirants.
+                Help us keep this platform free and updated with quality content.
+            </p>
+        </header>
+
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+            <div class="text-center md:text-left">
+                <h2 class="text-3xl font-bold text-gray-800 mb-5 animate-fade-in-delay delay-200" data-i18n="progressHeading">Our Mission's Progress</h2>
+                <div class="bg-gray-100 rounded-full h-8 relative overflow-hidden mb-4 shadow-inner animate-fade-in-delay delay-300">
+                    <div id="progressBarFill" class="progress-bar-inner bg-gradient-to-r from-green-400 to-blue-500 h-full rounded-full" style="width: 1%;"></div>
+                    <div id="progressText" class="absolute inset-0 flex items-center justify-center text-sm font-extrabold text-gray-800 px-2">
+                        ₹50 / ₹5000 (Monthly Target)
+                    </div>
+                </div>
+                <p class="text-gray-700 text-lg mb-6 animate-fade-in-delay delay-400" data-i18n="progressDescription">
+                    We've currently raised <span class="font-bold text-blue-600">₹50</span> towards our monthly goal of <span class="font-bold text-green-600">₹5000</span>.
+                    Every rupee helps us provide daily current affairs, maintain the platform, and add new features.
+                </p>
+
+                <h3 class="text-2xl font-bold text-gray-800 mb-4 animate-fade-in-delay delay-500" data-i18n="whyDonateHeading">Why Your Donation Matters:</h3>
+                <ul class="list-disc list-inside text-gray-700 space-y-2 mb-8 text-lg animate-fade-in-delay delay-600">
+                    <li data-i18n="benefit1"><i class="fas fa-check-circle text-green-500 mr-2"></i>Free access to daily current affairs.</li>
+                    <li data-i18n="benefit2"><i class="fas fa-check-circle text-green-500 mr-2"></i>High-quality, curated content.</li>
+                    <li data-i18n="benefit3"><i class="fas fa-check-circle text-green-500 mr-2"></i>Platform maintenance and upgrades.</li>
+                    <li data-i18n="benefit4"><i class="fas fa-check-circle text-green-500 mr-2"></i>Expansion to cover more exam-specific content.</li>
+                </ul>
+
+                <p class="text-blue-600 text-xl font-semibold mt-6 animate-fade-in-delay delay-700" data-i18n="thankYouMessage">
+                    Thank you for being a part of our journey!
+                </p>
+            </div>
+
+            <div class="flex flex-col items-center justify-center p-6 bg-blue-50 rounded-lg shadow-inner border border-blue-200 animate-fade-in-delay delay-800">
+                <h2 class="text-3xl font-bold text-blue-700 mb-6 text-center" data-i18n="qrHeading">Scan to Donate</h2>
+                <div class="bg-white p-4 rounded-lg shadow-xl border border-gray-200 transform hover:scale-105 transition-transform duration-300">
+                    <img src="qr.png" alt="QR Code for Donation" class="w-64 h-64 object-contain">
+                </div>
+                <p class="text-gray-700 text-lg mt-6 text-center" data-i18n="qrInstructions">
+                    Use any UPI app (Google Pay, PhonePe, Paytm, etc.) to scan and donate.
+                </p>
+                <div class="flex items-center text-gray-500 mt-4 text-sm" data-i18n="securePayment">
+                    <i class="fas fa-lock mr-2"></i> Secure & Easy Payments
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center mt-12 pt-8 border-t border-gray-200 animate-fade-in-delay delay-900">
+            <p class="text-gray-500 text-sm" data-i18n="footerCopyright">&copy; 2025 Current Affairs Hub. All rights reserved.</p>
+            <div class="flex justify-center space-x-6 mt-4">
+                <a href="#" class="text-gray-400 hover:text-blue-600 transition-colors duration-300 text-2xl" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors duration-300 text-2xl" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-gray-400 hover:text-red-500 transition-colors duration-300 text-2xl" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-gray-400 hover:text-green-600 transition-colors duration-300 text-2xl" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p class="text-gray-500 text-xs mt-3" data-i18n="footerTagline">Every donation, big or small, fuels our mission.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Language content
+        const translations = {
+            en: {
+                pageTitle: "Support Us - Donate for Success",
+                metaDescription: "Support Current Affairs Hub to help government job aspirants achieve success. Your donations power our mission.",
+                mainHeading: "Empower Future Leaders!",
+                subHeading: "Your small contribution can make a big difference in the lives of thousands of government job aspirants. Help us keep this platform free and updated with quality content.",
+                progressHeading: "Our Mission's Progress",
+                progressDescription: "We've currently raised ₹50 towards our monthly goal of ₹5000. Every rupee helps us provide daily current affairs, maintain the platform, and add new features.",
+                whyDonateHeading: "Why Your Donation Matters:",
+                benefit1: "Free access to daily current affairs.",
+                benefit2: "High-quality, curated content.",
+                benefit3: "Platform maintenance and upgrades.",
+                benefit4: "Expansion to cover more exam-specific content.",
+                thankYouMessage: "Thank you for being a part of our journey!",
+                qrHeading: "Scan to Donate",
+                qrInstructions: "Use any UPI app (Google Pay, PhonePe, Paytm, etc.) to scan and donate.",
+                securePayment: "Secure & Easy Payments",
+                footerCopyright: "&copy; 2025 Current Affairs Hub. All rights reserved.",
+                footerTagline: "Every donation, big or small, fuels our mission."
+            },
+            hi: {
+                pageTitle: "हमारा समर्थन करें - सफलता के लिए दान करें",
+                metaDescription: "सरकारी नौकरी के उम्मीदवारों को सफलता प्राप्त करने में मदद करने के लिए करंट अफेयर्स हब का समर्थन करें। आपका दान हमारे मिशन को शक्ति देता है।",
+                mainHeading: "भविष्य के नेताओं को सशक्त बनाएं!",
+                subHeading: "आपका छोटा सा योगदान हजारों सरकारी नौकरी के उम्मीदवारों के जीवन में एक बड़ा बदलाव ला सकता है। इस प्लेटफॉर्म को मुफ्त और गुणवत्तापूर्ण सामग्री के साथ अपडेट रखने में हमारी मदद करें।",
+                progressHeading: "हमारे मिशन की प्रगति",
+                progressDescription: "हमने अपने मासिक लक्ष्य ₹5000 के लिए वर्तमान में ₹50 जुटाए हैं। हर रुपया हमें दैनिक करंट अफेयर्स प्रदान करने, प्लेटफॉर्म को बनाए रखने और नई सुविधाएँ जोड़ने में मदद करता है।",
+                whyDonateHeading: "आपके दान का महत्व क्यों है:",
+                benefit1: "दैनिक करेंट अफेयर्स तक मुफ्त पहुंच।",
+                benefit2: "उच्च गुणवत्ता वाली, क्यूरेटेड सामग्री।",
+                benefit3: "प्लेटफॉर्म का रखरखाव और उन्नयन।",
+                benefit4: "अधिक परीक्षा-विशिष्ट सामग्री को कवर करने के लिए विस्तार।",
+                thankYouMessage: "हमारी यात्रा का हिस्सा बनने के लिए धन्यवाद!",
+                qrHeading: "दान करने के लिए स्कैन करें",
+                qrInstructions: "दान करने के लिए किसी भी UPI ऐप (Google Pay, PhonePe, Paytm, आदि) का उपयोग करें।",
+                securePayment: "सुरक्षित और आसान भुगतान",
+                footerCopyright: "&copy; 2025 करंट अफेयर्स हब। सर्वाधिकार सुरक्षित।",
+                footerTagline: "हर दान, छोटा या बड़ा, हमारे मिशन को बढ़ावा देता है।"
+            }
+        };
+
+        let currentLang = 'en'; // Default language
+
+        // Function to update content based on current language
+        function updateContent() {
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[currentLang][key]) {
+                    if (element.tagName === 'TITLE') {
+                        document.title = translations[currentLang][key];
+                    } else if (element.tagName === 'META' && element.name === 'description') {
+                        element.setAttribute('content', translations[currentLang][key]);
+                    } else {
+                        element.innerHTML = translations[currentLang][key];
+                    }
+                }
+            });
+            // Update the specific progress text if it contains hardcoded values
+            document.getElementById('progressText').textContent = `₹50 / ₹5000 (Monthly Target)`; // This part remains constant for now as per requirement
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const progressBarFill = document.getElementById('progressBarFill');
+            const currentAmount = 50; // Current amount received
+            const targetAmount = 5000; // Monthly target
+            const percentage = (currentAmount / targetAmount) * 100;
+
+            progressBarFill.style.width = `${percentage}%`;
+
+            // Language toggle button event listener
+            const languageToggle = document.getElementById('languageToggle');
+            const langFront = document.getElementById('langFront');
+            const langBack = document.getElementById('langBack');
+
+            // Initialize content with default language
+            updateContent();
+            // Set initial state of the button
+            languageToggle.classList.add(currentLang);
+
+
+            languageToggle.addEventListener('click', () => {
+                // Remove current language class
+                languageToggle.classList.remove(currentLang);
+
+                // Toggle language
+                currentLang = currentLang === 'en' ? 'hi' : 'en';
+
+                // Add new language class to trigger CSS flip
+                languageToggle.classList.add(currentLang);
+
+                // Update content after the flip animation starts
+                setTimeout(() => {
+                    updateContent();
+                }, 300); // Small delay to allow flip animation to begin
+            });
+
+            // Trigger animations
+            document.querySelectorAll('.animate-fade-in').forEach(el => {
+                el.style.opacity = '1';
+            });
+            document.querySelectorAll('.animate-slide-down').forEach(el => {
+                el.style.transform = 'translateY(0)';
+                el.style.opacity = '1';
+            });
+            document.querySelectorAll('.animate-fade-in-delay').forEach(el => {
+                el.style.animationPlayState = 'running'; /* Start animation */
+            });
+        });
+    </script>
+</body>
+</html>

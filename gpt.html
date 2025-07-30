@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Stay updated with the most important and UPSC-relevant current affairs. Your one-stop hub for daily current events, curated for government job exams." />
+  <title>Current Affairs Hub</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background-color: #f8f9fa; }
+    .navbar { background: #003366; color: #fff; padding: 1rem 2rem; display: flex; justify-content: space-between; flex-wrap: wrap; align-items: center; }
+    .navbar h1 { margin: 0; font-size: 1.5rem; }
+    .navbar span { font-size: 0.9rem; color: #ddd; }
+    .main-content-area { padding: 1rem; max-width: 1200px; margin: auto; }
+    .filter-search-container { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem; }
+    .filter-search-container input, .filter-search-container select { padding: 0.5rem; flex: 1 1 200px; }
+    .current-affairs-display { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; }
+    .post { background: #fff; border-radius: 8px; box-shadow: 0 0 5px rgba(0,0,0,0.1); padding: 1rem; }
+    .post h3 { margin: 0 0 0.5rem; font-size: 1.1rem; }
+    .post small { display: block; color: #666; margin-bottom: 0.5rem; }
+    .pagination { margin: 2rem 0; display: flex; justify-content: center; gap: 0.5rem; }
+    .pagination button { padding: 0.5rem 1rem; border: none; background: #003366; color: #fff; border-radius: 4px; cursor: pointer; }
+    footer { background: #003366; color: #fff; padding: 1rem; text-align: center; font-size: 0.9rem; }
+    @media (max-width: 600px) {
+      .filter-search-container { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div>
+      <h1>Current Affairs Hub</h1>
+      <span>Your Gateway to UPSC-Relevant News & Analysis</span>
+    </div>
+  </header>
+
+  <main class="main-content-area">
+    <section class="filter-search-container">
+      <input type="text" id="searchInput" placeholder="Search current affairs...">
+      <select id="subjectFilter">
+        <option value="">All Subjects</option>
+        <option value="Polity">Polity</option>
+        <option value="Economy">Economy</option>
+        <option value="Environment">Environment</option>
+        <option value="Science">Science & Tech</option>
+        <option value="International Relations">International Relations</option>
+        <option value="Essay">Essay Relevant</option>
+      </select>
+    </section>
+
+    <section class="current-affairs-display" id="postsContainer"></section>
+    <div class="pagination" id="pagination"></div>
+  </main>
+
+  <footer>
+    &copy; 2025 Current Affairs Hub | Curated for UPSC & Govt Job Aspirants
+  </footer>
+
+  <script>
+    const posts = [
+      {
+        title: "Uniform Civil Code – Recent Developments",
+        subject: "Polity",
+        source: "The Hindu",
+        essayTopics: ["Uniformity vs Diversity in Law", "Constitutional Morality vs Majoritarianism"]
+      },
+      {
+        title: "Global Minimum Tax and India’s Position",
+        subject: "Economy",
+        source: "Indian Express",
+        essayTopics: ["Taxation Justice in a Globalized World"]
+      },
+      {
+        title: "Heatwaves and NDMA Guidelines",
+        subject: "Environment",
+        source: "PIB",
+        essayTopics: ["Climate Resilience in Urban India"]
+      },
+      {
+        title: "Chandrayaan-3: India’s Tech Triumph",
+        subject: "Science",
+        source: "ISRO",
+        essayTopics: ["Science and National Pride"]
+      },
+      {
+        title: "BRICS Expansion: Geopolitical Impacts",
+        subject: "International Relations",
+        source: "The Hindu",
+        essayTopics: ["Multipolar World and India"]
+      },
+      {
+        title: "National Logistics Policy 2024 – Key Features",
+        subject: "Economy",
+        source: "PIB",
+        essayTopics: ["Infrastructure as Growth Catalyst"]
+      },
+      {
+        title: "India’s Semiconductor Mission",
+        subject: "Science",
+        source: "LiveMint",
+        essayTopics: ["Technological Sovereignty"]
+      },
+      {
+        title: "Plastic Waste Management Rules Amended",
+        subject: "Environment",
+        source: "MoEFCC",
+        essayTopics: ["Plastic Pollution Crisis"]
+      },
+      {
+        title: "One Nation One Election: Pros & Cons",
+        subject: "Polity",
+        source: "PRS India",
+        essayTopics: ["Synchronizing Elections – Is it Feasible?"]
+      },
+      {
+        title: "WTO Disputes and India’s Stance",
+        subject: "International Relations",
+        source: "Economic Times",
+        essayTopics: ["India’s Trade Diplomacy"]
+      },
+      {
+        title: "Fiscal Deficit Trends in India",
+        subject: "Economy",
+        source: "Business Standard",
+        essayTopics: ["Fiscal Prudence vs Welfare State"]
+      },
+      {
+        title: "AI in Governance – Scope & Challenges",
+        subject: "Science",
+        source: "ORF Report",
+        essayTopics: ["Digital Ethics in Public Administration"]
+      }
+    ];
+
+    const postsPerPage = 9;
+    let currentPage = 1;
+
+    function renderPosts() {
+      const container = document.getElementById('postsContainer');
+      container.innerHTML = '';
+
+      const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+      const subjectFilter = document.getElementById('subjectFilter').value;
+
+      const filtered = posts.filter(p => {
+        return (!subjectFilter || p.subject === subjectFilter) &&
+               (!searchTerm || p.title.toLowerCase().includes(searchTerm));
+      });
+
+      const start = (currentPage - 1) * postsPerPage;
+      const paginated = filtered.slice(start, start + postsPerPage);
+
+      paginated.forEach(post => {
+        const div = document.createElement('div');
+        div.className = 'post';
+        div.innerHTML = `
+          <h3>${post.title}</h3>
+          <small><strong>Subject:</strong> ${post.subject}</small>
+          <small><strong>Source:</strong> ${post.source}</small>
+          ${post.essayTopics ? `<small><strong>Essay Topics:</strong> ${post.essayTopics.join(', ')}</small>` : ''}
+        `;
+        container.appendChild(div);
+      });
+
+      renderPagination(filtered.length);
+    }
+
+    function renderPagination(total) {
+      const pagination = document.getElementById('pagination');
+      pagination.innerHTML = '';
+      const pages = Math.ceil(total / postsPerPage);
+
+      for (let i = 1; i <= pages; i++) {
+        const btn = document.createElement('button');
+        btn.innerText = i;
+        if (i === currentPage) btn.style.backgroundColor = '#005599';
+        btn.onclick = () => { currentPage = i; renderPosts(); };
+        pagination.appendChild(btn);
+      }
+    }
+
+    document.getElementById('searchInput').addEventListener('input', () => { currentPage = 1; renderPosts(); });
+    document.getElementById('subjectFilter').addEventListener('change', () => { currentPage = 1; renderPosts(); });
+
+    renderPosts();
+  </script>
+</body>
+</html>

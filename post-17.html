@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Uma Kanjilal - IGNOU News | UPSC Relevance</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border-radius: 10px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 26px;
+      color: #2e5b99;
+      margin-bottom: 20px;
+    }
+
+    .news {
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: block;
+      background: #2e5b99;
+      color: #fff;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 0 auto 20px;
+      text-align: center;
+    }
+
+    .btn:hover {
+      background: #20457b;
+    }
+
+    .output {
+      display: none;
+      background: #eef3fa;
+      padding: 20px;
+      border-radius: 8px;
+      border-left: 4px solid #2e5b99;
+    }
+
+    .output h2 {
+      margin-top: 0;
+      color: #2e5b99;
+    }
+
+    .keypoints {
+      margin-top: 10px;
+      padding-left: 20px;
+    }
+
+    .keypoints li {
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Uma Kanjilal becomes first woman V-C of IGNOU</h1>
+
+    <div class="news">
+      Uma Kanjilal has been appointed the first woman Vice-Chancellor of Indira Gandhi National Open University (IGNOU), four decades after it was established, according to Education Ministry officials.
+      <br/><br/>
+      “With over 36 years of distinguished service in the Open and Distance Learning system, Kanjilal brings a wealth of academic leadership, digital innovation, and institutional knowledge,” an official said.
+    </div>
+
+    <button class="btn" onclick="showUPSCRelevance()">Show UPSC Relevance</button>
+
+    <div class="output" id="upscInfo">
+      <h2>📝 UPSC CSE Relevance</h2>
+      <p><strong>Subject:</strong> General Studies Paper II (Governance, Polity, Social Justice)</p>
+      <p><strong>Topic:</strong> Issues relating to development and management of education</p>
+
+      <h3>Themes to Note:</h3>
+      <ul class="keypoints">
+        <li>Women in leadership roles in public education institutions</li>
+        <li>Development of Open and Distance Learning (ODL) in India</li>
+        <li>Role of IGNOU in expanding higher education access</li>
+        <li>Policy initiatives and gender equality in educational administration</li>
+        <li>Institutional reforms and digital transformation in education</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    function showUPSCRelevance() {
+      const infoBox = document.getElementById("upscInfo");
+      infoBox.style.display = infoBox.style.display === "none" ? "block" : "none";
+    }
+  </script>
+</body>
+</html>

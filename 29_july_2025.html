@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking Affairs News</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background-color: #007bff;
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .navbar ul li {
+            margin: 0 20px;
+        }
+
+        .navbar ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .navbar ul li a:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        /* Language Switch */
+        .language-switch-container {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+
+        .language-switch {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.9em;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            outline: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .language-switch:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .language-switch:active {
+            transform: scale(0.98);
+        }
+
+        .language-switch .icon {
+            font-size: 1.2em;
+        }
+
+        /* Heading Styles */
+        h1, h2 {
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        h2 {
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+
+        /* News Article Styling */
+        .news-section {
+            margin-bottom: 30px;
+        }
+
+        .news-item p {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-left: 5px solid #007bff;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .news-item p:hover {
+            background-color: #e6f7ff;
+            transform: translateX(5px);
+        }
+
+        /* Read Time */
+        .read-time {
+            text-align: center;
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        /* Back to Top Button */
+        #backToTopBtn {
+            display: none;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 99;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 50%;
+            transition: background-color 0.3s, opacity 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        #backToTopBtn:hover {
+            background-color: #0056b3;
+            opacity: 0.9;
+        }
+
+        /* Back to Home Button */
+        .back-to-home {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .back-to-home a {
+            display: inline-block;
+            background-color: #6c757d;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .back-to-home a:hover {
+            background-color: #5a6268;
+            transform: translateY(-2px);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .navbar ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .navbar ul li {
+                margin: 10px 0;
+            }
+
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
+
+            .news-item p {
+                padding: 12px;
+            }
+
+            #backToTopBtn {
+                bottom: 20px;
+                right: 20px;
+                padding: 12px;
+                font-size: 16px;
+            }
+
+            .language-switch {
+                margin-top: 10px;
+                display: block;
+                width: fit-content;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            h2 {
+                font-size: 1.4em;
+            }
+
+            .navbar ul li a {
+                font-size: 1em;
+                padding: 6px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="banking_current_affairs.html">Banking Affairs</a></li>
+            <li><a href="donation.html">Donation</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="language-switch-container">
+            <button class="language-switch" onclick="toggleLanguage()">
+                <span class="icon">🌐</span> <span id="langText">Switch to Hindi</span>
+            </button>
+        </div>
+
+        <h1 class="lang-en">Economy & Banking News for Bank PO Aspirants</h1>
+        <h1 class="lang-hi" style="display: none;">बैंक पीओ उम्मीदवारों के लिए अर्थव्यवस्था और बैंकिंग समाचार</h1>
+
+        <p class="read-time lang-en">Reading Time: <span id="readTime"></span> minutes</p>
+
+        <hr>
+
+        <div class="news-section">
+            <h2 class="lang-en">News from "The Hindu 29th July 2025"</h2>
+            <h2 class="lang-hi" style="display: none;">"द हिंदू 29 जुलाई 2025" से समाचार</h2>
+
+            <div class="news-item">
+                <p class="lang-en">
+                    <strong>IndusInd Bank's Q1 Net Profit Declines:</strong> IndusInd Bank reported a 68% decline in its net profit for Q1, falling to ₹684.25 crore from ₹2,152.16 crore in the previous year. This was attributed to a slowdown in lending growth, with loans decreasing by 3.1% to ₹3,33,694 crore and deposits reducing by 3% to ₹3,97,144 crore on a quarter-on-quarter basis. Consequently, net interest income also saw a 14% year-on-year reduction to ₹4,640 crore.
+                </p>
+                <p class="lang-hi" style="display: none;">
+                    <strong>इंडसइंड बैंक के पहली तिमाही के शुद्ध लाभ में गिरावट:</strong> इंडसइंड बैंक ने पहली तिमाही में अपने शुद्ध लाभ में 68% की गिरावट दर्ज की, जो पिछले वर्ष के ₹2,152.16 करोड़ से घटकर ₹684.25 करोड़ रह गया। इसका कारण ऋण वृद्धि में मंदी थी, जिसमें तिमाही-दर-तिमाही आधार पर ऋण 3.1% घटकर ₹3,33,694 करोड़ और जमा राशि 3% घटकर ₹3,97,144 करोड़ रह गई। परिणामस्वरूप, शुद्ध ब्याज आय भी साल-दर-साल 14% घटकर ₹4,640 करोड़ रह गई।
+                </p>
+            </div>
+
+            <div class="news-item">
+                <p class="lang-en">
+                    <strong>Starlink Not a Threat to Telcos, Says MoS Communications:</strong> Minister of State for Communications, Chandra Sekhar Pemmasani, stated that satellite internet services like Starlink would have minimal impact on the revenues of telecom operators and the state-owned BSNL. He noted that Starlink's networks can connect "only around 2 million subscribers" due to bandwidth limitations.
+                </p>
+                <p class="lang-hi" style="display: none;">
+                    <strong>संचार राज्य मंत्री का कहना है कि स्टारलिंक दूरसंचार कंपनियों के लिए कोई ख़तरा नहीं है:</strong> संचार राज्य मंत्री चंद्रशेखर पेम्मासानी ने कहा कि स्टारलिंक जैसी सैटेलाइट इंटरनेट सेवाओं का दूरसंचार ऑपरेटरों और सरकारी स्वामित्व वाली बीएसएनएल के राजस्व पर न्यूनतम प्रभाव पड़ेगा। उन्होंने कहा कि बैंडविड्थ की सीमाओं के कारण स्टारलिंक के नेटवर्क "केवल लगभग 20 लाख ग्राहकों" को ही जोड़ सकते हैं।
+                </p>
+            </div>
+
+            <div class="news-item">
+                <p class="lang-en">
+                    <strong>Industrial Growth Slows to 10-Month Low in June:</strong> India's industrial activity growth slowed to 1.5% in June 2025, marking a 10-month low, down from 1.9% in May. This slowdown was primarily driven by the mining sector, which recorded its worst performance in 58 months, and contractions in the electricity and primary goods sectors. Conversely, the manufacturing sector saw a 5-month high growth of 3.9% in June 2025.
+                </p>
+                <p class="lang-hi" style="display: none;">
+                    <strong>जून में औद्योगिक वृद्धि दर 10 महीने के निचले स्तर पर:</strong> भारत की औद्योगिक गतिविधि वृद्धि दर जून 2025 में घटकर 1.5% रह गई, जो मई के 1.9% से घटकर 10 महीने का निचला स्तर है। यह मंदी मुख्य रूप से खनन क्षेत्र के कारण हुई, जिसने 58 महीनों में अपना सबसे खराब प्रदर्शन दर्ज किया, और बिजली एवं प्राथमिक वस्तुओं के क्षेत्रों में संकुचन के कारण। इसके विपरीत, विनिर्माण क्षेत्र में जून 2025 में 3.9% की 5 महीने की उच्चतम वृद्धि देखी गई।
+                </p>
+            </div>
+
+            <div class="news-item">
+                <p class="lang-en">
+                    <strong>Corporate Tax Exemptions Result in Significant Revenue Foregone:</strong> Data shared by Union MoS for Finance Pankaj Chaudhary indicated that exemptions and deductions availed by corporate taxpayers led to a revenue loss of ₹94,910 crore in 2019, which further increased to ₹99,000 crore by 2023-24.
+                </p>
+                <p class="lang-hi" style="display: none;">
+                    <strong>कॉर्पोरेट कर छूट के परिणामस्वरूप राजस्व में भारी कमी:</strong> केंद्रीय वित्त राज्य मंत्री पंकज चौधरी द्वारा साझा किए गए आंकड़ों से संकेत मिलता है कि कॉर्पोरेट करदाताओं द्वारा प्राप्त छूट और कटौतियों के कारण 2019 में ₹94,910 करोड़ का राजस्व घाटा हुआ, जो 2023-24 तक बढ़कर ₹99,000 करोड़ हो गया।
+                </p>
+            </div>
+
+            <div class="news-item">
+                <p class="lang-en">
+                    <strong>LIC Launches New Jeevan Shree Plans:</strong> Life Insurance Corporation (LIC) has introduced "My Regular Premium Plan!" (Plan No: 912) and "My Single Premium Plan!" (Plan No: 911) under its Nav Jeevan Shree schemes. These plans offer features like guaranteed additions, limited premium payment terms, and settlement options on maturity or death, catering to diverse savings and security needs.
+                </p>
+                <p class="lang-hi" style="display: none;">
+                    <strong>LIC ने नई जीवन श्री योजनाएँ शुरू कीं:</strong> जीवन बीमा निगम (LIC) ने अपनी नव जीवन श्री योजनाओं के अंतर्गत "मेरा नियमित प्रीमियम प्लान!" (योजना संख्या: 912) और "मेरा एकल प्रीमियम प्लान!" (योजना संख्या: 911) पेश किए हैं। ये योजनाएँ गारंटीकृत वृद्धि, सीमित प्रीमियम भुगतान शर्तें और परिपक्वता या मृत्यु पर निपटान विकल्प जैसी सुविधाएँ प्रदान करती हैं, जो विविध बचत और सुरक्षा आवश्यकताओं को पूरा करती हैं।
+                </p>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="news-section">
+            <h2 class="lang-en">News from "Indian Express 29th July 2025"</h2>
+            <h2 class="lang-hi" style="display: none;">"इंडियन एक्सप्रेस 29 जुलाई 2025" से समाचार</h2>
+
+            <div class="news-item">
+                <p class="lang-en">
+                    <strong>India's Economic Outlook: 'Cautious Optimism' Amidst Risks:</strong> The Finance Ministry's June review describes India's economic picture as "cautious optimism" despite global challenges. Key risks include persistent international headwinds, impacting exports and foreign investment, and a slowdown in loan growth. Banks are showing caution in lending, which could dampen investment and consumption. The Ministry is committed to fiscal prudence and reforms, emphasizing capital expenditure. Food inflation remains a challenge despite moderated headline inflation. This provides context on the banking sector's operational environment.
+                </p>
+                <p class="lang-hi" style="display: none;">
+                    <strong>भारत का आर्थिक परिदृश्य: जोखिमों के बीच 'सतर्क आशावाद':</strong> वित्त मंत्रालय की जून की समीक्षा में वैश्विक चुनौतियों के बावजूद भारत की आर्थिक स्थिति को "सतर्क आशावाद" बताया गया है। प्रमुख जोखिमों में लगातार अंतरराष्ट्रीय प्रतिकूलताएँ, निर्यात और विदेशी निवेश पर असर, और ऋण वृद्धि में मंदी शामिल हैं। बैंक ऋण देने में सावधानी बरत रहे हैं, जिससे निवेश और खपत में कमी आ सकती है। मंत्रालय राजकोषीय विवेक और सुधारों के लिए प्रतिबद्ध है, और पूंजीगत व्यय पर ज़ोर दे रहा है। कम मुद्रास्फीति के बावजूद खाद्य मुद्रास्फीति एक चुनौती बनी हुई है। यह बैंकिंग क्षेत्र के परिचालन परिवेश का संदर्भ प्रदान करता है।
+                </p>
+            </div>
+
+            <div class="news-item">
+                <p class="lang-en">
+                    <strong>Unclaimed Deposits with Banks Rise to ₹67,000 Crore:</strong> The amount of unclaimed deposits with Indian banks reached ₹67,003 crore by the end of the June quarter. State Bank of India (SBI) alone accounts for 29% of these deposits. This is a significant current affair directly impacting the banking sector.
+                </p>
+                <p class="lang-hi" style="display: none;">
+                    <strong>बैंकों में अघोषित जमा राशि बढ़कर ₹67,000 करोड़ हुई:</strong> जून तिमाही के अंत तक भारतीय बैंकों में अघोषित जमा राशि ₹67,003 करोड़ तक पहुँच गई। इन जमाओं में अकेले भारतीय स्टेट बैंक (एसबीआई) की हिस्सेदारी 29% है। यह बैंकिंग क्षेत्र को सीधे प्रभावित करने वाला एक महत्वपूर्ण समसामयिक घटनाक्रम है।
+                </p>
+            </div>
+
+            <div class="news-item">
+                <p class="lang-en">
+                    <strong>IndusInd Bank Q1 Net Profit Drops 72%:</strong> IndusInd Bank reported a 72% decline in its consolidated net profit for the June quarter, amounting to ₹604 crore. The bank assured that there would be no further financial impact from past frauds. This offers insight into the financial performance of private sector banks.
+                </p>
+                <p class="lang-hi" style="display: none;">
+                    <strong>इंडसइंड बैंक का पहली तिमाही का शुद्ध लाभ 72% गिरा:</strong> इंडसइंड बैंक ने जून तिमाही में अपने समेकित शुद्ध लाभ में 72% की गिरावट दर्ज की, जो ₹604 करोड़ रहा। बैंक ने आश्वासन दिया कि पिछली धोखाधड़ी से आगे कोई वित्तीय प्रभाव नहीं पड़ेगा। इससे निजी क्षेत्र के बैंकों के वित्तीय प्रदर्शन की जानकारी मिलती है।
+                </p>
+            </div>
+
+            <div class="news-item">
+                <p class="lang-en">
+                    <strong>SBI Onboarding 13,455 Junior Associates:</strong> State Bank of India (SBI) has started the process of onboarding 13,455 newly recruited junior associates into its network of branches across the country. This is very important news directly related to recruitment in public sector banks.
+                </p>
+                <p class="lang-hi" style="display: none;">
+                    <strong>एसबीआई ने 13,455 जूनियर एसोसिएट्स को शामिल किया:</strong> भारतीय स्टेट बैंक (एसबीआई) ने देश भर में अपनी शाखाओं के नेटवर्क में 13,455 नए नियुक्त जूनियर एसोसिएट्स को शामिल करने की प्रक्रिया शुरू कर दी है। यह सार्वजनिक क्षेत्र के बैंकों में भर्ती से सीधे तौर पर जुड़ी एक बहुत ही महत्वपूर्ण खबर है।
+                </p>
+            </div>
+
+            <div class="news-item">
+                <p class="lang-en">
+                    <strong>Industrial Growth Falls to 10-Month Low of 1.5% in June:</strong> India's industrial growth dropped to a 10-month low of 1.5% in June, primarily due to decreased output in the mining and electricity sectors. Industrial growth is a key economic indicator that influences credit demand and the overall health of the banking sector.
+                </p>
+                <p class="lang-hi" style="display: none;">
+                    <strong>जून में औद्योगिक विकास दर 10 महीने के निचले स्तर 1.5% पर:</strong> भारत की औद्योगिक विकास दर जून में 10 महीने के निचले स्तर 1.5% पर आ गई, जिसका मुख्य कारण खनन और बिजली क्षेत्रों में उत्पादन में कमी है। औद्योगिक विकास एक प्रमुख आर्थिक संकेतक है जो ऋण मांग और बैंकिंग क्षेत्र के समग्र स्वास्थ्य को प्रभावित करता है।
+                </p>
+            </div>
+
+            <div class="news-item">
+                <p class="lang-en">
+                    <strong>Government Considers 'Living Wage' to Boost Women's Workforce Participation:</strong> The government is discussing the concept of a "living wage" to address low wages, a factor hindering women's formal employment. A report indicates that 54% of blue- and grey-collar women employees are dissatisfied with their pay. This initiative aims to include health and education expenses in wage calculations, potentially reducing opportunity costs for women entering the workforce. This is relevant for understanding broader economic and social policies that can impact the financial landscape.
+                </p>
+                <p class="lang-hi" style="display: none;">
+                    <strong>सरकार महिला कार्यबल में भागीदारी बढ़ाने के लिए 'जीवन निर्वाह वेतन' पर विचार कर रही है:</strong> सरकार महिलाओं के औपचारिक रोज़गार में बाधा डालने वाले कारक, कम वेतन की समस्या से निपटने के लिए "जीवन निर्वाह वेतन" की अवधारणा पर विचार कर रही है। एक रिपोर्ट बताती है कि 54% ब्लू-कॉलर और ग्रे-कॉलर महिला कर्मचारी अपने वेतन से असंतुष्ट हैं। इस पहल का उद्देश्य वेतन गणना में स्वास्थ्य और शिक्षा व्यय को शामिल करना है, जिससे कार्यबल में प्रवेश करने वाली महिलाओं के लिए अवसर लागत में संभावित रूप से कमी आ सकती है। यह व्यापक आर्थिक और सामाजिक नीतियों को समझने के लिए प्रासंगिक है जो वित्तीय परिदृश्य को प्रभावित कर सकती हैं।
+                </p>
+            </div>
+
+            <div class="news-item">
+                <p class="lang-en">
+                    <strong>Extended Time for Erroneously Rejected I-T Returns:</strong> The CBDT has extended the time limit until March 31, 2004, for processing electronically filed income tax returns that were wrongly marked as invalid due to technical reasons. Intimations for these will be sent by March 31, 2006. This pertains to tax administration, important for general awareness in the financial domain.
+                </p>
+                <p class="lang-hi" style="display: none;">
+                    <strong>गलती से अस्वीकृत आयकर रिटर्न के लिए समय सीमा बढ़ाई गई:</strong> सीबीडीटी ने इलेक्ट्रॉनिक रूप से दाखिल किए गए उन आयकर रिटर्न के प्रसंस्करण की समय सीमा 31 मार्च, 2004 तक बढ़ा दी है, जिन्हें तकनीकी कारणों से गलत तरीके से अमान्य घोषित कर दिया गया था। इनके लिए सूचनाएँ 31 मार्च, 2006 तक भेजी जाएँगी। यह कर प्रशासन से संबंधित है, जो वित्तीय क्षेत्र में सामान्य जागरूकता के लिए महत्वपूर्ण है।
+                </p>
+            </div>
+        </div>
+
+        <div class="back-to-home">
+            <a href="index.html">Back to Home</a>
+        </div>
+    </div>
+
+    <button onclick="topFunction()" id="backToTopBtn" title="Go to top">⬆️</button>
+
+    <script>
+        // Language Toggle
+        let isEnglish = true;
+
+        function toggleLanguage() {
+            isEnglish = !isEnglish;
+            const englishElements = document.querySelectorAll('.lang-en');
+            const hindiElements = document.querySelectorAll('.lang-hi');
+            const langText = document.getElementById('langText');
+
+            if (isEnglish) {
+                englishElements.forEach(el => el.style.display = 'block');
+                hindiElements.forEach(el => el.style.display = 'none');
+                langText.textContent = 'Switch to Hindi';
+            } else {
+                englishElements.forEach(el => el.style.display = 'none');
+                hindiElements.forEach(el => el.style.display = 'block');
+                langText.textContent = 'अंग्रेजी में स्विच करें';
+            }
+        }
+
+        // Read Time Calculation (for English content only)
+        function calculateReadTime() {
+            const englishContent = document.querySelectorAll('.news-item p.lang-en');
+            let totalWords = 0;
+            englishContent.forEach(p => {
+                totalWords += p.textContent.split(/\s+/).length;
+            });
+            const wordsPerMinute = 200; // Average reading speed
+            const readTime = Math.ceil(totalWords / wordsPerMinute);
+            document.getElementById('readTime').textContent = readTime;
+        }
+
+        // Back to Top Button Functionality
+        let backToTopBtn = document.getElementById("backToTopBtn");
+
+        window.onscroll = function() { scrollFunction() };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                backToTopBtn.style.display = "block";
+            } else {
+                backToTopBtn.style.display = "none";
+            }
+        }
+
+        function topFunction() {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
+
+        // Initial calls when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            calculateReadTime();
+            // Ensure English is default on load
+            document.querySelectorAll('.lang-hi').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'block');
+        });
+    </script>
+</body>
+</html>

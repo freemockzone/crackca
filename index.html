@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crack CA - Your Daily Dose for Government Job Success</title>
+    <meta name="description" content="Stay updated with the latest current affairs for UPSC CSE and other government job exams. Daily news, analysis, and resources for aspirants.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-50 font-inter text-gray-800 antialiased">
+
+    <button id="scrollToTopBtn" class="fixed bottom-6 right-6 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 transition-all duration-300 z-50 opacity-0 transform translate-y-4">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <nav class="bg-white shadow-sm py-4">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+            <div class="flex flex-col items-center md:items-start"> <a href="#" class="text-2xl font-bold text-blue-700 hover:text-blue-800 transition-colors duration-300">Crack CA</a>
+                <p class="text-xs text-gray-500 mt-1">Crack Current Affairs. Crack the Competition.</p> </div>
+            <div class="mt-3 md:mt-0 flex space-x-4">
+                <a href="#" class="text-gray-600 hover:text-blue-600 transition-colors duration-300">Home</a>
+                <a href="Donation.html" class="text-gray-600 hover:text-blue-600 transition-colors duration-300">Donation</a>
+                <a href="banking_current_affairs.html" class="text-gray-600 hover:text-blue-600 transition-colors duration-300">Banking Affairs</a>
+                <a href="https://freemock.netlify.app/" class="text-gray-600 hover:text-blue-600 transition-colors duration-300">Mock Tests</a>
+                <a href="#" class="text-gray-600 hover:text-blue-600 transition-colors duration-300">About</a>
+                <a href="#" class="text-gray-600 hover:text-blue-600 transition-colors duration-300">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container main-content-area mx-auto px-4 py-8">
+        <div class="donation-bar bg-white p-4 rounded-lg shadow-md mb-8 flex flex-col md:flex-row items-center justify-between">
+            <div class="text-lg font-semibold text-gray-800 mb-2 md:mb-0">
+                Support Our Mission!
+            </div>
+            <div class="w-full md:w-2/3 bg-gray-200 rounded-full h-4 relative overflow-hidden">
+                <div class="bg-gradient-to-r from-blue-400 to-blue-600 h-full rounded-full" style="width: 1%;"></div>
+                <div class="absolute inset-0 flex items-center justify-center text-xs font-bold text-gray-700">
+                    ₹50 / ₹5000 (Target)
+                </div>
+            </div>
+            <a href="#" class="mt-4 md:mt-0 md:ml-6 px-5 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-green-400">
+                Donate Now
+            </a>
+        </div>
+        <h1 class="text-4xl font-extrabold text-center text-gray-900 mb-2 leading-tight">Your Daily Dose for Government Job Success</h1>
+        <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-8 p-4 bg-white rounded-lg shadow-md">
+            <button id="prevDayBtn" class="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-gray-400">
+                <i class="fas fa-chevron-left mr-2"></i>Previous Day
+            </button>
+            <div class="flex flex-col items-center">
+                <label for="datePicker" class="text-gray-600 text-sm mb-1">Select Date:</label>
+                <input type="date" id="datePicker" class="p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 text-center text-lg font-semibold">
+                <button id="todayBtn" class="mt-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    Today
+                </button>
+            </div>
+            <button id="nextDayBtn" class="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-gray-400">
+                Next Day<i class="fas fa-chevron-right ml-2"></i>
+            </button>
+        </div>
+
+        <div class="filter-search-container bg-white p-6 rounded-lg shadow-md mb-8">
+            <div class="mb-6">
+                <label for="searchBar" class="block text-lg font-medium text-gray-700 mb-2">Search Current Affairs:</label>
+                <div class="relative">
+                    <input type="text" id="searchBar" placeholder="Search by title, subject, or source..." class="w-full p-4 pl-12 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 shadow-sm">
+                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                        <i class="fas fa-search text-gray-400"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label for="subjectFilter" class="block text-lg font-medium text-gray-700 mb-2">Filter by Subject:</label>
+                    <select id="subjectFilter" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 shadow-sm">
+                        <option value="">All Subjects</option>
+                        </select>
+                </div>
+                <div>
+                    <label for="sourceFilter" class="block text-lg font-medium text-gray-700 mb-2">Filter by Source:</label>
+                    <select id="sourceFilter" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 shadow-sm">
+                        <option value="">All Sources</option>
+                        </select>
+                </div>
+            </div>
+        </div>
+
+        <section class="current-affairs-display grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="currentAffairsPosts">
+            </section>
+
+        <div class="flex justify-center items-center space-x-4 mt-12" id="paginationControls">
+            <button id="prevPageBtn" class="px-5 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 disabled:opacity-50 disabled:cursor-not-allowed">
+                <i class="fas fa-arrow-left mr-2"></i>Previous
+            </button>
+            <span id="pageInfo" class="text-lg font-medium text-gray-700">Page 1 of 1</span>
+            <button id="nextPageBtn" class="px-5 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 disabled:opacity-50 disabled:cursor-not-allowed">
+                Next<i class="fas fa-arrow-right ml-2"></i>
+            </button>
+        </div>
+
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2025 Crack the Current Affairs. All rights reserved.</p>
+            <p class="mt-2 text-sm">Designed for Government Job Aspirants with dedication.</p>
+            <div class="flex justify-center space-x-4 mt-4">
+                <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
