@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-en="No one asked India to stop Operation Sindoor: Modi" data-hi="किसी ने भारत से ऑपरेशन सिंदूर रोकने को नहीं कहा: मोदी">No one asked India to stop Operation Sindoor: Modi</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #007bff;
+            --text-color: #333;
+            --bg-color: #f4f7f6;
+            --light-grey: #e9ecef;
+            --dark-grey: #6c757d;
+            --white: #fff;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background-color: var(--primary-color);
+            padding: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1.5rem;
+        }
+
+        .nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-right: 25px;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--light-grey);
+        }
+
+        /* Language Switch */
+        .language-switch {
+            position: relative;
+            width: 60px;
+            height: 30px;
+            background-color: var(--light-grey);
+            border-radius: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            padding: 0 5px;
+            overflow: hidden; /* Hide overflow of text */
+        }
+
+        .language-switch:hover {
+            background-color: var(--dark-grey);
+        }
+
+        .language-switch.active {
+            background-color: var(--secondary-color);
+        }
+
+        .language-switch-slider {
+            width: 20px;
+            height: 20px;
+            background-color: var(--white);
+            border-radius: 50%;
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .language-switch.active .language-switch-slider {
+            transform: translateX(30px);
+        }
+
+        .language-text {
+            position: absolute;
+            color: var(--text-color);
+            font-size: 0.9rem;
+            font-weight: bold;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .language-text.en {
+            left: 10px;
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .language-switch.active .language-text.en {
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+
+        .language-text.hi {
+            right: 10px;
+            opacity: 0;
+            transform: translateX(20px);
+        }
+
+        .language-switch.active .language-text.hi {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+
+        /* Main Content */
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2, h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--light-grey);
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Removed strong style as per request */
+        /* strong {
+            color: var(--primary-color);
+        } */
+
+        .read-time {
+            text-align: right;
+            font-style: italic;
+            color: var(--dark-grey);
+            margin-top: -15px;
+            margin-bottom: 20px;
+        }
+
+        .back-to-home {
+            display: block;
+            width: fit-content;
+            margin: 40px auto 20px auto;
+            padding: 12px 25px;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 700;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            text-align: center;
+        }
+
+        .back-to-home:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0));
+            margin: 30px 0;
+        }
+
+        /* Floating Button */
+        .float-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            z-index: 999;
+        }
+
+        .float-button:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .navbar-container {
+                flex-direction: column;
+                padding: 0 1rem;
+            }
+
+            .nav-links {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-links li {
+                margin: 0 10px 10px 10px;
+            }
+
+            .language-switch {
+                margin-top: 15px;
+            }
+
+            .container {
+                margin: 20px 15px;
+                padding: 25px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            h3 {
+                font-size: 1.2rem;
+            }
+
+            .float-button {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-links a {
+                font-size: 1rem;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+            }
+
+            h3 {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <ul class="nav-links">
+                <li><a href="index.html" data-en="Home" data-hi="होम">Home</a></li>
+                <li><a href="donation.html" data-en="Donation" data-hi="दान">Donation</a></li>
+                <li><a href="contact.html" data-en="Contact" data-hi="संपर्क">Contact</a></li>
+            </ul>
+            <div class="language-switch" id="languageSwitch">
+                <div class="language-switch-slider"></div>
+                <span class="language-text en">EN</span>
+                <span class="language-text hi">HI</span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 data-en="No one asked India to stop Operation Sindoor: Modi" data-hi="किसी ने भारत से ऑपरेशन सिंदूर रोकने को नहीं कहा: मोदी">No one asked India to stop Operation Sindoor: Modi</h1>
+        <p class="read-time" data-en="Reading time: <span id='readTime'></span> min" data-hi="पढ़ने का समय: <span id='readTime'></span> मिनट">Reading time: <span id="readTime"></span> min</p>
+        <p data-en="Source: The Hindu | Dated: 30 July 2025" data-hi="स्रोत: द हिंदू | दिनांक: 30 जुलाई 2025">Source: The Hindu | Dated: 30 July 2025</p>
+
+        <hr>
+
+        <h2 data-en="Context" data-hi="संदर्भ">Context</h2>
+        <p data-en="PM Modi addressed the Lok Sabha during a debate on Operation Sindoor, India’s military retaliation post the Pahalgam terror attack (26 casualties). Modi countered claims that international pressure led to a ceasefire with Pakistan." data-hi="प्रधानमंत्री मोदी ने लोकसभा में ऑपरेशन सिंदूर पर बहस के दौरान संबोधन किया, जो पहलगाम आतंकी हमले (26 हताहत) के बाद भारत की सैन्य जवाबी कार्रवाई थी। मोदी ने उन दावों का खंडन किया कि अंतर्राष्ट्रीय दबाव के कारण पाकिस्तान के साथ संघर्ष विराम हुआ।">PM Modi addressed the Lok Sabha during a debate on Operation Sindoor, India’s military retaliation post the Pahalgam terror attack (26 casualties). Modi countered claims that international pressure led to a ceasefire with Pakistan.</p>
+
+        <hr>
+
+        <h2 data-en="Key Highlights of PM Modi’s Statement" data-hi="प्रधानमंत्री मोदी के बयान के मुख्य अंश">Key Highlights of PM Modi’s Statement</h2>
+
+        <h3 data-en="Operation Sindoor" data-hi="ऑपरेशन सिंदूर">Operation Sindoor</h3>
+        <ul data-lang="en">
+            <li>Launched in response to terror attack in Pahalgam, Jammu & Kashmir.</li>
+            <li>Aimed at crippling Pakistani air defence and bases.</li>
+            <li>India’s air defence intercepted over 1,000 drones and missiles on May 9.</li>
+            <li>Global praise for India's air defence systems.</li>
+        </ul>
+        <ul data-lang="hi" style="display: none;">
+            <li>जम्मू-कश्मीर के पहलगाम में आतंकी हमले के जवाब में शुरू किया गया।</li>
+            <li>पाकिस्तानी वायु रक्षा और ठिकानों को पंगु बनाने का लक्ष्य।</li>
+            <li>भारत की वायु रक्षा ने 9 मई को 1,000 से अधिक ड्रोन और मिसाइलों को रोका।</li>
+            <li>भारत की वायु रक्षा प्रणालियों के लिए वैश्विक प्रशंसा।</li>
+        </ul>
+
+        <h3 data-en="On Ceasefire and International Role" data-hi="संघर्ष विराम और अंतर्राष्ट्रीय भूमिका पर">On Ceasefire and International Role</h3>
+        <ul data-lang="en">
+            <li>Refuted U.S. claims of mediating a ceasefire.</li>
+            <li>“No world leader asked us to stop the operation,” PM asserted.</li>
+            <li>Cited call from U.S. Vice President J.D. Vance warning of a Pakistani attack.</li>
+            <ul style="list-style-type: circle;">
+                <li>Modi’s reply: “If Pakistan attacks, we will respond with a bigger attack.”</li>
+            </ul>
+            <li>Claimed ceasefire resulted from India’s overwhelming military response, not mediation.</li>
+        </ul>
+        <ul data-lang="hi" style="display: none;">
+            <li>संघर्ष विराम में मध्यस्थता के अमेरिकी दावों का खंडन किया।</li>
+            <li>“किसी भी विश्व नेता ने हमें ऑपरेशन रोकने के लिए नहीं कहा,” प्रधानमंत्री ने जोर दिया।</li>
+            <li>अमेरिकी उपराष्ट्रपति जे.डी. वेंस के फोन का उल्लेख किया जिसमें पाकिस्तानी हमले की चेतावनी दी गई थी।</li>
+            <ul style="list-style-type: circle;">
+                <li>मोदी का जवाब: “अगर पाकिस्तान हमला करता है, तो हम एक बड़े हमले के साथ जवाब देंगे।”</li>
+            </ul>
+            <li>दावा किया कि संघर्ष विराम भारत की जबरदस्त सैन्य प्रतिक्रिया का परिणाम था, न कि मध्यस्थता का।</li>
+        </ul>
+
+        <hr>
+
+        <h2 data-en="India’s Strategic Messaging" data-hi="भारत का रणनीतिक संदेश">India’s Strategic Messaging</h2>
+        <ul data-lang="en">
+            <li>Operation Sindoor has “halted, not ended” — a warning to Pakistan.</li>
+            <li>Pakistan put “on notice” for any future terror attacks.</li>
+            <li>India’s tough stance on terror reinforced.</li>
+            <li>Demonstrated synergy among armed forces, aided by appointment of Chief of Defence Staff (CDS).</li>
+        </ul>
+        <ul data-lang="hi" style="display: none;">
+            <li>ऑपरेशन सिंदूर “रुका है, खत्म नहीं हुआ है” — पाकिस्तान को एक चेतावनी।</li>
+            <li>पाकिस्तान को किसी भी भविष्य के आतंकी हमलों के लिए “नोटिस पर” रखा गया।</li>
+            <li>भारत की आतंक पर कड़ी स्थिति मजबूत हुई।</li>
+            <li>सशस्त्र बलों के बीच तालमेल का प्रदर्शन किया, जिसमें चीफ ऑफ डिफेंस स्टाफ (सीडीएस) की नियुक्ति से मदद मिली।</li>
+        </ul>
+
+        <hr>
+
+        <h2 data-en="Political Criticism" data-hi="राजनीतिक आलोचना">Political Criticism</h2>
+        <ul data-lang="en">
+            <li>Strong attack on Congress for questioning Operation Sindoor and earlier actions (Uri, Balakot).</li>
+            <li>Alleged Congress “echoes talking points of Pakistan.”</li>
+            <li>Criticised historic Congress-era policies, especially:</li>
+            <ul style="list-style-type: circle;">
+                <li>Indus Waters Treaty: Accused Nehru of giving 80% of water to Pakistan and restricting India’s rights to desilt.</li>
+            </ul>
+        </ul>
+        <ul data-lang="hi" style="display: none;">
+            <li>ऑपरेशन सिंदूर और पिछली कार्रवाइयों (उरी, बालाकोट) पर सवाल उठाने के लिए कांग्रेस पर कड़ा हमला।</li>
+            <li>कांग्रेस पर “पाकिस्तान की बात को दोहराने” का आरोप लगाया।</li>
+            <li>ऐतिहासिक कांग्रेस-युग की नीतियों की आलोचना की, विशेष रूप से:</li>
+            <ul style="list-style-type: circle;">
+                <li>सिंधु जल संधि: नेहरू पर पाकिस्तान को 80% पानी देने और भारत के तलछट हटाने के अधिकारों को प्रतिबंधित करने का आरोप लगाया।</li>
+            </ul>
+        </ul>
+
+        <hr>
+
+        <h2 data-en="Geopolitical Implications" data-hi="भू-राजनीतिक निहितार्थ">Geopolitical Implications</h2>
+        <ul data-lang="en">
+            <li>Strengthens India’s image as self-reliant in defence.</li>
+            <li>Expands defence export market to 100+ countries.</li>
+            <li>Challenges narratives of foreign influence on India’s military decisions.</li>
+        </ul>
+        <ul data-lang="hi" style="display: none;">
+            <li>भारत की रक्षा में आत्मनिर्भर छवि को मजबूत करता है।</li>
+            <li>रक्षा निर्यात बाजार को 100+ देशों तक विस्तारित करता है।</li>
+            <li>भारत के सैन्य निर्णयों पर विदेशी प्रभाव के आख्यानों को चुनौती देता है।</li>
+        </ul>
+
+        <hr>
+
+        <h2 data-en="UPSC Relevance" data-hi="यूपीएससी प्रासंगिकता">UPSC Relevance</h2>
+
+        <h3 data-en="GS Paper II – International Relations" data-hi="जीएस पेपर II – अंतर्राष्ट्रीय संबंध">GS Paper II – International Relations</h3>
+        <ul data-lang="en">
+            <li>Indo-Pak relations</li>
+            <li>Role of third-party mediation in bilateral issues</li>
+            <li>India’s diplomatic stance and strategic autonomy</li>
+        </ul>
+        <ul data-lang="hi" style="display: none;">
+            <li>भारत-पाक संबंध</li>
+            <li>द्विपक्षीय मुद्दों में तीसरे पक्ष की मध्यस्थता की भूमिका</li>
+            <li>भारत का राजनयिक रुख और रणनीतिक स्वायत्तता</li>
+        </ul>
+
+        <h3 data-en="GS Paper III – Internal Security" data-hi="जीएस पेपर III – आंतरिक सुरक्षा">GS Paper III – Internal Security</h3>
+        <ul data-lang="en">
+            <li>Counter-terror operations</li>
+            <li>Evolution of India’s defence posture</li>
+            <li>Role of technology and air defence</li>
+        </ul>
+        <ul data-lang="hi" style="display: none;">
+            <li>आतंकवाद विरोधी अभियान</li>
+            <li>भारत की रक्षा मुद्रा का विकास</li>
+            <li>प्रौद्योगिकी और वायु रक्षा की भूमिका</li>
+        </ul>
+
+        <hr>
+
+        <h2 data-en="Answer Writing Tip" data-hi="उत्तर लेखन युक्ति">Answer Writing Tip</h2>
+        <p data-en="Use Operation Sindoor as a contemporary example to:" data-hi="ऑपरेशन सिंदूर को एक समकालीन उदाहरण के रूप में उपयोग करें:">Use Operation Sindoor as a contemporary example to:</p>
+        <ul data-lang="en">
+            <li>Illustrate India’s doctrine of retaliation to cross-border terror.</li>
+            <li>Show assertive foreign policy and non-dependence on third-party mediation.</li>
+            <li>Reflect on evolution of military coordination (CDS system) and indigenous defence capabilities.</li>
+        </ul>
+        <ul data-lang="hi" style="display: none;">
+            <li>सीमा पार आतंकवाद के प्रति भारत के प्रतिशोध के सिद्धांत को दर्शाने के लिए।</li>
+            <li>दृढ़ विदेश नीति और तीसरे पक्ष की मध्यस्थता पर गैर-निर्भरता दिखाने के लिए।</li>
+            <li>सैन्य समन्वय (सीडीएस प्रणाली) और स्वदेशी रक्षा क्षमताओं के विकास पर विचार करने के लिए।</li>
+        </ul>
+
+        <a href="index.html" class="back-to-home" data-en="Back to Home" data-hi="वापस होम पर">Back to Home</a>
+    </div>
+
+    <button class="float-button" id="scrollToTopBtn">&#8679;</button>
+
+    <script>
+        const languageSwitch = document.getElementById('languageSwitch');
+        let currentLang = 'en'; // Default language
+        let calculatedReadTime = 0; // Variable to store the calculated read time
+
+        // Function to calculate read time (English content only)
+        function calculateReadTime() {
+            let fullTextContent = '';
+            // Get text from all elements that store English content
+            document.querySelectorAll('[data-en]').forEach(element => {
+                const dataEnAttribute = element.getAttribute('data-en');
+                if (dataEnAttribute) {
+                    // Create a temporary div to extract plain text from HTML content
+                    const tempDiv = document.createElement('div');
+                    tempDiv.innerHTML = dataEnAttribute; // Use innerHTML to parse any potential HTML entities
+                    fullTextContent += tempDiv.textContent + ' ';
+                }
+            });
+            
+            const wordsPerMinute = 200; // Average reading speed
+            // Use a more robust regex for splitting words, and filter out empty strings
+            const wordCount = fullTextContent.split(/\s+/).filter(word => word.length > 0).length;
+            calculatedReadTime = Math.ceil(wordCount / wordsPerMinute); // Store the calculated time
+            document.getElementById('readTime').textContent = calculatedReadTime; // Update the span directly
+        }
+
+        // Run on page load for initial English content
+        calculateReadTime();
+
+        // Function to set language of the page
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.querySelectorAll('[data-en], [data-hi]').forEach(element => {
+                const targetText = element.getAttribute(`data-${lang}`);
+
+                // All elements now just set textContent as there are no strong tags in attributes
+                element.textContent = targetText || '';
+            });
+
+            // Update title separately
+            document.title = document.querySelector('title').getAttribute(`data-${lang}`);
+
+            // Handle list visibility using data-lang attribute
+            document.querySelectorAll('ul[data-lang]').forEach(ul => {
+                ul.style.display = (ul.getAttribute('data-lang') === lang) ? 'block' : 'none';
+            });
+
+            // Update read time text and the span content using the stored calculatedReadTime
+            const readTimeElement = document.querySelector('.read-time');
+            const readTimeSpan = document.getElementById('readTime');
+
+            if (lang === 'en') {
+                readTimeElement.innerHTML = `Reading time: <span id='readTime'>${calculatedReadTime}</span> min`;
+            } else {
+                readTimeElement.innerHTML = `पढ़ने का समय: <span id='readTime'>${calculatedReadTime}</span> मिनट`;
+            }
+            // After updating innerHTML, the original readTimeSpan reference is lost.
+            // We need to re-select it if we were to modify it directly after this.
+            // However, by embedding calculatedReadTime directly, we avoid this issue.
+        }
+
+
+        languageSwitch.addEventListener('click', () => {
+            languageSwitch.classList.toggle('active');
+            if (currentLang === 'en') {
+                setLanguage('hi');
+            } else {
+                setLanguage('en');
+            }
+        });
+
+        // Scroll to top button
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 200) {
+                scrollToTopBtn.style.display = 'flex';
+            } else {
+                scrollToTopBtn.style.display = 'none';
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>

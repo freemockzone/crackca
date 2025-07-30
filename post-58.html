@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supreme Court & Judicial Accountability</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --primary-color: #8B0000; /* Dark Red - Authoritative */
+            --secondary-color: #FFD700; /* Gold - Justice */
+            --accent-color: #008080; /* Teal - Balance */
+            --text-color: #333;
+            --light-bg: #f8f9fa;
+            --dark-bg: #e0e0e0;
+            --border-color: #ddd;
+            --link-color: #007bff;
+            --hover-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            --button-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background-color: var(--primary-color);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .nav-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            font-weight: bold;
+        }
+
+        .navbar a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: var(--hover-shadow);
+        }
+
+        .navbar .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8em;
+            color: white;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+        .navbar .logo:hover {
+            transform: scale(1.05);
+        }
+
+        /* Language Switch */
+        .language-switch-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .language-switch-button {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+            box-shadow: var(--button-shadow);
+        }
+
+        .language-switch-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: 0.5s;
+        }
+
+        .language-switch-button:hover::before {
+            left: 100%;
+        }
+
+        .language-switch-button:hover {
+            background-color: #006b6b;
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(0, 128, 128, 0.7);
+        }
+
+        .language-switch-button .icon {
+            font-size: 1.2em;
+        }
+
+        /* Content Styling */
+        h1, h2, h3, h4 {
+            color: var(--primary-color);
+            font-family: 'Poppins', sans-serif;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 5px;
+            margin-top: 25px;
+        }
+
+        h1 { font-size: 2.2em; border-color: var(--primary-color); }
+        h2 { font-size: 1.8em; }
+        h3 { font-size: 1.4em; }
+        h4 { font-size: 1.2em; border-bottom: 1px dashed var(--border-color); }
+
+        p {
+            margin-bottom: 1em;
+            text-align: justify;
+        }
+
+        .highlight {
+            background-color: #fff3cd; /* Light yellow for highlights */
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: bold;
+            color: #856404; /* Darker text for highlight */
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: 8px;
+            padding-left: 5px;
+        }
+        ul ul {
+            list-style-type: circle;
+            margin-top: 5px;
+        }
+
+        blockquote {
+            background-color: #e0f2f7; /* Light blue for blockquote */
+            border-left: 5px solid #2196F3;
+            margin: 20px 0;
+            padding: 15px 20px;
+            border-radius: 5px;
+            font-style: italic;
+            color: #0056b3;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+            overflow: hidden; /* Ensures rounded corners apply to content */
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        tr:nth-child(even) {
+            background-color: var(--light-bg);
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+            transition: background-color 0.2s ease;
+        }
+
+        .note {
+            background-color: #e6f7ff;
+            border-left: 5px solid #2196F3;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+            font-weight: bold;
+            color: #0056b3;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            box-shadow: var(--button-shadow);
+        }
+
+        .button:hover {
+            background-color: #e0be00;
+            transform: translateY(-2px);
+            box-shadow: var(--hover-shadow);
+        }
+
+        /* Back to Top Button */
+        #backToTopBtn {
+            display: none;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.8em;
+            line-height: 50px;
+            text-align: center;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            z-index: 999;
+        }
+
+        #backToTopBtn:hover {
+            background-color: #006b6b;
+            transform: scale(1.1);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Pie Chart */
+        .chart-container {
+            width: 70%;
+            max-width: 500px; /* Limit chart size */
+            margin: 40px auto;
+            background-color: #fefefe;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+
+        .chart-container h3 {
+            border-bottom: none;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Read Time */
+        .read-time {
+            font-style: italic;
+            color: #777;
+            margin-bottom: 20px;
+            text-align: right;
+            font-size: 0.9em;
+            padding-right: 10px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
+            .navbar .nav-content {
+                flex-direction: column;
+                gap: 10px;
+                padding: 0 10px;
+            }
+            .navbar a {
+                padding: 8px 12px;
+            }
+            .chart-container {
+                width: 95%;
+                padding: 15px;
+            }
+            #backToTopBtn {
+                width: 45px;
+                height: 45px;
+                font-size: 1.6em;
+                line-height: 45px;
+                bottom: 20px;
+                right: 20px;
+            }
+            h1 { font-size: 1.8em; }
+            h2 { font-size: 1.5em; }
+            h3 { font-size: 1.2em; }
+            p, li, td { font-size: 0.95em; }
+        }
+
+        @media (max-width: 480px) {
+            .navbar a {
+                padding: 6px 10px;
+                font-size: 0.9em;
+            }
+            .language-switch-button {
+                padding: 8px 12px;
+                font-size: 0.8em;
+            }
+            .navbar .logo {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">⚖️ Judicial News</div>
+            <div>
+                <a href="index.html" data-lang-en="Home" data-lang-hi="मुख्य पृष्ठ">Home</a>
+                <a href="donation.html" data-lang-en="Donation" data-lang-hi="दान">Donation</a>
+                <a href="contact.html" data-lang-en="Contact" data-lang-hi="संपर्क करें">Contact</a>
+            </div>
+            <div class="language-switch-container">
+                <button class="language-switch-button" id="languageSwitch">
+                    <span class="icon">🌐</span>
+                    <span data-lang-en="Switch to Hindi" data-lang-hi="अंग्रेजी में स्विच करें">Switch to Hindi</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="read-time" id="readTime"></div>
+
+        <h1 data-lang-en="🏛️ Supreme Court & Judicial Accountability – Cash Row Case" data-lang-hi="🏛️ सुप्रीम कोर्ट और न्यायिक जवाबदेही – नकद पंक्ति का मामला">🏛️ Supreme Court & Judicial Accountability – Cash Row Case</h1>
+
+        <h3 data-lang-en="📰 Context" data-lang-hi="📰 संदर्भ">📰 Context</h3>
+        <p data-lang-en="Justice Yashwant Varma (Allahabad High Court, formerly Delhi HC) <span class='highlight'>challenged the legality of an in-house inquiry</span> initiated after <span class='highlight'>burnt currency notes were recovered</span> from his official residence in Delhi (March 14, 2025). The <span class='highlight'>inquiry committee</span>, constituted by then CJI Sanjiv Khanna on March 22, 2025, found <span class='highlight'>credence in allegations</span>. A <span class='highlight'>video clip showing burnt cash</span> was circulated, creating <span class='highlight'>public uproar</span> and media trial." data-lang-hi="न्यायमूर्ति यशवंत वर्मा (इलाहाबाद उच्च न्यायालय, पूर्व में दिल्ली उच्च न्यायालय) ने दिल्ली में उनके आधिकारिक आवास से <span class='highlight'>जले हुए नोट बरामद होने</span> के बाद (14 मार्च, 2025) शुरू की गई <span class='highlight'>एक आंतरिक जांच की वैधता को चुनौती दी</span>। तत्कालीन CJI संजीव खन्ना द्वारा 22 मार्च, 2025 को गठित <span class='highlight'>जांच समिति</span> ने <span class='highlight'>आरोपों में विश्वसनीयता पाई</span>। <span class='highlight'>जले हुए नकद</span> दिखाते हुए एक <span class='highlight'>वीडियो क्लिप</span> प्रसारित किया गया, जिससे <span class='highlight'>सार्वजनिक आक्रोश</span> और मीडिया ट्रायल हुआ।"></p>
+
+        <h3 data-lang-en="⚖️ Key Legal and Constitutional Issues" data-lang-hi="⚖️ मुख्य कानूनी और संवैधानिक मुद्दे">⚖️ Key Legal and Constitutional Issues</h3>
+
+        <h4 data-lang-en="🔹 1. In-House Procedure vs Constitutional Mandate" data-lang-hi="🔹 1. आंतरिक प्रक्रिया बनाम संवैधानिक जनादेश">🔹 1. In-House Procedure vs Constitutional Mandate</h4>
+        <p data-lang-en="Justice Varma argues that the <span class='highlight'>in-house inquiry mechanism</span> (established by a 1999 SC Full Court Resolution) is:" data-lang-hi="न्यायमूर्ति वर्मा का तर्क है कि <span class='highlight'>आंतरिक जांच तंत्र</span> (1999 के SC पूर्ण न्यायालय संकल्प द्वारा स्थापित) है:"></p>
+        <ul>
+            <li data-lang-en="<span class='highlight'>Extra-constitutional</span> and creates a <span class='highlight'>parallel removal mechanism</span>." data-lang-hi="<span class='highlight'>अतिरिक्त-संवैधानिक</span> और एक <span class='highlight'>समानांतर निष्कासन तंत्र</span> बनाता है।"></li>
+            <li data-lang-en="Violates <span class='highlight'>Articles 124 & 218</span>, which govern the <span class='highlight'>removal of SC/HC judges</span> via <span class='highlight'>Parliamentary process</span>." data-lang-hi="<span class='highlight'>अनुच्छेद 124 और 218</span> का उल्लंघन करता है, जो <span class='highlight'>संसदीय प्रक्रिया</span> के माध्यम से <span class='highlight'>SC/HC न्यायाधीशों के निष्कासन</span> को नियंत्रित करते हैं।"></li>
+        </ul>
+        <blockquote data-lang-en="“Only Parliament has the authority to remove judges through a motion under Judges (Inquiry) Act, 1968.”" data-lang-hi="“न्यायाधीश (जांच) अधिनियम, 1968 के तहत केवल संसद को ही एक प्रस्ताव के माध्यम से न्यायाधीशों को हटाने का अधिकार है।”"></blockquote>
+
+        <h4 data-lang-en="🔹 2. Role of Chief Justice of India (CJI)" data-lang-hi="🔹 2. भारत के मुख्य न्यायाधीश (CJI) की भूमिका">🔹 2. Role of Chief Justice of India (CJI)</h4>
+        <p data-lang-en="Sibal questioned CJI’s action of <span class='highlight'>recommending removal to the President & PM</span>. SC responded:" data-lang-hi="सिब्बल ने CJI द्वारा <span class='highlight'>राष्ट्रपति और प्रधान मंत्री को निष्कासन की सिफारिश</span> करने की कार्रवाई पर सवाल उठाया। SC ने जवाब दिया:"></p>
+        <ul>
+            <li data-lang-en="<span class='highlight'>CJI can forward inquiry reports</span> to the President as the <span class='highlight'>appointing authority</span>." data-lang-hi="<span class='highlight'>CJI</span> राष्ट्रपति को <span class='highlight'>जांच रिपोर्ट</span> अग्रेषित कर सकते हैं क्योंकि वह <span class='highlight'>नियुक्ति प्राधिकारी</span> हैं।"></li>
+            <li data-lang-en="The President acts on the <span class='highlight'>aid and advice of the Council of Ministers</span>, so there’s <span class='highlight'>no procedural breach</span>." data-lang-hi="राष्ट्रपति <span class='highlight'>मंत्रिपरिषद की सहायता और सलाह</span> पर कार्य करता है, इसलिए <span class='highlight'>कोई प्रक्रियात्मक उल्लंघन नहीं</span> है।"></li>
+        </ul>
+
+        <h4 data-lang-en="🔹 3. Media Leak & Public Trial" data-lang-hi="🔹 3. मीडिया लीक और सार्वजनिक परीक्षण">🔹 3. Media Leak & Public Trial</h4>
+        <p data-lang-en="Justice Varma’s counsel argued that:" data-lang-hi="न्यायमूर्ति वर्मा के वकील ने तर्क दिया कि:"></p>
+        <ul>
+            <li data-lang-en="<span class='highlight'>Public circulation of inquiry videos and tapes</span> has led to <span class='highlight'>trial by media</span>." data-lang-hi="<span class='highlight'>जांच वीडियो और टेप के सार्वजनिक प्रचलन</span> से <span class='highlight'>मीडिया द्वारा परीक्षण</span> हुआ है।"></li>
+            <li data-lang-en="Violates the principle that <span class='highlight'>judge's conduct cannot be publicly discussed</span> unless through constitutional procedure." data-lang-hi="इस सिद्धांत का उल्लंघन करता है कि <span class='highlight'>न्यायाधीश के आचरण पर सार्वजनिक रूप से चर्चा नहीं की जा सकती</span> जब तक कि संवैधानिक प्रक्रिया के माध्यम से न हो।"></li>
+        </ul>
+
+        <h3 data-lang-en="🧑‍⚖️ SC Bench's Observations" data-lang-hi="🧑‍⚖️ SC पीठ की टिप्पणियाँ">🧑‍⚖️ SC Bench's Observations</h3>
+        <ul>
+            <li data-lang-en="<span class='highlight'>Justice Dipankar Datta</span> questioned the delay in challenging the inquiry: <br> * “Why did you wait until the report was out? Why not challenge the committee’s constitution earlier?”" data-lang-hi="<span class='highlight'>न्यायमूर्ति दीपांकर दत्ता</span> ने जांच को चुनौती देने में देरी पर सवाल उठाया: <br> * “आपने रिपोर्ट आने तक इंतजार क्यों किया? समिति के गठन को पहले चुनौती क्यों नहीं दी?”"></li>
+            <li data-lang-en="Noted that <span class='highlight'>impeachment itself is a political process</span>, but limited to <span class='highlight'>Parliament</span>." data-lang-hi="उल्लेख किया कि <span class='highlight'>महाभियोग स्वयं एक राजनीतिक प्रक्रिया है</span>, लेकिन <span class='highlight'>संसद</span> तक सीमित है।"></li>
+            <li data-lang-en="The petition <span class='highlight'>should have been filed differently</span>, naming proper respondents like the Supreme Court." data-lang-hi="याचिका <span class='highlight'>अलग तरह से दायर की जानी चाहिए थी</span>, जिसमें सुप्रीम कोर्ट जैसे उचित प्रतिवादियों का नाम लिया जाता।"></li>
+        </ul>
+
+        <h3 data-lang-en="📜 Constitutional and Legal Framework" data-lang-hi="📜 संवैधानिक और कानूनी ढांचा">📜 Constitutional and Legal Framework</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th data-lang-en="Provision / Act" data-lang-hi="प्रावधान / अधिनियम">Provision / Act</th>
+                    <th data-lang-en="Key Content" data-lang-hi="मुख्य सामग्री">Key Content</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-lang-en="Article 124" data-lang-hi="अनुच्छेद 124">Article 124</td>
+                    <td data-lang-en="Procedure for appointment and <span class='highlight'>removal of Supreme Court judges</span>." data-lang-hi="सर्वोच्च न्यायालय के न्यायाधीशों की नियुक्ति और <span class='highlight'>निष्कासन की प्रक्रिया</span>।"></td>
+                </tr>
+                <tr>
+                    <td data-lang-en="Article 218" data-lang-hi="अनुच्छेद 218">Article 218</td>
+                    <td data-lang-en="Applies Article 124 to <span class='highlight'>High Court judges</span>." data-lang-hi="उच्च न्यायालय के न्यायाधीशों पर अनुच्छेद 124 लागू होता है।"></td>
+                </tr>
+                <tr>
+                    <td data-lang-en="Judges (Inquiry) Act, 1968" data-lang-hi="न्यायाधीश (जांच) अधिनियम, 1968">Judges (Inquiry) Act, 1968</td>
+                    <td data-lang-en="Provides the procedure for <span class='highlight'>investigation and removal</span> via Parliament." data-lang-hi="संसद के माध्यम से <span class='highlight'>जांच और निष्कासन</span> की प्रक्रिया प्रदान करता है।"></td>
+                </tr>
+                <tr>
+                    <td data-lang-en="In-House Procedure (1999)" data-lang-hi="आंतरिक प्रक्रिया (1999)">In-House Procedure (1999)</td>
+                    <td data-lang-en="Internal mechanism by SC for <span class='highlight'>self-regulation and ethical oversight</span>. Not a statutory process." data-lang-hi="SC द्वारा <span class='highlight'>आत्म-नियमन और नैतिक निरीक्षण</span> के लिए आंतरिक तंत्र। एक वैधानिक प्रक्रिया नहीं।"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 data-lang-en="🧠 UPSC CSE – Exam-Oriented Takeaways" data-lang-hi="🧠 यूपीएससी सीएसई – परीक्षा-उन्मुख मुख्य बातें">🧠 UPSC CSE – Exam-Oriented Takeaways</h3>
+
+        <h4 data-lang-en="✅ Prelims Pointers" data-lang-hi="✅ प्रारंभिक परीक्षा बिंदु">✅ Prelims Pointers</h4>
+        <ul>
+            <li data-lang-en="<span class='highlight'>In-House Procedure</span>: Not defined in Constitution; a <span class='highlight'>self-regulatory</span> mechanism." data-lang-hi="<span class='highlight'>आंतरिक प्रक्रिया</span>: संविधान में परिभाषित नहीं; एक <span class='highlight'>स्व-नियामक</span> तंत्र।"></li>
+            <li data-lang-en="<span class='highlight'>Removal of Judges</span>: Only via <span class='highlight'>Parliamentary Address</span>, <span class='highlight'>special majority</span>, under Articles <span class='highlight'>124 & 218</span>." data-lang-hi="<span class='highlight'>न्यायाधीशों का निष्कासन</span>: केवल <span class='highlight'>संसदीय संबोधन</span>, <span class='highlight'>विशेष बहुमत</span> के माध्यम से, अनुच्छेद <span class='highlight'>124 और 218</span> के तहत।"></li>
+            <li data-lang-en="<span class='highlight'>Judges (Inquiry) Act, 1968</span>: Governs inquiry into charges against SC/HC judges." data-lang-hi="<span class='highlight'>न्यायाधीश (जांच) अधिनियम, 1968</span>: SC/HC न्यायाधीशों के खिलाफ आरोपों की जांच को नियंत्रित करता है।"></li>
+        </ul>
+
+        <h4 data-lang-en="✍️ Mains Answer Writing – GS Paper 2" data-lang-hi="✍️ मुख्य उत्तर लेखन – जीएस पेपर 2">✍️ Mains Answer Writing – GS Paper 2</h4>
+        <p class="note" data-lang-en="Q: “Discuss the constitutional procedure for removal of High Court judges in India. Do internal mechanisms like the In-House Procedure compromise or complement judicial accountability?”" data-lang-hi="प्रश्न: “भारत में उच्च न्यायालय के न्यायाधीशों को हटाने की संवैधानिक प्रक्रिया पर चर्चा करें। क्या आंतरिक तंत्र जैसे कि इन-हाउस प्रक्रिया न्यायिक जवाबदेही से समझौता करती है या उसकी पूरक है?”"></p>
+
+        <h4 data-lang-en="Structure:" data-lang-hi="संरचना:">Structure:</h4>
+        <ul>
+            <li data-lang-en="<span class='highlight'>Intro</span>: Reference Article 124 & 218; growing focus on judicial accountability." data-lang-hi="<span class='highlight'>परिचय</span>: अनुच्छेद 124 और 218 का संदर्भ; न्यायिक जवाबदेही पर बढ़ता ध्यान।"></li>
+            <li data-lang-en="<span class='highlight'>Body</span>:" data-lang-hi="<span class='highlight'>मुख्य भाग</span>:"></li>
+            <ul>
+                <li data-lang-en="Explain <span class='highlight'>Parliamentary process for removal</span>." data-lang-hi="<span class='highlight'>निष्कासन के लिए संसदीय प्रक्रिया</span> की व्याख्या करें।"></li>
+                <li data-lang-en="Role of <span class='highlight'>In-House Procedure</span> as a non-statutory, fact-finding tool." data-lang-hi="गैर-वैधानिक, तथ्य-खोज उपकरण के रूप में <span class='highlight'>आंतरिक प्रक्रिया</span> की भूमिका।"></li>
+                <li data-lang-en="Tensions between <span class='highlight'>confidentiality vs transparency</span>, <span class='highlight'>public trust vs judicial independence</span>." data-lang-hi="<span class='highlight'>गोपनीयता बनाम पारदर्शिता</span>, <span class='highlight'>सार्वजनिक विश्वास बनाम न्यायिक स्वतंत्रता</span> के बीच तनाव।"></li>
+                <li data-lang-en="Role of <span class='highlight'>CJI, President, and PM</span> in forwarding inquiry reports." data-lang-hi="जांच रिपोर्ट अग्रेषित करने में <span class='highlight'>CJI, राष्ट्रपति और प्रधान मंत्री</span> की भूमिका।"></li>
+            </ul>
+            <li data-lang-en="<span class='highlight'>Conclusion</span>: Need for <span class='highlight'>codified standards</span> and <span class='highlight'>balanced reforms</span> ensuring accountability without compromising judicial independence." data-lang-hi="<span class='highlight'>निष्कर्ष</span>: जवाबदेही सुनिश्चित करने के लिए <span class='highlight'>संहिताबद्ध मानकों</span> और <span class='highlight'>संतुलित सुधारों</span> की आवश्यकता है, जिससे न्यायिक स्वतंत्रता से समझौता न हो।"></li>
+        </ul>
+
+        <h3 data-lang-en="⚖️ Broader Issues for Essay / Ethics" data-lang-hi="⚖️ निबंध / नैतिकता के लिए व्यापक मुद्दे">⚖️ Broader Issues for Essay / Ethics</h3>
+        <ul>
+            <li data-lang-en="<span class='highlight'>Judicial ethics and independence</span>." data-lang-hi="<span class='highlight'>न्यायिक नैतिकता और स्वतंत्रता</span>।"></li>
+            <li data-lang-en="<span class='highlight'>Media trials vs fair process</span>." data-lang-hi="<span class='highlight'>मीडिया ट्रायल बनाम उचित प्रक्रिया</span>।"></li>
+            <li data-lang-en="<span class='highlight'>Transparency in higher judiciary</span>." data-lang-hi="<span class='highlight'>उच्च न्यायपालिका में पारदर्शिता</span>।"></li>
+            <li data-lang-en="<span class='highlight'>Public trust in constitutional offices</span>." data-lang-hi="<span class='highlight'>संवैधानिक कार्यालयों में सार्वजनिक विश्वास</span>।"></li>
+        </ul>
+
+        <h3 data-lang-en="📌 Timeline Recap" data-lang-hi="📌 समयरेखा का सारांश">📌 Timeline Recap</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th data-lang-en="Date" data-lang-hi="दिनांक">Date</th>
+                    <th data-lang-en="Event" data-lang-hi="घटना">Event</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-lang-en="March 14, 2025" data-lang-hi="14 मार्च, 2025">March 14, 2025</td>
+                    <td data-lang-en="Fire at Justice Varma's residence; <span class='highlight'>burnt currency found</span>." data-lang-hi="न्यायमूर्ति वर्मा के आवास पर आग; <span class='highlight'>जले हुए नोट मिले</span>।"></td>
+                </tr>
+                <tr>
+                    <td data-lang-en="March 22, 2025" data-lang-hi="22 मार्च, 2025">March 22, 2025</td>
+                    <td data-lang-en="CJI Sanjiv Khanna sets up inquiry committee." data-lang-hi="CJI संजीव खन्ना ने जांच समिति का गठन किया।"></td>
+                </tr>
+                <tr>
+                    <td data-lang-en="July 18, 2025" data-lang-hi="18 जुलाई, 2025">July 18, 2025</td>
+                    <td data-lang-en="Justice Varma files petition in SC." data-lang-hi="न्यायमूर्ति वर्मा ने SC में याचिका दायर की।"></td>
+                </tr>
+                <tr>
+                    <td data-lang-en="July 29, 2025" data-lang-hi="29 जुलाई, 2025">July 29, 2025</td>
+                    <td data-lang-en="SC questions timing & legality of petition; matter posted for hearing on <span class='highlight'>July 31</span> (Wednesday)." data-lang-hi="SC ने याचिका के समय और वैधता पर सवाल उठाया; मामले की सुनवाई <span class='highlight'>31 जुलाई</span> (बुधवार) को होगी।"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <a href="index.html" class="button" data-lang-en="Back to Home" data-lang-hi="वापस मुख्य पृष्ठ पर">Back to Home</a>
+
+        <div class="chart-container">
+            <h3 data-lang-en="Judicial Accountability Mechanisms (Illustrative)" data-lang-hi="न्यायिक जवाबदेही तंत्र (उदाहरणात्मक)">Judicial Accountability Mechanisms (Illustrative)</h3>
+            <canvas id="judicialChart"></canvas>
+            <p style="font-size: 0.8em; color: #666; margin-top: 15px;" data-lang-en="*This chart provides an illustrative representation of different judicial accountability mechanisms and their conceptual weight in discussions, not based on real statistical data." data-lang-hi="*यह चार्ट विभिन्न न्यायिक जवाबदेही तंत्रों और चर्चाओं में उनके वैचारिक भार का एक उदाहरणात्मक प्रतिनिधित्व प्रदान करता है, जो वास्तविक सांख्यिकीय डेटा पर आधारित नहीं है।"></p>
+        </div>
+    </div>
+
+    <button id="backToTopBtn" title="Go to top">⬆️</button>
+
+    <script>
+        // Read Time Calculation (English content only)
+        function calculateReadTime() {
+            const contentDiv = document.querySelector('.container');
+            if (!contentDiv) return;
+
+            // Clone the content div to manipulate without affecting original display
+            const clonedContent = contentDiv.cloneNode(true);
+
+            // Remove Hindi specific data attributes for accurate English word count
+            clonedContent.querySelectorAll('[data-lang-hi]').forEach(el => {
+                el.removeAttribute('data-lang-hi');
+            });
+
+            // Temporarily set language to English for calculation
+            const originalLang = document.documentElement.lang;
+            document.documentElement.lang = 'en';
+            clonedContent.querySelectorAll('[data-lang-en]').forEach(el => {
+                if(el.getAttribute('data-lang-en')) {
+                    el.innerHTML = el.getAttribute('data-lang-en');
+                }
+            });
+            
+            const contentText = clonedContent.innerText;
+            const wordsPerMinute = 200; // Average reading speed
+            const words = contentText.split(/\s+/).filter(word => word.length > 0).length; // Filter empty strings
+            const minutes = Math.ceil(words / wordsPerMinute);
+            document.getElementById('readTime').innerText = `Approx. Read Time: ${minutes} min`;
+
+            // Revert language
+            document.documentElement.lang = originalLang;
+        }
+        calculateReadTime();
+
+        // Language Switch
+        const languageSwitchBtn = document.getElementById('languageSwitch');
+        let currentLang = 'en';
+
+        // Translations object
+        const translations = {
+            en: {
+                home: 'Home',
+                donation: 'Donation',
+                contact: 'Contact',
+                switchLang: 'Switch to Hindi',
+                title: '🏛️ Supreme Court & Judicial Accountability – Cash Row Case',
+                context: 'Justice Yashwant Varma (Allahabad High Court, formerly Delhi HC) <span class=\'highlight\'>challenged the legality of an in-house inquiry</span> initiated after <span class=\'highlight\'>burnt currency notes were recovered</span> from his official residence in Delhi (March 14, 2025). The <span class=\'highlight\'>inquiry committee</span>, constituted by then CJI Sanjiv Khanna on March 22, 2025, found <span class=\'highlight\'>credence in allegations</span>. A <span class=\'highlight\'>video clip showing burnt cash</span> was circulated, creating <span class=\'highlight\'>public uproar</span> and media trial.',
+                keyIssues: '⚖️ Key Legal and Constitutional Issues',
+                inHouseVsMandate: '🔹 1. In-House Procedure vs Constitutional Mandate',
+                varmaArgument: 'Justice Varma argues that the <span class=\'highlight\'>in-house inquiry mechanism</span> (established by a 1999 SC Full Court Resolution) is:',
+                extraConstitutional: '<span class=\'highlight\'>Extra-constitutional</span> and creates a <span class=\'highlight\'>parallel removal mechanism</span>.',
+                violatesArticles: 'Violates <span class=\'highlight\'>Articles 124 & 218</span>, which govern the <span class=\'highlight\'>removal of SC/HC judges</span> via <span class=\'highlight\'>Parliamentary process</span>.',
+                quote: '“Only Parliament has the authority to remove judges through a motion under Judges (Inquiry) Act, 1968.”',
+                roleCJI: '🔹 2. Role of Chief Justice of India (CJI)',
+                sibalQuestion: 'Sibal questioned CJI’s action of <span class=\'highlight\'>recommending removal to the President & PM</span>. SC responded:',
+                cjiForward: '<span class=\'highlight\'>CJI can forward inquiry reports</span> to the President as the <span class=\'highlight\'>appointing authority</span>.',
+                presidentAdvice: 'The President acts on the <span class=\'highlight\'>aid and advice of the Council of Ministers</span>, so there’s <span class=\'highlight\'>no procedural breach</span>.',
+                mediaLeak: '🔹 3. Media Leak & Public Trial',
+                varmaCounsel: 'Justice Varma’s counsel argued that:',
+                publicCirculation: '<span class=\'highlight\'>Public circulation of inquiry videos and tapes</span> has led to <span class=\'highlight\'>trial by media</span>.',
+                violatesPrinciple: 'Violates the principle that <span class=\'highlight\'>judge\'s conduct cannot be publicly discussed</span> unless through constitutional procedure.',
+                scObservations: '🧑‍⚖️ SC Bench\'s Observations',
+                dattaQuestion: '<span class=\'highlight\'>Justice Dipankar Datta</span> questioned the delay in challenging the inquiry: <br> * “Why did you wait until the report was out? Why not challenge the committee’s constitution earlier?”',
+                impeachmentPolitical: 'Noted that <span class=\'highlight\'>impeachment itself is a political process</span>, but limited to <span class=\'highlight\'>Parliament</span>.',
+                petitionFiledDifferently: 'The petition <span class=\'highlight\'>should have been filed differently</span>, naming proper respondents like the Supreme Court.',
+                framework: '📜 Constitutional and Legal Framework',
+                provisionAct: 'Provision / Act',
+                keyContent: 'Key Content',
+                article124: 'Article 124',
+                article124Content: 'Procedure for appointment and <span class=\'highlight\'>removal of Supreme Court judges</span>.',
+                article218: 'Article 218',
+                article218Content: 'Applies Article 124 to <span class=\'highlight\'>High Court judges</span>.',
+                judgesInquiryAct: 'Judges (Inquiry) Act, 1968',
+                judgesInquiryActContent: 'Provides the procedure for <span class=\'highlight\'>investigation and removal</span> via Parliament.',
+                inHouseProcedure1999: 'In-House Procedure (1999)',
+                inHouseProcedure1999Content: 'Internal mechanism by SC for <span class=\'highlight\'>self-regulation and ethical oversight</span>. Not a statutory process.',
+                upscTakeaways: '🧠 UPSC CSE – Exam-Oriented Takeaways',
+                prelimsPointers: '✅ Prelims Pointers',
+                inHousePrelims: '<span class=\'highlight\'>In-House Procedure</span>: Not defined in Constitution; a <span class=\'highlight\'>self-regulatory</span> mechanism.',
+                removalPrelims: '<span class=\'highlight\'>Removal of Judges</span>: Only via <span class=\'highlight\'>Parliamentary Address</span>, <span class=\'highlight\'>special majority</span>, under Articles <span class=\'highlight\'>124 & 218</span>.',
+                judgesActPrelims: '<span class=\'highlight\'>Judges (Inquiry) Act, 1968</span>: Governs inquiry into charges against SC/HC judges.',
+                mainsWriting: '✍️ Mains Answer Writing – GS Paper 2',
+                questionMains: 'Q: “Discuss the constitutional procedure for removal of High Court judges in India. Do internal mechanisms like the In-House Procedure compromise or complement judicial accountability?”',
+                structure: 'Structure:',
+                introMains: '<span class=\'highlight\'>Intro</span>: Reference Article 124 & 218; growing focus on judicial accountability.',
+                bodyMains: '<span class=\'highlight\'>Body</span>:',
+                bodyContent1: 'Explain <span class=\'highlight\'>Parliamentary process for removal</span>.',
+                bodyContent2: 'Role of <span class=\'highlight\'>In-House Procedure</span> as a non-statutory, fact-finding tool.',
+                bodyContent3: 'Tensions between <span class=\'highlight\'>confidentiality vs transparency</span>, <span class=\'highlight\'>public trust vs judicial independence</span>.',
+                bodyContent4: 'Role of <span class=\'highlight\'>CJI, President, and PM</span> in forwarding inquiry reports.',
+                conclusionMains: '<span class=\'highlight\'>Conclusion</span>: Need for <span class=\'highlight\'>codified standards</span> and <span class=\'highlight\'>balanced reforms</span> ensuring accountability without compromising judicial independence.',
+                broaderIssues: '⚖️ Broader Issues for Essay / Ethics',
+                judicialEthics: '<span class=\'highlight\'>Judicial ethics and independence</span>.',
+                mediaTrials: '<span class=\'highlight\'>Media trials vs fair process</span>.',
+                transparencyJudiciary: '<span class=\'highlight\'>Transparency in higher judiciary</span>.',
+                publicTrust: '<span class=\'highlight\'>Public trust in constitutional offices</span>.',
+                timelineRecap: '📌 Timeline Recap',
+                date: 'Date',
+                event: 'Event',
+                march14: 'March 14, 2025',
+                march14Event: 'Fire at Justice Varma\'s residence; <span class=\'highlight\'>burnt currency found</span>.',
+                march22: 'March 22, 2025',
+                march22Event: 'CJI Sanjiv Khanna sets up inquiry committee.',
+                july18: 'July 18, 2025',
+                july18Event: 'Justice Varma files petition in SC.',
+                july29: 'July 29, 2025',
+                july29Event: 'SC questions timing & legality of petition; matter posted for hearing on <span class=\'highlight\'>July 31</span> (Wednesday).',
+                backToHome: 'Back to Home',
+                chartTitle: 'Judicial Accountability Mechanisms (Illustrative)',
+                chartDisclaimer: '*This chart provides an illustrative representation of different judicial accountability mechanisms and their conceptual weight in discussions, not based on real statistical data.'
+            },
+            hi: {
+                home: 'मुख्य पृष्ठ',
+                donation: 'दान',
+                contact: 'संपर्क करें',
+                switchLang: 'अंग्रेजी में स्विच करें',
+                title: '🏛️ सुप्रीम कोर्ट और न्यायिक जवाबदेही – नकद पंक्ति का मामला',
+                context: 'न्यायमूर्ति यशवंत वर्मा (इलाहाबाद उच्च न्यायालय, पूर्व में दिल्ली उच्च न्यायालय) ने दिल्ली में उनके आधिकारिक आवास से <span class=\'highlight\'>जले हुए नोट बरामद होने</span> के बाद (14 मार्च, 2025) शुरू की गई <span class=\'highlight\'>एक आंतरिक जांच की वैधता को चुनौती दी</span>। तत्कालीन CJI संजीव खन्ना द्वारा 22 मार्च, 2025 को गठित <span class=\'highlight\'>जांच समिति</span> ने <span class=\'highlight\'>आरोपों में विश्वसनीयता पाई</span>। <span class=\'highlight\'>जले हुए नकद</span> दिखाते हुए एक <span class=\'highlight\'>वीडियो क्लिप</span> प्रसारित किया गया, जिससे <span class=\'highlight\'>सार्वजनिक आक्रोश</span> और मीडिया ट्रायल हुआ।',
+                keyIssues: '⚖️ मुख्य कानूनी और संवैधानिक मुद्दे',
+                inHouseVsMandate: '🔹 1. आंतरिक प्रक्रिया बनाम संवैधानिक जनादेश',
+                varmaArgument: 'न्यायमूर्ति वर्मा का तर्क है कि <span class=\'highlight\'>आंतरिक जांच तंत्र</span> (1999 के SC पूर्ण न्यायालय संकल्प द्वारा स्थापित) है:',
+                extraConstitutional: '<span class=\'highlight\'>अतिरिक्त-संवैधानिक</span> और एक <span class=\'highlight\'>समानांतर निष्कासन तंत्र</span> बनाता है।',
+                violatesArticles: '<span class=\'highlight\'>अनुच्छेद 124 और 218</span> का उल्लंघन करता है, जो <span class=\'highlight\'>संसदीय प्रक्रिया</span> के माध्यम से <span class=\'highlight\'>SC/HC न्यायाधीशों के निष्कासन</span> को नियंत्रित करते हैं।',
+                quote: '“न्यायाधीश (जांच) अधिनियम, 1968 के तहत केवल संसद को ही एक प्रस्ताव के माध्यम से न्यायाधीशों को हटाने का अधिकार है।”',
+                roleCJI: '🔹 2. भारत के मुख्य न्यायाधीश (CJI) की भूमिका',
+                sibalQuestion: 'सिब्बल ने CJI द्वारा <span class=\'highlight\'>राष्ट्रपति और प्रधान मंत्री को निष्कासन की सिफारिश</span> करने की कार्रवाई पर सवाल उठाया। SC ने जवाब दिया:',
+                cjiForward: '<span class=\'highlight\'>CJI</span> राष्ट्रपति को <span class=\'highlight\'>जांच रिपोर्ट</span> अग्रेषित कर सकते हैं क्योंकि वह <span class=\'highlight\'>नियुक्ति प्राधिकारी</span> हैं।',
+                presidentAdvice: 'राष्ट्रपति <span class=\'highlight\'>मंत्रिपरिषद की सहायता और सलाह</span> पर कार्य करता है, इसलिए <span class=\'highlight\'>कोई प्रक्रियात्मक उल्लंघन नहीं</span> है।',
+                mediaLeak: '🔹 3. मीडिया लीक और सार्वजनिक परीक्षण',
+                varmaCounsel: 'न्यायमूर्ति वर्मा के वकील ने तर्क दिया कि:',
+                publicCirculation: '<span class=\'highlight\'>जांच वीडियो और टेप के सार्वजनिक प्रचलन</span> से <span class=\'highlight\'>मीडिया द्वारा परीक्षण</span> हुआ है।',
+                violatesPrinciple: 'इस सिद्धांत का उल्लंघन करता है कि <span class=\'highlight\'>न्यायाधीश के आचरण पर सार्वजनिक रूप से चर्चा नहीं की जा सकती</span> जब तक कि संवैधानिक प्रक्रिया के माध्यम से न हो।',
+                scObservations: '🧑‍⚖️ SC पीठ की टिप्पणियाँ',
+                dattaQuestion: '<span class=\'highlight\'>न्यायमूर्ति दीपांकर दत्ता</span> ने जांच को चुनौती देने में देरी पर सवाल उठाया: <br> * “आपने रिपोर्ट आने तक इंतजार क्यों किया? समिति के गठन को पहले चुनौती क्यों नहीं दी?”',
+                impeachmentPolitical: 'उल्लेख किया कि <span class=\'highlight\'>महाभियोग स्वयं एक राजनीतिक प्रक्रिया है</span>, लेकिन <span class=\'highlight\'>संसद</span> तक सीमित है।',
+                petitionFiledDifferently: 'याचिका <span class=\'highlight\'>अलग तरह से दायर की जानी चाहिए थी</span>, जिसमें सुप्रीम कोर्ट जैसे उचित प्रतिवादियों का नाम लिया जाता।',
+                framework: '📜 संवैधानिक और कानूनी ढांचा',
+                provisionAct: 'प्रावधान / अधिनियम',
+                keyContent: 'मुख्य सामग्री',
+                article124: 'अनुच्छेद 124',
+                article124Content: 'सर्वोच्च न्यायालय के न्यायाधीशों की नियुक्ति और <span class=\'highlight\'>निष्कासन की प्रक्रिया</span>।',
+                article218: 'अनुच्छेद 218',
+                article218Content: 'उच्च न्यायालय के न्यायाधीशों पर अनुच्छेद 124 लागू होता है।',
+                judgesInquiryAct: 'न्यायाधीश (जांच) अधिनियम, 1968',
+                judgesInquiryActContent: 'संसद के माध्यम से <span class=\'highlight\'>जांच और निष्कासन</span> की प्रक्रिया प्रदान करता है।',
+                inHouseProcedure1999: 'आंतरिक प्रक्रिया (1999)',
+                inHouseProcedure1999Content: 'SC द्वारा <span class=\'highlight\'>आत्म-नियमन और नैतिक निरीक्षण</span> के लिए आंतरिक तंत्र। एक वैधानिक प्रक्रिया नहीं।',
+                upscTakeaways: '🧠 यूपीएससी सीएसई – परीक्षा-उन्मुख मुख्य बातें',
+                prelimsPointers: '✅ प्रारंभिक परीक्षा बिंदु',
+                inHousePrelims: '<span class=\'highlight\'>आंतरिक प्रक्रिया</span>: संविधान में परिभाषित नहीं; एक <span class=\'highlight\'>स्व-नियामक</span> तंत्र।',
+                removalPrelims: '<span class=\'highlight\'>न्यायाधीशों का निष्कासन</span>: केवल <span class=\'highlight\'>संसदीय संबोधन</span>, <span class=\'highlight\'>विशेष बहुमत</span> के माध्यम से, अनुच्छेद <span class=\'highlight\'>124 और 218</span> के तहत।',
+                judgesActPrelims: '<span class=\'highlight\'>न्यायाधीश (जांच) अधिनियम, 1968</span>: SC/HC न्यायाधीशों के खिलाफ आरोपों की जांच को नियंत्रित करता है।',
+                mainsWriting: '✍️ मुख्य उत्तर लेखन – जीएस पेपर 2',
+                questionMains: 'प्रश्न: “भारत में उच्च न्यायालय के न्यायाधीशों को हटाने की संवैधानिक प्रक्रिया पर चर्चा करें। क्या आंतरिक तंत्र जैसे कि इन-हाउस प्रक्रिया न्यायिक जवाबदेही से समझौता करती है या उसकी पूरक है?”',
+                structure: 'संरचना:',
+                introMains: '<span class=\'highlight\'>परिचय</span>: अनुच्छेद 124 और 218 का संदर्भ; न्यायिक जवाबदेही पर बढ़ता ध्यान।',
+                bodyMains: '<span class=\'highlight\'>मुख्य भाग</span>:',
+                bodyContent1: '<span class=\'highlight\'>निष्कासन के लिए संसदीय प्रक्रिया</span> की व्याख्या करें।',
+                bodyContent2: 'गैर-वैधानिक, तथ्य-खोज उपकरण के रूप में <span class=\'highlight\'>आंतरिक प्रक्रिया</span> की भूमिका।',
+                bodyContent3: '<span class=\'highlight\'>गोपनीयता बनाम पारदर्शिता</span>, <span class=\'highlight\'>सार्वजनिक विश्वास बनाम न्यायिक स्वतंत्रता</span> के बीच तनाव।',
+                bodyContent4: 'जांच रिपोर्ट अग्रेषित करने में <span class=\'highlight\'>CJI, राष्ट्रपति और प्रधान मंत्री</span> की भूमिका।',
+                conclusionMains: '<span class=\'highlight\'>निष्कर्ष</span>: जवाबदेही सुनिश्चित करने के लिए <span class=\'highlight\'>संहिताबद्ध मानकों</span> और <span class=\'highlight\'>संतुलित सुधारों</span> की आवश्यकता है, जिससे न्यायिक स्वतंत्रता से समझौता न हो।',
+                broaderIssues: '⚖️ निबंध / नैतिकता के लिए व्यापक मुद्दे',
+                judicialEthics: '<span class=\'highlight\'>न्यायिक नैतिकता और स्वतंत्रता</span>।',
+                mediaTrials: '<span class=\'highlight\'>मीडिया ट्रायल बनाम उचित प्रक्रिया</span>।',
+                transparencyJudiciary: '<span class=\'highlight\'>उच्च न्यायपालिका में पारदर्शिता</span>।',
+                publicTrust: '<span class=\'highlight\'>संवैधानिक कार्यालयों में सार्वजनिक विश्वास</span>।',
+                timelineRecap: '📌 समयरेखा का सारांश',
+                date: 'दिनांक',
+                event: 'घटना',
+                march14: '14 मार्च, 2025',
+                march14Event: 'न्यायमूर्ति वर्मा के आवास पर आग; <span class=\'highlight\'>जले हुए नोट मिले</span>।',
+                march22: '22 मार्च, 2025',
+                march22Event: 'CJI संजीव खन्ना ने जांच समिति का गठन किया।',
+                july18: '18 जुलाई, 2025',
+                july18Event: 'न्यायमूर्ति वर्मा ने SC में याचिका दायर की।',
+                july29: '29 जुलाई, 2025',
+                july29Event: 'SC ने याचिका के समय और वैधता पर सवाल उठाया; मामले की सुनवाई <span class=\'highlight\'>31 जुलाई</span> (बुधवार) को होगी।',
+                backToHome: 'वापस मुख्य पृष्ठ पर',
+                chartTitle: 'न्यायिक जवाबदेही तंत्र (उदाहरणात्मक)',
+                chartDisclaimer: '*यह चार्ट विभिन्न न्यायिक जवाबदेही तंत्रों और चर्चाओं में उनके वैचारिक भार का एक उदाहरणात्मक प्रतिनिधित्व प्रदान करता है, जो वास्तविक सांख्यिकीय डेटा पर आधारित नहीं है।'
+            }
+        };
+
+        function updateContent() {
+            // Update document language attribute
+            document.documentElement.lang = currentLang;
+
+            document.querySelectorAll('[data-lang-en]').forEach(element => {
+                const enText = translations.en[element.getAttribute('data-lang-key')] || element.getAttribute('data-lang-en');
+                const hiText = translations.hi[element.getAttribute('data-lang-key')] || element.getAttribute('data-lang-hi');
+
+                // Check if element has a data-lang-key, otherwise use data-lang-en/hi directly
+                if (element.hasAttribute('data-lang-key')) {
+                    element.innerHTML = currentLang === 'en' ? enText : hiText;
+                } else {
+                    element.innerHTML = currentLang === 'en' ? enText : hiText;
+                }
+            });
+
+            // Update elements that need innerText, not innerHTML (like button text)
+            const switchButtonText = languageSwitchBtn.querySelector('span:last-child');
+            switchButtonText.innerText = currentLang === 'en' ? translations.en.switchLang : translations.hi.switchLang;
+
+            // Update navigation links text
+            document.querySelector('.navbar a[href="index.html"]').innerText = currentLang === 'en' ? translations.en.home : translations.hi.home;
+            document.querySelector('.navbar a[href="donate.html"]').innerText = currentLang === 'en' ? translations.en.donation : translations.hi.donation;
+            document.querySelector('.navbar a[href="contact.html"]').innerText = currentLang === 'en' ? translations.en.contact : translations.hi.contact;
+
+            document.querySelector('.button').innerText = currentLang === 'en' ? translations.en.backToHome : translations.hi.backToHome;
+            document.querySelector('.chart-container h3').innerText = currentLang === 'en' ? translations.en.chartTitle : translations.hi.chartTitle;
+            document.querySelector('.chart-container p').innerText = currentLang === 'en' ? translations.en.chartDisclaimer : translations.hi.chartDisclaimer;
+
+
+            // Update table headers for Constitutional and Legal Framework
+            const frameworkTableHeaders = document.querySelectorAll('table:nth-of-type(1) th');
+            if (frameworkTableHeaders.length >= 2) {
+                frameworkTableHeaders[0].innerText = currentLang === 'en' ? translations.en.provisionAct : translations.hi.provisionAct;
+                frameworkTableHeaders[1].innerText = currentLang === 'en' ? translations.en.keyContent : translations.hi.keyContent;
+            }
+
+            // Update table headers for Timeline Recap
+            const timelineTableHeaders = document.querySelectorAll('table:nth-of-type(2) th');
+            if (timelineTableHeaders.length >= 2) {
+                timelineTableHeaders[0].innerText = currentLang === 'en' ? translations.en.date : translations.hi.date;
+                timelineTableHeaders[1].innerText = currentLang === 'en' ? translations.en.event : translations.hi.event;
+            }
+        }
+
+        // Add a data-lang-key attribute to all elements that need translation
+        document.querySelectorAll('h1, h3, h4, p, li, blockquote, th, td, a.button, .note, .language-switch-button span:last-child').forEach(element => {
+            // Generate a unique key for each element, or use an existing one if applicable
+            let key = element.getAttribute('data-lang-key');
+            if (!key) {
+                // For demonstration, using textContent as a simple key (might not be unique for all, but works for this structure)
+                // In a real app, use a proper ID or pre-defined keys
+                if(element.tagName === 'LI' && element.closest('ul:nth-of-type(1)')) {
+                    key = 'broaderIssues' + Array.from(element.parentNode.children).indexOf(element);
+                } else if (element.classList.contains('highlight')) {
+                     // Find the parent element that holds the full text and has a key
+                    let parentWithKey = element.closest('[data-lang-key]');
+                    if(parentWithKey) {
+                        key = parentWithKey.getAttribute('data-lang-key');
+                    } else {
+                        key = element.textContent.trim().replace(/[^a-zA-Z0-9]/g, ''); // Fallback
+                    }
+                } else {
+                    key = element.textContent.trim().replace(/[^a-zA-Z0-9]/g, ''); // Basic key generation
+                }
+                element.setAttribute('data-lang-key', key);
+            }
+
+            // Store original English and Hindi content
+            if (!translations.en[key]) {
+                translations.en[key] = element.innerHTML;
+            }
+            if (!translations.hi[key]) {
+                translations.hi[key] = element.getAttribute('data-lang-hi') || element.innerHTML; // Use data-lang-hi if available, else copy English
+            }
+        });
+
+
+        languageSwitchBtn.addEventListener('click', () => {
+            currentLang = currentLang === 'en' ? 'hi' : 'en';
+            updateContent();
+            updateChartLabels(); // Update chart labels on language switch
+        });
+
+        // Initial content load
+        updateContent();
+
+
+        // Back to Top Button
+        const backToTopBtn = document.getElementById('backToTopBtn');
+
+        window.onscroll = function() {
+            scrollFunction();
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                backToTopBtn.style.display = "block";
+            } else {
+                backToTopBtn.style.display = "none";
+            }
+        }
+
+        backToTopBtn.addEventListener('click', () => {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        });
+
+        // Pie Chart
+        let judicialChart; // Declare chart variable globally
+
+        function createChart() {
+            const ctx = document.getElementById('judicialChart').getContext('2d');
+            judicialChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: [
+                        currentLang === 'en' ? 'Parliamentary Process (Constitutional)' : 'संसदीय प्रक्रिया (संवैधानिक)',
+                        currentLang === 'en' ? 'In-House Inquiry' : 'आंतरिक जांच',
+                        currentLang === 'en' ? 'CJI Recommendations' : 'CJI सिफारिशें',
+                        currentLang === 'en' ? 'Other Mechanisms' : 'अन्य तंत्र'
+                    ],
+                    datasets: [{
+                        data: [50, 30, 15, 5], /* Illustrative data reflecting conceptual weight */
+                        backgroundColor: [
+                            '#8B0000', /* Primary Red */
+                            '#FFD700', /* Secondary Gold */
+                            '#008080', /* Accent Teal */
+                            '#DAA520'  /* Goldenrod */
+                        ],
+                        hoverOffset: 10
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                font: {
+                                    size: 14,
+                                    family: 'Roboto, sans-serif'
+                                }
+                            }
+                        },
+                        title: {
+                            display: false, /* Title handled by h3 outside canvas */
+                        }
+                    }
+                }
+            });
+        }
+
+        function updateChartLabels() {
+            if (judicialChart) {
+                judicialChart.data.labels = [
+                    currentLang === 'en' ? 'Parliamentary Process (Constitutional)' : 'संसदीय प्रक्रिया (संवैधानिक)',
+                    currentLang === 'en' ? 'In-House Inquiry' : 'आंतरिक जांच',
+                    currentLang === 'en' ? 'CJI Recommendations' : 'CJI सिफारिशें',
+                    currentLang === 'en' ? 'Other Mechanisms' : 'अन्य तंत्र'
+                ];
+                judicialChart.update();
+            }
+        }
+
+        // Initialize chart on page load
+        window.addEventListener('load', createChart);
+    </script>
+</body>
+</html>

@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DRDO Pralay Missile Test</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #003d82;
+            --text-color: #333;
+            --bg-color: #f4f7f6;
+            --card-bg: #fff;
+            --hover-bg: #e9ecef;
+            --scroll-button-bg: #28a745;
+            --scroll-button-hover: #218838;
+        }
+
+        [data-theme='dark'] {
+            --primary-color: #6a9bd8;
+            --secondary-color: #4a7bbd;
+            --text-color: #f1f1f1;
+            --bg-color: #2c2c2c;
+            --card-bg: #3a3a3a;
+            --hover-bg: #4a4a4a;
+            --scroll-button-bg: #28a745;
+            --scroll-button-hover: #218838;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background-color: var(--primary-color);
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            color: #fff;
+            font-size: 1.8em;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1em;
+            padding: 5px 0;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: #fff;
+            left: 0;
+            bottom: 0;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: #e0e0e0;
+        }
+
+        /* Language Switch */
+        .lang-switch-container {
+            position: relative;
+            margin-left: 20px;
+        }
+
+        .lang-switch {
+            background-color: var(--secondary-color);
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .lang-switch:hover {
+            background-color: #002e62;
+            transform: translateY(-2px);
+        }
+
+        .lang-switch-icon {
+            margin-left: 8px;
+            font-size: 1.2em;
+        }
+
+        /* Theme Switch */
+        .theme-switch-wrapper {
+            display: flex;
+            align-items: center;
+            margin-left: 20px;
+        }
+
+        .theme-switch {
+            display: inline-block;
+            height: 24px;
+            position: relative;
+            width: 44px;
+        }
+
+        .theme-switch input {
+            display: none;
+        }
+
+        .slider {
+            background-color: #ccc;
+            bottom: 0;
+            cursor: pointer;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            background-color: #fff;
+            bottom: 4px;
+            content: "";
+            height: 16px;
+            left: 4px;
+            position: absolute;
+            transition: .4s;
+            width: 16px;
+            border-radius: 50%;
+        }
+
+        input:checked+.slider {
+            background-color: var(--primary-color);
+        }
+
+        input:checked+.slider:before {
+            transform: translateX(20px);
+        }
+
+        /* Content Styling */
+        .post-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: background-color 0.3s, color 0.3s, transform 0.2s;
+        }
+
+        .post-card h1 {
+            color: var(--primary-color);
+            margin-top: 0;
+            font-size: 2.2em;
+            border-bottom: 2px solid var(--hover-bg);
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+
+        .post-meta {
+            font-size: 0.9em;
+            color: #777;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .post-meta span {
+            margin-right: 15px;
+        }
+
+        .content-section {
+            margin-bottom: 25px;
+            padding-left: 10px;
+            border-left: 4px solid var(--primary-color);
+            background-color: var(--hover-bg);
+            padding: 15px 20px;
+            border-radius: 5px;
+        }
+
+        .content-section:hover {
+            background-color: #dbe4ee; /* Lighter hover for sections */
+        }
+
+        .content-section h3 {
+            color: var(--secondary-color);
+            margin-top: 0;
+            font-size: 1.4em;
+        }
+
+        .content-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .content-section ul li {
+            padding: 8px 0;
+            border-bottom: 1px dotted #ccc;
+            transition: background-color 0.2s ease;
+        }
+
+        .content-section ul li:last-child {
+            border-bottom: none;
+        }
+
+        .content-section ul li:hover {
+            background-color: var(--hover-bg);
+            cursor: pointer;
+        }
+
+        .content-section p {
+            margin-bottom: 10px;
+        }
+
+        .content-section blockquote {
+            border-left: 5px solid #ccc;
+            padding-left: 15px;
+            margin: 15px 0;
+            font-style: italic;
+            color: #555;
+        }
+
+        /* Specific section styling for hover */
+        .context-section li:hover,
+        .about-section li:hover,
+        .significance-section li:hover,
+        .reaction-section li:hover,
+        .upsc-relevance-section li:hover,
+        .critical-analysis-section li:hover {
+            background-color: var(--hover-bg);
+            cursor: pointer;
+        }
+
+        /* Back to Top Button */
+        #scrollToTopBtn {
+            display: none;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 99;
+            font-size: 24px;
+            border: none;
+            outline: none;
+            background-color: var(--scroll-button-bg);
+            color: white;
+            cursor: pointer;
+            padding: 12px 18px;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        #scrollToTopBtn:hover {
+            background-color: var(--scroll-button-hover);
+            transform: translateY(-3px);
+        }
+
+        /* Back to Home Button */
+        .back-home-button {
+            display: block;
+            width: fit-content;
+            margin: 30px auto;
+            padding: 12px 25px;
+            background-color: var(--primary-color);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.2s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .back-home-button:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .navbar .container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+                margin-top: 15px;
+                display: none; /* Hidden by default for hamburger menu */
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+                width: 100%;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 10px 0;
+                text-align: center;
+            }
+
+            .lang-switch-container,
+            .theme-switch-wrapper {
+                margin-left: 0;
+                margin-top: 15px;
+            }
+
+            .post-card {
+                padding: 20px;
+            }
+
+            .post-card h1 {
+                font-size: 1.8em;
+            }
+
+            .content-section h3 {
+                font-size: 1.2em;
+            }
+
+            .hamburger {
+                display: block;
+                color: #fff;
+                font-size: 2em;
+                cursor: pointer;
+                position: absolute;
+                right: 15px;
+                top: 15px;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .hamburger {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">Defence News</a>
+            <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" data-en="Home" data-hi="होम">Home</a></li>
+                <li><a href="donation.html" data-en="Donation" data-hi="दान">Donation</a></li>
+                <li><a href="contact.html" data-en="Contact" data-hi="संपर्क करें">Contact</a></li>
+                <li class="lang-switch-container">
+                    <button class="lang-switch" id="langSwitch">
+                        <span data-en="English" data-hi="हिंदी">English</span> <span class="lang-switch-icon">🌐</span>
+                    </button>
+                </li>
+                <li class="theme-switch-wrapper">
+                    <label class="theme-switch" for="checkbox">
+                        <input type="checkbox" id="checkbox" />
+                        <div class="slider round"></div>
+                    </label>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="post-card">
+            <h1 data-en="DRDO Holds Back-to-Back Pralay Missile Test Flights" data-hi="डीआरडीओ ने प्रलय मिसाइल के लगातार परीक्षण उड़ानें आयोजित कीं">DRDO Holds Back-to-Back Pralay Missile Test Flights</h1>
+            <div class="post-meta">
+                <span data-en="Date: July 30, 2025" data-hi="दिनांक: 30 जुलाई, 2025">Date: July 30, 2025</span>
+                <span data-en="Source: UPSC CSE Notes" data-hi="स्रोत: यूपीएससी सीएसई नोट्स">Source: UPSC CSE Notes</span>
+                <span id="readTime" data-en="Read Time: " data-hi="पढ़ने का समय: ">Read Time: </span>
+            </div>
+
+            <div class="content-section context-section">
+                <h3 data-en="🧭 Context" data-hi="🧭 संदर्भ">🧭 Context</h3>
+                <ul>
+                    <li data-en="DRDO (Defence Research and Development Organisation) successfully conducted back-to-back test flights of the Pralay missile on Monday and Tuesday." data-hi="डीआरडीओ (रक्षा अनुसंधान और विकास संगठन) ने सोमवार और मंगलवार को प्रलय मिसाइल की लगातार परीक्षण उड़ानें सफलतापूर्वक आयोजित कीं।">DRDO (Defence Research and Development Organisation) successfully conducted back-to-back test flights of the Pralay missile on Monday and Tuesday.</li>
+                    <li data-en="The tests were conducted from Dr. A.P.J. Abdul Kalam Island, off the Odisha coast." data-hi="यह परीक्षण ओडिशा तट से दूर डॉ. ए.पी.जे. अब्दुल कलाम द्वीप से आयोजित किए गए थे।">The tests were conducted from Dr. A.P.J. Abdul Kalam Island, off the Odisha coast.</li>
+                    <li data-en="The flights validated the maximum and minimum range capabilities of the missile with pinpoint accuracy." data-hi="उड़ानों ने मिसाइल की अधिकतम और न्यूनतम सीमा क्षमताओं को सटीक सटीकता के साथ मान्य किया।">The flights validated the maximum and minimum range capabilities of the missile with pinpoint accuracy.</li>
+                </ul>
+            </div>
+
+            <div class="content-section about-section">
+                <h3 data-en="🚀 About Pralay Missile" data-hi="🚀 प्रलय मिसाइल के बारे में">🚀 About Pralay Missile</h3>
+                <ul>
+                    <li data-en="Type: Quasi-ballistic surface-to-surface missile." data-hi="प्रकार: अर्ध-बैलिस्टिक सतह से सतह पर मार करने वाली मिसाइल।">Type: Quasi-ballistic surface-to-surface missile.</li>
+                    <li data-en="Propulsion: Solid propellant-based." data-hi="प्रणोदन: ठोस प्रणोदक आधारित।">Propulsion: Solid propellant-based.</li>
+                    <li data-en="Developed by: DRDO (Indigenously developed)." data-hi="द्वारा विकसित: डीआरडीओ (स्वदेशी रूप से विकसित)।">Developed by: DRDO (Indigenously developed).</li>
+                    <li data-en="Range: ~150 km to 500 km." data-hi="रेंज: ~150 किमी से 500 किमी।">Range: ~150 km to 500 km.</li>
+                    <li data-en="Features:" data-hi="विशेषताएँ:">Features:
+                        <ul>
+                            <li data-en="Advanced navigation and guidance system." data-hi="उन्नत नेविगेशन और मार्गदर्शन प्रणाली।">Advanced navigation and guidance system.</li>
+                            <li data-en="Capable of carrying multiple warheads." data-hi="कई युद्धक ले जाने में सक्षम।">Capable of carrying multiple warheads.</li>
+                            <li data-en="High precision and quick launch capability." data-hi="उच्च सटीकता और त्वरित प्रक्षेपण क्षमता।">High precision and quick launch capability.</li>
+                            <li data-en="Designed to hit tactical targets in a limited geographic area." data-hi="सीमित भौगोलिक क्षेत्र में सामरिक लक्ष्यों को भेदने के लिए डिज़ाइन किया गया।">Designed to hit tactical targets in a limited geographic area.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="content-section significance-section">
+                <h3 data-en="🎯 Significance of the Test" data-hi="🎯 परीक्षण का महत्व">🎯 Significance of the Test</h3>
+                <ul>
+                    <li data-en="Validates operational readiness and reliability." data-hi="परिचालन तत्परता और विश्वसनीयता को मान्य करता है।">Validates operational readiness and reliability.</li>
+                    <li data-en="Boosts India’s tactical strike capability." data-hi="भारत की सामरिक स्ट्राइक क्षमता को बढ़ावा देता है।">Boosts India’s tactical strike capability.</li>
+                    <li data-en="Enhances deterrence posture in the region." data-hi="क्षेत्र में प्रतिरोधक क्षमता को बढ़ाता है।">Enhances deterrence posture in the region.</li>
+                    <li data-en="Strengthens India's Make in India and Atmanirbhar Bharat defence initiatives." data-hi="भारत की मेक इन इंडिया और आत्मनिर्भर भारत रक्षा पहलों को मजबूत करता है।">Strengthens India's Make in India and Atmanirbhar Bharat defence initiatives.</li>
+                </ul>
+            </div>
+
+            <div class="content-section reaction-section">
+                <h3 data-en="🗨️ Official Reaction" data-hi="🗨️ आधिकारिक प्रतिक्रिया">🗨️ Official Reaction</h3>
+                <ul>
+                    <li data-en="Defence Minister Rajnath Singh congratulated DRDO scientists for the successful tests and termed it a significant milestone in indigenous defence capability." data-hi="रक्षा मंत्री राजनाथ सिंह ने सफल परीक्षणों के लिए डीआरडीओ वैज्ञानिकों को बधाई दी और इसे स्वदेशी रक्षा क्षमता में एक महत्वपूर्ण मील का पत्थर बताया।">Defence Minister Rajnath Singh congratulated DRDO scientists for the successful tests and termed it a significant milestone in indigenous defence capability.</li>
+                </ul>
+            </div>
+
+            <div class="content-section upsc-relevance-section">
+                <h3 data-en="📘 UPSC Relevance" data-hi="📘 यूपीएससी प्रासंगिकता">📘 UPSC Relevance</h3>
+                <h4><a href="#" data-en="🔹 Prelims (General Studies Paper I)" data-hi="🔹 प्रारंभिक (सामान्य अध्ययन पेपर I)">🔹 Prelims (General Studies Paper I)</a>:</h4>
+                <ul>
+                    <li data-en="Important developments in missile technology." data-hi="मिसाइल प्रौद्योगिकी में महत्वपूर्ण विकास।">Important developments in missile technology.</li>
+                    <li data-en="Features of tactical ballistic missiles." data-hi="सामरिक बैलिस्टिक मिसाइलों की विशेषताएं।">Features of tactical ballistic missiles.</li>
+                    <li data-en="DRDO’s role in indigenous defence R&D." data-hi="स्वदेशी रक्षा अनुसंधान एवं विकास में डीआरडीओ की भूमिका।">DRDO’s role in indigenous defence R&D.</li>
+                </ul>
+                <h4><a href="#" data-en="🔹 Mains (GS Paper III)" data-hi="🔹 मुख्य (जीएस पेपर III)">🔹 Mains (GS Paper III)</a>:</h4>
+                <ul>
+                    <li data-en="Science and Technology: Indigenization of technology and developing new technology." data-hi="विज्ञान और प्रौद्योगिकी: प्रौद्योगिकी का स्वदेशीकरण और नई प्रौद्योगिकी का विकास।">Science and Technology: Indigenization of technology and developing new technology.</li>
+                    <li data-en="Internal Security: Role of technology in enhancing national security." data-hi="आंतरिक सुरक्षा: राष्ट्रीय सुरक्षा बढ़ाने में प्रौद्योगिकी की भूमिका।">Internal Security: Role of technology in enhancing national security.</li>
+                    <li data-en="Strategic Importance: Enhancing India's offensive-defensive capabilities in border areas." data-hi="सामरिक महत्व: सीमावर्ती क्षेत्रों में भारत की आक्रामक-रक्षात्मक क्षमताओं को बढ़ाना।">Strategic Importance: Enhancing India's offensive-defensive capabilities in border areas.</li>
+                </ul>
+            </div>
+
+            <div class="content-section critical-analysis-section">
+                <h3 data-en="🧠 Critical Analysis" data-hi="🧠 महत्वपूर्ण विश्लेषण">🧠 Critical Analysis</h3>
+                <ul>
+                    <li data-en="Demonstrates India's technological edge in the tactical missile category." data-hi="सामरिक मिसाइल श्रेणी में भारत की तकनीकी बढ़त को दर्शाता है।">Demonstrates India's technological edge in the tactical missile category.</li>
+                    <li data-en="Could be a counter to short-range missile systems possessed by neighboring adversaries." data-hi="पड़ोसी विरोधियों के पास मौजूद कम दूरी की मिसाइल प्रणालियों का मुकाबला हो सकता है।">Could be a counter to short-range missile systems possessed by neighboring adversaries.</li>
+                    <li data-en="Reflects the growing self-reliance in strategic defence systems." data-hi="रणनीतिक रक्षा प्रणालियों में बढ़ती आत्मनिर्भरता को दर्शाता है।">Reflects the growing self-reliance in strategic defence systems.</li>
+                    <li data-en="Future potential for export or deployment along sensitive border regions." data-hi="संवेदनशील सीमावर्ती क्षेत्रों में निर्यात या तैनाती के लिए भविष्य की क्षमता।">Future potential for export or deployment along sensitive border regions.</li>
+                </ul>
+            </div>
+
+            <a href="index.html" class="back-home-button" data-en="Back to Home" data-hi="होम पर वापस">Back to Home</a>
+        </div>
+    </div>
+
+    <button onclick="scrollToTop()" id="scrollToTopBtn" title="Go to top">⬆️</button>
+
+    <script>
+        // Language Switch
+        const langSwitchBtn = document.getElementById('langSwitch');
+        let currentLang = 'en';
+
+        langSwitchBtn.addEventListener('click', () => {
+            currentLang = currentLang === 'en' ? 'hi' : 'en';
+            updateContentLanguage();
+        });
+
+        function updateContentLanguage() {
+            document.querySelectorAll('[data-en]').forEach(element => {
+                element.textContent = element.dataset[currentLang];
+            });
+            langSwitchBtn.querySelector('span').textContent = currentLang === 'en' ? 'English' : 'हिंदी';
+            document.documentElement.lang = currentLang;
+        }
+
+        // Theme Switch
+        const themeSwitchCheckbox = document.getElementById('checkbox');
+        themeSwitchCheckbox.addEventListener('change', function() {
+            if (this.checked) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            } else {
+                document.documentElement.removeAttribute('data-theme');
+            }
+        });
+
+        // Scroll to Top Button
+        const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+        window.onscroll = function() {
+            scrollFunction();
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                scrollToTopBtn.style.display = "block";
+            } else {
+                scrollToTopBtn.style.display = "none";
+            }
+        }
+
+        function scrollToTop() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+
+        // Read Time Calculation
+        function calculateReadTime() {
+            const content = document.querySelector('.post-card').innerText;
+            const wordsPerMinute = 200; // Average reading speed
+            const wordCount = content.split(/\s+/).length;
+            const readTimeMinutes = Math.ceil(wordCount / wordsPerMinute);
+            document.getElementById('readTime').textContent = `Read Time: ${readTimeMinutes} min`;
+        }
+        calculateReadTime();
+
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Initial language and theme setup
+        updateContentLanguage(); // Set initial language
+        // Check for preferred theme (optional, could use localStorage)
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            themeSwitchCheckbox.checked = true;
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    </script>
+</body>
+</html>

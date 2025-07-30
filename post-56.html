@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glacial Lake Outburst Floods (GLOFs): India’s Preparedness and Challenges</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Open+Sans:wght@400;600&family=Noto+Sans+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Body and Font Styles */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+            color: #333;
+            /* Default language setting for JavaScript toggling */
+            --current-lang: 'en';
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .container-nav { /* Renamed to avoid conflict with main article container */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .navbar-brand {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #ecf0f1;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-brand:hover {
+            color: #3498db;
+        }
+
+        .navbar-nav {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .nav-item {
+            margin-left: 30px;
+        }
+
+        .nav-link {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 1.1em;
+            transition: color 0.3s ease, transform 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: #3498db;
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            color: #3498db;
+            transform: translateY(-2px);
+        }
+
+        /* Main Article Container */
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+
+        /* Headings */
+        h1, h2, h3 {
+            font-family: 'Roboto', sans-serif;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        h1 {
+            font-size: 2.8em;
+            color: #0d47a1;
+            text-align: center;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        h1::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, #2196f3, #4caf50);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        h2 {
+            font-size: 2.2em;
+            color: #1a73e8;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+            margin-top: 35px;
+        }
+
+        h3 {
+            font-size: 1.8em;
+            color: #388e3c;
+            margin-top: 30px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: #555;
+            font-size: 1.05em;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+            color: #444;
+        }
+
+        ul li::before {
+            content: "\f00c"; /* FontAwesome check icon */
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: #4CAF50;
+            font-size: 1.1em;
+        }
+
+        /* Section Specific Styling */
+        .context, .recent-events, .challenges-list {
+            background-color: #e3f2fd;
+            border-left: 6px solid #2196f3;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+        }
+
+        .context h3, .recent-events h3, .challenges-list h3 {
+            color: #1976d2;
+        }
+
+        .context ul li::before, .recent-events ul li::before {
+            color: #2196f3;
+        }
+
+        .national-initiatives, .technological-innovations, .field-expeditions {
+            background-color: #e8f5e9;
+            border-left: 6px solid #4CAF50;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+        }
+
+        .national-initiatives h3, .technological-innovations h3, .field-expeditions h3 {
+            color: #388e3c;
+        }
+
+        .national-initiatives ul li::before, .technological-innovations ul li::before, .field-expeditions ul li::before {
+            color: #4CAF50;
+        }
+
+        .trans-boundary-concerns {
+            background-color: #fffde7;
+            border-left: 6px solid #ffc107;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+        }
+
+        .trans-boundary-concerns h3 {
+            color: #ffa000;
+        }
+
+        .trans-boundary-concerns ul li::before {
+            color: #ffc107;
+        }
+
+        .challenges {
+            background-color: #ffebee;
+            border-left: 6px solid #f44336;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+        }
+
+        .challenges h3 {
+            color: #d32f2f;
+        }
+
+        .challenges ul li::before {
+            color: #f44336;
+        }
+
+        .way-forward {
+            background-color: #e0f7fa;
+            border-left: 6px solid #00bcd4;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+        }
+
+        .way-forward h3 {
+            color: #0097a7;
+        }
+
+        .way-forward ul li::before {
+            color: #00bcd4;
+        }
+
+        .conclusion {
+            background-color: #fce4ec;
+            border-left: 6px solid #e91e63;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .conclusion p {
+            color: #ad1457;
+            font-size: 1.1em;
+        }
+
+        .gs-topics {
+            background-color: #f3e5f5;
+            border-left: 6px solid #9c27b0;
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 8px;
+        }
+
+        .gs-topics h3 {
+            color: #7b1fa2;
+        }
+
+        .gs-topics ul li::before {
+            color: #9c27b0;
+        }
+
+        /* Read Time and Back to Home Button */
+        .read-time {
+            text-align: right;
+            font-style: italic;
+            color: #777;
+            margin-bottom: 20px;
+        }
+
+        .back-home {
+            display: block;
+            width: fit-content;
+            margin: 30px auto 10px;
+            padding: 12px 25px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0, 150, 0, 0.2);
+        }
+
+        .back-home:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+        }
+
+        /* Language Switch Button */
+        .language-switch-container {
+            perspective: 1000px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px; /* Space above article content */
+            margin-top: -10px; /* Pull it slightly up for better placement */
+        }
+
+        .flip-button {
+            width: 200px;
+            height: 50px;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            font-size: 1.1em;
+        }
+
+        .flip-button.flipped {
+            transform: rotateX(180deg);
+        }
+
+        .flip-button .face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            color: #fff;
+            font-weight: bold;
+            text-align: center;
+            padding: 0 10px;
+            box-sizing: border-box;
+        }
+
+        .flip-button .face-en {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            transform: rotateX(0deg);
+        }
+
+        .flip-button .face-hi {
+            background: linear-gradient(135deg, #28a745, #1e7e34);
+            transform: rotateX(180deg);
+        }
+
+        .flip-button:hover {
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Language specific content display control */
+        .hindi-content {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+            color: #6a1b9a; /* Deep purple for Hindi text */
+            margin-top: 10px;
+            margin-bottom: 25px;
+            font-size: 1.05em;
+            display: none; /* Hidden by default */
+        }
+
+        .hindi-content h1, .hindi-content h2, .hindi-content h3 {
+            color: #6a1b9a;
+        }
+
+        /* JavaScript controls these */
+        body[data-lang='en'] .english-content { display: block; }
+        body[data-lang='en'] .hindi-content { display: none; }
+
+        body[data-lang='hi'] .english-content { display: none; }
+        body[data-lang='hi'] .hindi-content { display: block; }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .navbar .container-nav {
+                flex-direction: column;
+                padding: 0 15px;
+            }
+
+            .navbar-nav {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-item {
+                margin: 0 15px 10px;
+            }
+
+            .container {
+                padding: 20px 25px;
+                margin: 15px auto;
+            }
+
+            h1 {
+                font-size: 2.2em;
+            }
+
+            h2 {
+                font-size: 1.8em;
+            }
+
+            h3 {
+                font-size: 1.5em;
+            }
+
+            .flip-button {
+                width: 160px; /* Smaller width for mobile */
+                height: 45px; /* Smaller height for mobile */
+                font-size: 0.95em; /* Smaller font size */
+            }
+        }
+
+        @media (max-width: 400px) {
+            .flip-button {
+                width: 140px; /* Even smaller width */
+                height: 40px; /* Even smaller height */
+                font-size: 0.85em; /* Smallest font size */
+            }
+        }
+    </style>
+</head>
+<body data-lang="en"> <nav class="navbar">
+        <div class="container-nav">
+            <a href="index.html" class="navbar-brand">📰 Current Affairs</a>
+            <ul class="navbar-nav">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <p class="read-time">Reading Time: <span id="read-time"></span> minutes</p>
+
+        <div class="language-switch-container">
+            <button class="flip-button" id="languageFlipButton">
+                <div class="face face-en">हिन्दी में पढ़ें</div>
+                <div class="face face-hi">Switch to English</div>
+            </button>
+        </div>
+
+        <div class="english-content">
+            <h1>Glacial Lake Outburst Floods (GLOFs): India’s Preparedness and Challenges</h1>
+            <hr>
+
+            <div class="context">
+                <h3>Context</h3>
+                <ul>
+                    <li><strong>July 8, 2025</strong>: Major GLOF in Nepal (Lende river from Tibet) damaged China-built bridge, 4 hydropower plants; <strong>8% of Nepal’s power</strong> supply affected.</li>
+                    <li>Another GLOF occurred the same day in Mustang district; similar incidents in 2024 and 2023 in Solukhumbu, Humla.</li>
+                    <li>Climate change, glacial retreat, and supra-glacial lake formation increasing GLOF risks in the <strong>Himalayan region</strong>.</li>
+                </ul>
+            </div>
+
+            <h2>Nature of GLOF Risk in India</h2>
+            <div class="geophysical-vulnerability">
+                <h3>Geophysical Vulnerability</h3>
+                <ul>
+                    <li><strong>Indian Himalayan Region (IHR)</strong>:
+                        <ul>
+                            <li>11 major river basins</li>
+                            <li><strong>28,000 glacial lakes</strong>, ~7,500 in India</li>
+                            <li>Many above <strong>4,500 m</strong>, hard to access</li>
+                        </ul>
+                    </li>
+                    <li><strong>Types of lakes</strong>:
+                        <ul>
+                            <li><strong>Supraglacial lakes</strong> (on glacier surface) — prone to summer melting</li>
+                            <li><strong>Moraine-dammed lakes</strong> — unstable debris barriers, at risk of failure</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="triggering-factors">
+                <h3>Triggering Factors</h3>
+                <ul>
+                    <li>Ice/rock avalanches (major trigger)</li>
+                    <li>Excess meltwater pressure</li>
+                    <li>Earthquakes</li>
+                </ul>
+            </div>
+
+            <div class="recent-events">
+                <h3>Recent Events</h3>
+                <ul>
+                    <li><strong>South Lhonak GLOF (Sikkim, 2023)</strong>:
+                        <ul>
+                            <li>Destroyed $2 billion <strong>Chungthang Dam (1250 MW)</strong></li>
+                            <li>Raised <strong>Teesta riverbed</strong> &rarr; reduced carrying capacity</li>
+                        </ul>
+                    </li>
+                    <li><strong>Kedarnath Floods (2013)</strong>:
+                        <ul>
+                            <li>GLOF + cloudbursts &rarr; catastrophic destruction</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <h2>India’s Preparedness & Mitigation Measures</h2>
+            <div class="national-initiatives">
+                <h3>National Initiatives</h3>
+                <ul>
+                    <li><strong>NDMA-led efforts</strong> under <strong>Committee on Disaster Risk Reduction (CoDRR)</strong></li>
+                    <li><strong>National Programme for GLOF Risk Mitigation</strong> ($20 million)
+                        <ul>
+                            <li>Initially <strong>56 high-risk lakes</strong>, expanded to <strong>195</strong></li>
+                            <li>Categorized into <strong>4 risk levels</strong></li>
+                        </ul>
+                    </li>
+                    <li><strong>Five-pronged strategy</strong>:
+                        <ol>
+                            <li>Hazard assessment</li>
+                            <li>Install <strong>AWWS</strong> (Automated Weather & Water Stations)</li>
+                            <li><strong>Early Warning Systems (EWS)</strong> downstream</li>
+                            <li>Mitigation via water drawdown / retention structures</li>
+                            <li><strong>Community engagement</strong></li>
+                        </ol>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="technological-innovations">
+                <h3>Technological Innovations</h3>
+                <ul>
+                    <li>Promotion of <strong>Indian scientific tools & systems</strong>
+                        <ul>
+                            <li><strong>SAR interferometry</strong>: Detect slope instability (precision to cm level)</li>
+                            <li><strong>ERT (Electrical Resistivity Tomography)</strong>: Detect ice-cores under moraine dams</li>
+                            <li><strong>UAV surveys</strong>, <strong>bathymetry</strong>, <strong>slope mapping</strong></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="field-expeditions">
+                <h3>Field Expeditions (2024–2025)</h3>
+                <ul>
+                    <li>Expeditions across <strong>J&K, Ladakh, Himachal, Uttarakhand, Sikkim, Arunachal</strong></li>
+                    <li>Installed 24/7 monitoring at lakes in Sikkim (10-min interval data)</li>
+                    <li>ITBP roped in for <strong>manual early warning</strong> in remote zones</li>
+                    <li>Cultural sensitivity in community engagement noted (e.g., holy lake access)</li>
+                </ul>
+            </div>
+
+            <h2>Trans-boundary Concerns & Cooperation</h2>
+            <div class="trans-boundary-concerns">
+                <h3>India–Nepal–China Dynamics</h3>
+                <ul>
+                    <li>Nepal suffers downstream damage from Tibetan GLOFs</li>
+                    <li>Lack of <strong>early warning/data-sharing mechanisms</strong> between China & Nepal</li>
+                    <li>Highlighted during <strong>July 2025 GLOF</strong>: Nepalese officials reported no prior alert from China</li>
+                    <li>Emphasizes need for <strong>trans-boundary EWS</strong>, protocols, & information exchange</li>
+                </ul>
+            </div>
+
+            <h2>Challenges</h2>
+            <div class="challenges">
+                <ul class="challenges-list">
+                    <li><strong>Accessibility</strong> to high-altitude glacial lakes</li>
+                    <li><strong>Sparse monitoring stations</strong></li>
+                    <li><strong>Short weather window</strong> for surveys (mostly summer)</li>
+                    <li><strong>Post-facto remote sensing data</strong>, not predictive</li>
+                    <li><strong>Lack of private investment & tech startups</strong> in Himalayan risk reduction</li>
+                    <li><strong>Cultural & community mistrust</strong> towards external interventions</li>
+                </ul>
+            </div>
+
+            <h2>Way Forward</h2>
+            <div class="way-forward">
+                <ul>
+                    <li>Expand <strong>EWS infrastructure</strong> across IHR</li>
+                    <li>Build <strong>real-time data systems</strong> and integrate with state disaster response mechanisms</li>
+                    <li>Formalize <strong>trans-boundary cooperation agreements</strong> with China, Nepal, Bhutan</li>
+                    <li><strong>Mainstream local communities</strong> in mitigation efforts</li>
+                    <li>Promote <strong>public-private partnerships</strong> (PPP) in cryosphere technology</li>
+                    <li>Include <strong>GLOF vulnerability mapping</strong> in urban/hydro project planning</li>
+                </ul>
+            </div>
+
+            <div class="conclusion">
+                <p>As GLOFs intensify due to climate change, India must shift from reactive disaster relief to a proactive, scientific, and community-driven risk management model. With strategic investments, robust surveillance, regional cooperation, and grassroots involvement, the nation can build climate resilience in the fragile Himalayan ecosystem.</p>
+            </div>
+
+            <div class="gs-topics">
+                <h3>Relevant GS Topics</h3>
+                <ul>
+                    <li><strong>GS Paper II</strong>: India & neighbours – bilateral, regional relations (China–Nepal–India)</li>
+                    <li><strong>GS Paper III</strong>: Disaster management, climate change, environment</li>
+                    <li><strong>Essay</strong>: <i>“Mountains melting: Climate justice in the Himalayas”</i>, <i>“Science & society: Bridging the gap in climate risk management”</i></li>
+                </ul>
+            </div>
+        </div> <div class="hindi-content">
+            <h1>ग्लेशियल लेक आउटबर्स्ट फ्लड (GLOFs): भारत की तैयारी और चुनौतियाँ</h1>
+            <hr>
+
+            <div class="context">
+                <h3>संदर्भ</h3>
+                <ul>
+                    <li><strong>8 जुलाई, 2025</strong>: नेपाल में बड़ा GLOF (तिब्बत की लेंडे नदी से) हुआ, जिससे चीन निर्मित पुल और 4 पनबिजली संयंत्र क्षतिग्रस्त हो गए; नेपाल की <strong>8% बिजली</strong> आपूर्ति प्रभावित हुई।</li>
+                    <li>उसी दिन मुस्तांग जिले में एक और GLOF हुआ; 2024 और 2023 में सोलुखुम्बु, हुमला में भी इसी तरह की घटनाएँ हुई थीं।</li>
+                    <li>जलवायु परिवर्तन, हिमनद का पीछे हटना और सुप्रा-ग्लेशियल झील निर्माण से <strong>हिमालयी क्षेत्र</strong> में GLOF का जोखिम बढ़ रहा है।</li>
+                </ul>
+            </div>
+
+            <h2>भारत में GLOF जोखिम की प्रकृति</h2>
+            <div class="geophysical-vulnerability">
+                <h3>भूभौतिकीय भेद्यता</h3>
+                <ul>
+                    <li><strong>भारतीय हिमालयी क्षेत्र (IHR)</strong>:
+                        <ul>
+                            <li>11 प्रमुख नदी घाटियाँ</li>
+                            <li><strong>28,000 ग्लेशियल झीलें</strong>, ~7,500 भारत में</li>
+                            <li>कई <strong>4,500 मीटर</strong> से ऊपर, जहाँ पहुँचना कठिन है</li>
+                        </ul>
+                    </li>
+                    <li><strong>झीलों के प्रकार</strong>:
+                        <ul>
+                            <li><strong>सुप्राग्लेशियल झीलें</strong> (हिमनद की सतह पर) — गर्मियों में पिघलने की अधिक संभावना</li>
+                            <li><strong>मोराइन-बांधित झीलें</strong> — अस्थिर मलबे के अवरोध, टूटने का जोखिम</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="triggering-factors">
+                <h3>ट्रिगर करने वाले कारक</h3>
+                <ul>
+                    <li>बर्फ/चट्टान हिमस्खलन (प्रमुख ट्रिगर)</li>
+                    <li>अत्यधिक पिघले पानी का दबाव</li>
+                    <li>भूकंप</li>
+                </ul>
+            </div>
+
+            <div class="recent-events">
+                <h3>हाल की घटनाएँ</h3>
+                <ul>
+                    <li><strong>दक्षिण ल्होनक GLOF (सिक्किम, 2023)</strong>:
+                        <ul>
+                            <li>2 बिलियन डॉलर के <strong>चुंगथांग बांध (1250 मेगावाट)</strong> को नष्ट कर दिया</li>
+                            <li><strong>तीस्ता नदी तल</strong> को ऊपर उठाया → वहन क्षमता कम हुई</li>
+                        </ul>
+                    </li>
+                    <li><strong>केदारनाथ बाढ़ (2013)</strong>:
+                        <ul>
+                            <li>GLOF + बादल फटना → विनाशकारी क्षति</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <h2>भारत की तैयारी और शमन उपाय</h2>
+            <div class="national-initiatives">
+                <h3>राष्ट्रीय पहल</h3>
+                <ul>
+                    <li><strong>आपदा जोखिम न्यूनीकरण समिति (CoDRR)</strong> के तहत <strong>एनडीएमए-नेतृत्व वाले प्रयास</strong></li>
+                    <li><strong>GLOF जोखिम शमन के लिए राष्ट्रीय कार्यक्रम</strong> (20 मिलियन डॉलर)
+                        <ul>
+                            <li>शुरुआत में <strong>56 उच्च जोखिम वाली झीलें</strong>, बढ़कर <strong>195</strong> हुईं</li>
+                            <li><strong>4 जोखिम स्तरों</strong> में वर्गीकृत</li>
+                        </ul>
+                    </li>
+                    <li><strong>पंच-आयामी रणनीति</strong>:
+                        <ol>
+                            <li>खतरा मूल्यांकन</li>
+                            <li><strong>AWWS</strong> (स्वचालित मौसम और जल स्टेशन) स्थापित करें</li>
+                            <li>निचले इलाकों में <strong>प्रारंभिक चेतावनी प्रणाली (EWS)</strong></li>
+                            <li>जल निकासी/प्रतिधारण संरचनाओं के माध्यम से शमन</li>
+                            <li><strong>सामुदायिक जुड़ाव</strong></li>
+                        </ol>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="technological-innovations">
+                <h3>तकनीकी नवाचार</h3>
+                <ul>
+                    <li><strong>भारतीय वैज्ञानिक उपकरण और प्रणालियों</strong> को बढ़ावा देना
+                        <ul>
+                            <li><strong>SAR इंटरफेरोमेट्री</strong>: ढलान अस्थिरता का पता लगाना (सेमी स्तर तक की सटीकता)</li>
+                            <li><strong>ERT (इलेक्ट्रिकल रेसिस्टिविटी टोमोग्राफी)</strong>: मोराइन बांधों के नीचे बर्फ-कोर का पता लगाना</li>
+                            <li><strong>यूएवी सर्वेक्षण</strong>, <strong>बाथिमेट्री</strong>, <strong>ढलान मानचित्रण</strong></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="field-expeditions">
+                <h3>क्षेत्रीय अभियान (2024–2025)</h3>
+                <ul>
+                    <li><strong>जम्मू-कश्मीर, लद्दाख, हिमाचल, उत्तराखंड, सिक्किम, अरुणाचल</strong> में अभियान</li>
+                    <li>सिक्किम में झीलों पर 24/7 निगरानी स्थापित की गई (10 मिनट के अंतराल पर डेटा)</li>
+                    <li>दूरस्थ क्षेत्रों में <strong>मैनुअल प्रारंभिक चेतावनी</strong> के लिए आईटीबीपी को शामिल किया गया</li>
+                    <li>सामुदायिक जुड़ाव में सांस्कृतिक संवेदनशीलता का ध्यान रखा गया (जैसे, पवित्र झील तक पहुंच)</li>
+                </ul>
+            </div>
+
+            <h2>अंतर-सीमा चिंताएँ और सहयोग</h2>
+            <div class="trans-boundary-concerns">
+                <h3>भारत-नेपाल-चीन गतिशीलता</h3>
+                <ul>
+                    <li>नेपाल तिब्बती GLOF से निचले इलाकों में नुकसान झेलता है</li>
+                    <li>चीन और नेपाल के बीच <strong>प्रारंभिक चेतावनी/डेटा-साझाकरण तंत्र</strong> की कमी</li>
+                    <li><strong>जुलाई 2025 के GLOF</strong> के दौरान उजागर हुआ: नेपाली अधिकारियों ने चीन से कोई पूर्व चेतावनी नहीं मिलने की सूचना दी</li>
+                    <li><strong>अंतर-सीमा EWS</strong>, प्रोटोकॉल और सूचना आदान-प्रदान की आवश्यकता पर बल दिया गया</li>
+                </ul>
+            </div >
+
+            <h2>चुनौतियाँ</h2>
+            <div class="challenges">
+                <ul class="challenges-list">
+                    <li>उच्च ऊंचाई वाली ग्लेशियर झीलों तक <strong>पहुंच</strong></li>
+                    <li><strong>विरल निगरानी स्टेशन</strong></li>
+                    <li>सर्वेक्षण के लिए <strong>छोटा मौसम विंडो</strong> (ज्यादातर गर्मी)</li>
+                    <li><strong>घटना के बाद का रिमोट सेंसिंग डेटा</strong>, पूर्वानुमानित नहीं</li>
+                    <li>हिमालयी जोखिम न्यूनीकरण में <strong>निजी निवेश और तकनीकी स्टार्टअप की कमी</strong></li>
+                    <li>बाहरी हस्तक्षेपों के प्रति <strong>सांस्कृतिक और सामुदायिक अविश्वास</strong></li>
+                </ul>
+            </div>
+
+            <h2>आगे का रास्ता</h2>
+            <div class="way-forward">
+                <ul>
+                    <li>आईएचआर भर में <strong>EWS बुनियादी ढांचे</strong> का विस्तार करें</li>
+                    <li><strong>वास्तविक समय डेटा सिस्टम</strong> बनाएं और उन्हें राज्य आपदा प्रतिक्रिया तंत्र के साथ एकीकृत करें</li>
+                    <li>चीन, नेपाल, भूटान के साथ <strong>अंतर-सीमा सहयोग समझौतों</strong> को औपचारिक रूप दें</li>
+                    <li>शमन प्रयासों में <strong>स्थानीय समुदायों</strong> को मुख्यधारा में लाएँ</li>
+                    <li>क्रायोस्फीयर प्रौद्योगिकी में <strong>सार्वजनिक-निजी भागीदारी</strong> (PPP) को बढ़ावा दें</li>
+                    <li>शहरी/जलविद्युत परियोजना योजना में <strong>GLOF भेद्यता मानचित्रण</strong> को शामिल करें</li>
+                </ul>
+            </div>
+
+            <div class="conclusion">
+                <p>चूंकि जलवायु परिवर्तन के कारण GLOF की तीव्रता बढ़ रही है, इसलिए भारत को प्रतिक्रियाशील आपदा राहत से एक सक्रिय, वैज्ञानिक और समुदाय-संचालित जोखिम प्रबंधन मॉडल की ओर बढ़ना चाहिए। रणनीतिक निवेश, मजबूत निगरानी, क्षेत्रीय सहयोग और जमीनी स्तर पर भागीदारी के साथ, राष्ट्र नाजुक हिमालयी पारिस्थितिकी तंत्र में जलवायु लचीलापन का निर्माण कर सकता है।</p>
+            </div>
+
+            <div class="gs-topics">
+                <h3>प्रासंगिक जीएस विषय</h3>
+                <ul>
+                    <li><strong>जीएस पेपर II</strong>: भारत और पड़ोसी – द्विपक्षीय, क्षेत्रीय संबंध (चीन-नेपाल-भारत)</li>
+                    <li><strong>जीएस पेपर III</strong>: आपदा प्रबंधन, जलवायु परिवर्तन, पर्यावरण</li>
+                    <li><strong>निबंध</strong>: <i>“पिघलते पहाड़: हिमालय में जलवायु न्याय”</i>, <i>“विज्ञान और समाज: जलवायु जोखिम प्रबंधन में अंतर को पाटना”</i></li>
+                </ul>
+            </div>
+        </div> <a href="index.html" class="back-home">Back to Home</a>
+    </div>
+
+    <script>
+        function calculateReadTime() {
+            // Calculate read time based only on the English content
+            const englishContent = document.querySelector('.english-content');
+            if (englishContent) {
+                const articleText = englishContent.innerText;
+                const wordsPerMinute = 200; // Average reading speed
+                const wordCount = articleText.split(/\s+/).length;
+                const readTimeMinutes = Math.ceil(wordCount / wordsPerMinute);
+                document.getElementById('read-time').textContent = readTimeMinutes;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const languageFlipButton = document.getElementById('languageFlipButton');
+            const body = document.body;
+
+            // Initial calculation of read time
+            calculateReadTime();
+
+            languageFlipButton.addEventListener('click', function() {
+                this.classList.toggle('flipped'); // Toggle button animation
+
+                if (body.getAttribute('data-lang') === 'en') {
+                    body.setAttribute('data-lang', 'hi'); // Switch to Hindi
+                } else {
+                    body.setAttribute('data-lang', 'en'); // Switch to English
+                }
+                // Read time does not need to be recalculated on language switch
+                // as it's fixed for the English content only.
+            });
+        });
+    </script>
+</body>
+</html>

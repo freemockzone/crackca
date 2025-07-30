@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gavri of the Mewar Bhils – A Ritual of Resistance and Renewal</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Playfair+Display:wght@700&display=swap');
+
+        :root {
+            --primary-color: #4CAF50; /* Green */
+            --secondary-color: #FFC107; /* Amber */
+            --accent-color: #2196F3; /* Blue */
+            --text-color: #333;
+            --light-bg: #f4f7f6;
+            --dark-bg: #e0e0e0;
+            --navbar-bg: #333;
+            --navbar-text: #fff;
+            --footer-bg: #333;
+            --footer-text: #fff;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background-color: var(--navbar-bg);
+            color: var(--navbar-text);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8em;
+            color: var(--navbar-text);
+            text-decoration: none;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .navbar-brand:hover {
+            color: var(--secondary-color);
+        }
+
+        .nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links li a {
+            color: var(--navbar-text);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            position: relative;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .nav-links li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            display: block;
+            margin-top: 5px;
+            right: 0;
+            background: var(--primary-color);
+            transition: width 0.3s ease, background-color 0.3s ease;
+        }
+
+        .nav-links li a:hover::after {
+            width: 100%;
+            left: 0;
+            background: var(--secondary-color);
+        }
+
+        .nav-links li a:hover {
+            color: var(--secondary-color);
+        }
+
+        .lang-switch-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .lang-switch-button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.9em;
+            font-weight: bold;
+            transition: all 0.3s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .lang-switch-button:hover {
+            background-color: var(--accent-color);
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .lang-switch-button::before {
+            content: '🌐'; /* Globe icon */
+            margin-right: 5px;
+            font-size: 1.2em;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://via.placeholder.com/1500x500?text=Gavri+Ritual') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            border-bottom: 5px solid var(--primary-color);
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            max-width: 700px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Content Sections */
+        section {
+            padding: 40px 0;
+            border-bottom: 1px solid var(--dark-bg);
+            animation: slideInUp 0.8s ease-out forwards;
+            opacity: 0; /* Initially hidden for animation */
+        }
+
+        section:nth-of-type(odd) {
+            background-color: var(--dark-bg);
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        h3 {
+            color: var(--accent-color);
+            font-size: 1.8em;
+            margin-top: 30px;
+            border-left: 5px solid var(--secondary-color);
+            padding-left: 10px;
+        }
+
+        blockquote {
+            font-style: italic;
+            border-left: 5px solid var(--primary-color);
+            padding-left: 20px;
+            margin: 30px 0;
+            background-color: #f0f8f0;
+            padding: 15px;
+            border-radius: 8px;
+            color: #555;
+        }
+
+        .highlight {
+            background-color: var(--secondary-color);
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        table th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: bold;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        table tr:hover {
+            background-color: #ddd;
+        }
+
+        ul {
+            list-style: disc;
+            margin-left: 20px;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 8px;
+        }
+
+        .read-time {
+            text-align: right;
+            font-style: italic;
+            color: #777;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+
+        /* Bottom to Top Button */
+        #scrollToTopBtn {
+            display: none; /* Hidden by default */
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99;
+            font-size: 24px;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.3s;
+            display: flex; /* Ensure it uses flex for centering icon */
+            align-items: center;
+            justify-content: center;
+        }
+
+        #scrollToTopBtn:hover {
+            background-color: #1976D2;
+            transform: translateY(-5px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--footer-bg);
+            color: var(--footer-text);
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        .back-home-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 30px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .back-home-button:hover {
+            background-color: #1976D2;
+            transform: translateY(-3px);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar .container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+
+            .hero h1 {
+                font-size: 2.5em;
+            }
+
+            .hero p {
+                font-size: 1.1em;
+            }
+
+            h2 {
+                font-size: 2em;
+            }
+
+            h3 {
+                font-size: 1.5em;
+            }
+
+            table th, table td {
+                padding: 8px;
+                font-size: 0.9em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar-brand {
+                font-size: 1.5em;
+            }
+
+            .nav-links li a {
+                font-size: 1em;
+            }
+
+            .lang-switch-button {
+                padding: 6px 10px;
+                font-size: 0.8em;
+            }
+
+            .hero {
+                padding: 60px 15px;
+            }
+
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .hero p {
+                font-size: 1em;
+            }
+
+            h2 {
+                font-size: 1.8em;
+            }
+
+            h3 {
+                font-size: 1.3em;
+            }
+
+            #scrollToTopBtn {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">Indian Culture & Heritage</a>
+            <ul class="nav-links">
+                <li><a href="index.html" data-en="Home" data-hi="होम">Home</a></li>
+                <li><a href="donation.html" data-en="Donation" data-hi="दान">Donation</a></li>
+                <li><a href="contact.html" data-en="Contact" data-hi="संपर्क करें">Contact</a></li>
+            </ul>
+            <div class="lang-switch-container">
+                <button class="lang-switch-button" id="langSwitchBtn">English</button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <h1 data-en="Gavri of the Mewar Bhils – A Ritual of Resistance and Renewal" data-hi="मेवाड़ के भीलों की गवरी – प्रतिरोध और नवीनीकरण का एक अनुष्ठान">Gavri of the Mewar Bhils – A Ritual of Resistance and Renewal</h1>
+            <p data-en="&quot;The true civilisation is not to be found in the cities and towns but in the villages of India.&quot; - Mahatma Gandhi" data-hi="&quot;सच्ची सभ्यता शहरों और कस्बों में नहीं बल्कि भारत के गाँवों में पाई जाती है।&quot; - महात्मा गांधी">&quot;The true civilisation is not to be found in the cities and towns but in the villages of India.&quot; - Mahatma Gandhi</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="read-time" id="readTime"></div>
+
+        <section id="introduction">
+            <h2 data-en="I. Introduction" data-hi="I. परिचय">I. Introduction</h2>
+            <ul>
+                <li data-en="<span class='highlight'>Gavri</span> is a <span class='highlight'>40-day folk ritual</span> celebrated annually by the <span class='highlight'>Bhil community</span> in the <span class='highlight'>Mewar region of Rajasthan</span>, mainly in <span class='highlight'>Udaipur and nearby districts</span>." data-hi="<span class='highlight'>गवरी</span> राजस्थान के <span class='highlight'>मेवाड़ क्षेत्र</span> में <span class='highlight'>भील समुदाय</span> द्वारा वार्षिक रूप से मनाया जाने वाला एक <span class='highlight'>40-दिवसीय लोक अनुष्ठान</span> है, मुख्य रूप से <span class='highlight'>उदयपुर और आसपास के जिलों</span> में।">The <span class="highlight">Gavri</span> is a <span class="highlight">40-day folk ritual</span> celebrated annually by the <span class="highlight">Bhil community</span> in the <span class="highlight">Mewar region of Rajasthan</span>, mainly in <span class="highlight">Udaipur and nearby districts</span>.</li>
+                <li data-en="It is marked by <span class='highlight'>khels</span> (dance-dramas), <span class='highlight'>songs</span>, and <span class='highlight'>ceremonial performances</span> to honour <span class='highlight'>Gorkhiya Mata</span>, an aspect of <span class='highlight'>Parvati</span>, considered the Bhils’ sister." data-hi="यह <span class='highlight'>खेलों</span> (नृत्य-नाटकों), <span class='highlight'>गीतों</span> और <span class='highlight'>औपचारिक प्रदर्शनों</span> द्वारा चिह्नित किया जाता है, जो <span class='highlight'>गोरखिया माता</span>, जो <span class='highlight'>पार्वती</span> का एक रूप हैं और भीलों की बहन मानी जाती हैं, को सम्मानित करने के लिए होता है।">It is marked by <span class="highlight">khels</span> (dance-dramas), <span class="highlight">songs</span>, and <span class="highlight">ceremonial performances</span> to honour <span class="highlight">Gorkhiya Mata</span>, an aspect of <span class="highlight">Parvati</span>, considered the Bhils’ sister.</li>
+                <li data-en="Celebrated after <span class='highlight'>Raksha Bandhan</span> (August full moon)." data-hi="<span class='highlight'>रक्षाबंधन</span> (अगस्त पूर्णिमा) के बाद मनाया जाता है।">Celebrated after <span class="highlight">Raksha Bandhan</span> (August full moon).</li>
+            </ul>
+        </section>
+
+        <section id="key-features">
+            <h2 data-en="II. Key Features" data-hi="II. मुख्य विशेषताएं">II. Key Features</h2>
+
+            <h3 data-en="1. Community and Belief" data-hi="1. समुदाय और विश्वास">1. Community and Belief</h3>
+            <ul>
+                <li data-en="Bhils trace lineage to <span class='highlight'>Lord Shiva and Goddess Parvati</span>." data-hi="भील <span class='highlight'>भगवान शिव और देवी पार्वती</span> से वंशज मानते हैं।">Bhils trace lineage to <span class="highlight">Lord Shiva and Goddess Parvati</span>.</li>
+                <li data-en="Festival symbolises their cultural assertion and sacred connection to divine ancestry." data-hi="यह त्योहार उनकी सांस्कृतिक दृढ़ता और दिव्य पूर्वजों से पवित्र संबंध का प्रतीक है।">Festival symbolises their cultural assertion and sacred connection to divine ancestry.</li>
+            </ul>
+
+            <h3 data-en="2. Performance Traditions" data-hi="2. प्रदर्शन परंपराएं">2. Performance Traditions</h3>
+            <ul>
+                <li data-en="Performed by <span class='highlight'>male-only troupes</span> (due to patriarchal norms), including <span class='highlight'>cross-dressed roles</span> representing women." data-hi="महिलाओं का प्रतिनिधित्व करने वाली <span class='highlight'>क्रॉस-ड्रेस्ड भूमिकाओं</span> सहित <span class='highlight'>केवल पुरुष मंडलियों</span> द्वारा प्रदर्शित किया जाता है (पितृसत्तात्मक मानदंडों के कारण)।">Performed by <span class="highlight">male-only troupes</span> (due to patriarchal norms), including <span class="highlight">cross-dressed roles</span> representing women.</li>
+                <li data-en="Performed across villages, especially where their <span class='highlight'>married daughters and sisters live</span>." data-hi="यह गांवों में, खासकर जहाँ उनकी <span class='highlight'>विवाहित बेटियां और बहनें रहती हैं</span>, प्रदर्शन किया जाता है।">Performed across villages, especially where their <span class="highlight">married daughters and sisters live</span>.</li>
+            </ul>
+
+            <h3 data-en="3. Themes and Symbolism" data-hi="3. विषय-वस्तु और प्रतीकवाद">3. Themes and Symbolism</h3>
+            <ul>
+                <li data-en="<span class='highlight'>Subversion of caste and class</span>: Kings, gods, and bureaucrats are parodied." data-hi="<span class='highlight'>जाति और वर्ग का तोड़-फोड़</span>: राजाओं, देवताओं और नौकरशाहों का उपहास किया जाता है।"><span class="highlight">Subversion of caste and class</span>: Kings, gods, and bureaucrats are parodied.</li>
+                <li data-en="<span class='highlight'>Rabelaisian carnivalesque</span>: Celebratory, humorous, anti-authoritarian, and egalitarian." data-hi="<span class='highlight'>रबेलेसियन कार्निवलस्क</span>: उत्सवपूर्ण, हास्यपूर्ण, सत्ता-विरोधी और समतावादी।"><span class="highlight">Rabelaisian carnivalesque</span>: Celebratory, humorous, anti-authoritarian, and egalitarian.</li>
+                <li data-en="Reflects <span class='highlight'>tribal resistance</span>, social commentary, and ecological reverence." data-hi="<span class='highlight'>आदिवासी प्रतिरोध</span>, सामाजिक टिप्पणी और पारिस्थितिक सम्मान को दर्शाता है।">Reflects <span class="highlight">tribal resistance</span>, social commentary, and ecological reverence.</li>
+            </ul>
+        </section>
+
+        <section id="social-cultural-significance">
+            <h2 data-en="III. Social and Cultural Significance" data-hi="III. सामाजिक और सांस्कृतिक महत्व">III. Social and Cultural Significance</h2>
+            <ul>
+                <li data-en="Assertion of <span class='highlight'>Bhil identity and sovereignty</span>." data-hi="<span class='highlight'>भील पहचान और संप्रभुता</span> का दावा।">Assertion of <span class="highlight">Bhil identity and sovereignty</span>.</li>
+                <li data-en="Transforms Bhils into <span class='highlight'>temporary deities</span>, breaking social stigmas (e.g., untouchability)." data-hi="भीलों को <span class='highlight'>अस्थायी देवताओं</span> में बदल देता है, सामाजिक कलंकों को तोड़ता है (जैसे, अस्पृश्यता)।">Transforms Bhils into <span class="highlight">temporary deities</span>, breaking social stigmas (e.g., untouchability).</li>
+                <li data-en="Promotes <span class='highlight'>gender expression and fluidity</span>, despite not allowing women to perform." data-hi="महिलाओं को प्रदर्शन करने की अनुमति न होने के बावजूद, <span class='highlight'>लैंगिक अभिव्यक्ति और तरलता</span> को बढ़ावा देता है।">Promotes <span class="highlight">gender expression and fluidity</span>, despite not allowing women to perform.</li>
+                <li data-en="Reaffirms <span class='highlight'>tribal ecological ethics</span>: many dramas warn against violating <span class='highlight'>nature or sovereignty</span>." data-hi="<span class='highlight'>आदिवासी पारिस्थितिक नैतिकता</span> की पुष्टि करता है: कई नाटक <span class='highlight'>प्रकृति या संप्रभुता</span> का उल्लंघन करने के खिलाफ चेतावनी देते हैं।">Reaffirms <span class="highlight">tribal ecological ethics</span>: many dramas warn against violating <span class="highlight">nature or sovereignty</span>.</li>
+            </ul>
+        </section>
+
+        <section id="oral-literature-drama">
+            <h2 data-en="IV. Oral Literature and Drama" data-hi="IV. मौखिक साहित्य और नाटक">IV. Oral Literature and Drama</h2>
+            <h3 data-en="Popular Plays:" data-hi="लोकप्रिय नाटक:">Popular Plays:</h3>
+            <ul>
+                <li data-en="<span class='highlight'>Badliya Hindwa</span> – Celebrates Bhil love for nature." data-hi="<span class='highlight'>बडलिया हिन्दवा</span> – प्रकृति के प्रति भीलों के प्रेम का जश्न मनाता है।"><span class="highlight">Badliya Hindwa</span> – Celebrates Bhil love for nature.</li>
+                <li data-en="<span class='highlight'>Bhilurana</span> – Chronicles Bhil resistance against <span class='highlight'>Mughals and British</span>." data-hi="<span class='highlight'>भीलूराणा</span> – <span class='highlight'>मुगलों और अंग्रेजों</span> के खिलाफ भील प्रतिरोध का इतिहास बताता है।"><span class="highlight">Bhilurana</span> – Chronicles Bhil resistance against <span class="highlight">Mughals and British</span>.</li>
+            </ul>
+        </section>
+
+        <section id="research-documentation">
+            <h2 data-en="V. Research and Documentation" data-hi="V. अनुसंधान और प्रलेखन">V. Research and Documentation</h2>
+            <ul>
+                <li data-en="Curated by <span class='highlight'>Aditi Mehta (IAS officer)</span>, based on <span class='highlight'>30 years of ethnographic research</span>." data-hi="<span class='highlight'>अदिति मेहता (IAS अधिकारी)</span> द्वारा क्यूरेट किया गया, जो <span class='highlight'>30 वर्षों के नृजातीय अनुसंधान</span> पर आधारित है।">Curated by <span class="highlight">Aditi Mehta (IAS officer)</span>, based on <span class="highlight">30 years of ethnographic research</span>.</li>
+                <li data-en="Documented in her <span class='highlight'>3-volume work</span>: <span class='highlight'>“Playing with the Goddess: Gavri of the Mewar Bhils.”</span>" data-hi="उनके <span class='highlight'>3-खंडों के कार्य</span> में दस्तावेजित: <span class='highlight'>“देवी के साथ खेलना: मेवाड़ भीलों की गवरी।”</span>">Documented in her <span class="highlight">3-volume work</span>: <span class="highlight">“Playing with the Goddess: Gavri of the Mewar Bhils.”</span></li>
+                <li data-en="Photographed by <span class='highlight'>Padma Shri Sudharak Olwe</span>, known for capturing social justice themes." data-hi="<span class='highlight'>पद्म श्री सुधाकर ओल्वे</span> द्वारा फोटो खींची गई, जो सामाजिक न्याय के विषयों को कैप्चर करने के लिए जाने जाते हैं।">Photographed by <span class="highlight">Padma Shri Sudharak Olwe</span>, known for capturing social justice themes.</li>
+            </ul>
+        </section>
+
+        <section id="relevance-upsc-syllabus">
+            <h2 data-en="VI. Relevance to UPSC Syllabus" data-hi="VI. यूपीएससी पाठ्यक्रम से प्रासंगिकता">VI. Relevance to UPSC Syllabus</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th data-en="Paper" data-hi="पेपर">Paper</th>
+                        <th data-en="Theme" data-hi="विषय">Theme</th>
+                        <th data-en="Relevance" data-hi="प्रासंगिकता">Relevance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-en="GS I" data-hi="जीएस I">GS I</td>
+                        <td data-en="Indian Culture" data-hi="भारतीय संस्कृति">Indian Culture</td>
+                        <td data-en="Folk traditions, Performing Arts, Tribal culture" data-hi="लोक परंपराएं, प्रदर्शन कलाएं, जनजातीय संस्कृति">Folk traditions, Performing Arts, Tribal culture</td>
+                    </tr>
+                    <tr>
+                        <td data-en="GS II" data-hi="जीएस II">GS II</td>
+                        <td data-en="Social Justice" data-hi="सामाजिक न्याय">Social Justice</td>
+                        <td data-en="Caste subversion, Gender roles in tribal society" data-hi="जाति का तोड़-फोड़, जनजातीय समाज में लैंगिक भूमिकाएं">Caste subversion, Gender roles in tribal society</td>
+                    </tr>
+                    <tr>
+                        <td data-en="Essay" data-hi="निबंध">Essay</td>
+                        <td data-en="Indian Society" data-hi="भारतीय समाज">Indian Society</td>
+                        <td data-en="Cultural resilience, Ritual as resistance" data-hi="सांस्कृतिक लचीलापन, प्रतिरोध के रूप में अनुष्ठान">Cultural resilience, Ritual as resistance</td>
+                    </tr>
+                    <tr>
+                        <td data-en="Ethics" data-hi="नैतिकता">Ethics</td>
+                        <td data-en="Integrity & Empathy" data-hi="अखंडता और सहानुभूति">Integrity & Empathy</td>
+                        <td data-en="Role of bureaucracy in cultural preservation" data-hi="सांस्कृतिक संरक्षण में नौकरशाही की भूमिका">Role of bureaucracy in cultural preservation</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="important-takeaways">
+            <h2 data-en="VII. Important Takeaways" data-hi="VII. महत्वपूर्ण निष्कर्ष">VII. Important Takeaways</h2>
+            <ul>
+                <li data-en="Gavri reflects <span class='highlight'>India's tribal pluralism and indigenous resistance</span>." data-hi="गवरी <span class='highlight'>भारत के आदिवासी बहुलवाद और स्वदेशी प्रतिरोध</span> को दर्शाता है।">Gavri reflects <span class="highlight">India's tribal pluralism and indigenous resistance</span>.</li>
+                <li data-en="Offers a <span class='highlight'>counter-narrative to mainstream caste-based hierarchies</span>." data-hi="मुख्यधारा की <span class='highlight'>जाति-आधारित पदानुक्रमों के लिए एक प्रति-कथा</span> प्रदान करता है।">Offers a <span class="highlight">counter-narrative to mainstream caste-based hierarchies</span>.</li>
+                <li data-en="Emphasises <span class='highlight'>cultural conservation through documentation and awareness</span>." data-hi="<span class='highlight'>प्रलेखन और जागरूकता के माध्यम से सांस्कृतिक संरक्षण</span> पर जोर देता है।">Emphasises <span class="highlight">cultural conservation through documentation and awareness</span>.</li>
+                <li data-en="Encourages <span class='highlight'>civil servants</span> to engage empathetically with grassroots cultural expressions." data-hi="<span class='highlight'>सिविल सेवकों</span> को जमीनी स्तर पर सांस्कृतिक अभिव्यक्तियों के साथ सहानुभूतिपूर्वक जुड़ने के लिए प्रोत्साहित करता है।">Encourages <span class="highlight">civil servants</span> to engage empathetically with grassroots cultural expressions.</li>
+            </ul>
+        </section>
+
+        <section id="conclusion">
+            <h2 data-en="VIII. Conclusion" data-hi="VIII. निष्कर्ष">VIII. Conclusion</h2>
+            <ul>
+                <li data-en="Gavri stands as a <span class='highlight'>living testimony of India’s tribal spiritual consciousness</span> and <span class='highlight'>social dynamism</span>." data-hi="गवरी <span class='highlight'>भारत की आदिवासी आध्यात्मिक चेतना</span> और <span class='highlight'>सामाजिक गतिशीलता</span> का एक जीवंत प्रमाण है।">Gavri stands as a <span class="highlight">living testimony of India’s tribal spiritual consciousness</span> and <span class="highlight">social dynamism</span>.</li>
+                <li data-en="As Aditi Mehta notes, such traditions inspire us to <span class='highlight'>“discover what our country really is.”</span>" data-hi="जैसा कि अदिति मेहता कहती हैं, ऐसी परंपराएं हमें <span class='highlight'>“हमारे देश वास्तव में क्या है”</span> को खोजने के लिए प्रेरित करती हैं।">As Aditi Mehta notes, such traditions inspire us to <span class="highlight">“discover what our country really is.”</span></li>
+            </ul>
+        </section>
+
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="index.html" class="back-home-button" data-en="Back to Home" data-hi="होम पर वापस जाएं">Back to Home</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p data-en="&copy; 2025 Indian Culture & Heritage. All rights reserved." data-hi="&copy; 2025 भारतीय संस्कृति और विरासत। सर्वाधिकार सुरक्षित।">&copy; 2025 Indian Culture & Heritage. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <button id="scrollToTopBtn" title="Go to top">⬆</button>
+
+    <script>
+        // Read Time Calculation
+        function calculateReadTime() {
+            const content = document.querySelector('.container').innerText;
+            const wordsPerMinute = 200; // Average reading speed
+            const wordCount = content.split(/\s+/).length;
+            const readTimeMinutes = Math.ceil(wordCount / wordsPerMinute);
+            const readTimeElement = document.getElementById('readTime');
+            if (readTimeMinutes <= 1) {
+                readTimeElement.textContent = `Reading Time: Less than 1 minute`;
+            } else {
+                readTimeElement.textContent = `Reading Time: ${readTimeMinutes} minutes`;
+            }
+        }
+
+        // Language Switch
+        const langSwitchBtn = document.getElementById('langSwitchBtn');
+        let currentLang = 'en'; // Default language
+
+        const translations = {
+            en: {
+                "Home": "Home",
+                "Donation": "Donation",
+                "Contact": "Contact",
+                "Gavri of the Mewar Bhils – A Ritual of Resistance and Renewal": "Gavri of the Mewar Bhils – A Ritual of Resistance and Renewal",
+                "&quot;The true civilisation is not to be found in the cities and towns but in the villages of India.&quot; - Mahatma Gandhi": "&quot;The true civilisation is not to be found in the cities and towns but in the villages of India.&quot; - Mahatma Gandhi",
+                "I. Introduction": "I. Introduction",
+                "The <span class='highlight'>Gavri</span> is a <span class='highlight'>40-day folk ritual</span> celebrated annually by the <span class='highlight'>Bhil community</span> in the <span class='highlight'>Mewar region of Rajasthan</span>, mainly in <span class='highlight'>Udaipur and nearby districts</span>.": "The <span class='highlight'>Gavri</span> is a <span class='highlight'>40-day folk ritual</span> celebrated annually by the <span class='highlight'>Bhil community</span> in the <span class='highlight'>Mewar region of Rajasthan</span>, mainly in <span class='highlight'>Udaipur and nearby districts</span>.",
+                "It is marked by <span class='highlight'>khels</span> (dance-dramas), <span class='highlight'>songs</span>, and <span class='highlight'>ceremonial performances</span> to honour <span class='highlight'>Gorkhiya Mata</span>, an aspect of <span class='highlight'>Parvati</span>, considered the Bhils’ sister.": "It is marked by <span class='highlight'>khels</span> (dance-dramas), <span class='highlight'>songs</span>, and <span class='highlight'>ceremonial performances</span> to honour <span class='highlight'>Gorkhiya Mata</span>, an aspect of <span class='highlight'>Parvati</span>, considered the Bhils’ sister.",
+                "Celebrated after <span class='highlight'>Raksha Bandhan</span> (August full moon).": "Celebrated after <span class='highlight'>Raksha Bandhan</span> (August full moon).",
+                "II. Key Features": "II. Key Features",
+                "1. Community and Belief": "1. Community and Belief",
+                "Bhils trace lineage to <span class='highlight'>Lord Shiva and Goddess Parvati</span>.": "Bhils trace lineage to <span class='highlight'>Lord Shiva and Goddess Parvati</span>.",
+                "Festival symbolises their cultural assertion and sacred connection to divine ancestry.": "Festival symbolises their cultural assertion and sacred connection to divine ancestry.",
+                "2. Performance Traditions": "2. Performance Traditions",
+                "Performed by <span class='highlight'>male-only troupes</span> (due to patriarchal norms), including <span class='highlight'>cross-dressed roles</span> representing women.": "Performed by <span class='highlight'>male-only troupes</span> (due to patriarchal norms), including <span class='highlight'>cross-dressed roles</span> representing women.",
+                "Performed across villages, especially where their <span class='highlight'>married daughters and sisters live</span>.": "Performed across villages, especially where their <span class='highlight'>married daughters and sisters live</span>.",
+                "3. Themes and Symbolism": "3. Themes and Symbolism",
+                "<span class='highlight'>Subversion of caste and class</span>: Kings, gods, and bureaucrats are parodied.": "<span class='highlight'>Subversion of caste and class</span>: Kings, gods, and bureaucrats are parodied.",
+                "<span class='highlight'>Rabelaisian carnivalesque</span>: Celebratory, humorous, anti-authoritarian, and egalitarian.": "<span class='highlight'>Rabelaisian carnivalesque</span>: Celebratory, humorous, anti-authoritarian, and egalitarian.",
+                "Reflects <span class='highlight'>tribal resistance</span>, social commentary, and ecological reverence.": "Reflects <span class='highlight'>tribal resistance</span>, social commentary, and ecological reverence.",
+                "III. Social and Cultural Significance": "III. Social and Cultural Significance",
+                "Assertion of <span class='highlight'>Bhil identity and sovereignty</span>.": "Assertion of <span class='highlight'>Bhil identity and sovereignty</span>.",
+                "Transforms Bhils into <span class='highlight'>temporary deities</span>, breaking social stigmas (e.g., untouchability).": "Transforms Bhils into <span class='highlight'>temporary deities</span>, breaking social stigmas (e.g., untouchability).",
+                "Promotes <span class='highlight'>gender expression and fluidity</span>, despite not allowing women to perform.": "Promotes <span class='highlight'>gender expression and fluidity</span>, despite not allowing women to perform.",
+                "Reaffirms <span class='highlight'>tribal ecological ethics</span>: many dramas warn against violating <span class='highlight'>nature or sovereignty</span>.": "Reaffirms <span class='highlight'>tribal ecological ethics</span>: many dramas warn against violating <span class='highlight'>nature or sovereignty</span>.",
+                "IV. Oral Literature and Drama": "IV. Oral Literature and Drama",
+                "Popular Plays:": "Popular Plays:",
+                "<span class='highlight'>Badliya Hindwa</span> – Celebrates Bhil love for nature.": "<span class='highlight'>Badliya Hindwa</span> – Celebrates Bhil love for nature.",
+                "<span class='highlight'>Bhilurana</span> – Chronicles Bhil resistance against <span class='highlight'>Mughals and British</span>.": "<span class='highlight'>Bhilurana</span> – Chronicles Bhil resistance against <span class='highlight'>Mughals and British</span>.",
+                "V. Research and Documentation": "V. Research and Documentation",
+                "Curated by <span class='highlight'>Aditi Mehta (IAS officer)</span>, based on <span class='highlight'>30 years of ethnographic research</span>.": "Curated by <span class='highlight'>Aditi Mehta (IAS officer)</span>, based on <span class='highlight'>30 years of ethnographic research</span>.",
+                "Documented in her <span class='highlight'>3-volume work</span>: <span class='highlight'>“Playing with the Goddess: Gavri of the Mewar Bhils.”</span>": "Documented in her <span class='highlight'>3-volume work</span>: <span class='highlight'>“Playing with the Goddess: Gavri of the Mewar Bhils.”</span>",
+                "Photographed by <span class='highlight'>Padma Shri Sudharak Olwe</span>, known for capturing social justice themes.": "Photographed by <span class='highlight'>Padma Shri Sudharak Olwe</span>, known for capturing social justice themes.",
+                "VI. Relevance to UPSC Syllabus": "VI. Relevance to UPSC Syllabus",
+                "Paper": "Paper",
+                "Theme": "Theme",
+                "Relevance": "Relevance",
+                "GS I": "GS I",
+                "Indian Culture": "Indian Culture",
+                "Folk traditions, Performing Arts, Tribal culture": "Folk traditions, Performing Arts, Tribal culture",
+                "GS II": "GS II",
+                "Social Justice": "Social Justice",
+                "Caste subversion, Gender roles in tribal society": "Caste subversion, Gender roles in tribal society",
+                "Essay": "Essay",
+                "Indian Society": "Indian Society",
+                "Cultural resilience, Ritual as resistance": "Cultural resilience, Ritual as resistance",
+                "Ethics": "Ethics",
+                "Integrity & Empathy": "Integrity & Empathy",
+                "Role of bureaucracy in cultural preservation": "Role of bureaucracy in cultural preservation",
+                "VII. Important Takeaways": "VII. Important Takeaways",
+                "Gavri reflects <span class='highlight'>India's tribal pluralism and indigenous resistance</span>.": "Gavri reflects <span class='highlight'>India's tribal pluralism and indigenous resistance</span>.",
+                "Offers a <span class='highlight'>counter-narrative to mainstream caste-based hierarchies</span>.": "Offers a <span class='highlight'>counter-narrative to mainstream caste-based hierarchies</span>.",
+                "Emphasises <span class='highlight'>cultural conservation through documentation and awareness</span>.": "Emphasises <span class='highlight'>cultural conservation through documentation and awareness</span>.",
+                "Encourages <span class='highlight'>civil servants</span> to engage empathetically with grassroots cultural expressions.": "Encourages <span class='highlight'>civil servants</span> to engage empathetically with grassroots cultural expressions.",
+                "VIII. Conclusion": "VIII. Conclusion",
+                "Gavri stands as a <span class='highlight'>living testimony of India’s tribal spiritual consciousness</span> and <span class='highlight'>social dynamism</span>.": "Gavri stands as a <span class='highlight'>living testimony of India’s tribal spiritual consciousness</span> and <span class='highlight'>social dynamism</span>.",
+                "As Aditi Mehta notes, such traditions inspire us to <span class='highlight'>“discover what our country really is.”</span>": "As Aditi Mehta notes, such traditions inspire us to <span class='highlight'>“discover what our country really is.”</span>",
+                "Back to Home": "Back to Home",
+                "&copy; 2025 Indian Culture & Heritage. All rights reserved.": "&copy; 2025 Indian Culture & Heritage. All rights reserved."
+            },
+            hi: {
+                "Home": "होम",
+                "Donation": "दान",
+                "Contact": "संपर्क करें",
+                "Gavri of the Mewar Bhils – A Ritual of Resistance and Renewal": "मेवाड़ के भीलों की गवरी – प्रतिरोध और नवीनीकरण का एक अनुष्ठान",
+                "&quot;The true civilisation is not to be found in the cities and towns but in the villages of India.&quot; - Mahatma Gandhi": "&quot;सच्ची सभ्यता शहरों और कस्बों में नहीं बल्कि भारत के गाँवों में पाई जाती है।&quot; - महात्मा गांधी",
+                "I. Introduction": "I. परिचय",
+                "The <span class='highlight'>Gavri</span> is a <span class='highlight'>40-day folk ritual</span> celebrated annually by the <span class='highlight'>Bhil community</span> in the <span class='highlight'>Mewar region of Rajasthan</span>, mainly in <span class='highlight'>Udaipur and nearby districts</span>.": "<span class='highlight'>गवरी</span> राजस्थान के <span class='highlight'>मेवाड़ क्षेत्र</span> में <span class='highlight'>भील समुदाय</span> द्वारा वार्षिक रूप से मनाया जाने वाला एक <span class='highlight'>40-दिवसीय लोक अनुष्ठान</span> है, मुख्य रूप से <span class='highlight'>उदयपुर और आसपास के जिलों</span> में।",
+                "It is marked by <span class='highlight'>khels</span> (dance-dramas), <span class='highlight'>songs</span>, and <span class='highlight'>ceremonial performances</span> to honour <span class='highlight'>Gorkhiya Mata</span>, an aspect of <span class='highlight'>Parvati</span>, considered the Bhils’ sister.": "यह <span class='highlight'>खेलों</span> (नृत्य-नाटकों), <span class='highlight'>गीतों</span> और <span class='highlight'>औपचारिक प्रदर्शनों</span> द्वारा चिह्नित किया जाता है, जो <span class='highlight'>गोरखिया माता</span>, जो <span class='highlight'>पार्वती</span> का एक रूप हैं और भीलों की बहन मानी जाती हैं, को सम्मानित करने के लिए होता है।",
+                "Celebrated after <span class='highlight'>Raksha Bandhan</span> (August full moon).": "<span class='highlight'>रक्षाबंधन</span> (अगस्त पूर्णिमा) के बाद मनाया जाता है।",
+                "II. Key Features": "II. मुख्य विशेषताएं",
+                "1. Community and Belief": "1. समुदाय और विश्वास",
+                "Bhils trace lineage to <span class='highlight'>Lord Shiva and Goddess Parvati</span>.": "भील <span class='highlight'>भगवान शिव और देवी पार्वती</span> से वंशज मानते हैं।",
+                "Festival symbolises their cultural assertion and sacred connection to divine ancestry.": "यह त्योहार उनकी सांस्कृतिक दृढ़ता और दिव्य पूर्वजों से पवित्र संबंध का प्रतीक है।",
+                "2. Performance Traditions": "2. प्रदर्शन परंपराएं",
+                "Performed by <span class='highlight'>male-only troupes</span> (due to patriarchal norms), including <span class='highlight'>cross-dressed roles</span> representing women.": "महिलाओं का प्रतिनिधित्व करने वाली <span class='highlight'>क्रॉस-ड्रेस्ड भूमिकाओं</span> सहित <span class='highlight'>केवल पुरुष मंडलियों</span> द्वारा प्रदर्शित किया जाता है (पितृसत्तात्मक मानदंडों के कारण)।",
+                "Performed across villages, especially where their <span class='highlight'>married daughters and sisters live</span>.": "यह गांवों में, खासकर जहाँ उनकी <span class='highlight'>विवाहित बेटियां और बहनें रहती हैं</span>, प्रदर्शन किया जाता है।",
+                "3. Themes and Symbolism": "3. विषय-वस्तु और प्रतीकवाद",
+                "<span class='highlight'>Subversion of caste and class</span>: Kings, gods, and bureaucrats are parodied.": "<span class='highlight'>जाति और वर्ग का तोड़-फोड़</span>: राजाओं, देवताओं और नौकरशाहों का उपहास किया जाता है।",
+                "<span class='highlight'>Rabelaisian carnivalesque</span>: Celebratory, humorous, anti-authoritarian, and egalitarian.": "<span class='highlight'>रबेलेसियन कार्निवलस्क</span>: उत्सवपूर्ण, हास्यपूर्ण, सत्ता-विरोधी और समतावादी।",
+                "Reflects <span class='highlight'>tribal resistance</span>, social commentary, and ecological reverence.": "<span class='highlight'>आदिवासी प्रतिरोध</span>, सामाजिक टिप्पणी और पारिस्थितिक सम्मान को दर्शाता है।",
+                "III. Social and Cultural Significance": "III. सामाजिक और सांस्कृतिक महत्व",
+                "Assertion of <span class='highlight'>Bhil identity and sovereignty</span>.": "<span class='highlight'>भील पहचान और संप्रभुता</span> का दावा।",
+                "Transforms Bhils into <span class='highlight'>temporary deities</span>, breaking social stigmas (e.g., untouchability).": "भीलों को <span class='highlight'>अस्थायी देवताओं</span> में बदल देता है, सामाजिक कलंकों को तोड़ता है (जैसे, अस्पृश्यता)।",
+                "Promotes <span class='highlight'>gender expression and fluidity</span>, despite not allowing women to perform.": "महिलाओं को प्रदर्शन करने की अनुमति न होने के बावजूद, <span class='highlight'>लैंगिक अभिव्यक्ति और तरलता</span> को बढ़ावा देता है।",
+                "Reaffirms <span class='highlight'>tribal ecological ethics</span>: many dramas warn against violating <span class='highlight'>nature or sovereignty</span>.": "<span class='highlight'>आदिवासी पारिस्थितिक नैतिकता</span> की पुष्टि करता है: कई नाटक <span='highlight'>प्रकृति या संप्रभुता</span> का उल्लंघन करने के खिलाफ चेतावनी देते हैं।",
+                "IV. Oral Literature and Drama": "IV. मौखिक साहित्य और नाटक",
+                "Popular Plays:": "लोकप्रिय नाटक:",
+                "<span class='highlight'>Badliya Hindwa</span> – Celebrates Bhil love for nature.": "<span class='highlight'>बडलिया हिन्दवा</span> – प्रकृति के प्रति भीलों के प्रेम का जश्न मनाता है।",
+                "<span class='highlight'>Bhilurana</span> – Chronicles Bhil resistance against <span class='highlight'>Mughals and British</span>.": "<span class='highlight'>भीलूराणा</span> – <span class='highlight'>मुगलों और अंग्रेजों</span> के खिलाफ भील प्रतिरोध का इतिहास बताता है।",
+                "V. Research and Documentation": "V. अनुसंधान और प्रलेखन",
+                "Curated by <span class='highlight'>Aditi Mehta (IAS officer)</span>, based on <span class='highlight'>30 years of ethnographic research</span>.": "<span class='highlight'>अदिति मेहता (IAS अधिकारी)</span> द्वारा क्यूरेट किया गया, जो <span class='highlight'>30 वर्षों के नृजातीय अनुसंधान</span> पर आधारित है।",
+                "Documented in her <span class='highlight'>3-volume work</span>: <span class='highlight'>“Playing with the Goddess: Gavri of the Mewar Bhils.”</span>": "उनके <span class='highlight'>3-खंडों के कार्य</span> में दस्तावेजित: <span class='highlight'>“देवी के साथ खेलना: मेवाड़ भीलों की गवरी।”</span>",
+                "Photographed by <span class='highlight'>Padma Shri Sudharak Olwe</span>, known for capturing social justice themes.": "<span class='highlight'>पद्म श्री सुधाकर ओल्वे</span> द्वारा फोटो खींची गई, जो सामाजिक न्याय के विषयों को कैप्चर करने के लिए जाने जाते हैं।",
+                "VI. Relevance to UPSC Syllabus": "VI. यूपीएससी पाठ्यक्रम से प्रासंगिकता",
+                "Paper": "पेपर",
+                "Theme": "विषय",
+                "Relevance": "प्रासंगिकता",
+                "GS I": "जीएस I",
+                "Indian Culture": "भारतीय संस्कृति",
+                "Folk traditions, Performing Arts, Tribal culture": "लोक परंपराएं, प्रदर्शन कलाएं, जनजातीय संस्कृति",
+                "GS II": "जीएस II",
+                "Social Justice": "सामाजिक न्याय",
+                "Caste subversion, Gender roles in tribal society": "जाति का तोड़-फोड़, जनजातीय समाज में लैंगिक भूमिकाएं",
+                "Essay": "निबंध",
+                "Indian Society": "भारतीय समाज",
+                "Cultural resilience, Ritual as resistance": "सांस्कृतिक लचीलापन, प्रतिरोध के रूप में अनुष्ठान",
+                "Ethics": "नैतिकता",
+                "Integrity & Empathy": "अखंडता और सहानुभूति",
+                "Role of bureaucracy in cultural preservation": "सांस्कृतिक संरक्षण में नौकरशाही की भूमिका",
+                "VII. Important Takeaways": "VII. महत्वपूर्ण निष्कर्ष",
+                "Gavri reflects <span class='highlight'>India's tribal pluralism and indigenous resistance</span>.": "गवरी <span class='highlight'>भारत के आदिवासी बहुलवाद और स्वदेशी प्रतिरोध</span> को दर्शाता है।",
+                "Offers a <span class='highlight'>counter-narrative to mainstream caste-based hierarchies</span>.": "मुख्यधारा की <span class='highlight'>जाति-आधारित पदानुक्रमों के लिए एक प्रति-कथा</span> प्रदान करता है।",
+                "Emphasises <span class='highlight'>cultural conservation through documentation and awareness</span>.": "<span class='highlight'>प्रलेखन और जागरूकता के माध्यम से सांस्कृतिक संरक्षण</span> पर जोर देता है।",
+                "Encourages <span class='highlight'>civil servants</span> to engage empathetically with grassroots cultural expressions.": "<span class='highlight'>सिविल सेवकों</span> को जमीनी स्तर पर सांस्कृतिक अभिव्यक्तियों के साथ सहानुभूतिपूर्वक जुड़ने के लिए प्रोत्साहित करता है।",
+                "VIII. Conclusion": "VIII. निष्कर्ष",
+                "Gavri stands as a <span class='highlight'>living testimony of India’s tribal spiritual consciousness</span> and <span class='highlight'>social dynamism</span>.": "गवरी <span class='highlight'>भारत की आदिवासी आध्यात्मिक चेतना</span> और <span class='highlight'>सामाजिक गतिशीलता</span> का एक जीवंत प्रमाण है।",
+                "As Aditi Mehta notes, such traditions inspire us to <span class='highlight'>“discover what our country really is.”</span>": "जैसा कि अदिति मेहता कहती हैं, ऐसी परंपराएं हमें <span class='highlight'>“हमारे देश वास्तव में क्या है”</span> को खोजने के लिए प्रेरित करती हैं।",
+                "Back to Home": "होम पर वापस जाएं",
+                "&copy; 2025 Indian Culture & Heritage. All rights reserved.": "&copy; 2025 भारतीय संस्कृति और विरासत। सर्वाधिकार सुरक्षित।"
+            }
+        };
+
+        function setLanguage(lang) {
+            document.querySelectorAll('[data-en]').forEach(element => {
+                const enHtml = element.getAttribute('data-en');
+                const hiHtml = element.getAttribute('data-hi');
+                element.innerHTML = (lang === 'en') ? enHtml : hiHtml;
+            });
+            langSwitchBtn.textContent = (lang === 'en') ? 'हिंदी' : 'English';
+            currentLang = lang;
+        }
+
+        langSwitchBtn.addEventListener('click', () => {
+            setLanguage(currentLang === 'en' ? 'hi' : 'en');
+        });
+
+        // Initialize with English
+        setLanguage('en');
+
+        // Scroll to Top Button
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+        window.onscroll = function() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                scrollToTopBtn.style.display = "flex";
+            } else {
+                scrollToTopBtn.style.display = "none";
+            }
+        };
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Animate sections on scroll
+        const sections = document.querySelectorAll('section');
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const sectionObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            sectionObserver.observe(section);
+        });
+
+        document.addEventListener('DOMContentLoaded', calculateReadTime);
+    </script>
+</body>
+</html>

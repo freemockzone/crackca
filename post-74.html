@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adopt Formalisation to Power Productivity Growth</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700&display=swap');
+
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #007bff;
+            --text-color: #333;
+            --bg-color: #f4f7f6;
+            --hover-bg: #e0f2f7;
+            --border-color: #ddd;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: var(--primary-color);
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-right: 25px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #d1e7ff;
+        }
+
+        /* Language Switch */
+        .language-switch {
+            position: relative;
+            width: 60px;
+            height: 30px;
+            background-color: #ccc;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .language-switch.active {
+            background-color: #28a745;
+        }
+
+        .language-switch .slider {
+            position: absolute;
+            width: 26px;
+            height: 26px;
+            background-color: white;
+            border-radius: 50%;
+            top: 2px;
+            left: 2px;
+            transition: transform 0.3s;
+        }
+
+        .language-switch.active .slider {
+            transform: translateX(30px);
+        }
+
+        .language-switch .label {
+            position: absolute;
+            color: white;
+            font-size: 0.8em;
+            line-height: 30px;
+            padding: 0 8px;
+            pointer-events: none;
+        }
+
+        .language-switch .label.en {
+            left: 5px;
+            opacity: 1;
+        }
+
+        .language-switch .label.hi {
+            right: 5px;
+            opacity: 0;
+        }
+
+        .language-switch.active .label.en {
+            opacity: 0;
+        }
+
+        .language-switch.active .label.hi {
+            opacity: 1;
+        }
+
+        /* Post Content */
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 2.2em;
+        }
+
+        h2 {
+            color: var(--secondary-color);
+            margin-top: 30px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 5px;
+            font-size: 1.6em;
+        }
+
+        h3 {
+            color: var(--primary-color);
+            margin-top: 20px;
+            font-size: 1.3em;
+        }
+
+        p, ul, table {
+            margin-bottom: 15px;
+            font-size: 1.05em;
+        }
+
+        ul {
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        li:hover {
+            background-color: var(--hover-bg);
+            border-radius: 4px;
+            padding-left: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: var(--hover-bg);
+        }
+
+        .source-info {
+            font-style: italic;
+            color: #666;
+            margin-top: 10px;
+            text-align: right;
+            border-top: 1px dashed var(--border-color);
+            padding-top: 10px;
+        }
+
+        .caveat {
+            background-color: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 5px;
+            color: #856404;
+        }
+
+        .read-time {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .back-to-home {
+            display: block;
+            width: fit-content;
+            margin: 30px auto 10px auto;
+            padding: 12px 25px;
+            background-color: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .back-to-home:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        /* Floating Top Button */
+        #scrollToTopBtn {
+            display: none;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 99;
+            font-size: 24px;
+            border: none;
+            outline: none;
+            background-color: var(--primary-color);
+            color: white;
+            cursor: pointer;
+            padding: 15px 20px;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        #scrollToTopBtn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
+
+            nav .nav-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul {
+                margin-top: 15px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul li {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+
+            .language-switch {
+                margin-top: 15px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            h2 {
+                font-size: 1.4em;
+            }
+
+            h3 {
+                font-size: 1.1em;
+            }
+
+            table, th, td {
+                display: block;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            th {
+                text-align: center;
+            }
+
+            td {
+                text-align: right;
+                position: relative;
+                padding-left: 50%;
+            }
+
+            td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 0;
+                width: 45%;
+                padding-left: 10px;
+                font-weight: bold;
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <ul>
+                <li><a href="index.html" data-lang-en="Home" data-lang-hi="होम">Home</a></li>
+                <li><a href="donation.html" data-lang-en="Donation" data-lang-hi="दान">Donation</a></li>
+                <li><a href="contact.html" data-lang-en="Contact" data-lang-hi="संपर्क">Contact</a></li>
+            </ul>
+            <div class="language-switch" id="languageSwitch">
+                <div class="slider"></div>
+                <span class="label en">EN</span>
+                <span class="label hi">HI</span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <p class="source-info" data-lang-en="Source: The Hindu | Date: July 30, 2025 | Category: Economy, Labour, Manufacturing" data-lang-hi="स्रोत: द हिंदू | तिथि: 30 जुलाई, 2025 | श्रेणी: अर्थव्यवस्था, श्रम, विनिर्माण">Source: The Hindu | Date: July 30, 2025 | Category: Economy, Labour, Manufacturing</p>
+        <h1 data-lang-en="Adopt Formalisation to Power Productivity Growth" data-lang-hi="उत्पादकता वृद्धि को शक्ति देने के लिए औपचारिकीकरण अपनाएं">Adopt Formalisation to Power Productivity Growth</h1>
+        <p class="read-time" data-lang-en="Read Time: <span id='readTime'></span> minutes" data-lang-hi="पढ़ने का समय: <span id='readTime'></span> मिनट">Read Time: <span id='readTime'></span> minutes</p>
+
+        <div class="main-article-content">
+            <h2 data-lang-en="Context" data-lang-hi="संदर्भ">Context</h2>
+            <ul>
+                <li data-lang-en="India's formal manufacturing sector is witnessing a rising trend of informalisation via contractualisation." data-lang-hi="भारत के औपचारिक विनिर्माण क्षेत्र में संविदाकरण के माध्यम से अनौपचारिकीकरण का बढ़ता चलन देखा जा रहा है।">India's formal manufacturing sector is witnessing a rising trend of informalisation via contractualisation.</li>
+                <li data-lang-en="This shift is affecting labour productivity, job quality, and long-term growth prospects." data-lang-hi="यह बदलाव श्रम उत्पादकता, नौकरी की गुणवत्ता और दीर्घकालिक विकास की संभावनाओं को प्रभावित कर रहा है।">This shift is affecting labour productivity, job quality, and long-term growth prospects.</li>
+                <li data-lang-en="The issue gains urgency as India seeks to become a global manufacturing hub." data-lang-hi="भारत के वैश्विक विनिर्माण केंद्र बनने की दिशा में यह मुद्दा अधिक महत्वपूर्ण हो जाता है।">The issue gains urgency as India seeks to become a global manufacturing hub.</li>
+            </ul>
+
+            <h2 data-lang-en="Rising Contractualisation: The Trend" data-lang-hi="बढ़ता संविदाकरण: प्रवृत्ति">Rising Contractualisation: The Trend</h2>
+            <ul>
+                <li data-lang-en="Contract labour share rose from 20% (1999-2000) to 40.7% (2022-23) in manufacturing sector." data-lang-hi="विनिर्माण क्षेत्र में संविदा श्रम का हिस्सा 20% (1999-2000) से बढ़कर 40.7% (2022-23) हो गया।">Contract labour share rose from 20% (1999-2000) to 40.7% (2022-23) in manufacturing sector.</li>
+                <li data-lang-en="This shift spans all industries — small, medium, and large enterprises." data-lang-hi="यह बदलाव सभी उद्योगों — छोटे, मध्यम और बड़े उद्यमों में फैला हुआ है।">This shift spans all industries — small, medium, and large enterprises.</li>
+            </ul>
+
+            <h2 data-lang-en="Problems with Contractualisation" data-lang-hi="संविदाकरण की समस्याएँ">Problems with Contractualisation</h2>
+            <h3><span data-lang-en="1. Exploitation of Workers" data-lang-hi="1. श्रमिकों का शोषण">1. Exploitation of Workers</span></h3>
+            <p data-lang-en="Contract workers often lack:" data-lang-hi="संविदा श्रमिकों में अक्सर कमी होती है:">Contract workers often lack:</p>
+            <ul>
+                <li data-lang-en="Job security" data-lang-hi="नौकरी की सुरक्षा">Job security</li>
+                <li data-lang-en="Core labour protections under Industrial Disputes Act, 1947" data-lang-hi="औद्योगिक विवाद अधिनियम, 1947 के तहत मुख्य श्रम सुरक्षा">Core labour protections under Industrial Disputes Act, 1947</li>
+                <li data-lang-en="Bargaining power" data-lang-hi="सौदेबाजी की शक्ति">Bargaining power</li>
+            </ul>
+            <h3><span data-lang-en="2. Wage Disparities" data-lang-hi="2. वेतन विसंगतियाँ">2. Wage Disparities</span></h3>
+            <p data-lang-en="Contract worker wages (2018-19):" data-lang-hi="संविदा श्रमिक वेतन (2018-19):">Contract worker wages (2018-19):</p>
+            <ul>
+                <li data-lang-en="14.47% lower than regular workers" data-lang-hi="नियमित श्रमिकों की तुलना में 14.47% कम">14.47% lower than regular workers</li>
+                <li data-lang-en="Gaps by enterprise size:" data-lang-hi="उद्यम के आकार के अनुसार अंतर:">Gaps by enterprise size:
+                    <ul>
+                        <li data-lang-en="Large: 31% lower" data-lang-hi="बड़े: 31% कम">Large: 31% lower</li>
+                        <li data-lang-en="Medium: 23%" data-lang-hi="मध्यम: 23%">Medium: 23%</li>
+                        <li data-lang-en="Small: 12%" data-lang-hi="छोटे: 12%">Small: 12%</li>
+                    </ul>
+                </li>
+                <li data-lang-en="Employer labour cost for contract workers:" data-lang-hi="संविदा श्रमिकों के लिए नियोक्ता की श्रम लागत:">Employer labour cost for contract workers:
+                    <ul>
+                        <li data-lang-en="24% lower on average" data-lang-hi="औसतन 24% कम">24% lower on average</li>
+                        <li data-lang-en="50–85% lower in some industries" data-lang-hi="कुछ उद्योगों में 50–85% कम">50–85% lower in some industries</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h2 data-lang-en="Impact on Productivity" data-lang-hi="उत्पादकता पर प्रभाव">Impact on Productivity</h2>
+            <h3><span data-lang-en="1. Labour Productivity Gap" data-lang-hi="1. श्रम उत्पादकता अंतर">1. Labour Productivity Gap</span></h3>
+            <p data-lang-en="Contract Labour-Intensive (CLI) vs Regular Labour-Intensive (RLI) enterprises:" data-lang-hi="संविदा श्रम-गहन (CLI) बनाम नियमित श्रम-गहन (RLI) उद्यम:">Contract Labour-Intensive (CLI) vs Regular Labour-Intensive (RLI) enterprises:</p>
+            <ul>
+                <li data-lang-en="CLI productivity: 31% lower" data-lang-hi="CLI उत्पादकता: 31% कम">CLI productivity: 31% lower</li>
+                <li data-lang-en="Small enterprises (<100 workers): 36% lower" data-lang-hi="छोटे उद्यम (<100 श्रमिक): 36% कम">Small enterprises (&lt;100 workers): 36% lower</li>
+                <li data-lang-en="Medium enterprises (100–300 workers): 23% lower" data-lang-hi="मध्यम उद्यम (100–300 श्रमिक): 23% कम">Medium enterprises (100–300 workers): 23% lower</li>
+                <li data-lang-en="Labour-intensive CLI enterprises: 42% lower" data-lang-hi="श्रम-गहन CLI उद्यम: 42% कम">Labour-intensive CLI enterprises: 42% lower</li>
+            </ul>
+            <h3><span data-lang-en="2. Underlying Causes" data-lang-hi="2. अंतर्निहित कारण">2. Underlying Causes</span></h3>
+            <ul>
+                <li data-lang-en="Short-term contracts → high labour turnover →" data-lang-hi="अल्पकालिक अनुबंध → उच्च श्रम टर्नओवर →">Short-term contracts → high labour turnover →</li>
+                <li data-lang-en="↓ training & skill investment" data-lang-hi="↓ प्रशिक्षण और कौशल निवेश">↓ training & skill investment</li>
+                <li data-lang-en="↓ innovation" data-lang-hi="↓ नवाचार">↓ innovation</li>
+                <li data-lang-en="Principal-agent problem: Third-party contractors' short-term interests clash with employers’ long-term goals" data-lang-hi="प्रिंसिपल-एजेंट समस्या: तीसरे पक्ष के ठेकेदारों के अल्पकालिक हित नियोक्ताओं के दीर्घकालिक लक्ष्यों से टकराते हैं">Principal-agent problem: Third-party contractors' short-term interests clash with employers’ long-term goals</li>
+            </ul>
+
+            <h2 data-lang-en="Exceptions to Negative Trends" data-lang-hi="नकारात्मक प्रवृत्तियों के अपवाद">Exceptions to Negative Trends</h2>
+            <p data-lang-en="High-Productivity CLI Segments:" data-lang-hi="उच्च-उत्पादकता CLI खंड:">High-Productivity CLI Segments:</p>
+            <ul>
+                <li data-lang-en="High-skill CLI enterprises:" data-lang-hi="उच्च-कौशल CLI उद्यम:">High-skill CLI enterprises:
+                    <ul>
+                        <li data-lang-en="5% higher productivity than low-skill CLI" data-lang-hi="निम्न-कौशल CLI की तुलना में 5% अधिक उत्पादकता">5% higher productivity than low-skill CLI</li>
+                        <li data-lang-en="Large high-skill CLI: 20% higher productivity" data-lang-hi="बड़े उच्च-कौशल CLI: 20% अधिक उत्पादकता">Large high-skill CLI: 20% higher productivity</li>
+                    </ul>
+                </li>
+                <li data-lang-en="Capital-intensive CLI (large):" data-lang-hi="पूंजी-गहन CLI (बड़े):">Capital-intensive CLI (large):
+                    <ul>
+                        <li data-lang-en="17% productivity gain" data-lang-hi="17% उत्पादकता लाभ">17% productivity gain</li>
+                    </ul>
+                </li>
+            </ul>
+            <p class="caveat" data-lang-en="🔎 Caveat: These exceptions make up only 20% of formal manufacturing; the rest are negatively affected." data-lang-hi="🔎 चेतावनी: ये अपवाद औपचारिक विनिर्माण का केवल 20% हिस्सा बनाते हैं; बाकी नकारात्मक रूप से प्रभावित होते हैं।">🔎 Caveat: These exceptions make up only 20% of formal manufacturing; the rest are negatively affected.</p>
+
+            <h2 data-lang-en="Government Policy & Reform" data-lang-hi="सरकारी नीति और सुधार">Government Policy & Reform</h2>
+            <h3><span data-lang-en="1. Labour Code on Industrial Relations (2020)" data-lang-hi="1. औद्योगिक संबंध पर श्रम संहिता (2020)">1. Labour Code on Industrial Relations (2020)</span></h3>
+            <p data-lang-en="Provisions:" data-lang-hi="प्रावधान:">Provisions:</p>
+            <ul>
+                <li data-lang-en="Allows direct hiring on fixed-term contracts (no third party)" data-lang-hi="निश्चित अवधि के अनुबंधों पर सीधी भर्ती की अनुमति देता है (कोई तीसरा पक्ष नहीं)">Allows direct hiring on fixed-term contracts (no third party)</li>
+                <li data-lang-en="Mandates basic statutory benefits for non-permanent workers" data-lang-hi="गैर-स्थायी श्रमिकों के लिए बुनियादी सांविधिक लाभ अनिवार्य करता है">Mandates basic statutory benefits for non-permanent workers</li>
+            </ul>
+            <p data-lang-en="Concerns:" data-lang-hi="चिंताएं:">Concerns:</p>
+            <ul>
+                <li data-lang-en="May increase informalisation and weaken job quality if not implemented carefully" data-lang-hi="यदि सावधानी से लागू नहीं किया गया तो अनौपचारिकीकरण बढ़ा सकता है और नौकरी की गुणवत्ता कमजोर कर सकता है">May increase informalisation and weaken job quality if not implemented carefully</li>
+            </ul>
+            <h3><span data-lang-en="2. Policy Suggestions" data-lang-hi="2. नीतिगत सुझाव">2. Policy Suggestions</span></h3>
+            <ul>
+                <li data-lang-en="Incentivise longer fixed-term contracts:" data-lang-hi="लंबे निश्चित अवधि के अनुबंधों को प्रोत्साहित करें:">Incentivise longer fixed-term contracts:
+                    <ul>
+                        <li data-lang-en="Subsidised social security contributions" data-lang-hi="सब्सिडी वाले सामाजिक सुरक्षा योगदान">Subsidised social security contributions</li>
+                        <li data-lang-en="Priority access to government skilling programs" data-lang-hi="सरकारी कौशल कार्यक्रमों तक प्राथमिकता पहुंच">Priority access to government skilling programs</li>
+                    </ul>
+                </li>
+                <li data-lang-en="Revive PMRPY (2016-2022):" data-lang-hi="PMRPY (2016-2022) को पुनर्जीवित करें:">Revive PMRPY (2016-2022):
+                    <ul>
+                        <li data-lang-en="Govt paid 12% EPF + EPS employer share" data-lang-hi="सरकार ने 12% EPF + EPS नियोक्ता का हिस्सा भुगतान किया">Govt paid 12% EPF + EPS employer share</li>
+                        <li data-lang-en="Benefited over 1 crore workers" data-lang-hi="1 करोड़ से अधिक श्रमिकों को लाभ हुआ">Benefited over 1 crore workers</li>
+                        <li data-lang-en="Could reduce contract labour misuse and boost formal job creation" data-lang-hi="संविदा श्रम के दुरुपयोग को कम कर सकता है और औपचारिक नौकरी सृजन को बढ़ावा दे सकता है">Could reduce contract labour misuse and boost formal job creation</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h2 data-lang-en="Way Forward" data-lang-hi="आगे का रास्ता">Way Forward</h2>
+            <ul>
+                <li data-lang-en="Promote formalisation over exploitative contractualisation." data-lang-hi="शोषणकारी संविदाकरण के बजाय औपचारिकीकरण को बढ़ावा दें।">Promote formalisation over exploitative contractualisation.</li>
+                <li data-lang-en="Focus on stable, skill-rich employment for long-term productivity gains." data-lang-hi="दीर्घकालिक उत्पादकता लाभ के लिए स्थिर, कौशल-समृद्ध रोजगार पर ध्यान दें।">Focus on stable, skill-rich employment for long-term productivity gains.</li>
+                <li data-lang-en="Align labour reforms with social protections, firm growth, and worker welfare." data-lang-hi="श्रम सुधारों को सामाजिक सुरक्षा, फर्म के विकास और श्रमिक कल्याण के साथ संरेखित करें।">Align labour reforms with social protections, firm growth, and worker welfare.</li>
+                <li data-lang-en="Ensure data-driven policy monitoring through ASI and enterprise-level studies." data-lang-hi="ASI और उद्यम-स्तरीय अध्ययनों के माध्यम से डेटा-संचालित नीति निगरानी सुनिश्चित करें।">Ensure data-driven policy monitoring through ASI and enterprise-level studies.</li>
+            </ul>
+        </div> <h2 data-lang-en="Prelims Pointers" data-lang-hi="प्रारंभिक परीक्षा के महत्वपूर्ण बिंदु">Prelims Pointers</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th data-lang-en="Term" data-lang-hi="शर्त">Term</th>
+                    <th data-lang-en="Explanation" data-lang-hi="व्याख्या">Explanation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Term" data-lang-en="ASI" data-lang-hi="एएसआई">ASI</td>
+                    <td data-label="Explanation" data-lang-en="Annual Survey of Industries – key source of industrial data" data-lang-hi="उद्योगों का वार्षिक सर्वेक्षण – औद्योगिक डेटा का प्रमुख स्रोत">Annual Survey of Industries – key source of industrial data</td>
+                </tr>
+                <tr>
+                    <td data-label="Term" data-lang-en="Contractualisation" data-lang-hi="संविदाकरण">Contractualisation</td>
+                    <td data-label="Explanation" data-lang-en="Hiring workers on short-term contracts, often through third parties" data-lang-hi="अक्सर तीसरे पक्ष के माध्यम से श्रमिकों को अल्पकालिक अनुबंधों पर रखना">Hiring workers on short-term contracts, often through third parties</td>
+                </tr>
+                <tr>
+                    <td data-label="Term" data-lang-en="Principal-Agent Problem" data-lang-hi="प्रिंसिपल-एजेंट समस्या">Principal-Agent Problem</td>
+                    <td data-label="Explanation" data-lang-en="Misalignment of incentives between a principal (employer) and agent (contractor)" data-lang-hi="एक प्रिंसिपल (नियोक्ता) और एजेंट (ठेकेदार) के बीच प्रोत्साहनों का गलत संरेखण">Misalignment of incentives between a principal (employer) and agent (contractor)</td>
+                </tr>
+                <tr>
+                    <td data-label="Term" data-lang-en="PMRPY" data-lang-hi="पीएमआरपीयवाई">PMRPY</td>
+                    <td data-label="Explanation" data-lang-en="Pradhan Mantri Rojgar Protsahan Yojana – govt-paid EPF/EPS contributions to formalise jobs" data-lang-hi="प्रधानमंत्री रोजगार प्रोत्साहन योजना – नौकरियों को औपचारिक बनाने के लिए सरकार द्वारा भुगतान किए गए ईपीएफ/ईपीएस योगदान">Pradhan Mantri Rojgar Protsahan Yojana – govt-paid EPF/EPS contributions to formalise jobs</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 data-lang-en="Mains Practice Questions" data-lang-hi="मुख्य परीक्षा के अभ्यास प्रश्न">Mains Practice Questions</h2>
+        <p data-lang-en="1. GS Paper 3 (Economy):" data-lang-hi="1. जीएस पेपर 3 (अर्थव्यवस्था):">1. GS Paper 3 (Economy):</p>
+        <ul>
+            <li data-lang-en="&quot;Rising contractualisation in India’s formal sector undermines productivity and decent work. Discuss with reference to recent findings and policy frameworks.&quot;" data-lang-hi="&quot;भारत के औपचारिक क्षेत्र में बढ़ता संविदाकरण उत्पादकता और सभ्य कार्य को कमजोर करता है। हाल के निष्कर्षों और नीतिगत ढाँचों के संदर्भ में चर्चा करें।&quot;">"Rising contractualisation in India’s formal sector undermines productivity and decent work. Discuss with reference to recent findings and policy frameworks."</li>
+        </ul>
+        <p data-lang-en="2. GS Paper 2 (Governance):" data-lang-hi="2. जीएस पेपर 2 (शासन):">2. GS Paper 2 (Governance):</p>
+        <ul>
+            <li data-lang-en="&quot;Labour law reforms must strike a balance between flexibility for employers and security for workers.&quot; Critically examine." data-lang-hi="&quot;श्रम कानून सुधारों को नियोक्ताओं के लिए लचीलेपन और श्रमिकों के लिए सुरक्षा के बीच संतुलन स्थापित करना चाहिए।&quot; समालोचनात्मक परीक्षण करें।">"Labour law reforms must strike a balance between flexibility for employers and security for workers." Critically examine.</li>
+        </ul>
+
+        <p class="source-info" data-lang-en="📂 Topic Tags: Labour reforms, Manufacturing sector, Formalisation, Productivity, Employment" data-lang-hi="📂 विषय टैग: श्रम सुधार, विनिर्माण क्षेत्र, औपचारिकीकरण, उत्पादकता, रोजगार">📂 Topic Tags: Labour reforms, Manufacturing sector, Formalisation, Productivity, Employment</p>
+        
+        <a href="index.html" class="back-to-home" data-lang-en="Back to Home" data-lang-hi="होम पर वापस जाएं">Back to Home</a>
+    </div>
+
+    <button id="scrollToTopBtn" title="Go to top">&#9650;</button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const languageSwitch = document.getElementById('languageSwitch');
+            let isHindi = false;
+
+            // Function to calculate and update read time
+            function updateReadTime() {
+                const mainContentDiv = document.querySelector('.main-article-content');
+                if (!mainContentDiv) {
+                    document.getElementById('readTime').textContent = 'N/A'; // Handle case where content isn't found
+                    return;
+                }
+
+                // Get the text content based on the current language
+                const contentToCount = isHindi ?
+                    Array.from(mainContentDiv.querySelectorAll('[data-lang-hi]')).map(el => el.getAttribute('data-lang-hi')).join(' ') :
+                    Array.from(mainContentDiv.querySelectorAll('[data-lang-en]')).map(el => el.getAttribute('data-lang-en')).join(' ');
+
+                const wordsPerMinute = 200; // Average reading speed
+                const wordCount = contentToCount.split(/\s+/).filter(word => word.length > 0).length; // Filter out empty strings from split
+
+                const readTime = Math.ceil(wordCount / wordsPerMinute);
+                document.getElementById('readTime').textContent = readTime;
+            }
+
+            function updateLanguage() {
+                document.querySelectorAll('[data-lang-en]').forEach(element => {
+                    if (isHindi) {
+                        if (element.tagName === 'TH' || element.tagName === 'TD') {
+                            element.textContent = element.getAttribute('data-lang-hi');
+                        } else {
+                            element.innerHTML = element.getAttribute('data-lang-hi');
+                        }
+                    } else {
+                        if (element.tagName === 'TH' || element.tagName === 'TD') {
+                            element.textContent = element.getAttribute('data-lang-en');
+                        } else {
+                            element.innerHTML = element.getAttribute('data-lang-en');
+                        }
+                    }
+                });
+
+                // Update body font-family based on language
+                if (isHindi) {
+                    document.body.style.fontFamily = "'Noto Sans Devanagari', sans-serif";
+                } else {
+                    document.body.style.fontFamily = "'Roboto', sans-serif";
+                }
+
+                // Recalculate read time after language switch
+                updateReadTime();
+            }
+
+            languageSwitch.addEventListener('click', function() {
+                isHindi = !isHindi;
+                languageSwitch.classList.toggle('active');
+                updateLanguage();
+            });
+
+            // Initial language set (English by default) and read time calculation
+            updateLanguage();
+
+            // Scroll to Top Button functionality
+            const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+            window.onscroll = function() {
+                scrollFunction();
+            };
+
+            function scrollFunction() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    scrollToTopBtn.style.display = "block";
+                } else {
+                    scrollToTopBtn.style.display = "none";
+                }
+            }
+
+            scrollToTopBtn.addEventListener("click", function() {
+                document.body.scrollTop = 0; // For Safari
+                document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+            });
+        });
+    </script>
+</body>
+</html>

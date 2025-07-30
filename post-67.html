@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Just Equilibrium – Judicial Review of Executive Discretion</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #003d7a;
+            --text-color: #333;
+            --bg-color: #f9f9f9;
+            --card-bg: #fff;
+            --border-color: #ddd;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        .navbar {
+            background-color: var(--primary-color);
+            padding: 15px 0;
+            color: white;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .navbar nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: color 0.3s ease;
+        }
+
+        .navbar nav ul li a:hover {
+            color: #cceeff;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2, h3 {
+            color: var(--secondary-color);
+            margin-top: 25px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            font-size: 1.4em;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style: disc;
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        ul li {
+            margin-bottom: 8px;
+        }
+
+        blockquote {
+            background-color: #e6f2ff;
+            border-left: 5px solid var(--primary-color);
+            padding: 15px 20px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #555;
+        }
+
+        .language-switch {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            z-index: 1001;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .switch-button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .switch-button:hover {
+            background-color: var(--secondary-color);
+            transform: scale(1.05);
+        }
+
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.8em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .scroll-to-top:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+
+        .scroll-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .read-time {
+            text-align: right;
+            font-style: italic;
+            color: #777;
+            margin-bottom: 10px;
+        }
+
+        .back-home-button {
+            display: block;
+            width: fit-content;
+            margin: 30px auto 10px auto;
+            padding: 12px 25px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .back-home-button:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .navbar nav ul {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
+            .language-switch {
+                flex-direction: row;
+                top: auto;
+                bottom: 90px;
+                right: 50%;
+                transform: translateX(50%);
+                gap: 5px;
+            }
+            .switch-button {
+                padding: 8px 12px;
+                font-size: 0.8em;
+            }
+            .scroll-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <nav>
+            <ul>
+                <li><a href="index.html" data-lang-en="Home" data-lang-hi="होम">Home</a></li>
+                <li><a href="donation.html" data-lang-en="Donation" data-lang-hi="दान">Donation</a></li>
+                <li><a href="contact.html" data-lang-en="Contact" data-lang-hi="संपर्क">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="language-switch">
+        <button class="switch-button" id="en-btn">English</button>
+        <button class="switch-button" id="hi-btn">हिंदी</button>
+    </div>
+
+    <div class="container">
+        <p class="read-time" id="read-time-display"></p>
+
+        <section id="english-content">
+            <h1>A Just Equilibrium – Judicial Review of Executive Discretion</h1>
+            <blockquote>
+                ❝The Constitution is not a mere lawyer's document, it is a vehicle of Life, and its spirit is always the spirit of Age.❞ – <b>Dr. B.R. Ambedkar</b>
+            </blockquote>
+
+            
+
+            <h2>Context</h2>
+            <ul>
+                <li>The Supreme Court’s decision in *The State of Tamil Nadu vs The Governor of Tamil Nadu (2025)* has raised critical issues concerning:</li>
+                <ul>
+                    <li>The <b>limits of gubernatorial discretion</b>.</li>
+                    <li>The <b>judicial review of sovereign functions</b>.</li>
+                    <li><b>Separation of powers</b> and constitutional equilibrium.</li>
+                </ul>
+            </ul>
+
+            
+
+            <h2>Key Constitutional Provisions Referenced</h2>
+            <ul>
+                <li><b>Article 200</b>: Assent to Bills by Governor.</li>
+                <li><b>Article 201</b>: Bills reserved for consideration of the President.</li>
+                <li><b>Article 143</b>: Power of the President to consult the Supreme Court.</li>
+                <li><b>Article 142</b>: Enforcement of decrees and orders of Supreme Court.</li>
+                <li><b>Article 74 & 163</b>: Council of Ministers’ aid and advice to the President and Governor respectively.</li>
+                <li><b>Doctrine of Separation of Powers</b> (Basic Structure Doctrine).</li>
+            </ul>
+
+            
+
+            <h2>Judicial Pronouncement: Tamil Nadu Governor Case</h2>
+            <ul>
+                <li><b>Held</b>: Withholding of assent by the Governor *for an unreasonable period* is *unconstitutional*.</li>
+                <li><b>Mandated</b>: Assent decisions must be taken within <b>three months</b> based on government recommendations.</li>
+                <li><b>Legal Reasoning</b>:</li>
+                <ul>
+                    <li>Constitution's *"silences"* can be interpreted to ensure accountability.</li>
+                    <li><b>Discretion</b> under Article 200 not absolute; must be exercised <b>reasonably and impartially</b>.</li>
+                </ul>
+            </ul>
+
+            
+
+            <h2>Issue of Judicial Overreach</h2>
+            <ul>
+                <li>Court suggested the <b>President seek advisory opinion</b> under Article 143 for bills reserved under Article 201.</li>
+                <li><b>Critique</b>:</li>
+                <ul>
+                    <li>Presidential power not directly under challenge.</li>
+                    <li><b>President ≠ Governor</b>: President is *sovereign* and enjoys greater <b>presumption of regularity</b>.</li>
+                    <li>Suggestion seen as <b>judicial overreach</b> into executive domain.</li>
+                </ul>
+            </ul>
+
+            
+
+            <h2>Presidential Reference & Its Significance</h2>
+            <ul>
+                <li>President has sought <b>advisory opinion</b> from SC under Article 143.</li>
+                <li>Raises critical questions:</li>
+                <ul>
+                    <li>Can judiciary <b>override/modify</b> powers under <b>Articles 200/201</b> using Article 142?</li>
+                    <li>What are the <b>constitutional limits</b> on judicial intervention in <b>executive discretion</b>?</li>
+                </ul>
+            </ul>
+
+            
+
+            <h2>Separation of Powers & Constitutional Morality</h2>
+            <ul>
+                <li>Supreme Court reaffirms judicial <b>self-restraint</b> in matters of governance unless mala fide is shown.</li>
+                <li>Overstepping judicial boundaries may lead to:</li>
+                <ul>
+                    <li><b>Politicisation of Judiciary</b>.</li>
+                    <li><b>Juridification of Politics</b>.</li>
+                    <li>Undermining the <b>delicate constitutional balance</b>.</li>
+                </ul>
+            </ul>
+
+            
+
+            <h2>Analytical Insights</h2>
+            <ul>
+                <li><b>Governor’s accountability</b> must align with democratic ethos; not a parallel power center.</li>
+                <li><b>President’s role</b> is <b>distinct</b> – imbued with <b>national imperatives</b>.</li>
+                <li>Judicial <b>activism vs restraint</b> debate resurfaces.</li>
+                <li><b>Advisory jurisdiction</b> (Art 143) provides a channel for constitutional clarification without confrontation.</li>
+            </ul>
+
+            
+
+            <h2>Conclusion</h2>
+            <ul>
+                <li>The upcoming <b>Supreme Court Advisory Opinion</b> is a constitutional milestone.</li>
+                <li>It must reaffirm the <b>principle of checks and balances</b> while <b>preserving institutional boundaries</b>.</li>
+                <li><b>Judiciary’s credibility</b> hinges on <b>consistency, moral clarity</b>, and respect for the Constitution’s spirit.</li>
+            </ul>
+
+            
+
+            <h2>Key Terms for Mains</h2>
+            <ul>
+                <li>Judicial Overreach</li>
+                <li>Sovereign Discretion</li>
+                <li>Constitutional Silences</li>
+                <li>Basic Structure Doctrine</li>
+                <li>Constitutional Morality</li>
+                <li>Cooperative Federalism</li>
+            </ul>
+
+            
+
+            <h2>Possible Mains Questions (GS Paper 2)</h2>
+            <ol>
+                <li><b>Discuss the constitutional implications of judicial directions on the discretionary powers of the Governor and the President.</b></li>
+                <li><b>Examine the significance of Article 143 in maintaining equilibrium between different organs of the State.</b></li>
+                <li><b>In the context of recent judgments, critically analyse the boundaries of judicial review over sovereign executive functions.</b></li>
+            </ol>
+        </section>
+
+        <section id="hindi-content" style="display: none;">
+            <h1>एक न्यायपूर्ण संतुलन – कार्यपालिका विवेक पर न्यायिक समीक्षा</h1>
+            <blockquote>
+                ❝संविधान केवल वकीलों का दस्तावेज़ नहीं है, यह जीवन का माध्यम है, और इसकी आत्मा हमेशा युग की आत्मा होती है।❞ – <b>डॉ. भीमराव अंबेडकर</b>
+            </blockquote>
+
+            
+
+            <h2>प्रसंग (Context)</h2>
+            <ul>
+                <li>*तमिलनाडु राज्य बनाम तमिलनाडु के राज्यपाल (2025)* के निर्णय में महत्वपूर्ण संवैधानिक प्रश्न उठाए गए:</li>
+                <ul>
+                    <li><b>राज्यपाल के विवेकाधिकार की सीमाएं</b>।</li>
+                    <li><b>संप्रभु कार्यों की न्यायिक समीक्षा</b>।</li>
+                    <li><b>सत्ता के पृथक्करण</b> और <b>संवैधानिक संतुलन</b> पर प्रभाव।</li>
+                </ul>
+            </ul>
+
+            
+
+            <h2>प्रमुख संवैधानिक प्रावधान</h2>
+            <ul>
+                <li><b>अनुच्छेद 200</b> – राज्यपाल द्वारा विधेयकों को स्वीकृति देना।</li>
+                <li><b>अनुच्छेद 201</b> – राष्ट्रपति के समक्ष सुरक्षित विधेयक।</li>
+                <li><b>अनुच्छेद 143</b> – राष्ट्रपति द्वारा सर्वोच्च न्यायालय से परामर्श लेना।</li>
+                <li><b>अनुच्छेद 142</b> – सर्वोच्च न्यायालय की पूर्ण न्याय करने की शक्ति।</li>
+                <li><b>अनुच्छेद 74 और 163</b> – राष्ट्रपति और राज्यपाल को मंत्रिपरिषद की सलाह।</li>
+                <li><b>सत्ता का पृथक्करण सिद्धांत</b> (मूल संरचना सिद्धांत के अंतर्गत)।</li>
+            </ul>
+
+            
+
+            <h2>तमिलनाडु राज्यपाल मामला: न्यायिक निर्णय</h2>
+            <ul>
+                <li><b>निष्कर्ष</b>: राज्यपाल द्वारा विधेयकों को *अवांछित रूप से लंबी अवधि* तक रोक कर रखना <b>असंवैधानिक</b> है।</li>
+                <li><b>निर्देश</b>: राज्यपाल/राष्ट्रपति को तीन महीने के भीतर निर्णय लेना आवश्यक।</li>
+                <li><b>तार्किक आधार</b>:</li>
+                <ul>
+                    <li>संविधान की *चुप्पी* को इस रूप में पढ़ा गया कि विवेक *न्यायसंगत और निष्पक्ष* होना चाहिए।</li>
+                </ul>
+            </ul>
+
+            
+
+            <h2>न्यायिक अतिरेक (Judicial Overreach) का प्रश्न</h2>
+            <ul>
+                <li>न्यायालय ने राष्ट्रपति को <b>अनुच्छेद 143</b> के तहत परामर्श लेने का सुझाव दिया।</li>
+                <li><b>आलोचना</b>:</li>
+                <ul>
+                    <li>राष्ट्रपति का विवेक इस केस में सीधे प्रश्न नहीं था।</li>
+                    <li><b>राष्ट्रपति ≠ राज्यपाल</b>: राष्ट्रपति संप्रभु शक्ति का धारक, जबकि राज्यपाल उनका प्रतिनिधि।</li>
+                    <li>सुझाव को <b>कार्यपालिका के कार्यक्षेत्र में हस्तक्षेप</b> माना गया।</li>
+                </ul>
+            </ul>
+
+            
+
+            <h2>राष्ट्रपति की परामर्श याचिका (Presidential Reference) का महत्व</h2>
+            <ul>
+                <li>राष्ट्रपति ने सर्वोच्च न्यायालय से अनुच्छेद 143 के तहत परामर्श माँगा है।</li>
+                <li>मुख्य प्रश्न:</li>
+                <ul>
+                    <li>क्या न्यायपालिका <b>अनुच्छेद 200/201</b> के अंतर्गत राष्ट्रपति/राज्यपाल की शक्तियों को <b>अनुच्छेद 142</b> के तहत संशोधित कर सकती है?</li>
+                    <li>कार्यपालिका के <b>संप्रभु विवेक</b> की <b>न्यायिक सीमाएँ</b> क्या हैं?</li>
+                </ul>
+            </ul>
+
+            
+
+            <h2>संविधानिक संतुलन और नैतिकता</h2>
+            <ul>
+                <li>न्यायालय ने दोहराया कि <b>न्यायिक आत्म-संयम</b> आवश्यक है।</li>
+                <li>अत्यधिक हस्तक्षेप से:</li>
+                <ul>
+                    <li><b>न्यायपालिका का राजनीतिकरण</b> हो सकता है।</li>
+                    <li><b>राजनीति का न्यायीकरण</b> संभव है।</li>
+                    <li><b>संविधानिक संतुलन</b> बाधित हो सकता है।</li>
+                </ul>
+            </ul>
+
+            
+
+            <h2>विश्लेषणात्मक दृष्टिकोण</h2>
+            <ul>
+                <li><b>राज्यपाल की जवाबदेही</b> लोकतांत्रिक मूल्यों के अनुरूप होनी चाहिए।</li>
+                <li><b>राष्ट्रपति का पद</b> उच्चतर और राष्ट्रीय प्राथमिकताओं से जुड़ा हुआ है।</li>
+                <li><b>न्यायिक सक्रियता बनाम संयम</b> का प्रश्न फिर चर्चा में।</li>
+                <li>अनुच्छेद 143 के तहत परामर्श, टकराव के बिना <b>संवैधानिक स्पष्टता</b> लाने का माध्यम है।</li>
+            </ul>
+
+            
+
+            <h2>निष्कर्ष</h2>
+            <ul>
+                <li>आगामी <b>सर्वोच्च न्यायालय की सलाह</b> एक संवैधानिक मील का पत्थर हो सकती है।</li>
+                <li>यह <b>संवैधानिक अंगों के बीच संतुलन</b> को मजबूत कर सकती है।</li>
+                <li>न्यायपालिका की <b>साख</b> उसकी <b>संगति, नैतिक स्पष्टता</b> और संविधान की आत्मा की रक्षा में निहित है।</li>
+            </ul>
+
+            
+
+            <h2>प्रमुख शब्दावली (Key Terms for Mains)</h2>
+            <ul>
+                <li>न्यायिक अतिरेक (Judicial Overreach)</li>
+                <li>संप्रभु विवेकाधिकार</li>
+                <li>संवैधानिक मौन</li>
+                <li>मूल संरचना सिद्धांत</li>
+                <li>संवैधानिक नैतिकता</li>
+                <li>सहकारी संघवाद (Cooperative Federalism)</li>
+            </ul>
+
+            
+
+            <h2>संभावित मुख्य परीक्षा प्रश्न (GS Paper 2)</h2>
+            <ol>
+                <li><b>राज्यपाल और राष्ट्रपति के विवेकाधिकारों पर न्यायिक निर्देशों के संवैधानिक प्रभावों की विवेचना कीजिए।</b></li>
+                <li><b>संवैधानिक संतुलन बनाए रखने में अनुच्छेद 143 की भूमिका का विश्लेषण कीजिए।</b></li>
+                <li><b>हाल के निर्णयों के संदर्भ में, कार्यपालिका के संप्रभु कार्यों पर न्यायिक समीक्षा की सीमाओं पर चर्चा कीजिए।</b></li>
+            </ol>
+        </section>
+
+        <a href="index.html" class="back-home-button" data-lang-en="Back to Home" data-lang-hi="होम पर वापस जाएं">Back to Home</a>
+    </div>
+
+    <button class="scroll-to-top" id="scrollToTopBtn">&#9650;</button>
+
+    <script>
+        const enContent = document.getElementById('english-content');
+        const hiContent = document.getElementById('hindi-content');
+        const enBtn = document.getElementById('en-btn');
+        const hiBtn = document.getElementById('hi-btn');
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+        const readTimeDisplay = document.getElementById('read-time-display');
+
+        function calculateReadTime(text) {
+            const wordsPerMinute = 200; // Average reading speed
+            const wordCount = text.split(/\s+/).length;
+            const minutes = Math.ceil(wordCount / wordsPerMinute);
+            return minutes;
+        }
+
+        function setLanguage(lang) {
+            if (lang === 'en') {
+                enContent.style.display = 'block';
+                hiContent.style.display = 'none';
+                document.documentElement.lang = 'en';
+            } else {
+                enContent.style.display = 'none';
+                hiContent.style.display = 'block';
+                document.documentElement.lang = 'hi';
+            }
+
+            // Update navbar links
+            document.querySelectorAll('.navbar nav ul li a').forEach(link => {
+                if (lang === 'en') {
+                    link.textContent = link.dataset.langEn;
+                } else {
+                    link.textContent = link.dataset.langHi;
+                }
+            });
+
+            // Update Back to Home button
+            const backHomeBtn = document.querySelector('.back-home-button');
+            if (lang === 'en') {
+                backHomeBtn.textContent = backHomeBtn.dataset.langEn;
+            } else {
+                backHomeBtn.textContent = backHomeBtn.dataset.langHi;
+            }
+        }
+
+        // Calculate and display read time for English content
+        const englishText = enContent.textContent;
+        const readTimeMinutes = calculateReadTime(englishText);
+        readTimeDisplay.textContent = `Read Time: ${readTimeMinutes} min`;
+
+        enBtn.addEventListener('click', () => setLanguage('en'));
+        hiBtn.addEventListener('click', () => setLanguage('hi'));
+
+        // Set initial language to English
+        setLanguage('en');
+
+        // Scroll to top button functionality
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.classList.add('show');
+            } else {
+                scrollToTopBtn.classList.remove('show');
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>

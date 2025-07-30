@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interrupted Growth: Industrial Output Faces Climate Headwinds</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .navbar {
+            background-color: #2c3e50;
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: white;
+            padding: 15px 20px;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .navbar a:hover {
+            background-color: #34495e;
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 2.2em;
+        }
+
+        h2 {
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-top: 30px;
+            font-size: 1.6em;
+        }
+
+        h3 {
+            font-size: 1.3em;
+            margin-top: 25px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        blockquote {
+            background-color: #e6f7ff;
+            border-left: 5px solid #3498db;
+            padding: 15px 20px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #2980b9;
+        }
+
+        .read-time {
+            text-align: right;
+            font-size: 0.9em;
+            color: #777;
+            margin-bottom: 15px;
+        }
+
+        .language-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+            display: flex;
+            gap: 10px;
+        }
+
+        .lang-button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-weight: bold;
+        }
+
+        .lang-button:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+        }
+
+        .lang-button.active {
+            background-color: #27ae60;
+        }
+
+        .scroll-to-top {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .scroll-to-top:hover {
+            background-color: #2980b9;
+            transform: translateY(-3px);
+        }
+
+        .back-to-home {
+            display: block;
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        .back-to-home a {
+            background-color: #2c3e50;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-weight: bold;
+        }
+
+        .back-to-home a:hover {
+            background-color: #34495e;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar a {
+                padding: 10px 15px;
+            }
+
+            .container {
+                margin: 15px;
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            h2 {
+                font-size: 1.4em;
+            }
+
+            h3 {
+                font-size: 1.2em;
+            }
+
+            th, td {
+                padding: 10px;
+            }
+
+            .language-switch {
+                flex-direction: column;
+                top: 10px;
+                right: 10px;
+                gap: 5px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                padding: 10px 0;
+            }
+            .navbar a {
+                display: block;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
+            .scroll-to-top {
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+                bottom: 15px;
+                right: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" data-en="Home" data-hi="होम">Home</a>
+        <a href="donation.html" data-en="Donation" data-hi="दान">Donation</a>
+        <a href="contact.html" data-en="Contact" data-hi="संपर्क">Contact</a>
+    </nav>
+
+    <div class="language-switch">
+        <button class="lang-button active" id="en-button">EN</button>
+        <button class="lang-button" id="hi-button">HI</button>
+    </div>
+
+    <div class="container">
+        <div class="read-time" id="read-time"></div>
+
+        <h1 data-en="Interrupted Growth: Industrial Output Faces Climate Headwinds" data-hi="रुकावट वाली वृद्धि: औद्योगिक उत्पादन जलवायु बाधाओं का सामना करता है">Interrupted Growth: Industrial Output Faces Climate Headwinds</h1>
+
+        <p data-en="Source: The Hindu | Date: 30 July 2025" data-hi="स्रोत: द हिंदू | दिनांक: 30 जुलाई 2025">Source: The Hindu | Date: 30 July 2025</p>
+        <p data-en="Theme: Industrial Output, Climate Disruptions, Economic Reporting" data-hi="विषय: औद्योगिक उत्पादन, जलवायु व्यवधान, आर्थिक रिपोर्टिंग">Theme: Industrial Output, Climate Disruptions, Economic Reporting</p>
+
+        <hr>
+
+        <h2 data-en="Key Data: Industrial Output in June 2025" data-hi="मुख्य डेटा: जून 2025 में औद्योगिक उत्पादन">Key Data: Industrial Output in June 2025</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th data-en="Indicator" data-hi="संकेतक">Indicator</th>
+                    <th data-en="June 2025" data-hi="जून 2025">June 2025</th>
+                    <th data-en="June 2024" data-hi="जून 2024">June 2024</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-en="IIP Growth Rate" data-hi="आईआईपी विकास दर">IIP Growth Rate</td>
+                    <td data-en="1.5% (10-month low)" data-hi="1.5% (10 महीने का निचला स्तर)">1.5% (10-month low)</td>
+                    <td data-en="Higher (not specified)" data-hi="उच्च (निर्दिष्ट नहीं)">Higher (not specified)</td>
+                </tr>
+                <tr>
+                    <td data-en="Mining Output" data-hi="खनन उत्पादन">Mining Output</td>
+                    <td data-en">–8.7%" data-hi="–8.7%">–8.7%</td>
+                    <td data-en="10.3%" data-hi="10.3%">10.3%</td>
+                </tr>
+                <tr>
+                    <td data-en="Electricity Output" data-hi="विद्युत उत्पादन">Electricity Output</td>
+                    <td data-en="–2.6%" data-hi="–2.6%">–2.6%</td>
+                    <td data-en="8.6%" data-hi="8.6%">8.6%</td>
+                </tr>
+                <tr>
+                    <td data-en="Overall Industrial Growth" data-hi="समग्र औद्योगिक विकास">Overall Industrial Growth</td>
+                    <td data-en="3.9%" data-hi="3.9%">3.9%</td>
+                    <td data-en="3.5%" data-hi="3.5%">3.5%</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 data-en="Weightage in IIP:" data-hi="आईआईपी में भार:">Weightage in IIP:</h3>
+        <ul>
+            <li data-en="Mining + Electricity: 22.3%" data-hi="खनन + विद्युत: 22.3%">Mining + Electricity: 22.3%</li>
+            <li data-en="Manufacturing: Remaining share" data-hi="विनिर्माण: शेष हिस्सेदारी">Manufacturing: Remaining share</li>
+        </ul>
+
+        <hr>
+
+        <h2 data-en="Impact of Monsoon on Output" data-hi="उत्पादन पर मानसून का प्रभाव">Impact of Monsoon on Output</h2>
+        <p data-en="Early and erratic monsoon → Waterlogging in key mining areas:" data-hi="प्रारंभिक और अनियमित मानसून → प्रमुख खनन क्षेत्रों में जलभराव:">Early and erratic monsoon → Waterlogging in key mining areas:</p>
+        <ul>
+            <li data-en="Odisha, Jharkhand, West Bengal" data-hi="ओडिशा, झारखंड, पश्चिम बंगाल">Odisha, Jharkhand, West Bengal</li>
+            <li data-en="E.g. Ranchi’s Met Office: 504.8 mm rainfall (vs. normal 307 mm)" data-hi="उदा. रांची का मौसम विज्ञान कार्यालय: 504.8 मिमी वर्षा (सामान्य 307 मिमी के मुकाबले)">E.g. Ranchi’s Met Office: 504.8 mm rainfall (vs. normal 307 mm)</li>
+        </ul>
+        <p data-en="Disruptions in mining and power infra → Reduced supply → Lower output and power demand" data-hi="खनन और बिजली के बुनियादी ढांचे में व्यवधान → आपूर्ति में कमी → कम उत्पादन और बिजली की मांग">Disruptions in mining and power infra → Reduced supply → Lower output and power demand</p>
+
+        <hr>
+
+        <h2 data-en="Bright Spots in Industrial Output" data-hi="औद्योगिक उत्पादन में उज्ज्वल बिंदु">Bright Spots in Industrial Output</h2>
+        <p data-en="Despite mining & electricity contraction:" data-hi="खनन और बिजली के संकुचन के बावजूद:">Despite mining & electricity contraction:</p>
+        <ul>
+            <li data-en="Capital goods: +3.5%" data-hi="पूंजीगत वस्तुएं: +3.5%">Capital goods: +3.5%</li>
+            <li data-en="Intermediate goods: +5.5%" data-hi="मध्यवर्ती वस्तुएं: +5.5%">Intermediate goods: +5.5%</li>
+            <li data-en="Infrastructure goods: +7.2%" data-hi="बुनियादी ढांचा वस्तुएं: +7.2%">Infrastructure goods: +7.2%</li>
+            <li data-en="Inference: Growth driven by government infrastructure spending." data-hi="निष्कर्ष: विकास सरकारी बुनियादी ढांचा खर्च से प्रेरित है।">Inference: Growth driven by government infrastructure spending.</li>
+        </ul>
+
+        <hr>
+
+        <h2 data-en="Climate Risk & Economic Reporting in India" data-hi="भारत में जलवायु जोखिम और आर्थिक रिपोर्टिंग">Climate Risk & Economic Reporting in India</h2>
+        <h3 data-en="Problem:" data-hi="समस्या:">Problem:</h3>
+        <p data-en="Official economic data (IIP, GDP, etc.) rarely mention climate-related disruptions." data-hi="आधिकारिक आर्थिक डेटा (आईआईपी, जीडीपी, आदि) शायद ही कभी जलवायु-संबंधित व्यवधानों का उल्लेख करते हैं।">Official economic data (IIP, GDP, etc.) rarely mention climate-related disruptions.</p>
+        <p data-en="Attribution often blamed on:" data-hi="आरोपण अक्सर इन पर लगाया जाता है:">Attribution often blamed on:</p>
+        <ul>
+            <li data-en="High base effect" data-hi="उच्च आधार प्रभाव">High base effect</li>
+            <li data-en="Supply chain issues" data-hi="आपूर्ति श्रृंखला के मुद्दे">Supply chain issues</li>
+            <li data-en="Global/domestic demand fluctuations" data-hi="वैश्विक/घरेलू मांग में उतार-चढ़ाव">Global/domestic demand fluctuations</li>
+            <li data-en="Input cost spikes" data-hi="इनपुट लागत में वृद्धि">Input cost spikes</li>
+        </ul>
+        <h3 data-en="Missed Acknowledgment:" data-hi="स्वीकृति का अभाव:">Missed Acknowledgment:</h3>
+        <p data-en="Climate impact on mining, transport, electricity is underplayed or ignored." data-hi="खनन, परिवहन, बिजली पर जलवायु प्रभाव को कम करके आंका जाता है या अनदेखा किया जाता है।">Climate impact on mining, transport, electricity is underplayed or ignored.</p>
+        <p data-en="Climate attribution = complex + politically sensitive." data-hi="जलवायु आरोपण = जटिल + राजनीतिक रूप से संवेदनशील।">Climate attribution = complex + politically sensitive.</p>
+
+        <hr>
+
+        <h2 data-en="Global Best Practices" data-hi="वैश्विक सर्वोत्तम प्रथाएं">Global Best Practices</h2>
+        <p data-en="Institutions like:" data-hi="संस्थान जैसे:">Institutions like:</p>
+        <ul>
+            <li data-en="European Central Bank" data-hi="यूरोपीय सेंट्रल बैंक">European Central Bank</li>
+            <li data-en="Bank of England" data-hi="बैंक ऑफ इंग्लैंड">Bank of England</li>
+        </ul>
+        <p data-en="Have begun climate-risk mapping to financial and output data." data-hi="वित्तीय और उत्पादन डेटा के लिए जलवायु-जोखिम मानचित्रण शुरू कर दिया है।">Have begun climate-risk mapping to financial and output data.</p>
+        <p data-en="RBI now includes climate risk in its Financial Stability Reports, but not in IIP/GDP metrics yet." data-hi="आरबीआई अब अपनी वित्तीय स्थिरता रिपोर्टों में जलवायु जोखिम को शामिल करता है, लेकिन अभी तक आईआईपी/जीडीपी मेट्रिक्स में नहीं।">RBI now includes climate risk in its Financial Stability Reports, but not in IIP/GDP metrics yet.</p>
+
+        <hr>
+
+        <h2 data-en="UPSC Relevance" data-hi="यूपीएससी प्रासंगिकता">UPSC Relevance</h2>
+        <h3 data-en="GS Paper III – Indian Economy & Environment" data-hi="जीएस पेपर III – भारतीय अर्थव्यवस्था और पर्यावरण">GS Paper III – Indian Economy & Environment</h3>
+        <ul>
+            <li data-en="Industrial Production trends" data-hi="औद्योगिक उत्पादन के रुझान">Industrial Production trends</li>
+            <li data-en="Infrastructure-led growth" data-hi="बुनियादी ढांचा-नेतृत्व वाला विकास">Infrastructure-led growth</li>
+            <li data-en="Climate change impact on economic activity" data-hi="आर्थिक गतिविधि पर जलवायु परिवर्तन का प्रभाव">Climate change impact on economic activity</li>
+        </ul>
+        <h3 data-en="GS Paper II – Governance" data-hi="जीएस पेपर II – शासन">GS Paper II – Governance</h3>
+        <ul>
+            <li data-en="Role of data transparency and institutional accountability" data-hi="डेटा पारदर्शिता और संस्थागत जवाबदेही की भूमिका">Role of data transparency and institutional accountability</li>
+        </ul>
+        <h3 data-en="Essay & Ethics" data-hi="निबंध और नैतिकता">Essay & Ethics</h3>
+        <ul>
+            <li data-en="“Development vs Environment”" data-hi="“विकास बनाम पर्यावरण”">“Development vs Environment”</li>
+            <li data-en="Need for honest public data narratives" data-hi="ईमानदार सार्वजनिक डेटा कथाओं की आवश्यकता">Need for honest public data narratives</li>
+        </ul>
+
+        <hr>
+
+        <h2 data-en="Answer Writing Insights" data-hi="उत्तर लेखन अंतर्दृष्टि">Answer Writing Insights</h2>
+        <p data-en="Use this case to:" data-hi="इस मामले का उपयोग करें:">Use this case to:</p>
+        <ul>
+            <li data-en="Argue for climate-integrated economic policy frameworks." data-hi="जलवायु-एकीकृत आर्थिक नीति ढांचों के लिए तर्क दें।">Argue for climate-integrated economic policy frameworks.</li>
+            <li data-en="Cite it as a contemporary example of how climate risks are under-reported in economic planning." data-hi="इसे एक समकालीन उदाहरण के रूप में उद्धृत करें कि कैसे आर्थिक नियोजन में जलवायु जोखिमों को कम रिपोर्ट किया जाता है।">Cite it as a contemporary example of how climate risks are under-reported in economic planning.</li>
+            <li data-en="Link to sustainable development, disaster preparedness, and infrastructure resilience." data-hi="सतत विकास, आपदा तैयारी और बुनियादी ढांचा लचीलापन से लिंक करें।">Link to sustainable development, disaster preparedness, and infrastructure resilience.</li>
+        </ul>
+
+        <hr>
+
+        <h2 data-en="Takeaway" data-hi="मुख्य बात">Takeaway</h2>
+        <blockquote>
+            <p data-en="India must move towards institutionalising climate attribution in economic reporting, especially as the frequency and intensity of extreme weather events increase. Acknowledging this openly is key to building resilient and future-proof economic systems." data-hi="भारत को आर्थिक रिपोर्टिंग में जलवायु आरोपण को संस्थागत बनाने की दिशा में बढ़ना चाहिए, खासकर जब अत्यधिक मौसम की घटनाओं की आवृत्ति और तीव्रता बढ़ती है। इसे खुले तौर पर स्वीकार करना लचीला और भविष्य-प्रूफ आर्थिक प्रणालियों के निर्माण की कुंजी है।">India must move towards institutionalising climate attribution in economic reporting, especially as the frequency and intensity of extreme weather events increase. Acknowledging this openly is key to building resilient and future-proof economic systems.</p>
+        </blockquote>
+
+        <div class="back-to-home">
+            <a href="index.html" data-en="Back to Home" data-hi="वापस होम पर">Back to Home</a>
+        </div>
+    </div>
+
+    <button class="scroll-to-top" onclick="scrollToTop()">&#9650;</button>
+
+    <script>
+        const enButton = document.getElementById('en-button');
+        const hiButton = document.getElementById('hi-button');
+        const elementsToTranslate = document.querySelectorAll('[data-en], [data-hi]');
+        const readTimeElement = document.getElementById('read-time');
+
+        // Calculate and display read time
+        function calculateReadTime() {
+            const content = document.querySelector('.container').innerText;
+            const wordsPerMinute = 200; // Average reading speed
+            const wordCount = content.split(/\s+/).filter(word => word.length > 0).length;
+            const minutes = Math.ceil(wordCount / wordsPerMinute);
+            readTimeElement.textContent = `Read Time: ${minutes} min`;
+        }
+
+        function setLanguage(lang) {
+            elementsToTranslate.forEach(element => {
+                if (lang === 'en') {
+                    element.textContent = element.getAttribute('data-en');
+                } else if (lang === 'hi') {
+                    element.textContent = element.getAttribute('data-hi');
+                }
+            });
+
+            if (lang === 'en') {
+                enButton.classList.add('active');
+                hiButton.classList.remove('active');
+            } else {
+                hiButton.classList.add('active');
+                enButton.classList.remove('active');
+            }
+        }
+
+        enButton.addEventListener('click', () => setLanguage('en'));
+        hiButton.addEventListener('click', () => setLanguage('hi'));
+
+        // Set default language to English on load
+        document.addEventListener('DOMContentLoaded', () => {
+            setLanguage('en');
+            calculateReadTime(); // Calculate read time on load
+        });
+
+        // Scroll to top button functionality
+        const scrollToTopButton = document.querySelector('.scroll-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 200) { // Show button after scrolling down 200px
+                scrollToTopButton.style.display = 'flex';
+            } else {
+                scrollToTopButton.style.display = 'none';
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+</html>

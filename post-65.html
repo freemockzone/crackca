@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PM Modi’s Visit to Maldives – A Diplomatic Reset</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Noto+Sans+Devanagari:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar {
+            background-color: #2c3e50;
+            padding: 15px 0;
+            color: white;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .navbar a:hover {
+            background-color: #34495e;
+            transform: translateY(-2px);
+        }
+
+        .lang-switch-container {
+            position: absolute;
+            right: 20px;
+            top: 15px;
+        }
+
+        .lang-switch {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            outline: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            width: 70px;
+        }
+
+        .lang-switch::before {
+            content: 'EN';
+            position: absolute;
+            transition: transform 0.3s ease;
+        }
+
+        .lang-switch.hindi::before {
+            content: 'HI';
+            transform: translateX(-100%);
+        }
+
+        .lang-switch:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+        }
+
+        .lang-switch.hindi .lang-text {
+            transform: translateX(100%);
+        }
+
+        .lang-text {
+            transition: transform 0.3s ease;
+        }
+
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+
+        h3 {
+            font-size: 1.4em;
+            margin-top: 25px;
+        }
+
+        blockquote {
+            background-color: #e0f2f7;
+            border-left: 5px solid #3498db;
+            margin: 20px 0;
+            padding: 15px 20px;
+            font-style: italic;
+            color: #555;
+            border-radius: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+            color: #444;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            padding: 0;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        .read-time {
+            text-align: right;
+            font-size: 0.9em;
+            color: #777;
+            margin-bottom: 10px;
+        }
+
+        .back-to-home {
+            display: block;
+            width: 200px;
+            margin: 40px auto 20px auto;
+            padding: 12px 25px;
+            background-color: #28a745;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .back-to-home:hover {
+            background-color: #218838;
+            transform: translateY(-2px);
+        }
+
+        .to-top-button {
+            display: none;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            line-height: 50px;
+            text-align: center;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.2s;
+            z-index: 999;
+        }
+
+        .to-top-button:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px);
+        }
+
+        /* Hindi specific styles */
+        .hindi-content {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+            .navbar a {
+                padding: 8px 10px;
+                margin: 0 5px;
+                font-size: 0.9em;
+            }
+            .lang-switch-container {
+                right: 10px;
+                top: 10px;
+            }
+            .to-top-button {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                flex-direction: column;
+                padding: 10px 0;
+            }
+            .navbar a {
+                display: block;
+                margin: 5px auto;
+            }
+            .lang-switch-container {
+                position: static;
+                text-align: center;
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="lang-switch-container">
+            <button class="lang-switch" id="langSwitch">
+                <span class="lang-text">EN</span>
+            </button>
+        </div>
+        <a href="index.html" data-en="Home" data-hi="होम">Home</a>
+        <a href="donation.html" data-en="Donation" data-hi="दान">Donation</a>
+        <a href="contact.html" data-en="Contact" data-hi="संपर्क करें">Contact</a>
+    </nav>
+
+    <div class="container" id="content">
+        <div class="english-content">
+            <div class="read-time"></div>
+            <h1>PM Modi’s Visit to Maldives – A Diplomatic Reset</h1>
+
+            <blockquote>
+                📌 *“In the arena of international politics, there are no permanent friends or enemies, only permanent interests.”*<br>
+                — **Lord Palmerston**
+            </blockquote>
+
+            <h3>GS Paper 2 – International Relations | India and Its Neighbourhood | Bilateral Relations</h3>
+
+            <h2>Context:</h2>
+            <p>PM <b>Narendra Modi’s visit</b> to the <b>Maldives</b> to attend its <b>Independence Day (July 26)</b> celebrations marks a <b>reset in strained diplomatic ties</b>, following political tensions triggered by the <b>“India Out” campaign</b> and pro-China shifts under President <b>Mohamed Muizzu</b>.</p>
+
+            <h2>Timeline of Key Developments:</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Event</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Sept 2023</b></td>
+                        <td>President <b>Mohamed Muizzu</b> elected, supported “India Out” campaign.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Jan 2024</b></td>
+                        <td>Muizzu visited <b>China</b>, sought <b>withdrawal of Indian troops</b> from Maldives.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Early 2024</b></td>
+                        <td>Diplomatic row over <b>anti-India remarks</b> by Maldivian ministers.</td>
+                    </tr>
+                    <tr>
+                        <td><b>July 2025</b></td>
+                        <td>PM Modi visits Maldives, attends Independence Day, inaugurates projects.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Strategic Significance of Maldives:</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Factor</th>
+                        <th>Importance to India</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>🧭 <b>Neighbourhood First Policy</b></td>
+                        <td>Maldives is a <b>priority nation</b> in India’s regional diplomacy.</td>
+                    </tr>
+                    <tr>
+                        <td>🌊 <b>Geostrategic Location</b></td>
+                        <td>Controls critical <b>Sea Lanes of Communication (SLOCs)</b> in the <b>Indian Ocean</b> vital for <b>global trade</b> and <b>India’s energy security</b>.</td>
+                    </tr>
+                    <tr>
+                        <td>🛡️ <b>Maritime Security</b></td>
+                        <td>Integral to <b>India’s SAGAR vision</b> (Security and Growth for All in the Region).</td>
+                    </tr>
+                    <tr>
+                        <td>🌐 <b>Soft Power</b></td>
+                        <td>India was one of the <b>first to establish diplomatic relations</b> post-1965 independence.</td>
+                    </tr>
+                    <tr>
+                        <td>💵 <b>Economic Assistance</b></td>
+                        <td>India has been a <b>key partner in infrastructure, health, capacity-building, and disaster relief</b> in Maldives.</td>
+                    </tr>
+                    <tr>
+                        <td>🏖️ <b>Tourism</b></td>
+                        <td>Indians were the <b>largest group of tourists</b> until 2023; tourism makes up <b>~30%</b> of Maldivian GDP.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Recent Diplomatic Friction:</h2>
+            <ul>
+                <li><b>“India Out” Campaign</b>: Championed by Muizzu and his supporters; alleged undue Indian military presence.</li>
+                <li><b>Indian Troop Withdrawal</b>: Maldives demanded removal of Indian military personnel assisting with medical evacuation and coastal radar ops.</li>
+                <li><b>Tourism Decline (2024)</b>: Sparked by <b>derogatory social media posts</b> by Maldivian ministers; large-scale boycott by Indian tourists.</li>
+            </ul>
+
+            <h2>Key Outcomes of PM Modi’s 2025 Visit:</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Domain</th>
+                        <th>Development</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>🇮🇳🤝🇲🇻 <b>Bilateral Reset</b></td>
+                        <td>Marked return to <b>constructive engagement</b> and acknowledgment of Indian support.</td>
+                    </tr>
+                    <tr>
+                        <td>💼 <b>Economic Ties</b></td>
+                        <td>Inauguration of joint projects; agreements to <b>boost infrastructure, tourism, and development aid</b>.</td>
+                    </tr>
+                    <tr>
+                        <td>🗣️ <b>Political Engagement</b></td>
+                        <td>Modi met not only govt leaders but also <b>Opposition</b> and <b>civil society leaders</b> to depoliticize ties.</td>
+                    </tr>
+                    <tr>
+                        <td>🌐 <b>Tourism Boost</b></td>
+                        <td>President Muizzu acknowledged India’s role in reviving Maldives’ tourism sector.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>India–China–Maldives Triangle:</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Factor</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>🇨🇳 <b>China’s Engagement</b></td>
+                        <td>Maldives’ Jan 2024 visit to Beijing led to agreements, but <b>loan restructuring talks stalled</b>.</td>
+                    </tr>
+                    <tr>
+                        <td>🏦 <b>Debt Trap Risk</b></td>
+                        <td>Maldives’ <b>external debt burden</b> has increased due to Chinese infrastructure loans.</td>
+                    </tr>
+                    <tr>
+                        <td>⚖️ <b>India’s Strategy</b></td>
+                        <td><b>Counterbalance</b> China through <b>better offers</b>, faster implementation, transparency, and capacity building.</td>
+                    </tr>
+                    <tr>
+                        <td>🤝 <b>Mutual Sovereignty</b></td>
+                        <td>India respects Maldives’ right to engage with all powers, but aims to <b>remain the partner of choice</b>.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>India’s Broader Diplomatic Strategy:</h2>
+            <ul>
+                <li>Use <b>soft power, cultural linkages, people-to-people contact</b>.</li>
+                <li>Focus on <b>non-partisan diplomacy</b> — engage <b>across political spectrum</b>.</li>
+                <li>Strengthen <b>development partnerships</b>, <b>grant-based aid</b>, <b>emergency support</b> (e.g., Covid vaccines, Operation NEER).</li>
+                <li>Maintain <b>military-to-military coordination</b> under SAGAR framework while avoiding overreach.</li>
+            </ul>
+
+            <h2>Mains Answer Writing Pointers:</h2>
+            <ul>
+                <li>*“Discuss the significance of the Maldives in India’s maritime and regional security strategy.”*</li>
+                <li>*“Evaluate the impact of domestic political shifts in neighbouring countries on India’s bilateral relations.”*</li>
+                <li>*“India’s diplomacy must adapt to strategic competition in South Asia.” Examine in the context of Maldives and China.*</li>
+            </ul>
+
+            <h2>Prelims Pointers:</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Topic</th>
+                        <th>Detail</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>SAGAR Vision</td>
+                        <td>India’s maritime strategy: <b>Security and Growth for All in the Region</b></td>
+                    </tr>
+                    <tr>
+                        <td>“India Out”</td>
+                        <td>Political campaign in Maldives against Indian military presence</td>
+                    </tr>
+                    <tr>
+                        <td>Key Economic Sector</td>
+                        <td><b>Tourism (~30% of Maldives GDP)</b>; India is a major contributor</td>
+                    </tr>
+                    <tr>
+                        <td>Indian Aid Projects</td>
+                        <td>Greater Male Connectivity Project, Cancer hospital, water & sanitation</td>
+                    </tr>
+                    <tr>
+                        <td>Sea Lanes</td>
+                        <td>Indian Ocean SLOCs – critical for global trade and India’s oil imports</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="hindi-content" style="display: none;">
+            <div class="read-time"></div>
+            <div class="header-hindi">
+                <span class="read-time-hindi"></span>
+            </div>
+            <h1>प्रधानमंत्री मोदी की मालदीव यात्रा - एक कूटनीतिक पुनर्स्थापन</h1>
+
+            <blockquote>
+                📌 "अंतर्राष्ट्रीय राजनीति के क्षेत्र में, कोई स्थायी मित्र या शत्रु नहीं होता, केवल स्थायी हित होते हैं।"<br>
+                — लॉर्ड पामर्स्टन
+            </blockquote>
+
+            <h3>सामान्य अध्ययन प्रश्नपत्र 2 - अंतर्राष्ट्रीय संबंध | भारत और उसके पड़ोसी | द्विपक्षीय संबंध</h3>
+
+            <h2>संदर्भ:</h2>
+            <p>प्रधानमंत्री <b>नरेंद्र मोदी</b> की मालदीव के <b>स्वतंत्रता दिवस (26 जुलाई)</b> समारोह में भाग लेने के लिए की गई यात्रा, <b>"इंडिया आउट" अभियान</b> और राष्ट्रपति <b>मोहम्मद मुइज़्ज़ू</b> के नेतृत्व में चीन समर्थक बदलावों से उपजे राजनीतिक तनाव के बाद, <b>तनावपूर्ण राजनयिक संबंधों में पुनर्स्थापन</b> का प्रतीक है।</p>
+
+            <h2>प्रमुख घटनाक्रमों की समयरेखा:</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>तिथि</th>
+                        <th>घटना</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>सितंबर 2023</b></td>
+                        <td>राष्ट्रपति <b>मोहम्मद मुइज़्ज़ू</b> निर्वाचित, "इंडिया आउट" अभियान का समर्थन।</td>
+                    </tr>
+                    <tr>
+                        <td><b>जनवरी 2024</b></td>
+                        <td>मुइज़्ज़ू ने <b>चीन</b> का दौरा किया, मालदीव से <b>भारतीय सैनिकों की वापसी</b> की मांग की।</td>
+                    </tr>
+                    <tr>
+                        <td><b>2024 की शुरुआत में</b></td>
+                        <td>मालदीव के मंत्रियों द्वारा <b>भारत विरोधी टिप्पणियों</b> पर कूटनीतिक विवाद।</td>
+                    </tr>
+                    <tr>
+                        <td><b>जुलाई 2025</b></td>
+                        <td>प्रधानमंत्री मोदी मालदीव का दौरा करेंगे, स्वतंत्रता दिवस समारोह में शामिल होंगे और परियोजनाओं का उद्घाटन करेंगे।</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>मालदीव का सामरिक महत्व:</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>कारक</th>
+                        <th>भारत के लिए महत्व</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>🧭 <b>पड़ोसी प्रथम नीति</b></td>
+                        <td>मालदीव भारत की क्षेत्रीय कूटनीति में एक <b>प्राथमिकता वाला देश</b> है।</td>
+                    </tr>
+                    <tr>
+                        <td>🌊 <b>भू-रणनीतिक स्थिति</b></td>
+                        <td>वैश्विक व्यापार और <b>भारत की ऊर्जा सुरक्षा</b> के लिए महत्वपूर्ण <b>हिंद महासागर</b> में महत्वपूर्ण <b>समुद्री संचार मार्गों (SLOCs)</b> को नियंत्रित करती है।</td>
+                    </tr>
+                    <tr>
+                        <td>🛡️ <b>समुद्री सुरक्षा</b></td>
+                        <td>भारत के <b>SAGAR विज़न</b> (क्षेत्र में सभी के लिए सुरक्षा और विकास) का अभिन्न अंग।</td>
+                    </tr>
+                    <tr>
+                        <td>🌐 <b>सॉफ्ट पावर</b></td>
+                        <td>भारत 1965 की स्वतंत्रता के बाद राजनयिक संबंध स्थापित करने वाले <b>पहले देशों</b> में से एक था।</td>
+                    </tr>
+                    <tr>
+                        <td>💵 <b>आर्थिक सहायता</b></td>
+                        <td>भारत मालदीव में <b>बुनियादी ढाँचे, स्वास्थ्य, क्षमता निर्माण और आपदा राहत</b> में एक <b>प्रमुख भागीदार</b> रहा है।</td>
+                    </tr>
+                    <tr>
+                        <td>🏖️ <b>पर्यटन</b></td>
+                        <td>2023 तक भारतीय <b>पर्यटकों का सबसे बड़ा समूह</b> थे; पर्यटन मालदीव के सकल घरेलू उत्पाद का <b>लगभग 30%</b> हिस्सा है।</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>हालिया कूटनीतिक टकराव:</h2>
+            <ul>
+                <li><b>"इंडिया आउट" अभियान</b>: मुइज़्ज़ू और उनके समर्थकों द्वारा समर्थित; भारतीय सैन्य उपस्थिति का अनुचित आरोप।</li>
+                <li><b>भारतीय सैनिकों की वापसी</b>: मालदीव ने चिकित्सा निकासी और तटीय रडार संचालन में सहायता कर रहे भारतीय सैन्य कर्मियों को हटाने की मांग की।</li>
+                <li><b>पर्यटन में गिरावट (2024)</b>: मालदीव के मंत्रियों द्वारा <b>अपमानजनक सोशल मीडिया पोस्ट</b> के कारण; भारतीय पर्यटकों द्वारा बड़े पैमाने पर बहिष्कार।</li>
+            </ul>
+
+            <h2>प्रधानमंत्री मोदी की 2025 की यात्रा के प्रमुख परिणाम:</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>क्षेत्र</th>
+                        <th>विकास</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>🇮🇳🤝🇲🇻 <b>द्विपक्षीय पुनर्स्थापन</b></td>
+                        <td><b>रचनात्मक जुड़ाव</b> की वापसी और भारतीय समर्थन की स्वीकृति।</td>
+                    </tr>
+                    <tr>
+                        <td>💼 <b>आर्थिक संबंध</b></td>
+                        <td>संयुक्त परियोजनाओं का उद्घाटन; <b>बुनियादी ढाँचे, पर्यटन और विकास सहायता को बढ़ावा देने</b> के लिए समझौते।</td>
+                    </tr>
+                    <tr>
+                        <td>🗣️ <b>राजनीतिक जुड़ाव</b></td>
+                        <td>मोदी ने संबंधों का राजनीतिकरण करने के लिए न केवल सरकारी नेताओं से, बल्कि <b>विपक्ष</b> और <b>नागरिक समाज के नेताओं</b> से भी मुलाकात की।</td>
+                    </tr>
+                    <tr>
+                        <td>🌐 <b>पर्यटन को बढ़ावा</b></td>
+                        <td>राष्ट्रपति मुइज़्ज़ू ने मालदीव के पर्यटन क्षेत्र को पुनर्जीवित करने में भारत की भूमिका को स्वीकार किया।</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>भारत-चीन-मालदीव त्रिकोण:</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>कारक</th>
+                        <th>विवरण</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>🇨🇳 <b>चीन की भागीदारी</b></td>
+                        <td>मालदीव की जनवरी 2024 की बीजिंग यात्रा के दौरान समझौते हुए, लेकिन <b>ऋण पुनर्गठन वार्ता रुक गई</b>।</td>
+                    </tr>
+                    <tr>
+                        <td>🏦 <b>ऋण जाल का जोखिम</b></td>
+                        <td>चीनी बुनियादी ढाँचे के ऋणों के कारण मालदीव का <b>बाहरी ऋण बोझ</b> बढ़ गया है।</td>
+                    </tr>
+                    <tr>
+                        <td>⚖️ <b>भारत की रणनीति</b></td>
+                        <td>बेहतर प्रस्तावों, तेज़ कार्यान्वयन, पारदर्शिता और क्षमता निर्माण के माध्यम से चीन का <b>प्रतिकार</b> करना।</td>
+                    </tr>
+                    <tr>
+                        <td>🤝 <b>पारस्परिक संप्रभुता</b></td>
+                        <td>भारत मालदीव के सभी शक्तियों के साथ जुड़ने के अधिकार का सम्मान करता है, लेकिन उसका लक्ष्य <b>पसंदीदा भागीदार बने रहना</b> है।</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>भारत की व्यापक कूटनीतिक रणनीति:</h2>
+            <ul>
+                <li><b>सॉफ्ट पावर, सांस्कृतिक संबंधों और लोगों के बीच संपर्क</b> का उपयोग करें।</li>
+                <li><b>गैर-पक्षपातपूर्ण कूटनीति</b> पर ध्यान केंद्रित करें - <b>सभी राजनीतिक दलों</b> के साथ जुड़ें।</li>
+                <li><b>विकास साझेदारी, अनुदान-आधारित सहायता, आपातकालीन सहायता</b> (जैसे, कोविड टीके, ऑपरेशन नीर) को मज़बूत करें।</li>
+                <li><b>सागर (SAGAR) ढाँचे</b> के अंतर्गत <b>सैन्य-से-सैन्य समन्वय</b> बनाए रखें और अतिक्रमण से बचें।</li>
+            </ul>
+
+            <h2>मुख्य परीक्षा के उत्तर लेखन के लिए संकेत:</h2>
+            <ul>
+                <li>*“भारत की समुद्री और क्षेत्रीय सुरक्षा रणनीति में मालदीव के महत्व पर चर्चा करें।”*</li>
+                <li>*“पड़ोसी देशों में घरेलू राजनीतिक बदलावों का भारत के द्विपक्षीय संबंधों पर प्रभाव का मूल्यांकन करें।”*</li>
+                <li>*“भारत की कूटनीति को दक्षिण एशिया में रणनीतिक प्रतिस्पर्धा के अनुकूल होना चाहिए।” मालदीव और चीन के संदर्भ में परीक्षण करें।*</li>
+            </ul>
+
+            <h2>प्रारंभिक परीक्षा के लिए संकेत:</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>विषय</th>
+                        <th>विवरण</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>सागर (SAGAR) विज़न</b></td>
+                        <td>भारत की समुद्री रणनीति: <b>क्षेत्र में सभी के लिए सुरक्षा और विकास</b></td>
+                    </tr>
+                    <tr>
+                        <td><b>“भारत बाहर”</b></td>
+                        <td>भारतीय सैन्य उपस्थिति के विरुद्ध मालदीव में राजनीतिक अभियान</td>
+                    </tr>
+                    <tr>
+                        <td><b>प्रमुख आर्थिक क्षेत्र</b></td>
+                        <td><b>पर्यटन (मालदीव के सकल घरेलू उत्पाद का लगभग 30%)</b>; भारत एक प्रमुख योगदानकर्ता है</td>
+                    </tr>
+                    <tr>
+                        <td><b>भारतीय सहायता परियोजनाएँ</b></td>
+                        <td>ग्रेटर माले कनेक्टिविटी परियोजना, कैंसर अस्पताल, जल एवं स्वच्छता</td>
+                    </tr>
+                    <tr>
+                        <td><b>समुद्री मार्ग</b></td>
+                        <td>हिंद महासागर SLOC - वैश्विक व्यापार और भारत के तेल आयात के लिए महत्वपूर्ण</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <a href="index.html" class="back-to-home" data-en="Back to Home" data-hi="मुख्य पृष्ठ पर वापस जाएँ">Back to Home</a>
+
+    <button class="to-top-button" onclick="scrollToTop()">↑</button>
+
+    <script>
+        const langSwitch = document.getElementById('langSwitch');
+        const contentDiv = document.getElementById('content');
+        const englishContent = contentDiv.querySelector('.english-content');
+        const hindiContent = contentDiv.querySelector('.hindi-content');
+        const navbarLinks = document.querySelectorAll('.navbar a');
+        const backToHomeButton = document.querySelector('.back-to-home');
+        let isEnglish = true;
+
+        // Function to calculate read time
+        function calculateReadTime(text) {
+            const wordsPerMinute = 200; // Average reading speed
+            const wordCount = text.split(/\s+/).filter(word => word.length > 0).length; // Filter out empty strings from split
+            const readTimeMinutes = Math.ceil(wordCount / wordsPerMinute);
+            return readTimeMinutes;
+        }
+
+        // Set initial read time for English content
+        const englishText = englishContent.innerText;
+        const readTimeEnglish = calculateReadTime(englishText);
+        englishContent.querySelector('.read-time').innerText = `Read Time: ${readTimeEnglish} min`;
+
+        // Set initial read time for Hindi content
+        const hindiText = hindiContent.innerText;
+        const readTimeHindi = calculateReadTime(hindiText);
+        hindiContent.querySelector('.read-time').innerText = `पढ़ने का समय: ${readTimeHindi} मिनट`;
+
+
+        function updateContent() {
+            if (isEnglish) {
+                englishContent.style.display = 'block';
+                hindiContent.style.display = 'none';
+                langSwitch.querySelector('.lang-text').innerText = 'EN';
+                langSwitch.classList.remove('hindi');
+            } else {
+                englishContent.style.display = 'none';
+                hindiContent.style.display = 'block';
+                langSwitch.querySelector('.lang-text').innerText = 'HI';
+                langSwitch.classList.add('hindi');
+            }
+
+            navbarLinks.forEach(link => {
+                if (isEnglish) {
+                    link.innerText = link.getAttribute('data-en');
+                } else {
+                    link.innerText = link.getAttribute('data-hi');
+                }
+            });
+
+            if (isEnglish) {
+                backToHomeButton.innerText = backToHomeButton.getAttribute('data-en');
+            } else {
+                backToHomeButton.innerText = backToHomeButton.getAttribute('data-hi');
+            }
+        }
+
+        langSwitch.addEventListener('click', () => {
+            isEnglish = !isEnglish;
+            updateContent();
+        });
+
+        // Initialize content on page load
+        updateContent();
+
+        // Scroll to top button functionality
+        const toTopButton = document.querySelector('.to-top-button');
+
+        window.onscroll = function() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                toTopButton.style.display = "block";
+            } else {
+                toTopButton.style.display = "none";
+            }
+        };
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+</html>

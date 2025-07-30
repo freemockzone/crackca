@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supreme Court on Electoral Roll Revision</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --primary-color: #6a0dad; /* Deep Purple */
+            --secondary-color: #ff6f61; /* Coral */
+            --accent-color: #4CAF50; /* Green */
+            --text-color: #333;
+            --light-bg: #f8f9fa;
+            --dark-bg: #e0e0e0;
+            --border-color: #ddd;
+            --link-color: #007bff;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background-color: var(--primary-color);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .nav-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-weight: bold;
+        }
+
+        .navbar a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .navbar .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8em;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Language Switch */
+        .language-switch-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .language-switch-button {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+        }
+
+        .language-switch-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: 0.5s;
+        }
+
+        .language-switch-button:hover::before {
+            left: 100%;
+        }
+
+        .language-switch-button:hover {
+            background-color: #3e8e41;
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+        }
+
+        .language-switch-button .icon {
+            font-size: 1.2em;
+        }
+
+        /* Content Styling */
+        h1, h2, h3 {
+            color: var(--primary-color);
+            font-family: 'Poppins', sans-serif;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 5px;
+            margin-top: 25px;
+        }
+
+        h1 { font-size: 2.2em; border-color: var(--primary-color); }
+        h2 { font-size: 1.8em; }
+        h3 { font-size: 1.4em; }
+
+        p {
+            margin-bottom: 1em;
+            text-align: justify;
+        }
+
+        .highlight {
+            background-color: #fff3cd;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: var(--light-bg);
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .note {
+            background-color: #e6f7ff;
+            border-left: 5px solid #2196F3;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .button:hover {
+            background-color: #e05b53;
+            transform: translateY(-2px);
+        }
+
+        /* Back to Top Button */
+        #backToTopBtn {
+            display: none;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.8em;
+            line-height: 50px;
+            text-align: center;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            z-index: 999;
+        }
+
+        #backToTopBtn:hover {
+            background-color: #3e8e41;
+            transform: scale(1.1);
+        }
+
+        /* Pie Chart */
+        .chart-container {
+            width: 70%;
+            margin: 40px auto;
+            background-color: #fefefe;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Read Time */
+        .read-time {
+            font-style: italic;
+            color: #777;
+            margin-bottom: 20px;
+            text-align: right;
+            font-size: 0.9em;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
+            .navbar .nav-content {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .navbar a {
+                padding: 8px 12px;
+            }
+            .chart-container {
+                width: 90%;
+            }
+            #backToTopBtn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.5em;
+                line-height: 40px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">🗳️ Elections Update</div>
+            <div>
+                <a href="index.html" data-lang-en="Home" data-lang-hi="मुख्य पृष्ठ">Home</a>
+                <a href="donate.html" data-lang-en="Donation" data-lang-hi="दान">Donation</a>
+                <a href="contact.html" data-lang-en="Contact" data-lang-hi="संपर्क करें">Contact</a>
+            </div>
+            <div class="language-switch-container">
+                <button class="language-switch-button" id="languageSwitch">
+                    <span class="icon">🌐</span>
+                    <span data-lang-en="Switch to Hindi" data-lang-hi="अंग्रेजी में स्विच करें">Switch to Hindi</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="read-time" id="readTime"></div>
+
+        <h1 data-lang-en="🏛️ Supreme Court on Electoral Roll Revision – July 2025" data-lang-hi="🏛️ चुनावी रोल संशोधन पर सुप्रीम कोर्ट – जुलाई 2025">🏛️ Supreme Court on Electoral Roll Revision – July 2025</h1>
+
+        <h3 data-lang-en="🔶 Context" data-lang-hi="🔶 संदर्भ">🔶 Context</h3>
+        <p data-lang-en="The <span class='highlight'>Election Commission (EC)</span> is conducting a <span class='highlight'>Special Intensive Revision (SIR)</span> of the electoral roll in Bihar. Concerns raised about <span class='highlight'>exclusion of Aadhaar and EPIC (Electoral Photo Identity Card)</span> during enumeration. Petition filed by <span class='highlight'>Association for Democratic Reforms (ADR)</span>. The petitioners sought a <span class='highlight'>stay on publication of the draft electoral roll</span>." data-lang-hi="चुनाव आयोग (EC) बिहार में मतदाता सूची का <span class='highlight'>विशेष गहन पुनरीक्षण (SIR)</span> कर रहा है। जनगणना के दौरान <span class='highlight'>आधार और EPIC (इलेक्ट्रोरल फोटो आइडेंटिटी कार्ड) को बाहर करने</span> के बारे में चिंताएँ उठाई गईं। एसोसिएशन फॉर डेमोक्रेटिक रिफॉर्म्स (ADR) द्वारा याचिका दायर की गई। याचिकाकर्ताओं ने <span class='highlight'>मसौदा मतदाता सूची के प्रकाशन पर रोक</span> लगाने की मांग की।"></p>
+
+        <h3 data-lang-en="🔹 Key Supreme Court Observations" data-lang-hi="🔹 सुप्रीम कोर्ट की मुख्य टिप्पणियाँ">🔹 Key Supreme Court Observations</h3>
+        <ul>
+            <li data-lang-en="<span class='highlight'>No stay</span> on the draft roll publication (to be released on <span class='highlight'>August 1</span>)." data-lang-hi="मसौदा सूची के प्रकाशन पर <span class='highlight'>कोई रोक नहीं</span> (जो <span class='highlight'>1 अगस्त</span> को जारी की जाएगी)।"></li>
+            <li data-lang-en="SC reminded EC of its <span class='highlight'>July 10, 2025 order</span>: <br> * EC must <span class='highlight'>consider Aadhaar, EPIC, and Ration Cards</span>.<br> * Final discretion left to EC." data-lang-hi="SC ने EC को अपने <span class='highlight'>10 जुलाई, 2025 के आदेश</span> की याद दिलाई: <br> * EC को <span class='highlight'>आधार, EPIC और राशन कार्ड</span> पर विचार करना चाहिए।<br> * अंतिम विवेक EC पर छोड़ दिया गया है।"></li>
+            <li data-lang-en="<span class='highlight'>Aadhaar and EPIC presumed to be valid and authenticated documents</span>.<br> * Can be used for inclusion in electoral roll.<br> * <span class='highlight'>En masse exclusion must be avoided</span>.<br> * <span class='highlight'>Forgery to be tackled on a case-by-case basis.</span>" data-lang-hi="<span class='highlight'>आधार और EPIC को वैध और प्रमाणित दस्तावेज माना जाता है</span>।<br> * मतदाता सूची में शामिल करने के लिए इनका उपयोग किया जा सकता है।<br> * <span class='highlight'>बड़े पैमाने पर बहिष्कार से बचना चाहिए</span>।<br> * <span class='highlight'>जालसाजी से मामले-दर-मामले आधार पर निपटा जाएगा।</span>"></li>
+            <li data-lang-en="“Any document can be forged... but <span class='highlight'>Aadhaar and EPIC have prima facie credibility</span>.” – Justice Surya Kant." data-lang-hi="“कोई भी दस्तावेज जाली हो सकता है... लेकिन <span class='highlight'>आधार और EPIC की प्रथम दृष्टया विश्वसनीयता है</span>।” – न्यायमूर्ति सूर्यकांत।"></li>
+        </ul>
+
+        <h3 data-lang-en="⚖️ Legal & Administrative Points" data-lang-hi="⚖️ कानूनी और प्रशासनिक बिंदु">⚖️ Legal & Administrative Points</h3>
+        <h4 data-lang-en="📌 Aadhaar Act – Section 9:" data-lang-hi="📌 आधार अधिनियम – धारा 9:">📌 Aadhaar Act – Section 9:</h4>
+        <p data-lang-en="States that <span class='highlight'>Aadhaar is not proof of citizenship</span>. EC argued that Aadhaar is allowed, but not conclusive proof of eligibility." data-lang-hi="कहता है कि <span class='highlight'>आधार नागरिकता का प्रमाण नहीं है</span>। EC ने तर्क दिया कि आधार की अनुमति है, लेकिन यह पात्रता का निर्णायक प्रमाण नहीं है।"></p>
+
+        <h4 data-lang-en="📌 Draft Roll:" data-lang-hi="📌 मसौदा सूची:">📌 Draft Roll:</h4>
+        <p data-lang-en="EC clarified that the roll published on August 1 is <span class='highlight'>only a draft</span>. Citizens can <span class='highlight'>file objections</span> during the statutory period." data-lang-hi="EC ने स्पष्ट किया कि 1 अगस्त को प्रकाशित होने वाली सूची <span class='highlight'>केवल एक मसौदा</span> है। नागरिक वैधानिक अवधि के दौरान <span class='highlight'>आपत्तियां दर्ज</span> कर सकते हैं।"></p>
+
+        <h3 data-lang-en="🔸 Arguments from Petitioners (ADR)" data-lang-hi="🔸 याचिकाकर्ताओं (ADR) के तर्क">🔸 Arguments from Petitioners (ADR)</h3>
+        <ul>
+            <li data-lang-en="Alleged EC’s <span class='highlight'>non-compliance</span> with SC’s July 10 directive." data-lang-hi="SC के 10 जुलाई के निर्देश का EC द्वारा <span class='highlight'>पालन न करने</span> का आरोप लगाया।"></li>
+            <li data-lang-en="Ground-level enumeration staff <span class='highlight'>not accepting Aadhaar/EPIC</span>." data-lang-hi="जमीनी स्तर के जनगणना कर्मचारी <span class='highlight'>आधार/EPIC स्वीकार नहीं कर रहे थे</span>।"></li>
+            <li data-lang-en="Sought a <span class='highlight'>stay on the draft roll</span>, which SC declined." data-lang-hi="<span class='highlight'>मसौदा सूची पर रोक</span> लगाने की मांग की, जिसे SC ने ठुकरा दिया।"></li>
+        </ul>
+
+        <h3 data-lang-en="🔸 SC’s Stand on Future Action" data-lang-hi="🔸 भविष्य की कार्रवाई पर SC का रुख">🔸 SC’s Stand on Future Action</h3>
+        <ul>
+            <li data-lang-en="SC <span class='highlight'>reserves power</span> to intervene if illegality is proven." data-lang-hi="यदि अवैधता साबित हो जाती है तो SC को हस्तक्षेप करने की <span class='highlight'>शक्ति सुरक्षित</span> है।"></li>
+            <li data-lang-en="Can <span class='highlight'>quash the draft roll</span> if found unconstitutional." data-lang-hi="यदि असंवैधानिक पाया जाता है तो <span class='highlight'>मसौदा सूची को रद्द</span> कर सकता है।"></li>
+            <li data-lang-en="All actions taken now are <span class='highlight'>“subject to the final outcome”</span> of the case." data-lang-hi="अभी की गई सभी कार्रवाई <span class='highlight'>“मामले के अंतिम परिणाम के अधीन”</span> हैं।"></li>
+        </ul>
+
+        <h3 data-lang-en="🧠 Key UPSC Pointers" data-lang-hi="🧠 मुख्य यूपीएससी बिंदु">🧠 Key UPSC Pointers</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th data-lang-en="Topic" data-lang-hi="विषय">Topic</th>
+                    <th data-lang-en="Relevance" data-lang-hi="प्रासंगिकता">Relevance</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-lang-en="Electoral Reforms" data-lang-hi="चुनावी सुधार">Electoral Reforms</td>
+                    <td data-lang-en="Electoral roll inclusion, role of authenticated documents" data-lang-hi="मतदाता सूची में शामिल करना, प्रमाणित दस्तावेजों की भूमिका">Electoral roll inclusion, role of authenticated documents</td>
+                </tr>
+                <tr>
+                    <td data-lang-en="Aadhaar Usage" data-lang-hi="आधार का उपयोग">Aadhaar Usage</td>
+                    <td data-lang-en="Limits of Aadhaar under Aadhaar Act (Section 9)" data-lang-hi="आधार अधिनियम (धारा 9) के तहत आधार की सीमाएँ">Limits of Aadhaar under Aadhaar Act (Section 9)</td>
+                </tr>
+                <tr>
+                    <td data-lang-en="Judicial Review" data-lang-hi="न्यायिक समीक्षा">Judicial Review</td>
+                    <td data-lang-en="SC’s power to review and strike down EC’s process" data-lang-hi="EC की प्रक्रिया की समीक्षा करने और उसे रद्द करने की SC की शक्ति">SC’s power to review and strike down EC’s process</td>
+                </tr>
+                <tr>
+                    <td data-lang-en="Democratic Processes" data-lang-hi="लोकतांत्रिक प्रक्रियाएँ">Democratic Processes</td>
+                    <td data-lang-en="Right to vote, inclusion vs. exclusion, due process" data-lang-hi="मतदान का अधिकार, समावेशन बनाम बहिष्कार, उचित प्रक्रिया">Right to vote, inclusion vs. exclusion, due process</td>
+                </tr>
+                <tr>
+                    <td data-lang-en="Administrative Law" data-lang-hi="प्रशासनिक कानून">Administrative Law</td>
+                    <td data-lang-en="EC's discretion vs. judicial oversight" data-lang-hi="EC का विवेक बनाम न्यायिक निरीक्षण">EC's discretion vs. judicial oversight</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 data-lang-en="📚 Prelims Fact Box" data-lang-hi="📚 प्रारंभिक परीक्षा तथ्य बॉक्स">📚 Prelims Fact Box</h3>
+        <ul>
+            <li data-lang-en="<span class='highlight'>EPIC</span>: Electoral Photo Identity Card (Voter ID)." data-lang-hi="<span class='highlight'>EPIC</span>: इलेक्टोरल फोटो आइडेंटिटी कार्ड (मतदाता पहचान पत्र)।"></li>
+            <li data-lang-en="<span class='highlight'>SIR</span>: Special Intensive Revision – a detailed voter list update." data-lang-hi="<span class='highlight'>SIR</span>: विशेष गहन पुनरीक्षण – एक विस्तृत मतदाता सूची अद्यतन।"></li>
+            <li data-lang-en="<span class='highlight'>ADR</span>: Association for Democratic Reforms – electoral transparency advocate." data-lang-hi="<span class='highlight'>ADR</span>: एसोसिएशन फॉर डेमोक्रेटिक रिफॉर्म्स – चुनावी पारदर्शिता अधिवक्ता।"></li>
+            <li data-lang-en="<span class='highlight'>Section 9, Aadhaar Act</span>: Aadhaar not proof of citizenship." data-lang-hi="<span class='highlight'>धारा 9, आधार अधिनियम</span>: आधार नागरिकता का प्रमाण नहीं।"></li>
+        </ul>
+
+        <h3 data-lang-en="📝 Mains Answer Writing Pointers" data-lang-hi="📝 मुख्य परीक्षा उत्तर लेखन बिंदु">📝 Mains Answer Writing Pointers</h3>
+        <p data-lang-en='<span class="note" data-lang-en="Q: “Discuss the role of the Supreme Court in ensuring free and fair elections in India in light of the recent electoral roll revision controversy.”" data-lang-hi="प्रश्न: “हाल के मतदाता सूची संशोधन विवाद के आलोक में भारत में स्वतंत्र और निष्पक्ष चुनाव सुनिश्चित करने में सर्वोच्च न्यायालय की भूमिका पर चर्चा करें।”">Q: “Discuss the role of the Supreme Court in ensuring free and fair elections in India in light of the recent electoral roll revision controversy.”</span>'></p>
+
+        <h4 data-lang-en="Intro:" data-lang-hi="परिचय:">Intro:</h4>
+        <p data-lang-en="Mention the case related to Bihar’s electoral roll and SC’s intervention." data-lang-hi="बिहार की मतदाता सूची और SC के हस्तक्षेप से संबंधित मामले का उल्लेख करें।"></p>
+
+        <h4 data-lang-en="Body:" data-lang-hi="मुख्य भाग:">Body:</h4>
+        <ul>
+            <li data-lang-en="Judicial oversight over EC processes." data-lang-hi="EC प्रक्रियाओं पर न्यायिक निरीक्षण।"></li>
+            <li data-lang-en="Aadhaar and voter ID as tools for inclusion vs concerns about misuse." data-lang-hi="समावेशन के लिए आधार और मतदाता पहचान पत्र के रूप में उपकरण बनाम दुरुपयोग के बारे में चिंताएँ।"></li>
+            <li data-lang-en="Principle of en masse inclusion vs en masse exclusion." data-lang-hi="बड़े पैमाने पर समावेशन बनाम बड़े पैमाने पर बहिष्कार का सिद्धांत।"></li>
+            <li data-lang-en="Draft roll and citizen participation via objections." data-lang-hi="मसौदा सूची और आपत्तियों के माध्यम से नागरिक भागीदारी।"></li>
+        </ul>
+
+        <h4 data-lang-en="Conclusion:" data-lang-hi="निष्कर्ष:">Conclusion:</h4>
+        <ul>
+            <li data-lang-en="SC plays a vital balancing role between <span class='highlight'>executive discretion and constitutional safeguards</span>." data-lang-hi="SC <span class='highlight'>कार्यकारी विवेक और संवैधानिक सुरक्षा उपायों</span> के बीच एक महत्वपूर्ण संतुलन भूमिका निभाता है।"></li>
+            <li data-lang-en="Ensuring that <span class='highlight'>technological solutions like Aadhaar</span> don’t result in <span class='highlight'>exclusion or disenfranchisement</span>." data-lang-hi="यह सुनिश्चित करना कि <span class='highlight'>आधार जैसे तकनीकी समाधान</span> <span class='highlight'>बहिष्कार या मताधिकार से वंचित</span> न करें।"></li>
+        </ul>
+
+        <a href="index.html" class="button" data-lang-en="Back to Home" data-lang-hi="वापस मुख्य पृष्ठ पर">Back to Home</a>
+
+        <div class="chart-container">
+            <h3 data-lang-en="Electoral Roll Document Usage (Illustrative)" data-lang-hi="मतदाता सूची दस्तावेज़ उपयोग (उदाहरणात्मक)">Electoral Roll Document Usage (Illustrative)</h3>
+            <canvas id="electoralChart"></canvas>
+        </div>
+    </div>
+
+    <button id="backToTopBtn" title="Go to top">⬆️</button>
+
+    <script>
+        // Read Time Calculation
+        function calculateReadTime() {
+            const content = document.querySelector('.container').innerText;
+            const wordsPerMinute = 200; // Average reading speed
+            const words = content.split(/\s+/).length;
+            const minutes = Math.ceil(words / wordsPerMinute);
+            document.getElementById('readTime').innerText = `Approx. Read Time: ${minutes} min`;
+        }
+        calculateReadTime();
+
+        // Language Switch
+        const languageSwitchBtn = document.getElementById('languageSwitch');
+        let currentLang = 'en';
+
+        const translations = {
+            en: {
+                home: 'Home',
+                donation: 'Donation',
+                contact: 'Contact',
+                switchLang: 'Switch to Hindi',
+                title: '🏛️ Supreme Court on Electoral Roll Revision – July 2025',
+                context: 'The Election Commission (EC) is conducting a Special Intensive Revision (SIR) of the electoral roll in Bihar. Concerns raised about exclusion of Aadhaar and EPIC (Electoral Photo Identity Card) during enumeration. Petition filed by Association for Democratic Reforms (ADR). The petitioners sought a stay on publication of the draft electoral roll.',
+                keyObservations: '🔹 Key Supreme Court Observations',
+                noStay: 'No stay on the draft roll publication (to be released on August 1).',
+                scOrder: 'SC reminded EC of its July 10, 2025 order: <br> * EC must consider Aadhaar, EPIC, and Ration Cards.<br> * Final discretion left to EC.',
+                aadhaarCredibility: 'Aadhaar and EPIC presumed to be valid and authenticated documents.<br> * Can be used for inclusion in electoral roll.<br> * En masse exclusion must be avoided.<br> * Forgery to be tackled on a case-by-case basis.',
+                justiceKantQuote: '“Any document can be forged... but Aadhaar and EPIC have prima facie credibility.” – Justice Surya Kant.',
+                legalPoints: '⚖️ Legal & Administrative Points',
+                aadhaarAct9: '📌 Aadhaar Act – Section 9:',
+                aadhaarNotProof: 'States that Aadhaar is not proof of citizenship. EC argued that Aadhaar is allowed, but not conclusive proof of eligibility.',
+                draftRoll: '📌 Draft Roll:',
+                draftRollClarification: 'EC clarified that the roll published on August 1 is only a draft. Citizens can file objections during the statutory period.',
+                adrArguments: '🔸 Arguments from Petitioners (ADR)',
+                nonCompliance: 'Alleged EC’s non-compliance with SC’s July 10 directive.',
+                staffNotAccepting: 'Ground-level enumeration staff not accepting Aadhaar/EPIC.',
+                stayDeclined: 'Sought a stay on the draft roll, which SC declined.',
+                scFutureAction: '🔸 SC’s Stand on Future Action',
+                reservesPower: 'SC reserves power to intervene if illegality is proven.',
+                quashRoll: 'Can quash the draft roll if found unconstitutional.',
+                subjectToOutcome: 'All actions taken now are “subject to the final outcome” of the case.',
+                upscPointers: '🧠 Key UPSC Pointers',
+                topic: 'Topic',
+                relevance: 'Relevance',
+                electoralReforms: 'Electoral Reforms',
+                electoralReformsRelevance: 'Electoral roll inclusion, role of authenticated documents',
+                aadhaarUsage: 'Aadhaar Usage',
+                aadhaarUsageRelevance: 'Limits of Aadhaar under Aadhaar Act (Section 9)',
+                judicialReview: 'Judicial Review',
+                judicialReviewRelevance: 'SC’s power to review and strike down EC’s process',
+                democraticProcesses: 'Democratic Processes',
+                democraticProcessesRelevance: 'Right to vote, inclusion vs. exclusion, due process',
+                administrativeLaw: 'Administrative Law',
+                administrativeLawRelevance: "EC's discretion vs. judicial oversight",
+                prelimsFactBox: '📚 Prelims Fact Box',
+                epic: 'EPIC: Electoral Photo Identity Card (Voter ID).',
+                sir: 'SIR: Special Intensive Revision – a detailed voter list update.',
+                adr: 'ADR: Association for Democratic Reforms – electoral transparency advocate.',
+                section9Aadhaar: 'Section 9, Aadhaar Act: Aadhaar not proof of citizenship.',
+                mainsPointers: '📝 Mains Answer Writing Pointers',
+                question: 'Q: “Discuss the role of the Supreme Court in ensuring free and fair elections in India in light of the recent electoral roll revision controversy.”',
+                intro: 'Intro:',
+                introContent: 'Mention the case related to Bihar’s electoral roll and SC’s intervention.',
+                body: 'Body:',
+                body1: 'Judicial oversight over EC processes.',
+                body2: 'Aadhaar and voter ID as tools for inclusion vs concerns about misuse.',
+                body3: 'Principle of en masse inclusion vs en masse exclusion.',
+                body4: 'Draft roll and citizen participation via objections.',
+                conclusion: 'Conclusion:',
+                conclusion1: 'SC plays a vital balancing role between executive discretion and constitutional safeguards.',
+                conclusion2: 'Ensuring that technological solutions like Aadhaar don’t result in exclusion or disenfranchisement.',
+                backToHome: 'Back to Home',
+                chartTitle: 'Electoral Roll Document Usage (Illustrative)',
+                switchToHindiButton: 'Switch to Hindi'
+            },
+            hi: {
+                home: 'मुख्य पृष्ठ',
+                donation: 'दान',
+                contact: 'संपर्क करें',
+                switchLang: 'अंग्रेजी में स्विच करें',
+                title: '🏛️ चुनावी रोल संशोधन पर सुप्रीम कोर्ट – जुलाई 2025',
+                context: 'चुनाव आयोग (EC) बिहार में मतदाता सूची का विशेष गहन पुनरीक्षण (SIR) कर रहा है। जनगणना के दौरान आधार और EPIC (इलेक्ट्रोरल फोटो आइडेंटिटी कार्ड) को बाहर करने के बारे में चिंताएँ उठाई गईं। एसोसिएशन फॉर डेमोक्रेटिक रिफॉर्म्स (ADR) द्वारा याचिका दायर की गई। याचिकाकर्ताओं ने मसौदा मतदाता सूची के प्रकाशन पर रोक लगाने की मांग की।',
+                keyObservations: '🔹 सुप्रीम कोर्ट की मुख्य टिप्पणियाँ',
+                noStay: 'मसौदा सूची के प्रकाशन पर कोई रोक नहीं (जो 1 अगस्त को जारी की जाएगी)।',
+                scOrder: 'SC ने EC को अपने 10 जुलाई, 2025 के आदेश की याद दिलाई: <br> * EC को आधार, EPIC और राशन कार्ड पर विचार करना चाहिए।<br> * अंतिम विवेक EC पर छोड़ दिया गया है।',
+                aadhaarCredibility: 'आधार और EPIC को वैध और प्रमाणित दस्तावेज माना जाता है।<br> * मतदाता सूची में शामिल करने के लिए इनका उपयोग किया जा सकता है।<br> * बड़े पैमाने पर बहिष्कार से बचना चाहिए।<br> * जालसाजी से मामले-दर-मामले आधार पर निपटा जाएगा।',
+                justiceKantQuote: '“कोई भी दस्तावेज जाली हो सकता है... लेकिन आधार और EPIC की प्रथम दृष्टया विश्वसनीयता है।” – न्यायमूर्ति सूर्यकांत।',
+                legalPoints: '⚖️ कानूनी और प्रशासनिक बिंदु',
+                aadhaarAct9: '📌 आधार अधिनियम – धारा 9:',
+                aadhaarNotProof: 'कहता है कि आधार नागरिकता का प्रमाण नहीं है। EC ने तर्क दिया कि आधार की अनुमति है, लेकिन यह पात्रता का निर्णायक प्रमाण नहीं है।',
+                draftRoll: '📌 मसौदा सूची:',
+                draftRollClarification: 'EC ने स्पष्ट किया कि 1 अगस्त को प्रकाशित होने वाली सूची केवल एक मसौदा है। नागरिक वैधानिक अवधि के दौरान आपत्तियां दर्ज कर सकते हैं।',
+                adrArguments: '🔸 याचिकाकर्ताओं (ADR) के तर्क',
+                nonCompliance: 'SC के 10 जुलाई के निर्देश का EC द्वारा पालन न करने का आरोप लगाया।',
+                staffNotAccepting: 'जमीनी स्तर के जनगणना कर्मचारी आधार/EPIC स्वीकार नहीं कर रहे थे।',
+                stayDeclined: 'मसौदा सूची पर रोक लगाने की मांग की, जिसे SC ने ठुकरा दिया।',
+                scFutureAction: '🔸 भविष्य की कार्रवाई पर SC का रुख',
+                reservesPower: 'यदि अवैधता साबित हो जाती है तो SC को हस्तक्षेप करने की शक्ति सुरक्षित है।',
+                quashRoll: 'यदि असंवैधानिक पाया जाता है तो मसौदा सूची को रद्द कर सकता है।',
+                subjectToOutcome: 'अभी की गई सभी कार्रवाई “मामले के अंतिम परिणाम के अधीन” हैं।',
+                upscPointers: '🧠 मुख्य यूपीएससी बिंदु',
+                topic: 'विषय',
+                relevance: 'प्रासंगिकता',
+                electoralReforms: 'चुनावी सुधार',
+                electoralReformsRelevance: 'मतदाता सूची में शामिल करना, प्रमाणित दस्तावेजों की भूमिका',
+                aadhaarUsage: 'आधार का उपयोग',
+                aadhaarUsageRelevance: 'आधार अधिनियम (धारा 9) के तहत आधार की सीमाएँ',
+                judicialReview: 'न्यायिक समीक्षा',
+                judicialReviewRelevance: 'EC की प्रक्रिया की समीक्षा करने और उसे रद्द करने की SC की शक्ति',
+                democraticProcesses: 'लोकतांत्रिक प्रक्रियाएँ',
+                democraticProcessesRelevance: 'मतदान का अधिकार, समावेशन बनाम बहिष्कार, उचित प्रक्रिया',
+                administrativeLaw: 'प्रशासनिक कानून',
+                administrativeLawRelevance: "EC का विवेक बनाम न्यायिक निरीक्षण",
+                prelimsFactBox: '📚 प्रारंभिक परीक्षा तथ्य बॉक्स',
+                epic: 'EPIC: इलेक्टोरल फोटो आइडेंटिटी कार्ड (मतदाता पहचान पत्र)।',
+                sir: 'SIR: विशेष गहन पुनरीक्षण – एक विस्तृत मतदाता सूची अद्यतन।',
+                adr: 'ADR: एसोसिएशन फॉर डेमोक्रेटिक रिफॉर्म्स – चुनावी पारदर्शिता अधिवक्ता।',
+                section9Aadhaar: 'धारा 9, आधार अधिनियम: आधार नागरिकता का प्रमाण नहीं।',
+                mainsPointers: '📝 मुख्य परीक्षा उत्तर लेखन बिंदु',
+                question: 'प्रश्न: “हाल के मतदाता सूची संशोधन विवाद के आलोक में भारत में स्वतंत्र और निष्पक्ष चुनाव सुनिश्चित करने में सर्वोच्च न्यायालय की भूमिका पर चर्चा करें।”',
+                intro: 'परिचय:',
+                introContent: 'बिहार की मतदाता सूची और SC के हस्तक्षेप से संबंधित मामले का उल्लेख करें।',
+                body: 'मुख्य भाग:',
+                body1: 'EC प्रक्रियाओं पर न्यायिक निरीक्षण।',
+                body2: 'समावेशन के लिए आधार और मतदाता पहचान पत्र के रूप में उपकरण बनाम दुरुपयोग के बारे में चिंताएँ।',
+                body3: 'बड़े पैमाने पर समावेशन बनाम बड़े पैमाने पर बहिष्कार का सिद्धांत।',
+                body4: 'मसौदा सूची और आपत्तियों के माध्यम से नागरिक भागीदारी।',
+                conclusion: 'निष्कर्ष:',
+                conclusion1: 'SC कार्यकारी विवेक और संवैधानिक सुरक्षा उपायों के बीच एक महत्वपूर्ण संतुलन भूमिका निभाता है।',
+                conclusion2: 'यह सुनिश्चित करना कि आधार जैसे तकनीकी समाधान बहिष्कार या मताधिकार से वंचित न करें।',
+                backToHome: 'वापस मुख्य पृष्ठ पर',
+                chartTitle: 'मतदाता सूची दस्तावेज़ उपयोग (उदाहरणात्मक)',
+                switchToHindiButton: 'अंग्रेजी में स्विच करें'
+            }
+        };
+
+        function updateContent() {
+            document.querySelectorAll('[data-lang-en]').forEach(element => {
+                const enText = element.getAttribute('data-lang-en');
+                const hiText = element.getAttribute('data-lang-hi');
+                if (currentLang === 'en') {
+                    element.innerHTML = enText;
+                } else {
+                    element.innerHTML = hiText;
+                }
+            });
+
+            // Update button text explicitly
+            const switchButtonText = languageSwitchBtn.querySelector('span:last-child');
+            if (currentLang === 'en') {
+                switchButtonText.innerText = translations.en.switchToHindiButton;
+            } else {
+                switchButtonText.innerText = translations.hi.switchToHindiButton;
+            }
+
+            // Update navigation links
+            document.querySelector('.navbar a[href="index.html"]').innerText = translations[currentLang].home;
+            document.querySelector('.navbar a[href="donate.html"]').innerText = translations[currentLang].donation;
+            document.querySelector('.navbar a[href="contact.html"]').innerText = translations[currentLang].contact;
+            document.querySelector('.button').innerText = translations[currentLang].backToHome;
+            document.querySelector('.chart-container h3').innerText = translations[currentLang].chartTitle;
+
+            // Update table headers
+            document.querySelector('th[data-lang-en="Topic"]').innerText = translations[currentLang].topic;
+            document.querySelector('th[data-lang-en="Relevance"]').innerText = translations[currentLang].relevance;
+        }
+
+        languageSwitchBtn.addEventListener('click', () => {
+            currentLang = currentLang === 'en' ? 'hi' : 'en';
+            updateContent();
+            updateChartLabels(); // Update chart labels on language switch
+        });
+
+        // Initial content load
+        updateContent();
+
+
+        // Back to Top Button
+        const backToTopBtn = document.getElementById('backToTopBtn');
+
+        window.onscroll = function() {
+            scrollFunction();
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                backToTopBtn.style.display = "block";
+            } else {
+                backToTopBtn.style.display = "none";
+            }
+        }
+
+        backToTopBtn.addEventListener('click', () => {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        });
+
+        // Pie Chart
+        let electoralChart; // Declare chart variable globally
+
+        function createChart() {
+            const ctx = document.getElementById('electoralChart').getContext('2d');
+            electoralChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: [
+                        currentLang === 'en' ? 'Aadhaar Accepted' : 'आधार स्वीकार किए गए',
+                        currentLang === 'en' ? 'EPIC Accepted' : 'EPIC स्वीकार किए गए',
+                        currentLang === 'en' ? 'Ration Card Accepted' : 'राशन कार्ड स्वीकार किए गए',
+                        currentLang === 'en' ? 'Other Documents' : 'अन्य दस्तावेज़'
+                    ],
+                    datasets: [{
+                        data: [45, 30, 15, 10], /* Illustrative data */
+                        backgroundColor: [
+                            '#6a0dad', /* Primary Purple */
+                            '#ff6f61', /* Secondary Coral */
+                            '#4CAF50', /* Accent Green */
+                            '#FFC107'  /* Yellow/Amber */
+                        ],
+                        hoverOffset: 10
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                font: {
+                                    size: 14,
+                                    family: 'Roboto, sans-serif'
+                                }
+                            }
+                        },
+                        title: {
+                            display: false, /* Title handled by h3 outside canvas */
+                        }
+                    }
+                }
+            });
+        }
+
+        function updateChartLabels() {
+            if (electoralChart) {
+                electoralChart.data.labels = [
+                    currentLang === 'en' ? 'Aadhaar Accepted' : 'आधार स्वीकार किए गए',
+                    currentLang === 'en' ? 'EPIC Accepted' : 'EPIC स्वीकार किए गए',
+                    currentLang === 'en' ? 'Ration Card Accepted' : 'राशन कार्ड स्वीकार किए गए',
+                    currentLang === 'en' ? 'Other Documents' : 'अन्य दस्तावेज़'
+                ];
+                electoralChart.update();
+            }
+        }
+
+        // Initialize chart on page load
+        window.addEventListener('load', createChart);
+    </script>
+</body>
+</html>

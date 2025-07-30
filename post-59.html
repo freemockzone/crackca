@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divya Deshmukh – New Era in Indian Women’s Chess</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --primary-color: #4CAF50; /* Green - Freshness, Growth */
+            --secondary-color: #FFC107; /* Amber - Success, Brightness */
+            --accent-color: #2196F3; /* Blue - Calm, Trust */
+            --text-color: #333;
+            --light-bg: #e8f5e9; /* Lighter Green */
+            --dark-bg: #dcedc8;
+            --border-color: #a5d6a7; /* Greenish border */
+            --link-color: #1976D2;
+            --hover-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            --button-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background-color: var(--primary-color);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .nav-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            font-weight: bold;
+        }
+
+        .navbar a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: var(--hover-shadow);
+        }
+
+        .navbar .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8em;
+            color: white;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+        .navbar .logo:hover {
+            transform: scale(1.05);
+        }
+
+        /* Language Switch */
+        .language-switch-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .language-switch-button {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+            box-shadow: var(--button-shadow);
+        }
+
+        .language-switch-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: 0.5s;
+        }
+
+        .language-switch-button:hover::before {
+            left: 100%;
+        }
+
+        .language-switch-button:hover {
+            background-color: #1565C0; /* Darker blue */
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(33, 150, 243, 0.7);
+        }
+
+        .language-switch-button .icon {
+            font-size: 1.2em;
+        }
+
+        /* Content Styling */
+        h1, h2, h3, h4 {
+            color: var(--primary-color);
+            font-family: 'Poppins', sans-serif;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 5px;
+            margin-top: 25px;
+        }
+
+        h1 { font-size: 2.5em; text-align: center; color: #388E3C; /* Darker green */ }
+        h2 { font-size: 2em; border-color: var(--primary-color); }
+        h3 { font-size: 1.6em; }
+        h4 { font-size: 1.3em; border-bottom: 1px dashed var(--border-color); }
+
+        p {
+            margin-bottom: 1em;
+            text-align: justify;
+        }
+
+        .highlight {
+            background-color: #FFECB3; /* Lighter Amber */
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: bold;
+            color: #FF8F00; /* Darker Amber */
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: 8px;
+            padding-left: 5px;
+        }
+        ul ul {
+            list-style-type: circle;
+            margin-top: 5px;
+        }
+
+        blockquote {
+            background-color: #E3F2FD; /* Light blue for blockquote */
+            border-left: 5px solid #2196F3;
+            margin: 20px 0;
+            padding: 15px 20px;
+            border-radius: 8px;
+            font-style: italic;
+            color: #1976D2;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+            overflow: hidden; /* Ensures rounded corners apply to content */
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        tr:nth-child(even) {
+            background-color: var(--light-bg);
+        }
+
+        tr:hover {
+            background-color: #f1f8e9; /* Even lighter green */
+            transition: background-color 0.2s ease;
+        }
+
+        .note {
+            background-color: #FFFDE7; /* Very light yellow for notes */
+            border-left: 5px solid #FFC107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 8px;
+            font-weight: bold;
+            color: #FBC02D; /* Darker yellow */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            box-shadow: var(--button-shadow);
+        }
+
+        .button:hover {
+            background-color: #388E3C; /* Darker green */
+            transform: translateY(-2px);
+            box-shadow: var(--hover-shadow);
+        }
+
+        /* Back to Top Button */
+        #backToTopBtn {
+            display: none;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.8em;
+            line-height: 50px;
+            text-align: center;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            z-index: 999;
+        }
+
+        #backToTopBtn:hover {
+            background-color: #1565C0;
+            transform: scale(1.1);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Pie Chart */
+        .chart-container {
+            width: 70%;
+            max-width: 500px; /* Limit chart size */
+            margin: 40px auto;
+            background-color: #fefefe;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+
+        .chart-container h3 {
+            border-bottom: none;
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        /* Read Time */
+        .read-time {
+            font-style: italic;
+            color: #777;
+            margin-bottom: 20px;
+            text-align: right;
+            font-size: 0.9em;
+            padding-right: 10px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
+            .navbar .nav-content {
+                flex-direction: column;
+                gap: 10px;
+                padding: 0 10px;
+            }
+            .navbar a {
+                padding: 8px 12px;
+            }
+            .chart-container {
+                width: 95%;
+                padding: 15px;
+            }
+            #backToTopBtn {
+                width: 45px;
+                height: 45px;
+                font-size: 1.6em;
+                line-height: 45px;
+                bottom: 20px;
+                right: 20px;
+            }
+            h1 { font-size: 2em; }
+            h2 { font-size: 1.7em; }
+            h3 { font-size: 1.4em; }
+            h4 { font-size: 1.1em; }
+            p, li, td { font-size: 0.95em; }
+        }
+
+        @media (max-width: 480px) {
+            .navbar a {
+                padding: 6px 10px;
+                font-size: 0.9em;
+            }
+            .language-switch-button {
+                padding: 8px 12px;
+                font-size: 0.8em;
+            }
+            .navbar .logo {
+                font-size: 1.5em;
+            }
+            .button {
+                padding: 10px 20px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">♟️ Chess News</div>
+            <div>
+                <a href="index.html" data-lang-key="home">Home</a>
+                <a href="donation.html" data-lang-key="donation">Donation</a>
+                <a href="contact.html" data-lang-key="contact">Contact</a>
+            </div>
+            <div class="language-switch-container">
+                <button class="language-switch-button" id="languageSwitch">
+                    <span class="icon">🌐</span>
+                    <span data-lang-key="switchLang">Switch to Hindi</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="read-time" id="readTime"></div>
+
+        <h1 data-lang-key="mainTitle">📝 UPSC CSE Notes: Divya Deshmukh – A New Era in Indian Women’s Chess</h1>
+
+        <h4 data-lang-key="personalInfoTitle">🔹 Personal & Background Information</h4>
+        <ul>
+            <li data-lang-key="name"><strong>Name:</strong> Divya Deshmukh</li>
+            <li data-lang-key="age"><strong>Age:</strong> 19</li>
+            <li data-lang-key="hometown"><strong>Hometown:</strong> Nagpur, Maharashtra</li>
+            <li data-lang-key="previousTitle"><strong>Previous Title:</strong> International Master (IM)</li>
+            <li data-lang-key="pastAchievements"><strong>Notable Past Achievements:</strong></li>
+            <ul>
+                <li data-lang-key="achievement1"><strong>2023:</strong> World Junior Champion (Girls category)</li>
+                <li data-lang-key="achievement2"><strong>2024:</strong> Individual Gold at Chess Olympiad, Budapest</li>
+                <li data-lang-key="achievement3">Instrumental in helping <span class='highlight'>India win team gold</span> at the same Olympiad</li>
+            </ul>
+        </ul>
+
+        <h4 data-lang-key="currentAchievementTitle">🔹 Current Achievement (2025)</h4>
+        <ul>
+            <li data-lang-key="event"><strong>Event:</strong> FIDE Women’s World Cup</li>
+            <li data-lang-key="location"><strong>Location:</strong> Georgia (country)</li>
+            <li data-lang-key="achievement"><strong>Achievement:</strong></li>
+            <ul>
+                <li data-lang-key="champion"><strong>Champion</strong> – Defeated <span class='highlight'>Koneru Humpy</span> in tiebreaks</li>
+                <li data-lang-key="gmTitle">Became <span class='highlight'>India’s 4th Woman Grandmaster (GM)</span></li>
+                <li data-lang-key="overallGm">Becomes <span class='highlight'>India’s 88th overall Grandmaster</span></li>
+            </ul>
+        </ul>
+
+        <h4 data-lang-key="significanceTitle">🔹 Significance</h4>
+        <ul>
+            <li data-lang-key="qualification"><strong>Direct Qualification for Candidates Tournament</strong> (2026)</li>
+            <li data-lang-key="historyGm">Made history by <span class='highlight'>earning GM title in one tournament</span>, bypassing the usual requirement of 3 GM norms and 2500+ rating, per <span class='highlight'>FIDE regulations</span></li>
+            <li data-lang-key="generationalShift">Represents a <span class='highlight'>generational shift</span> in Indian women's chess</li>
+            <li data-lang-key="indiaDominance">India had <span class='highlight'>2 Indians in the final</span> (Divya & Humpy) from a field of 107 – indicative of <span class='highlight'>India’s rising dominance</span> in women’s chess</li>
+        </ul>
+
+        <h4 data-lang-key="historicalContextTitle">🔹 Historical Context</h4>
+        <ul>
+            <li data-lang-key="firstGm"><strong>First Indian Woman GM:</strong> Koneru Humpy</li>
+            <li data-lang-key="otherGms">Other Indian Women GMs:</li>
+            <ul>
+                <li data-lang-key="harika">Harika Dronavalli</li>
+                <li data-lang-key="vaishali">Vaishali Rameshbabu</li>
+            </ul>
+            <li data-lang-key="fourthGm">Divya is now <span class='highlight'>the fourth</span></li>
+        </ul>
+
+        <h4 data-lang-key="keyMatchesTitle">🔹 Key Matches</h4>
+        <ul>
+            <li data-lang-key="defeated">Defeated:</li>
+            <ul>
+                <li data-lang-key="zhuJiner"><strong>Zhu Jiner</strong> (World No.6, China)</li>
+                <li data-lang-key="harikaDronavalli"><strong>Harika Dronavalli</strong> (India)</li>
+                <li data-lang-key="tanZhongyi"><strong>Tan Zhongyi</strong> (Ex-World Champion, China)</li>
+                <li data-lang-key="finalMatch"><strong>Final:</strong> Koneru Humpy (World No.5) – won via tiebreak after classical games were drawn</li>
+            </ul>
+        </ul>
+
+        <h4 data-lang-key="challengesUnderdogTitle">🔹 Challenges & Underdog Status</h4>
+        <ul>
+            <li data-lang-key="noGmNorms">Had <span class='highlight'>no GM norms</span> before tournament</li>
+            <li data-lang-key="ranked">Was <span class='highlight'>ranked World No.18</span> in classical, <span class='highlight'>No.22</span> in rapid, and <span class=\'highlight\'>No.18</span> in blitz</li>
+            <li data-lang-key="defeatedHigher">Faced and defeated players ranked much higher in every format</li>
+        </ul>
+
+        <h4 data-lang-key="largerImplicationsTitle">🔹 Larger Implications</h4>
+        <ul>
+            <li data-lang-key="talentDepth">Reflects the <span class='highlight'>depth of talent</span> and training infrastructure in Indian chess</li>
+            <li data-lang-key="boostWomenSports">Boost for <span class='highlight'>women’s sports and representation</span> in India</li>
+            <li data-lang-key="encourageGirls">Encourages more <span class='highlight'>girls to take up chess competitively</span></li>
+            <li data-lang-key="increasingStrength">India’s increasing strength across both men’s and women’s chess platforms</li>
+        </ul>
+
+        <h3 data-lang-key="mainsPointsTitle">📌 Points for Mains (GS Paper II & IV)</h3>
+        <ul>
+            <li data-lang-key="womenEmpowerment"><strong>Women Empowerment:</strong> Breaking gender stereotypes in male-dominated intellectual sports</li>
+            <li data-lang-key="youthLeadership"><strong>Youth Leadership:</strong> Representation of India’s youth in global sports forums</li>
+            <li data-lang-key="policyLinkage"><strong>Policy Linkage:</strong> Importance of continued government and private support in non-mainstream sports</li>
+            <li data-lang-key="ethicsRelevance"><strong>Ethics/Essay Relevance:</strong> Perseverance, mental discipline, and self-belief</li>
+        </ul>
+
+        <h3 data-lang-key="quoteTitle">💬 Inspirational Quote (For Essay or GS-IV)</h3>
+        <blockquote data-lang-key="quoteContent">
+            *"Success is no accident. It is hard work, perseverance, learning, studying, sacrifice and most of all, love of what you are doing."*
+            <br>— **Pelé**
+        </blockquote>
+
+        <a href="index.html" class="button" data-lang-key="backToHome">Back to Home</a>
+
+        <div class="chart-container">
+            <h3 data-lang-key="chartTitle">Divya Deshmukh's World Cup Journey (Illustrative Success Factors)</h3>
+            <canvas id="divyaChart"></canvas>
+            <p style="font-size: 0.8em; color: #666; margin-top: 15px;" data-lang-key="chartDisclaimer">*This chart is illustrative, representing conceptual factors contributing to success, not statistical data.</p>
+        </div>
+    </div>
+
+    <button id="backToTopBtn" title="Go to top">⬆️</button>
+
+    <script>
+        // Read Time Calculation (English content only)
+        function calculateReadTime() {
+            const contentDiv = document.querySelector('.container');
+            if (!contentDiv) return;
+
+            // Clone the content div to manipulate without affecting original display
+            const clonedContent = contentDiv.cloneNode(true);
+
+            // Temporarily set language to English and update content of cloned node
+            const originalLang = document.documentElement.lang;
+            document.documentElement.lang = 'en'; // Set to English for calculation
+            clonedContent.querySelectorAll('[data-lang-key]').forEach(el => {
+                const key = el.getAttribute('data-lang-key');
+                if (translations.en[key]) {
+                    el.innerHTML = translations.en[key];
+                }
+            });
+
+            // Remove elements that are not part of main text content for word count
+            clonedContent.querySelectorAll('.read-time, .language-switch-container, .navbar, .button, .chart-container').forEach(el => el.remove());
+
+            const contentText = clonedContent.innerText;
+            const wordsPerMinute = 200; // Average reading speed
+            const words = contentText.split(/\s+/).filter(word => word.length > 0).length; // Filter empty strings
+            const minutes = Math.ceil(words / wordsPerMinute);
+            document.getElementById('readTime').innerText = `Approx. Read Time: ${minutes} min`;
+
+            // Revert language (though it's a clone, good practice)
+            document.documentElement.lang = originalLang;
+        }
+
+        // Translations object - Moved outside for cleaner access
+        const translations = {
+            en: {
+                home: 'Home',
+                donation: 'Donation',
+                contact: 'Contact',
+                switchLang: 'Switch to Hindi',
+                mainTitle: '📝 UPSC CSE Notes: Divya Deshmukh – A New Era in Indian Women’s Chess',
+                personalInfoTitle: '🔹 Personal & Background Information',
+                name: '<strong>Name:</strong> Divya Deshmukh',
+                age: '<strong>Age:</strong> 19',
+                hometown: '<strong>Hometown:</strong> Nagpur, Maharashtra',
+                previousTitle: '<strong>Previous Title:</strong> International Master (IM)',
+                pastAchievements: '<strong>Notable Past Achievements:</strong>',
+                achievement1: '<strong>2023:</strong> World Junior Champion (Girls category)',
+                achievement2: '<strong>2024:</strong> Individual Gold at Chess Olympiad, Budapest',
+                achievement3: 'Instrumental in helping <span class=\'highlight\'>India win team gold</span> at the same Olympiad',
+                currentAchievementTitle: '🔹 Current Achievement (2025)',
+                event: '<strong>Event:</strong> FIDE Women’s World Cup',
+                location: '<strong>Location:</strong> Georgia (country)',
+                achievement: '<strong>Achievement:</strong>',
+                champion: '<strong>Champion</strong> – Defeated <span class=\'highlight\'>Koneru Humpy</span> in tiebreaks',
+                gmTitle: 'Became <span class=\'highlight\'>India’s 4th Woman Grandmaster (GM)</span>',
+                overallGm: 'Becomes <span class=\'highlight\'>India’s 88th overall Grandmaster</span>',
+                significanceTitle: '🔹 Significance',
+                qualification: '<strong>Direct Qualification for Candidates Tournament</strong> (2026)',
+                historyGm: 'Made history by <span class=\'highlight\'>earning GM title in one tournament</span>, bypassing the usual requirement of 3 GM norms and 2500+ rating, per <span class=\'highlight\'>FIDE regulations</span>',
+                generationalShift: 'Represents a <span class=\'highlight\'>generational shift</span> in Indian women\'s chess',
+                indiaDominance: 'India had <span class=\'highlight\'>2 Indians in the final</span> (Divya & Humpy) from a field of 107 – indicative of <span class=\'highlight\'>India’s rising dominance</span> in women’s chess',
+                historicalContextTitle: '🔹 Historical Context',
+                firstGm: '<strong>First Indian Woman GM:</strong> Koneru Humpy',
+                otherGms: 'Other Indian Women GMs:',
+                harika: 'Harika Dronavalli',
+                vaishali: 'Vaishali Rameshbabu',
+                fourthGm: 'Divya is now <span class=\'highlight\'>the fourth</span>',
+                keyMatchesTitle: '🔹 Key Matches',
+                defeated: 'Defeated:',
+                zhuJiner: '<strong>Zhu Jiner</strong> (World No.6, China)',
+                harikaDronavalli: '<strong>Harika Dronavalli</strong> (India)',
+                tanZhongyi: '<strong>Tan Zhongyi</strong> (Ex-World Champion, China)',
+                finalMatch: '<strong>Final:</strong> Koneru Humpy (World No.5) – won via tiebreak after classical games were drawn',
+                challengesUnderdogTitle: '🔹 Challenges & Underdog Status',
+                noGmNorms: 'Had <span class=\'highlight\'>no GM norms</span> before tournament',
+                ranked: 'Was <span class=\'highlight\'>ranked World No.18</span> in classical, <span class=\'highlight\'>No.22</span> in rapid, and <span class=\'highlight\'>No.18</span> in blitz',
+                defeatedHigher: 'Faced and defeated players ranked much higher in every format',
+                largerImplicationsTitle: '🔹 Larger Implications',
+                talentDepth: 'Reflects the <span class=\'highlight\'>depth of talent</span> and training infrastructure in Indian chess',
+                boostWomenSports: 'Boost for <span class=\'highlight\'>women’s sports and representation</span> in India',
+                encourageGirls: 'Encourages more <span class=\'highlight\'>girls to take up chess competitively</span>',
+                increasingStrength: 'India’s increasing strength across both men’s and women’s chess platforms',
+                mainsPointsTitle: '📌 Points for Mains (GS Paper II & IV)',
+                womenEmpowerment: '<strong>Women Empowerment:</strong> Breaking gender stereotypes in male-dominated intellectual sports',
+                youthLeadership: '<strong>Youth Leadership:</strong> Representation of India’s youth in global sports forums',
+                policyLinkage: '<strong>Policy Linkage:</strong> Importance of continued government and private support in non-mainstream sports',
+                ethicsRelevance: '<strong>Ethics/Essay Relevance:</strong> Perseverance, mental discipline, and self-belief',
+                quoteTitle: '💬 Inspirational Quote (For Essay or GS-IV)',
+                quoteContent: '*"Success is no accident. It is hard work, perseverance, learning, studying, sacrifice and most of all, love of what you are doing."* <br>— **Pelé**',
+                backToHome: 'Back to Home',
+                chartTitle: "Divya Deshmukh's World Cup Journey (Illustrative Success Factors)",
+                chartDisclaimer: '*This chart is illustrative, representing conceptual factors contributing to success, not statistical data.',
+                chartLabelSkill: 'Skill & Talent',
+                chartLabelHardWork: 'Hard Work & Perseverance',
+                chartLabelStrategicPlay: 'Strategic Play',
+                chartLabelSupportSystem: 'Support System',
+                chartLabelUnderdogSpirit: 'Underdog Spirit'
+            },
+            hi: {
+                home: 'मुख्य पृष्ठ',
+                donation: 'दान',
+                contact: 'संपर्क करें',
+                switchLang: 'अंग्रेजी में स्विच करें',
+                mainTitle: '📝 यूपीएससी सीएसई नोट्स: दिव्या देशमुख – भारतीय महिला शतरंज में एक नया युग',
+                personalInfoTitle: '🔹 व्यक्तिगत और पृष्ठभूमि की जानकारी',
+                name: '<strong>नाम:</strong> दिव्या देशमुख',
+                age: '<strong>आयु:</strong> 19',
+                hometown: '<strong>गृह नगर:</strong> नागपुर, महाराष्ट्र',
+                previousTitle: '<strong>पिछला खिताब:</strong> अंतर्राष्ट्रीय मास्टर (IM)',
+                pastAchievements: '<strong>उल्लेखनीय पिछली उपलब्धियां:</strong>',
+                achievement1: '<strong>2023:</strong> विश्व जूनियर चैंपियन (लड़कियों की श्रेणी)',
+                achievement2: '<strong>2024:</strong> बुडापेस्ट शतरंज ओलंपियाड में व्यक्तिगत स्वर्ण',
+                achievement3: 'उसी ओलंपियाड में <span class=\'highlight\'>भारत को टीम स्वर्ण</span> जीतने में महत्वपूर्ण भूमिका निभाई',
+                currentAchievementTitle: '🔹 वर्तमान उपलब्धि (2025)',
+                event: '<strong>आयोजन:</strong> फिडे महिला विश्व कप',
+                location: '<strong>स्थान:</strong> जॉर्जिया (देश)',
+                achievement: '<strong>उपलब्धि:</strong>',
+                champion: '<strong>चैंपियन</strong> – टाईब्रेक में <span class=\'highlight\'>कोनेरू हम्पी</span> को हराया',
+                gmTitle: '<span class=\'highlight\'>भारत की चौथी महिला ग्रैंडमास्टर (GM)</span> बनीं',
+                overallGm: '<span class=\'highlight\'>भारत की 88वीं समग्र ग्रैंडमास्टर</span> बनीं',
+                significanceTitle: '🔹 महत्व',
+                qualification: '<strong>कैंडिडेट्स टूर्नामेंट</strong> (2026) के लिए सीधा क्वालीफिकेशन',
+                historyGm: '<span class=\'highlight\'>एक ही टूर्नामेंट में जीएम खिताब</span> अर्जित करके इतिहास रचा, जिसमें 3 जीएम मानदंड और 2500+ रेटिंग की सामान्य आवश्यकता को <span class=\'highlight\'>फिडे नियमों</span> के अनुसार बाईपास किया गया',
+                generationalShift: 'भारतीय महिला शतरंज में एक <span class=\'highlight\'>पीढ़ीगत बदलाव</span> का प्रतिनिधित्व करता है',
+                indiaDominance: '107 खिलाड़ियों के क्षेत्र से <span class=\'highlight\'>फाइनल में 2 भारतीय</span> (दिव्या और हम्पी) थे – जो महिला शतरंज में <span class=\'highlight\'>भारत के बढ़ते प्रभुत्व</span> का सूचक है',
+                historicalContextTitle: '🔹 ऐतिहासिक संदर्भ',
+                firstGm: '<strong>पहली भारतीय महिला जीएम:</strong> कोनेरू हम्पी',
+                otherGms: 'अन्य भारतीय महिला जीएम:',
+                harika: 'हारिका द्रोणावल्ली',
+                vaishali: 'वैशाली रमेशबाबू',
+                fourthGm: 'दिव्या अब <span class=\'highlight\'>चौथी</span> हैं',
+                keyMatchesTitle: '🔹 मुख्य मैच',
+                defeated: 'हराया:',
+                zhuJiner: '<strong>झू जिनर</strong> (विश्व नंबर 6, चीन)',
+                harikaDronavalli: '<strong>हारिका द्रोणावल्ली</strong> (भारत)',
+                tanZhongyi: '<strong>तान झोंगयी</strong> (पूर्व विश्व चैंपियन, चीन)',
+                finalMatch: '<strong>फाइनल:</strong> कोनेरू हम्पी (विश्व नंबर 5) – क्लासिकल गेम ड्रॉ होने के बाद टाईब्रेक के माध्यम से जीतीं',
+                challengesUnderdogTitle: '🔹 चुनौतियां और अंडरडॉग स्थिति',
+                noGmNorms: 'टूर्नामेंट से पहले कोई <span class=\'highlight\'>जीएम मानदंड</span> नहीं थे',
+                ranked: 'क्लासिकल में <span class=\'highlight\'>विश्व नंबर 18</span>, रैपिड में <span class=\'highlight\'>नंबर 22</span>, और ब्लिट्ज में <span class=\'highlight\'>नंबर 18</span> पर थीं',
+                defeatedHigher: 'प्रत्येक प्रारूप में बहुत अधिक रैंक वाले खिलाड़ियों का सामना किया और उन्हें हराया',
+                largerImplicationsTitle: '🔹 बड़े निहितार्थ',
+                talentDepth: 'भारतीय शतरंज में <span class=\'highlight\'>प्रतिभा की गहराई</span> और प्रशिक्षण के बुनियादी ढांचे को दर्शाता है',
+                boostWomenSports: 'भारत में <span class=\'highlight\'>महिला खेलों और प्रतिनिधित्व</span> के लिए प्रोत्साहन',
+                encourageGirls: 'अधिक <span class=\'highlight\'>लड़कियों को प्रतिस्पर्धी शतरंज</span> अपनाने के लिए प्रोत्साहित करता है',
+                increasingStrength: 'पुरुष और महिला दोनों शतरंज प्लेटफार्मों पर भारत की बढ़ती ताकत',
+                mainsPointsTitle: '📌 मुख्य परीक्षा के लिए अंक (जीएस पेपर II और IV)',
+                womenEmpowerment: '<strong>महिला सशक्तिकरण:</strong> पुरुष-प्रधान बौद्धिक खेलों में लैंगिक रूढ़ियों को तोड़ना',
+                youthLeadership: '<strong>युवा नेतृत्व:</strong> वैश्विक खेल मंचों में भारत के युवाओं का प्रतिनिधित्व',
+                policyLinkage: '<strong>नीतिगत संबंध:</strong> गैर-मुख्यधारा के खेलों में निरंतर सरकारी और निजी समर्थन का महत्व',
+                ethicsRelevance: '<strong>नैतिकता/निबंध प्रासंगिकता:</strong> दृढ़ता, मानसिक अनुशासन और आत्म-विश्वास',
+                quoteTitle: '💬 प्रेरणादायक उद्धरण (निबंध या जीएस-IV के लिए)',
+                quoteContent: '*"सफलता कोई दुर्घटना नहीं है। यह कड़ी मेहनत, दृढ़ता, सीखना, अध्ययन, बलिदान और सबसे बढ़कर, आप जो कर रहे हैं उससे प्यार है।"* <br>— **पेले**',
+                backToHome: 'वापस मुख्य पृष्ठ पर',
+                chartTitle: "दिव्या देशमुख की विश्व कप यात्रा (उदाहरणात्मक सफलता कारक)",
+                chartDisclaimer: '*यह चार्ट उदाहरणात्मक है, जो सफलता में योगदान करने वाले वैचारिक कारकों का प्रतिनिधित्व करता है, वास्तविक सांख्यिकीय डेटा पर आधारित नहीं है।',
+                chartLabelSkill: 'कौशल और प्रतिभा',
+                chartLabelHardWork: 'कड़ी मेहनत और दृढ़ता',
+                chartLabelStrategicPlay: 'रणनीतिक खेल',
+                chartLabelSupportSystem: 'समर्थन प्रणाली',
+                chartLabelUnderdogSpirit: 'अंडरडॉग भावना'
+            }
+        };
+
+        let currentLang = 'en'; // Initialize current language
+        let divyaChart = null; // Declare chart variable, initialize to null
+
+        // Function to update all content based on the current language
+        function updateContent() {
+            document.documentElement.lang = currentLang;
+
+            // Iterate over all elements with data-lang-key attribute
+            document.querySelectorAll('[data-lang-key]').forEach(element => {
+                const key = element.getAttribute('data-lang-key');
+                if (translations[currentLang] && translations[currentLang][key]) {
+                    element.innerHTML = translations[currentLang][key];
+                }
+            });
+
+            // Re-render chart with updated labels
+            renderChart();
+        }
+
+        // Function to create/re-create the chart
+        function renderChart() {
+            if (divyaChart) {
+                divyaChart.destroy(); // Destroy existing chart instance if it exists
+            }
+
+            const ctx = document.getElementById('divyaChart');
+            if (!ctx) {
+                console.error("Canvas element 'divyaChart' not found!");
+                return;
+            }
+            const context = ctx.getContext('2d');
+
+            divyaChart = new Chart(context, {
+                type: 'pie',
+                data: {
+                    labels: [
+                        translations[currentLang].chartLabelSkill,
+                        translations[currentLang].chartLabelHardWork,
+                        translations[currentLang].chartLabelStrategicPlay,
+                        translations[currentLang].chartLabelSupportSystem,
+                        translations[currentLang].chartLabelUnderdogSpirit
+                    ],
+                    datasets: [{
+                        data: [30, 25, 20, 15, 10], /* Illustrative data for success factors */
+                        backgroundColor: [
+                            '#4CAF50', /* Skill - Green */
+                            '#FFC107', /* Hard Work - Amber */
+                            '#2196F3', /* Strategic Play - Blue */
+                            '#F44336', /* Support System - Red */
+                            '#9C27B0'  /* Underdog Spirit - Purple */
+                        ],
+                        hoverOffset: 15
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                font: {
+                                    size: 14,
+                                    family: 'Roboto, sans-serif'
+                                }
+                            }
+                        },
+                        title: {
+                            display: false, /* Title handled by h3 outside canvas */
+                        }
+                    }
+                }
+            });
+        }
+
+
+        // Event listener for language switch button
+        const languageSwitchBtn = document.getElementById('languageSwitch');
+        if (languageSwitchBtn) {
+            languageSwitchBtn.addEventListener('click', () => {
+                currentLang = currentLang === 'en' ? 'hi' : 'en';
+                updateContent();
+                calculateReadTime(); // Recalculate read time as content might change slightly
+            });
+        } else {
+            console.error("Language switch button not found!");
+        }
+
+
+        // Back to Top Button logic
+        const backToTopBtn = document.getElementById('backToTopBtn');
+        if (backToTopBtn) {
+            window.addEventListener('scroll', () => {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    backToTopBtn.style.display = "block";
+                } else {
+                    backToTopBtn.style.display = "none";
+                }
+            });
+
+            backToTopBtn.addEventListener('click', () => {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            });
+        } else {
+            console.error("Back to Top button not found!");
+        }
+
+
+        // Initialize content and chart on page load
+        window.addEventListener('load', () => {
+            // No need to populate data-lang-key from innerHTML here, as translations object is predefined.
+            // This prevents issues where initial HTML might not match the desired translated HTML structure.
+            updateContent(); // Apply initial translation and render chart
+            calculateReadTime();
+        });
+    </script>
+</body>
+</html>

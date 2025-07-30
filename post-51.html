@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rajasthan to Demolish Unsafe School Buildings</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right bottom, #e0f2f7, #f0f4c3); /* Light cyan to light lime gradient */
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+        .navbar {
+            background: linear-gradient(to right, #00796B, #00ACC1); /* Dark Cyan to Cyan gradient */
+            padding: 15px 20px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .navbar a:hover {
+            color: #b2ebf2; /* Lighter cyan */
+            transform: scale(1.05);
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            padding: 30px;
+            padding-bottom: 80px; /* Increased padding-bottom for button visibility */
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+        h1 {
+            color: #D84315; /* Orange-red */
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.8em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.15);
+            border-bottom: 3px solid #ffccbc; /* Light orange-red border */
+            padding-bottom: 10px;
+        }
+        .read-time {
+            text-align: center;
+            color: #757575;
+            font-size: 0.9em;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #4CAF50; /* Green */
+            margin-top: 35px;
+            margin-bottom: 18px;
+            font-size: 2em;
+            border-left: 6px solid #a5d6a7; /* Light green border */
+            padding-left: 15px;
+            background-color: #e8f5e9; /* Lighter green background */
+            padding-top: 5px;
+            padding-bottom: 5px;
+            border-radius: 5px;
+        }
+        h3 {
+            color: #1976D2; /* Blue */
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-size: 1.6em;
+            position: relative;
+            padding-left: 25px;
+        }
+        h3::before {
+            content: '✓'; /* Checkmark bullet point */
+            position: absolute;
+            left: 0;
+            color: #2196F3; /* Bright Blue */
+            font-size: 1.2em;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        p {
+            margin-bottom: 10px;
+            color: #444;
+            text-align: justify;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 25px;
+        }
+        ul li {
+            background-color: #e3f2fd; /* Very light blue */
+            margin-bottom: 10px;
+            padding: 15px 20px;
+            border-radius: 10px;
+            border-left: 6px solid #2196F3; /* Blue border */
+            color: #333;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease;
+        }
+        ul li:hover {
+            transform: translateX(5px);
+            background-color: #bbdefb; /* Slightly darker blue on hover */
+        }
+        .hindi-text {
+            color: #6A1B9A; /* Dark Purple */
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px dashed #ce93d8; /* Light purple dashed border */
+            font-size: 1.15em;
+            line-height: 1.8;
+            background-color: #f3e5f5; /* Very light purple background */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+        }
+        .button-container {
+            text-align: center;
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+        }
+        .back-home-button {
+            display: inline-block;
+            padding: 18px 35px;
+            background: linear-gradient(45deg, #FF5722, #FFC107); /* Orange to Amber gradient */
+            color: white;
+            text-decoration: none;
+            border-radius: 35px;
+            font-size: 1.3em;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+        .back-home-button:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(45deg, #E64A19, #FFA000); /* Darker orange on hover */
+        }
+        strong {
+            color: #D32F2F; /* Red for strong text */
+        }
+        .upsc-section {
+            background-color: #fff8e1; /* Very light yellow background */
+            border-left: 6px solid #ffeb3b; /* Yellow border */
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .upsc-section h4 {
+            color: #EF6C00; /* Dark orange for subheadings */
+            font-size: 1.5em;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        .upsc-section ul li {
+            background-color: transparent;
+            border-left: none;
+            padding: 8px 0;
+            margin-bottom: 5px;
+            box-shadow: none;
+        }
+    </style>
+    <script>
+        function calculateReadTime(text) {
+            const wordsPerMinute = 200; // Average reading speed
+            const words = text.split(/\s+/).filter(word => word.length > 0).length; // Filter out empty strings from split
+            const minutes = Math.ceil(words / wordsPerMinute);
+            return minutes;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get only the English text for read time calculation
+            const englishContent = document.querySelector('.container').cloneNode(true);
+            const hindiTextDiv = englishContent.querySelector('.hindi-text');
+            if (hindiTextDiv) {
+                hindiTextDiv.remove(); // Remove Hindi text for accurate English word count
+            }
+            const articleText = englishContent.innerText;
+            const readTime = calculateReadTime(articleText);
+            document.getElementById('read-time').innerText = `Read Time: ${readTime} min`;
+        });
+    </script>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <a href="#">Blog</a>
+    </div>
+
+    <div class="container">
+        <h1>Rajasthan govt. to demolish unsafe school buildings</h1>
+        <div class="read-time" id="read-time"></div>
+
+        <p><strong>Context:</strong></p>
+        <ul>
+            <li><strong>Incident:</strong> Collapse of a part of Piplodi Government School in Jhalawar district, Rajasthan, killing seven children.</li>
+            <li><strong>Government Response:</strong> Urgent measures announced for safety of school buildings.</li>
+        </ul>
+
+        <h2>Key Measures Announced:</h2>
+        <h3>1. Demolition of Unsafe Buildings:</h3>
+        <ul>
+            <li><strong>Immediate Action:</strong> Unsafe school buildings to be identified, closed, and demolished.</li>
+            <li><strong>Temporary Solution:</strong> Container units will be used to create temporary classrooms.</li>
+        </ul>
+
+        <h3>2. Survey of Vulnerable Schools:</h3>
+        <ul>
+            <li><strong>Statewide Survey:</strong> District collectors tasked with identifying dilapidated school buildings.</li>
+            <li><strong>Red Cross Marking:</strong> Unsafe buildings will be marked and shut down immediately.</li>
+        </ul>
+
+        <h3>3. Funding & Budget Allocation:</h3>
+        <ul>
+            <li><strong>₹150 Crore Fund:</strong> Proposal under disaster management fund for repairs in 7,500 schools across 170 tehsils.</li>
+            <li><strong>AI for Budget Allocation:</strong> AI-based platform to guide budget allocation for repairs and safety monitoring.</li>
+        </ul>
+
+        <h3>4. Technological Integration:</h3>
+        <ul>
+            <li><strong>GIS Mapping:</strong> GIS-based application linked to the Shala Darpan portal for tracking and cataloging school infrastructure conditions.</li>
+            <li><strong>AI Monitoring:</strong> AI technology to monitor structural safety and predict maintenance needs.</li>
+        </ul>
+
+        <h3>5. Quality Control in School Construction:</h3>
+        <ul>
+            <li><strong>Creation of QC Unit:</strong> A unit within the Samagra Shiksha Scheme for overseeing school construction quality.</li>
+            <li><strong>Testing Materials:</strong> Mandatory testing of construction materials in certified labs (PWD-certified).</li>
+            <li><strong>Accountability:</strong> Contractors and engineers will be held financially accountable for substandard work.</li>
+        </ul>
+
+        <h3>6. Private Schools Included:</h3>
+        <ul>
+            <li><strong>Survey Extension:</strong> Private schools will also be surveyed for safety compliance.</li>
+        </ul>
+
+        <h3>7. Community Contribution:</h3>
+        <ul>
+            <li><strong>MPs/MLAs Contribution:</strong> Request for 20% of development fund contributions from MPs and MLAs to support school safety initiatives.</li>
+        </ul>
+
+        <h2>Implications for Governance and Infrastructure:</h2>
+        <ul>
+            <li><strong>Holistic Approach:</strong> Combining technological (GIS, AI) and financial measures to ensure structural safety in schools.</li>
+            <li><strong>Accountability Framework:</strong> Strong emphasis on accountability for contractors and engineers involved in school construction.</li>
+            <li><strong>Public-Private Coordination:</strong> Extension of safety measures to private schools, emphasizing a statewide responsibility for educational infrastructure.</li>
+            <li><strong>Funding:</strong> Proactive fund allocation (₹150 crore) to address immediate concerns while engaging local representatives for further support.</li>
+        </ul>
+
+        <div class="upsc-section">
+            <h2>Relevance for UPSC:</h2>
+            <ul>
+                <li><strong>Governance and Public Administration:</strong>
+                    <ul>
+                        <li>State government’s response to an urgent safety issue.</li>
+                        <li>Implementation of technological tools (GIS, AI) for public service delivery.</li>
+                    </ul>
+                </li>
+                <li><strong>Disaster Management:</strong>
+                    <ul>
+                        <li>Utilization of disaster management funds for preventive measures in schools.</li>
+                    </ul>
+                </li>
+                <li><strong>Infrastructure Development:</strong>
+                    <ul>
+                        <li>Role of quality control in public infrastructure projects.</li>
+                    </ul>
+                </li>
+                <li><strong>Accountability in Public Works:</strong>
+                    <ul>
+                        <li>Holding contractors and engineers accountable for substandard infrastructure.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="hindi-text">
+            <h1>राजस्थान सरकार असुरक्षित स्कूल भवनों को गिराएगी</h1>
+
+            <p><strong>संदर्भ:</strong></p>
+            <ul>
+                <li><strong>घटना:</strong> झालावाड़ जिले, राजस्थान के पिपलोदी सरकारी स्कूल के एक हिस्से का ढहना, जिसमें सात बच्चों की मौत हो गई।</li>
+                <li><strong>सरकारी प्रतिक्रिया:</strong> स्कूल भवनों की सुरक्षा के लिए तत्काल उपायों की घोषणा की गई।</li>
+            </ul>
+
+            <h2>घोषित प्रमुख उपाय:</h2>
+            <h3>1. असुरक्षित भवनों का विध्वंस:</h3>
+            <ul>
+                <li><strong>तत्काल कार्रवाई:</strong> असुरक्षित स्कूल भवनों की पहचान कर उन्हें बंद कर दिया जाएगा और ध्वस्त कर दिया जाएगा।</li>
+                <li><strong>अस्थायी समाधान:</strong> अस्थायी कक्षाओं के निर्माण के लिए कंटेनर इकाइयों का उपयोग किया जाएगा।</li>
+            </ul>
+
+            <h3>2. कमजोर स्कूलों का सर्वेक्षण:</h3>
+            <ul>
+                <li><strong>राज्यव्यापी सर्वेक्षण:</strong> जिला कलेक्टरों को जीर्ण-शीर्ण स्कूल भवनों की पहचान करने का काम सौंपा गया है।</li>
+                <li><strong>रेड क्रॉस मार्किंग:</strong> असुरक्षित भवनों को चिह्नित कर तुरंत बंद कर दिया जाएगा।</li>
+            </ul>
+
+            <h3>3. धन और बजट आवंटन:</h3>
+            <ul>
+                <li><strong>₹150 करोड़ का कोष:</strong> 170 तहसीलों में 7,500 स्कूलों में मरम्मत के लिए आपदा प्रबंधन कोष के तहत प्रस्ताव।</li>
+                <li><strong>बजट आवंटन के लिए एआई:</strong> मरम्मत और सुरक्षा निगरानी के लिए बजट आवंटन का मार्गदर्शन करने के लिए एआई-आधारित मंच।</li>
+            </ul>
+
+            <h3>4. तकनीकी एकीकरण:</h3>
+            <ul>
+                <li><strong>जीआईएस मैपिंग:</strong> स्कूल के बुनियादी ढांचे की स्थितियों को ट्रैक करने और सूचीबद्ध करने के लिए शाला दर्पण पोर्टल से जुड़ा जीआईएस-आधारित एप्लिकेशन।</li>
+                <li><strong>एआई निगरानी:</strong> संरचनात्मक सुरक्षा की निगरानी और रखरखाव की जरूरतों का अनुमान लगाने के लिए एआई तकनीक।</li>
+            </ul>
+
+            <h3>5. स्कूल निर्माण में गुणवत्ता नियंत्रण:</h3>
+            <ul>
+                <li><strong>क्यूसी इकाई का निर्माण:</strong> स्कूल निर्माण गुणवत्ता की देखरेख के लिए समग्र शिक्षा योजना के भीतर एक इकाई।</li>
+                <li><strong>परीक्षण सामग्री:</strong> प्रमाणित प्रयोगशालाओं (पीडब्ल्यूडी-प्रमाणित) में निर्माण सामग्री का अनिवार्य परीक्षण।</li>
+                <li><strong>जवाबदेही:</strong> घटिया काम के लिए ठेकेदारों और इंजीनियरों को आर्थिक रूप से जवाबदेह ठहराया जाएगा।</li>
+            </ul>
+
+            <h3>6. निजी स्कूल शामिल:</h3>
+            <ul>
+                <li><strong>सर्वेक्षण विस्तार:</strong> निजी स्कूलों का भी सुरक्षा अनुपालन के लिए सर्वेक्षण किया जाएगा।</li>
+            </ul>
+
+            <h3>7. सामुदायिक योगदान:</h3>
+            <ul>
+                <li><strong>सांसदों/विधायकों का योगदान:</strong> स्कूल सुरक्षा पहलों का समर्थन करने के लिए सांसदों और विधायकों से विकास निधि योगदान का 20% अनुरोध।</li>
+            </ul>
+
+            <h2>शासन और बुनियादी ढांचे के लिए निहितार्थ:</h2>
+            <ul>
+                <li><strong>समग्र दृष्टिकोण:</strong> स्कूलों में संरचनात्मक सुरक्षा सुनिश्चित करने के लिए तकनीकी (जीआईएस, एआई) और वित्तीय उपायों का संयोजन।</li>
+                <li><strong>जवाबदेही ढांचा:</strong> स्कूल निर्माण में शामिल ठेकेदारों और इंजीनियरों के लिए जवाबदेही पर दृढ़ जोर।</li>
+                <li><strong>सार्वजनिक-निजी समन्वय:</strong> निजी स्कूलों तक सुरक्षा उपायों का विस्तार, शैक्षिक बुनियादी ढांचे के लिए राज्यव्यापी जिम्मेदारी पर जोर देना।</li>
+                <li><strong>धन:</strong> तत्काल चिंताओं को दूर करने के लिए सक्रिय निधि आवंटन (₹150 करोड़) जबकि आगे के समर्थन के लिए स्थानीय प्रतिनिधियों को शामिल करना।</li>
+            </ul>
+
+            <div class="upsc-section">
+                <h2>यूपीएससी के लिए प्रासंगिकता:</h2>
+                <ul>
+                    <li><strong>शासन और लोक प्रशासन:</strong>
+                        <ul>
+                            <li>तत्काल सुरक्षा मुद्दे पर राज्य सरकार की प्रतिक्रिया।</li>
+                            <li>सार्वजनिक सेवा वितरण के लिए तकनीकी उपकरणों (जीआईएस, एआई) का कार्यान्वयन।</li>
+                        </ul>
+                    </li>
+                    <li><strong>आपदा प्रबंधन:</strong>
+                        <ul>
+                            <li>स्कूलों में निवारक उपायों के लिए आपदा प्रबंधन कोष का उपयोग।</li>
+                        </ul>
+                    </li>
+                    <li><strong>बुनियादी ढांचा विकास:</strong>
+                        <ul>
+                            <li>सार्वजनिक बुनियादी ढांचा परियोजनाओं में गुणवत्ता नियंत्रण की भूमिका।</li>
+                        </ul>
+                    </li>
+                    <li><strong>सार्वजनिक कार्यों में जवाबदेही:</strong>
+                        <ul>
+                            <li>घटिया बुनियादी ढांचे के लिए ठेकेदारों और इंजीनियरों को जवाबदेह ठहराना।</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="button-container">
+            <a href="index.html" class="back-home-button">Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>

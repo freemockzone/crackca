@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>National Education Policy (NEP) - Five Years of Transformative Change</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Playfair+Display:wght@700&display=swap');
+
+        :root {
+            --primary-color: #007bff; /* Blue */
+            --secondary-color: #28a745; /* Green */
+            --accent-color: #ffc107; /* Yellow */
+            --text-color: #343a40;
+            --light-bg: #f8f9fa;
+            --dark-bg: #e9ecef;
+            --navbar-bg: #343a40;
+            --navbar-text: #fff;
+            --footer-bg: #343a40;
+            --footer-text: #fff;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background-color: var(--navbar-bg);
+            color: var(--navbar-text);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8em;
+            color: var(--navbar-text);
+            text-decoration: none;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .navbar-brand:hover {
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links li a {
+            color: var(--navbar-text);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            position: relative;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .nav-links li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            display: block;
+            margin-top: 5px;
+            right: 0;
+            background: var(--primary-color);
+            transition: width 0.3s ease, background-color 0.3s ease;
+        }
+
+        .nav-links li a:hover::after {
+            width: 100%;
+            left: 0;
+            background: var(--secondary-color);
+        }
+
+        .nav-links li a:hover {
+            color: var(--secondary-color);
+        }
+
+        .lang-switch-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .lang-switch-button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.9em;
+            font-weight: bold;
+            transition: all 0.3s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .lang-switch-button:hover {
+            background-color: var(--secondary-color);
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .lang-switch-button::before {
+            content: '🌐'; /* Globe icon */
+            margin-right: 5px;
+            font-size: 1.2em;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://via.placeholder.com/1500x500?text=NEP+Five+Years') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            border-bottom: 5px solid var(--primary-color);
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            max-width: 700px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Content Sections */
+        section {
+            padding: 40px 0;
+            border-bottom: 1px solid var(--dark-bg);
+            animation: slideInUp 0.8s ease-out forwards;
+            opacity: 0; /* Initially hidden for animation */
+        }
+
+        section:nth-of-type(odd) {
+            background-color: var(--dark-bg);
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        h3 {
+            color: var(--primary-color);
+            font-size: 1.8em;
+            margin-top: 30px;
+            border-left: 5px solid var(--accent-color);
+            padding-left: 10px;
+        }
+
+        strong {
+            color: var(--primary-color);
+        }
+
+        ul {
+            list-style: disc;
+            margin-left: 20px;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        table th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: bold;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        table tr:hover {
+            background-color: #ddd;
+        }
+
+        .read-time {
+            text-align: right;
+            font-style: italic;
+            color: #777;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+
+        /* Bottom to Top Button */
+        #scrollToTopBtn {
+            display: none; /* Hidden by default */
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99;
+            font-size: 24px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.3s;
+            display: flex; /* Ensure it uses flex for centering icon */
+            align-items: center;
+            justify-content: center;
+        }
+
+        #scrollToTopBtn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--footer-bg);
+            color: var(--footer-text);
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        .back-home-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 30px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .back-home-button:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar .container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+
+            .hero h1 {
+                font-size: 2.5em;
+            }
+
+            .hero p {
+                font-size: 1.1em;
+            }
+
+            h2 {
+                font-size: 2em;
+            }
+
+            h3 {
+                font-size: 1.5em;
+            }
+
+            table th, table td {
+                padding: 8px;
+                font-size: 0.9em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar-brand {
+                font-size: 1.5em;
+            }
+
+            .nav-links li a {
+                font-size: 1em;
+            }
+
+            .lang-switch-button {
+                padding: 6px 10px;
+                font-size: 0.8em;
+            }
+
+            .hero {
+                padding: 60px 15px;
+            }
+
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .hero p {
+                font-size: 1em;
+            }
+
+            h2 {
+                font-size: 1.8em;
+            }
+
+            h3 {
+                font-size: 1.3em;
+            }
+
+            #scrollToTopBtn {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">UPSC Notes</a>
+            <ul class="nav-links">
+                <li><a href="index.html" data-en="Home" data-hi="होम">Home</a></li>
+                <li><a href="donation.html" data-en="Donation" data-hi="दान">Donation</a></li>
+                <li><a href="contact.html" data-en="Contact" data-hi="संपर्क करें">Contact</a></li>
+            </ul>
+            <div class="lang-switch-container">
+                <button class="lang-switch-button" id="langSwitchBtn">English</button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <h1 data-en="National Education Policy (NEP) - Five Years of Transformative Change" data-hi="राष्ट्रीय शिक्षा नीति (एनईपी) - परिवर्तनकारी बदलाव के पांच साल">National Education Policy (NEP) - Five Years of Transformative Change</h1>
+            <p data-en="These notes summarize the Prime Minister's address on the 5th anniversary of the National Education Policy (NEP), highlighting its impact and future directions." data-hi="ये नोट्स राष्ट्रीय शिक्षा नीति (एनईपी) की 5वीं वर्षगांठ पर प्रधान मंत्री के संबोधन का सारांश प्रस्तुत करते हैं, जिसमें इसके प्रभाव और भविष्य की दिशाओं पर प्रकाश डाला गया है।">These notes summarize the Prime Minister's address on the 5th anniversary of the National Education Policy (NEP), highlighting its impact and future directions.</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="read-time" id="readTime"></div>
+
+        <section id="key-points">
+            <h2 data-en="Key Points from PM Modi's Address:" data-hi="पीएम मोदी के संबोधन के मुख्य बिंदु:">Key Points from PM Modi's Address:</h2>
+            <ul>
+                <li data-en="<strong>Positive Changes in Education (Last 5 Years):</strong> Prime Minister Narendra Modi emphasized significant positive transformations in the education sector over the past five years." data-hi="<strong>शिक्षा में सकारात्मक बदलाव (पिछले 5 साल):</strong> प्रधानमंत्री नरेंद्र मोदी ने पिछले पांच वर्षों में शिक्षा क्षेत्र में महत्वपूर्ण सकारात्मक परिवर्तनों पर जोर दिया।"><strong>Positive Changes in Education (Last 5 Years):</strong> Prime Minister Narendra Modi emphasized significant positive transformations in the education sector over the past five years.</li>
+                <li data-en="<strong>NEP's Role in Holistic Development:</strong> The New National Education Policy (NEP) is playing a crucial role in the &quot;holistic and multidimensional development&quot; of students." data-hi="<strong>एनईपी की समग्र विकास में भूमिका:</strong> नई राष्ट्रीय शिक्षा नीति (एनईपी) छात्रों के &quot;समग्र और बहुआयामी विकास&quot; में महत्वपूर्ण भूमिका निभा रही है।"><strong>NEP's Role in Holistic Development:</strong> The New National Education Policy (NEP) is playing a crucial role in the "holistic and multidimensional development" of students.</li>
+                <li data-en="<strong>Promotion of Research & Innovation:</strong> A key focus of NEP is to encourage research and innovation among students." data-hi="<strong>अनुसंधान और नवाचार को बढ़ावा:</strong> एनईपी का एक प्रमुख फोकस छात्रों के बीच अनुसंधान और नवाचार को प्रोत्साहित करना है।"><strong>Promotion of Research & Innovation:</strong> A key focus of NEP is to encourage research and innovation among students.</li>
+                <li data-en="<strong>Akhil Bhartiya Shiksha Samagam (ABSS):</strong> The Ministry of Education is organizing ABSS on the occasion of NEP's five-year completion." data-hi="<strong>अखिल भारतीय शिक्षा समागम (एबीएसएस):</strong> शिक्षा मंत्रालय एनईपी के पांच साल पूरे होने के अवसर पर एबीएसएस का आयोजन कर रहा है।"><strong>Akhil Bhartiya Shiksha Samagam (ABSS):</strong> The Ministry of Education is organizing ABSS on the occasion of NEP's five-year completion.</li>
+                <li data-en="<strong>Launch of New Initiatives:</strong> New initiatives in the education field are expected to be launched during the ABSS program." data-hi="<strong>नई पहलों का शुभारंभ:</strong> एबीएसएस कार्यक्रम के दौरान शिक्षा के क्षेत्र में नई पहल शुरू होने की उम्मीद है।"><strong>Launch of New Initiatives:</strong> New initiatives in the education field are expected to be launched during the ABSS program.</li>
+                <li data-en="<strong>Education as a Tool for Self-Reliance & National Strength:</strong> Education is seen as the primary medium to foster self-reliance in individuals and strengthen the nation." data-hi="<strong>आत्मनिर्भरता और राष्ट्रीय शक्ति के लिए शिक्षा एक उपकरण के रूप में:</strong> शिक्षा को व्यक्तियों में आत्मनिर्भरता को बढ़ावा देने और राष्ट्र को मजबूत करने का प्राथमिक माध्यम माना जाता है।"><strong>Education as a Tool for Self-Reliance & National Strength:</strong> Education is seen as the primary medium to foster self-reliance in individuals and strengthen the nation.</li>
+                <li data-en="<strong>Student-Centric Approach:</strong> The aim of the current education system is to enable students to progress according to their individual interests, abilities, and dreams." data-hi="<strong>छात्र-केंद्रित दृष्टिकोण:</strong> वर्तमान शिक्षा प्रणाली का लक्ष्य छात्रों को उनकी व्यक्तिगत रुचियों, क्षमताओं और सपनों के अनुसार प्रगति करने में सक्षम बनाना है।"><strong>Student-Centric Approach:</strong> The aim of the current education system is to enable students to progress according to their individual interests, abilities, and dreams.</li>
+                <li data-en="<strong>Integration of Culture, Technology & Global Standards:</strong> The country is advancing by integrating glorious Indian culture with modern technology and global educational standards." data-hi="<strong>संस्कृति, प्रौद्योगिकी और वैश्विक मानकों का एकीकरण:</strong> देश गौरवशाली भारतीय संस्कृति को आधुनिक प्रौद्योगिकी और वैश्विक शैक्षिक मानकों के साथ एकीकृत करके आगे बढ़ रहा है।"><strong>Integration of Culture, Technology & Global Standards:</strong> The country is advancing by integrating glorious Indian culture with modern technology and global educational standards.</li>
+            </ul>
+        </section>
+
+        <section id="implications-upsc">
+            <h2 data-en="Implications for UPSC CSE:" data-hi="यूपीएससी सिविल सेवा परीक्षा के लिए निहितार्थ:">Implications for UPSC CSE:</h2>
+            <h3><strong data-en="GS Paper II: Governance, Constitution, Polity, Social Justice and International Relations" data-hi="जीएस पेपर II: शासन, संविधान, राजनीति, सामाजिक न्याय और अंतर्राष्ट्रीय संबंध">GS Paper II: Governance, Constitution, Polity, Social Justice and International Relations</strong></h3>
+            <ul>
+                <li data-en="<strong>Government Policies and Interventions:</strong> NEP is a major government policy. Understanding its objectives, implementation, and impact is crucial." data-hi="<strong>सरकारी नीतियां और हस्तक्षेप:</strong> एनईपी एक प्रमुख सरकारी नीति है। इसके उद्देश्यों, कार्यान्वयन और प्रभाव को समझना महत्वपूर्ण है।"><strong>Government Policies and Interventions:</strong> NEP is a major government policy. Understanding its objectives, implementation, and impact is crucial.</li>
+                <li data-en="<strong>Social Justice:</strong> Education policy directly relates to ensuring equitable access and quality education for all." data-hi="<strong>सामाजिक न्याय:</strong> Education policy directly relates to ensuring equitable access and quality education for all."><strong>Social Justice:</strong> Education policy directly relates to ensuring equitable access and quality education for all.</li>
+            </ul>
+            <h3><strong data-en="GS Paper III: Technology, Economic Development, Biodiversity, Environment, Security and Disaster Management" data-hi="जीएस पेपर III: प्रौद्योगिकी, आर्थिक विकास, जैव विविधता, पर्यावरण, सुरक्षा और आपदा प्रबंधन">GS Paper III: Technology, Economic Development, Biodiversity, Environment, Security and Disaster Management</strong></h3>
+            <ul>
+                <li data-en="<strong>Indian Economy (Human Capital):</strong> Education is a key component of human capital development, essential for economic growth." data-hi="<strong>भारतीय अर्थव्यवस्था (मानव पूंजी):</strong> Education is a key component of human capital development, essential for economic growth."><strong>Indian Economy (Human Capital):</strong> Education is a key component of human capital development, essential for economic growth.</li>
+                <li data-en="<strong>Science and Technology:</strong> The emphasis on technology and innovation within NEP aligns with technological advancements and R&D." data-hi="<strong>विज्ञान और प्रौद्योगिकी:</strong> The emphasis on technology and innovation within NEP aligns with technological advancements and R&D."><strong>Science and Technology:</strong> The emphasis on technology and innovation within NEP aligns with technological advancements and R&D.</li>
+            </ul>
+            <h3><strong data-en="GS Paper IV: Ethics, Integrity, and Aptitude" data-hi="जीएस पेपर IV: नैतिकता, सत्यनिष्ठा और योग्यता">GS Paper IV: Ethics, Integrity, and Aptitude</strong></h3>
+            <ul>
+                <li data-en="<strong>Values in Education:</strong> The mention of &quot;glorious Indian culture&quot; and holistic development touches upon ethical and value-based education." data-hi="<strong>शिक्षा में मूल्य:</strong> The mention of &quot;glorious Indian culture&quot; and holistic development touches upon ethical and value-based education."><strong>Values in Education:</strong> The mention of "glorious Indian culture" and holistic development touches upon ethical and value-based education.</li>
+            </ul>
+            <ul>
+                <li data-en="<strong>Essay:</strong> The topic of education, its reforms, and impact is a frequent theme for essay questions." data-hi="<strong>निबंध:</strong> The topic of education, its reforms, and impact is a frequent theme for essay questions."><strong>Essay:</strong> The topic of education, its reforms, and impact is a frequent theme for essay questions.</li>
+                <li data-en="<strong>Interviews:</strong> Candidates might be asked about their views on NEP, its challenges, and successes." data-hi="<strong>साक्षात्कार:</strong> Candidates might be asked about their views on NEP, its challenges, and successes."><strong>Interviews:</strong> Candidates might be asked about their views on NEP, its challenges, and successes.</li>
+            </ul>
+        </section>
+
+        <section id="further-research">
+            <h2 data-en="Further Research/Points to Ponder for UPSC:" data-hi="यूपीएससी के लिए आगे अनुसंधान/विचारणीय बिंदु:">Further Research/Points to Ponder for UPSC:</h2>
+            <ul>
+                <li data-en="Specific initiatives launched under NEP (e.g., NCF, reforms in higher education, foundational literacy)." data-hi="एनईपी के तहत शुरू की गई विशिष्ट पहल (उदाहरण के लिए, एनसीएफ, उच्च शिक्षा में सुधार, मूलभूत साक्षरता)।">Specific initiatives launched under NEP (e.g., NCF, reforms in higher education, foundational literacy).</li>
+                <li data-en="Challenges in implementing NEP (e.g., infrastructure, teacher training, digital divide)." data-hi="एनईपी को लागू करने में चुनौतियां (उदाहरण के लिए, बुनियादी ढांचा, शिक्षक प्रशिक्षण, डिजिटल डिवाइड)।">Challenges in implementing NEP (e.g., infrastructure, teacher training, digital divide).</li>
+                <li data-en="Comparative analysis of NEP with previous education policies in India." data-hi="भारत में पिछली शिक्षा नीतियों के साथ एनईपी का तुलनात्मक विश्लेषण।">Comparative analysis of NEP with previous education policies in India.</li>
+                <li data-en="Impact of NEP on various stakeholders (students, teachers, parents, industry)." data-hi="एनईपी का विभिन्न हितधारकों (छात्रों, शिक्षकों, अभिभावकों, उद्योग) पर प्रभाव।">Impact of NEP on various stakeholders (students, teachers, parents, industry).</li>
+                <li data-en="Role of technology in furthering NEP's goals." data-hi="एनईपी के लक्ष्यों को आगे बढ़ाने में प्रौद्योगिकी की भूमिका।">Role of technology in furthering NEP's goals.</li>
+                <li data-en="How NEP promotes multidisciplinary learning and critical thinking." data-hi="एनईपी बहु-विषयक शिक्षा और महत्वपूर्ण सोच को कैसे बढ़ावा देता है।">How NEP promotes multidisciplinary learning and critical thinking.</li>
+            </ul>
+        </section>
+
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="index.html" class="back-home-button" data-en="Back to Home" data-hi="होम पर वापस जाएं">Back to Home</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p data-en="&copy; 2025 UPSC Notes. All rights reserved." data-hi="&copy; 2025 यूपीएससी नोट्स। सर्वाधिकार सुरक्षित।">&copy; 2025 UPSC Notes. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <button id="scrollToTopBtn" title="Go to top">⬆</button>
+
+    <script>
+        // Read Time Calculation
+        function calculateReadTime() {
+            const content = document.querySelector('.container').innerText;
+            const wordsPerMinute = 200; // Average reading speed
+            const wordCount = content.split(/\s+/).length;
+            const readTimeMinutes = Math.ceil(wordCount / wordsPerMinute);
+            const readTimeElement = document.getElementById('readTime');
+            if (readTimeMinutes <= 1) {
+                readTimeElement.textContent = `Reading Time: Less than 1 minute`;
+            } else {
+                readTimeElement.textContent = `Reading Time: ${readTimeMinutes} minutes`;
+            }
+        }
+
+        // Language Switch
+        const langSwitchBtn = document.getElementById('langSwitchBtn');
+        let currentLang = 'en'; // Default language
+
+        const translations = {
+            en: {
+                "Home": "Home",
+                "Donation": "Donation",
+                "Contact": "Contact",
+                "National Education Policy (NEP) - Five Years of Transformative Change": "National Education Policy (NEP) - Five Years of Transformative Change",
+                "These notes summarize the Prime Minister's address on the 5th anniversary of the National Education Policy (NEP), highlighting its impact and future directions.": "These notes summarize the Prime Minister's address on the 5th anniversary of the National Education Policy (NEP), highlighting its impact and future directions.",
+                "Key Points from PM Modi's Address:": "Key Points from PM Modi's Address:",
+                "<strong>Positive Changes in Education (Last 5 Years):</strong> Prime Minister Narendra Modi emphasized significant positive transformations in the education sector over the past five years.": "<strong>Positive Changes in Education (Last 5 Years):</strong> Prime Minister Narendra Modi emphasized significant positive transformations in the education sector over the past five years.",
+                "<strong>NEP's Role in Holistic Development:</strong> The New National Education Policy (NEP) is playing a crucial role in the &quot;holistic and multidimensional development&quot; of students.": "<strong>NEP's Role in Holistic Development:</strong> The New National Education Policy (NEP) is playing a crucial role in the \"holistic and multidimensional development\" of students.",
+                "<strong>Promotion of Research & Innovation:</strong> A key focus of NEP is to encourage research and innovation among students.": "<strong>Promotion of Research & Innovation:</strong> A key focus of NEP is to encourage research and innovation among students.",
+                "<strong>Akhil Bhartiya Shiksha Samagam (ABSS):</strong> The Ministry of Education is organizing ABSS on the occasion of NEP's five-year completion.": "<strong>Akhil Bhartiya Shiksha Samagam (ABSS):</strong> The Ministry of Education is organizing ABSS on the occasion of NEP's five-year completion.",
+                "<strong>Launch of New Initiatives:</strong> New initiatives in the education field are expected to be launched during the ABSS program.": "<strong>Launch of New Initiatives:</strong> New initiatives in the education field are expected to be launched during the ABSS program.",
+                "<strong>Education as a Tool for Self-Reliance & National Strength:</strong> Education is seen as the primary medium to foster self-reliance in individuals and strengthen the nation.": "<strong>Education as a Tool for Self-Reliance & National Strength:</strong> Education is seen as the primary medium to foster self-reliance in individuals and strengthen the nation.",
+                "<strong>Student-Centric Approach:</strong> The aim of the current education system is to enable students to progress according to their individual interests, abilities, and dreams.": "<strong>Student-Centric Approach:</strong> The aim of the current education system is to enable students to progress according to their individual interests, abilities, and dreams.",
+                "<strong>Integration of Culture, Technology & Global Standards:</strong> The country is advancing by integrating glorious Indian culture with modern technology and global educational standards.": "<strong>Integration of Culture, Technology & Global Standards:</strong> The country is advancing by integrating glorious Indian culture with modern technology and global educational standards.",
+                "Implications for UPSC CSE:": "Implications for UPSC CSE:",
+                "<strong>GS Paper II: Governance, Constitution, Polity, Social Justice and International Relations</strong>": "<strong>GS Paper II: Governance, Constitution, Polity, Social Justice and International Relations</strong>",
+                "<strong>Government Policies and Interventions:</strong> NEP is a major government policy. Understanding its objectives, implementation, and impact is crucial.": "<strong>Government Policies and Interventions:</strong> NEP is a major government policy. Understanding its objectives, implementation, and impact is crucial.",
+                "<strong>Social Justice:</strong> Education policy directly relates to ensuring equitable access and quality education for all.": "<strong>Social Justice:</strong> Education policy directly relates to ensuring equitable access and quality education for all.",
+                "<strong>GS Paper III: Technology, Economic Development, Biodiversity, Environment, Security and Disaster Management</strong>": "<strong>GS Paper III: Technology, Economic Development, Biodiversity, Environment, Security and Disaster Management</strong>",
+                "<strong>Indian Economy (Human Capital):</strong> Education is a key component of human capital development, essential for economic growth.": "<strong>Indian Economy (Human Capital):</strong> Education is a key component of human capital development, essential for economic growth.",
+                "<strong>Science and Technology:</strong> The emphasis on technology and innovation within NEP aligns with technological advancements and R&D.": "<strong>Science and Technology:</strong> The emphasis on technology and innovation within NEP aligns with technological advancements and R&D.",
+                "<strong>GS Paper IV: Ethics, Integrity, and Aptitude</strong>": "<strong>GS Paper IV: Ethics, Integrity, and Aptitude</strong>",
+                "<strong>Values in Education:</strong> The mention of &quot;glorious Indian culture&quot; and holistic development touches upon ethical and value-based education.": "<strong>Values in Education:</strong> The mention of \"glorious Indian culture\" and holistic development touches upon ethical and value-based education.",
+                "<strong>Essay:</strong> The topic of education, its reforms, and impact is a frequent theme for essay questions.": "<strong>Essay:</strong> The topic of education, its reforms, and impact is a frequent theme for essay questions.",
+                "<strong>Interviews:</strong> Candidates might be asked about their views on NEP, its challenges, and successes.": "<strong>Interviews:</strong> Candidates might be asked about their views on NEP, its challenges, and successes.",
+                "Further Research/Points to Ponder for UPSC:": "Further Research/Points to Ponder for UPSC:",
+                "Specific initiatives launched under NEP (e.g., NCF, reforms in higher education, foundational literacy).": "Specific initiatives launched under NEP (e.g., NCF, reforms in higher education, foundational literacy).",
+                "Challenges in implementing NEP (e.g., infrastructure, teacher training, digital divide).": "Challenges in implementing NEP (e.g., infrastructure, teacher training, digital divide).",
+                "Comparative analysis of NEP with previous education policies in India.": "Comparative analysis of NEP with previous education policies in India.",
+                "Impact of NEP on various stakeholders (students, teachers, parents, industry).": "Impact of NEP on various stakeholders (students, teachers, parents, industry).",
+                "Role of technology in furthering NEP's goals.": "Role of technology in furthering NEP's goals.",
+                "How NEP promotes multidisciplinary learning and critical thinking.": "How NEP promotes multidisciplinary learning and critical thinking.",
+                "Back to Home": "Back to Home",
+                "&copy; 2025 UPSC Notes. All rights reserved.": "&copy; 2025 UPSC Notes. All rights reserved."
+            },
+            hi: {
+                "Home": "होम",
+                "Donation": "दान",
+                "Contact": "संपर्क करें",
+                "National Education Policy (NEP) - Five Years of Transformative Change": "राष्ट्रीय शिक्षा नीति (एनईपी) - परिवर्तनकारी बदलाव के पांच साल",
+                "These notes summarize the Prime Minister's address on the 5th anniversary of the National Education Policy (NEP), highlighting its impact and future directions.": "ये नोट्स राष्ट्रीय शिक्षा नीति (एनईपी) की 5वीं वर्षगांठ पर प्रधान मंत्री के संबोधन का सारांश प्रस्तुत करते हैं, जिसमें इसके प्रभाव और भविष्य की दिशाओं पर प्रकाश डाला गया है।",
+                "Key Points from PM Modi's Address:": "पीएम मोदी के संबोधन के मुख्य बिंदु:",
+                "<strong>Positive Changes in Education (Last 5 Years):</strong> Prime Minister Narendra Modi emphasized significant positive transformations in the education sector over the past five years.": "<strong>शिक्षा में सकारात्मक बदलाव (पिछले 5 साल):</strong> प्रधानमंत्री नरेंद्र मोदी ने पिछले पांच वर्षों में शिक्षा क्षेत्र में महत्वपूर्ण सकारात्मक परिवर्तनों पर जोर दिया।",
+                "<strong>NEP's Role in Holistic Development:</strong> The New National Education Policy (NEP) is playing a crucial role in the &quot;holistic and multidimensional development&quot; of students.": "<strong>एनईपी की समग्र विकास में भूमिका:</strong> नई राष्ट्रीय शिक्षा नीति (एनईपी) छात्रों के &quot;समग्र और बहुआयामी विकास&quot; में महत्वपूर्ण भूमिका निभा रही है।",
+                "<strong>Promotion of Research & Innovation:</strong> A key focus of NEP is to encourage research and innovation among students.": "<strong>अनुसंधान और नवाचार को बढ़ावा:</strong> एनईपी का एक प्रमुख फोकस छात्रों के बीच अनुसंधान और नवाचार को प्रोत्साहित करना है।",
+                "<strong>Akhil Bhartiya Shiksha Samagam (ABSS):</strong> The Ministry of Education is organizing ABSS on the occasion of NEP's five-year completion.": "<strong>अखिल भारतीय शिक्षा समागम (एबीएसएस):</strong> शिक्षा मंत्रालय एनईपी के पांच साल पूरे होने के अवसर पर एबीएसएस का आयोजन कर रहा है।",
+                "<strong>Launch of New Initiatives:</strong> New initiatives in the education field are expected to be launched during the ABSS program.": "<strong>नई पहलों का शुभारंभ:</strong> एबीएसएस कार्यक्रम के दौरान शिक्षा के क्षेत्र में नई पहल शुरू होने की उम्मीद है।",
+                "<strong>Education as a Tool for Self-Reliance & National Strength:</strong> Education is seen as the primary medium to foster self-reliance in individuals and strengthen the nation.": "<strong>आत्मनिर्भरता और राष्ट्रीय शक्ति के लिए शिक्षा एक उपकरण के रूप में:</strong> शिक्षा को व्यक्तियों में आत्मनिर्भरता को बढ़ावा देने और राष्ट्र को मजबूत करने का प्राथमिक माध्यम माना जाता है।",
+                "<strong>Student-Centric Approach:</strong> The aim of the current education system is to enable students to progress according to their individual interests, abilities, and dreams.": "<strong>छात्र-केंद्रित दृष्टिकोण:</strong> वर्तमान शिक्षा प्रणाली का लक्ष्य छात्रों को उनकी व्यक्तिगत रुचियों, क्षमताओं और सपनों के अनुसार प्रगति करने में सक्षम बनाना है।",
+                "<strong>Integration of Culture, Technology & Global Standards:</strong> The country is advancing by integrating glorious Indian culture with modern technology and global educational standards.": "<strong>संस्कृति, प्रौद्योगिकी और वैश्विक मानकों का एकीकरण:</strong> देश गौरवशाली भारतीय संस्कृति को आधुनिक प्रौद्योगिकी और वैश्विक शैक्षिक मानकों के साथ एकीकृत करके आगे बढ़ रहा है।",
+                "Implications for UPSC CSE:": "यूपीएससी सिविल सेवा परीक्षा के लिए निहितार्थ:",
+                "<strong>GS Paper II: Governance, Constitution, Polity, Social Justice and International Relations</strong>": "<strong>जीएस पेपर II: शासन, संविधान, राजनीति, सामाजिक न्याय और अंतर्राष्ट्रीय संबंध</strong>",
+                "<strong>Government Policies and Interventions:</strong> NEP is a major government policy. Understanding its objectives, implementation, and impact is crucial.": "<strong>सरकारी नीतियां और हस्तक्षेप:</strong> एनईपी एक प्रमुख सरकारी नीति है। इसके उद्देश्यों, कार्यान्वयन और प्रभाव को समझना महत्वपूर्ण है।",
+                "<strong>Social Justice:</strong> Education policy directly relates to ensuring equitable access and quality education for all.": "<strong>सामाजिक न्याय:</strong> Education policy directly relates to ensuring equitable access and quality education for all.",
+                "<strong>GS Paper III: Technology, Economic Development, Biodiversity, Environment, Security and Disaster Management</strong>": "<strong>जीएस पेपर III: प्रौद्योगिकी, आर्थिक विकास, जैव विविधता, पर्यावरण, सुरक्षा और आपदा प्रबंधन</strong>",
+                "<strong>Indian Economy (Human Capital):</strong> Education is a key component of human capital development, essential for economic growth.": "<strong>भारतीय अर्थव्यवस्था (मानव पूंजी):</strong> Education is a key component of human capital development, essential for economic growth.",
+                "<strong>Science and Technology:</strong> The emphasis on technology and innovation within NEP aligns with technological advancements and R&D.": "<strong>विज्ञान और प्रौद्योगिकी:</strong> The emphasis on technology and innovation within NEP aligns with technological advancements and R&D.",
+                "<strong>GS Paper IV: Ethics, Integrity, and Aptitude</strong>": "<strong>जीएस पेपर IV: नैतिकता, सत्यनिष्ठा और योग्यता</strong>",
+                "<strong>Values in Education:</strong> The mention of &quot;glorious Indian culture&quot; and holistic development touches upon ethical and value-based education.": "<strong>शिक्षा में मूल्य:</strong> The mention of \"glorious Indian culture\" and holistic development touches upon ethical and value-based education.",
+                "<strong>Essay:</strong> The topic of education, its reforms, and impact is a frequent theme for essay questions.": "<strong>निबंध:</strong> The topic of education, its reforms, and impact is a frequent theme for essay questions.",
+                "<strong>Interviews:</strong> Candidates might be asked about their views on NEP, its challenges, and successes.": "<strong>साक्षात्कार:</strong> Candidates might be asked about their views on NEP, its challenges, and successes.s",
+                "Further Research/Points to Ponder for UPSC:": "यूपीएससी के लिए आगे अनुसंधान/विचारणीय बिंदु:",
+                "Specific initiatives launched under NEP (e.g., NCF, reforms in higher education, foundational literacy).": "एनईपी के तहत शुरू की गई विशिष्ट पहल (उदाहरण के लिए, एनसीएफ, उच्च शिक्षा में सुधार, मूलभूत साक्षरता)।",
+                "Challenges in implementing NEP (e.g., infrastructure, teacher training, digital divide).": "एनईपी को लागू करने में चुनौतियां (उदाहरण के लिए, बुनियादी ढांचा, शिक्षक प्रशिक्षण, डिजिटल डिवाइड)।",
+                "Comparative analysis of NEP with previous education policies in India.": "भारत में पिछली शिक्षा नीतियों के साथ एनईपी का तुलनात्मक विश्लेषण।",
+                "Impact of NEP on various stakeholders (students, teachers, parents, industry).": "एनईपी का विभिन्न हितधारकों (छात्रों, शिक्षकों, अभिभावकों, उद्योग) पर प्रभाव।",
+                "Role of technology in furthering NEP's goals.": "एनईपी के लक्ष्यों को आगे बढ़ाने में प्रौद्योगिकी की भूमिका।",
+                "How NEP promotes multidisciplinary learning and critical thinking.": "एनईपी बहु-विषयक शिक्षा और महत्वपूर्ण सोच को कैसे बढ़ावा देता है।",
+                "Back to Home": "होम पर वापस जाएं",
+                "&copy; 2025 UPSC Notes. All rights reserved.": "&copy; 2025 यूपीएससी नोट्स। सर्वाधिकार सुरक्षित।"
+            }
+        };
+
+        function setLanguage(lang) {
+            document.querySelectorAll('[data-en]').forEach(element => {
+                const enHtml = element.getAttribute('data-en');
+                const hiHtml = element.getAttribute('data-hi');
+                element.innerHTML = (lang === 'en') ? enHtml : hiHtml;
+            });
+            langSwitchBtn.textContent = (lang === 'en') ? 'हिंदी' : 'English';
+            currentLang = lang;
+        }
+
+        langSwitchBtn.addEventListener('click', () => {
+            setLanguage(currentLang === 'en' ? 'hi' : 'en');
+        });
+
+        // Initialize with English
+        setLanguage('en');
+
+        // Scroll to Top Button
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+        window.onscroll = function() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                scrollToTopBtn.style.display = "flex";
+            } else {
+                scrollToTopBtn.style.display = "none";
+            }
+        };
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Animate sections on scroll
+        const sections = document.querySelectorAll('section');
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const sectionObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            sectionObserver.observe(section);
+        });
+
+        document.addEventListener('DOMContentLoaded', calculateReadTime);
+    </script>
+</body>
+</html>

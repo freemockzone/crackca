@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delhi Govt.'s Move to Amend Labour Laws</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right bottom, #fce4ec, #e0f2f7); /* Light pink to light cyan gradient */
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+        .navbar {
+            background: linear-gradient(to right, #C2185B, #E91E63); /* Dark Pink to Pink gradient */
+            padding: 15px 20px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .navbar a:hover {
+            color: #f8bbd0; /* Lighter pink */
+            transform: scale(1.05);
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            padding: 30px;
+            padding-bottom: 80px; /* Increased padding-bottom for button visibility */
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+        h1 {
+            color: #D32F2F; /* Dark Red */
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.8em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.15);
+            border-bottom: 3px solid #ffcdd2; /* Light red border */
+            padding-bottom: 10px;
+        }
+        .read-time {
+            text-align: center;
+            color: #757575;
+            font-size: 0.9em;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #4CAF50; /* Green */
+            margin-top: 35px;
+            margin-bottom: 18px;
+            font-size: 2em;
+            border-left: 6px solid #a5d6a7; /* Light green border */
+            padding-left: 15px;
+            background-color: #e8f5e9; /* Lighter green background */
+            padding-top: 5px;
+            padding-bottom: 5px;
+            border-radius: 5px;
+        }
+        h3 {
+            color: #1976D2; /* Blue */
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-size: 1.6em;
+            position: relative;
+            padding-left: 25px;
+        }
+        h3::before {
+            content: '•'; /* Bullet point */
+            position: absolute;
+            left: 0;
+            color: #2196F3; /* Bright Blue */
+            font-size: 1.2em;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        p {
+            margin-bottom: 10px;
+            color: #444;
+            text-align: justify;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 25px;
+        }
+        ul li {
+            background-color: #e3f2fd; /* Very light blue */
+            margin-bottom: 10px;
+            padding: 15px 20px;
+            border-radius: 10px;
+            border-left: 6px solid #2196F3; /* Blue border */
+            color: #333;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease;
+        }
+        ul li:hover {
+            transform: translateX(5px);
+            background-color: #bbdefb; /* Slightly darker blue on hover */
+        }
+        .hindi-text {
+            color: #6A1B9A; /* Dark Purple */
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px dashed #ce93d8; /* Light purple dashed border */
+            font-size: 1.15em;
+            line-height: 1.8;
+            background-color: #f3e5f5; /* Very light purple background */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+        }
+        .button-container {
+            text-align: center;
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+        }
+        .back-home-button {
+            display: inline-block;
+            padding: 18px 35px;
+            background: linear-gradient(45deg, #FFC107, #FFEB3B); /* Amber to Yellow gradient */
+            color: #333;
+            text-decoration: none;
+            border-radius: 35px;
+            font-size: 1.3em;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+        .back-home-button:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(45deg, #FFA000, #FFD600); /* Darker amber on hover */
+        }
+        strong {
+            color: #D84315; /* Orange-red for strong text */
+        }
+        .upsc-section {
+            background-color: #fffde7; /* Very light yellow background */
+            border-left: 6px solid #ffeb3b; /* Yellow border */
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .upsc-section h4 {
+            color: #EF6C00; /* Dark orange for subheadings */
+            font-size: 1.5em;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        .upsc-section ul li, .upsc-section ol li {
+            background-color: transparent;
+            border-left: none;
+            padding: 8px 0;
+            margin-bottom: 5px;
+            box-shadow: none;
+        }
+        .upsc-section ol {
+            list-style-type: decimal;
+            padding-left: 20px;
+        }
+    </style>
+    <script>
+        function calculateReadTime(text) {
+            const wordsPerMinute = 200; // Average reading speed
+            const words = text.split(/\s+/).filter(word => word.length > 0).length; // Filter out empty strings from split
+            const minutes = Math.ceil(words / wordsPerMinute);
+            return minutes;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get only the English text for read time calculation
+            const englishContent = document.querySelector('.container').cloneNode(true);
+            const hindiTextDiv = englishContent.querySelector('.hindi-text');
+            if (hindiTextDiv) {
+                hindiTextDiv.remove(); // Remove Hindi text for accurate English word count
+            }
+            const articleText = englishContent.innerText;
+            const readTime = calculateReadTime(articleText);
+            document.getElementById('read-time').innerText = `Read Time: ${readTime} min`;
+        });
+    </script>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <a href="#">Blog</a>
+    </div>
+
+    <div class="container">
+        <h1>Notes for UPSC CSE Aspirant: Delhi Govt.'s Move to Amend Labour Laws</h1>
+        <div class="read-time" id="read-time"></div>
+
+        <p>This article is highly relevant for UPSC CSE, particularly for <strong>GS-II (Governance, Social Justice, Polity)</strong> and <strong>GS-III (Economy, Industrial Policy)</strong>. It highlights the conflict between 'Ease of Doing Business' and 'Workers' Rights' and the implications of labour law reforms.</p>
+
+        <h2>Key Issues & Concepts:</h2>
+        <h3>1. Ease of Doing Business vs. Workers' Rights:</h3>
+        <ul>
+            <li><strong>Government's Stance:</strong> The Delhi government is proposing amendments to labour laws as part of its 'Ease of Doing Business' policy. The rationale often cited is to reduce compliance burden on businesses, attract investment, and promote economic growth.</li>
+            <li><strong>Critics' Stance (Trade Unions & Experts):</strong> These amendments will "strip lakhs of workers of their rights" by pushing them out of the legal ambit and making them more vulnerable to exploitation and arbitrary dismissal.</li>
+        </ul>
+
+        <h3>2. Specific Labour Law Amendments Proposed:</h3>
+        <ul>
+            <li><strong>Delhi Shops and Establishments Act, 1954:</strong>
+                <ul>
+                    <li><strong>Current Applicability:</strong> Establishments with <strong>one or more</strong> employees. Provides safeguards like leaves, weekly holidays, and a month's notice for dismissal.</li>
+                    <li><strong>Proposed Amendment:</strong> Applicability to establishments with <strong>10 or more</strong> employees.</li>
+                    <li><strong>Impact:</strong> Workers in thousands of small establishments (bakery, garment shops) with fewer than 10 employees will lose legal protection, especially against illegal termination.</li>
+                    <li><strong>Estimated Affected Workers:</strong> 7 to 20 lakh, closer to 15-20 lakh.</li>
+                </ul>
+            </li>
+            <li><strong>Industrial Disputes Act, 1947:</strong>
+                <ul>
+                    <li><strong>Current Applicability:</strong> Protection for workers in event of retrenchment and closure of firms employing <strong>100 or more</strong> workers (requires prior government permission or notice).</li>
+                    <li><strong>Proposed Amendment:</strong> Applicability to establishments employing <strong>300 or more</strong> workers.</li>
+                    <li><strong>Impact:</strong> Large number of workers in firms with 100-299 employees will lose protection against arbitrary retrenchment or closure. This gives employers greater flexibility to downsize without government oversight.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>3. Labour Codes (2019 & 2020) and their Relevance:</h3>
+        <ul>
+            <li>The Central government has passed four Labour Codes (Code on Wages, Industrial Relations Code, Code on Social Security, Occupational Safety, Health and Working Conditions Code) to consolidate 29 existing labour laws.</li>
+            <li>The Delhi government official mentioned that these codes would provide "some level of protection" to workers in smaller establishments once implemented.</li>
+            <li><strong>Criticism:</strong> Experts argue that while some codes might cover wages, they often lack specific safeguards against illegal firing in smaller establishments. The Industrial Relations Code itself proposes raising the retrenchment threshold to 300, similar to Delhi's proposed amendment.</li>
+            <li><strong>Implementation Status:</strong> These Central Labour Codes have been passed but are not yet fully implemented across all states due to resistance from labour unions and the need for states to frame their own rules (labour being a Concurrent List subject).</li>
+        </ul>
+
+        <h3>4. Constitutional Aspect (Concurrent List):</h3>
+        <ul>
+            <li>Labour is a subject on the Concurrent List, meaning both the Union and State governments can legislate on it. This allows states like Delhi to amend central laws (like the Industrial Disputes Act) for their jurisdiction, provided they receive presidential assent.</li>
+        </ul>
+
+        <h3>5. Arguments Against the Amendments:</h3>
+        <ul>
+            <li><strong>Erosion of Rights:</strong> Strips workers of fundamental rights related to job security, fair dismissal, leaves, and holidays.</li>
+            <li><strong>Vulnerability of Informal Sector:</strong> A significant portion of India's workforce is in the informal sector, often employed in small establishments. These amendments would further formalize their informal status, leaving them without legal recourse.</li>
+            <li><strong>Lack of Enforcement:</strong> Existing labour laws are often poorly enforced. Removing workers from their ambit altogether would exacerbate this issue, making it impossible for workers to even <em>fight</em> for their rights.</li>
+            <li><strong>Magnitude of Impact:</strong> Lakhs of workers (estimated 15-20 lakh in Delhi alone) would be negatively affected.</li>
+        </ul>
+
+        <h3>6. Arguments for the Amendments (Implicit):</h3>
+        <ul>
+            <li><strong>Ease of Doing Business:</strong> Simplifies compliance for businesses, especially MSMEs, by reducing regulatory burden.</li>
+            <li><strong>Investment & Job Creation:</strong> Proponents argue that a more "flexible" labour market attracts investment and encourages businesses to expand, leading to job creation. (Though critics argue this often leads to precarious employment).</li>
+        </ul>
+
+        <h3>7. Past Precedent:</h3>
+        <ul>
+            <li>Gujarat had previously amended its Shops and Establishments Act to cover units employing 10 or more workers, indicating a trend towards higher thresholds.</li>
+        </ul>
+
+        <div class="upsc-section">
+            <h2>Possible UPSC CSE Questions:</h2>
+            <ol>
+                <li><strong>GS-II (Polity & Governance):</strong> Critically analyze the Delhi government's proposed amendments to labour laws in the context of 'Ease of Doing Business' versus 'Workers' Rights'. What are the constitutional and socio-economic implications?</li>
+                <li><strong>GS-II (Social Justice):</strong> Discuss how the proposed changes in labour laws could impact vulnerable sections of the workforce, particularly those in the unorganised sector. What measures can be adopted to ensure both economic growth and social protection?</li>
+                <li><strong>GS-III (Indian Economy):</strong> Evaluate the arguments for and against increasing the threshold for labour law applicability in India. To what extent do such reforms truly contribute to 'Ease of Doing Business' and job creation?</li>
+                <li><strong>Ethics (GS-IV):</strong> As a civil servant, how would you approach the ethical dilemma of balancing the government's objective of 'Ease of Doing Business' with the protection of workers' fundamental rights?</li>
+            </ol>
+        </div>
+
+        <div class="upsc-section">
+            <h2>Key Takeaways for Aspirants:</h2>
+            <ul>
+                <li>Understand the <strong>balance</strong> between economic reforms (like EoDB) and social protection (workers' rights).</li>
+                <li>Be aware of the <strong>specific provisions</strong> of key labour laws (e.g., Delhi Shops and Establishments Act, Industrial Disputes Act).</li>
+                <li>Know the <strong>impact of threshold changes</strong> on the applicability of laws and the number of affected workers.</li>
+                <li>Recognize the <strong>role of trade unions and civil society</strong> in advocating for workers' rights.</li>
+                <li>Familiarize yourself with the <strong>Central Labour Codes</strong> and their intended and perceived effects.</li>
+                <li>Be prepared to discuss the <strong>implications of a Concurrent List subject</strong> where both Centre and States legislate.</li>
+            </ul>
+        </div>
+
+        <div class="hindi-text">
+            <h1>यूपीएससी सीएसई उम्मीदवारों के लिए नोट्स: दिल्ली सरकार का श्रम कानूनों में संशोधन का कदम</h1>
+
+            <p>यह लेख यूपीएससी सीएसई के लिए अत्यधिक प्रासंगिक है, विशेष रूप से <strong>जीएस-II (शासन, सामाजिक न्याय, राजनीति)</strong> और <strong>जीएस-III (अर्थव्यवस्था, औद्योगिक नीति)</strong> के लिए। यह 'ईज ऑफ डूइंग बिजनेस' और 'श्रमिकों के अधिकारों' के बीच संघर्ष और श्रम कानून सुधारों के निहितार्थों पर प्रकाश डालता है।</p>
+
+            <h2>प्रमुख मुद्दे और अवधारणाएँ:</h2>
+            <h3>1. व्यवसाय करने में आसानी बनाम श्रमिकों के अधिकार:</h3>
+            <ul>
+                <li><strong>सरकार का रुख:</strong> दिल्ली सरकार अपनी 'ईज ऑफ डूइंग बिजनेस' नीति के हिस्से के रूप में श्रम कानूनों में संशोधन का प्रस्ताव कर रही है। इसका तर्क अक्सर व्यवसायों पर अनुपालन बोझ को कम करना, निवेश आकर्षित करना और आर्थिक विकास को बढ़ावा देना बताया जाता है।</li>
+                <li><strong>आलोचकों का रुख (ट्रेड यूनियन और विशेषज्ञ):</strong> ये संशोधन "लाखों श्रमिकों को उनके अधिकारों से वंचित" कर देंगे, उन्हें कानूनी दायरे से बाहर धकेल देंगे और उन्हें शोषण और मनमानी बर्खास्तगी के प्रति अधिक संवेदनशील बना देंगे।</li>
+            </ul>
+
+            <h3>2. प्रस्तावित विशिष्ट श्रम कानून संशोधन:</h3>
+            <ul>
+                <li><strong>दिल्ली दुकान और स्थापना अधिनियम, 1954:</strong>
+                    <ul>
+                        <li><strong>वर्तमान प्रयोज्यता:</strong> <strong>एक या अधिक</strong> कर्मचारियों वाले प्रतिष्ठान। छुट्टियां, साप्ताहिक अवकाश और बर्खास्तगी के लिए एक महीने का नोटिस जैसे सुरक्षा उपाय प्रदान करता है।</li>
+                        <li><strong>प्रस्तावित संशोधन:</strong> <strong>10 या अधिक</strong> कर्मचारियों वाले प्रतिष्ठानों पर प्रयोज्यता।</li>
+                        <li><strong>प्रभाव:</strong> 10 से कम कर्मचारियों वाले हजारों छोटे प्रतिष्ठानों (बेकरी, कपड़ों की दुकानें) में श्रमिक कानूनी सुरक्षा खो देंगे, खासकर अवैध समाप्ति के खिलाफ।</li>
+                        <li><strong>अनुमानित प्रभावित श्रमिक:</strong> 7 से 20 लाख, 15-20 लाख के करीब।</li>
+                    </ul>
+                </li>
+                <li><strong>औद्योगिक विवाद अधिनियम, 1947:</strong>
+                    <ul>
+                        <li><strong>वर्तमान प्रयोज्यता:</strong> <strong>100 या अधिक</strong> श्रमिकों को नियोजित करने वाली फर्मों की छंटनी और बंद होने की स्थिति में श्रमिकों के लिए सुरक्षा (पूर्व सरकारी अनुमति या नोटिस की आवश्यकता होती है)।</li>
+                        <li><strong>प्रस्तावित संशोधन:</strong> <strong>300 या अधिक</strong> श्रमिकों को नियोजित करने वाले प्रतिष्ठानों पर प्रयोज्यता।</li>
+                        <li><strong>प्रभाव:</strong> 100-299 कर्मचारियों वाली फर्मों में बड़ी संख्या में श्रमिक मनमानी छंटनी या बंद होने से सुरक्षा खो देंगे। यह नियोक्ताओं को सरकारी निगरानी के बिना कर्मचारियों की संख्या कम करने के लिए अधिक लचीलापन देता है।</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>3. श्रम संहिता (2019 और 2020) और उनकी प्रासंगिकता:</h3>
+            <ul>
+                <li>केंद्र सरकार ने 29 मौजूदा श्रम कानूनों को समेकित करने के लिए चार श्रम संहिताएं (मजदूरी संहिता, औद्योगिक संबंध संहिता, सामाजिक सुरक्षा संहिता, व्यावसायिक सुरक्षा, स्वास्थ्य और कार्य स्थिति संहिता) पारित की हैं।</li>
+                <li>दिल्ली सरकार के अधिकारी ने उल्लेख किया कि एक बार लागू होने के बाद ये संहिताएं छोटे प्रतिष्ठानों में श्रमिकों को "कुछ स्तर की सुरक्षा" प्रदान करेंगी।</li>
+                <li><strong>आलोचना:</strong> विशेषज्ञों का तर्क है कि कुछ संहिताएं मजदूरी को कवर कर सकती हैं, लेकिन उनमें अक्सर छोटे प्रतिष्ठानों में अवैध बर्खास्तगी के खिलाफ विशिष्ट सुरक्षा उपायों की कमी होती है। औद्योगिक संबंध संहिता स्वयं छंटनी की सीमा को 300 तक बढ़ाने का प्रस्ताव करती है, जो दिल्ली के प्रस्तावित संशोधन के समान है।</li>
+                <li><strong>कार्यान्वयन की स्थिति:</strong> ये केंद्रीय श्रम संहिताएं पारित हो चुकी हैं, लेकिन श्रम यूनियनों के विरोध और राज्यों को अपने नियम बनाने की आवश्यकता (श्रम समवर्ती सूची का विषय होने के कारण) के कारण अभी तक सभी राज्यों में पूरी तरह से लागू नहीं हुई हैं।</li>
+            </ul>
+
+            <h3>4. संवैधानिक पहलू (समवर्ती सूची):</h3>
+            <ul>
+                <li>श्रम समवर्ती सूची में एक विषय है, जिसका अर्थ है कि संघ और राज्य दोनों सरकारें इस पर कानून बना सकती हैं। यह दिल्ली जैसे राज्यों को अपने क्षेत्राधिकार के लिए केंद्रीय कानूनों (जैसे औद्योगिक विवाद अधिनियम) में संशोधन करने की अनुमति देता है, बशर्ते उन्हें राष्ट्रपति की सहमति प्राप्त हो।</li>
+            </ul>
+
+            <h3>5. संशोधनों के खिलाफ तर्क:</h3>
+            <ul>
+                <li><strong>अधिकारों का क्षरण:</strong> श्रमिकों को नौकरी की सुरक्षा, उचित बर्खास्तगी, पत्तियों और छुट्टियों से संबंधित मौलिक अधिकारों से वंचित करता है।</li>
+                <li><strong>अनौपचारिक क्षेत्र की भेद्यता:</strong> भारत के कार्यबल का एक महत्वपूर्ण हिस्सा अनौपचारिक क्षेत्र में है, जो अक्सर छोटे प्रतिष्ठानों में कार्यरत होते हैं। ये संशोधन उनकी अनौपचारिक स्थिति को और अधिक औपचारिक बना देंगे, जिससे उन्हें कानूनी सहारा नहीं मिल पाएगा।</li>
+                <li><strong>प्रवर्तन की कमी:</strong> मौजूदा श्रम कानून अक्सर खराब तरीके से लागू होते हैं। श्रमिकों को उनके दायरे से पूरी तरह से हटाना इस मुद्दे को बढ़ा देगा, जिससे श्रमिकों के लिए अपने अधिकारों के लिए <em>लड़ना</em> भी असंभव हो जाएगा।</li>
+                <li><strong>प्रभाव की भयावहता:</strong> लाखों श्रमिक (अकेले दिल्ली में अनुमानित 15-20 लाख) नकारात्मक रूप से प्रभावित होंगे।</li>
+            </ul>
+
+            <h3>6. संशोधनों के लिए तर्क (निहित):</h3>
+            <ul>
+                <li><strong>व्यवसाय करने में आसानी:</strong> नियामक बोझ को कम करके व्यवसायों, विशेष रूप से एमएसएमई के लिए अनुपालन को सरल बनाता है।</li>
+                <li><strong>निवेश और रोजगार सृजन:</strong> समर्थकों का तर्क है कि एक अधिक "लचीला" श्रम बाजार निवेश को आकर्षित करता है और व्यवसायों को विस्तार करने के लिए प्रोत्साहित करता है, जिससे रोजगार सृजन होता है। (हालांकि आलोचकों का तर्क है कि इससे अक्सर अनिश्चित रोजगार होता है)।</li>
+            </ul>
+
+            <h3>7. पिछला उदाहरण:</h3>
+            <ul>
+                <li>गुजरात ने पहले अपने दुकान और स्थापना अधिनियम में संशोधन किया था ताकि 10 या अधिक कर्मचारियों वाले इकाइयों को कवर किया जा सके, जो उच्च सीमाओं की ओर एक प्रवृत्ति का संकेत देता है।</li>
+            </ul>
+
+            <div class="upsc-section">
+                <h2>संभावित यूपीएससी सीएसई प्रश्न:</h2>
+                <ol>
+                    <li><strong>जीएस-II (राजव्यवस्था और शासन):</strong> 'व्यवसाय करने में आसानी' बनाम 'श्रमिकों के अधिकारों' के संदर्भ में दिल्ली सरकार के प्रस्तावित श्रम कानूनों में संशोधनों का आलोचनात्मक विश्लेषण करें। संवैधानिक और सामाजिक-आर्थिक निहितार्थ क्या हैं?</li>
+                    <li><strong>जीएस-II (सामाजिक न्याय):</strong> श्रम कानूनों में प्रस्तावित परिवर्तन कार्यबल के कमजोर वर्गों, विशेष रूप से असंगठित क्षेत्र में काम करने वालों को कैसे प्रभावित कर सकते हैं, इस पर चर्चा करें। आर्थिक विकास और सामाजिक सुरक्षा दोनों सुनिश्चित करने के लिए क्या उपाय अपनाए जा सकते हैं?</li>
+                    <li><strong>जीएस-III (भारतीय अर्थव्यवस्था):</strong> भारत में श्रम कानून प्रयोज्यता के लिए सीमा बढ़ाने के पक्ष और विपक्ष में तर्कों का मूल्यांकन करें। ऐसे सुधार 'व्यवसाय करने में आसानी' और रोजगार सृजन में किस हद तक योगदान करते हैं?</li>
+                    <li><strong>नैतिकता (जीएस-IV):</strong> एक सिविल सेवक के रूप में, आप सरकार के 'व्यवसाय करने में आसानी' के उद्देश्य को श्रमिकों के मौलिक अधिकारों के संरक्षण के साथ संतुलित करने की नैतिक दुविधा को कैसे हल करेंगे?</li>
+                </ol>
+            </div>
+
+            <div class="upsc-section">
+                <h2>उम्मीदवारों के लिए मुख्य बातें:</h2>
+                <ul>
+                    <li>आर्थिक सुधारों (जैसे EoDB) और सामाजिक सुरक्षा (श्रमिकों के अधिकार) के बीच <strong>संतुलन</strong> को समझें।</li>
+                    <li>प्रमुख श्रम कानूनों (जैसे दिल्ली दुकान और स्थापना अधिनियम, औद्योगिक विवाद अधिनियम) के <strong>विशिष्ट प्रावधानों</strong> से अवगत रहें।</li>
+                    <li>कानूनों की प्रयोज्यता और प्रभावित श्रमिकों की संख्या पर <strong>सीमा परिवर्तनों के प्रभाव</strong> को जानें।</li>
+                    <li>श्रमिकों के अधिकारों की वकालत करने में <strong>ट्रेड यूनियनों और नागरिक समाज की भूमिका</strong> को पहचानें।</li>
+                    <li><strong>केंद्रीय श्रम संहिताओं</strong> और उनके इच्छित और कथित प्रभावों से खुद को परिचित करें।</li>
+                    <li><strong>समवर्ती सूची के विषय के निहितार्थों</strong> पर चर्चा करने के लिए तैयार रहें जहां केंद्र और राज्य दोनों कानून बनाते हैं।</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="button-container">
+            <a href="index.html" class="back-home-button">Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>India's 1st Private Heavy Water Upgrade Test Facility</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Merriweather:wght@400;700&display=swap');
+
+        :root {
+            /* New Color Scheme (Professional & Modern) */
+            --primary-color: #2c3e50; /* Dark Blue-Gray */
+            --secondary-color: #3498db; /* Bright Blue */
+            --accent-color: #27ae60; /* Green for highlights/success */
+            --text-color: #34495e; /* Darker text for readability */
+            --bg-color: #ecf0f1; /* Light Gray */
+            --card-bg: #ffffff; /* White */
+            --border-color: #bdc3c7; /* Light Gray Border */
+            --hover-color-nav: #34495e; /* Darker blue for nav hover */
+            --hover-color-btn: #2980b9; /* Slightly darker blue for button hover */
+            --table-header-bg: #eaf2f8; /* Light blue for table header */
+            --quote-bg: #f8fcfd; /* Very light blue for quotes */
+            --quote-border: #8fd2f3; /* Medium blue for quote border */
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .navbar {
+            background-color: var(--primary-color);
+            padding: 1rem 0;
+            color: white;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            padding: 8px 15px;
+            transition: background-color 0.3s ease, border-radius 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .nav-links a:hover {
+            background-color: var(--hover-color-nav);
+            border-radius: 6px;
+        }
+
+        .lang-switch-container {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .lang-switch-button {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .lang-switch-button:hover {
+            background-color: var(--hover-color-btn);
+            transform: scale(1.05);
+        }
+
+        .lang-switch-button.active {
+            animation: bounce 0.5s ease-in-out;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Merriweather', serif;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.8em;
+            text-align: center;
+            margin-bottom: 30px;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 2em;
+            border-bottom: 3px solid var(--border-color);
+            padding-bottom: 15px;
+            margin-top: 40px;
+            color: var(--secondary-color);
+        }
+
+        h3 {
+            font-size: 1.6em;
+            margin-top: 30px;
+            color: var(--accent-color);
+        }
+
+        p {
+            margin-bottom: 18px;
+            text-align: justify;
+            font-size: 1.05em;
+        }
+
+        ul {
+            list-style: disc;
+            margin-left: 25px;
+            margin-bottom: 20px;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+            font-size: 1.05em;
+        }
+
+        strong {
+            color: var(--primary-color);
+        }
+
+        .read-time {
+            text-align: right;
+            font-style: italic;
+            color: #777;
+            margin-top: -15px;
+            margin-bottom: 25px;
+            font-size: 0.95em;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            border-radius: 8px;
+            overflow: hidden; /* Ensures rounded corners are visible */
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 15px 18px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--table-header-bg);
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.1em;
+            text-transform: uppercase;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f6f8fa; /* Slightly off-white for even rows */
+        }
+
+        tr:hover {
+            background-color: #eef4f7; /* Hover effect for rows */
+        }
+
+        blockquote {
+            background-color: var(--quote-bg);
+            border-left: 6px solid var(--quote-border);
+            margin: 25px 0;
+            padding: 20px 25px;
+            font-style: italic;
+            color: #555;
+            border-radius: 5px;
+            font-size: 1.1em;
+        }
+
+        .quote-author {
+            display: block;
+            text-align: right;
+            margin-top: 15px;
+            font-weight: bold;
+            color: var(--secondary-color);
+            font-size: 1em;
+        }
+
+        .back-to-home {
+            display: block;
+            width: fit-content;
+            margin: 40px auto 25px auto;
+            padding: 12px 25px;
+            background-color: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        .back-to-home:hover {
+            background-color: #219952;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+
+        .scroll-to-top {
+            display: none;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 99;
+            border: none;
+            outline: none;
+            background-color: var(--secondary-color);
+            color: white;
+            cursor: pointer;
+            padding: 18px 20px;
+            border-radius: 50%;
+            font-size: 22px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            line-height: 1; /* Center the arrow vertically */
+        }
+
+        .scroll-to-top:hover {
+            background-color: var(--hover-color-btn);
+            transform: translateY(-4px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+        }
+
+        /* Hindi specific styles */
+        .lang-hindi .hindi-text { display: block; }
+        .lang-hindi .english-text { display: none; }
+        .english-text { display: block; }
+        .hindi-text { display: none; }
+
+        @media (max-width: 768px) {
+            .navbar-container {
+                flex-direction: column;
+                padding: 10px;
+                align-items: flex-start; /* Align items to start for better mobile stacking */
+            }
+            .nav-links {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+                width: 100%; /* Take full width */
+            }
+            .nav-links li {
+                margin: 5px 10px;
+            }
+            .container {
+                margin: 20px;
+                padding: 25px;
+            }
+            h1 {
+                font-size: 2.2em;
+            }
+            h2 {
+                font-size: 1.7em;
+            }
+            h3 {
+                font-size: 1.4em;
+            }
+            th, td {
+                padding: 10px 12px;
+                font-size: 0.9em;
+            }
+            .scroll-to-top {
+                bottom: 20px;
+                right: 20px;
+                padding: 14px 16px;
+                font-size: 18px;
+            }
+            .lang-switch-button {
+                margin-bottom: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .lang-switch-button {
+                padding: 8px 15px;
+                font-size: 0.9em;
+            }
+            .nav-links a {
+                padding: 6px 10px;
+                font-size: 0.9em;
+            }
+            .container {
+                padding: 15px;
+                margin: 10px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            h2 {
+                font-size: 1.4em;
+            }
+            h3 {
+                font-size: 1.1em;
+            }
+            p, ul li {
+                font-size: 0.95em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="lang-switch-container">
+                <button class="lang-switch-button" onclick="toggleLanguage()">
+                    <span class="english-text">हिंदी</span>
+                    <span class="hindi-text">English</span>
+                </button>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="english-text">Home</a><a href="index.html" class="hindi-text">होम</a></li>
+                <li><a href="donation.html" class="english-text">Donation</a><a href="donation.html" class="hindi-text">दान</a></li>
+                <li><a href="contact.html" class="english-text">Contact</a><a href="contact.html" class="hindi-text">संपर्क करें</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="english-text">India’s 1st Private Heavy Water Upgrade Test Facility</h1>
+        <h1 class="hindi-text">भारत की पहली निजी भारी जल उन्नयन परीक्षण सुविधा</h1>
+
+        <div class="read-time english-text">
+            Reading time: <span id="read-time-value"></span> min
+        </div>
+        <div class="read-time hindi-text">
+            पढ़ने का समय: <span id="read-time-value-hindi"></span> मिनट
+        </div>
+
+        <blockquote>
+            <p class="english-text">“Science is a beautiful gift to humanity; we should not distort it.”</p>
+            <p class="hindi-text">“विज्ञान मानवता के लिए एक सुंदर उपहार है; हमें इसे विकृत नहीं करना चाहिए।”</p>
+            <span class="quote-author english-text">— Dr. A.P.J. Abdul Kalam</span>
+            <span class="quote-author hindi-text">— डॉ. ए.पी.जे. अब्दुल कलाम</span>
+        </blockquote>
+
+        <p class="english-text">---</p>
+        <h3 class="english-text">GS Paper 3 – Science & Technology | Nuclear Energy | Infrastructure Development</h3>
+        <h3 class="hindi-text">जीएस पेपर 3 – विज्ञान और प्रौद्योगिकी | परमाणु ऊर्जा | अवसंरचना विकास</h3>
+        <p class="english-text">---</p>
+
+        <h2 class="english-text">Context</h2>
+        <h2 class="hindi-text">संदर्भ</h2>
+        <p class="english-text">India has inaugurated its **first private heavy water upgrade testing facility**, a crucial step in enhancing nuclear power plant efficiency and reducing project timelines.</p>
+        <p class="hindi-text">भारत ने अपनी **पहली निजी भारी जल उन्नयन परीक्षण सुविधा** का उद्घाटन किया है, जो परमाणु ऊर्जा संयंत्रों की दक्षता बढ़ाने और परियोजना के समय को कम करने में एक महत्वपूर्ण कदम है।</p>
+
+        <h2 class="english-text">Key Highlights</h2>
+        <h2 class="hindi-text">मुख्य विशेषताएं</h2>
+
+        <h3 class="english-text">✅ Private Sector Involvement in Nuclear Energy</h3>
+        <h3 class="hindi-text">✅ परमाणु ऊर्जा में निजी क्षेत्र की भागीदारी</h3>
+        <ul>
+            <li class="english-text">**TEMA India**, a Mumbai-based firm, has become the **first private player** to conduct **heavy water upgrade equipment testing**—a process previously exclusive to the **Bhabha Atomic Research Centre (BARC)**.</li>
+            <li class="hindi-text">मुंबई स्थित फर्म **टीईएमए इंडिया**, **भारी जल उन्नयन उपकरण परीक्षण** करने वाली **पहली निजी खिलाड़ी** बन गई है - यह एक प्रक्रिया है जो पहले **भाभा परमाणु अनुसंधान केंद्र (BARC)** के लिए अनन्य थी।</li>
+            <li class="english-text">Facility established in **Achchad, Palghar district (Maharashtra)**.</li>
+            <li class="hindi-text">यह सुविधा **अच्छड़, पालघर जिला (महाराष्ट्र)** में स्थापित की गई है।</li>
+        </ul>
+
+        <h3 class="english-text">✅ Technology Transfer and Institutional Collaboration</h3>
+        <h3 class="hindi-text">✅ प्रौद्योगिकी हस्तांतरण और संस्थागत सहयोग</h3>
+        <ul>
+            <li class="english-text">**Technology transferred from BARC** to TEMA India.</li>
+            <li class="hindi-text">**BARC से प्रौद्योगिकी** टीईएमए इंडिया को हस्तांतरित की गई।</li>
+            <li class="english-text">**Purchase order issued by NPCIL** (Nuclear Power Corporation of India Ltd).</li>
+            <li class="hindi-text">**एनपीसीआईएल** (भारतीय परमाणु ऊर्जा निगम लिमिटेड) द्वारा क्रय आदेश जारी किया गया।</li>
+            <li class="english-text">Reflects growing **public-private collaboration** in strategic sectors like nuclear energy.</li>
+            <li class="hindi-text">परमाणु ऊर्जा जैसे रणनीतिक क्षेत्रों में बढ़ती **सार्वजनिक-निजी सहयोग** को दर्शाता है।</li>
+        </ul>
+
+        <h3 class="english-text">✅ Reduction in Commissioning Time</h3>
+        <h3 class="hindi-text">✅ कमीशनिंग समय में कमी</h3>
+        <ul>
+            <li class="english-text">Previously: **7–8 years** for distillation module development and testing.</li>
+            <li class="hindi-text">पहले: आसवन मॉड्यूल के विकास और परीक्षण के लिए **7-8 साल**।</li>
+            <li class="english-text">With TEMA India: **Reduction by 1–2 years**, due to end-to-end manufacturing and testing at one site.</li>
+            <li class="hindi-text">टीईएमए इंडिया के साथ: एक ही साइट पर एंड-टू-एंड विनिर्माण और परीक्षण के कारण **1-2 साल की कमी**।</li>
+        </ul>
+
+        <h3 class="english-text">✅ Importance of Heavy Water ($D_2O$)</h3>
+        <h3 class="hindi-text">✅ भारी जल ($D_2O$) का महत्व</h3>
+        <ul>
+            <li class="english-text">Used as **coolant and neutron moderator** in **Pressurised Heavy Water Reactors (PHWRs)**.</li>
+            <li class="hindi-text">**प्रेशराइज्ड हेवी वाटर रिएक्टर (PHWRs)** में **शीतलक और न्यूट्रॉन मॉडरेटर** के रूप में उपयोग किया जाता है।</li>
+            <li class="english-text">Requires **99.9% purity** for optimal function.</li>
+            <li class="hindi-text">इष्टतम कार्य के लिए **99.9% शुद्धता** की आवश्यकता होती है।</li>
+            <li class="english-text">With use, heavy water becomes contaminated and needs **upgrading via distillation**.</li>
+            <li class="hindi-text">उपयोग के साथ, भारी जल दूषित हो जाता है और इसे **आसवन के माध्यम से उन्नयन** की आवश्यकता होती है।</li>
+        </ul>
+
+        <h2 class="english-text">Recent Developments</h2>
+        <h2 class="hindi-text">हाल के घटनाक्रम</h2>
+        <ul>
+            <li class="english-text">**First batch of tested distillation columns** dispatched to **Rawatbhata Nuclear Power Plant (RAPP-8), Rajasthan**—expected to go critical by **Dec 2025**.</li>
+            <li class="hindi-text">परीक्षण किए गए आसवन कॉलम का **पहला बैच रावतभाटा परमाणु ऊर्जा संयंत्र (आरएपीपी-8), राजस्थान** को भेजा गया - **दिसंबर 2025** तक महत्वपूर्ण होने की उम्मीद है।</li>
+            <li class="english-text">Upcoming projects:</li>
+            <li class="hindi-text">आगामी परियोजनाएं:</li>
+            <ul>
+                <li class="english-text">**4 reactors** at **Gorakhpur, Haryana**.</li>
+                <li class="hindi-text">**गोरखपुर, हरियाणा** में **4 रिएक्टर**।</li>
+                <li class="english-text">**2 reactors** at **Kaiga, Karnataka**.</li>
+                <li class="hindi-text">**कैगा, कर्नाटक** में **2 रिएक्टर**।</li>
+            </ul>
+        </ul>
+
+        <h2 class="english-text">Significance</h2>
+        <h2 class="hindi-text">महत्व</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th class="english-text">Factor</th>
+                    <th class="hindi-text">कारक</th>
+                    <th class="english-text">Significance</th>
+                    <th class="hindi-text">महत्व</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="english-text">🧪 **Indigenisation**</td>
+                    <td class="hindi-text">🧪 **स्वदेशीकरण**</td>
+                    <td class="english-text">Boosts India’s self-reliance in nuclear tech (Atmanirbhar Bharat)</td>
+                    <td class="hindi-text">परमाणु तकनीक में भारत की आत्मनिर्भरता (आत्मनिर्भर भारत) को बढ़ावा देता है</td>
+                </tr>
+                <tr>
+                    <td class="english-text">⚙️ **Private Participation**</td>
+                    <td class="hindi-text">⚙️ **निजी भागीदारी**</td>
+                    <td class="english-text">First-ever role for private industry in heavy water upgrade – shift from state-only domain</td>
+                    <td class="hindi-text">भारी जल उन्नयन में निजी उद्योग की पहली भूमिका - राज्य-एकमात्र डोमेन से बदलाव</td>
+                </tr>
+                <tr>
+                    <td class="english-text">⏱️ **Faster Deployment**</td>
+                    <td class="hindi-text">⏱️ **तेजी से परिनियोजन**</td>
+                    <td class="english-text">Speeds up reactor commissioning timelines</td>
+                    <td class="hindi-text">रिएक्टर कमीशनिंग के समय को तेज करता है</td>
+                </tr>
+                <tr>
+                    <td class="english-text">🏗️ **Infrastructure**</td>
+                    <td class="hindi-text">🏗️ **बुनियादी ढांचा**</td>
+                    <td class="english-text">Enhances industrial ecosystem supporting nuclear energy</td>
+                    <td class="hindi-text">परमाणु ऊर्जा का समर्थन करने वाले औद्योगिक पारिस्थितिकी तंत्र को बढ़ाता है</td>
+                </tr>
+                <tr>
+                    <td class="english-text">⚡ **Energy Security**</td>
+                    <td class="hindi-text">⚡ **ऊर्जा सुरक्षा**</td>
+                    <td class="english-text">Contributes to India's nuclear energy expansion goals</td>
+                    <td class="hindi-text">भारत के परमाणु ऊर्जा विस्तार लक्ष्यों में योगदान देता है</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 class="english-text">India’s Nuclear Energy Roadmap</h2>
+        <h2 class="hindi-text">भारत का परमाणु ऊर्जा रोडमैप</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th class="english-text">Target Year</th>
+                    <th class="hindi-text">लक्ष्य वर्ष</th>
+                    <th class="english-text">Capacity</th>
+                    <th class="hindi-text">क्षमता</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="english-text">**Present (2025)**</td>
+                    <td class="hindi-text">**वर्तमान (2025)**</td>
+                    <td class="english-text">8,780 MW (24 reactors)</td>
+                    <td class="hindi-text">8,780 मेगावाट (24 रिएक्टर)</td>
+                </tr>
+                <tr>
+                    <td class="english-text">**By 2032**</td>
+                    <td class="hindi-text">**2032 तक**</td>
+                    <td class="english-text">22.4 GW</td>
+                    <td class="hindi-text">22.4 GW</td>
+                </tr>
+                <tr>
+                    <td class="english-text">**By 2047**</td>
+                    <td class="hindi-text">**2047 तक**</td>
+                    <td class="english-text">100 GW</td>
+                    <td class="hindi-text">100 GW</td>
+                </tr>
+            </tbody>
+        </table>
+        <ul>
+            <li class="english-text">**10 new reactors approved (2015)**: One operational, others under construction (13.6 GW total).</li>
+            <li class="hindi-text">**10 नए रिएक्टर स्वीकृत (2015)**: एक चालू, अन्य निर्माणाधीन (कुल 13.6 GW)।</li>
+            <li class="english-text">**₹20,000 crore** allocated for **Nuclear Energy Mission** – focus on **Small Modular Reactors (SMRs)**.</li>
+            <li class="hindi-text">**परमाणु ऊर्जा मिशन** के लिए **₹20,000 करोड़** आवंटित - **छोटे मॉड्यूलर रिएक्टर (एसएमआर)** पर ध्यान।</li>
+        </ul>
+
+        <h2 class="english-text">Challenges Ahead</h2>
+        <h2 class="hindi-text">आगे की चुनौतियां</h2>
+        <ul>
+            <li class="english-text">Regulatory approvals for private participation.</li>
+            <li class="hindi-text">निजी भागीदारी के लिए नियामक अनुमोदन।</li>
+            <li class="english-text">Safety and quality assurance in private sector manufacturing.</li>
+            <li class="hindi-text">निजी क्षेत्र के विनिर्माण में सुरक्षा और गुणवत्ता आश्वासन।</li>
+            <li class="english-text">Integration with NPCIL and Atomic Energy Regulatory Board (AERB) norms.</li>
+            <li class="hindi-text">एनपीसीआईएल और परमाणु ऊर्जा नियामक बोर्ड (एईआरबी) मानदंडों के साथ एकीकरण।</li>
+        </ul>
+
+        <h2 class="english-text">Mains Answer Writing Pointers</h2>
+        <h2 class="hindi-text">मुख्य उत्तर लेखन संकेत</h2>
+        <ul>
+            <li class="english-text">_“Discuss the role of public-private partnerships in enhancing India’s nuclear energy infrastructure.”_</li>
+            <li class="hindi-text">_“भारत के परमाणु ऊर्जा अवसंरचना को बढ़ाने में सार्वजनिक-निजी भागीदारी की भूमिका पर चर्चा करें।”_</li>
+            <li class="english-text">_“How can indigenisation in nuclear components contribute to strategic autonomy in energy?”_</li>
+            <li class="hindi-text">_“परमाणु घटकों में स्वदेशीकरण ऊर्जा में रणनीतिक स्वायत्तता में कैसे योगदान दे सकता है?”_</li>
+            <li class="english-text">_“Examine the significance of heavy water in India’s nuclear power program.”_</li>
+            <li class="hindi-text">_“भारत के परमाणु ऊर्जा कार्यक्रम में भारी जल के महत्व का परीक्षण करें।”_</li>
+        </ul>
+
+        <h2 class="english-text">Prelims Facts</h2>
+        <h2 class="hindi-text">प्रारंभिक परीक्षा के तथ्य</h2>
+        <ul>
+            <li class="english-text">**Heavy Water ($D_2O$)**: Moderator & coolant in PHWRs; must be 99.9% pure.</li>
+            <li class="hindi-text">**भारी जल ($D_2O$)**: PHWRs में मॉडरेटर और शीतलक; 99.9% शुद्ध होना चाहिए।</li>
+            <li class="english-text">**TEMA India**: First private firm to handle testing of heavy water upgrading components.</li>
+            <li class="hindi-text">**टीईएमए इंडिया**: भारी जल उन्नयन घटकों के परीक्षण को संभालने वाली पहली निजी फर्म।</li>
+            <li class="english-text">**RAPP-8**: Located in Rajasthan, likely to be operational by Dec 2025.</li>
+            <li class="hindi-text">**आरएपीपी-8**: राजस्थान में स्थित, दिसंबर 2025 तक चालू होने की संभावना है।</li>
+            <li class="english-text">**BARC**: Previously the sole agency for such testing; now technology transferred to private hands.</li>
+            <li class="hindi-text">**BARC**: पहले ऐसे परीक्षण के लिए एकमात्र एजेंसी; अब प्रौद्योगिकी निजी हाथों में हस्तांतरित।</li>
+        </ul>
+
+        <a href="index.html" class="back-to-home english-text">Back to Home</a>
+        <a href="index.html" class="back-to-home hindi-text">होम पर वापस</a>
+    </div>
+
+    <button onclick="topFunction()" id="scrollToTopBtn" title="Go to top">&#9650;</button>
+
+    <script>
+        // Language Toggle
+        function toggleLanguage() {
+            const body = document.body;
+            const langSwitchButton = document.querySelector('.lang-switch-button');
+            if (body.classList.contains('lang-hindi')) {
+                body.classList.remove('lang-hindi');
+                langSwitchButton.classList.remove('active');
+            } else {
+                body.classList.add('lang-hindi');
+                langSwitchButton.classList.add('active');
+            }
+        }
+
+        // Scroll to Top Button
+        let mybutton = document.getElementById("scrollToTopBtn");
+
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+
+        function topFunction() {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
+
+        // Calculate Read Time
+        function calculateReadTime() {
+            // Select only English visible content for word count
+            const englishTextElements = document.querySelectorAll('.container .english-text:not(.read-time)');
+            let englishContent = '';
+            englishTextElements.forEach(element => {
+                // Exclude elements that are just "---" separators or part of hidden content
+                if (element.textContent.trim() !== '---' && element.style.display !== 'none') {
+                    englishContent += element.textContent + ' ';
+                }
+            });
+
+            // Let's manually get words from the sections that are mainly prose.
+            const proseSections = [
+                document.querySelector('.container p.english-text'), // Context paragraph
+                document.querySelector('.container blockquote p.english-text') // Quote
+            ];
+
+            // Add list items and table content (English parts)
+            document.querySelectorAll('.container ul li.english-text').forEach(li => proseSections.push(li));
+            document.querySelectorAll('.container table td.english-text, .container table th.english-text').forEach(cell => proseSections.push(cell));
+
+            let totalWords = 0;
+            proseSections.forEach(el => {
+                if (el) { // Ensure element exists
+                    totalWords += el.innerText.split(/\s+/).filter(word => word.length > 0).length;
+                }
+            });
+
+            const wordsPerMinute = 200; // Average reading speed
+            const readTime = Math.ceil(totalWords / wordsPerMinute);
+            document.getElementById('read-time-value').innerText = readTime;
+            document.getElementById('read-time-value-hindi').innerText = readTime; // Assuming same read time for Hindi
+        }
+
+        document.addEventListener('DOMContentLoaded', calculateReadTime);
+    </script>
+</body>
+</html>

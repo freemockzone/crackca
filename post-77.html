@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICJ Advisory Opinion on Climate Obligations</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@300;400;700&display=swap');
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #e0f2f7, #d4e8ed); /* Soft blue gradient */
+            color: #333;
+            line-height: 1.8;
+            scroll-behavior: smooth;
+        }
+
+        .navbar {
+            background: linear-gradient(to right, #007bff, #0056b3); /* Deep blue gradient */
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            margin: 0 8px;
+            border-radius: 30px; /* Pill-shaped buttons */
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .navbar a:hover {
+            background-color: #004085; /* Darker blue on hover */
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .lang-switch-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .lang-switch {
+            background-color: #28a745; /* Green */
+            color: white;
+            padding: 10px 18px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 700;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .lang-switch:hover {
+            background-color: #218838; /* Darker green on hover */
+            transform: scale(1.08);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .lang-switch-icon {
+            margin-left: 10px;
+            transition: transform 0.4s ease-in-out;
+            display: inline-block;
+        }
+
+        .lang-switch:hover .lang-switch-icon {
+            transform: rotate(360deg) scale(1.1);
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 30px auto;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: #0056b3; /* Deep blue */
+            border-bottom: 3px solid #b3e0ff; /* Light blue border */
+            padding-bottom: 15px;
+            margin-top: 35px;
+            position: relative;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.8em;
+            margin-bottom: 25px;
+            color: #007bff; /* Brighter blue */
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 2.2em;
+            color: #004085; /* Slightly darker blue */
+        }
+
+        h3 {
+            font-size: 1.7em;
+            color: #007bff; /* Mid blue */
+        }
+
+        h1::after, h2::after, h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 50px;
+            height: 5px;
+            background-color: #ffc107; /* Gold accent */
+            border-radius: 5px;
+        }
+        h1::after { width: 80px; left: calc(50% - 40px); }
+        h2::after { width: 60px; }
+
+
+        p {
+            margin-bottom: 1.2em;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        p:hover, ul li:hover {
+            background-color: #e6f7ff; /* Very light blue */
+            transform: translateX(5px);
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        ul {
+            list-style-type: none; /* Remove default bullet */
+            padding: 0;
+            margin-left: 20px;
+        }
+
+        ul li {
+            margin-bottom: 0.8em;
+            padding-left: 25px; /* Space for custom bullet */
+            position: relative;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+            border-radius: 5px;
+        }
+
+        ul li::before {
+            content: '🔹'; /* Custom bullet icon */
+            position: absolute;
+            left: 0;
+            color: #17a2b8; /* Cyan color */
+            font-size: 1.2em;
+            top: 2px;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #dc3545; /* Red highlight */
+            background-color: #ffebeb;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+
+        .read-time {
+            text-align: right;
+            font-style: italic;
+            color: #777;
+            margin-bottom: 25px;
+            font-size: 0.95em;
+        }
+
+        .back-to-home {
+            display: block;
+            width: fit-content;
+            margin: 40px auto 0;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #6f42c1, #512da8); /* Purple gradient */
+            color: white;
+            text-decoration: none;
+            border-radius: 50px; /* Very rounded */
+            text-align: center;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-to-home:hover {
+            background: linear-gradient(45deg, #512da8, #6f42c1); /* Reverse gradient */
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .scroll-to-top {
+            display: none;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(45deg, #fd7e14, #e65c00); /* Orange gradient */
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            z-index: 999;
+        }
+
+        .scroll-to-top:hover {
+            background: linear-gradient(45deg, #e65c00, #fd7e14); /* Reverse gradient */
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .scroll-to-top.show {
+            display: flex;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            .navbar a {
+                margin: 5px 0;
+                padding: 10px 15px;
+                font-size: 0.9em;
+            }
+
+            .lang-switch-container {
+                margin-top: 10px;
+            }
+
+            .lang-switch {
+                padding: 8px 15px;
+                font-size: 13px;
+            }
+
+            .container {
+                margin: 15px;
+                padding: 25px;
+                border-radius: 10px;
+            }
+
+            h1 {
+                font-size: 2em;
+                padding-bottom: 10px;
+            }
+
+            h2 {
+                font-size: 1.6em;
+                padding-bottom: 8px;
+            }
+
+            h3 {
+                font-size: 1.3em;
+            }
+
+            ul li {
+                padding-left: 20px;
+            }
+            ul li::before {
+                font-size: 1em;
+                top: 0px;
+            }
+
+            p {
+                font-size: 0.95em;
+            }
+
+            .scroll-to-top {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div>
+            <a href="index.html" data-en="Home" data-hi="होम">Home</a>
+            <a href="donation.html" data-en="Donation" data-hi="दान">Donation</a>
+            <a href="contact.html" data-en="Contact" data-hi="संपर्क">Contact</a>
+        </div>
+        <div class="lang-switch-container">
+            <button class="lang-switch" onclick="toggleLanguage()">
+                <span data-en="English" data-hi="हिन्दी">English</span>
+                <span class="lang-switch-icon">🌐</span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 id="postTitle" data-en="ICJ Advisory Opinion on Climate Obligations" data-hi="जलवायु दायित्वों पर ICJ की सलाहकार राय">ICJ Advisory Opinion on Climate Obligations</h1>
+        <p class="read-time" id="readTime"></p>
+
+        <p data-en="<span class='highlight'>Context:</span> On <b>July 23, 2025</b>, the <b>International Court of Justice (ICJ)</b> delivered an <b>advisory opinion</b> on:" data-hi="<span class='highlight'>संदर्भ:</span> <b>23 जुलाई, 2025</b> को <b>अंतर्राष्ट्रीय न्यायालय (ICJ)</b> ने एक <b>सलाहकार राय</b> दी:"></p>
+        <ul>
+            <li data-en="Obligations of states to reduce <b>anthropogenic greenhouse gas (GHG) emissions</b>." data-hi="राज्यों के <b>मानवजनित ग्रीनहाउस गैस (GHG) उत्सर्जन</b> को कम करने के दायित्व।">Obligations of states to reduce <b>anthropogenic greenhouse gas (GHG) emissions</b>.</li>
+            <li data-en="<b>Legal consequences</b> for failure to meet these obligations." data-hi="इन दायित्वों को पूरा करने में विफलता के लिए <b>कानूनी परिणाम</b>।"><b>Legal consequences</b> for failure to meet these obligations.</li>
+        </ul>
+
+        <h2 data-en="Positive Takeaways for the Global South:" data-hi="ग्लोबल साउथ के लिए सकारात्मक निष्कर्ष:">Positive Takeaways for the Global South:</h2>
+
+        <h3 data-en="1. Recognition of the Full Climate Regime:" data-hi="1. पूर्ण जलवायु व्यवस्था की मान्यता:">1. Recognition of the Full Climate Regime:</h3>
+        <ul>
+            <li data-en="Emphasised the <b>continuity of the UNFCCC, Kyoto Protocol, and Paris Agreement</b>." data-hi="<b>UNFCCC, क्योटो प्रोटोकॉल और पेरिस समझौते की निरंतरता</b> पर जोर दिया।">Emphasised the <b>continuity of the UNFCCC, Kyoto Protocol, and Paris Agreement</b>.</li>
+            <li data-en="Countered the developed nations' stance of sidelining the Kyoto Protocol." data-hi="विकसित देशों के क्योटो प्रोटोकॉल को दरकिनार करने के रुख का खंडन किया।">Countered the developed nations' stance of sidelining the Kyoto Protocol.</li>
+            <li data-en="Reinforced <b>climate finance, tech transfer</b>, and <b>capacity building</b> obligations of developed countries (Annex-I & II of UNFCCC)." data-hi="विकसित देशों (UNFCCC के अनुबंध-I और II) के <b>जलवायु वित्त, प्रौद्योगिकी हस्तांतरण</b> और <b>क्षमता निर्माण</b> दायित्वों को मजबूत किया।">Reinforced <b>climate finance, tech transfer</b>, and <b>capacity building</b> obligations of developed countries (Annex-I & II of UNFCCC).</li>
+        </ul>
+
+        <h3 data-en="2. Reaffirmation of CBDR-RC Principle:" data-hi="2. CBDR-RC सिद्धांत की पुन: पुष्टि:">2. Reaffirmation of CBDR-RC Principle:</h3>
+        <ul>
+            <li data-en="<b>Common But Differentiated Responsibilities and Respective Capabilities (CBDR-RC)</b> identified as the <b>“core guiding principle”</b> for implementation of climate treaties." data-hi="<b>सामान्य लेकिन विभेदित जिम्मेदारियां और संबंधित क्षमताएं (CBDR-RC)</b> को जलवायु संधियों के कार्यान्वयन के लिए <b>“मूल मार्गदर्शक सिद्धांत”</b> के रूप में पहचाना गया।"><b>Common But Differentiated Responsibilities and Respective Capabilities (CBDR-RC)</b> identified as the <b>“core guiding principle”</b> for implementation of climate treaties.</li>
+            <li data-en="Recognized its <b>application beyond climate treaties</b>, e.g., to <b>biodiversity agreements</b>." data-hi="इसके <b>जलवायु संधियों से परे</b>, उदा. <b>जैव विविधता समझौतों</b> पर भी <b>अनुप्रयोग</b> को मान्यता दी।">Recognized its <b>application beyond climate treaties</b>, e.g., to <b>biodiversity agreements</b>.</li>
+        </ul>
+
+        <h3 data-en="3. Acknowledgement of Dynamic Development Status:" data-hi="3. गतिशील विकास स्थिति की स्वीकृति:">3. Acknowledgement of Dynamic Development Status:</h3>
+        <ul>
+            <li data-en="Noted the Paris Agreement’s qualification <b>“in light of national circumstances”</b>." data-hi="पेरिस समझौते की योग्यता <b>“राष्ट्रीय परिस्थितियों के प्रकाश में”</b> पर ध्यान दिया।">Noted the Paris Agreement’s qualification <b>“in light of national circumstances”</b>.</li>
+            <li data-en="Signaled that <b>development categories are not fixed</b>, inviting future debate." data-hi="संकेत दिया कि <b>विकास श्रेणियां निश्चित नहीं हैं</b>, भविष्य की बहस को आमंत्रित करती हैं।">Signaled that <b>development categories are not fixed</b>, inviting future debate.</li>
+        </ul>
+
+        <h2 data-en="On the Temperature Goal:" data-hi="तापमान लक्ष्य पर:">On the Temperature Goal:</h2>
+
+        <h3 data-en="Paris Agreement (Article 2.1a):" data-hi="पेरिस समझौता (अनुच्छेद 2.1a):">Paris Agreement (Article 2.1a):</h3>
+        <ul>
+            <li data-en="Original goal: <b>“Well below 2°C above pre-industrial levels”</b> + <b>“Pursuing efforts to limit to 1.5°C”</b>" data-hi="मूल लक्ष्य: <b>“पूर्व-औद्योगिक स्तरों से 2°C से काफी नीचे”</b> + <b>“1.5°C तक सीमित करने के प्रयासों को जारी रखना”</b>">Original goal: <b>“Well below 2°C above pre-industrial levels”</b> + <b>“Pursuing efforts to limit to 1.5°C”</b></li>
+        </ul>
+
+        <h3 data-en="ICJ Interpretation:" data-hi="ICJ की व्याख्या:">ICJ Interpretation:</h3>
+        <ul>
+            <li data-en="Reinterpreted to <b>prioritise 1.5°C</b> based on COP26 & COP28 decisions." data-hi="COP26 और COP28 के निर्णयों के आधार पर <b>1.5°C को प्राथमिकता</b> देने के लिए पुनर्व्याख्या की।">Reinterpreted to <b>prioritise 1.5°C</b> based on COP26 & COP28 decisions.</li>
+            <li data-en="Concluded that <b>1.5°C has become the de facto binding target</b>." data-hi="निष्कर्ष निकाला कि <b>1.5°C वास्तव में बाध्यकारी लक्ष्य बन गया है</b>।">Concluded that <b>1.5°C has become the de facto binding target</b>.</li>
+        </ul>
+
+        <h3 data-en="Criticism:" data-hi="आलोचना:">Criticism:</h3>
+        <ul>
+            <li data-en="Seen as <b>legally unsound</b>, since <b>COP decisions are not amendments</b>." data-hi="<b>कानूनी रूप से गलत</b> माना गया, क्योंकि <b>COP के निर्णय संशोधन नहीं हैं</b>।">Seen as <b>legally unsound</b>, since <b>COP decisions are not amendments</b>.</li>
+            <li data-en="<b>1.5°C target already at risk</b>—no discussion on consequences of its breach." data-hi="<b>1.5°C का लक्ष्य पहले से ही खतरे में है</b>—इसके उल्लंघन के परिणामों पर कोई चर्चा नहीं।"><b>1.5°C target already at risk</b>—no discussion on consequences of its breach.</li>
+            <li data-en="<b>IPCC reduction targets</b> (43% by 2030; 65% by 2035) cited uncritically <b>without equity lens</b>." data-hi="<b>आईपीसीसी कमी लक्ष्यों</b> (2030 तक 43%; 2035 तक 65%) को <b>समता के दृष्टिकोण के बिना</b> अलोचनात्मक रूप से उद्धृत किया गया।"><b>IPCC reduction targets</b> (43% by 2030; 65% by 2035) cited uncritically <b>without equity lens</b>.</li>
+        </ul>
+
+        <h2 data-en="On Enforceability and Legal Obligations:" data-hi="प्रवर्तनीयता और कानूनी दायित्वों पर:">On Enforceability and Legal Obligations:</h2>
+
+        <h3 data-en="Nature of Obligations:" data-hi="दायित्वों की प्रकृति:">Nature of Obligations:</h3>
+        <ul>
+            <li data-en="<b>Domestic mitigation and support</b> = <b>Obligations of conduct</b>, not result." data-hi="<b>घरेलू शमन और समर्थन</b> = <b>आचरण के दायित्व</b>, परिणाम के नहीं।"><b>Domestic mitigation and support</b> = <b>Obligations of conduct</b>, not result.</li>
+            <li data-en="Only <b>procedural commitments</b> (e.g., NDC submissions) = stronger obligations." data-hi="केवल <b>प्रक्रियात्मक प्रतिबद्धताएं</b> (उदा. NDC प्रस्तुतियाँ) = मजबूत दायित्व।">Only <b>procedural commitments</b> (e.g., NDC submissions) = stronger obligations.</li>
+            <li data-en="Enforcement depends on:" data-hi="प्रवर्तन निर्भर करता है:">Enforcement depends on:</li>
+            <li data-en="Jurisdiction of appropriate courts." data-hi="उचित न्यायालयों का क्षेत्राधिकार।">Jurisdiction of appropriate courts.</li>
+            <li data-en="Case-specific conditions." data-hi="मामला-विशिष्ट स्थितियाँ।">Case-specific conditions.</li>
+        </ul>
+
+        <h3 data-en="Practical Impact:" data-hi="व्यावहारिक प्रभाव:">Practical Impact:</h3>
+        <ul>
+            <li data-en="Reaffirms Paris principles amid <b>developed countries’ inertia</b>." data-hi="<b>विकसित देशों की निष्क्रियता</b> के बीच पेरिस सिद्धांतों की पुष्टि करता है।">Reaffirms Paris principles amid <b>developed countries’ inertia</b>.</li>
+            <li data-en="<b>Breaks no new ground</b> on compliance or enforcement." data-hi="अनुपालन या प्रवर्तन पर <b>कोई नया आधार नहीं बनाता</b>।"><b>Breaks no new ground</b> on compliance or enforcement.</li>
+        </ul>
+
+        <h2 data-en="Gaps and Shortcomings:" data-hi="अंतराल और कमियाँ:">Gaps and Shortcomings:</h2>
+
+        <h3 data-en="1. Neglect of Developmental Imperatives:" data-hi="1. विकासात्मक अनिवार्यताओं की उपेक्षा:">1. Neglect of Developmental Imperatives:</h3>
+        <ul>
+            <li data-en="Overlooks the <b>energy-poverty-growth dilemma</b> of the Global South." data-hi="ग्लोबल साउथ की <b>ऊर्जा-गरीबी-विकास दुविधा</b> को नजरअंदाज करता है।">Overlooks the <b>energy-poverty-growth dilemma</b> of the Global South.</li>
+            <li data-en="Ignores that <b>low-carbon pathways require massive finance and tech access</b>." data-hi="ध्यान नहीं देता कि <b>कम-कार्बन मार्गों के लिए भारी वित्त और प्रौद्योगिकी पहुंच की आवश्यकता है</b>।">Ignores that <b>low-carbon pathways require massive finance and tech access</b>.</li>
+        </ul>
+
+        <h3 data-en="2. Equity Treated Merely as a Guiding Principle:" data-hi="2. समानता को केवल एक मार्गदर्शक सिद्धांत के रूप में माना गया:">2. Equity Treated Merely as a Guiding Principle:</h3>
+        <ul>
+            <li data-en="<b>Equity and CBDR-RC</b> declared to <b>guide interpretation</b>, not <b>create new obligations</b>." data-hi="<b>समानता और CBDR-RC</b> को <b>व्याख्या का मार्गदर्शन</b> करने वाला घोषित किया गया, न कि <b>नए दायित्वों का निर्माण</b> करने वाला।"><b>Equity and CBDR-RC</b> declared to <b>guide interpretation</b>, not <b>create new obligations</b>.</li>
+        </ul>
+
+        <h3 data-en="3. Litigation vs. Negotiation:" data-hi="3. मुकदमेबाजी बनाम बातचीत:">3. Litigation vs. Negotiation:</h3>
+        <ul>
+            <li data-en="Enthusiasm in civil society for <b>national/regional litigation</b>." data-hi="<b>राष्ट्रीय/क्षेत्रीय मुकदमेबाजी</b> के लिए नागरिक समाज में उत्साह।">Enthusiasm in civil society for <b>national/regional litigation</b>.</li>
+            <li data-en="For <b>global negotiations</b>, impact likely limited." data-hi="<b>वैश्विक वार्ताओं</b> के लिए, प्रभाव सीमित रहने की संभावना है।">For <b>global negotiations</b>, impact likely limited.</li>
+            <li data-en="Reparation claims require:" data-hi="मुआवजे के दावों के लिए आवश्यकता होती है:">Reparation claims require:</li>
+            <li data-en="Attribution of harm." data-hi="नुकसान का आरोपण।">Attribution of harm.</li>
+            <li data-en="Causation." data-hi="कारण।">Causation.</li>
+            <li data-en="Establishing “wrongfulness” — a high bar." data-hi="“गलत” स्थापित करना — एक उच्च मानक।">Establishing “wrongfulness” — a high bar.</li>
+        </ul>
+
+        <h2 data-en="UPSC Relevance:" data-hi="यूपीएससी प्रासंगिकता:">UPSC Relevance:</h2>
+        <ul>
+            <li data-en="<span class='highlight'>GS Paper II – International Relations:</span>" data-hi="<span class='highlight'>जीएस पेपर II – अंतर्राष्ट्रीय संबंध:</span>"><b>GS Paper II – International Relations:</b></li>
+            <li data-en="Role of <b>ICJ in international environmental law</b>." data-hi="<b>अंतर्राष्ट्रीय पर्यावरण कानून में ICJ</b> की भूमिका।">Role of <b>ICJ in international environmental law</b>.</li>
+            <li data-en="Implications of <b>non-binding advisory opinions</b>." data-hi="<b>गैर-बाध्यकारी सलाहकार राय</b> के निहितार्थ।">Implications of <b>non-binding advisory opinions</b>.</li>
+        </ul>
+        <ul>
+            <li data-en="<span class='highlight'>GS Paper III – Environment:</span>" data-hi="<span class='highlight'>जीएस पेपर III – पर्यावरण:</span>"><b>GS Paper III – Environment:</b></li>
+            <li data-en="CBDR-RC, Paris Agreement, climate finance." data-hi="CBDR-RC, पेरिस समझौता, जलवायु वित्त।">CBDR-RC, Paris Agreement, climate finance.</li>
+            <li data-en="Debate around <b>1.5°C vs. 2°C goal</b>." data-hi="<b>1.5°C बनाम 2°C लक्ष्य</b> के आसपास की बहस।">Debate around <b>1.5°C vs. 2°C goal</b>.</li>
+        </ul>
+        <ul>
+            <li data-en="<span class='highlight'>Essay / Ethics:</span>" data-hi="<span class='highlight'>निबंध / नैतिकता:</span>"><b>Essay / Ethics:</b></li>
+            <li data-en="Balancing <b>climate justice</b> and <b>development</b>." data-hi="<b>जलवायु न्याय</b> और <b>विकास</b> को संतुलित करना।">Balancing <b>climate justice</b> and <b>development</b>.</li>
+            <li data-en="<b>Intergenerational equity</b> and global cooperation." data-hi="<b>अंतर-पीढ़ीगत इक्विटी</b> और वैश्विक सहयोग।"><b>Intergenerational equity</b> and global cooperation.</li>
+        </ul>
+
+        <h2 data-en="Quote for Enrichment:" data-hi="समृद्धि के लिए उद्धरण:">Quote for Enrichment:</h2>
+        <blockquote data-en="“The ultimate solution… lies in a supportive and open international economic system… based on international co-operation between developed and developing states.”<br>— <i>Judge Xue Hanqin (Separate Opinion)</i>" data-hi="“अंतिम समाधान… एक सहायक और खुली अंतरराष्ट्रीय आर्थिक प्रणाली में निहित है… जो विकसित और विकासशील राज्यों के बीच अंतरराष्ट्रीय सहयोग पर आधारित है।”<br>— <i>न्यायाधीश जुए हानक्विन (अलग राय)</i>">
+            “The ultimate solution… lies in a supportive and open international economic system… based on international co-operation between developed and developing states.”<br>— <i>Judge Xue Hanqin (Separate Opinion)</i>
+        </blockquote>
+
+        <a href="index.html" class="back-to-home" data-en="Back to Home" data-hi="होम पर वापस जाएं">Back to Home</a>
+    </div>
+
+    <button class="scroll-to-top" onclick="scrollToTop()">⬆</button>
+
+    <script>
+        const contentDiv = document.querySelector('.container');
+        const readTimeSpan = document.getElementById('readTime');
+        const languageToggleButton = document.querySelector('.lang-switch');
+        const elementsToTranslate = document.querySelectorAll('[data-en], [data-hi]');
+        let currentLanguage = 'en';
+
+        // Calculate Read Time
+        function calculateReadTime() {
+            const englishContentNodes = Array.from(contentDiv.querySelectorAll('[data-en]'));
+            let fullEnglishText = "";
+            englishContentNodes.forEach(node => {
+                fullEnglishText += node.dataset.en || node.textContent + " ";
+            });
+            
+            const wordsPerMinute = 200; // Average reading speed
+            const wordCount = fullEnglishText.split(/\s+/).filter(word => word.length > 0).length;
+            const minutes = Math.ceil(wordCount / wordsPerMinute);
+            readTimeSpan.textContent = `Read Time: ${minutes} min`;
+        }
+
+        function setLanguage(lang) {
+            currentLanguage = lang;
+            elementsToTranslate.forEach(element => {
+                if (element.dataset[lang]) {
+                    element.innerHTML = element.dataset[lang];
+                }
+            });
+            const toggleText = languageToggleButton.querySelector('span:first-child');
+            toggleText.textContent = lang === 'en' ? toggleText.dataset.en : toggleText.dataset.hi;
+            localStorage.setItem('language', lang); // Store language preference
+        }
+
+        function toggleLanguage() {
+            const newLang = currentLanguage === 'en' ? 'hi' : 'en';
+            setLanguage(newLang);
+        }
+
+        // Scroll to Top button functionality
+        const scrollToTopButton = document.querySelector('.scroll-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollToTopButton.classList.add('show');
+            } else {
+                scrollToTopButton.classList.remove('show');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            calculateReadTime();
+            const savedLanguage = localStorage.getItem('language') || 'en';
+            setLanguage(savedLanguage);
+        });
+    </script>
+</body>
+</html>

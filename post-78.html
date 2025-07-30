@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipur Preparing for Special Intensive Revision (SIR)</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Playfair+Display:wght@700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f0f4f8, #e7edf2); /* Soft, professional background */
+            color: #333;
+            line-height: 1.7;
+            scroll-behavior: smooth;
+        }
+
+        .navbar {
+            background-color: #2c3e50; /* Dark blue-grey */
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            margin: 0 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-weight: 500;
+        }
+
+        .navbar a:hover {
+            background-color: #34495e; /* Slightly lighter on hover */
+            transform: translateY(-2px);
+        }
+
+        .lang-switch-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .lang-switch {
+            background-color: #3498db; /* Bright blue */
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .lang-switch:hover {
+            background-color: #2980b9; /* Darker blue on hover */
+            transform: scale(1.05);
+        }
+
+        .lang-switch-icon {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .lang-switch:hover .lang-switch-icon {
+            transform: rotate(360deg);
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 25px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            animation: slideIn 0.8s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: #2c3e50;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            color: #1a5276; /* Darker header blue */
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e0e7e9;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            border-bottom: 1px dashed #d1d9dd;
+            padding-bottom: 8px;
+        }
+
+        h3 {
+            font-size: 1.4em;
+            color: #34495e;
+        }
+
+        p {
+            margin-bottom: 1em;
+            padding: 3px 0; /* Small padding for hover */
+            transition: background-color 0.2s ease, transform 0.1s ease;
+            border-radius: 3px;
+        }
+
+        p:hover, ul li:hover {
+            background-color: #f5f8fb; /* Light background on hover */
+            transform: translateX(3px); /* Slight shift on hover */
+        }
+
+        /* Custom bullet for main points in the image */
+        ul.custom-bullets > li {
+            list-style-type: none; /* Remove default bullet */
+            position: relative;
+            padding-left: 25px; /* Space for custom bullet */
+            margin-bottom: 0.7em;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+            border-radius: 3px;
+        }
+
+        ul.custom-bullets > li::before {
+            content: '♦'; /* Diamond bullet */
+            position: absolute;
+            left: 0;
+            color: #3498db; /* Blue bullet */
+            font-size: 1.2em;
+            top: -2px;
+            font-weight: bold;
+        }
+
+        /* Standard bullet for nested lists in the image */
+        ul.custom-bullets ul li {
+            list-style-type: disc; /* Standard disc bullet */
+            padding-left: 0; /* Reset padding for nested list */
+            margin-left: 20px; /* Indent for nested list */
+            margin-bottom: 0.5em;
+        }
+
+        ul.custom-bullets ul li::before {
+            content: none; /* Remove custom bullet for nested list */
+        }
+
+
+        .highlight {
+            font-weight: bold;
+            color: #e74c3c; /* Red highlight */
+        }
+
+        .read-time {
+            text-align: right;
+            font-style: italic;
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 0.9em;
+        }
+
+        .back-to-home {
+            display: block;
+            width: fit-content;
+            margin: 30px auto 0;
+            padding: 10px 20px;
+            background-color: #28a745; /* Green button */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .back-to-home:hover {
+            background-color: #218838; /* Darker green on hover */
+            transform: translateY(-2px);
+        }
+
+        .scroll-to-top {
+            display: none;
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: #007bff; /* Blue button */
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            font-size: 22px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            z-index: 999;
+        }
+
+        .scroll-to-top:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+            transform: translateY(-3px);
+        }
+
+        .scroll-to-top.show {
+            display: flex;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            .navbar a {
+                margin: 5px 0;
+                padding: 8px 12px;
+                font-size: 0.9em;
+            }
+
+            .lang-switch-container {
+                margin-top: 10px;
+            }
+
+            .lang-switch {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+
+            .container {
+                margin: 15px;
+                padding: 20px;
+                border-radius: 8px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            h3 {
+                font-size: 1.2em;
+            }
+
+            ul.custom-bullets > li {
+                padding-left: 20px;
+            }
+            ul.custom-bullets > li::before {
+                font-size: 1em;
+            }
+
+            .scroll-to-top {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+                bottom: 15px;
+                right: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div>
+            <a href="index.html" data-en="Home" data-hi="होम">Home</a>
+            <a href="donation.html" data-en="Donation" data-hi="दान">Donation</a>
+            <a href="contact.html" data-en="Contact" data-hi="संपर्क">Contact</a>
+        </div>
+        <div class="lang-switch-container">
+            <button class="lang-switch" onclick="toggleLanguage()">
+                <span data-en="English" data-hi="हिन्दी">English</span>
+                <span class="lang-switch-icon">🌐</span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 id="postTitle" data-en="Manipur Preparing for Special Intensive Revision (SIR)" data-hi="मणिपुर विशेष सघन पुनरीक्षण (SIR) की तैयारी कर रहा है">Manipur Preparing for Special Intensive Revision (SIR)</h1>
+        <p class="read-time" id="readTime"></p>
+
+        <p data-en="<span class='highlight'>Context:</span> The Election Commission (EC) has initiated a <b>Special Intensive Revision (SIR)</b> of the <b>photo electoral rolls</b> across several States including <b>Bihar and Manipur</b>. The move has sparked political concerns, especially in the context of ongoing <b>ethnic tensions</b> and demands for a <b>National Register of Citizens (NRC)</b>." data-hi="<span class='highlight'>संदर्भ:</span> चुनाव आयोग (ईसी) ने <b>बिहार और मणिपुर</b> सहित कई राज्यों में <b>फोटो मतदाता सूचियों</b> के <b>विशेष सघन पुनरीक्षण (SIR)</b> की शुरुआत की है। इस कदम ने विशेष रूप से चल रहे <b>जातीय तनाव</b> और <b>राष्ट्रीय नागरिक रजिस्टर (NRC)</b> की मांगों के संदर्भ में राजनीतिक चिंताएं पैदा की हैं।"></p>
+
+        <h2 data-en="Key Highlights" data-hi="मुख्य हाइलाइट्स">Key Highlights</h2>
+
+        <ul class="custom-bullets">
+            <li data-en="<span class='highlight'>SIR in Manipur</span>" data-hi="<span class='highlight'>मणिपुर में SIR</span>">SIR in Manipur</li>
+            <ul>
+                <li data-en="<b>Training and Meetings</b> are underway:" data-hi="<b>प्रशिक्षण और बैठकें</b> चल रही हैं:"><b>Training and Meetings</b> are underway:</li>
+                <ul>
+                    <li data-en="<b>Booth-Level Officers (BLOs)</b> and supervisors are being trained." data-hi="<b>बूथ-स्तरीय अधिकारियों (BLOs)</b> और पर्यवेक्षकों को प्रशिक्षित किया जा रहा है।"><b>Booth-Level Officers (BLOs)</b> and supervisors are being trained.</li>
+                    <li data-en="<b>Political parties</b> have been briefed by the <b>Joint Chief Electoral Officer (CEO), Ramananda Nongmeikapam</b>." data-hi="<b>राजनीतिक दलों</b> को <b>संयुक्त मुख्य निर्वाचन अधिकारी (सीईओ), रामानंदा नोंगमेइकपम</b> ने जानकारी दी है।"><b>Political parties</b> have been briefed by the <b>Joint Chief Electoral Officer (CEO), Ramananda Nongmeikapam</b>.</li>
+                </ul>
+                <li data-en="<b>No timeline</b> yet announced for Manipur, though the <b>qualifying date is 1.1.2026</b>." data-hi="मणिपुर के लिए अभी तक <b>कोई समय-सीमा</b> घोषित नहीं की गई है, हालांकि <b>योग्य होने की तिथि 1.1.2026</b> है।"><b>No timeline</b> yet announced for Manipur, though the <b>qualifying date is 1.1.2026</b>.</li>
+                <li data-en="Activities are part of <b>pre-revision processes</b>, including:" data-hi="गतिविधियाँ <b>पूर्व-पुनरीक्षण प्रक्रियाओं</b> का हिस्सा हैं, जिनमें शामिल हैं:">Activities are part of <b>pre-revision processes</b>, including:</li>
+                <ul>
+                    <li data-en="House-to-house surveys." data-hi="घर-घर सर्वेक्षण।">House-to-house surveys.</li>
+                    <li data-en="Rationalisation of polling stations." data-hi="मतदान केंद्रों का युक्तिकरण।">Rationalisation of polling stations.</li>
+                </ul>
+            </ul>
+
+            <li data-en="<span class='highlight'>Concerns by Political Parties</span>" data-hi="<span class='highlight'>राजनीतिक दलों की चिंताएँ</span>">Concerns by Political Parties</li>
+            <ul>
+                <li data-en="<b>Manipur Pradesh Congress Committee</b> (MPCC) President <b>Keisham Meghachandra</b>:" data-hi="<b>मणिपुर प्रदेश कांग्रेस कमेटी</b> (MPCC) के अध्यक्ष <b>कीशम मेघचंद्र</b>:"><b>Manipur Pradesh Congress Committee</b> (MPCC) President <b>Keisham Meghachandra</b>:</li>
+                <ul>
+                    <li data-en="Opposed the idea of changing <b>voting addresses</b> of <b>internally displaced persons (IDPs)</b> to their <b>temporary relief camp locations</b>." data-hi="<b>आंतरिक रूप से विस्थापित व्यक्तियों (IDPs)</b> के <b>मतदान पतों</b> को उनके <b>अस्थायी राहत शिविर स्थानों</b> में बदलने के विचार का विरोध किया।">Opposed the idea of changing <b>voting addresses</b> of <b>internally displaced persons (IDPs)</b> to their <b>temporary relief camp locations</b>.</li>
+                    <li data-en="Warned it may further <b>disrupt peace</b> and <b>legitimize displacement</b>." data-hi="चेतावनी दी कि इससे शांति और अधिक <b>बाधित</b> हो सकती है और <b>विस्थापन को वैधता</b> मिल सकती है।">Warned it may further <b>disrupt peace</b> and <b>legitimize displacement</b>.</li>
+                </ul>
+            </ul>
+        </ul>
+
+        <h2 data-en="Broader Background" data-hi="व्यापक पृष्ठभूमि">Broader Background</h2>
+
+        <h3 data-en="Ethnic Conflict in Manipur" data-hi="मणिपुर में जातीय संघर्ष">Ethnic Conflict in Manipur</h3>
+        <ul>
+            <li data-en="Ongoing conflict between:" data-hi="बीच चल रहा संघर्ष:">Ongoing conflict between:</li>
+            <li><span data-en="<b>Meitei (valley-based)</b> communities." data-hi="<b>मैतेई (घाटी-आधारित)</b> समुदाय।"><b>Meitei (valley-based)</b> communities.</span></li>
+            <li><span data-en="<b>Kuki-Zo (hill-based Scheduled Tribes)</b>." data-hi="<b>कुकी-ज़ो (पहाड़ी-आधारित अनुसूचित जनजातियाँ)</b>।"><b>Kuki-Zo (hill-based Scheduled Tribes)</b>.</span></li>
+            <li data-en="Issue of <b>“illegal immigration of Kukis from Myanmar”</b> is a <b>core concern</b> raised by:" data-hi="<b>“म्यांमार से कुकीज़ के अवैध अप्रवासन”</b> का मुद्दा एक <b>प्रमुख चिंता</b> है जिसे उठाया गया है:">Issue of <b>“illegal immigration of Kukis from Myanmar”</b> is a <b>core concern</b> raised by:</li>
+            <li><span data-en="<b>Meitei groups</b>." data-hi="<b>मैतेई समूह</b>।"><b>Meitei groups</b>.</span></li>
+            <li><span data-en="Former CM <b>N. Biren Singh</b>." data-hi="पूर्व सीएम <b>एन. बीरेन सिंह</b>।">Former CM <b>N. Biren Singh</b>.</span></li>
+            <li><span data-en="<b>Home Minister Amit Shah</b> during 2024 campaign." data-hi="2024 के अभियान के दौरान <b>गृह मंत्री अमित शाह</b>।"><b>Home Minister Amit Shah</b> during 2024 campaign.</span></li>
+        </ul>
+
+        <h3 data-en="NRC & BJP’s Position" data-hi="NRC और भाजपा की स्थिति">NRC & BJP’s Position</h3>
+        <ul>
+            <li data-en="During <b>2024 Lok Sabha elections</b>, the <b>BJP campaigned</b> for NRC in <b>Inner Manipur</b>." data-hi="<b>2024 के लोकसभा चुनावों</b> के दौरान, <b>भाजपा</b> ने <b>इनर मणिपुर</b> में NRC के लिए <b>अभियान</b> चलाया।">During <b>2024 Lok Sabha elections</b>, the <b>BJP campaigned</b> for NRC in <b>Inner Manipur</b>.</li>
+            <li data-en="<b>Opposition fears</b> that SIR may act as a <b>backdoor NRC</b>." data-hi="<b>विपक्ष को डर है</b> कि SIR एक <b>बैकडोर NRC</b> के रूप में कार्य कर सकता है।"><b>Opposition fears</b> that SIR may act as a <b>backdoor NRC</b>.</li>
+        </ul>
+
+        <h2 data-en="Related Developments" data-hi="संबंधित घटनाक्रम">Related Developments</h2>
+        <ul>
+            <li data-en="<b>Nagaland</b> has also started similar SIR training for BLOs." data-hi="<b>नागालैंड</b> ने भी BLOs के लिए इसी तरह का SIR प्रशिक्षण शुरू किया है।"><b>Nagaland</b> has also started similar SIR training for BLOs.</li>
+            <li data-en="EC claims the revision is a <b>nationwide exercise</b> to ensure:" data-hi="ईसी का दावा है कि यह पुनरीक्षण एक <b>राष्ट्रव्यापी अभ्यास</b> है ताकि यह सुनिश्चित किया जा सके:">EC claims the revision is a <b>nationwide exercise</b> to ensure:</li>
+            <li><span data-en="<b>Accuracy</b> of electoral rolls." data-hi="मतदाता सूचियों की <b>सटीकता</b>।"><b>Accuracy</b> of electoral rolls.</span></li>
+            <li><span data-en="<b>Integrity</b> of the democratic process." data-hi="लोकतांत्रिक प्रक्रिया की <b>अखंडता</b>।"><b>Integrity</b> of the democratic process.</span></li>
+        </ul>
+
+        <h2 data-en="Current Political Status of Manipur" data-hi="मणिपुर की वर्तमान राजनीतिक स्थिति">Current Political Status of Manipur</h2>
+        <ul>
+            <li data-en="Last <b>Assembly elections</b>: 2022 (BJP formed govt with N. Biren Singh as CM)." data-hi="पिछले <b>विधानसभा चुनाव</b>: 2022 (भाजपा ने एन. बीरेन सिंह को सीएम बनाकर सरकार बनाई)।">Last <b>Assembly elections</b>: 2022 (BJP formed govt with N. Biren Singh as CM).</li>
+            <li data-en="Currently under <b>President’s Rule since Feb 2025</b>, due to <b>continued ethnic unrest</b>." data-hi="<b>निरंतर जातीय अशांति</b> के कारण वर्तमान में <b>फरवरी 2025 से राष्ट्रपति शासन</b> के अधीन है।">Currently under <b>President’s Rule since Feb 2025</b>, due to <b>continued ethnic unrest</b>.</li>
+        </ul>
+
+        <h2 data-en="UPSC Relevance" data-hi="यूपीएससी प्रासंगिकता">UPSC Relevance</h2>
+        <h3 data-en="Prelims" data-hi="प्रारंभिक परीक्षा">Prelims</h3>
+        <ul>
+            <li data-en="Booth-Level Officer (BLO): Roles and responsibilities." data-hi="बूथ-स्तरीय अधिकारी (BLO): भूमिकाएँ और जिम्मेदारियाँ।">Booth-Level Officer (BLO): Roles and responsibilities.</li>
+            <li data-en="Electoral Roll Revision: Legal framework & timelines." data-hi="मतदाता सूची पुनरीक्षण: कानूनी ढाँचा और समय-सीमा।">Electoral Roll Revision: Legal framework & timelines.</li>
+            <li data-en="Constitutional provisions: <b>Article 324</b> – powers of EC." data-hi="संवैधानिक प्रावधान: <b>अनुच्छेद 324</b> – चुनाव आयोग की शक्तियाँ।">Constitutional provisions: <b>Article 324</b> – powers of EC.</li>
+        </ul>
+        <h3 data-en="Mains (GS II)" data-hi="मुख्य परीक्षा (जीएस II)">Mains (GS II)</h3>
+        <ul>
+            <li data-en="<b>Salient features of the Representation of People’s Act</b>." data-hi="<b>लोक प्रतिनिधित्व अधिनियम की मुख्य विशेषताएं</b>।"><b>Salient features of the Representation of People’s Act</b>.</li>
+            <li data-en="<b>Role of Election Commission in conflict-affected regions</b>." data-hi="<b>संघर्ष-प्रभावित क्षेत्रों में चुनाव आयोग की भूमिका</b>।"><b>Role of Election Commission in conflict-affected regions</b>.</li>
+            <li data-en="<b>Impact of displacement on electoral rights and democratic participation</b>." data-hi="<b>विस्थापन का चुनावी अधिकारों और लोकतांत्रिक भागीदारी पर प्रभाव</b>।"><b>Impact of displacement on electoral rights and democratic participation</b>.</li>
+        </ul>
+
+        <h2 data-en="Critical Analysis" data-hi="गहन विश्लेषण">Critical Analysis</h2>
+        <ul>
+            <li data-en="While SIR is a technical electoral exercise, its timing amid <b>ethnic tension</b>, displacement, and NRC debates makes it <b>politically sensitive</b>." data-hi="जबकि SIR एक तकनीकी चुनावी अभ्यास है, जातीय तनाव, विस्थापन और NRC बहसों के बीच इसका समय इसे <b>राजनीतिक रूप से संवेदनशील</b> बनाता है।">While SIR is a technical electoral exercise, its timing amid <b>ethnic tension</b>, displacement, and NRC debates makes it <b>politically sensitive</b>.</li>
+            <li data-en="Ensuring <b>transparency and fairness</b> in electoral revision is essential for maintaining <b>public trust</b> and <b>peaceful democratic participation</b> in the region." data-hi="चुनावी पुनरीक्षण में <b>पारदर्शिता और निष्पक्षता</b> सुनिश्चित करना क्षेत्र में <b>जन विश्वास</b> और <b>शांतिपूर्ण लोकतांत्रिक भागीदारी</b> बनाए रखने के लिए आवश्यक है।">Ensuring <b>transparency and fairness</b> in electoral revision is essential for maintaining <b>public trust</b> and <b>peaceful democratic participation</b> in the region.</li>
+        </ul>
+
+        <a href="index.html" class="back-to-home" data-en="Back to Home" data-hi="होम पर वापस जाएं">Back to Home</a>
+    </div>
+
+    <button class="scroll-to-top" onclick="scrollToTop()">↑</button>
+
+    <script>
+        const contentDiv = document.querySelector('.container');
+        const readTimeSpan = document.getElementById('readTime');
+        const languageToggleButton = document.querySelector('.lang-switch');
+        const elementsToTranslate = document.querySelectorAll('[data-en], [data-hi]');
+        let currentLanguage = 'en';
+
+        // Calculate Read Time
+        function calculateReadTime() {
+            const englishContentNodes = Array.from(contentDiv.querySelectorAll('[data-en]'));
+            let fullEnglishText = "";
+            englishContentNodes.forEach(node => {
+                fullEnglishText += node.dataset.en || node.textContent + " ";
+            });
+            
+            const wordsPerMinute = 200; // Average reading speed
+            const wordCount = fullEnglishText.split(/\s+/).filter(word => word.length > 0).length;
+            const minutes = Math.ceil(wordCount / wordsPerMinute);
+            readTimeSpan.textContent = `Read Time: ${minutes} min`;
+        }
+
+        function setLanguage(lang) {
+            currentLanguage = lang;
+            elementsToTranslate.forEach(element => {
+                if (element.dataset[lang]) {
+                    element.innerHTML = element.dataset[lang];
+                }
+            });
+            const toggleText = languageToggleButton.querySelector('span:first-child');
+            toggleText.textContent = lang === 'en' ? toggleText.dataset.en : toggleText.dataset.hi;
+            localStorage.setItem('language', lang); // Store language preference
+        }
+
+        function toggleLanguage() {
+            const newLang = currentLanguage === 'en' ? 'hi' : 'en';
+            setLanguage(newLang);
+        }
+
+        // Scroll to Top button functionality
+        const scrollToTopButton = document.querySelector('.scroll-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollToTopButton.classList.add('show');
+            } else {
+                scrollToTopButton.classList.remove('show');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            calculateReadTime();
+            const savedLanguage = localStorage.getItem('language') || 'en';
+            setLanguage(savedLanguage);
+        });
+    </script>
+</body>
+</html>

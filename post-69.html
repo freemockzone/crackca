@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-en="SC to begin hearing on Presidential Reference with States’ arguments" data-hi="सुप्रीम कोर्ट राज्यों की दलीलों के साथ राष्ट्रपति संदर्भ पर सुनवाई शुरू करेगा">SC to begin hearing on Presidential Reference with States’ arguments</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #007bff;
+            --text-color: #333;
+            --bg-color: #f4f7f6;
+            --light-grey: #e9ecef;
+            --dark-grey: #6c757d;
+            --white: #fff;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background-color: var(--primary-color);
+            padding: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1.5rem;
+        }
+
+        .nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-right: 25px;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--light-grey);
+        }
+
+        /* Language Switch */
+        .language-switch {
+            position: relative;
+            width: 60px;
+            height: 30px;
+            background-color: var(--light-grey);
+            border-radius: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            padding: 0 5px;
+            overflow: hidden; /* Hide overflow of text */
+        }
+
+        .language-switch:hover {
+            background-color: var(--dark-grey);
+        }
+
+        .language-switch.active {
+            background-color: var(--secondary-color);
+        }
+
+        .language-switch-slider {
+            width: 20px;
+            height: 20px;
+            background-color: var(--white);
+            border-radius: 50%;
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .language-switch.active .language-switch-slider {
+            transform: translateX(30px);
+        }
+
+        .language-text {
+            position: absolute;
+            color: var(--text-color);
+            font-size: 0.9rem;
+            font-weight: bold;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .language-text.en {
+            left: 10px;
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .language-switch.active .language-text.en {
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+
+        .language-text.hi {
+            right: 10px;
+            opacity: 0;
+            transform: translateX(20px);
+        }
+
+        .language-switch.active .language-text.hi {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+
+        /* Main Content */
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2, h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--light-grey);
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .read-time {
+            text-align: right;
+            font-style: italic;
+            color: var(--dark-grey);
+            margin-top: -15px;
+            margin-bottom: 20px;
+        }
+
+        .back-to-home {
+            display: block;
+            width: fit-content;
+            margin: 40px auto 20px auto;
+            padding: 12px 25px;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 700;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            text-align: center;
+        }
+
+        .back-to-home:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0));
+            margin: 30px 0;
+        }
+
+        /* Floating Button */
+        .float-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            z-index: 999;
+        }
+
+        .float-button:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .navbar-container {
+                flex-direction: column;
+                padding: 0 1rem;
+            }
+
+            .nav-links {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-links li {
+                margin: 0 10px 10px 10px;
+            }
+
+            .language-switch {
+                margin-top: 15px;
+            }
+
+            .container {
+                margin: 20px 15px;
+                padding: 25px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            h3 {
+                font-size: 1.2rem;
+            }
+
+            .float-button {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-links a {
+                font-size: 1rem;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+            }
+
+            h3 {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <ul class="nav-links">
+                <li><a href="index.html" data-en="Home" data-hi="होम">Home</a></li>
+                <li><a href="donation.html" data-en="Donation" data-hi="दान">Donation</a></li>
+                <li><a href="contact.html" data-en="Contact" data-hi="संपर्क">Contact</a></li>
+            </ul>
+            <div class="language-switch" id="languageSwitch">
+                <div class="language-switch-slider"></div>
+                <span class="language-text en">EN</span>
+                <span class="language-text hi">HI</span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 data-en="SC to begin hearing on Presidential Reference with States’ arguments" data-hi="सुप्रीम कोर्ट राज्यों की दलीलों के साथ राष्ट्रपति संदर्भ पर सुनवाई शुरू करेगा">SC to begin hearing on Presidential Reference with States’ arguments</h1>
+        <p class="read-time" data-en="Reading time: <span id='readTime'></span> min" data-hi="पढ़ने का समय: <span id='readTime'></span> मिनट">Reading time: <span id="readTime"></span> min</p>
+        <p data-en="Source: The Hindu | Date: 30 July 2025" data-hi="स्रोत: द हिंदू | दिनांक: 30 जुलाई 2025">Source: The Hindu | Date: 30 July 2025</p>
+
+        <hr>
+
+        <h2 data-en="Context" data-hi="संदर्भ">Context</h2>
+        <p data-en="The Supreme Court agreed to first hear Tamil Nadu and Kerala’s challenge to the maintainability of a Presidential Reference. The Reference seeks clarity on the timeline for the President and Governors in disposing of State Bills." data-hi="सुप्रीम कोर्ट ने राष्ट्रपति संदर्भ की स्वीकार्यता को चुनौती देने वाली तमिलनाडु और केरल की याचिका पर पहले सुनवाई करने पर सहमति व्यक्त की। यह संदर्भ राज्य विधेयकों के निपटान में राष्ट्रपति और राज्यपालों के लिए समय-सीमा पर स्पष्टता चाहता है।">The Supreme Court agreed to first hear Tamil Nadu and Kerala’s challenge to the maintainability of a Presidential Reference. The Reference seeks clarity on the timeline for the President and Governors in disposing of State Bills.</p>
+
+        <hr>
+
+        <h2 data-en="Constitutional Provision Involved" data-hi="शामिल संवैधानिक प्रावधान">Constitutional Provision Involved</h2>
+        <ul data-lang="en">
+            <li>Article 143(1): Allows the President to refer questions of law to the Supreme Court for its advisory opinion.</li>
+            <li>Articles 200 & 201: Deal with the assent to State Bills by Governors and the President respectively.</li>
+        </ul>
+        <ul data-lang="hi" style="display: none;">
+            <li>अनुच्छेद 143(1): राष्ट्रपति को कानूनी प्रश्नों को सर्वोच्च न्यायालय के सलाहकार मत के लिए संदर्भित करने की अनुमति देता है।</li>
+            <li>अनुच्छेद 200 और 201: क्रमशः राज्यपालों और राष्ट्रपति द्वारा राज्य विधेयकों को दी गई स्वीकृति से संबंधित हैं।</li>
+        </ul>
+
+        <hr>
+
+        <h2 data-en="Arguments by Tamil Nadu & Kerala (Challenging Maintainability)" data-hi="तमिलनाडु और केरल द्वारा तर्क (स्वीकार्यता को चुनौती देते हुए)">Arguments by Tamil Nadu & Kerala (Challenging Maintainability)</h2>
+        <h3 data-en="Key Points" data-hi="मुख्य बिंदु">Key Points</h3>
+        <ul data-lang="en">
+            <li>The Presidential Reference is not maintainable, as it raises issues already adjudicated by the Supreme Court.</li>
+            <li>Kerala's counsel (K.K. Venugopal) argued that the reference is an "appeal in disguise".</li>
+        </ul>
+        <ul data-lang="hi" style="display: none;">
+            <li>राष्ट्रपति संदर्भ स्वीकार्य नहीं है, क्योंकि यह पहले ही सर्वोच्च न्यायालय द्वारा निपटाए गए मुद्दों को उठाता है।</li>
+            <li>केरल के वकील (के.के. वेणुगोपाल) ने तर्क दिया कि यह संदर्भ एक "छद्म अपील" है।</li>
+        </ul>
+
+        <h3 data-en="Judicial Precedents Cited" data-hi="उद्धृत न्यायिक दृष्टांत">Judicial Precedents Cited</h3>
+        <ul data-lang="en">
+            <li>Tamil Nadu Governor Case (Judgment by Justice J.B. Pardiwala, April 8, 2025): Already settled the questions in the current reference.</li>
+            <li>Cauvery Water Disputes Tribunal Reference (1993): Court cannot advise if the matter has already been authoritatively settled.</li>
+            <li>Past cases involving Telangana, Punjab, and Tamil Nadu had settled the interpretation of Articles 200 & 201.</li>
+        </ul>
+        <ul data-lang="hi" style="display: none;">
+            <li>तमिलनाडु राज्यपाल मामला (न्यायाधीश जे.बी. पारदीवाला द्वारा निर्णय, 8 अप्रैल, 2025): वर्तमान संदर्भ में प्रश्नों का पहले ही निपटारा कर दिया गया है।</li>
+            <li>कावेरी जल विवाद न्यायाधिकरण संदर्भ (1993): यदि मामला पहले ही आधिकारिक रूप से निपटाया जा चुका है तो न्यायालय सलाह नहीं दे सकता।</li>
+            <li>तेलंगाना, पंजाब और तमिलनाडु से जुड़े पिछले मामलों ने अनुच्छेद 200 और 201 की व्याख्या को निपटा दिया था।</li>
+        </ul>
+
+        <h3 data-en="Kerala’s Submission" data-hi="केरल का निवेदन">Kerala’s Submission</h3>
+        <ul data-lang="en">
+            <li>The President can refer a legal question only if it is unsettled (res integra).</li>
+            <li>Once the SC has decided an issue, it becomes binding on all authorities under Article 141.</li>
+            <li>Remedy available to the Centre was review/curative petition, not Presidential reference.</li>
+        </ul>
+        <ul data-lang="hi" style="display: none;">
+            <li>राष्ट्रपति एक कानूनी प्रश्न तभी संदर्भित कर सकते हैं जब वह अनसुलझा हो (रेस इंटेग्रा)।</li>
+            <li>एक बार जब एससी किसी मुद्दे पर निर्णय ले लेता है, तो यह अनुच्छेद 141 के तहत सभी अधिकारियों पर बाध्यकारी हो जाता है।</li>
+            <li>केंद्र के लिए उपलब्ध उपाय समीक्षा/उपचारात्मक याचिका था, न कि राष्ट्रपति संदर्भ।</li>
+        </ul>
+
+        <hr>
+
+        <h2 data-en="Supreme Court’s Procedural Decision" data-hi="सुप्रीम कोर्ट का प्रक्रियात्मक निर्णय">Supreme Court’s Procedural Decision</h2>
+        <h3 data-en="Constitution Bench Composition" data-hi="संविधान पीठ की संरचना">Constitution Bench Composition</h3>
+        <ul data-lang="en">
+            <li>Headed by CJI B.R. Gavai</li>
+            <li>Other judges: Justices Surya Kant, Vikram Nath, P.S. Narasimha, Atul Chandurkar</li>
+        </ul>
+        <ul data-lang="hi" style="display: none;">
+            <li>सीजेआई बी.आर. गवई की अध्यक्षता में</li>
+            <li>अन्य न्यायाधीश: न्यायमूर्ति सूर्यकांत, विक्रम नाथ, पी.एस. नरसिम्हा, अतुल चंदुरकर</li>
+        </ul>
+
+        <h3 data-en="Hearing Schedule" data-hi="सुनवाई अनुसूची">Hearing Schedule</h3>
+        <ul data-lang="en">
+            <li>Written submissions deadline: August 12</li>
+            <li>Union Government’s arguments: August 19, 20, 21, 26</li>
+            <li>States’ responses: August 28, September 2, 3, 9</li>
+            <li>Centre’s rebuttal: September 10</li>
+        </ul>
+        <ul data-lang="hi" style="display: none;">
+            <li>लिखित प्रस्तुतियाँ जमा करने की अंतिम तिथि: 12 अगस्त</li>
+            <li>केंद्र सरकार के तर्क: 19, 20, 21, 26 अगस्त</li>
+            <li>राज्यों के जवाब: 28 अगस्त, 2, 3, 9 सितंबर</li>
+            <li>केंद्र का प्रतिवाद: 10 सितंबर</li>
+        </ul>
+
+        <h3 data-en="Hybrid Mode of Appearance" data-hi="उपस्थिति का हाइब्रिड मोड">Hybrid Mode of Appearance</h3>
+        <ul data-lang="en">
+            <li>Only K.K. Venugopal allowed to appear online, termed "sui generis" (unique).</li>
+        </ul>
+        <ul data-lang="hi" style="display: none;">
+            <li>केवल के.के. वेणुगोपाल को ऑनलाइन उपस्थित होने की अनुमति दी गई, जिसे "सुई जेनेरिस" (अद्वितीय) कहा गया।</li>
+        </ul>
+
+        <hr>
+
+        <h2 data-en="UPSC Relevance" data-hi="यूपीएससी प्रासंगिकता">UPSC Relevance</h2>
+        <h3 data-en="GS Paper II – Polity & Governance" data-hi="जीएस पेपर II – राजनीति और शासन">GS Paper II – Polity & Governance</h3>
+        <ul data-lang="en">
+            <li>Separation of powers: Judicial, executive roles in constitutional interpretation.</li>
+            <li>Centre–State relations: Governor’s role, delays in Bill assent.</li>
+            <li>Constitutional morality and federalism</li>
+            <li>Role and limits of Article 143</li>
+        </ul>
+        <ul data-lang="hi" style="display: none;">
+            <li>शक्तियों का पृथक्करण: संवैधानिक व्याख्या में न्यायिक, कार्यकारी भूमिकाएँ।</li>
+            <li>केंद्र-राज्य संबंध: राज्यपाल की भूमिका, विधेयक स्वीकृति में देरी।</li>
+            <li>संवैधानिक नैतिकता और संघवाद</li>
+            <li>अनुच्छेद 143 की भूमिका और सीमाएँ</li>
+        </ul>
+
+        <h3 data-en="GS Paper III – Internal Security" data-hi="जीएस पेपर III – आंतरिक सुरक्षा">GS Paper III – Internal Security</h3>
+        <ul data-lang="en">
+            <li>Counter-terror operations</li>
+            <li>Evolution of India’s defence posture</li>
+            <li>Role of technology and air defence</li>
+        </ul>
+        <ul data-lang="hi" style="display: none;">
+            <li>आतंकवाद विरोधी अभियान</li>
+            <li>भारत की रक्षा मुद्रा का विकास</li>
+            <li>प्रौद्योगिकी और वायु रक्षा की भूमिका</li>
+        </ul>
+
+        <hr>
+
+        <h2 data-en="Answer Writing Insights" data-hi="उत्तर लेखन अंतर्दृष्टि">Answer Writing Insights</h2>
+        <p data-en="Use this case to:" data-hi="इस मामले का उपयोग करें:">Use this case to:</p>
+        <ul data-lang="en">
+            <li>Discuss checks and balances between executive and judiciary.</li>
+            <li>Critically evaluate the judicial use of Article 143.</li>
+            <li>Examine the evolving jurisprudence on the Governor’s role in State legislation.</li>
+            <li>Argue against executive overreach via alternate constitutional routes.</li>
+        </ul>
+        <ul data-lang="hi" style="display: none;">
+            <li>कार्यपालिका और न्यायपालिका के बीच संतुलन पर चर्चा करें।</li>
+            <li>अनुच्छेद 143 के न्यायिक उपयोग का आलोचनात्मक मूल्यांकन करें।</li>
+            <li>राज्य विधानमंडल में राज्यपाल की भूमिका पर विकसित न्यायशास्त्र की जांच करें।</li>
+            <li>वैकल्पिक संवैधानिक मार्गों के माध्यम से कार्यकारी अतिक्रमण के खिलाफ तर्क दें।</li>
+        </ul>
+
+        <a href="index.html" class="back-to-home" data-en="Back to Home" data-hi="वापस होम पर">Back to Home</a>
+    </div>
+
+    <button class="float-button" id="scrollToTopBtn">&#8679;</button>
+
+    <script>
+        const languageSwitch = document.getElementById('languageSwitch');
+        let currentLang = 'en'; // Default language
+        let calculatedReadTime = 0; // Variable to store the calculated read time
+
+        // Function to calculate read time (English content only)
+        function calculateReadTime() {
+            let fullTextContent = '';
+            // Get text from all elements that store English content
+            document.querySelectorAll('[data-en]').forEach(element => {
+                const dataEnAttribute = element.getAttribute('data-en');
+                if (dataEnAttribute) {
+                    // Create a temporary div to extract plain text from HTML content
+                    const tempDiv = document.createElement('div');
+                    tempDiv.innerHTML = dataEnAttribute; // Use innerHTML to parse any potential HTML entities
+                    fullTextContent += tempDiv.textContent + ' ';
+                }
+            });
+            
+            const wordsPerMinute = 200; // Average reading speed
+            // Use a more robust regex for splitting words, and filter out empty strings
+            const wordCount = fullTextContent.split(/\s+/).filter(word => word.length > 0).length;
+            calculatedReadTime = Math.ceil(wordCount / wordsPerMinute); // Store the calculated time
+            document.getElementById('readTime').textContent = calculatedReadTime; // Update the span directly
+        }
+
+        // Run on page load for initial English content
+        calculateReadTime();
+
+        // Function to set language of the page
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.querySelectorAll('[data-en], [data-hi]').forEach(element => {
+                const targetText = element.getAttribute(`data-${lang}`);
+
+                // All elements now just set textContent as there are no strong tags in attributes
+                element.textContent = targetText || '';
+            });
+
+            // Update title separately
+            document.title = document.querySelector('title').getAttribute(`data-${lang}`);
+
+            // Handle list visibility using data-lang attribute
+            document.querySelectorAll('ul[data-lang]').forEach(ul => {
+                ul.style.display = (ul.getAttribute('data-lang') === lang) ? 'block' : 'none';
+            });
+
+            // Update read time text and the span content using the stored calculatedReadTime
+            const readTimeElement = document.querySelector('.read-time');
+            if (lang === 'en') {
+                readTimeElement.innerHTML = `Reading time: <span id='readTime'>${calculatedReadTime}</span> min`;
+            } else {
+                readTimeElement.innerHTML = `पढ़ने का समय: <span id='readTime'>${calculatedReadTime}</span> मिनट`;
+            }
+        }
+
+
+        languageSwitch.addEventListener('click', () => {
+            languageSwitch.classList.toggle('active');
+            if (currentLang === 'en') {
+                setLanguage('hi');
+            } else {
+                setLanguage('en');
+            }
+        });
+
+        // Scroll to top button
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 200) {
+                scrollToTopBtn.style.display = 'flex';
+            } else {
+                scrollToTopBtn.style.display = 'none';
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>

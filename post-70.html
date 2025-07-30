@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-en="Will step in if ‘mass exclusion’ found in draft voter rolls: SC" data-hi="यदि मसौदा मतदाता सूचियों में 'सामूहिक बहिष्कार' पाया गया तो हस्तक्षेप करेंगे: एससी">Will step in if ‘mass exclusion’ found in draft voter rolls: SC</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #007bff;
+            --text-color: #333;
+            --bg-color: #f4f7f6;
+            --light-grey: #e9ecef;
+            --dark-grey: #6c757d;
+            --white: #fff;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background-color: var(--primary-color);
+            padding: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1.5rem;
+        }
+
+        .nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-right: 25px;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--light-grey);
+        }
+
+        /* Language Switch */
+        .language-switch {
+            position: relative;
+            width: 60px;
+            height: 30px;
+            background-color: var(--light-grey);
+            border-radius: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            padding: 0 5px;
+            overflow: hidden; /* Hide overflow of text */
+        }
+
+        .language-switch:hover {
+            background-color: var(--dark-grey);
+        }
+
+        .language-switch.active {
+            background-color: var(--secondary-color);
+        }
+
+        .language-switch-slider {
+            width: 20px;
+            height: 20px;
+            background-color: var(--white);
+            border-radius: 50%;
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .language-switch.active .language-switch-slider {
+            transform: translateX(30px);
+        }
+
+        .language-text {
+            position: absolute;
+            color: var(--text-color);
+            font-size: 0.9rem;
+            font-weight: bold;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .language-text.en {
+            left: 10px;
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .language-switch.active .language-text.en {
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+
+        .language-text.hi {
+            right: 10px;
+            opacity: 0;
+            transform: translateX(20px);
+        }
+
+        .language-switch.active .language-text.hi {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+
+        /* Main Content */
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2, h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--light-grey);
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .read-time {
+            text-align: right;
+            font-style: italic;
+            color: var(--dark-grey);
+            margin-top: -15px;
+            margin-bottom: 20px;
+        }
+
+        .back-to-home {
+            display: block;
+            width: fit-content;
+            margin: 40px auto 20px auto;
+            padding: 12px 25px;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 700;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            text-align: center;
+        }
+
+        .back-to-home:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0));
+            margin: 30px 0;
+        }
+
+        /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.5rem;
+        }
+
+        th, td {
+            border: 1px solid var(--light-grey);
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: var(--white);
+            font-weight: 700;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        /* Floating Button */
+        .float-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            z-index: 999;
+        }
+
+        .float-button:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .navbar-container {
+                flex-direction: column;
+                padding: 0 1rem;
+            }
+
+            .nav-links {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-links li {
+                margin: 0 10px 10px 10px;
+            }
+
+            .language-switch {
+                margin-top: 15px;
+            }
+
+            .container {
+                margin: 20px 15px;
+                padding: 25px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            h3 {
+                font-size: 1.2rem;
+            }
+
+            .float-button {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+                font-size: 1.8rem;
+            }
+
+            table, thead, tbody, th, td, tr {
+                display: block;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            
+            thead tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+
+            tr {
+                border: 1px solid var(--light-grey);
+                margin-bottom: 15px;
+                display: block; /* Ensure each row is a block */
+            }
+
+            td {
+                border: none;
+                border-bottom: 1px solid var(--light-grey);
+                position: relative;
+                padding-left: 50%;
+                text-align: right;
+                display: flex; /* Use flexbox for alignment inside td */
+                align-items: center;
+                justify-content: flex-end; /* Align content to the right */
+                min-height: 40px; /* Ensure minimum height */
+            }
+
+            td:before {
+                position: absolute;
+                left: 6px;
+                width: 45%;
+                padding-right: 10px;
+                white-space: nowrap;
+                content: attr(data-label);
+                font-weight: bold;
+                color: var(--primary-color);
+                text-align: left; /* Align label to the left */
+                box-sizing: border-box;
+            }
+
+            td:last-child {
+                border-bottom: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-links a {
+                font-size: 1rem;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+            }
+
+            h3 {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <ul class="nav-links">
+                <li><a href="index.html" data-en="Home" data-hi="होम">Home</a></li>
+                <li><a href="donation.html" data-en="Donation" data-hi="दान">Donation</a></li>
+                <li><a href="contact.html" data-en="Contact" data-hi="संपर्क">Contact</a></li>
+            </ul>
+            <div class="language-switch" id="languageSwitch">
+                <div class="language-switch-slider"></div>
+                <span class="language-text en">EN</span>
+                <span class="language-text hi">HI</span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 data-en="Will step in if ‘mass exclusion’ found in draft voter rolls: SC" data-hi="यदि मसौदा मतदाता सूचियों में 'सामूहिक बहिष्कार' पाया गया तो हस्तक्षेप करेंगे: एससी">Will step in if ‘mass exclusion’ found in draft voter rolls: SC</h1>
+        <p class="read-time" data-en="Reading time: <span id='readTime'></span> min" data-hi="पढ़ने का समय: <span id='readTime'></span> मिनट">Reading time: <span id="readTime"></span> min</p>
+        <p data-en="Source: The Hindu | Date: 30 July 2025" data-hi="स्रोत: द हिंदू | दिनांक: 30 जुलाई 2025">Source: The Hindu | Date: 30 July 2025</p>
+
+        <hr>
+
+        <h2 data-en="Context" data-hi="संदर्भ">Context</h2>
+        <p data-en="Concerns raised over alleged mass deletions (65 lakh) from the draft electoral rolls in Bihar. Supreme Court assures intervention if wrongful exclusions are found in the Special Intensive Revision (SIR) process conducted by the Election Commission (EC)." data-hi="बिहार में मसौदा मतदाता सूचियों से कथित सामूहिक विलोपन (65 लाख) को लेकर चिंताएं उठाई गईं। सर्वोच्च न्यायालय ने आश्वासन दिया है कि यदि चुनाव आयोग (ईसी) द्वारा संचालित विशेष गहन पुनरीक्षण (एसआईआर) प्रक्रिया में गलत बहिष्करण पाए जाते हैं, तो वह हस्तक्षेप करेगा।">Concerns raised over alleged mass deletions (65 lakh) from the draft electoral rolls in Bihar. Supreme Court assures intervention if wrongful exclusions are found in the Special Intensive Revision (SIR) process conducted by the Election Commission (EC).</p>
+
+        <hr>
+
+        <h2 data-en="Supreme Court’s Observations" data-hi="सुप्रीम कोर्ट की टिप्पणियाँ">Supreme Court’s Observations</h2>
+        <ul data-lang="en">
+            <li>Bench: Justices Surya Kant and Joymalya Bagchi.</li>
+            <li>Assured immediate action if individuals marked as dead or shifted are found to be alive and residing.</li>
+            <li>Quote: “Bring 15 people they say are dead, but found alive, we will look into it.”</li>
+            <li>Next hearing: Scheduled for August 12–13, 2025.</li>
+        </ul>
+        <ul data-lang="hi" style="display: none;">
+            <li>पीठ: न्यायमूर्ति सूर्यकांत और जॉयमाल्य बागची।</li>
+            <li>यदि मृत या स्थानांतरित के रूप में चिह्नित व्यक्ति जीवित पाए जाते हैं, तो तत्काल कार्रवाई का आश्वासन दिया।</li>
+            <li>उद्धरण: "15 लोगों को लाओ जिन्हें वे मृत कहते हैं, लेकिन जीवित पाए गए, हम इस पर गौर करेंगे।"</li>
+            <li>अगली सुनवाई: 12-13 अगस्त, 2025 के लिए निर्धारित।</li>
+        </ul>
+
+        <hr>
+
+        <h2 data-en="Petitioners’ Concerns" data-hi="याचिकाकर्ताओं की चिंताएं">Petitioners’ Concerns</h2>
+        <ul data-lang="en">
+            <li>Represented by: Kapil Sibal and Prashant Bhushan.</li>
+            <li>Alleged that EC’s actions resemble "citizenship screening".</li>
+            <li>Criticized lack of transparency—no public info on:</li>
+            <ul style="list-style-type: circle;">
+                <li>Who was marked dead or relocated</li>
+                <li>Grounds for exclusion</li>
+            </ul>
+        </ul>
+        <ul data-lang="hi" style="display: none;">
+            <li>प्रतिनिधित्व: कपिल सिब्बल और प्रशांत भूषण।</li>
+            <li>आरोप लगाया कि ईसी की कार्रवाइयां "नागरिकता स्क्रीनिंग" के समान हैं।</li>
+            <li>पारदर्शिता की कमी की आलोचना की—कोई सार्वजनिक जानकारी नहीं:</li>
+            <ul style="list-style-type: circle;">
+                <li>किसे मृत या स्थानांतरित चिह्नित किया गया था</li>
+                <li>बहिष्करण के आधार</li>
+            </ul>
+        </ul>
+
+        <hr>
+
+        <h2 data-en="Election Commission's Stand" data-hi="चुनाव आयोग का रुख">Election Commission's Stand</h2>
+        <ul data-lang="en">
+            <li>Represented by: Rakesh Dwivedi (Senior Advocate)</li>
+            <li>Clarified:</li>
+            <ul style="list-style-type: circle;">
+                <li>Draft roll based on January 7, 2025 summary revision.</li>
+                <li>Citizens omitted still have 31 days (till Sept 1) to file claims or corrections.</li>
+                <li>Final list to be published on September 30.</li>
+            </ul>
+        </ul>
+        <ul data-lang="hi" style="display: none;">
+            <li>प्रतिनिधित्व: राकेश द्विवेदी (वरिष्ठ अधिवक्ता)</li>
+            <li>स्पष्ट किया:</li>
+            <ul style="list-style-type: circle;">
+                <li>मसौदा सूची 7 जनवरी, 2025 के सारांश संशोधन पर आधारित है।</li>
+                <li>छूटे हुए नागरिकों के पास अभी भी दावे या सुधार दाखिल करने के लिए 31 दिन (1 सितंबर तक) हैं।</li>
+                <li>अंतिम सूची 30 सितंबर को प्रकाशित की जाएगी।</li>
+            </ul>
+        </ul>
+
+        <hr>
+
+        <h2 data-en="Constitutional & Legal Dimensions" data-hi="संवैधानिक और कानूनी आयाम">Constitutional & Legal Dimensions</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th data-en="Provision" data-hi="प्रावधान">Provision</th>
+                    <th data-en="Relevance" data-hi="प्रासंगिकता">Relevance</th>
+                </tr>
+            </thead>
+            <tbody data-lang="en">
+                <tr>
+                    <td data-label-en="Provision" data-label-hi="प्रावधान">Article 324</td>
+                    <td data-label-en="Relevance" data-label-hi="प्रासंगिकता">Powers of the Election Commission</td>
+                </tr>
+                <tr>
+                    <td data-label-en="Provision" data-label-hi="प्रावधान">Free and fair elections</td>
+                    <td data-label-en="Relevance" data-label-hi="प्रासंगिकता">Basic structure doctrine (SC judgment)</td>
+                </tr>
+                <tr>
+                    <td data-label-en="Provision" data-label-hi="प्रावधान">Right to Vote</td>
+                    <td data-label-en="Relevance" data-label-hi="प्रासंगिकता">Statutory right under Representation of the People Act, 1950</td>
+                </tr>
+                <tr>
+                    <td data-label-en="Provision" data-label-hi="प्रावधान">Judicial Review</td>
+                    <td data-label-en="Relevance" data-label-hi="प्रासंगिकता">SC can intervene if constitutional bodies deviate from legal procedure</td>
+                </tr>
+            </tbody>
+            <tbody data-lang="hi" style="display: none;">
+                <tr>
+                    <td data-label-en="Provision" data-label-hi="प्रावधान">अनुच्छेद 324</td>
+                    <td data-label-en="Relevance" data-label-hi="प्रासंगिकता">चुनाव आयोग की शक्तियाँ</td>
+                </tr>
+                <tr>
+                    <td data-label-en="Provision" data-label-hi="प्रावधान">स्वतंत्र और निष्पक्ष चुनाव</td>
+                    <td data-label-en="Relevance" data-label-hi="प्रासंगिकता">मूल संरचना सिद्धांत (एससी निर्णय)</td>
+                </tr>
+                <tr>
+                    <td data-label-en="Provision" data-label-hi="प्रावधान">मतदान का अधिकार</td>
+                    <td data-label-en="Relevance" data-label-hi="प्रासंगिकता">लोक प्रतिनिधित्व अधिनियम, 1950 के तहत वैधानिक अधिकार</td>
+                </tr>
+                <tr>
+                    <td data-label-en="Provision" data-label-hi="प्रावधान">न्यायिक समीक्षा</td>
+                    <td data-label-en="Relevance" data-label-hi="प्रासंगिकता">यदि संवैधानिक निकाय कानूनी प्रक्रिया से विचलित होते हैं तो एससी हस्तक्षेप कर सकता है</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+
+        <h2 data-en="UPSC Relevance" data-hi="यूपीएससी प्रासंगिकता">UPSC Relevance</h2>
+        <h3 data-en="GS Paper II – Polity" data-hi="जीएस पेपर II – राजनीति">GS Paper II – Polity</h3>
+        <ul data-lang="en">
+            <li>Role and accountability of constitutional bodies (EC)</li>
+            <li>Electoral roll management and due process</li>
+            <li>Balance between judicial oversight and EC autonomy</li>
+        </ul>
+        <ul data-lang="hi" style="display: none;">
+            <li>संवैधानिक निकायों (ईसी) की भूमिका और जवाबदेही</li>
+            <li>मतदाता सूची प्रबंधन और उचित प्रक्रिया</li>
+            <li>न्यायिक निरीक्षण और ईसी स्वायत्तता के बीच संतुलन</li>
+        </ul>
+
+        <h3 data-en="GS Paper II – Governance" data-hi="जीएस पेपर II – शासन">GS Paper II – Governance</h3>
+        <ul data-lang="en">
+            <li>Transparency and citizen participation in electoral processes</li>
+            <li>Mechanisms for grievance redressal in public institutions</li>
+        </ul>
+        <ul data-lang="hi" style="display: none;">
+            <li>चुनावी प्रक्रियाओं में पारदर्शिता और नागरिक भागीदारी</li>
+            <li>सार्वजनिक संस्थानों में शिकायत निवारण के तंत्र</li>
+        </ul>
+
+        <hr>
+
+        <h2 data-en="Answer Writing Insights" data-hi="उत्तर लेखन अंतर्दृष्टि">Answer Writing Insights</h2>
+        <p data-en="Use this case as a contemporary example to:" data-hi="इस मामले को समकालीन उदाहरण के रूप में उपयोग करें:">Use this case as a contemporary example to:</p>
+        <ul data-lang="en">
+            <li>Discuss checks and balances in electoral governance.</li>
+            <li>Examine issues of mass disenfranchisement and EC accountability.</li>
+            <li>Reflect on judicial sensitivity to public disenfranchisement.</li>
+        </ul>
+        <ul data-lang="hi" style="display: none;">
+            <li>चुनावी शासन में नियंत्रण और संतुलन पर चर्चा करें।</li>
+            <li>सामूहिक मताधिकार और चुनाव आयोग की जवाबदेही के मुद्दों की जांच करें।</li>
+            <li>सार्वजनिक मताधिकार से वंचित होने के प्रति न्यायिक संवेदनशीलता पर विचार करें।</li>
+        </ul>
+
+        <a href="index.html" class="back-to-home" data-en="Back to Home" data-hi="वापस होम पर">Back to Home</a>
+    </div>
+
+    <button class="float-button" id="scrollToTopBtn">&#8679;</button>
+
+    <script>
+        const languageSwitch = document.getElementById('languageSwitch');
+        let currentLang = 'en'; // Default language
+        let calculatedReadTime = 0; // Variable to store the calculated read time
+
+        // Function to calculate read time (English content only)
+        function calculateReadTime() {
+            let fullTextContent = '';
+            // Get text from all elements that store English content
+            document.querySelectorAll('[data-en]').forEach(element => {
+                const dataEnAttribute = element.getAttribute('data-en');
+                if (dataEnAttribute) {
+                    // Create a temporary div to extract plain text from HTML content
+                    const tempDiv = document.createElement('div');
+                    tempDiv.innerHTML = dataEnAttribute; // Use innerHTML to parse any potential HTML entities
+                    fullTextContent += tempDiv.textContent + ' ';
+                }
+            });
+            
+            const wordsPerMinute = 200; // Average reading speed
+            // Use a more robust regex for splitting words, and filter out empty strings
+            const wordCount = fullTextContent.split(/\s+/).filter(word => word.length > 0).length;
+            calculatedReadTime = Math.ceil(wordCount / wordsPerMinute); // Store the calculated time
+            document.getElementById('readTime').textContent = calculatedReadTime; // Update the span directly
+        }
+
+        // Run on page load for initial English content
+        calculateReadTime();
+
+        // Function to set language of the page
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.querySelectorAll('[data-en], [data-hi]').forEach(element => {
+                const targetText = element.getAttribute(`data-${lang}`);
+
+                // Update text content for most elements
+                // Exclude table elements from this general update as they are handled separately
+                if (element.tagName !== 'TH' && element.tagName !== 'TD' && element.tagName !== 'TBODY') {
+                    element.textContent = targetText || '';
+                }
+            });
+
+            // Update title separately
+            document.title = document.querySelector('title').getAttribute(`data-${lang}`);
+
+            // Handle list visibility using data-lang attribute
+            document.querySelectorAll('ul[data-lang]').forEach(ul => {
+                ul.style.display = (ul.getAttribute('data-lang') === lang) ? 'block' : 'none';
+            });
+            
+            // Handle table header (th) text
+            document.querySelectorAll('th[data-en], th[data-hi]').forEach(thElement => {
+                thElement.textContent = thElement.getAttribute(`data-${lang}`);
+            });
+            
+            // Handle table data (td) data-label for responsiveness AND content if needed
+            document.querySelectorAll('td').forEach(tdElement => {
+                const labelAttr = `data-label-${lang}`;
+                const labelText = tdElement.getAttribute(labelAttr);
+                if (labelText) {
+                    tdElement.setAttribute('data-label', labelText);
+                }
+                // If td content itself needs to change based on language, it would also need data-en/data-hi
+                // For this specific table, content is static, only label changes.
+            });
+
+            // Handle table body visibility
+            document.querySelectorAll('tbody[data-lang]').forEach(tbody => {
+                tbody.style.display = (tbody.getAttribute('data-lang') === lang) ? 'table-row-group' : 'none';
+            });
+
+
+            // Update read time text and the span content using the stored calculatedReadTime
+            const readTimeElement = document.querySelector('.read-time');
+            if (lang === 'en') {
+                readTimeElement.innerHTML = `Reading time: <span id='readTime'>${calculatedReadTime}</span> min`;
+            } else {
+                readTimeElement.innerHTML = `पढ़ने का समय: <span id='readTime'>${calculatedReadTime}</span> मिनट`;
+            }
+        }
+
+
+        languageSwitch.addEventListener('click', () => {
+            languageSwitch.classList.toggle('active');
+            if (currentLang === 'en') {
+                setLanguage('hi');
+            } else {
+                setLanguage('en');
+            }
+        });
+
+        // Scroll to top button
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 200) {
+                scrollToTopBtn.style.display = 'flex';
+            } else {
+                scrollToTopBtn.style.display = 'none';
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>

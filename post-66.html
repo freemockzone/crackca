@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICJ's Advisory Opinion on Climate Change</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Noto+Sans+Devanagari:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar {
+            background-color: #2c3e50;
+            padding: 15px 0;
+            color: white;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .navbar a:hover {
+            background-color: #34495e;
+            transform: translateY(-2px);
+        }
+
+        .lang-switch-container {
+            position: absolute;
+            right: 20px;
+            top: 15px;
+        }
+
+        .lang-switch {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            outline: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            width: 70px;
+        }
+
+        .lang-switch::before {
+            content: 'EN';
+            position: absolute;
+            transition: transform 0.3s ease;
+        }
+
+        .lang-switch.hindi::before {
+            content: 'HI';
+            transform: translateX(-100%);
+        }
+
+        .lang-switch:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+        }
+
+        .lang-switch.hindi .lang-text {
+            transform: translateX(100%);
+        }
+
+        .lang-text {
+            transition: transform 0.3s ease;
+        }
+
+        h1, h2, h3, h4 {
+            color: #2c3e50;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+
+        h3 {
+            font-size: 1.4em;
+            margin-top: 25px;
+        }
+        h4 {
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+
+        blockquote {
+            background-color: #e0f2f7;
+            border-left: 5px solid #3498db;
+            margin: 20px 0;
+            padding: 15px 20px;
+            font-style: italic;
+            color: #555;
+            border-radius: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+            color: #444;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            padding: 0;
+        }
+        ol {
+            margin-left: 20px;
+            padding: 0;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        .read-time {
+            text-align: right;
+            font-size: 0.9em;
+            color: #777;
+            margin-bottom: 10px;
+        }
+
+        .back-to-home {
+            display: block;
+            width: 200px;
+            margin: 40px auto 20px auto;
+            padding: 12px 25px;
+            background-color: #28a745;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .back-to-home:hover {
+            background-color: #218838;
+            transform: translateY(-2px);
+        }
+
+        .to-top-button {
+            display: none;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            line-height: 50px;
+            text-align: center;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.2s;
+            z-index: 999;
+        }
+
+        .to-top-button:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px);
+        }
+
+        /* Hindi specific styles */
+        .hindi-content {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+            .navbar a {
+                padding: 8px 10px;
+                margin: 0 5px;
+                font-size: 0.9em;
+            }
+            .lang-switch-container {
+                right: 10px;
+                top: 10px;
+            }
+            .to-top-button {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                flex-direction: column;
+                padding: 10px 0;
+            }
+            .navbar a {
+                display: block;
+                margin: 5px auto;
+            }
+            .lang-switch-container {
+                position: static;
+                text-align: center;
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="lang-switch-container">
+            <button class="lang-switch" id="langSwitch">
+                <span class="lang-text">EN</span>
+            </button>
+        </div>
+        <a href="index.html" data-en="Home" data-hi="होम">Home</a>
+        <a href="donation.html" data-en="Donation" data-hi="दान">Donation</a>
+        <a href="contact.html" data-en="Contact" data-hi="संपर्क करें">Contact</a>
+    </nav>
+
+    <div class="container" id="content">
+        <div class="english-content">
+            <div class="read-time"></div>
+            <h1>ICJ ADVISORY OPINION ON CLIMATE CHANGE (2025)</h1>
+
+            <blockquote>
+                <b>"We are not inheriting the Earth from our ancestors; we are borrowing it from our children."</b>
+                — <i>Native American Proverb</i> (often cited in environmental ethics and UPSC answers)
+            </blockquote>
+
+            <h3>1. Context: The ICJ Advisory Opinion (2025)</h3>
+            <ul>
+                <li><b>Date of Opinion</b>: July 23, 2025</li>
+                <li><b>Issued by</b>: <b>International Court of Justice (ICJ)</b> at The Hague</li>
+                <li><b>Nature</b>: <i>Advisory</i>, not legally binding, but influential</li>
+                <li><b>Initiator</b>: <b>Vanuatu</b> (Pacific island nation), representing small island states vulnerable to climate change</li>
+                <li><b>UNGA Mandate</b>: Over <b>130 countries co-sponsored</b> the resolution; India did <b>not</b> join, but also did <b>not oppose</b></li>
+            </ul>
+
+            <h3>2. The Key Questions Asked to ICJ</h3>
+            <ol>
+                <li><b>What are the legal obligations of states</b> under international law to combat climate change?</li>
+                <li><b>What are the legal consequences</b> if they fail to meet these obligations?</li>
+            </ol>
+
+            <h3>3. ICJ's Key Findings</h3>
+            <ul>
+                <li><b>Climate change is an existential threat.</b></li>
+                <li>States must:
+                    <ul>
+                        <li>Prevent environmental harm</li>
+                        <li>Reduce greenhouse gas (GHG) emissions</li>
+                        <li>Adapt to climate impacts</li>
+                        <li>Cooperate internationally</li>
+                    </ul>
+                </li>
+                <li><b>Legal Bases</b>: UN Charter, Customary International Law, Law of the Sea, Human Rights Law</li>
+                <li><b>Climate Change = Human Rights Violation</b> (e.g., life, health, housing)</li>
+                <li><b>States must act based on best available science</b> and adopt <b>ambitious national plans</b></li>
+                <li><b>Failure = potential legal liability</b>, including claims for climate damages</li>
+                <li><b>Subsidies for polluting fuels may face legal scrutiny</b></li>
+            </ul>
+
+            <h3>4. Implications for India</h3>
+            <h4>a. India's Climate Diplomacy Stance</h4>
+            <ul>
+                <li>India's <b>cautious approach</b> reflects:
+                    <ul>
+                        <li>Developmental priorities (energy access, employment)</li>
+                        <li>Low <b>per capita emissions</b></li>
+                        <li>Use of biomass, irregular electricity access in many regions</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h4>b. India's Climate Efforts</h4>
+            <ul>
+                <li><b>50% electricity from renewables by 2030</b></li>
+                <li>Declining <b>emissions intensity</b></li>
+                <li>Large-scale <b>afforestation</b></li>
+                <li><b>Electric buses</b> in major cities</li>
+                <li><b>Leadership roles</b> in:
+                    <ul>
+                        <li><b>International Solar Alliance</b></li>
+                        <li><b>Mission LiFE</b></li>
+                        <li><b>G20 Climate Finance Agenda</b></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>5. Legal & Policy Challenges for India</h3>
+            <h4>i. Legal Preparedness</h4>
+            <ul>
+                <li>ICJ opinion may lead to:
+                    <ul>
+                        <li>Rise in <b>climate-related litigation</b></li>
+                        <li>Legal claims from within India or neighboring island nations</li>
+                    </ul>
+                </li>
+                <li>Need to develop <b>clear legal standards</b> for climate obligations</li>
+            </ul>
+
+            <h4>ii. Enforcement Gap</h4>
+            <ul>
+                <li>Environmental laws are robust on paper but <b>weak in implementation</b></li>
+                <li>Need to <b>strengthen regulatory bodies</b> and ensure uniform compliance across states</li>
+            </ul>
+
+            <h4>iii. Fossil Fuel Subsidies</h4>
+            <ul>
+                <li>Support vital for poor (e.g., LPG, kerosene)</li>
+                <li>However, they hinder clean energy transition</li>
+                <li><b>Policy Innovation</b> needed to balance welfare and sustainability</li>
+                <li>Judge <b>Dalveer Bhandari's</b> declaration highlights the legal implications of subsidies</li>
+            </ul>
+
+            <h3>6. Relevance to International Climate Justice</h3>
+            <ul>
+                <li>Reinforces the principle of <b>“Common But Differentiated Responsibilities” (CBDR)</b></li>
+                <li>Strengthens India's long-standing diplomatic position:
+                    <ul>
+                        <li>Developed nations must bear <b>historical responsibility</b></li>
+                        <li>India's role is critical but must be <b>contextualized within development needs</b></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>7. Conclusion: Way Forward for India</h3>
+            <ul>
+                <li><b>Align duty with dignity</b>: Act on climate without compromising development</li>
+                <li>Strengthen legal, institutional, and policy mechanisms</li>
+                <li>Frame climate justice as a <b>tool for equity</b>, not a source of new inequalities</li>
+                <li>Use ICJ ruling as a <b>compass</b> for more accountable and equitable climate governance</li>
+            </ul>
+
+            <hr>
+
+            <h3>Prelims Tidbits</h3>
+            <ul>
+                <li><b>ICJ</b>: Principal judicial organ of the United Nations, seated in The Hague, Netherlands</li>
+                <li><b>Advisory Opinions</b>: Non-binding but carry moral and legal weight</li>
+                <li><b>India's Per Capita CO2 Emissions</b>: Among the <b>lowest globally</b></li>
+            </ul>
+
+            <hr>
+
+            <h3>Mains Practice Question</h3>
+            <p><b>Q.</b> The recent ICJ advisory opinion on climate change has redefined the legal contours of environmental responsibility for states. In this context, critically examine its implications for India's climate policy, legal preparedness, and global climate diplomacy. <i>(250 words)</i></p>
+        </div>
+
+        <div class="hindi-content" style="display: none;">
+            <h1>UPSC CSE नोट्स – जलवायु परिवर्तन पर ICJ की सलाहकार राय (2025)</h1>
+
+            <blockquote>
+                <b>"हम पृथ्वी को अपने पूर्वजों से विरासत में नहीं पाते, बल्कि इसे अपने बच्चों से उधार लेते हैं।"</b>
+                — <i>नेटिव अमेरिकन कहावत</i> (पर्यावरणीय नैतिकता में अक्सर उद्धृत)
+            </blockquote>
+
+            <h3>1. संदर्भ: अंतर्राष्ट्रीय न्यायालय (ICJ) की सलाहकार राय</h3>
+            <ul>
+                <li><b>तारीख</b>: 23 जुलाई 2025</li>
+                <li><b>जारी करने वाला निकाय</b>: <b>अंतर्राष्ट्रीय न्यायालय (ICJ), हेग</b></li>
+                <li><b>प्रकृति</b>: <i>सलाहकार</i>, कानूनी रूप से बाध्यकारी नहीं, लेकिन प्रभावशाली</li>
+                <li><b>प्रारंभकर्ता</b>: <b>वानुअतु</b> (प्रशांत द्वीप राष्ट्र), छोटे द्वीपीय देशों का प्रतिनिधित्व करते हुए</li>
+                <li><b>संयुक्त राष्ट्र महासभा (UNGA)</b> ने दो प्रमुख प्रश्न पूछे</li>
+                <li><b>भारत</b> ने समर्थन नहीं किया, लेकिन विरोध भी नहीं किया</li>
+            </ul>
+
+            <h3>2. ICJ से पूछे गए दो मुख्य प्रश्न</h3>
+            <ol>
+                <li>अंतरराष्ट्रीय कानून के तहत देशों की <b>कानूनी जिम्मेदारियां</b> क्या हैं ताकि वे जलवायु परिवर्तन से निपट सकें?</li>
+                <li>यदि देश इन जिम्मेदारियों को पूरा नहीं करते हैं तो <b>कानूनी परिणाम</b> क्या होंगे?</li>
+            </ol>
+
+            <h3>3. ICJ की मुख्य घोषणाएं</h3>
+            <ul>
+                <li>जलवायु परिवर्तन एक <b>अस्तित्वगत संकट</b> है</li>
+                <li>देशों को करना होगा:
+                    <ul>
+                        <li>पर्यावरणीय क्षति को रोकना</li>
+                        <li>ग्रीनहाउस गैस उत्सर्जन में कमी लाना</li>
+                        <li>जलवायु प्रभावों के अनुकूल बनना</li>
+                        <li>अंतरराष्ट्रीय सहयोग करना</li>
+                    </ul>
+                </li>
+                <li><b>कानूनी आधार</b>: संयुक्त राष्ट्र चार्टर, प्रथागत अंतरराष्ट्रीय कानून, समुद्री कानून, मानवाधिकार कानून</li>
+                <li>जलवायु परिवर्तन <b>जीवन, स्वास्थ्य और आवास के अधिकारों का उल्लंघन</b> है</li>
+                <li><b>सर्वोत्तम वैज्ञानिक प्रमाणों</b> के आधार पर कार्य करना अनिवार्य</li>
+                <li><b>लापरवाही = कानूनी उत्तरदायित्व</b>, जलवायु क्षति के लिए दावे संभव</li>
+                <li><b>प्रदूषणकारी ईंधनों पर सब्सिडी</b> भी अब कानूनी जांच के दायरे में</li>
+            </ul>
+
+            <h3>4. भारत के लिए निहितार्थ</h3>
+            <h4>a. भारत की जलवायु कूटनीति की स्थिति</h4>
+            <ul>
+                <li><b>विकासशील देश</b> होने के कारण संतुलन की आवश्यकता:
+                    <ul>
+                        <li>ऊर्जा, स्वास्थ्य और रोजगार तक सार्वभौमिक पहुंच का लक्ष्य</li>
+                        <li><b>प्रति व्यक्ति उत्सर्जन</b> अभी भी विश्व में सबसे कम</li>
+                        <li>कई परिवार आज भी <b>बायोमास</b> पर निर्भर</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h4>b. भारत की जलवायु उपलब्धियाँ</h4>
+            <ul>
+                <li><b>2030 तक 50% बिजली</b> नवीकरणीय स्रोतों से</li>
+                <li>उत्सर्जन तीव्रता में गिरावट</li>
+                <li><b>वनीकरण</b> में वृद्धि</li>
+                <li><b>इलेक्ट्रिक बसें</b> प्रमुख शहरों में: दिल्ली, मुंबई, बेंगलुरु, हैदराबाद</li>
+                <li>नेतृत्व में:
+                    <ul>
+                        <li><b>इंटरनेशनल सोलर अलायंस (ISA)</b></li>
+                        <li><b>मिशन LiFE</b></li>
+                        <li><b>G20 में जलवायु वित्त को प्रमुखता दी</b></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>5. भारत के सामने सार्वजनिक नीति की चुनौतियाँ</h3>
+            <h4>i. कानूनी तैयारी</h4>
+            <ul>
+                <li>ICJ राय के बाद:
+                    <ul>
+                        <li>जलवायु कार्रवाई की मांग वाली <b>याचिकाओं की वृद्धि</b> संभव</li>
+                        <li>देश के भीतर या द्वीपीय पड़ोसी देशों से कानूनी दावे हो सकते हैं</li>
+                    </ul>
+                </li>
+                <li>स्पष्ट <b>कानूनी मानकों</b> की आवश्यकता</li>
+            </ul>
+
+            <h4>ii. प्रवर्तन और अनुपालन</h4>
+            <ul>
+                <li>कानून मजबूत, लेकिन <b>प्रभावी कार्यान्वयन कमजोर</b></li>
+                <li><b>नियामक एजेंसियों</b> की क्षमताओं को सशक्त करना जरूरी</li>
+            </ul>
+
+            <h4>iii. जीवाश्म ईंधन सब्सिडी</h4>
+            <ul>
+                <li>गरीबों के लिए आवश्यक (जैसे: रसोई गैस, केरोसीन)</li>
+                <li>लेकिन यह <b>स्वच्छ ऊर्जा संक्रमण</b> में बाधा</li>
+                <li>न्यायमूर्ति <b>दलवीर भंडारी</b> की टिप्पणी: सब्सिडी के <b>कानूनी और राजकोषीय निहितार्थ</b></li>
+                <li><b>नीतिगत नवाचार और वित्तीय रणनीति</b> की जरूरत</li>
+            </ul>
+
+            <h3>6. जलवायु न्याय में भारत की भूमिका</h3>
+            <ul>
+                <li>सिद्धांत: <b>साझा लेकिन विभेदित उत्तरदायित्व (CBDR)</b></li>
+                <li>भारत का तर्क अब <b>कानूनी रूप से मजबूत</b> हुआ</li>
+                <li>विकसित देश करें:
+                    <ul>
+                        <li><b>ऐतिहासिक जिम्मेदारी</b> स्वीकार</li>
+                        <li><b>विकासशील देशों</b> को तकनीक और वित्त में सहयोग</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>7. निष्कर्ष: भारत का आगे का रास्ता</h3>
+            <ul>
+                <li><b>कर्तव्य और गरिमा</b> के बीच संतुलन</li>
+                <li><b>संस्थागत क्षमता</b>, कानून और नीति को सुदृढ़ बनाना</li>
+                <li>जलवायु न्याय को <b>समानता का माध्यम</b> बनाना चाहिए, नया अन्याय नहीं</li>
+                <li>ICJ की राय अब केवल सलाह नहीं, बल्कि एक <b>दिशा सूचक (compass)</b> है</li>
+            </ul>
+
+            <hr>
+
+            <h3>प्रारंभिक परीक्षा तथ्य (Prelims Pointers)</h3>
+            <ul>
+                <li><b>ICJ</b>: संयुक्त राष्ट्र का प्रधान न्यायिक अंग</li>
+                <li><b>सलाहकार राय</b>: बाध्यकारी नहीं, लेकिन नैतिक व कानूनी महत्व रखती है</li>
+                <li><b>भारत का प्रति व्यक्ति CO₂ उत्सर्जन</b>: विश्व में सबसे कम में से एक</li>
+            </ul>
+
+            <hr>
+
+            <h3>मुख्य परीक्षा अभ्यास प्रश्न (Mains Practice Question)</h3>
+            <p><b>प्र.</b> हाल ही में अंतरराष्ट्रीय न्यायालय द्वारा दी गई सलाहकार राय ने जलवायु परिवर्तन के संदर्भ में राज्यों की कानूनी जिम्मेदारियों को पुनर्परिभाषित किया है। इस परिप्रेक्ष्य में भारत की जलवायु नीति, कानूनी तैयारी, और वैश्विक कूटनीति पर इसके प्रभावों की समीक्षा कीजिए। <i>(250 शब्द)</i></p>
+        </div>
+    </div>
+
+    <a href="index.html" class="back-to-home" data-en="Back to Home" data-hi="मुख्य पृष्ठ पर वापस जाएँ">Back to Home</a>
+
+    <button class="to-top-button" onclick="scrollToTop()">↑</button>
+
+    <script>
+        const langSwitch = document.getElementById('langSwitch');
+        const contentDiv = document.getElementById('content');
+        const englishContent = contentDiv.querySelector('.english-content');
+        const hindiContent = contentDiv.querySelector('.hindi-content');
+        const navbarLinks = document.querySelectorAll('.navbar a');
+        const backToHomeButton = document.querySelector('.back-to-home');
+        let isEnglish = true;
+
+        // Function to calculate read time
+        function calculateReadTime(text) {
+            const wordsPerMinute = 200; // Average reading speed
+            // Use a more robust regex for word splitting to handle various punctuation and spaces
+            const wordCount = text.split(/[\s,.;:!?—()\n\r]+/).filter(word => word.length > 0).length;
+            const readTimeMinutes = Math.ceil(wordCount / wordsPerMinute);
+            return readTimeMinutes;
+        }
+
+        // Set initial read time for English content only
+        const englishText = englishContent.innerText;
+        const readTimeEnglish = calculateReadTime(englishText);
+        englishContent.querySelector('.read-time').innerText = `Read Time: ${readTimeEnglish} min`;
+
+        function updateContent() {
+            if (isEnglish) {
+                englishContent.style.display = 'block';
+                hindiContent.style.display = 'none';
+                langSwitch.querySelector('.lang-text').innerText = 'EN';
+                langSwitch.classList.remove('hindi');
+            } else {
+                englishContent.style.display = 'none';
+                hindiContent.style.display = 'block';
+                langSwitch.querySelector('.lang-text').innerText = 'HI';
+                langSwitch.classList.add('hindi');
+            }
+
+            navbarLinks.forEach(link => {
+                if (isEnglish) {
+                    link.innerText = link.getAttribute('data-en');
+                } else {
+                    link.innerText = link.getAttribute('data-hi');
+                }
+            });
+
+            if (isEnglish) {
+                backToHomeButton.innerText = backToHomeButton.getAttribute('data-en');
+            } else {
+                backToHomeButton.innerText = backToHomeButton.getAttribute('data-hi');
+            }
+        }
+
+        // Initialize content on page load
+        updateContent();
+
+        // Add event listener for the language switch button
+        langSwitch.addEventListener('click', () => {
+            isEnglish = !isEnglish; // Toggle the state
+            updateContent(); // Update the content based on the new state
+        });
+
+        // Scroll to top button functionality
+        const toTopButton = document.querySelector('.to-top-button');
+
+        window.onscroll = function() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                toTopButton.style.display = "block";
+            } else {
+                toTopButton.style.display = "none";
+            }
+        };
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+</html>

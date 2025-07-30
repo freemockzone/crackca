@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bihar's Dark Side: Girl Child Trafficking</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .navbar {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #1abc9c;
+        }
+
+        .lang-switch-container {
+            position: relative;
+            width: 70px;
+            height: 30px;
+            border-radius: 15px;
+            background-color: #555;
+            cursor: pointer;
+            overflow: hidden;
+            transition: background-color 0.3s ease;
+        }
+
+        .lang-switch-container:hover {
+            background-color: #777;
+        }
+
+        .lang-switch-button {
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background-color: #1abc9c;
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        .lang-switch-container.hindi .lang-switch-button {
+            transform: translateX(40px);
+            background-color: #e74c3c;
+        }
+
+        .lang-switch-text {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 8px;
+            box-sizing: border-box;
+            color: white;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        .lang-switch-text span:first-child {
+            margin-left: 5px;
+        }
+
+        .lang-switch-text span:last-child {
+            margin-right: 5px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .meta-info {
+            text-align: center;
+            font-size: 0.9em;
+            color: #777;
+            margin-bottom: 30px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: #1abc9c;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 8px;
+            transition: background-color 0.3s ease;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+
+        li:hover {
+            background-color: #e8f7f5;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #e8f7f5;
+        }
+
+        .back-to-top {
+            display: none;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #1abc9c;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            transition: background-color 0.3s ease;
+        }
+
+        .back-to-top:hover {
+            background-color: #16a085;
+        }
+
+        .back-to-home {
+            display: block;
+            width: 200px;
+            margin: 40px auto 20px auto;
+            padding: 15px 20px;
+            background-color: #3498db;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-to-home:hover {
+            background-color: #2980b9;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+                margin-top: 15px;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+            }
+
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Bihar's Dark Side</div>
+            <ul class="nav-links">
+                <li><a href="index.html" data-en="Home" data-hi="होम">Home</a></li>
+                <li><a href="donation.html" data-en="Donation" data-hi="दान">Donation</a></li>
+                <li><a href="contact.html" data-en="Contact" data-hi="संपर्क">Contact</a></li>
+            </ul>
+            <div class="lang-switch-container" id="langSwitch">
+                <div class="lang-switch-button" id="langSwitchBtn">EN</div>
+                <div class="lang-switch-text">
+                    <span>EN</span>
+                    <span>HI</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 data-en="Bihar's Dark Side: Girl Child Trafficking" data-hi="बिहार का काला पक्ष: बालिका तस्करी">Bihar's Dark Side: Girl Child Trafficking</h1>
+        <div class="meta-info">
+            <span data-en="Date:" data-hi="दिनांक:">Date:</span> 2025-07-30 |
+            <span data-en="Subject:" data-hi="विषय:">Subject:</span> <span data-en="Girl Child Trafficking, Human Trafficking, Child Exploitation, Social Issues, Bihar, UPSC CSE" data-hi="बालिका तस्करी, मानव तस्करी, बाल शोषण, सामाजिक मुद्दे, बिहार, यूपीएससी सीएसई">Girl Child Trafficking, Human Trafficking, Child Exploitation, Social Issues, Bihar, UPSC CSE</span> |
+            <span data-en="Source:" data-hi="स्रोत:">Source:</span> UPSC CSE Notes |
+            <span data-en="Read Time:" data-hi="पढ़ने का समय:">Read Time:</span> <span id="readTime"></span> min
+        </div>
+
+        <div class="section">
+            <h2 data-en="Introduction:" data-hi="परिचय:">Introduction:</h2>
+            <ul>
+                <li data-en="Bihar has emerged as a major hub for girl child trafficking in India." data-hi="बिहार भारत में बालिका तस्करी का एक प्रमुख केंद्र बनकर उभरा है।">Bihar has emerged as a major hub for girl child trafficking in India.</li>
+                <li data-en="The crisis is fueled by poverty, lack of regulatory oversight, and societal acceptance of the commodification of girls." data-hi="यह संकट गरीबी, नियामक निरीक्षण की कमी और लड़कियों के वस्तुकरण की सामाजिक स्वीकृति से प्रेरित है।">The crisis is fueled by poverty, lack of regulatory oversight, and societal acceptance of the commodification of girls.</li>
+                <li data-en="Trafficked girls, often minors, are forced into orchestras, dance troupes, and the flesh trade, enduring severe abuse." data-hi="तस्करी की गई लड़कियों, अक्सर नाबालिगों को, ऑर्केस्ट्रा, डांस ट्रूप और देह व्यापार में धकेल दिया जाता है, जहां उन्हें गंभीर दुर्व्यवहार सहना पड़ता है।">Trafficked girls, often minors, are forced into orchestras, dance troupes, and the flesh trade, enduring severe abuse.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2 data-en="Key Statistics & Scope of the Problem:" data-hi="प्रमुख आँकड़े और समस्या का दायरा:">Key Statistics & Scope of the Problem:</h2>
+            <ul>
+                <li data-en="Bihar Police Rescues (Until June this year): 271 girls (153 into orchestras, 118 into flesh trade)." data-hi="बिहार पुलिस द्वारा बचाव (इस वर्ष जून तक): 271 लड़कियाँ (153 ऑर्केस्ट्रा में, 118 देह व्यापार में)।">Bihar Police Rescues (Until June this year): 271 girls (153 into orchestras, 118 into flesh trade).</li>
+                <li data-en="Saran District (Since January): 162 girls rescued from 'dance troupes.'" data-hi="सारण जिला (जनवरी से): 'डांस ट्रूप्स' से 162 लड़कियाँ बचाई गईं।">Saran District (Since January): 162 girls rescued from 'dance troupes.'</li>
+                <li data-en="Just Rights for Children (JRC) Partners (March-June): 116 girls rescued from orchestra groups." data-hi="जस्ट राइट्स फॉर चिल्ड्रन (जेआरसी) पार्टनर्स (मार्च-जून): ऑर्केस्ट्रा समूहों से 116 लड़कियाँ बचाई गईं।">Just Rights for Children (JRC) Partners (March-June): 116 girls rescued from orchestra groups.</li>
+                <li data-en="National Crime Records Bureau (NCRB 2022): 2,878 children trafficked (1,059 girls) - considered a severe underestimation due to underreporting." data-hi="राष्ट्रीय अपराध रिकॉर्ड ब्यूरो (एनसीआरबी 2022): 2,878 बच्चों की तस्करी (1,059 लड़कियाँ) - कम रिपोर्टिंग के कारण इसे गंभीर रूप से कम आँका गया है।">National Crime Records Bureau (NCRB 2022): 2,878 children trafficked (1,059 girls) - considered a severe underestimation due to underreporting.</li>
+                <li data-en="Global Context (ILO & UNICEF 2024 Estimates): Nearly 138 million children in child labour, with 54 million in hazardous work." data-hi="वैश्विक संदर्भ (ILO और UNICEF 2024 अनुमान): लगभग 138 मिलियन बच्चे बाल श्रम में, जिनमें से 54 मिलियन खतरनाक काम में।">Global Context (ILO & UNICEF 2024 Estimates): Nearly 138 million children in child labour, with 54 million in hazardous work.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2 data-en="Conditions of Trafficked Girls:" data-hi="तस्करी की गई लड़कियों की स्थिति:">Conditions of Trafficked Girls:</h2>
+            <ul>
+                <li data-en="Dehumanizing: Stripped of dignity, brutalized into submission." data-hi="अमानवीय: गरिमा से वंचित, अधीनता में क्रूरता से प्रताड़ित।">Dehumanizing: Stripped of dignity, brutalized into submission.</li>
+                <li data-en="Appalling Living Conditions: Overcrowded, unhygienic rooms." data-hi="भयानक रहने की स्थिति: भीड़भाड़ वाले, अस्वच्छ कमरे।">Appalling Living Conditions: Overcrowded, unhygienic rooms.</li>
+                <li data-en="Exploitation: Presented as performers, but subjected to sexual abuse and violence." data-hi="शोषण: कलाकारों के रूप में प्रस्तुत किया जाता है, लेकिन यौन शोषण और हिंसा का शिकार होती हैं।">Exploitation: Presented as performers, but subjected to sexual abuse and violence.</li>
+                <li data-en="Vulnerability: Girls as young as 12 sold for as little as ₹10,000." data-hi="कमजोरी: 12 साल की उम्र की लड़कियाँ 10,000 रुपये में बेची जाती हैं।">Vulnerability: Girls as young as 12 sold for as little as ₹10,000.</li>
+                <li data-en="Coercion: Forced to wear inappropriate clothing, dance to vulgar songs for inebriated men. Punishment for refusal, rape for resistance." data-hi="जबरदस्ती: अनुपयुक्त कपड़े पहनने, नशे में धुत पुरुषों के लिए अश्लील गाने पर नाचने के लिए मजबूर किया जाता है। इनकार करने पर दंड, विरोध करने पर बलात्कार।">Coercion: Forced to wear inappropriate clothing, dance to vulgar songs for inebriated men. Punishment for refusal, rape for resistance.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2 data-en="Factors Contributing to Bihar's Vulnerability as a Trafficking Destination:" data-hi="बिहार की तस्करी गंतव्य के रूप में भेद्यता में योगदान करने वाले कारक:">Factors Contributing to Bihar's Vulnerability as a Trafficking Destination:</h2>
+            <ul>
+                <li data-en="Socio-Economic: Deep-rooted poverty in Bihar and source states." data-hi="सामाजिक-आर्थिक: बिहार और स्रोत राज्यों में गहरी जड़ें जमाई हुई गरीबी।">Socio-Economic: Deep-rooted poverty in Bihar and source states.</li>
+                <li data-en="Geographical:" data-hi="भौगोलिक:">Geographical:
+                    <ul>
+                        <li data-en="Porous border with Nepal." data-hi="नेपाल के साथ झरझरा सीमा।">Porous border with Nepal.</li>
+                        <li data-en="Seamless railway connectivity to trafficking-prone states (West Bengal, Jharkhand, Odisha, Chhattisgarh, Assam, Uttar Pradesh)." data-hi="तस्करी-प्रवण राज्यों (पश्चिम बंगाल, झारखंड, ओडिशा, छत्तीसगढ़, असम, उत्तर प्रदेश) के साथ निर्बाध रेलवे कनेक्टिविटी।">Seamless railway connectivity to trafficking-prone states (West Bengal, Jharkhand, Odisha, Chhattisgarh, Assam, Uttar Pradesh).</li>
+                    </ul>
+                </li>
+                <li data-en="Systemic & Social:" data-hi="प्रणालीगत और सामाजिक:">Systemic & Social:
+                    <ul>
+                        <li data-en="Absence of regulatory oversight." data-hi="नियामक निरीक्षण का अभाव।">Absence of regulatory oversight.</li>
+                        <li data-en="Social acceptance of girls being commodified." data-hi="लड़कियों के वस्तुकरण की सामाजिक स्वीकृति।">Social acceptance of girls being commodified.</li>
+                        <li data-en="Exploitation of cultural aspirations (e.g., in West Bengal, desire for daughters to pursue arts)." data-hi="सांस्कृतिक आकांक्षाओं का शोषण (उदाहरण के लिए, पश्चिम बंगाल में, बेटियों के कला का पीछा करने की इच्छा)।">Exploitation of cultural aspirations (e.g., in West Bengal, desire for daughters to pursue arts).</li>
+                        <li data-en="Luring Tactics: False promises of good money, stardom, love, marriage, or employment." data-hi="लुभाने के तरीके: अच्छे पैसे, स्टारडम, प्यार, शादी या रोजगार के झूठे वादे।">Luring Tactics: False promises of good money, stardom, love, marriage, or employment.</li>
+                    </ul>
+                </li>
+                <li data-en="&quot;Orchestra Belt&quot; Districts: Saran, Gopalganj, Muzaffarpur, Rohtas, West Champaran are prominent hubs." data-hi="&quot;ऑर्केस्ट्रा बेल्ट&quot; जिले: सारण, गोपालगंज, मुजफ्फरपुर, रोहतास, पश्चिम चंपारण प्रमुख केंद्र हैं।">"Orchestra Belt" Districts: Saran, Gopalganj, Muzaffarpur, Rohtas, West Champaran are prominent hubs.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2 data-en="Failures in the System:" data-hi="प्रणाली में विफलताएँ:">Failures in the System:</h2>
+            <ul>
+                <li data-en="Low Conviction Rates: Despite comprehensive laws, convictions are abysmal. Cases often registered as kidnappings or missing person reports." data-hi="कम दोषसिद्धि दर: व्यापक कानूनों के बावजूद, दोषसिद्धि दर बहुत कम है। मामले अक्सर अपहरण या लापता व्यक्ति रिपोर्ट के रूप में दर्ज किए जाते हैं।">Low Conviction Rates: Despite comprehensive laws, convictions are abysmal. Cases often registered as kidnappings or missing person reports.</li>
+                <li data-en="Under-resourced Anti-Human Trafficking Units (AHTUs): Lack adequate personnel and training." data-hi="कम-संसाधन वाले मानव तस्करी विरोधी इकाइयाँ (AHTUs): पर्याप्त कर्मियों और प्रशिक्षण की कमी।">Under-resourced Anti-Human Trafficking Units (AHTUs): Lack adequate personnel and training.</li>
+                <li data-en="Jurisdictional Issues: Investigations across multiple states collapse due to confusion and bureaucratic delays." data-hi="अधिकार क्षेत्र के मुद्दे: भ्रम और नौकरशाही देरी के कारण कई राज्यों में जांच ठप हो जाती है।">Jurisdictional Issues: Investigations across multiple states collapse due to confusion and bureaucratic delays.</li>
+                <li data-en="Family Complicity/Fear: Many cases go unreported due to family involvement or fear of speaking out." data-hi="परिवार की मिलीभगत/डर: परिवार की संलिप्तता या बोलने के डर के कारण कई मामले अनरिपोर्टेड रह जाते हैं।">Family Complicity/Fear: Many cases go unreported due to family involvement or fear of speaking out.</li>
+                <li data-en="Re-victimization: Rescued girls are often sent back to the same families/environments that facilitated their trafficking." data-hi="पुनः-पीड़ित होना: बचाई गई लड़कियों को अक्सर उन्हीं परिवारों/वातावरण में वापस भेज दिया जाता है जिन्होंने उनकी तस्करी में सहायता की थी।">Re-victimization: Rescued girls are often sent back to the same families/environments that facilitated their trafficking.</li>
+                <li data-en="Impunity of Perpetrators: Orchestras continue to operate despite repeated rescues." data-hi="अपराधियों की दण्डमुक्ति: बार-बार बचाव के बावजूद ऑर्केस्ट्रा चलते रहते हैं।">Impunity of Perpetrators: Orchestras continue to operate despite repeated rescues.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2 data-en="Legal Framework (Comprehensive but Ineffectively Implemented):" data-hi="कानूनी ढाँचा (व्यापक लेकिन अप्रभावी रूप से लागू):">Legal Framework (Comprehensive but Ineffectively Implemented):</h2>
+            <ul>
+                <li data-en="The Immoral Traffic (Prevention) Act" data-hi="अनैतिक व्यापार (रोकथाम) अधिनियम">The Immoral Traffic (Prevention) Act</li>
+                <li data-en="The Juvenile Justice Act" data-hi="किशोर न्याय अधिनियम">The Juvenile Justice Act</li>
+                <li data-en="The Protection of Children from Sexual Offences (POCSO) Act" data-hi="यौन अपराधों से बच्चों का संरक्षण (POCSO) अधिनियम">The Protection of Children from Sexual Offences (POCSO) Act</li>
+                <li data-en="The Bonded Labour System (Abolition) Act" data-hi="बंधुआ श्रम प्रणाली (उन्मूलन) अधिनियम">The Bonded Labour System (Abolition) Act</li>
+                <li data-en="The Child and Adolescent Labour (Prohibition and Regulation) Act" data-hi="बाल और किशोर श्रम (निषेध और विनियमन) अधिनियम">The Child and Adolescent Labour (Prohibition and Regulation) Act</li>
+                <li data-en="Provisions under the Bharatiya Nyaya Sanhita (criminalize child labour, trafficking, sexual exploitation)." data-hi="भारतीय न्याय संहिता के तहत प्रावधान (बाल श्रम, तस्करी, यौन शोषण को अपराध बनाना)।">Provisions under the Bharatiya Nyaya Sanhita (criminalize child labour, trafficking, sexual exploitation).</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2 data-en="Steps Taken & Judicial Intervention:" data-hi="उठाए गए कदम और न्यायिक हस्तक्षेप:">Steps Taken & Judicial Intervention:</h2>
+            <ul>
+                <li data-en="Patna High Court directed Bihar government to act on a petition by Just Rights for Children, recognizing child exploitation in orchestras as a &quot;serious issue.&quot;" data-hi="पटना उच्च न्यायालय ने जस्ट राइट्स फॉर चिल्ड्रन की एक याचिका पर बिहार सरकार को कार्रवाई करने का निर्देश दिया, जिसमें ऑर्केस्ट्रा में बाल शोषण को &quot;गंभीर मुद्दा&quot; माना गया।">Patna High Court directed Bihar government to act on a petition by Just Rights for Children, recognizing child exploitation in orchestras as a "serious issue."</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2 data-en="Recommendations & Way Forward (A Multi-pronged Strategy - PICKET):" data-hi="सिफारिशें और आगे का रास्ता (एक बहुआयामी रणनीति - PICKET):">Recommendations & Way Forward (A Multi-pronged Strategy - PICKET):</h2>
+            <h3>1. <span data-en="Prevention (Fundamental):" data-hi="रोकथाम (मौलिक):">Prevention (Fundamental):</span></h3>
+            <ul>
+                <li data-en="Community Level:" data-hi="सामुदायिक स्तर:">Community Level:
+                    <ul>
+                        <li data-en="Schools: Monitor attendance, trigger alerts for prolonged absence." data-hi="स्कूल: उपस्थिति की निगरानी करें, लंबे समय तक अनुपस्थिति के लिए अलर्ट ट्रिगर करें।">Schools: Monitor attendance, trigger alerts for prolonged absence.</li>
+                        <li data-en="Panchayats: Maintain migratory registers; mandate action when children disappear." data-hi="पंचायतें: प्रवासी रजिस्टर बनाए रखें; बच्चों के लापता होने पर कार्रवाई अनिवार्य करें।">Panchayats: Maintain migratory registers; mandate action when children disappear.</li>
+                        <li data-en="Parental Awareness: Educate parents on trafficking risks." data-hi="माता-पिता जागरूकता: माता-पिता को तस्करी के जोखिमों के बारे में शिक्षित करें।">Parental Awareness: Educate parents on trafficking risks.</li>
+                    </ul>
+                </li>
+                <li data-en="Transport Vigilance:" data-hi="परिवहन सतर्कता:">Transport Vigilance:
+                    <ul>
+                        <li data-en="Ramp up Railway Protection Force (RPF) model to inter-State bus routes, local terminals, private carriers." data-hi="रेलवे सुरक्षा बल (RPF) मॉडल को अंतर-राज्य बस मार्गों, स्थानीय टर्मिनलों, निजी वाहकों तक बढ़ाएँ।">Ramp up Railway Protection Force (RPF) model to inter-State bus routes, local terminals, private carriers.</li>
+                        <li data-en="Train transport staff to identify signs of trafficking." data-hi="तस्करी के लक्षणों की पहचान करने के लिए परिवहन कर्मचारियों को प्रशिक्षित करें।">Train transport staff to identify signs of trafficking.</li>
+                    </ul>
+                </li>
+            </ul>
+            <h3>2. <span data-en="Prosecution & Enforcement (Key to Justice & Prevention):" data-hi="अभियोजन और प्रवर्तन (न्याय और रोकथाम की कुंजी):">Prosecution & Enforcement (Key to Justice & Prevention):</span></h3>
+            <ul>
+                <li data-en="AHTUs Strengthening: Full-time, trained officers; cross-border coordination; accountability." data-hi="AHTUs सुदृढीकरण: पूर्णकालिक, प्रशिक्षित अधिकारी; सीमा पार समन्वय; जवाबदेही।">AHTUs Strengthening: Full-time, trained officers; cross-border coordination; accountability.</li>
+                <li data-en="Immediate Ban: Absolute prohibition on employment of minors in orchestras." data-hi="तत्काल प्रतिबंध: ऑर्केस्ट्रा में नाबालिगों के रोजगार पर पूर्ण प्रतिबंध।">Immediate Ban: Absolute prohibition on employment of minors in orchestras.</li>
+                <li data-en="Regulation & Action against Orchestras: Identify, map, regulate; seal premises where girls are confined; prosecute owners/landlords/organizers; attach assets." data-hi="ऑर्केस्ट्रा के खिलाफ विनियमन और कार्रवाई: पहचान करें, मानचित्रण करें, विनियमित करें; उन परिसरों को सील करें जहाँ लड़कियों को रखा जाता है; मालिकों/मकान मालिकों/आयोजकों पर मुकदमा चलाएँ; संपत्ति जब्त करें।">Regulation & Action against Orchestras: Identify, map, regulate; seal premises where girls are confined; prosecute owners/landlords/organizers; attach assets.</li>
+                <li data-en="Labour Department: Mandated to inspect, report, and act." data-hi="श्रम विभाग: निरीक्षण, रिपोर्ट और कार्रवाई करने के लिए अनिवार्य।">Labour Department: Mandated to inspect, report, and act.</li>
+                <li data-en="Timely Justice: Time-bound prosecution." data-hi="समय पर न्याय: समयबद्ध अभियोजन।">Timely Justice: Time-bound prosecution.</li>
+                <li data-en="Victim Support: Rigorous enforcement of victim compensation schemes." data-hi="पीड़ित सहायता: पीड़ित मुआवजा योजनाओं का कठोर प्रवर्तन।">Victim Support: Rigorous enforcement of victim compensation schemes.</li>
+            </ul>
+            <h3>3. <span data-en="Rehabilitation (Long-term & State-Supervised):" data-hi="पुनर्वास (दीर्घकालिक और राज्य-पर्यवेक्षित):">Rehabilitation (Long-term & State-Supervised):</span></h3>
+            <ul>
+                <li data-en="Children must not be sent back to exploitative environments." data-hi="बच्चों को शोषणकारी वातावरण में वापस नहीं भेजा जाना चाहिए।">Children must not be sent back to exploitative environments.</li>
+                <li data-en="Long-term, comprehensive state-supervised rehabilitation." data-hi="दीर्घकालिक, व्यापक राज्य-पर्यवेक्षित पुनर्वास।">Long-term, comprehensive state-supervised rehabilitation.</li>
+            </ul>
+            <h3>4. <span data-en="PICKET Strategy (Holistic Approach):" data-hi="PICKET रणनीति (समग्र दृष्टिकोण):">PICKET Strategy (Holistic Approach):</span></h3>
+            <ul>
+                <li data-en="P - Policy: Strong and clear policies prohibiting child labour and exploitation." data-hi="P - नीति: बाल श्रम और शोषण को प्रतिबंधित करने वाली मजबूत और स्पष्ट नीतियां।">P - Policy: Strong and clear policies prohibiting child labour and exploitation.</li>
+                <li data-en="I - Institutions: Robust institutions for monitoring, prosecuting, and rehabilitating." data-hi="I - संस्थाएँ: निगरानी, अभियोजन और पुनर्वास के लिए मजबूत संस्थाएँ।">I - Institutions: Robust institutions for monitoring, prosecuting, and rehabilitating.</li>
+                <li data-en="C - Convergence: Collaboration among agencies, digital infrastructure, and survivor-centered responses." data-hi="C - अभिसरण: एजेंसियों के बीच सहयोग, डिजिटल बुनियादी ढांचा, और उत्तरजीवी-केंद्रित प्रतिक्रियाएँ।">C - Convergence: Collaboration among agencies, digital infrastructure, and survivor-centered responses.</li>
+                <li data-en="K - Knowledge: Community awareness, intelligence gathering, and leveraging survivor insights." data-hi="K - ज्ञान: सामुदायिक जागरूकता, खुफिया जानकारी जुटाना, और उत्तरजीवी अंतर्दृष्टि का लाभ उठाना।">K - Knowledge: Community awareness, intelligence gathering, and leveraging survivor insights.</li>
+                <li data-en="E - Economically: Make trafficking financially unviable for perpetrators." data-hi="E - आर्थिक रूप से: अपराधियों के लिए तस्करी को आर्थिक रूप से अव्यवहार्य बनाना।">E - Economically: Make trafficking financially unviable for perpetrators.</li>
+                <li data-en="T - Technology: Use technology for tracking traffickers, building databases, generating heat maps, and predicting movement patterns." data-hi="T - प्रौद्योगिकी: तस्करों को ट्रैक करने, डेटाबेस बनाने, हीट मैप्स बनाने और आंदोलन पैटर्न की भविष्यवाणी करने के लिए प्रौद्योगिकी का उपयोग करें।">T - Technology: Use technology for tracking traffickers, building databases, generating heat maps, and predicting movement patterns.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2 data-en="Conclusion:" data-hi="निष्कर्ष:">Conclusion:</h2>
+            <ul>
+                <li data-en="Trafficking is a collapse of multiple systems, not just a few." data-hi="तस्करी कई प्रणालियों का पतन है, न कि केवल कुछ का।">Trafficking is a collapse of multiple systems, not just a few.</li>
+                <li data-en="Comprehensive laws exist, but the lack of political will and effective implementation is the major hurdle." data-hi="व्यापक कानून मौजूद हैं, लेकिन राजनीतिक इच्छाशक्ति और प्रभावी कार्यान्वयन की कमी प्रमुख बाधा है।">Comprehensive laws exist, but the lack of political will and effective implementation is the major hurdle.</li>
+                <li data-en="Prosecution is a powerful tool for prevention and justice, as evidenced by C-Lab's report." data-hi="अभियोजन रोकथाम और न्याय के लिए एक शक्तिशाली उपकरण है, जैसा कि सी-लैब की रिपोर्ट से स्पष्ट है।">Prosecution is a powerful tool for prevention and justice, as evidenced by C-Lab's report.</li>
+                <li data-en="Dismantling the entire system that enables trafficking is the only way to protect future victims." data-hi="तस्करी को सक्षम करने वाली पूरी प्रणाली को नष्ट करना ही भविष्य के पीड़ितों की रक्षा का एकमात्र तरीका है।">Dismantling the entire system that enables trafficking is the only way to protect future victims.</li>
+            </ul>
+        </div>
+
+        <a href="index.html" class="back-to-home" data-en="Back to Home" data-hi="होम पर वापस जाएँ">Back to Home</a>
+    </div>
+
+    <button class="back-to-top" id="backToTopBtn">&#9650;</button>
+
+    <script>
+        const langSwitch = document.getElementById('langSwitch');
+        const langSwitchBtn = document.getElementById('langSwitchBtn');
+        const elementsToTranslate = document.querySelectorAll('[data-en], [data-hi]');
+
+        let currentLang = 'en';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            if (lang === 'en') {
+                langSwitch.classList.remove('hindi');
+                langSwitchBtn.textContent = 'EN';
+            } else {
+                langSwitch.classList.add('hindi');
+                langSwitchBtn.textContent = 'HI';
+            }
+
+            elementsToTranslate.forEach(element => {
+                if (element.dataset[lang]) {
+                    element.textContent = element.dataset[lang];
+                }
+            });
+        }
+
+        langSwitch.addEventListener('click', () => {
+            setLanguage(currentLang === 'en' ? 'hi' : 'en');
+        });
+
+        // Set initial language
+        setLanguage('en');
+
+        // Back to top button functionality
+        const backToTopBtn = document.getElementById('backToTopBtn');
+
+        window.onscroll = function() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                backToTopBtn.style.display = "block";
+            } else {
+                backToTopBtn.style.display = "none";
+            }
+        };
+
+        backToTopBtn.addEventListener('click', () => {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        });
+
+        // Calculate Read Time
+        function calculateReadTime() {
+            const contentDiv = document.querySelector('.container');
+            const englishText = Array.from(contentDiv.querySelectorAll('[data-en]'))
+                                   .map(el => el.dataset.en)
+                                   .join(' ');
+            const wordsPerMinute = 200; // Average reading speed
+            const wordCount = englishText.split(/\s+/).filter(word => word.length > 0).length;
+            const readTime = Math.ceil(wordCount / wordsPerMinute);
+            document.getElementById('readTime').textContent = readTime;
+        }
+
+        calculateReadTime();
+    </script>
+</body>
+</html>

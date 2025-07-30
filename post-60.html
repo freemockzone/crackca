@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stray Dog Menace & Supreme Court Suo Motu Action</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Playfair+Display:wght@700&display=swap');
+
+        :root {
+            --primary-color: #4CAF50; /* Green */
+            --secondary-color: #FFC107; /* Amber */
+            --accent-color: #2196F3; /* Blue */
+            --text-color: #333;
+            --light-bg: #f4f7f6;
+            --dark-bg: #e0e0e0;
+            --navbar-bg: #333;
+            --navbar-text: #fff;
+            --footer-bg: #333;
+            --footer-text: #fff;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background-color: var(--navbar-bg);
+            color: var(--navbar-text);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8em;
+            color: var(--navbar-text);
+            text-decoration: none;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .navbar-brand:hover {
+            color: var(--secondary-color);
+        }
+
+        .nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links li a {
+            color: var(--navbar-text);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            position: relative;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .nav-links li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            display: block;
+            margin-top: 5px;
+            right: 0;
+            background: var(--primary-color);
+            transition: width 0.3s ease, background-color 0.3s ease;
+        }
+
+        .nav-links li a:hover::after {
+            width: 100%;
+            left: 0;
+            background: var(--secondary-color);
+        }
+
+        .nav-links li a:hover {
+            color: var(--secondary-color);
+        }
+
+        .lang-switch-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .lang-switch-button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.9em;
+            font-weight: bold;
+            transition: all 0.3s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .lang-switch-button:hover {
+            background-color: var(--accent-color);
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .lang-switch-button::before {
+            content: '🌐'; /* Globe icon */
+            margin-right: 5px;
+            font-size: 1.2em;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://via.placeholder.com/1500x500?text=Stray+Dog+Menace') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            border-bottom: 5px solid var(--primary-color);
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            max-width: 700px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Content Sections */
+        section {
+            padding: 40px 0;
+            border-bottom: 1px solid var(--dark-bg);
+            animation: slideInUp 0.8s ease-out forwards;
+            opacity: 0; /* Initially hidden for animation */
+        }
+
+        section:nth-of-type(odd) {
+            background-color: var(--dark-bg);
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        h3 {
+            color: var(--accent-color);
+            font-size: 1.8em;
+            margin-top: 30px;
+            border-left: 5px solid var(--secondary-color);
+            padding-left: 10px;
+        }
+
+        blockquote {
+            font-style: italic;
+            border-left: 5px solid var(--primary-color);
+            padding-left: 20px;
+            margin: 30px 0;
+            background-color: #f0f8f0;
+            padding: 15px;
+            border-radius: 8px;
+            color: #555;
+        }
+
+        .highlight {
+            background-color: var(--secondary-color);
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        table th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: bold;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        table tr:hover {
+            background-color: #ddd;
+        }
+
+        ul {
+            list-style: disc;
+            margin-left: 20px;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 8px;
+        }
+
+        .read-time {
+            text-align: right;
+            font-style: italic;
+            color: #777;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+
+        /* Bottom to Top Button */
+        #scrollToTopBtn {
+            display: none; /* Hidden by default */
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99;
+            font-size: 24px;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.3s;
+            display: flex; /* Ensure it uses flex for centering icon */
+            align-items: center;
+            justify-content: center;
+        }
+
+        #scrollToTopBtn:hover {
+            background-color: #1976D2;
+            transform: translateY(-5px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--footer-bg);
+            color: var(--footer-text);
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        .back-home-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 30px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .back-home-button:hover {
+            background-color: #1976D2;
+            transform: translateY(-3px);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar .container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+
+            .hero h1 {
+                font-size: 2.5em;
+            }
+
+            .hero p {
+                font-size: 1.1em;
+            }
+
+            h2 {
+                font-size: 2em;
+            }
+
+            h3 {
+                font-size: 1.5em;
+            }
+
+            table th, table td {
+                padding: 8px;
+                font-size: 0.9em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar-brand {
+                font-size: 1.5em;
+            }
+
+            .nav-links li a {
+                font-size: 1em;
+            }
+
+            .lang-switch-button {
+                padding: 6px 10px;
+                font-size: 0.8em;
+            }
+
+            .hero {
+                padding: 60px 15px;
+            }
+
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .hero p {
+                font-size: 1em;
+            }
+
+            h2 {
+                font-size: 1.8em;
+            }
+
+            h3 {
+                font-size: 1.3em;
+            }
+
+            #scrollToTopBtn {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">Animal Welfare India</a>
+            <ul class="nav-links">
+                <li><a href="index.html" data-en="Home" data-hi="होम">Home</a></li>
+                <li><a href="donation.html" data-en="Donation" data-hi="दान">Donation</a></li>
+                <li><a href="contact.html" data-en="Contact" data-hi="संपर्क करें">Contact</a></li>
+            </ul>
+            <div class="lang-switch-container">
+                <button class="lang-switch-button" id="langSwitchBtn">English</button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <h1 data-en="Stray Dog Menace & Supreme Court Suo Motu Action (July 2025)" data-hi="आवारा कुत्तों का खतरा और सुप्रीम कोर्ट का स्वतः संज्ञान (जुलाई 2025)">Stray Dog Menace & Supreme Court Suo Motu Action (July 2025)</h1>
+            <p data-en="“The greatness of a nation and its moral progress can be judged by the way its animals are treated.” — Mahatma Gandhi" data-hi="“किसी राष्ट्र की महानता और उसकी नैतिक प्रगति का अनुमान इस बात से लगाया जा सकता है कि उसके जानवरों के साथ कैसा व्यवहार किया जाता है।” — महात्मा गांधी">“The greatness of a nation and its moral progress can be judged by the way its animals are treated.” — Mahatma Gandhi</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="read-time" id="readTime"></div>
+
+        <section id="context">
+            <h2 data-en="📍Context:" data-hi="📍संदर्भ:">📍Context:</h2>
+            <ul>
+                <li data-en="The <span class='highlight'>Supreme Court (SC)</span> of India has <span class='highlight'>taken suo motu cognizance</span> of rising <span class='highlight'>stray dog attacks</span>, especially involving <span class='highlight'>infants and the elderly</span> in <span class='highlight'>Delhi and nearby regions</span>." data-hi="भारत के <span class='highlight'>सर्वोच्च न्यायालय (SC)</span> ने <span class='highlight'>बढ़ते आवारा कुत्ते के हमलों</span> का <span class='highlight'>स्वतः संज्ञान</span> लिया है, खासकर <span class='highlight'>दिल्ली और आसपास के क्षेत्रों</span> में <span class='highlight'>शिशुओं और बुजुर्गों</span> से जुड़े मामलों में।">The <span class="highlight">Supreme Court (SC)</span> of India has <span class="highlight">taken suo motu cognizance</span> of rising <span class="highlight">stray dog attacks</span>, especially involving <span class="highlight">infants and the elderly</span> in <span class="highlight">Delhi and nearby regions</span>.</li>
+                <li data-en="This decision was made based on a <span class='highlight'>news report</span> highlighting <span class='highlight'>alarming incidents</span> and the <span class='highlight'>risk of rabies</span>." data-hi="यह निर्णय एक <span class='highlight'>समाचार रिपोर्ट</span> के आधार पर लिया गया था, जिसमें <span class='highlight'>चिंताजनक घटनाओं</span> और <span class='highlight'>रेबीज के जोखिम</span> को उजागर किया गया था।">This decision was made based on a <span class="highlight">news report</span> highlighting <span class="highlight">alarming incidents</span> and the <span class="highlight">risk of rabies</span>.</li>
+            </ul>
+        </section>
+
+        <section id="key-highlights">
+            <h2 data-en="🔍 Key Highlights:" data-hi="🔍 मुख्य बातें:">🔍 Key Highlights:</h2>
+
+            <h3 data-en="🏛️ Supreme Court Action:" data-hi="🏛️ सुप्रीम कोर्ट की कार्रवाई:">🏛️ Supreme Court Action:</h3>
+            <ul>
+                <li data-en="A <span class='highlight'>bench of Justices J Pardiwala and R Mahadevan</span> took <span class='highlight'>suo motu</span> cognizance of the issue." data-hi="न्यायमूर्ति <span class='highlight'>जे. परदीवाला और आर. महादेवन</span> की एक पीठ ने इस मुद्दे का <span class='highlight'>स्वतः संज्ञान</span> लिया।">A <span class="highlight">bench of Justices J Pardiwala and R Mahadevan</span> took <span class="highlight">suo motu</span> cognizance of the issue.</li>
+                <li data-en="The court remarked that the situation is <span class='highlight'>“very alarming”</span>, with <span class='highlight'>hundreds of dog bite cases</span> reported." data-hi="अदालत ने टिप्पणी की कि स्थिति <span class='highlight'>“बहुत चिंताजनक”</span> है, जिसमें <span class='highlight'>सैकड़ों कुत्ते के काटने के मामले</span> सामने आए हैं।">The court remarked that the situation is <span class="highlight">“very alarming”</span>, with <span class="highlight">hundreds of dog bite cases</span> reported.</li>
+                <li data-en="Registry was directed to <span class='highlight'>register a suo motu case</span> and place the matter before the <span class='highlight'>Chief Justice of India (CJI) B R Gavai</span> for further orders." data-hi="रजिस्ट्री को <span class='highlight'>स्वतः संज्ञान का मामला दर्ज</span> करने और आगे के आदेशों के लिए मामले को <span class='highlight'>भारत के मुख्य न्यायाधीश (CJI) बी.आर. गवई</span> के समक्ष रखने का निर्देश दिया गया।">Registry was directed to <span class="highlight">register a suo motu case</span> and place the matter before the <span class="highlight">Chief Justice of India (CJI) B R Gavai</span> for further orders.</li>
+            </ul>
+
+            <h3 data-en="📄 Reference to Previous Case (Reema Shah v. Noida Authority):" data-hi="📄 पिछले मामले का संदर्भ (रीमा शाह बनाम नोएडा अथॉरिटी):">📄 Reference to Previous Case (Reema Shah v. Noida Authority):</h3>
+            <ul>
+                <li data-en="In a related case, a woman, <span class='highlight'>Reema Shah</span>, sought protection from harassment for <span class='highlight'>feeding community dogs</span>." data-hi="एक संबंधित मामले में, <span class='highlight'>रीमा शाह</span> नामक एक महिला ने <span class='highlight'>सामुदायिक कुत्तों को खाना खिलाने</span> के लिए उत्पीड़न से सुरक्षा की मांग की।">In a related case, a woman, <span class="highlight">Reema Shah</span>, sought protection from harassment for <span class="highlight">feeding community dogs</span>.</li>
+                <li data-en="The <span class='highlight'>SC Bench of Justices Vikram Nath and Sandeep Mehta</span> expressed concern over feeding stray dogs in public spaces:" data-hi="न्यायमूर्ति <span class='highlight'>विक्रम नाथ और संदीप मेहता</span> की <span class='highlight'>सुप्रीम कोर्ट की पीठ</span> ने सार्वजनिक स्थानों पर आवारा कुत्तों को खाना खिलाने पर चिंता व्यक्त की:">The <span class="highlight">SC Bench of Justices Vikram Nath and Sandeep Mehta</span> expressed concern over feeding stray dogs in public spaces:</li>
+                <blockquote>
+                    <span data-en="Quote from Bench: “There is all space for these animals, no space for humans.”" data-hi="पीठ से उद्धरण: “इन जानवरों के लिए हर जगह है, मनुष्यों के लिए कोई जगह नहीं है।”">Quote from Bench: “There is all space for these animals, no space for humans.”</span><br>
+                    <span data-en="Criticized indiscriminate feeding in public areas, suggesting to <span class='highlight'>feed them at home</span>." data-hi="सार्वजनिक क्षेत्रों में अंधाधुंध भोजन खिलाने की आलोचना की, और उन्हें <span class='highlight'>घर पर खिलाने</span> का सुझाव दिया।">Criticized indiscriminate feeding in public areas, suggesting to <span class="highlight">feed them at home</span>.</span>
+                </blockquote>
+            </ul>
+        </section>
+
+        <section id="data-background">
+            <h2 data-en="📊 Data & Background:" data-hi="📊 डेटा और पृष्ठभूमि:">📊 Data & Background:</h2>
+
+            <h3 data-en="📌 Stray Dog Population:" data-hi="📌 आवारा कुत्ते की जनसंख्या:">📌 Stray Dog Population:</h3>
+            <ul>
+                <li data-en="<span class='highlight'>Last Census</span>: Conducted in <span class='highlight'>2016</span>." data-hi="<span class='highlight'>पिछली जनगणना</span>: <span class='highlight'>2016</span> में आयोजित की गई थी।"><span class="highlight">Last Census</span>: Conducted in <span class="highlight">2016</span>.</li>
+                <li data-en="<span class='highlight'>Current Estimate</span>: Approximately <span class='highlight'>70 lakh (7 million)</span> stray dogs in Delhi." data-hi="<span class='highlight'>वर्तमान अनुमान</span>: दिल्ली में लगभग <span class='highlight'>70 लाख (7 मिलियन)</span> आवारा कुत्ते।"><span class="highlight">Current Estimate</span>: Approximately <span class="highlight">70 lakh (7 million)</span> stray dogs in Delhi.</li>
+            </ul>
+
+            <h3 data-en="🦠 Health Impact:" data-hi="🦠 स्वास्थ्य प्रभाव:">🦠 Health Impact:</h3>
+            <ul>
+                <li data-en="<span class='highlight'>Rabies risk</span>: Rabies is <span class='highlight'>almost always fatal</span> once symptoms appear." data-hi="<span class='highlight'>रेबीज का खतरा</span>: रेबीज के लक्षण दिखने के बाद यह <span class='highlight'>लगभग हमेशा घातक</span> होता है।"><span class="highlight">Rabies risk</span>: Rabies is <span class="highlight">almost always fatal</span> once symptoms appear.</li>
+                <li data-en="Vulnerable groups: <span class='highlight'>Infants</span>, <span class='highlight'>elderly</span>, and <span class='highlight'>immunocompromised</span> individuals." data-hi="संवेदनशील समूह: <span class='highlight'>शिशु</span>, <span class='highlight'>बुजुर्ग</span>, और <span class='highlight'>कमजोर प्रतिरक्षा वाले</span> व्यक्ति।">Vulnerable groups: <span class="highlight">Infants</span>, <span class="highlight">elderly</span>, and <span class="highlight">immunocompromised</span> individuals.</li>
+            </ul>
+        </section>
+
+        <section id="administrative-measures">
+            <h2 data-en="🏛️ Administrative Measures:" data-hi="🏛️ प्रशासनिक उपाय:">🏛️ Administrative Measures:</h2>
+
+            <h3 data-en="Municipal Corporation of Delhi (MCD) Response:" data-hi="दिल्ली नगर निगम (MCD) की प्रतिक्रिया:">Municipal Corporation of Delhi (MCD) Response:</h3>
+            <ul>
+                <li data-en="<span class='highlight'>12-member panel</span> constituted to tackle the menace." data-hi="खतरे से निपटने के लिए <span class='highlight'>12-सदस्यीय पैनल</span> का गठन किया गया।"><span class="highlight">12-member panel</span> constituted to tackle the menace.</li>
+                <li data-en="Aim: <span class='highlight'>Establish shelter homes</span> in each zone of Delhi." data-hi="उद्देश्य: दिल्ली के प्रत्येक क्षेत्र में <span class='highlight'>आश्रय गृह स्थापित करना</span>।">Aim: <span class="highlight">Establish shelter homes</span> in each zone of Delhi.</li>
+                <li data-en="Responsibilities of the panel:" data-hi="पैनल की जिम्मेदारियां:">Responsibilities of the panel:
+                    <ul>
+                        <li data-en="<span class='highlight'>Identify locations</span>." data-hi="<span class='highlight'>स्थानों की पहचान करना</span>।"><span class="highlight">Identify locations</span>.</li>
+                        <li data-en="<span class='highlight'>Assess resource requirements</span>." data-hi="<span class='highlight'>संसाधन आवश्यकताओं का आकलन करना</span>।"><span class="highlight">Assess resource requirements</span>.</li>
+                        <li data-en="<span class='highlight'>Budget planning</span>." data-hi="<span class='highlight'>बजट योजना</span>।"><span class="highlight">Budget planning</span>.</li>
+                        <li data-en="<span class='highlight'>Coordinate with NGOs</span>, animal welfare bodies." data-hi="<span class='highlight'>एनजीओ</span>, पशु कल्याण निकायों के साथ समन्वय।"><span class="highlight">Coordinate with NGOs</span>, animal welfare bodies.</li>
+                        <li data-en="Develop <span class='highlight'>zone-wise models</span> and <span class='highlight'>submit report</span> to the Standing Committee." data-hi="<span class='highlight'>क्षेत्र-वार मॉडल</span> विकसित करना और स्थायी समिति को <span class='highlight'>रिपोर्ट प्रस्तुत करना</span>।">Develop <span class="highlight">zone-wise models</span> and <span class="highlight">submit report</span> to the Standing Committee.</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <section id="issues-involved">
+            <h2 data-en="🧩 Issues Involved:" data-hi="🧩 शामिल मुद्दे:">🧩 Issues Involved:</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th data-en="Issue" data-hi="मुद्दा">Issue</th>
+                        <th data-en="Details" data-hi="विवरण">Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-en="Public Safety" data-hi="सार्वजनिक सुरक्षा">Public Safety</td>
+                        <td data-en="Rise in attacks, risk of rabies, public anxiety." data-hi="हमलों में वृद्धि, रेबीज का खतरा, सार्वजनिक चिंता।">Rise in attacks, risk of rabies, public anxiety.</td>
+                    </tr>
+                    <tr>
+                        <td data-en="Animal Rights vs. Human Rights" data-hi="पशु अधिकार बनाम मानवाधिकार">Animal Rights vs. Human Rights</td>
+                        <td data-en="Balance between compassion and safety." data-hi="करुणा और सुरक्षा के बीच संतुलन।">Balance between compassion and safety.</td>
+                    </tr>
+                    <tr>
+                        <td data-en="Urban Governance" data-hi="शहरी शासन">Urban Governance</td>
+                        <td data-en="Ineffective implementation of sterilization, vaccination, and shelter plans." data-hi="नसबंदी, टीकाकरण और आश्रय योजनाओं का अप्रभावी कार्यान्वयन।">Ineffective implementation of sterilization, vaccination, and shelter plans.</td>
+                    </tr>
+                    <tr>
+                        <td data-en="Legal Gaps" data-hi="कानूनी अंतराल">Legal Gaps</td>
+                        <td data-en="Lack of clear laws on feeding, sheltering, and relocating stray animals." data-hi="आवारा जानवरों को खिलाने, आश्रय देने और स्थानांतरित करने पर स्पष्ट कानूनों का अभाव।">Lack of clear laws on feeding, sheltering, and relocating stray animals.</td>
+                    </tr>
+                    <tr>
+                        <td data-en="Health Infrastructure" data-hi="स्वास्थ्य अवसंरचना">Health Infrastructure</td>
+                        <td data-en="Limited access to <span class='highlight'>anti-rabies vaccines</span> and <span class='highlight'>dog bite treatment</span> in public hospitals." data-hi="सरकारी अस्पतालों में <span class='highlight'>एंटी-रेबीज टीकों</span> और <span class='highlight'>कुत्ते के काटने के इलाज</span> तक सीमित पहुंच।">Limited access to <span class="highlight">anti-rabies vaccines</span> and <span class="highlight">dog bite treatment</span> in public hospitals.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="constitutional-legal">
+            <h2 data-en="⚖️ Constitutional & Legal Provisions:" data-hi="⚖️ संवैधानिक और कानूनी प्रावधान:">⚖️ Constitutional & Legal Provisions:</h2>
+            <ul>
+                <li data-en="<span class='highlight'>Article 21</span>: Right to life and personal liberty – applicable to both <span class='highlight'>humans and animals</span> (as per judicial interpretation)." data-hi="<span class='highlight'>अनुच्छेद 21</span>: जीवन और व्यक्तिगत स्वतंत्रता का अधिकार – <span class='highlight'>मनुष्यों और जानवरों</span> दोनों पर लागू (न्यायिक व्याख्या के अनुसार)।"><span class="highlight">Article 21</span>: Right to life and personal liberty – applicable to both <span class="highlight">humans and animals</span> (as per judicial interpretation).</li>
+                <li data-en="<span class='highlight'>Prevention of Cruelty to Animals Act, 1960</span>." data-hi="<span class='highlight'>पशु क्रूरता निवारण अधिनियम, 1960</span>।"><span class="highlight">Prevention of Cruelty to Animals Act, 1960</span>.</li>
+                <li data-en="<span class='highlight'>Indian Penal Code (IPC)</span>: Section 289 – negligent conduct with animals." data-hi="<span class='highlight'>भारतीय दंड संहिता (IPC)</span>: धारा 289 – negligent conduct with animals."><span class="highlight">Indian Penal Code (IPC)</span>: Section 289 – negligent conduct with animals.</li>
+            </ul>
+        </section>
+
+        <section id="ethics-gs-paper-iv">
+            <h2 data-en="🧠 Ethics & GS Paper IV Perspective:" data-hi="🧠 नैतिकता और जीएस पेपर IV परिप्रेक्ष्य:">🧠 Ethics & GS Paper IV Perspective:</h2>
+            <ul>
+                <li data-en="<span class='highlight'>Dilemma</span>: Compassion for animals vs. duty to protect human life." data-hi="<span class='highlight'>दुविधा</span>: जानवरों के प्रति करुणा बनाम मानव जीवन की रक्षा का कर्तव्य।"><span class="highlight">Dilemma</span>: Compassion for animals vs. duty to protect human life.</li>
+                <li data-en="<span class='highlight'>Moral Responsibility</span>: Citizens feeding animals must ensure it doesn't pose a threat to public safety." data-hi="<span class='highlight'>नैतिक जिम्मेदारी</span>: जानवरों को खाना खिलाने वाले नागरिकों को यह सुनिश्चित करना चाहिए कि इससे सार्वजनिक सुरक्षा को खतरा न हो।"><span class="highlight">Moral Responsibility</span>: Citizens feeding animals must ensure it doesn't pose a threat to public safety.</li>
+                <li data-en="<span class='highlight'>Public Policy Ethics</span>: State must balance <span class='highlight'>utilitarian approach</span> (greatest good for greatest number) with <span class='highlight'>deontological ethics</span> (moral duties)." data-hi="<span class='highlight'>सार्वजनिक नीति नैतिकता</span>: राज्य को <span class='highlight'>उपयोगितावादी दृष्टिकोण</span> (अधिकतम संख्या के लिए अधिकतम भलाई) को <span class='highlight'>नैतिक कर्तव्यशास्त्र</span> (नैतिक कर्तव्यों) के साथ संतुलित करना चाहिए।"><span class="highlight">Public Policy Ethics</span>: State must balance <span class="highlight">utilitarian approach</span> (greatest good for greatest number) with <span class="highlight">deontological ethics</span> (moral duties).</li>
+            </ul>
+        </section>
+
+        <section id="mains-answer-writing">
+            <h2 data-en="📚 Mains Answer Writing Pointers:" data-hi="📚 मुख्य उत्तर लेखन संकेत:">📚 Mains Answer Writing Pointers:</h2>
+            <p data-en="<span class='highlight'>Q.</span> “Discuss the ethical and administrative challenges involved in handling the stray dog menace in Indian cities. Suggest a multi-pronged strategy.”" data-hi="<span class='highlight'>प्रश्न.</span> “भारतीय शहरों में आवारा कुत्तों के खतरे को संभालने में शामिल नैतिक और प्रशासनिक चुनौतियों पर चर्चा करें। एक बहु-आयामी रणनीति का सुझाव दें।”"><span class="highlight">Q.</span> “Discuss the ethical and administrative challenges involved in handling the stray dog menace in Indian cities. Suggest a multi-pronged strategy.”</p>
+            <h3 data-en="Structure:" data-hi="संरचना:">Structure:</h3>
+            <ul>
+                <li data-en="<span class='highlight'>Intro</span>: Quote/statistics/case reference." data-hi="<span class='highlight'>परिचय</span>: उद्धरण/आँकड़े/मामले का संदर्भ।"><span class="highlight">Intro</span>: Quote/statistics/case reference.</li>
+                <li data-en="<span class='highlight'>Ethical Conflict</span>: Rights of animals vs. public safety." data-hi="<span class='highlight'>नैतिक संघर्ष</span>: जानवरों के अधिकार बनाम सार्वजनिक सुरक्षा।"><span class="highlight">Ethical Conflict</span>: Rights of animals vs. public safety.</li>
+                <li data-en="<span class='highlight'>Administrative Gaps</span>: Lack of infrastructure, coordination, and public awareness." data-hi="<span class='highlight'>प्रशासनिक कमियां</span>: बुनियादी ढांचे, समन्वय और सार्वजनिक जागरूकता की कमी।"><span class="highlight">Administrative Gaps</span>: Lack of infrastructure, coordination, and public awareness.</li>
+                <li data-en="<span class='highlight'>Strategy</span>:" data-hi="<span class='highlight'>रणनीति</span>:">Strategy:
+                    <ul>
+                        <li data-en="Mass sterilization & vaccination." data-hi="सामूहिक नसबंदी और टीकाकरण।">Mass sterilization & vaccination.</li>
+                        <li data-en="Awareness campaigns." data-hi="जागरूकता अभियान।">Awareness campaigns.</li>
+                        <li data-en="Regulations on feeding." data-hi="खाना खिलाने पर नियमन।">Regulations on feeding.</li>
+                        <li data-en="Public-private partnerships." data-hi="सार्वजनिक-निजी भागीदारी।">Public-private partnerships.</li>
+                        <li data-en="Shelter homes." data-hi="आश्रय गृह।">Shelter homes.</li>
+                    </ul>
+                </li>
+                <li data-en="<span class='highlight'>Conclusion</span>: Balance, compassion, and governance are key." data-hi="<span class='highlight'>निष्कर्ष</span>: संतुलन, करुणा और शासन महत्वपूर्ण हैं।"><span class="highlight">Conclusion</span>: Balance, compassion, and governance are key.</li>
+            </ul>
+        </section>
+
+        <section id="prelims-tidbits">
+            <h2 data-en="📌 Prelims Tidbits:" data-hi="📌 प्रारंभिक परीक्षा के छोटे-छोटे तथ्य:">📌 Prelims Tidbits:</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th data-en="Fact" data-hi="तथ्य">Fact</th>
+                        <th data-en="Detail" data-hi="विवरण">Detail</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-en="Rabies" data-hi="रेबीज">Rabies</td>
+                        <td data-en="Zoonotic disease, fatal once symptoms start. Caused by Lyssavirus." data-hi="जूनोटिक बीमारी, लक्षण शुरू होने के बाद घातक। लाइसावायरस के कारण होती है।">Zoonotic disease, fatal once symptoms start. Caused by Lyssavirus.</td>
+                    </tr>
+                    <tr>
+                        <td data-en="Suo Motu" data-hi="स्वतः संज्ञान">Suo Motu</td>
+                        <td data-en="Latin for “on its own motion” – SC’s inherent power under Article 32 & 142.." data-hi="लैटिन शब्द "अपने आप" के लिए – अनुच्छेद 32 और 142 के तहत SC की अंतर्निहित शक्ति।">Latin for “on its own motion” – SC’s inherent power under Article 32 & 142.</td>
+                    </tr>
+                    <tr>
+                        <td data-en="Stray Dog Rules" data-hi="आवारा कुत्ता नियम">Stray Dog Rules</td>
+                        <td data-en="ABC Rules (Animal Birth Control) under Prevention of Cruelty to Animals Act." data-hi="पशु क्रूरता निवारण अधिनियम के तहत एबीसी नियम (पशु जन्म नियंत्रण)।">ABC Rules (Animal Birth Control) under Prevention of Cruelty to Animals Act.</td>
+                    </tr>
+                    <tr>
+                        <td data-en="Key Institution" data-hi="मुख्य संस्था">Key Institution</td>
+                        <td data-en="MCD Veterinary Department – responsible for sterilization and vaccination drives." data-hi="MCD पशु चिकित्सा विभाग – नसबंदी और टीकाकरण अभियान के लिए जिम्मेदार।">MCD Veterinary Department – responsible for sterilization and vaccination drives.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="index.html" class="back-home-button" data-en="Back to Home" data-hi="होम पर वापस जाएं">Back to Home</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p data-en="&copy; 2025 Animal Welfare India. All rights reserved." data-hi="&copy; 2025 पशु कल्याण भारत। सर्वाधिकार सुरक्षित।">&copy; 2025 Animal Welfare India. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <button id="scrollToTopBtn" title="Go to top">⬆</button>
+
+    <script>
+        // Read Time Calculation
+        function calculateReadTime() {
+            const content = document.querySelector('.container').innerText;
+            const wordsPerMinute = 200; // Average reading speed
+            const wordCount = content.split(/\s+/).length;
+            const readTimeMinutes = Math.ceil(wordCount / wordsPerMinute);
+            const readTimeElement = document.getElementById('readTime');
+            if (readTimeMinutes <= 1) {
+                readTimeElement.textContent = `Reading Time: Less than 1 minute`;
+            } else {
+                readTimeElement.textContent = `Reading Time: ${readTimeMinutes} minutes`;
+            }
+        }
+
+        // Language Switch
+        const langSwitchBtn = document.getElementById('langSwitchBtn');
+        let currentLang = 'en'; // Default language
+
+        const translations = {
+            en: {
+                "Home": "Home",
+                "Donation": "Donation",
+                "Contact": "Contact",
+                "Stray Dog Menace & Supreme Court Suo Motu Action (July 2025)": "Stray Dog Menace & Supreme Court Suo Motu Action (July 2025)",
+                "“The greatness of a nation and its moral progress can be judged by the way its animals are treated.” — Mahatma Gandhi": "“The greatness of a nation and its moral progress can be judged by the way its animals are treated.” — Mahatma Gandhi",
+                "📍Context:": "📍Context:",
+                "The Supreme Court (SC) of India has taken suo motu cognizance of rising stray dog attacks, especially involving infants and the elderly in Delhi and nearby regions.": "The <span class='highlight'>Supreme Court (SC)</span> of India has <span class='highlight'>taken suo motu cognizance</span> of rising <span class='highlight'>stray dog attacks</span>, especially involving <span class='highlight'>infants and the elderly</span> in <span class='highlight'>Delhi and nearby regions</span>.",
+                "This decision was made based on a news report highlighting alarming incidents and the risk of rabies.": "This decision was made based on a <span class='highlight'>news report</span> highlighting <span class='highlight'>alarming incidents</span> and the <span class='highlight'>risk of rabies</span>.",
+                "🔍 Key Highlights:": "🔍 Key Highlights:",
+                "🏛️ Supreme Court Action:": "🏛️ Supreme Court Action:",
+                "A bench of Justices J Pardiwala and R Mahadevan took suo motu cognizance of the issue.": "A <span class='highlight'>bench of Justices J Pardiwala and R Mahadevan</span> took <span class='highlight'>suo motu</span> cognizance of the issue.",
+                "The court remarked that the situation is “very alarming”, with hundreds of dog bite cases reported.": "The court remarked that the situation is <span class='highlight'>“very alarming”</span>, with <span class='highlight'>hundreds of dog bite cases</span> reported.",
+                "Registry was directed to register a suo motu case and place the matter before the Chief Justice of India (CJI) B R Gavai for further orders.": "Registry was directed to <span class='highlight'>register a suo motu case</span> and place the matter before the <span class='highlight'>Chief Justice of India (CJI) B R Gavai</span> for further orders.",
+                "📄 Reference to Previous Case (Reema Shah v. Noida Authority):": "📄 Reference to Previous Case (Reema Shah v. Noida Authority):",
+                "In a related case, a woman, Reema Shah, sought protection from harassment for feeding community dogs.": "In a related case, a woman, <span class='highlight'>Reema Shah</span>, sought protection from harassment for <span class='highlight'>feeding community dogs</span>.",
+                "The SC Bench of Justices Vikram Nath and Sandeep Mehta expressed concern over feeding stray dogs in public spaces:": "The <span class='highlight'>SC Bench of Justices Vikram Nath and Sandeep Mehta</span> expressed concern over feeding stray dogs in public spaces:",
+                "Quote from Bench: “There is all space for these animals, no space for humans.”": "Quote from Bench: “There is all space for these animals, no space for humans.”",
+                "Criticized indiscriminate feeding in public areas, suggesting to feed them at home.": "Criticized indiscriminate feeding in public areas, suggesting to <span class='highlight'>feed them at home</span>.",
+                "📊 Data & Background:": "📊 Data & Background:",
+                "📌 Stray Dog Population:": "📌 Stray Dog Population:",
+                "Last Census: Conducted in 2016.": "<span class='highlight'>Last Census</span>: Conducted in <span class='highlight'>2016</span>.",
+                "Current Estimate: Approximately 70 lakh (7 million) stray dogs in Delhi.": "<span class='highlight'>Current Estimate</span>: Approximately <span class='highlight'>70 lakh (7 million)</span> stray dogs in Delhi.",
+                "🦠 Health Impact:": "🦠 Health Impact:",
+                "Rabies risk: Rabies is almost always fatal once symptoms appear.": "<span class='highlight'>Rabies risk</span>: Rabies is <span class='highlight'>almost always fatal</span> once symptoms appear.",
+                "Vulnerable groups: Infants, elderly, and immunocompromised individuals.": "Vulnerable groups: <span class='highlight'>Infants</span>, <span class='highlight'>elderly</span>, and <span class='highlight'>immunocompromised</span> individuals.",
+                "🏛️ Administrative Measures:": "🏛️ Administrative Measures:",
+                "Municipal Corporation of Delhi (MCD) Response:": "Municipal Corporation of Delhi (MCD) Response:",
+                "12-member panel constituted to tackle the menace.": "<span class='highlight'>12-member panel</span> constituted to tackle the menace.",
+                "Aim: Establish shelter homes in each zone of Delhi.": "Aim: <span class='highlight'>Establish shelter homes</span> in each zone of Delhi.",
+                "Responsibilities of the panel:": "Responsibilities of the panel:",
+                "Identify locations.": "<span class='highlight'>Identify locations</span>.",
+                "Assess resource requirements.": "<span class='highlight'>Assess resource requirements</span>.",
+                "Budget planning.": "<span class='highlight'>Budget planning</span>.",
+                "Coordinate with NGOs, animal welfare bodies.": "<span class='highlight'>Coordinate with NGOs</span>, animal welfare bodies.",
+                "Develop zone-wise models and submit report to the Standing Committee.": "Develop <span class='highlight'>zone-wise models</span> and <span class='highlight'>submit report</span> to the Standing Committee.",
+                "🧩 Issues Involved:": "🧩 Issues Involved:",
+                "Issue": "Issue",
+                "Details": "Details",
+                "Public Safety": "Public Safety",
+                "Rise in attacks, risk of rabies, public anxiety.": "Rise in attacks, risk of rabies, public anxiety.",
+                "Animal Rights vs. Human Rights": "Animal Rights vs. Human Rights",
+                "Balance between compassion and safety.": "Balance between compassion and safety.",
+                "Urban Governance": "Urban Governance",
+                "Ineffective implementation of sterilization, vaccination, and shelter plans.": "Ineffective implementation of sterilization, vaccination, and shelter plans.",
+                "Legal Gaps": "Legal Gaps",
+                "Lack of clear laws on feeding, sheltering, and relocating stray animals.": "Lack of clear laws on feeding, sheltering, and relocating stray animals.",
+                "Health Infrastructure": "Health Infrastructure",
+                "Limited access to anti-rabies vaccines and dog bite treatment in public hospitals.": "Limited access to <span class='highlight'>anti-rabies vaccines</span> and <span class='highlight'>dog bite treatment</span> in public hospitals.",
+                "⚖️ Constitutional & Legal Provisions:": "⚖️ Constitutional & Legal Provisions:",
+                "Article 21: Right to life and personal liberty – applicable to both humans and animals (as per judicial interpretation).": "<span class='highlight'>Article 21</span>: Right to life and personal liberty – applicable to both <span class='highlight'>humans and animals</span> (as per judicial interpretation).",
+                "Prevention of Cruelty to Animals Act, 1960.": "<span class='highlight'>Prevention of Cruelty to Animals Act, 1960</span>.",
+                "Indian Penal Code (IPC): Section 289 – negligent conduct with animals.": "<span class='highlight'>Indian Penal Code (IPC)</span>: Section 289 – negligent conduct with animals.",
+                "🧠 Ethics & GS Paper IV Perspective:": "🧠 Ethics & GS Paper IV Perspective:",
+                "Dilemma: Compassion for animals vs. duty to protect human life.": "<span class='highlight'>Dilemma</span>: Compassion for animals vs. duty to protect human life.",
+                "Moral Responsibility: Citizens feeding animals must ensure it doesn't pose a threat to public safety.": "<span class='highlight'>Moral Responsibility</span>: Citizens feeding animals must ensure it doesn't pose a threat to public safety.",
+                "Public Policy Ethics: State must balance utilitarian approach (greatest good for greatest number) with deontological ethics (moral duties).": "<span class='highlight'>Public Policy Ethics</span>: State must balance <span class='highlight'>utilitarian approach</span> (greatest good for greatest number) with <span class='highlight'>deontological ethics</span> (moral duties).",
+                "📚 Mains Answer Writing Pointers:": "📚 Mains Answer Writing Pointers:",
+                "Q. “Discuss the ethical and administrative challenges involved in handling the stray dog menace in Indian cities. Suggest a multi-pronged strategy.”": "<span class='highlight'>Q.</span> “Discuss the ethical and administrative challenges involved in handling the stray dog menace in Indian cities. Suggest a multi-pronged strategy.”",
+                "Structure:": "Structure:",
+                "Intro: Quote/statistics/case reference.": "<span class='highlight'>Intro</span>: Quote/statistics/case reference.",
+                "Ethical Conflict: Rights of animals vs. public safety.": "<span class='highlight'>Ethical Conflict</span>: Rights of animals vs. public safety.",
+                "Administrative Gaps: Lack of infrastructure, coordination, and public awareness.": "<span class='highlight'>Administrative Gaps</span>: Lack of infrastructure, coordination, and public awareness.",
+                "Strategy:": "<span class='highlight'>Strategy</span>:",
+                "Mass sterilization & vaccination.": "Mass sterilization & vaccination.",
+                "Awareness campaigns.": "Awareness campaigns.",
+                "Regulations on feeding.": "Regulations on feeding.",
+                "Public-private partnerships.": "Public-private partnerships.",
+                "Shelter homes.": "Shelter homes.",
+                "Conclusion: Balance, compassion, and governance are key.": "<span class='highlight'>Conclusion</span>: Balance, compassion, and governance are key.",
+                "📌 Prelims Tidbits:": "📌 Prelims Tidbits:",
+                "Fact": "Fact",
+                "Detail": "Detail",
+                "Rabies": "Rabies",
+                "Zoonotic disease, fatal once symptoms start. Caused by Lyssavirus.": "Zoonotic disease, fatal once symptoms start. Caused by Lyssavirus.",
+                "Suo Motu": "Suo Motu",
+                "Latin for “on its own motion” – SC’s inherent power under Article 32 & 142.": "Latin for “on its own motion” – SC’s inherent power under Article 32 & 142.",
+                "Stray Dog Rules": "Stray Dog Rules",
+                "ABC Rules (Animal Birth Control) under Prevention of Cruelty to Animals Act.": "ABC Rules (Animal Birth Control) under Prevention of Cruelty to Animals Act.",
+                "Key Institution": "Key Institution",
+                "MCD Veterinary Department – responsible for sterilization and vaccination drives.": "MCD Veterinary Department – responsible for sterilization and vaccination drives.",
+                "Stray Dog Population in Delhi Over Time": "Stray Dog Population in Delhi Over Time",
+                "Back to Home": "Back to Home",
+                "&copy; 2025 Animal Welfare India. All rights reserved.": "&copy; 2025 Animal Welfare India. All rights reserved."
+            },
+            hi: {
+                "Home": "होम",
+                "Donation": "दान",
+                "Contact": "संपर्क करें",
+                "Stray Dog Menace & Supreme Court Suo Motu Action (July 2025)": "आवारा कुत्तों का खतरा और सुप्रीम कोर्ट का स्वतः संज्ञान (जुलाई 2025)",
+                "“The greatness of a nation and its moral progress can be judged by the way its animals are treated.” — Mahatma Gandhi": "“किसी राष्ट्र की महानता और उसकी नैतिक प्रगति का अनुमान इस बात से लगाया जा सकता है कि उसके जानवरों के साथ कैसा व्यवहार किया जाता है।” — महात्मा गांधी",
+                "📍Context:": "📍संदर्भ:",
+                "The Supreme Court (SC) of India has taken suo motu cognizance of rising stray dog attacks, especially involving infants and the elderly in Delhi and nearby regions.": "भारत के <span class='highlight'>सर्वोच्च न्यायालय (SC)</span> ने <span class='highlight'>बढ़ते आवारा कुत्ते के हमलों</span> का <span class='highlight'>स्वतः संज्ञान</span> लिया है, खासकर <span class='highlight'>दिल्ली और आसपास के क्षेत्रों</span> में <span class='highlight'>शिशुओं और बुजुर्गों</span> से जुड़े मामलों में।",
+                "This decision was made based on a news report highlighting alarming incidents and the risk of rabies.": "यह निर्णय एक <span class='highlight'>समाचार रिपोर्ट</span> के आधार पर लिया गया था, जिसमें <span class='highlight'>चिंताजनक घटनाओं</span> और <span class='highlight'>रेबीज के जोखिम</span> को उजागर किया गया था।",
+                "🔍 Key Highlights:": "🔍 मुख्य बातें:",
+                "🏛️ Supreme Court Action:": "🏛️ सुप्रीम कोर्ट की कार्रवाई:",
+                "A bench of Justices J Pardiwala and R Mahadevan took suo motu cognizance of the issue.": "न्यायमूर्ति <span class='highlight'>जे. परदीवाला और आर. महादेवन</span> की एक पीठ ने इस मुद्दे का <span='highlight'>स्वतः संज्ञान</span> लिया।",
+                "The court remarked that the situation is “very alarming”, with hundreds of dog bite cases reported.": "अदालत ने टिप्पणी की कि स्थिति <span='highlight'>“बहुत चिंताजनक”</span> है, जिसमें <span='highlight'>सैकड़ों कुत्ते के काटने के मामले</span> सामने आए हैं।",
+                "Registry was directed to register a suo motu case and place the matter before the Chief Justice of India (CJI) B R Gavai for further orders.": "रजिस्ट्री को <span class='highlight'>स्वतः संज्ञान का मामला दर्ज</span> करने और आगे के आदेशों के लिए मामले को <span class='highlight'>भारत के मुख्य न्यायाधीश (CJI) बी.आर. गवई</span> के समक्ष रखने का निर्देश दिया गया।",
+                "📄 Reference to Previous Case (Reema Shah v. Noida Authority):": "📄 पिछले मामले का संदर्भ (रीमा शाह बनाम नोएडा अथॉरिटी):",
+                "In a related case, a woman, Reema Shah, sought protection from harassment for feeding community dogs.": "एक संबंधित मामले में, <span class='highlight'>रीमा शाह</span> नामक एक महिला ने <span class='highlight'>सामुदायिक कुत्तों को खाना खिलाने</span> के लिए उत्पीड़न से सुरक्षा की मांग की।",
+                "The SC Bench of Justices Vikram Nath and Sandeep Mehta expressed concern over feeding stray dogs in public spaces:": "न्यायमूर्ति <span class='highlight'>विक्रम नाथ और संदीप मेहता</span> की <span class='highlight'>सुप्रीम कोर्ट की पीठ</span> ने सार्वजनिक स्थानों पर आवारा कुत्तों को खाना खिलाने पर चिंता व्यक्त की:",
+                "Quote from Bench: “There is all space for these animals, no space for humans.”": "पीठ से उद्धरण: “इन जानवरों के लिए हर जगह है, मनुष्यों के लिए कोई जगह नहीं है।”",
+                "Criticized indiscriminate feeding in public areas, suggesting to feed them at home.": "सार्वजनिक क्षेत्रों में अंधाधुंध भोजन खिलाने की आलोचना की, और उन्हें <span class='highlight'>घर पर खिलाने</span> का सुझाव दिया।",
+                "📊 Data & Background:": "📊 डेटा और पृष्ठभूमि:",
+                "📌 Stray Dog Population:": "📌 आवारा कुत्ते की जनसंख्या:",
+                "Last Census: Conducted in 2016.": "<span class='highlight'>पिछली जनगणना</span>: <span class='highlight'>2016</span> में आयोजित की गई थी।",
+                "Current Estimate: Approximately 70 lakh (7 million) stray dogs in Delhi.": "<span class='highlight'>वर्तमान अनुमान</span>: दिल्ली में लगभग <span class='highlight'>70 लाख (7 मिलियन)</span> आवारा कुत्ते।",
+                "🦠 Health Impact:": "🦠 स्वास्थ्य प्रभाव:",
+                "Rabies risk: Rabies is almost always fatal once symptoms appear.": "<span class='highlight'>रेबीज का खतरा</span>: रेबीज के लक्षण दिखने के बाद यह <span='highlight'>लगभग हमेशा घातक</span> होता है।",
+                "Vulnerable groups: Infants, elderly, and immunocompromised individuals.": "संवेदनशील समूह: <span class='highlight'>शिशु</span>, <span class='highlight'>बुजुर्ग</span>, और <span class='highlight'>कमजोर प्रतिरक्षा वाले</span> व्यक्ति।",
+                "🏛️ Administrative Measures:": "🏛️ प्रशासनिक उपाय:",
+                "Municipal Corporation of Delhi (MCD) Response:": "दिल्ली नगर निगम (MCD) की प्रतिक्रिया:",
+                "12-member panel constituted to tackle the menace.": "<span class='highlight'>12-सदस्यीय पैनल</span> का गठन किया गया।",
+                "Aim: Establish shelter homes in each zone of Delhi.": "उद्देश्य: दिल्ली के प्रत्येक क्षेत्र में <span class='highlight'>आश्रय गृह स्थापित करना</span>।",
+                "Responsibilities of the panel:": "पैनल की जिम्मेदारियां:",
+                "Identify locations.": "<span class='highlight'>स्थानों की पहचान करना</span>।",
+                "Assess resource requirements.": "<span class='highlight'>संसाधन आवश्यकताओं का आकलन करना</span>।",
+                "Budget planning.": "<span class='highlight'>बजट योजना</span>।",
+                "Coordinate with NGOs, animal welfare bodies.": "<span class='highlight'>एनजीओ</span>, पशु कल्याण निकायों के साथ समन्वय।",
+                "Develop zone-wise models and submit report to the Standing Committee.": "<span class='highlight'>क्षेत्र-वार मॉडल</span> विकसित करना और स्थायी समिति को <span class='highlight'>रिपोर्ट प्रस्तुत करना</span>।",
+                "🧩 Issues Involved:": "🧩 शामिल मुद्दे:",
+                "Issue": "मुद्दा",
+                "Details": "विवरण",
+                "Public Safety": "सार्वजनिक सुरक्षा",
+                "Rise in attacks, risk of rabies, public anxiety.": "हमलों में वृद्धि, रेबीज का खतरा, सार्वजनिक चिंता।",
+                "Animal Rights vs. Human Rights": "पशु अधिकार बनाम मानवाधिकार",
+                "Balance between compassion and safety.": "करुणा और सुरक्षा के बीच संतुलन।",
+                "Urban Governance": "शहरी शासन",
+                "Ineffective implementation of sterilization, vaccination, and shelter plans.": "नसबंदी, टीकाकरण और आश्रय योजनाओं का अप्रभावी कार्यान्वयन।",
+                "Legal Gaps": "कानूनी अंतराल",
+                "Lack of clear laws on feeding, sheltering, and relocating stray animals.": "आवारा जानवरों को खिलाने, आश्रय देने और स्थानांतरित करने पर स्पष्ट कानूनों का अभाव।",
+                "Health Infrastructure": "स्वास्थ्य अवसंरचना",
+                "Limited access to anti-rabies vaccines and dog bite treatment in public hospitals.": "सरकारी अस्पतालों में <span class='highlight'>एंटी-रेबीज टीकों</span> और <span class='highlight'>कुत्ते के काटने के इलाज</span> तक सीमित पहुंच।",
+                "⚖️ Constitutional & Legal Provisions:": "⚖️ संवैधानिक और कानूनी प्रावधान:",
+                "Article 21: Right to life and personal liberty – applicable to both humans and animals (as per judicial interpretation).": "<span class='highlight'>अनुच्छेद 21</span>: जीवन और व्यक्तिगत स्वतंत्रता का अधिकार – <span class='highlight'>मनुष्यों और जानवरों</span> दोनों पर लागू (न्यायिक व्याख्या के अनुसार)।",
+                "Prevention of Cruelty to Animals Act, 1960.": "<span class='highlight'>पशु क्रूरता निवारण अधिनियम, 1960</span>।",
+                "Indian Penal Code (IPC): Section 289 – negligent conduct with animals.": "<span class='highlight'>भारतीय दंड संहिता (IPC)</span>: धारा 289 – जानवरों के साथ लापरवाही भरा आचरण।",
+                "🧠 Ethics & GS Paper IV Perspective:": "🧠 नैतिकता और जीएस पेपर IV परिप्रेक्ष्य:",
+                "Dilemma: Compassion for animals vs. duty to protect human life.": "<span class='highlight'>दुविधा</span>: जानवरों के प्रति करुणा बनाम मानव जीवन की रक्षा का कर्तव्य।",
+                "Moral Responsibility: Citizens feeding animals must ensure it doesn't pose a threat to public safety.": "<span class='highlight'>नैतिक जिम्मेदारी</span>: जानवरों को खाना खिलाने वाले नागरिकों को यह सुनिश्चित करना चाहिए कि इससे सार्वजनिक सुरक्षा को खतरा न हो।",
+                "Public Policy Ethics: State must balance utilitarian approach (greatest good for greatest number) with deontological ethics (moral duties).": "<span class='highlight'>सार्वजनिक नीति नैतिकता</span>: राज्य को <span class='highlight'>उपयोगितावादी दृष्टिकोण</span> (अधिकतम संख्या के लिए अधिकतम भलाई) को <span class='highlight'>नैतिक कर्तव्यशास्त्र</span> (नैतिक कर्तव्यों) के साथ संतुलित करना चाहिए।",
+                "📚 Mains Answer Writing Pointers:": "📚 मुख्य उत्तर लेखन संकेत:",
+                "Q. “Discuss the ethical and administrative challenges involved in handling the stray dog menace in Indian cities. Suggest a multi-pronged strategy.”": "<span class='highlight'>प्रश्न.</span> “भारतीय शहरों में आवारा कुत्तों के खतरे को संभालने में शामिल नैतिक और प्रशासनिक चुनौतियों पर चर्चा करें। एक बहु-आयामी रणनीति का सुझाव दें।”",
+                "Structure:": "संरचना:",
+                "Intro: Quote/statistics/case reference.": "<span class='highlight'>परिचय</span>: उद्धरण/आँकड़े/मामले का संदर्भ।",
+                "Ethical Conflict: Rights of animals vs. public safety.": "<span class='highlight'>नैतिक संघर्ष</span>: जानवरों के अधिकार बनाम सार्वजनिक सुरक्षा।",
+                "Administrative Gaps: Lack of infrastructure, coordination, and public awareness.": "<span class='highlight'>प्रशासनिक कमियां</span>: बुनियादी ढांचे, समन्वय और सार्वजनिक जागरूकता की कमी।",
+                "Strategy:": "<span class='highlight'>रणनीति</span>:",
+                "Mass sterilization & vaccination.": "सामूहिक नसबंदी और टीकाकरण।",
+                "Awareness campaigns.": "जागरूकता अभियान।",
+                "Regulations on feeding.": "खाना खिलाने पर नियमन।",
+                "Public-private partnerships.": "सार्वजनिक-निजी भागीदारी।",
+                "Shelter homes.": "आश्रय गृह।",
+                "Conclusion: Balance, compassion, and governance are key.": "<span class='highlight'>निष्कर्ष</span>: संतुलन, करुणा और शासन महत्वपूर्ण हैं।",
+                "📌 Prelims Tidbits:": "📌 प्रारंभिक परीक्षा के छोटे-छोटे तथ्य:",
+                "Fact": "तथ्य",
+                "Detail": "विवरण",
+                "Rabies": "रेबीज",
+                "Zoonotic disease, fatal once symptoms start. Caused by Lyssavirus.": "जूनोटिक बीमारी, लक्षण शुरू होने के बाद घातक। लाइसावायरस के कारण होती है।",
+                "Suo Motu": "स्वतः संज्ञान",
+                "Latin for “on its own motion” – SC’s inherent power under Article 32 & 142.": "Latin for “on its own motion” – SC’s inherent power under Article 32 & 142.",
+                "Stray Dog Rules": "आवारा कुत्ता नियम",
+                "ABC Rules (Animal Birth Control) under Prevention of Cruelty to Animals Act.": "पशु क्रूरता निवारण अधिनियम के तहत एबीसी नियम (पशु जन्म नियंत्रण)।",
+                "Key Institution": "मुख्य संस्था",
+                "MCD Veterinary Department – responsible for sterilization and vaccination drives.": "MCD पशु चिकित्सा विभाग – नसबंदी और टीकाकरण अभियान के लिए जिम्मेदार।",
+                "Stray Dog Population in Delhi Over Time": "दिल्ली में आवारा कुत्ते की जनसंख्या समय के साथ",
+                "Back to Home": "होम पर वापस जाएं",
+                "&copy; 2025 Animal Welfare India. All rights reserved.": "&copy; 2025 पशु कल्याण भारत। सर्वाधिकार सुरक्षित।"
+            }
+        };
+
+        function setLanguage(lang) {
+            document.querySelectorAll('[data-en]').forEach(element => {
+                const enHtml = element.getAttribute('data-en');
+                const hiHtml = element.getAttribute('data-hi');
+                element.innerHTML = (lang === 'en') ? enHtml : hiHtml;
+            });
+            langSwitchBtn.textContent = (lang === 'en') ? 'हिंदी' : 'English';
+            currentLang = lang;
+        }
+
+        langSwitchBtn.addEventListener('click', () => {
+            setLanguage(currentLang === 'en' ? 'hi' : 'en');
+        });
+
+        // Initialize with English
+        setLanguage('en');
+
+        // Scroll to Top Button
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+        window.onscroll = function() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                scrollToTopBtn.style.display = "flex"; // Changed from "block" to "flex" to maintain centering
+            } else {
+                scrollToTopBtn.style.display = "none";
+            }
+        };
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Animate sections on scroll
+        const sections = document.querySelectorAll('section');
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const sectionObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            sectionObserver.observe(section);
+        });
+
+        document.addEventListener('DOMContentLoaded', calculateReadTime);
+    </script>
+</body>
+</html>

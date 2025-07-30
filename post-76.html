@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>From Glory to Decline</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@300;400;700&display=swap');
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f0f8ff, #e6f7ff); /* Light, refreshing gradient */
+            color: #333;
+            line-height: 1.8;
+            scroll-behavior: smooth;
+        }
+
+        .navbar {
+            background: linear-gradient(to right, #6a0572, #ab00c4); /* Vibrant purple gradient */
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            margin: 0 8px;
+            border-radius: 30px; /* Pill-shaped buttons */
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .navbar a:hover {
+            background-color: #8e2de2; /* Lighter purple on hover */
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .lang-switch-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .lang-switch {
+            background-color: #ff4d4d; /* Bright red */
+            color: white;
+            padding: 10px 18px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 700;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .lang-switch:hover {
+            background-color: #cc0000; /* Darker red on hover */
+            transform: scale(1.08);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .lang-switch-icon {
+            margin-left: 10px;
+            transition: transform 0.4s ease-in-out;
+            display: inline-block;
+        }
+
+        .lang-switch:hover .lang-switch-icon {
+            transform: rotate(360deg) scale(1.1);
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 30px auto;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: #4a148c; /* Deep purple */
+            border-bottom: 3px solid #f4c4f3; /* Light pink border */
+            padding-bottom: 15px;
+            margin-top: 35px;
+            position: relative;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.8em;
+            margin-bottom: 25px;
+            color: #8e2de2; /* Brighter purple */
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 2.2em;
+            color: #6a0572; /* Slightly darker purple */
+        }
+
+        h3 {
+            font-size: 1.7em;
+            color: #ab00c4; /* Mid purple */
+        }
+
+        h1::after, h2::after, h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 50px;
+            height: 5px;
+            background-color: #ffc107; /* Gold accent */
+            border-radius: 5px;
+        }
+        h1::after { width: 80px; left: calc(50% - 40px); }
+        h2::after { width: 60px; }
+
+
+        p {
+            margin-bottom: 1.2em;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        p:hover, ul li:hover {
+            background-color: #f7e6ff; /* Very light purple */
+            transform: translateX(5px);
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        ul {
+            list-style-type: none; /* Remove default bullet */
+            padding: 0;
+            margin-left: 20px;
+        }
+
+        ul li {
+            margin-bottom: 0.8em;
+            padding-left: 25px; /* Space for custom bullet */
+            position: relative;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+            border-radius: 5px;
+        }
+
+        ul li::before {
+            content: '✨'; /* Custom bullet icon */
+            position: absolute;
+            left: 0;
+            color: #ff7f50; /* Coral color */
+            font-size: 1.2em;
+            top: 2px;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #e91e63; /* Pink highlight */
+            background-color: #ffebee;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+
+        .read-time {
+            text-align: right;
+            font-style: italic;
+            color: #777;
+            margin-bottom: 25px;
+            font-size: 0.95em;
+        }
+
+        .back-to-home {
+            display: block;
+            width: fit-content;
+            margin: 40px auto 0;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #1abc9c, #16a085); /* Teal gradient */
+            color: white;
+            text-decoration: none;
+            border-radius: 50px; /* Very rounded */
+            text-align: center;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-to-home:hover {
+            background: linear-gradient(45deg, #16a085, #1abc9c); /* Reverse gradient */
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .scroll-to-top {
+            display: none;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(45deg, #ff6b6b, #ee4a4a); /* Red gradient */
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            z-index: 999;
+        }
+
+        .scroll-to-top:hover {
+            background: linear-gradient(45deg, #ee4a4a, #ff6b6b); /* Reverse gradient */
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .scroll-to-top.show {
+            display: flex;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            .navbar a {
+                margin: 5px 0;
+                padding: 10px 15px;
+                font-size: 0.9em;
+            }
+
+            .lang-switch-container {
+                margin-top: 10px;
+            }
+
+            .lang-switch {
+                padding: 8px 15px;
+                font-size: 13px;
+            }
+
+            .container {
+                margin: 15px;
+                padding: 25px;
+                border-radius: 10px;
+            }
+
+            h1 {
+                font-size: 2em;
+                padding-bottom: 10px;
+            }
+
+            h2 {
+                font-size: 1.6em;
+                padding-bottom: 8px;
+            }
+
+            h3 {
+                font-size: 1.3em;
+            }
+
+            ul li {
+                padding-left: 20px;
+            }
+            ul li::before {
+                font-size: 1em;
+                top: 0px;
+            }
+
+            p {
+                font-size: 0.95em;
+            }
+
+            .scroll-to-top {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div>
+            <a href="index.html" data-en="Home" data-hi="होम">Home</a>
+            <a href="donation.html" data-en="Donation" data-hi="दान">Donation</a>
+            <a href="contact.html" data-en="Contact" data-hi="संपर्क">Contact</a>
+        </div>
+        <div class="lang-switch-container">
+            <button class="lang-switch" onclick="toggleLanguage()">
+                <span data-en="English" data-hi="हिन्दी">English</span>
+                <span class="lang-switch-icon">🌐</span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 id="postTitle" data-en="From Glory to Decline" data-hi="गौरव से पतन की ओर">From Glory to Decline</h1>
+        <p class="read-time" id="readTime"></p>
+
+        <p data-en="<span class='highlight'>Context:</span> Aadi Thiruvathirai Festival held at Gangaikonda Cholapuram (Ariyalur district, Tamil Nadu) to commemorate Rajendra Chola I’s birth anniversary. PM Narendra Modi participated in the valedictory ceremony, enhancing the event’s profile." data-hi="<span class='highlight'>संदर्भ:</span> राजेंद्र चोल प्रथम की जयंती मनाने के लिए गंगैकोंडा चोलपुरम (अरियालुर जिला, तमिलनाडु) में आदि थिरुवथिराई उत्सव आयोजित किया गया। प्रधानमंत्री नरेंद्र मोदी ने समापन समारोह में भाग लिया, जिससे कार्यक्रम की प्रतिष्ठा बढ़ी।"></p>
+
+        <h2 data-en="Historical Significance:" data-hi="ऐतिहासिक महत्व:">Historical Significance:</h2>
+        <p data-en="Rajendra Chola I (r. 1012–1044 CE):" data-hi="राजेंद्र चोल प्रथम (शासनकाल: 1012-1044 ई.):"></p>
+        <ul>
+            <li data-en="Led maritime expeditions to Southeast Asia." data-hi="दक्षिण पूर्व एशिया में समुद्री अभियान का नेतृत्व किया।">Led maritime expeditions to Southeast Asia.</li>
+            <li data-en="Built Gangaikonda Cholapuram, which served as the Chola capital for 250 years (1025–1279 CE)." data-hi="गंगैकोंडा चोलपुरम का निर्माण किया, जिसने 250 वर्षों (1025-1279 ईस्वी) तक चोल राजधानी के रूप में कार्य किया।">Built Gangaikonda Cholapuram, which served as the Chola capital for 250 years (1025–1279 CE).</li>
+            <li data-en="Described by historian K.A. Nilakanta Sastri as ruler of the “most extensive and most respected Hindu state of his time”." data-hi="इतिहासकार के.ए. नीलकंठ शास्त्री द्वारा उनके समय के “सबसे व्यापक और सबसे सम्मानित हिंदू राज्य” के शासक के रूप में वर्णित।">Described by historian K.A. Nilakanta Sastri as ruler of the “most extensive and most respected Hindu state of his time”.</li>
+        </ul>
+        <p data-en="Cultural Heritage Sites:" data-hi="सांस्कृतिक विरासत स्थल:"></p>
+        <ul>
+            <li data-en="Gangaikonda Cholapuram Temple and Brihadeeswara Temple (Thanjavur) part of UNESCO's Great Living Chola Temples (since 2004)." data-hi="गंगैकोंडा चोलपुरम मंदिर और बृहदेश्वर मंदिर (तंजावुर) 2004 से यूनेस्को के महान जीवित चोल मंदिरों का हिस्सा हैं।">Gangaikonda Cholapuram Temple and Brihadeeswara Temple (Thanjavur) part of UNESCO's Great Living Chola Temples (since 2004).</li>
+        </ul>
+
+        <h2 data-en="PM Modi’s Visit:" data-hi="पीएम मोदी का दौरा:">PM Modi’s Visit:</h2>
+        <p data-en="Unique non-political event:" data-hi="अद्वितीय गैर-राजनीतिक कार्यक्रम:"></p>
+        <ul>
+            <li data-en="Attire: traditional Tamil dress." data-hi="पहनावा: पारंपरिक तमिल पोशाक।">Attire: traditional Tamil dress.</li>
+            <li data-en="Attended devotional performances (Oduvars, Ilaiyaraaja)." data-hi="भक्ति प्रदर्शनों में भाग लिया (ओदुवार्स, इलैयाराजा)।">Attended devotional performances (Oduvars, Ilaiyaraaja).</li>
+            <li data-en="Speech praised Chola administrative legacy and cultural influence." data-hi="भाषण में चोल प्रशासनिक विरासत और सांस्कृतिक प्रभाव की प्रशंसा की।">Speech praised Chola administrative legacy and cultural influence.</li>
+        </ul>
+
+        <h2 data-en="Present Condition of Ariyalur:" data-hi="अरियालुर की वर्तमान स्थिति:">Present Condition of Ariyalur:</h2>
+        <ul>
+            <li data-en="One of Tamil Nadu's most backward districts despite historical significance." data-hi="ऐतिहासिक महत्व के बावजूद तमिलनाडु के सबसे पिछड़े जिलों में से एक।">One of Tamil Nadu's most backward districts despite historical significance.</li>
+        </ul>
+        <p data-en="Public Discontent:" data-hi="जन असंतोष:"></p>
+        <ul>
+            <li data-en="Lack of announcements for rail connectivity projects:" data-hi="रेल कनेक्टिविटी परियोजनाओं के लिए घोषणाओं की कमी:">Lack of announcements for rail connectivity projects:</li>
+            <li data-en="Kumbakonam–Namakkal (via Ariyalur, Perambalur)." data-hi="कुंभकोणम-नमक्कल (अरियालुर, पेरांबalur के माध्यम से)।">Kumbakonam–Namakkal (via Ariyalur, Perambalur).</li>
+            <li data-en="Pattukottai–Thanjavur–Ariyalur." data-hi="पट्टुकोट्टई-तंजावुर-अरियालुर।">Pattukottai–Thanjavur–Ariyalur.</li>
+            <li data-en="Unmet expectations for infrastructure and economic revival." data-hi="बुनियादी ढांचे और आर्थिक पुनरुद्धार के लिए अधूरी उम्मीदें।">Unmet expectations for infrastructure and economic revival.</li>
+        </ul>
+
+        <h2 data-en="Economic Snapshot:" data-hi="आर्थिक स्नैपशॉट:">Economic Snapshot:</h2>
+        <ul>
+            <li data-en="Predominantly agrarian economy." data-hi="मुख्यतः कृषि प्रधान अर्थव्यवस्था।">Predominantly agrarian economy.</li>
+            <li data-en="Cement factories due to rich limestone reserves." data-hi="समृद्ध चूना पत्थर भंडार के कारण सीमेंट कारखाने।">Cement factories due to rich limestone reserves.</li>
+            <li data-en="Decline in sugarcane cultivation due to pest attacks." data-hi="कीट हमलों के कारण गन्ना खेती में गिरावट।">Decline in sugarcane cultivation due to pest attacks.</li>
+            <li data-en="Industrial estate (Mallur) failed to attract investments." data-hi="औद्योगिक एस्टेट (मल्लूर) निवेश आकर्षित करने में विफल रहा।">Industrial estate (Mallur) failed to attract investments.</li>
+        </ul>
+
+        <h2 data-en="Scientific Importance:" data-hi="वैज्ञानिक महत्व:">Scientific Importance:</h2>
+        <p data-en="Fossil Tree Park & Museum:" data-hi="जीवाश्म वृक्ष पार्क और संग्रहालय:"></p>
+        <ul>
+            <li data-en="Noted for palaeo-zoological significance." data-hi="पुरापाषाण-प्राणीवैज्ञानिक महत्व के लिए उल्लेखनीय।">Noted for palaeo-zoological significance.</li>
+            <li data-en="Comparable to Grand Canyon, USA, in geological relevance." data-hi="भूवैज्ञानिक प्रासंगिकता में ग्रैंड कैन्यन, यूएसए के तुलनीय।">Comparable to Grand Canyon, USA, in geological relevance.</li>
+            <li data-en="Lacks tourism due to poor visibility & connectivity." data-hi="खराब दृश्यता और कनेक्टिविटी के कारण पर्यटन की कमी।">Lacks tourism due to poor visibility & connectivity.</li>
+        </ul>
+
+        <h2 data-en="State Government Initiatives:" data-hi="राज्य सरकार की पहल:">State Government Initiatives:</h2>
+        <p data-en="By CM M.K. Stalin (2025):" data-hi="मुख्यमंत्री एम.के. स्टालिन द्वारा (2025):"></p>
+        <ul>
+            <li data-en="₹12 crore for Chola Gangam (Ponneri) Lake development." data-hi="चोल गंगम (पोनेरी) झील के विकास के लिए ₹12 करोड़।">₹12 crore for Chola Gangam (Ponneri) Lake development.</li>
+            <li data-en="₹7.25 crore for tourism infrastructure." data-hi="पर्यटन बुनियादी ढांचे के लिए ₹7.25 करोड़।">₹7.25 crore for tourism infrastructure.</li>
+            <li data-en="₹22.10 crore for a 10-acre museum." data-hi="10 एकड़ के संग्रहालय के लिए ₹22.10 करोड़।">₹22.10 crore for a 10-acre museum.</li>
+            <li data-en="Renovation of canals and associated works." data-hi="नहरों और संबंधित कार्यों का नवीनीकरण।">Renovation of canals and associated works.</li>
+        </ul>
+
+        <h2 data-en="Challenges & Concerns:" data-hi="चुनौतियाँ और चिंताएँ:">Challenges & Concerns:</h2>
+        <ul>
+            <li data-en="Existing efforts seen as inadequate." data-hi="मौजूदा प्रयासों को अपर्याप्त माना जाता है।">Existing efforts seen as inadequate.</li>
+            <li data-en="Connectivity, tourism infrastructure, and industrial development remain key issues." data-hi="कनेक्टिविटी, पर्यटन बुनियादी ढांचा और औद्योगिक विकास प्रमुख मुद्दे बने हुए हैं।">Connectivity, tourism infrastructure, and industrial development remain key issues.</li>
+            <li data-en="Locals demand sustained policy focus and economic rejuvenation rather than symbolic gestures." data-hi="स्थानीय लोग प्रतीकात्मक इशारों के बजाय निरंतर नीतिगत ध्यान और आर्थिक पुनरुत्थान की मांग करते हैं।">Locals demand sustained policy focus and economic rejuvenation rather than symbolic gestures.</li>
+        </ul>
+
+        <p data-en="🧠 <span class='highlight'>UPSC Relevance:</span>" data-hi="🧠 <span class='highlight'>यूपीएससी प्रासंगिकता:</span>"></p>
+        <ul>
+            <li data-en="<span class='highlight'>Art & Culture:</span> Chola dynasty contributions to architecture and administration." data-hi="<span class='highlight'>कला और संस्कृति:</span> चोल राजवंश का वास्तुकला और प्रशासन में योगदान।"><span class='highlight'>Art & Culture:</span> Chola dynasty contributions to architecture and administration.</li>
+            <li data-en="<span class='highlight'>Governance:</span> Regional disparities despite historical significance." data-hi="<span class='highlight'>शासन:</span> ऐतिहासिक महत्व के बावजूद क्षेत्रीय असमानताएं।"><span class='highlight'>Governance:</span> Regional disparities despite historical significance.</li>
+            <li data-en="<span class='highlight'>Infrastructure & Development:</span> Importance of connectivity and integrated regional planning." data-hi="<span class='highlight'>बुनियादी ढांचा और विकास:</span> कनेक्टिविटी और एकीकृत क्षेत्रीय योजना का महत्व।"><span class='highlight'>Infrastructure & Development:</span> Importance of connectivity and integrated regional planning.</li>
+            <li data-en="<span class='highlight'>Heritage Tourism:</span> Role of soft power, heritage economy, and community expectations." data-hi="<span class='highlight'>विरासत पर्यटन:</span> सॉफ्ट पावर, विरासत अर्थव्यवस्था और सामुदायिक अपेक्षाओं की भूमिका।"><span class='highlight'>Heritage Tourism:</span> Role of soft power, heritage economy, and community expectations.</li>
+            <li data-en="<span class='highlight'>Polity & Society:</span> People's participation and accountability in government events." data-hi="<span class='highlight'>राजव्यवस्था और समाज:</span> सरकारी कार्यक्रमों में लोगों की भागीदारी और जवाबदेही।"><span class='highlight'>Polity & Society:</span> People's participation and accountability in government events.</li>
+        </ul>
+
+        <a href="index.html" class="back-to-home" data-en="Back to Home" data-hi="होम पर वापस जाएं">Back to Home</a>
+    </div>
+
+    <button class="scroll-to-top" onclick="scrollToTop()">⬆</button>
+
+    <script>
+        const contentDiv = document.querySelector('.container');
+        const readTimeSpan = document.getElementById('readTime');
+        const languageToggleButton = document.querySelector('.lang-switch');
+        const elementsToTranslate = document.querySelectorAll('[data-en], [data-hi]');
+        let currentLanguage = 'en';
+
+        // Calculate Read Time
+        function calculateReadTime() {
+            const englishContentNodes = Array.from(contentDiv.querySelectorAll('[data-en]'));
+            let fullEnglishText = "";
+            englishContentNodes.forEach(node => {
+                // For list items and paragraphs, take the data-en attribute.
+                // For headers, take the data-en attribute from the header itself.
+                fullEnglishText += node.dataset.en || node.textContent + " ";
+            });
+            
+            const wordsPerMinute = 200; // Average reading speed
+            const wordCount = fullEnglishText.split(/\s+/).filter(word => word.length > 0).length;
+            const minutes = Math.ceil(wordCount / wordsPerMinute);
+            readTimeSpan.textContent = `Read Time: ${minutes} min`;
+        }
+
+        function setLanguage(lang) {
+            currentLanguage = lang;
+            elementsToTranslate.forEach(element => {
+                if (element.dataset[lang]) {
+                    element.innerHTML = element.dataset[lang];
+                }
+            });
+            const toggleText = languageToggleButton.querySelector('span:first-child');
+            toggleText.textContent = lang === 'en' ? toggleText.dataset.en : toggleText.dataset.hi;
+            localStorage.setItem('language', lang); // Store language preference
+        }
+
+        function toggleLanguage() {
+            const newLang = currentLanguage === 'en' ? 'hi' : 'en';
+            setLanguage(newLang);
+        }
+
+        // Scroll to Top button functionality
+        const scrollToTopButton = document.querySelector('.scroll-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollToTopButton.classList.add('show');
+            } else {
+                scrollToTopButton.classList.remove('show');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            calculateReadTime();
+            const savedLanguage = localStorage.getItem('language') || 'en';
+            setLanguage(savedLanguage);
+        });
+    </script>
+</body>
+</html>

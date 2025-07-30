@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why the Gini Index is wrong about India</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .navbar {
+            background-color: #2c3e50;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            margin: 0 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .navbar a:hover {
+            background-color: #34495e;
+            transform: translateY(-2px);
+        }
+
+        .lang-switch-container {
+            position: relative;
+            display: inline-block;
+            margin-left: auto; /* Push to the right */
+        }
+
+        .lang-switch {
+            background-color: #3498db;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .lang-switch:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+        }
+
+        .lang-switch-icon {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .lang-switch:hover .lang-switch-icon {
+            transform: rotate(360deg);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2, h3 {
+            color: #2c3e50;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-top: 25px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 1.8em;
+        }
+
+        h3 {
+            font-size: 1.4em;
+        }
+
+        p {
+            margin-bottom: 1em;
+            transition: background-color 0.3s ease;
+        }
+
+        p:hover, ul li:hover {
+            background-color: #e8f4f2;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 0.5em;
+            transition: background-color 0.3s ease;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #3498db;
+        }
+
+        .read-time {
+            text-align: right;
+            font-style: italic;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .back-to-home {
+            display: block;
+            width: fit-content;
+            margin: 30px auto 0;
+            padding: 12px 25px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .back-to-home:hover {
+            background-color: #218838;
+            transform: translateY(-2px);
+        }
+
+        .scroll-to-top {
+            display: none;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            z-index: 999;
+        }
+
+        .scroll-to-top:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px);
+        }
+
+        .scroll-to-top.show {
+            display: flex;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            .navbar a {
+                margin: 5px 0;
+            }
+
+            .lang-switch-container {
+                margin-top: 10px;
+                margin-left: 0; /* Center the language switch */
+            }
+
+            .container {
+                margin: 15px;
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            h3 {
+                font-size: 1.2em;
+            }
+
+            .scroll-to-top {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div>
+            <a href="index.html" data-en="Home" data-hi="होम">Home</a>
+            <a href="donation.html" data-en="Donation" data-hi="दान">Donation</a>
+            <a href="contact.html" data-en="Contact" data-hi="संपर्क">Contact</a>
+        </div>
+        <div class="lang-switch-container">
+            <button class="lang-switch" onclick="toggleLanguage()">
+                <span data-en="English" data-hi="हिन्दी">English</span>
+                <span class="lang-switch-icon">🌐</span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 id="postTitle" data-en="Why the Gini Index is wrong about India" data-hi="भारत के बारे में गिनी सूचकांक गलत क्यों है">Why the Gini Index is wrong about India</h1>
+        <p class="read-time" id="readTime"></p>
+
+        <p data-en="<b>Context:</b> The Gini Index ranked India as a 'moderately low' inequality society with a score of 25.5, suggesting high equality. However, the lived realities across economic, gender, digital, and social sectors reveal significant disparities." data-hi="<b>संदर्भ:</b> गिनी सूचकांक ने भारत को 25.5 के स्कोर के साथ 'मध्यम रूप से कम' असमानता वाला समाज बताया, जो उच्च समानता का सुझाव देता है। हालांकि, आर्थिक, लैंगिक, डिजिटल और सामाजिक क्षेत्रों में जमीनी हकीकत महत्वपूर्ण असमानताओं को दर्शाती है।"></p>
+
+        <h2 data-en="What is the Gini Index?" data-hi="गिनी सूचकांक क्या है?">What is the Gini Index?</h2>
+        <ul>
+            <li data-en="A statistical measure of income or wealth inequality." data-hi="आय या धन असमानता का एक सांख्यिकीय माप।">A statistical measure of income or wealth inequality.</li>
+            <li data-en="Ranges from 0 (perfect equality) to 100 (perfect inequality)." data-hi="0 (पूर्ण समानता) से 100 (पूर्ण असमानता) तक होता है।">Ranges from 0 (perfect equality) to 100 (perfect inequality).</li>
+            <li data-en="India’s score of 25.5 places it among the world’s most equal societies — a claim contradicted by multiple forms of inequality on ground." data-hi="भारत का 25.5 का स्कोर इसे दुनिया के सबसे समान समाजों में से एक बनाता है — एक ऐसा दावा जो जमीन पर असमानता के कई रूपों से विरोधाभासी है।">India’s score of 25.5 places it among the world’s most equal societies — a claim contradicted by multiple forms of inequality on ground.</li>
+        </ul>
+
+        <h2 data-en="Criticism of the Gini Index in Indian Context:" data-hi="भारतीय संदर्भ में गिनी सूचकांक की आलोचना:">Criticism of the Gini Index in Indian Context:</h2>
+        <p data-en="Underestimates inequality due to:" data-hi="निम्नलिखित कारणों से असमानता को कम आंकता है:"></p>
+        <ul>
+            <li data-en="Large informal employment." data-hi="बड़ा अनौपचारिक रोजगार।">Large informal employment.</li>
+            <li data-en="Low-income thresholds." data-hi="कम आय सीमा।">Low-income thresholds.</li>
+            <li data-en="Non-reporting of taxable income by most of the population (tax data covers <10% adults)." data-hi="अधिकांश आबादी द्वारा कर योग्य आय की गैर-रिपोर्टिंग (कर डेटा <10% वयस्कों को कवर करता है)।">Non-reporting of taxable income by most of the population (tax data covers <10% adults).</li>
+            <li data-en="Methodology is data-deficient and blind to structural inequalities." data-hi="कार्यप्रणाली डेटा-अधूरा है और संरचनात्मक असमानताओं के प्रति अंधा है।">Methodology is data-deficient and blind to structural inequalities.</li>
+        </ul>
+
+        <h2 data-en="Forms of Inequality in India:" data-hi="भारत में असमानता के रूप:">Forms of Inequality in India:</h2>
+
+        <h3 data-en="1. Wealth Inequality:" data-hi="1. धन असमानता:">1. Wealth Inequality:</h3>
+        <ul>
+            <li data-en="Top 1% earn 22.6% of national income (2022-23)." data-hi="शीर्ष 1% राष्ट्रीय आय का 22.6% कमाते हैं (2022-23)।">Top 1% earn 22.6% of national income (2022-23).</li>
+            <li data-en="Vast gap between luxury spenders and low-income earners." data-hi="विलासिता पर खर्च करने वालों और कम आय वाले लोगों के बीच बड़ा अंतर।">Vast gap between luxury spenders and low-income earners.</li>
+            <li data-en="Most rely on informal employment, lacking social security." data-hi="अधिकांश अनौपचारिक रोजगार पर निर्भर करते हैं, सामाजिक सुरक्षा की कमी है।">Most rely on informal employment, lacking social security.</li>
+        </ul>
+
+        <h3 data-en="2. Gender Inequality:" data-hi="2. लैंगिक असमानता:">2. Gender Inequality:</h3>
+        <ul>
+            <li data-en="Female workforce participation: ~35.9%." data-hi="महिला कार्यबल भागीदारी: ~35.9%।">Female workforce participation: ~35.9%.</li>
+            <li data-en="Leadership roles held by women: only 12.7% (2024)." data-hi="महिलाओं द्वारा धारण किए गए नेतृत्व पद: केवल 12.7% (2024)।">Leadership roles held by women: only 12.7% (2024).</li>
+            <li data-en="Women-run startups: just 7.5% of total." data-hi="महिला-संचालित स्टार्टअप: कुल का केवल 7.5%।">Women-run startups: just 7.5% of total.</li>
+            <li data-en="Patriarchal norms affect education and inheritance." data-hi="पितृसत्तात्मक मानदंड शिक्षा और विरासत को प्रभावित करते हैं।">Patriarchal norms affect education and inheritance.</li>
+        </ul>
+
+        <h3 data-en="3. Digital Divide:" data-hi="3. डिजिटल डिवाइड:">3. Digital Divide:</h3>
+        <ul>
+            <li data-en="Only 53.9% schools have Internet access." data-hi="केवल 53.9% स्कूलों में इंटरनेट की सुविधा है।">Only 53.9% schools have Internet access.</li>
+            <li data-en="Rural-urban Internet gap persists." data-hi="ग्रामीण-शहरी इंटरनेट अंतर बना हुआ है।">Rural-urban Internet gap persists.</li>
+            <li data-en="Broadband in homes (urban + rural): 41.8%." data-hi="घरों में ब्रॉडबैंड (शहरी + ग्रामीण): 41.8%।">Broadband in homes (urban + rural): 41.8%.</li>
+            <li data-en="Access to virtual education, banking, jobs limited for poor and rural populations." data-hi="गरीब और ग्रामीण आबादी के लिए वर्चुअल शिक्षा, बैंकिंग, नौकरियों तक पहुंच सीमित है।">Access to virtual education, banking, jobs limited for poor and rural populations.</li>
+        </ul>
+
+        <h3 data-en="4. Educational Inequality:" data-hi="4. शैक्षिक असमानता:">4. Educational Inequality:</h3>
+        <ul>
+            <li data-en="Lack of digital tools results in skill gaps." data-hi="डिजिटल उपकरणों की कमी से कौशल अंतराल होता है।">Lack of digital tools results in skill gaps.</li>
+            <li data-en="Students without Internet access miss virtual classes (e.g., pollution-related closures in Delhi)." data-hi="इंटरनेट पहुंच के बिना छात्र वर्चुअल कक्षाएं मिस करते हैं (जैसे दिल्ली में प्रदूषण संबंधी बंद)।">Students without Internet access miss virtual classes (e.g., pollution-related closures in Delhi).</li>
+            <li data-en="Cycle of inequality: Poor digital access → low-skill jobs → persistent poverty." data-hi="असमानता का चक्र: खराब डिजिटल पहुंच → कम-कौशल वाली नौकरियां → लगातार गरीबी।">Cycle of inequality: Poor digital access → low-skill jobs → persistent poverty.</li>
+        </ul>
+
+        <h2 data-en="Intersectionality of Inequality:" data-hi="असमानता का प्रतिच्छेदन:">Intersectionality of Inequality:</h2>
+        <ul>
+            <li data-en="Digital + Gender: Only 25% of rural women have Internet access vs. 49% of rural men." data-hi="डिजिटल + लिंग: ग्रामीण महिलाओं में से केवल 25% के पास इंटरनेट की सुविधा है, जबकि ग्रामीण पुरुषों में 49% के पास है।">Digital + Gender: Only 25% of rural women have Internet access vs. 49% of rural men.</li>
+            <li data-en="Lack of Internet → loss of financial, employment, and educational opportunities." data-hi="इंटरनेट की कमी → वित्तीय, रोजगार और शैक्षिक अवसरों का नुकसान।">Lack of Internet → loss of financial, employment, and educational opportunities.</li>
+            <li data-en="Inequality in one realm affects others (health, employment, autonomy)." data-hi="एक क्षेत्र में असमानता दूसरों को प्रभावित करती है (स्वास्थ्य, रोजगार, स्वायत्तता)।">Inequality in one realm affects others (health, employment, autonomy).</li>
+        </ul>
+
+        <h2 data-en="Conclusion:" data-hi="निष्कर्ष:">Conclusion:</h2>
+        <ul>
+            <li data-en="India’s Gini Index score does not reflect ground realities." data-hi="भारत का गिनी सूचकांक स्कोर जमीनी हकीकत को नहीं दर्शाता है।">India’s Gini Index score does not reflect ground realities.</li>
+            <li data-en="Real equality demands access to opportunities across all domains for the majority." data-hi="वास्तविक समानता के लिए बहुमत के लिए सभी क्षेत्रों में अवसरों तक पहुंच की आवश्यकता है।">Real equality demands access to opportunities across all domains for the majority.</li>
+            <li data-en="Bridging wealth, gender, digital, and educational divides is essential to become a truly equal society." data-hi="धन, लिंग, डिजिटल और शैक्षिक विभाजनों को पाटना एक सही मायने में समान समाज बनने के लिए आवश्यक है।">Bridging wealth, gender, digital, and educational divides is essential to become a truly equal society.</li>
+        </ul>
+
+        <p data-en="✅ <b>Takeaway for UPSC Aspirants:</b> Understand limitations of global indices, importance of ground-level indicators, and the multi-dimensional nature of inequality in India." data-hi="✅ <b>UPSC उम्मीदवारों के लिए मुख्य बात:</b> वैश्विक सूचकांकों की सीमाओं, जमीनी स्तर के संकेतकों के महत्व और भारत में असमानता की बहुआयामी प्रकृति को समझें।"></p>
+
+        <a href="index.html" class="back-to-home" data-en="Back to Home" data-hi="होम पर वापस जाएं">Back to Home</a>
+    </div>
+
+    <button class="scroll-to-top" onclick="scrollToTop()">↑</button>
+
+    <script>
+        const contentDiv = document.querySelector('.container');
+        const readTimeSpan = document.getElementById('readTime');
+        const languageToggleButton = document.querySelector('.lang-switch');
+        const elementsToTranslate = document.querySelectorAll('[data-en], [data-hi]');
+        let currentLanguage = 'en';
+
+        // Calculate Read Time
+        function calculateReadTime() {
+            const text = contentDiv.textContent;
+            const wordsPerMinute = 200; // Average reading speed
+            const wordCount = text.split(/\s+/).length;
+            const minutes = Math.ceil(wordCount / wordsPerMinute);
+            readTimeSpan.textContent = `Read Time: ${minutes} min`;
+        }
+
+        function setLanguage(lang) {
+            currentLanguage = lang;
+            elementsToTranslate.forEach(element => {
+                if (element.dataset[lang]) {
+                    element.innerHTML = element.dataset[lang];
+                }
+            });
+            const toggleText = languageToggleButton.querySelector('span:first-child');
+            toggleText.textContent = lang === 'en' ? toggleText.dataset.en : toggleText.dataset.hi;
+            localStorage.setItem('language', lang); // Store language preference
+        }
+
+        function toggleLanguage() {
+            const newLang = currentLanguage === 'en' ? 'hi' : 'en';
+            setLanguage(newLang);
+        }
+
+        // Scroll to Top button functionality
+        const scrollToTopButton = document.querySelector('.scroll-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollToTopButton.classList.add('show');
+            } else {
+                scrollToTopButton.classList.remove('show');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            calculateReadTime();
+            const savedLanguage = localStorage.getItem('language') || 'en';
+            setLanguage(savedLanguage);
+        });
+    </script>
+</body>
+</html>
