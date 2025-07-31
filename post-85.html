@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title id="doc-title">Sabotage in Bagmati Express Train Accident - Free Mock Zone</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #673AB7; /* Deep Purple */
+      --secondary-color: #512DA8; /* Darker Purple */
+      --accent-color-light: #FFC107; /* Amber */
+      --accent-color-dark: #FFA000; /* Darker Amber */
+      --text-color: #333;
+      --bg-color: #ede7f6; /* Light Purple background */
+      --card-bg: #ffffff;
+      --hover-bg-light: #f3e5f5; /* Even lighter purple for hover */
+      --hover-text-dark: #4527A0; /* Even darker purple for text */
+      --border-color: #D1C4E9; /* Light purple border */
+      --line-highlight: #e0f2f7; /* Light blue for subtle highlights */
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.7;
+      box-sizing: border-box;
+    }
+
+    nav {
+      background: var(--primary-color);
+      padding: 1.2rem 0;
+      display: flex;
+      justify-content: center; /* Center nav items */
+      align-items: center;
+      flex-wrap: wrap;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav div {
+      display: flex; /* Make sure links are in a row */
+      align-items: center;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 20px; /* Increased margin for better spacing */
+      font-weight: bold;
+      font-size: 1.1em;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    nav a::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -5px;
+        left: 0;
+        background-color: var(--accent-color-light);
+        transition: width 0.3s ease-out;
+    }
+
+    nav a:hover::after {
+        width: 100%;
+    }
+
+    .lang-switch {
+      background: var(--secondary-color);
+      color: #fff;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 1em;
+      font-weight: 500;
+      transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      margin-left: 25px; /* Space from nav links */
+      position: relative;
+      overflow: hidden;
+      letter-spacing: 0.5px;
+    }
+    .lang-switch::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.2);
+        transition: left 0.3s ease;
+    }
+
+    .lang-switch:hover::before {
+        left: 0;
+    }
+
+    .lang-switch:hover {
+      background: var(--hover-text-dark);
+      transform: scale(1.08);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .container {
+      max-width: 950px;
+      margin: 30px auto;
+      background-color: var(--card-bg);
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+      animation: fadeIn 0.8s ease-out;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+        text-align: center;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 2.6em;
+        line-height: 1.3;
+        margin-bottom: 25px;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+        color: var(--primary-color);
+    }
+
+    .read-time {
+      font-style: normal; /* Override italic */
+      color: #777;
+      font-size: 0.95em;
+      margin-bottom: 25px;
+      padding-bottom: 12px;
+      border-bottom: 1px dashed var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center; /* Center the read time */
+      gap: 8px;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px dashed var(--border-color);
+      margin: 30px 0;
+    }
+
+    /* Post line general styling for block content (e.g., paragraphs, section headers) */
+    .post-line {
+      padding: 8px 15px; /* Increased padding */
+      border-left: 4px solid var(--primary-color); /* Stronger indicator */
+      margin-bottom: 1.2em;
+      background-color: var(--card-bg);
+      border-radius: 6px;
+      transition: all 0.3s ease, transform 0.2s ease;
+      position: relative;
+    }
+
+    .post-line:hover {
+      background: var(--hover-bg-light);
+      border-left: 4px solid var(--accent-color-dark);
+      transform: translateX(5px);
+    }
+
+    .post-line strong {
+      color: var(--secondary-color);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.1em;
+      display: block; /* Make strong tags in post-line act as block elements for headings */
+      margin-bottom: 5px;
+    }
+
+    .post-line em {
+        color: var(--primary-color);
+    }
+
+    /* Styling for UL and LI elements - Now correctly applied to <ul> and <li> tags */
+    .content-list { /* New class for ULs to apply styling */
+        list-style: none; /* Remove default list style */
+        padding-left: 0; /* Remove default padding */
+        margin: 0; /* Remove default margin */
+    }
+
+    .content-list li {
+      position: relative;
+      padding: 8px 15px 8px 30px; /* Space for custom bullet and internal padding */
+      margin-bottom: 0.8em;
+      background-color: var(--card-bg); /* Ensure consistent background */
+      border-left: 4px solid var(--primary-color); /* Add left border to list items */
+      border-radius: 6px;
+      transition: all 0.3s ease, transform 0.2s ease;
+      line-height: 1.5; /* Ensure comfortable line height */
+      word-wrap: break-word; /* Ensure long words break */
+      overflow-wrap: break-word; /* Modern property for breaking long words */
+    }
+
+    .content-list li:last-child {
+        margin-bottom: 0;
+    }
+
+    /* Custom bullet point */
+    .content-list li::before {
+      content: '•'; /* Unicode bullet point */
+      position: absolute;
+      left: 10px; /* Position relative to the list item's padding */
+      top: 50%; /* Center vertically */
+      transform: translateY(-50%); /* Adjust for perfect vertical centering */
+      color: var(--accent-color-dark); /* Color for the bullet */
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+
+    .content-list li:hover {
+        background-color: var(--hover-bg-light);
+        border-left: 4px solid var(--accent-color-dark);
+        transform: translateX(5px);
+    }
+
+    /* Nested list items (for sub-bullets) */
+    .content-list ul.content-list {
+        margin-top: 0.8em; /* Space between parent and nested list */
+        margin-bottom: 0;
+        padding-left: 15px; /* Add some indentation for nested lists */
+    }
+
+    .content-list ul.content-list li {
+        padding-left: 25px; /* Adjust padding for nested bullets */
+        margin-bottom: 0.6em;
+    }
+
+    .content-list ul.content-list li::before {
+        left: 5px; /* Adjust bullet position for nested lists */
+        font-size: 1em; /* Smaller bullet for sub-items */
+    }
+
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: separate; /* Use separate to allow border-radius on cells */
+      border-spacing: 0; /* Remove space between borders */
+      margin: 25px 0;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      border-radius: 8px; /* Apply border-radius to the table itself */
+      overflow: hidden; /* Hide overflowing content like border-radius corners */
+    }
+
+    th, td {
+      border: 1px solid var(--border-color);
+      padding: 12px 15px;
+      text-align: left; /* Align text to left for readability */
+      vertical-align: top;
+    }
+
+    th {
+      background-color: var(--primary-color);
+      color: white;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 0.9em;
+      letter-spacing: 0.5px;
+    }
+
+    /* Rounded corners for first/last th/td */
+    table thead tr:first-child th:first-child {
+        border-top-left-radius: 8px;
+    }
+    table thead tr:first-child th:last-child {
+        border-top-right-radius: 8px;
+    }
+    table tbody tr:last-child td:first-child {
+        border-bottom-left-radius: 8px;
+    }
+    table tbody tr:last-child td:last-child {
+        border-bottom-right-radius: 8px;
+    }
+
+    /* Zebra striping for table rows */
+    table tbody tr:nth-child(even) {
+        background-color: var(--hover-bg-light);
+    }
+
+    table tbody tr:hover {
+        background-color: var(--hover-bg-light); /* Apply hover to entire row */
+    }
+
+    /* Specific styling for strong/em within table cells */
+    table td strong {
+        color: var(--secondary-color);
+        font-weight: bold;
+    }
+    table td em {
+        color: var(--primary-color);
+        font-style: italic;
+    }
+
+
+    .back-home {
+      text-align: center;
+      margin-top: 40px;
+      margin-bottom: 20px;
+    }
+    .back-home a {
+      display: inline-block;
+      background: var(--accent-color-dark);
+      color: white;
+      padding: 15px 25px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 1.1em;
+      transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 10px rgba(255,160,0,0.3);
+    }
+    .back-home a:hover {
+      background: #e69500;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(255,160,0,0.4);
+    }
+
+    .scroll-top {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: var(--accent-color-dark);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 55px;
+      height: 55px;
+      font-size: 1.8em;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+      z-index: 1000;
+      display: flex; /* Use flex to center the arrow */
+      justify-content: center;
+      align-items: center;
+    }
+    .scroll-top:hover {
+      background: #e69500;
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.35);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 0;
+      }
+      nav div {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+      }
+      nav a {
+        margin: 10px 0;
+        width: fit-content;
+      }
+      .lang-switch {
+        margin: 15px 0 0 0;
+      }
+
+      .container {
+        margin: 15px;
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 2em;
+      }
+
+      .post-line {
+        padding: 10px;
+        margin-bottom: 1em;
+      }
+
+      /* Responsive Table Styling - RESTORED AND IMPROVED */
+      table, thead, tbody, th, td, tr {
+        display: block; /* Stack table elements */
+      }
+
+      thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px; /* Hide table headers */
+      }
+
+      tr {
+        border: 1px solid var(--border-color);
+        margin-bottom: 20px; /* Space between "cards" */
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      td {
+        border: none; /* Remove individual cell borders */
+        border-bottom: 1px solid var(--border-color); /* Add a bottom border for separation */
+        position: relative;
+        padding-left: 50%; /* Space for the label */
+        text-align: right; /* Align content to the right */
+        word-wrap: break-word; /* Ensure long words break */
+      }
+
+      td:last-child {
+        border-bottom: 0; /* No border on the last cell of a row */
+      }
+
+      td::before {
+        content: attr(data-label); /* Use data-label for the pseudo-element content */
+        position: absolute;
+        left: 10px;
+        width: calc(50% - 20px); /* Adjust width considering padding */
+        font-weight: bold;
+        text-align: left;
+        white-space: nowrap; /* Prevent label from wrapping */
+        overflow: hidden;
+        text-overflow: ellipsis; /* Add ellipsis if label is too long */
+        color: var(--secondary-color);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="donation.html">Donation</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <button class="lang-switch" onclick="toggleLanguage()">हिन्दी / English</button>
+  </nav>
+
+  <div class="container">
+    <h1 id="main-title">Sabotage in Bagmati Express Train Accident</h1>
+    <div class="read-time">🕒 Estimated Read Time: <span id="readTime"></span> mins</div>
+
+    <div id="english">
+      <div class="post-line"><strong>🗞️ Topic: Sabotage in Bagmati Express Train Accident</strong></div>
+
+      <div class="post-line">📅 <em>Source: The Hindu | Date: 31 July 2025</em></div>
+      <div class="post-line">📚 <em>GS Paper III - Internal Security | Infrastructure (Railways)</em></div>
+
+      <hr/>
+
+      <div class="post-line"><strong>🔍 Context</strong></div>
+      <p>A final report by the <strong>Commissioner of Railway Safety (CRS)</strong> has confirmed <strong>sabotage</strong> as the cause of the <strong>Bagmati Express collision</strong> with a freight train at <strong>Kavarapettai station (TN)</strong> on <strong>11 October 2024</strong>.</p>
+
+      <hr/>
+
+      <div class="post-line"><strong>🚨 Key Findings of the CRS Report</strong></div>
+      <ul class="content-list">
+          <li><strong>Cause</strong>: Deliberate removal of rail fittings and connections at <strong>Point No. 51B</strong> by <em>miscreants</em>.</li>
+          <li><strong>Mechanism of Sabotage</strong>:
+            <ul class="content-list">
+                <li>Alteration in the <strong>Left Hand Tongue Rail</strong> position (controls train track diversion).</li>
+                <li>Not due to <strong>automatic/sudden equipment failure</strong>.</li>
+            </ul>
+          </li>
+          <li><strong>Casualties</strong>:
+            <ul class="content-list">
+                <li><strong>13 coaches derailed</strong>, power car caught fire.</li>
+                <li><strong>19 passengers injured</strong>.</li>
+            </ul>
+          </li>
+      </ul>
+
+      <hr/>
+
+      <div class="post-line"><strong>🔐 Security Measures Initiated</strong></div>
+      <ul class="content-list">
+          <li><strong>Railway Board Response</strong>:
+            <ul class="content-list">
+                <li>Sabotage-prone areas already <strong>identified</strong>.</li>
+                <li>Surveillance strengthened with <strong>CCTV</strong>, <strong>intelligence coordination</strong> with police.</li>
+                <li><strong>Special Forces</strong> deployed in sensitive sections.</li>
+                <li>Divisions instructed for <strong>threat-based patrolling</strong>.</li>
+            </ul>
+          </li>
+          <li><strong>Insider Threat Concerns</strong>:
+            <ul class="content-list">
+                <li><strong>Special Intelligence Branch (SIB)</strong> tasked to:
+                    <ul class="content-list">
+                        <li>Monitor <strong>employees, contract workers</strong>, associated staff.</li>
+                        <li>Coordinate with <strong>State/Central Intelligence</strong> agencies.</li>
+                        <li>Intensify <strong>internal surveillance</strong> and <strong>input gathering</strong>.</li>
+                    </ul>
+                </li>
+            </ul>
+          </li>
+      </ul>
+
+      <hr/>
+
+      <div class="post-line"><strong>🚆 Recognition</strong></div>
+      <ul class="content-list">
+          <li><strong>Loco Pilot G. Subramani</strong>:
+            <ul class="content-list">
+                <li>Applied <strong>emergency brakes</strong> promptly, reducing impact.</li>
+                <li>Recommended for <strong>‘Ati Vishisht Rail Seva Puraskar’</strong>.</li>
+            </ul>
+          </li>
+      </ul>
+
+      <hr/>
+
+      <div class="post-line"><strong>🕵️‍♂️ Investigation Developments</strong></div>
+      <ul class="content-list">
+          <li><strong>Initial Involvement of NIA</strong>:
+            <ul class="content-list">
+                <li>Sabotage suspected post-accident.</li>
+                <li>NIA found <strong>no material evidence</strong> to take over probe then.</li>
+            </ul>
+          </li>
+          <li>CRS final report has <strong>confirmed sabotage</strong> after detailed inspection.</li>
+      </ul>
+
+      <hr/>
+
+      <div class="post-line"><strong>📌 UPSC Relevance</strong></div>
+      <ul class="content-list">
+          <li><strong>🔹 Prelims</strong>:
+            <ul class="content-list">
+                <li>Role of <strong>CRS</strong>, <strong>SIB</strong>, and <strong>Railway Protection Force (RPF)</strong>.</li>
+                <li>Terms like <strong>Tongue Rail</strong>, <strong>Point System</strong> in railway engineering.</li>
+            </ul>
+          </li>
+          <li><strong>🔹 Mains - GS Paper III</strong>:
+            <ul class="content-list">
+                <li><strong>Internal Security Challenges</strong>:
+                    <ul class="content-list">
+                        <li>Vulnerability of public infrastructure (railways) to <strong>sabotage</strong>.</li>
+                        <li>Role of intelligence and inter-agency coordination in <strong>safeguarding national assets</strong>.</li>
+                    </ul>
+                </li>
+                <li><strong>Governance</strong>:
+                    <ul class="content-list">
+                        <li>Importance of <strong>proactive threat identification</strong>.</li>
+                        <li>Institutional response to <strong>insider threats</strong> in critical sectors.</li>
+                    </ul>
+                </li>
+            </ul>
+          </li>
+      </ul>
+    </div>
+
+    <div id="hindi" style="display:none;">
+      <div class="post-line"><strong>🗞️ विषय: बागमती एक्सप्रेस ट्रेन दुर्घटना में तोड़फोड़</strong></div>
+
+      <div class="post-line">📅 <em>स्रोत: द हिंदू | दिनांक: 31 जुलाई 2025</em></div>
+      <div class="post-line">📚 <em>GS पेपर III - आंतरिक सुरक्षा | अवसंरचना (रेलवे)</em></div>
+
+      <hr/>
+
+      <div class="post-line"><strong>🔍 संदर्भ</strong></div>
+      <div class="post-line">रेलवे सुरक्षा आयुक्त (CRS) की एक अंतिम रिपोर्ट ने </strong>11 अक्टूबर 2024</strong> को </strong>कावरपेट्टई स्टेशन (TN)</strong> पर एक मालगाड़ी से </strong>बागमती एक्सप्रेस</strong> की टक्कर का कारण </strong>तोड़फोड़</strong> होने की पुष्टि की है।</div>
+
+      <hr/>
+
+      <div class="post-line"><strong>🚨 CRS रिपोर्ट के मुख्य निष्कर्ष</strong></div>
+      <ul class="content-list">
+          <li><strong>कारण</strong>: उपद्रवियों द्वारा </strong>पॉइंट संख्या 51बी</strong> पर रेल फिटिंग और कनेक्शन को जानबूझकर हटाना।</li>
+          <li><strong>तोड़फोड़ की प्रक्रिया</strong>:
+            <ul class="content-list">
+                <li><strong>लेफ्ट हैंड टंग रेल</strong> की स्थिति में बदलाव (ट्रेन ट्रैक के मोड़ को नियंत्रित करता है)।</li>
+                <li><strong>स्वचालित/अचानक उपकरण विफलता</strong> के कारण नहीं।</li>
+            </ul>
+          </li>
+          <li><strong>हताहत</strong>:
+            <ul class="content-list">
+                <li><strong>13 डिब्बे पटरी से उतरे</strong>, पावर कार में आग लगी।</li>
+                <li><strong>19 यात्री घायल</strong> हुए।</li>
+            </ul>
+          </li>
+      </ul>
+
+      <hr/>
+
+      <div class="post-line"><strong>🔐 सुरक्षा उपाय शुरू किए गए</strong></div>
+      <ul class="content-list">
+          <li><strong>रेलवे बोर्ड की प्रतिक्रिया</strong>:
+            <ul class="content-list">
+                <li>तोड़फोड़-प्रवण क्षेत्रों की पहले से ही </strong>पहचान</strong> की गई।</li>
+                <li><strong>सीसीटीवी</strong>, पुलिस के साथ </strong>खुफिया समन्वय</strong> से निगरानी मजबूत की गई।</li>
+                <li>संवेदनशील खंडों में </strong>विशेष बल</strong> तैनात किए गए।</li>
+                <li>मंडलों को </strong>खतरा-आधारित गश्त</strong> के निर्देश दिए गए।</li>
+            </ul>
+          </li>
+          <li><strong>आंतरिक खतरे की चिंताएँ</strong>:
+            <ul class="content-list">
+                <li><strong>विशेष खुफिया शाखा (SIB)</strong> को निम्नलिखित कार्य सौंपे गए:
+                    <ul class="content-list">
+                        <li><strong>कर्मचारियों, ठेका श्रमिकों</strong>, संबंधित कर्मचारियों की निगरानी।</li>
+                        <li><strong>राज्य/केंद्रीय खुफिया</strong> एजेंसियों के साथ समन्वय।</li>
+                        <li><strong>आंतरिक निगरानी</strong> और </strong>जानकारी जुटाने</strong> को तेज करना।</li>
+                    </ul>
+                </li>
+            </ul>
+          </li>
+      </ul>
+
+      <hr/>
+
+      <div class="post-line"><strong>🚆 सम्मान</strong></div>
+      <ul class="content-list">
+          <li><strong>लोको पायलट जी. सुब्रमणि</strong>:
+            <ul class="content-list">
+                <li>तत्काल </strong>आपातकालीन ब्रेक</strong> लगाए, जिससे प्रभाव कम हुआ।</li>
+                <li><strong>‘अति विशिष्ट रेल सेवा पुरस्कार’</strong> के लिए अनुशंसित।</li>
+            </ul>
+          </li>
+      </ul>
+
+      <hr/>
+
+      <div class="post-line"><strong>🕵️‍♂️ जांच का विकास</strong></div>
+      <ul class="content-list">
+          <li><strong>एनआईए की प्रारंभिक संलिप्तता</strong>:
+            <ul class="content-list">
+                <li>दुर्घटना के बाद तोड़फोड़ का संदेह।</li>
+                <li>एनआईए को तब जांच अपने हाथ में लेने के लिए </strong>कोई भौतिक प्रमाण नहीं</strong> मिला।</li>
+            </ul>
+          </li>
+          <li>CRS की अंतिम रिपोर्ट ने विस्तृत निरीक्षण के बाद </strong>तोड़फोड़ की पुष्टि</strong> की है।</li>
+      </ul>
+
+      <hr/>
+
+      <div class="post-line"><strong>📌 यूपीएससी प्रासंगिकता</strong></div>
+      <ul class="content-list">
+          <li><strong>🔹 प्रारंभिक परीक्षा</strong>:
+            <ul class="content-list">
+                <li><strong>सीआरएस</strong>, </strong>एसआईबी</strong>, और </strong>रेलवे सुरक्षा बल (आरपीएफ)</strong> की भूमिका।</li>
+                <li>रेलवे इंजीनियरिंग में </strong>टंग रेल</strong>, </strong>पॉइंट सिस्टम</strong> जैसे शब्द।</li>
+            </ul>
+          </li>
+          <li><strong>🔹 मुख्य परीक्षा - जीएस पेपर III</strong>:
+            <ul class="content-list">
+                <li><strong>आंतरिक सुरक्षा चुनौतियाँ</strong>:
+                    <ul class="content-list">
+                        <li>सार्वजनिक अवसंरचना (रेलवे) की </strong>तोड़फोड़</strong> के प्रति संवेदनशीलता।</li>
+                        <li><strong>राष्ट्रीय संपत्तियों की सुरक्षा</strong> में खुफिया और अंतर-एजेंसी समन्वय की भूमिका।</li>
+                    </ul>
+                </li>
+                <li><strong>शासन</strong>:
+                    <ul class="content-list">
+                        <li><strong>सक्रिय खतरे की पहचान</strong> का महत्व।</li>
+                        <li>महत्वपूर्ण क्षेत्रों में </strong>आंतरिक खतरों</strong> के प्रति संस्थागत प्रतिक्रिया।</li>
+                    </ul>
+                </li>
+            </ul>
+          </li>
+      </ul>
+    </div>
+
+    <div class="back-home">
+      <a href="index.html">← Back to Home</a>
+    </div>
+  </div>
+
+  <button onclick="topFunction()" id="topBtn" class="scroll-top">↑</button>
+
+  <script>
+    // Set initial main title text
+    function setMainTitle() {
+        const mainTitle = document.getElementById('main-title');
+        const englishActive = document.getElementById("english").style.display !== "none";
+        if (englishActive) {
+            mainTitle.textContent = "Sabotage in Bagmati Express Train Accident";
+        } else {
+            mainTitle.textContent = "बागमती एक्सप्रेस ट्रेन दुर्घटना में तोड़फोड़";
+        }
+        document.getElementById('doc-title').textContent = mainTitle.textContent + " - Free Mock Zone";
+    }
+
+    function toggleLanguage() {
+      const engSection = document.getElementById("english");
+      const hinSection = document.getElementById("hindi");
+      const langSwitchBtn = document.querySelector(".lang-switch");
+
+      if (engSection.style.display === "none") { // Currently Hindi, switch to English
+        engSection.style.display = "block";
+        hinSection.style.display = "none";
+        langSwitchBtn.textContent = "हिन्दी / English"; // Button text to switch back to Hindi
+      } else { // Currently English, switch to Hindi
+        engSection.style.display = "none";
+        hinSection.style.display = "block";
+        langSwitchBtn.textContent = "English / हिन्दी"; // Button text to switch back to English
+      }
+      setMainTitle(); // Update main title after language switch
+      calculateReadTime(); // Recalculate read time after language switch
+    }
+
+    // Read time calculation
+    function calculateReadTime() {
+      const currentSection = document.getElementById(document.getElementById("english").style.display === "none" ? "hindi" : "english");
+      const wordsPerMinute = 200; // Average reading speed
+      // Only count words in the English section for read time calculation as per requirement
+      const textToCount = document.getElementById("english").innerText;
+      const wordCount = textToCount.split(/\s+/).length;
+      document.getElementById("readTime").textContent = Math.ceil(wordCount / wordsPerMinute);
+    }
+    
+    // Scroll to top button
+    const topBtn = document.getElementById("topBtn");
+    window.onscroll = function () {
+      topBtn.style.display = (document.documentElement.scrollTop > 100) ? "flex" : "none";
+    };
+    function topFunction() {
+      document.documentElement.scrollTop = 0;
+    }
+
+    // Initial calculations on page load
+    document.addEventListener('DOMContentLoaded', () => {
+        setMainTitle(); // Set initial title based on default language
+        calculateReadTime(); // Calculate read time for the default language
+    });
+  </script>
+</body>
+</html>

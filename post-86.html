@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Human-Wildlife Conflict in Gujarat (Amreli Case Study)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #34495e; /* Dark Blue-Grey */
+      --secondary-color: #e74c3c; /* Terra Cotta/Rust for accents */
+      --text-color: #333;
+      --light-bg: #fdfdfd;
+      --card-bg: #ffffff;
+      --hover-color: #2980b9; /* Slightly lighter blue */
+      --border-color: #ecf0f1;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      line-height: 1.8;
+      margin: 0;
+      padding: 0;
+      background: var(--light-bg);
+      color: var(--text-color);
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: var(--primary-color);
+      color: #fff;
+      padding: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+      font-family: 'Merriweather', serif;
+    }
+    nav a {
+      color: #ecf0f1;
+      margin: 0 15px;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      font-weight: 600;
+    }
+    nav a:hover {
+      color: var(--secondary-color);
+    }
+    .lang-switch {
+      cursor: pointer;
+      background: var(--secondary-color);
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 25px;
+      transition: background 0.3s ease, transform 0.2s ease;
+      font-weight: 600;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .lang-switch:hover {
+      background: #c0392b;
+      transform: translateY(-2px);
+    }
+
+    .hero-banner {
+        width: 100%;
+        height: 300px;
+        background: url('https://via.placeholder.com/1500x300/665544/FFFFFF?text=Gujarat+Wildlife') no-repeat center center/cover; /* Placeholder, ideally an actual image */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        font-size: 2.5rem;
+        font-family: 'Merriweather', serif;
+        text-align: center;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+    section {
+      background: var(--card-bg);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      border-left: 5px solid var(--secondary-color); /* Accent border */
+    }
+    section h2, section h3 {
+      font-family: 'Merriweather', serif;
+      color: var(--primary-color);
+      margin-top: 0;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+    }
+    section h2 i, section h3 i {
+      margin-right: 10px;
+      color: var(--secondary-color);
+    }
+    section p, section li {
+      margin-bottom: 1rem;
+      padding: 5px 0; /* Add padding for hover effect */
+      transition: all 0.2s ease-in-out;
+      border-left: 3px solid transparent; /* For hover effect */
+    }
+    section p:hover, section li:hover {
+      background: rgba(var(--secondary-color-rgb, 231, 76, 60), 0.05); /* Light highlight on hover */
+      padding-left: 10px;
+      border-left-color: var(--secondary-color);
+    }
+    ul {
+      list-style: none; /* Remove default bullet */
+      padding-left: 0;
+    }
+    ul li::before {
+      content: "•"; /* Custom bullet point */
+      color: var(--secondary-color);
+      font-weight: bold;
+      display: inline-block;
+      width: 1em;
+      margin-left: -1em;
+    }
+
+    .image-caption {
+        text-align: center;
+        margin: 1.5rem 0;
+    }
+    .image-caption img {
+    max-width: 90%; /* Changed from 100% to allow for more specific control if needed, or increase this value */
+    width: 800px; /* Set a desired fixed width, or a larger percentage like 90-100% */
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    display: block; /* Ensures it takes up full width for centering */
+    margin: 0 auto; /* Centers the image */
+}
+    .image-caption p {
+        font-size: 0.9rem;
+        color: #777;
+        margin-top: 0.5rem;
+    }
+
+    .highlight-box {
+      background-color: rgba(var(--primary-color-rgb, 52, 73, 94), 0.05);
+      border-left: 4px solid var(--primary-color);
+      padding: 1rem 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 5px;
+    }
+    .highlight-box p {
+      margin: 0;
+      font-style: italic;
+      color: #555;
+    }
+
+    .read-time {
+      font-style: italic;
+      color: #777;
+      text-align: right;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px dashed var(--border-color);
+    }
+    .read-time i {
+      margin-right: 5px;
+      color: var(--secondary-color);
+    }
+
+    .top-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--hover-color);
+      color: #fff;
+      padding: 0.8rem 1rem;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      display: none;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      transition: background 0.3s ease, transform 0.2s ease;
+      z-index: 1000;
+    }
+    .top-btn:hover {
+      background: var(--primary-color);
+      transform: translateY(-3px);
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.7rem 1.5rem;
+      background: var(--primary-color);
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background 0.3s ease, transform 0.2s ease;
+      font-weight: 600;
+    }
+    .back-btn:hover {
+      background: var(--hover-color);
+      transform: translateY(-2px);
+    }
+
+    footer {
+      background: var(--primary-color);
+      color: white;
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    @media(max-width:768px){
+      header {
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem;
+      }
+      header h1 {
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+      }
+      nav {
+        margin-bottom: 1rem;
+      }
+      nav a {
+        margin: 0 8px;
+      }
+      .lang-switch {
+        width: fit-content;
+        margin: auto;
+      }
+      .container {
+        margin: 1rem auto;
+        padding: 0 1rem;
+      }
+      section {
+        padding: 1.5rem;
+      }
+      .hero-banner {
+          height: 200px;
+          font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Current Affairs</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="donation.html">Donation</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="lang-switch" onclick="toggleLang()">Switch Language</div>
+  </header>
+
+  <div class="hero-banner">
+      Understanding Human-Wildlife Coexistence
+  </div>
+
+  <div class="container">
+    <p class="read-time"><i class="far fa-clock"></i> Estimated Read Time: <span id="readTime"></span> minutes</p>
+
+    <section id="english">
+      <h2><i class="fas fa-paw"></i> <strong>Human-Wildlife Conflict in Gujarat (Case Study: Amreli District)</strong></h2>
+
+      <div class="highlight-box">
+        <p>This case study from Amreli District highlights the acute challenges faced by rural communities living in close proximity to wildlife habitats, forcing them to adopt desperate measures for survival.</p>
+      </div>
+
+      <h3><i class="fas fa-map-marker-alt"></i> <strong>Location & Context</strong></h3>
+      <ul>
+        <li><strong>Village:</strong> Japodar, Amreli district, Gujarat</li>
+        <li><strong>Affected Individual:</strong> Bharatbhai Baraiya, 30-year-old widowed tenant farmer</li>
+        <li><strong>Proximity to Wildlife Area:</strong> Close to <strong>Gir National Park</strong>, a vital habitat for <strong>Asiatic lions and leopards</strong></li>
+      </ul>
+
+      <h3><i class="fas fa-exclamation-triangle"></i> <strong>Issue at Hand: Human-Wildlife Conflict</strong></h3>
+      <ul>
+        <li><strong>Main Threat:</strong> Leopards (Panthera pardus) - known for their stealth and unpredictable nature.</li>
+        <li><strong>Nature of Threat:</strong>
+          <ul>
+            <li>Attack silently, mainly targeting children and small animals.</li>
+            <li>More unpredictable and stealthy compared to lions.</li>
+          </ul>
+        </li>
+        <li><strong>Instances Noted by Bharatbhai:</strong>
+          <ul>
+            <li>Daily leopard sightings on a <strong>banyan tree near his home</strong>.</li>
+            <li>Disturbing disappearance of his <strong>puppies</strong> on the farm.</li>
+            <li>His <strong>daughter's traumatic encounter</strong> with a leopard, causing psychological distress.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="image-caption">
+          <img src="post-86.jpg" alt="Leopard in its natural habitat">
+          <p>Leopards are highly adaptable and often venture into human settlements, especially with habitat fragmentation.</p>
+      </div>
+
+      <h3><i class="fas fa-shield-alt"></i> <strong>Desperate Measures for Protection</strong></h3>
+      <ul>
+        <li><strong>Human Cage Built:</strong> A stark symbol of desperation and grassroots innovation.
+          <ul>
+            <li>Size: 8x6 feet.</li>
+            <li>Materials: Constructed from iron rods, grilles, tarpaulin sheets, and cement blocks.</li>
+            <li>Cost: ₹9,000 (a significant sum for a tenant farmer).</li>
+            <li>Purpose: To protect his <strong>5 young daughters</strong> from potential leopard attacks at night.</li>
+            <li>This act underscores the severe lack of adequate state intervention and safety nets.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="image-caption">
+          <img src="post-86-2.jpg" alt="Representation of a rural house and a protective cage">
+          <p>The makeshift cage highlights the vulnerability and resilience of families in conflict zones.</p>
+      </div>
+
+      <h3><i class="fas fa-chart-line"></i> <strong>Leopard Population Trends</strong></h3>
+      <ul>
+        <li><strong>2023 Wildlife Census Data (Gujarat):</strong>
+          <ul>
+            <li><strong>Total leopards in the state:</strong> A significant 2,274.</li>
+            <li><strong>In Amreli District:</strong> A notable increase:
+              <ul>
+                <li>2016: 105</li>
+                <li>2023: 126 (and likely increased further since the census)</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><strong>Implication:</strong> The growing leopard population directly increases the likelihood of human-wildlife conflict, particularly in <strong>agrarian and rural fringe areas</strong> adjacent to forests.</li>
+      </ul>
+
+      <h3><i class="fas fa-users"></i> <strong>Socio-Economic Aspects</strong></h3>
+      <ul>
+        <li><strong>Occupation:</strong> Bharatbhai is a tenant farmer, often working late nights for irrigation duties, leaving his family vulnerable.</li>
+        <li><strong>Housing Conditions:</strong>
+          <ul>
+            <li>His home is poorly constructed, resembling a <strong>cattle shed</strong>.</li>
+            <li>Lacks proper doors or a solid foundation, making it highly vulnerable to animal intrusion.</li>
+          </ul>
+        </li>
+        <li><strong>Family Background:</strong> A poignant story of resilience.
+          <ul>
+            <li>He became a <strong>widower</strong> in November 2023, his wife having passed away during childbirth.</li>
+            <li>His infant son lives with maternal grandparents.</li>
+            <li>He is courageously raising <strong>five daughters alone</strong>, under the constant shadow of wildlife threats.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3><i class="fas fa-graduation-cap"></i> <strong>Relevant Themes for UPSC CSE</strong></h3>
+      <ul>
+        <li><strong>GS Paper 1: Society</strong>
+          <ul>
+            <li>Rural distress and livelihood challenges.</li>
+            <li>Gender and child vulnerability in marginalized communities.</li>
+            <li>The unique struggles of single parenthood in agrarian settings.</li>
+          </ul>
+        </li>
+        <li><strong>GS Paper 3: Environment & Ecology</strong>
+          <ul>
+            <li>In-depth analysis of human-wildlife conflict dynamics.</li>
+            <li>The delicate balance between conservation efforts and livelihood challenges.</li>
+            <li>Understanding the carrying capacity of ecosystems and its implications.</li>
+            <li>Impacts of wildlife population growth on human settlements.</li>
+          </ul>
+        </li>
+        <li><strong>Essay Paper:</strong> Potential topics include:
+          <ul>
+            <li><em>"Living with Nature: Harmony or Conflict?"</em></li>
+            <li><em>"Survival, Innovation, and Dignity in Rural India"</em></li>
+            <li><em>"The Unseen Burdens of Conservation on Local Communities"</em></li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3><i class="fas fa-lightbulb"></i> <strong>Way Forward & Policy Implications</strong></h3>
+      <ul>
+        <li><strong>Integrated Wildlife Management Plans:</strong> Essential for long-term solutions, including safe corridors, robust habitat protection, and effective fencing solutions.</li>
+        <li><strong>Compensation and Insurance Schemes:</strong> Timely and adequate financial support for affected families to mitigate losses from crop damage, livestock predation, and human injury/loss of life.</li>
+        <li><strong>Awareness & Education:</strong> Promoting co-existence strategies and safe practices among local communities.</li>
+        <li><strong>State Intervention:</strong> Crucial for improving rural housing infrastructure and providing safe night shelters for vulnerable populations.</li>
+        <li><strong>Technology Use:</strong> Deployment of motion-sensor alarms, solar fencing, and drone surveillance for early warning and monitoring.</li>
+      </ul>
+
+      <h3><i class="fas fa-tags"></i> <strong>Keywords for Mains Answers / Essay</strong></h3>
+      <div class="highlight-box">
+          <p><em>Human-wildlife interface, Ecological balance vs. livelihood, Vulnerable communities, Informal housing, Biodiversity pressure zones, Rural resilience, Grassroots innovation, Conservation ethics, Sustainable co-existence.</em></p>
+      </div>
+
+      <a class="back-btn" href="index.html"><i class="fas fa-arrow-left"></i> Back to Home</a>
+    </section>
+
+    <section id="hindi" style="display:none">
+      <h2><i class="fas fa-paw"></i> <strong>गुजरात में मानव-वन्यजीव संघर्ष (केस स्टडी: अमरेली जिला)</strong></h2>
+
+      <div class="highlight-box">
+        <p>अमरेली जिले का यह केस स्टडी ग्रामीण समुदायों द्वारा वन्यजीव आवासों के करीब रहने में सामने आने वाली गंभीर चुनौतियों को उजागर करता है, जिससे उन्हें अस्तित्व के लिए हताश उपाय अपनाने पड़ते हैं।</p>
+      </div>
+
+      <h3><i class="fas fa-map-marker-alt"></i> <strong>स्थान और संदर्भ</strong></h3>
+      <ul>
+        <li><strong>गांव:</strong> जापोदर, अमरेली जिला, गुजरात</li>
+        <li><strong>प्रभावित व्यक्ति:</strong> भरतभाई बरैया, 30 वर्षीय विधुर, ठेके पर खेती करने वाले</li>
+        <li><strong>वन्य क्षेत्र के पास:</strong> गिर राष्ट्रीय उद्यान (एशियाई शेरों और तेंदुओं का आवास)</li>
+      </ul>
+
+      <h3><i class="fas fa-exclamation-triangle"></i> <strong>मुद्दा: मानव-वन्यजीव संघर्ष</strong></h3>
+      <ul>
+        <li><strong>मुख्य खतरा:</strong> तेंदुए (Panthera pardus) - अपनी गोपनीयता और अप्रत्याशित प्रकृति के लिए जाने जाते हैं।</li>
+        <li><strong>खतरे की प्रकृति:</strong>
+          <ul>
+            <li>चुपचाप हमला करते हैं, खासकर बच्चों और छोटे जानवरों को निशाना बनाते हैं।</li>
+            <li>शेरों की तुलना में अधिक अप्रत्याशित और चालाक।</li>
+          </ul>
+        </li>
+        <li><strong>भरतभाई द्वारा देखी गई घटनाएं:</strong>
+          <ul>
+            <li>घर के पास बरगद के पेड़ पर रोज़ तेंदुए का दिखना।</li>
+            <li>खेत पर अपने <strong>पालतू पिल्लों का गायब होना</strong>।</li>
+            <li>उनकी <strong>बेटी का तेंदुए से दर्दनाक सामना</strong>, जिससे मानसिक आघात हुआ।</li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="image-caption">
+          <img src="https://via.placeholder.com/800x400/8899AA/FFFFFF?text=तेंदुआ+अपने+आवास+में" alt="Leopard in its natural habitat">
+          <p>तेंदुए अत्यधिक अनुकूलनीय होते हैं और अक्सर मानव बस्तियों में प्रवेश करते हैं, खासकर आवास विखंडन के साथ।</p>
+      </div>
+
+      <h3><i class="fas fa-shield-alt"></i> <strong>सुरक्षा के लिए मजबूरी में उठाए गए कदम</strong></h3>
+      <ul>
+        <li><strong>मानव पिंजरा बनाया गया:</strong> हताशा और जमीनी नवाचार का एक स्पष्ट प्रतीक।
+          <ul>
+            <li>आकार: 8x6 फीट।</li>
+            <li>सामग्री: लोहे की छड़ें, ग्रिल, तिरपाल, सीमेंट ब्लॉक से निर्मित।</li>
+            <li>लागत: ₹9,000 (एक ठेके पर खेती करने वाले के लिए एक बड़ी राशि)।</li>
+            <li>उद्देश्य: रात में अपनी <strong>5 छोटी बेटियों</strong> को तेंदुए के संभावित हमलों से बचाना।</li>
+            <li>यह कार्य पर्याप्त राज्य हस्तक्षेप और सुरक्षा जालों की गंभीर कमी को रेखांकित करता है।</li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="image-caption">
+          <img src="https://via.placeholder.com/800x400/BBAA99/FFFFFF?text=ग्रामीण+घर+और+पिंजरा" alt="Representation of a rural house and a protective cage">
+          <p>अस्थायी पिंजरा संघर्ष क्षेत्रों में परिवारों की भेद्यता और लचीलेपन को उजागर करता है।</p>
+      </div>
+
+      <h3><i class="fas fa-chart-line"></i> <strong>तेंदुआ जनसंख्या प्रवृत्ति</strong></h3>
+      <ul>
+        <li><strong>2023 की वन्यजीव जनगणना (गुजरात):</strong>
+          <ul>
+            <li><strong>राज्य में कुल तेंदुए:</strong> एक महत्वपूर्ण 2,274।</li>
+            <li><strong>अमरेली जिले में:</strong> एक उल्लेखनीय वृद्धि:
+              <ul>
+                <li>2016: 105</li>
+                <li>2023: 126 (और जनगणना के बाद से और बढ़ने की संभावना है)</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><strong>निष्कर्ष:</strong> बढ़ती तेंदुआ जनसंख्या सीधे मानव-वन्यजीव संघर्ष की संभावना को बढ़ाती है, खासकर जंगलों के निकट <strong>कृषि और ग्रामीण सीमांत क्षेत्रों</strong> में।</li>
+      </ul>
+
+      <h3><i class="fas fa-users"></i> <strong>सामाजिक-आर्थिक पक्ष</strong></h3>
+      <ul>
+        <li><strong>पेशा:</strong> भरतभाई एक ठेके पर खेती करने वाले हैं, जो अक्सर सिंचाई कर्तव्यों के लिए देर रात तक काम करते हैं, जिससे उनका परिवार असुरक्षित रहता है।</li>
+        <li><strong>आवासीय स्थिति:</strong>
+          <ul>
+            <li>उनका घर खराब ढंग से निर्मित है, जो एक <strong>मवेशियों के शेड</strong> जैसा दिखता है।</li>
+            <li>इसमें उचित दरवाजे या ठोस नींव की कमी है, जिससे यह जानवरों के प्रवेश के लिए अत्यधिक संवेदनशील है।</li>
+          </ul>
+        </li>
+        <li><strong>पारिवारिक पृष्ठभूमि:</strong> लचीलेपन की एक मार्मिक कहानी।
+          <ul>
+            <li>नवंबर 2023 में प्रसव के दौरान पत्नी की मृत्यु हो जाने से वह <strong>विधुर</strong> हो गए।</li>
+            <li>उनका नवजात बेटा ननिहाल में रहता है।</li>
+            <li>वह वन्यजीव खतरों की लगातार छाया में <strong>अकेले पांच बेटियों</strong> का पालन-पोषण कर रहे हैं।</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3><i class="fas fa-graduation-cap"></i> <strong>UPSC CSE के लिए प्रासंगिक विषय</strong></h3>
+      <ul>
+        <li><strong>GS पेपर 1: समाज</strong>
+          <ul>
+            <li>ग्रामीण संकट और आजीविका चुनौतियां।</li>
+            <li>हाशिए पर पड़े समुदायों में लिंग और बाल भेद्यता।</li>
+            <li>कृषि परिवेश में एकल पालकत्व के अद्वितीय संघर्ष।</li>
+          </ul>
+        </li>
+        <li><strong>GS पेपर 3: पर्यावरण और पारिस्थितिकी</strong>
+          <ul>
+            <li>मानव-वन्यजीव संघर्ष गतिशीलता का गहन विश्लेषण।</li>
+            <li>संरक्षण प्रयासों और आजीविका चुनौतियों के बीच नाजुक संतुलन।</li>
+            <li>पारिस्थितिक तंत्र की वहन क्षमता और इसके निहितार्थों को समझना।</li>
+            <li>मानव बस्तियों पर वन्यजीव जनसंख्या वृद्धि का प्रभाव।</li>
+          </ul>
+        </li>
+        <li><strong>निबंध पत्र:</strong> संभावित विषय शामिल हैं:
+          <ul>
+            <li><em>"प्रकृति के साथ सह-अस्तित्व: सामंजस्य या संघर्ष?"</em></li>
+            <li><em>"ग्रामीण भारत में जीवन, नवाचार और गरिमा"</em></li>
+            <li><em>"स्थानीय समुदायों पर संरक्षण के अनदेखे बोझ"</em></li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3><i class="fas fa-lightbulb"></i> <strong>आगे का रास्ता और नीति सुझाव</strong></h3>
+      <ul>
+        <li><strong>एकीकृत वन्यजीव प्रबंधन योजनाएं:</strong> दीर्घकालिक समाधानों के लिए आवश्यक, जिसमें सुरक्षित गलियारे, मजबूत आवास संरक्षण और प्रभावी बाड़ लगाने के समाधान शामिल हैं।</li>
+        <li><strong>मुआवज़ा और बीमा योजनाएं:</strong> फसल क्षति, पशुधन शिकार और मानव चोट/जीवन की हानि से होने वाले नुकसान को कम करने के लिए प्रभावित परिवारों के लिए समय पर और पर्याप्त वित्तीय सहायता।</li>
+        <li><strong>शिक्षा और जागरूकता:</strong> स्थानीय समुदायों के बीच सह-अस्तित्व रणनीतियों और सुरक्षित प्रथाओं को बढ़ावा देना।</li>
+        <li><strong>राज्य का हस्तक्षेप:</strong> ग्रामीण आवास बुनियादी ढांचे में सुधार और कमजोर आबादी के लिए सुरक्षित रात्रि आश्रय प्रदान करने के लिए महत्वपूर्ण।</li>
+        <li><strong>प्रौद्योगिकी का उपयोग:</strong> प्रारंभिक चेतावनी और निगरानी के लिए मोशन-सेंसर अलार्म, सौर बाड़ और ड्रोन निगरानी की तैनाती।</li>
+      </ul>
+
+      <h3><i class="fas fa-tags"></i> <strong>मुख्य शब्द (Mains/Essay के लिए)</strong></h3>
+      <div class="highlight-box">
+          <p><em>मानव-वन्यजीव इंटरफेस, पारिस्थितिक संतुलन बनाम आजीविका, संवेदनशील समुदाय, अनौपचारिक आवास, जैव विविधता दबाव क्षेत्र, ग्रामीण लचीलापन, जमीनी नवाचार, संरक्षण नैतिकता, सतत सह-अस्तित्व।</em></p>
+      </div>
+
+      <a class="back-btn" href="index.html"><i class="fas fa-arrow-left"></i> होम पर वापस</a>
+    </section>
+  </div>
+
+  <div class="top-btn" onclick="scrollToTop()">↑</div>
+
+  <footer>
+      <p>&copy; 2025 Current Affairs. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Calculate RGB values for secondary color for use in rgba()
+    const hexToRgb = hex => {
+      const bigint = parseInt(hex.slice(1), 16);
+      const r = (bigint >> 16) & 255;
+      const g = (bigint >> 8) & 255;
+      const b = bigint & 255;
+      return `${r}, ${g}, ${b}`;
+    };
+    document.documentElement.style.setProperty('--secondary-color-rgb', hexToRgb(getComputedStyle(document.documentElement).getPropertyValue('--secondary-color')));
+    document.documentElement.style.setProperty('--primary-color-rgb', hexToRgb(getComputedStyle(document.documentElement).getPropertyValue('--primary-color')));
+
+
+    function toggleLang() {
+      const eng = document.getElementById('english');
+      const hin = document.getElementById('hindi');
+      const langSwitch = document.querySelector('.lang-switch');
+
+      if (eng.style.display === 'none') {
+        eng.style.display = 'block';
+        hin.style.display = 'none';
+        langSwitch.textContent = 'Switch Language';
+      } else {
+        eng.style.display = 'none';
+        hin.style.display = 'block';
+        langSwitch.textContent = 'भाषा बदलें';
+      }
+      calculateReadTime(); // Recalculate read time for the visible section
+    }
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    window.onscroll = function () {
+      document.querySelector('.top-btn').style.display = (window.scrollY > 100) ? 'block' : 'none';
+    };
+
+    function calculateReadTime() {
+      const activeSectionId = document.getElementById('english').style.display !== 'none' ? 'english' : 'hindi';
+      const text = document.getElementById(activeSectionId).innerText;
+      const words = text.split(/\s+/).length;
+      const readTime = Math.ceil(words / 200); // Average reading speed of 200 words per minute
+      document.getElementById('readTime').innerText = readTime;
+    }
+
+    window.onload = calculateReadTime;
+  </script>
+</body>
+</html>

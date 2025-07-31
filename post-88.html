@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boost the Capacity of Legal Aid Systems</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50; /* Dark Blue-Grey */
+            --secondary-color: #3498db; /* Bright Blue for accents */
+            --tertiary-color: #2ecc71; /* Green for success/highlights */
+            --text-color: #333;
+            --light-bg: #f9fbfd;
+            --card-bg: #ffffff;
+            --hover-color: #e74c3c; /* Red for hover on text/links */
+            --border-color: #ecf0f1;
+            --secondary-color-rgb: 52, 152, 219; /* RGB for the secondary color */
+            --primary-color-rgb: 44, 62, 80; /* RGB for the primary color */
+            --hover-color-rgb: 231, 76, 60; /* RGB for hover color */
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            background: var(--light-bg);
+            color: var(--text-color);
+            scroll-behavior: smooth;
+        }
+
+        header {
+            background: var(--primary-color);
+            color: #fff;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            font-family: 'Merriweather', serif;
+        }
+        nav a {
+            color: #ecf0f1;
+            margin: 0 15px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 600;
+        }
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+        .lang-switch {
+            cursor: pointer;
+            background: var(--secondary-color);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            transition: background 0.3s ease, transform 0.2s ease;
+            font-weight: 600;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .lang-switch:hover {
+            background: var(--tertiary-color);
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+        section {
+            background: var(--card-bg);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid var(--secondary-color); /* Accent border */
+        }
+        section h2, section h3 {
+            font-family: 'Merriweather', serif;
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+        }
+        section h2 i, section h3 i {
+            margin-right: 10px;
+            color: var(--tertiary-color);
+        }
+        section p, section li, table tbody tr td {
+            margin-bottom: 1rem;
+            padding: 5px 0; /* Add padding for hover effect */
+            transition: all 0.2s ease-in-out;
+            border-left: 3px solid transparent; /* For hover effect */
+        }
+        section p:hover, section li:hover, table tbody tr td:hover {
+            background: rgba(var(--hover-color-rgb), 0.08); /* Light highlight on hover */
+            padding-left: 10px;
+            border-left-color: var(--hover-color);
+            cursor: default; /* Indicate it's just a hover effect, not clickable */
+        }
+        ul {
+            list-style: none; /* Remove default bullet */
+            padding-left: 0;
+        }
+        ul li::before {
+            content: "•"; /* Custom bullet point */
+            color: var(--secondary-color);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        .read-time {
+            font-style: italic;
+            color: #777;
+            text-align: right;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px dashed var(--border-color);
+        }
+        .read-time i {
+            margin-right: 5px;
+            color: var(--tertiary-color);
+        }
+
+        .highlight-box {
+            background-color: rgba(var(--primary-color-rgb), 0.05);
+            border-left: 4px solid var(--primary-color);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 5px;
+        }
+        .highlight-box p {
+            margin: 0;
+            font-style: italic;
+            color: #555;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+        }
+        table th, table td {
+            border: 1px solid var(--border-color);
+            padding: 10px 15px;
+            text-align: left;
+        }
+        table th {
+            background-color: var(--primary-color);
+            color: white;
+            font-family: 'Merriweather', serif;
+        }
+        table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .top-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--secondary-color);
+            color: #fff;
+            padding: 0.8rem 1rem;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            transition: background 0.3s ease, transform 0.2s ease;
+            z-index: 1000;
+        }
+        .top-btn:hover {
+            background: var(--tertiary-color);
+            transform: translateY(-3px);
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 0.7rem 1.5rem;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s ease, transform 0.2s ease;
+            font-weight: 600;
+        }
+        .back-btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+            font-size: 0.9rem;
+            box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        @media(max-width:768px){
+            header {
+                flex-direction: column;
+                text-align: center;
+                padding: 1rem;
+            }
+            header h1 {
+                margin-bottom: 1rem;
+                font-size: 1.5rem;
+            }
+            nav {
+                margin-bottom: 1rem;
+            }
+            nav a {
+                margin: 0 8px;
+            }
+            .lang-switch {
+                width: fit-content;
+                margin: auto;
+            }
+            .container {
+                margin: 1rem auto;
+                padding: 0 1rem;
+            }
+            section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Current Affairs</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="donation.html">Donation</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <div class="lang-switch" onclick="toggleLang()">Switch Language</div>
+    </header>
+
+    <div class="container">
+        <p class="read-time"><i class="far fa-clock"></i> Estimated Read Time: <span id="readTime"></span> minutes</p>
+
+        <section id="english">
+            <h2><i class="fas fa-gavel"></i> <strong>Boost the Capacity of Legal Aid Systems</strong></h2>
+
+            <h3><i class="fas fa-info-circle"></i> <strong>Overview of Legal Aid System in India</strong></h3>
+            <ul>
+                <li>Established under <strong>Legal Services Authorities Act, 1987</strong>.</li>
+                <li>Mandate: Provide <strong>free legal aid</strong> to ~80% of India’s population.</li>
+                <li>Actual reach (Apr 2023-Mar 2024): <strong>15.50 lakh beneficiaries</strong> (28% increase from previous year’s 12.14 lakh).</li>
+                <li>Front offices attached to courts, prisons, juvenile justice boards.</li>
+                <li>Legal aid clinics serve rural/remote areas; <strong>1 clinic per 163 villages</strong> (India Justice Report 2025).</li>
+                <li>Service availability depends on <strong>financial and human resources</strong>.</li>
+            </ul>
+
+            <h3><i class="fas fa-money-bill-wave"></i> <strong>Funding & Budget</strong></h3>
+            <ul>
+                <li>Legal aid budget < <strong>1%</strong> of total justice budget (police, judiciary, prisons).</li>
+                <li>Funding: <strong>Centre (NALSA)</strong> and <strong>States (SLSAs)</strong>.</li>
+                <li><strong>Budget growth (2017-18 to 2022-23):</strong>
+                    <ul>
+                        <li>Total: ₹601 crore → ₹1,086 crore.</li>
+                        <li>State budgets increased from ₹394 crore → ₹866 crore (13 States >100% increase).</li>
+                    </ul>
+                </li>
+                <li><strong>NALSA’s funds</strong> decreased from ₹207 crore → ₹169 crore; utilization declined from <strong>75% to 59%</strong>.</li>
+                <li><strong>Budget allocation issues:</strong>
+                    <ul>
+                        <li>NALSA funds restricted (no expenditure without prior approval).</li>
+                        <li>Funds allocated mainly for legal aid, outreach, ADR (50%, 25%, 25%).</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3><i class="fas fa-chart-pie"></i> <strong>Per Capita Spending & Disparities</strong></h3>
+            <ul>
+                <li>Per capita legal aid spending doubled (~₹3 to ₹7 since 2019).</li>
+                <li><strong>2022-23 expenditure (highest):</strong> Haryana (₹16 per capita).</li>
+                <li><strong>Lower spends:</strong> Jharkhand, Assam, UP, Bihar, West Bengal (~₹2-₹5).</li>
+            </ul>
+
+            <h3><i class="fas fa-handshake"></i> <strong>Frontline Responders & Para-legal Volunteers</strong></h3>
+            <ul>
+                <li><strong>Decline in para-legal volunteers:</strong>
+                    <ul>
+                        <li>38% drop (2019-2024).</li>
+                        <li>From <strong>5.7 per lakh</strong> → <strong>3.1 per lakh</strong> population.</li>
+                        <li>West Bengal & UP: only 1 volunteer per lakh.</li>
+                    </ul>
+                </li>
+                <li><strong>Budget constraints</strong>:
+                    <ul>
+                        <li>Volunteers paid on per-day basis; honorariums mostly below minimum wages.</li>
+                        <li>Kerala (₹750/day), 22 States (₹500/day), others lower.</li>
+                    </ul>
+                </li>
+                <li><strong>Training & Deployment:</strong>
+                    <ul>
+                        <li>2019-20: 63,000 trained, 22,000 deployed.</li>
+                        <li>2023-24: 53,000 trained, only 14,000 deployed.</li>
+                    </ul>
+                </li>
+                <li><strong>Issue:</strong> Low honorarium, lack of incentives.</li>
+            </ul>
+
+            <h3><i class="fas fa-lightbulb"></i> <strong>Legal Aid Schemes & Initiatives</strong></h3>
+            <ul>
+                <li><strong>Legal Aid Defence Counsel (LADC)</strong> (since 2022):
+                    <ul>
+                        <li>Modeled on Public Defender system.</li>
+                        <li>Represents <strong>only accused persons</strong>.</li>
+                        <li>Operational in <strong>610 districts</strong> (out of 670).</li>
+                        <li><strong>2023-24 allocation:</strong> ₹200 crore (fully utilized).</li>
+                        <li><strong>2024-25:</strong> Allocation reduced to ₹147.9 crore.</li>
+                        <li>Potential to <strong>reduce burden</strong> on other lawyers & improve quality.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3><i class="fas fa-exclamation-triangle"></i> <strong>Challenges & Recommendations</strong></h3>
+            <ul>
+                <li><strong>Persistent Issues:</strong>
+                    <ul>
+                        <li>Inconsistent service quality.</li>
+                        <li>Lack of accountability & trust.</li>
+                        <li>Limited resources hinder effective functioning.</li>
+                    </ul>
+                </li>
+                <li><strong>Need for:</strong>
+                    <ul>
+                        <li>Increased <strong>funding & manpower</strong>.</li>
+                        <li>Better <strong>training & incentives</strong> for para-legal volunteers.</li>
+                        <li>Improved <strong>monitoring & accountability mechanisms</strong>.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3><i class="fas fa-check-circle"></i> <strong>Conclusion</strong></h3>
+            <ul>
+                <li>To uphold constitutional mandate, <strong>capacity building</strong> in legal aid systems is essential.</li>
+                <li>Focus on <strong>adequate resource allocation, effective deployment</strong>, and <strong>quality service delivery</strong>.</li>
+            </ul>
+
+            <a class="back-btn" href="index.html"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        </section>
+
+        <section id="hindi" style="display:none">
+            <h2><i class="fas fa-gavel"></i> <strong>कानूनी सहायता प्रणालियों की क्षमता बढ़ाएँ</strong></h2>
+
+            <h3><i class="fas fa-info-circle"></i> <strong>भारत में कानूनी सहायता प्रणाली का अवलोकन</strong></h3>
+            <ul>
+                <li><strong>कानूनी सेवा प्राधिकरण अधिनियम, 1987</strong> के तहत स्थापित।</li>
+                <li>अधिदेश: भारत की लगभग 80% आबादी को <strong>मुफ्त कानूनी सहायता</strong> प्रदान करना।</li>
+                <li>वास्तविक पहुंच (अप्रैल 2023-मार्च 2024): <strong>15.50 लाख लाभार्थी</strong> (पिछले वर्ष के 12.14 लाख से 28% की वृद्धि)।</li>
+                <li>न्यायालयों, जेलों, किशोर न्याय बोर्डों से जुड़े फ्रंट ऑफिस।</li>
+                <li>कानूनी सहायता क्लीनिक ग्रामीण/दूरदराज के क्षेत्रों में सेवा प्रदान करते हैं; <strong>प्रति 163 गांवों पर 1 क्लीनिक</strong> (इंडिया जस्टिस रिपोर्ट 2025)।</li>
+                <li>सेवा की उपलब्धता <strong>वित्तीय और मानव संसाधनों</strong> पर निर्भर करती है।</li>
+            </ul>
+
+            <h3><i class="fas fa-money-bill-wave"></i> <strong>धन और बजट</strong></h3>
+            <ul>
+                <li>कानूनी सहायता बजट कुल न्याय बजट (पुलिस, न्यायपालिका, जेल) के <strong>1% से कम</strong>।</li>
+                <li>वित्त पोषण: <strong>केंद्र (नालसा)</strong> और <strong>राज्य (एसएलएसए)</strong>।</li>
+                <li><strong>बजट वृद्धि (2017-18 से 2022-23):</strong>
+                    <ul>
+                        <li>कुल: ₹601 करोड़ → ₹1,086 करोड़।</li>
+                        <li>राज्य बजट ₹394 करोड़ → ₹866 करोड़ (13 राज्यों में 100% से अधिक की वृद्धि)।</li>
+                    </ul>
+                </li>
+                <li><strong>नालसा का फंड</strong> ₹207 करोड़ → ₹169 करोड़ घट गया; उपयोग <strong>75% से घटकर 59%</strong> हो गया।</li>
+                <li><strong>बजट आवंटन के मुद्दे:</strong>
+                    <ul>
+                        <li>नालसा फंड प्रतिबंधित (पूर्व अनुमोदन के बिना कोई व्यय नहीं)।</li>
+                        <li>फंड मुख्य रूप से कानूनी सहायता, आउटरीच, एडीआर (50%, 25%, 25%) के लिए आवंटित।</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3><i class="fas fa-chart-pie"></i> <strong>प्रति व्यक्ति खर्च और असमानताएं</strong></h3>
+            <ul>
+                <li>प्रति व्यक्ति कानूनी सहायता खर्च दोगुना हुआ (~2019 से ₹3 से ₹7)।</li>
+                <li><strong>2022-23 व्यय (उच्चतम):</strong> हरियाणा (₹16 प्रति व्यक्ति)।</li>
+                <li><strong>कम खर्च:</strong> झारखंड, असम, उत्तर प्रदेश, बिहार, पश्चिम बंगाल (~₹2-₹5)।</li>
+            </ul>
+
+            <h3><i class="fas fa-handshake"></i> <strong>अग्रिम पंक्ति के उत्तरदाता और पैरा-लीगल स्वयंसेवक</strong></h3>
+            <ul>
+                <li><strong>पैरा-लीगल स्वयंसेवकों में गिरावट:</strong>
+                    <ul>
+                        <li>38% की गिरावट (2019-2024)।</li>
+                        <li>प्रति लाख आबादी पर <strong>5.7 से घटकर 3.1</strong>।</li>
+                        <li>पश्चिम बंगाल और उत्तर प्रदेश: प्रति लाख केवल 1 स्वयंसेवक।</li>
+                    </ul>
+                </li>
+                <li><strong>बजट की कमी</strong>:
+                    <ul>
+                        <li>स्वयंसेवकों को प्रतिदिन के आधार पर भुगतान किया जाता है; मानदेय ज्यादातर न्यूनतम मजदूरी से कम।</li>
+                        <li>केरल (₹750/दिन), 22 राज्य (₹500/दिन), अन्य कम।</li>
+                    </ul>
+                </li>
+                <li><strong>प्रशिक्षण और तैनाती:</strong>
+                    <ul>
+                        <li>2019-20: 63,000 प्रशिक्षित, 22,000 तैनात।</li>
+                        <li>2023-24: 53,000 प्रशिक्षित, केवल 14,000 तैनात।</li>
+                    </ul>
+                </li>
+                <li><strong>मुद्दा:</strong> कम मानदेय, प्रोत्साहनों की कमी।</li>
+            </ul>
+
+            <h3><i class="fas fa-lightbulb"></i> <strong>कानूनी सहायता योजनाएँ और पहल</strong></h3>
+            <ul>
+                <li><strong>कानूनी सहायता रक्षा वकील (एलएडीसी)</strong> (2022 से):
+                    <ul>
+                        <li>पब्लिक डिफेंडर प्रणाली पर आधारित।</li>
+                        <li>केवल <strong>अभियुक्त व्यक्तियों</strong> का प्रतिनिधित्व करता है।</li>
+                        <li><strong>610 जिलों</strong> में (670 में से) चालू।</li>
+                        <li><strong>2023-24 आवंटन:</strong> ₹200 करोड़ (पूरी तरह से उपयोग)।</li>
+                        <li><strong>2024-25:</strong> आवंटन घटाकर ₹147.9 करोड़।</li>
+                        <li>अन्य वकीलों पर <strong>बोझ कम करने</strong> और गुणवत्ता में सुधार की क्षमता।</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3><i class="fas fa-exclamation-triangle"></i> <strong>चुनौतियाँ और सिफारिशें</strong></h3>
+            <ul>
+                <li><strong>लगातार मुद्दे:</strong>
+                    <ul>
+                        <li>असंगत सेवा गुणवत्ता।</li>
+                        <li>जवाबदेही और विश्वास की कमी।</li>
+                        <li>सीमित संसाधन प्रभावी कामकाज में बाधा डालते हैं।</li>
+                    </ul>
+                </li>
+                <li><strong>आवश्यकता:</strong>
+                    <ul>
+                        <li>बढ़े हुए <strong>धन और जनशक्ति</strong>।</li>
+                        <li>पैरा-लीगल स्वयंसेवकों के लिए बेहतर <strong>प्रशिक्षण और प्रोत्साहन</strong>।</li>
+                        <li>बेहतर <strong>निगरानी और जवाबदेही तंत्र</strong>।</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3><i class="fas fa-check-circle"></i> <strong>निष्कर्ष</strong></h3>
+            <ul>
+                <li>संवैधानिक जनादेश को बनाए रखने के लिए, कानूनी सहायता प्रणालियों में <strong>क्षमता निर्माण</strong> आवश्यक है।</li>
+                <li><strong>पर्याप्त संसाधन आवंटन, प्रभावी तैनाती</strong> और <strong>गुणवत्तापूर्ण सेवा वितरण</strong> पर ध्यान दें।</li>
+            </ul>
+
+            <a class="back-btn" href="index.html"><i class="fas fa-arrow-left"></i> होम पर वापस</a>
+        </section>
+    </div>
+
+    <div class="top-btn" onclick="scrollToTop()">↑</div>
+
+    <footer>
+        <p>&copy; 2025 Current Affairs. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Calculate RGB values for colors for use in rgba()
+        const hexToRgb = hex => {
+            const bigint = parseInt(hex.slice(1), 16);
+            const r = (bigint >> 16) & 255;
+            const g = (bigint >> 8) & 255;
+            const b = bigint & 255;
+            return `${r}, ${g}, ${b}`;
+        };
+        document.documentElement.style.setProperty('--secondary-color-rgb', hexToRgb(getComputedStyle(document.documentElement).getPropertyValue('--secondary-color')));
+        document.documentElement.style.setProperty('--primary-color-rgb', hexToRgb(getComputedStyle(document.documentElement).getPropertyValue('--primary-color')));
+        document.documentElement.style.setProperty('--hover-color-rgb', hexToRgb(getComputedStyle(document.documentElement).getPropertyValue('--hover-color')));
+
+
+        function toggleLang() {
+            const eng = document.getElementById('english');
+            const hin = document.getElementById('hindi');
+            const langSwitch = document.querySelector('.lang-switch');
+
+            if (eng.style.display === 'none') {
+                eng.style.display = 'block';
+                hin.style.display = 'none';
+                langSwitch.textContent = 'Switch Language';
+            } else {
+                eng.style.display = 'none';
+                hin.style.display = 'block';
+                langSwitch.textContent = 'भाषा बदलें';
+            }
+            calculateReadTime(); // Recalculate read time for the visible section
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        window.onscroll = function () {
+            document.querySelector('.top-btn').style.display = (window.scrollY > 100) ? 'block' : 'none';
+        };
+
+        function calculateReadTime() {
+            const activeSectionId = document.getElementById('english').style.display !== 'none' ? 'english' : 'hindi';
+            const text = document.getElementById(activeSectionId).innerText;
+            const words = text.split(/\s+/).length;
+            const readTime = Math.ceil(words / 200); // Average reading speed of 200 words per minute
+            document.getElementById('readTime').innerText = readTime;
+        }
+
+        window.onload = calculateReadTime;
+    </script>
+</body>
+</html>

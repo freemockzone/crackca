@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UN Report: Boost to Anti-Terror Drive</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #003f8e;
+            --text-color: #333;
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --hover-color-light: #e0f2f7;
+            --hover-color-dark: #cce7f0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .navbar {
+            background-color: var(--primary-color);
+            padding: 1rem 0;
+            color: white;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .navbar nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .navbar nav ul li {
+            margin: 0 15px;
+        }
+
+        .navbar nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .navbar nav ul li a:hover {
+            color: var(--hover-color-light);
+        }
+
+        .lang-switch-container {
+            position: relative;
+            display: inline-block;
+            margin-left: 20px;
+        }
+
+        .lang-switch-button {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .lang-switch-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.3s ease;
+        }
+
+        .lang-switch-button:hover::before {
+            left: 0;
+        }
+
+        .lang-switch-button:hover {
+            background-color: #002d6b;
+            transform: scale(1.05);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        h1, h2, h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.2em;
+        }
+
+        h3 {
+            font-size: 1.4em;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 5px;
+            margin-top: 25px;
+        }
+
+        .meta-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed #eee;
+        }
+
+        .content p {
+            margin-bottom: 1em;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content p::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background-color: var(--hover-color-light);
+            transition: width 0.3s ease-in-out;
+            z-index: -1;
+        }
+
+        .content p:hover::before {
+            width: 100%;
+        }
+
+        .content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .content ul li {
+            margin-bottom: 0.8em;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .content ul li::before {
+            content: '🔹'; /* Unicode character for a small diamond */
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+        }
+
+        .content ul li:hover {
+            background-color: var(--hover-color-light);
+            border-radius: 3px;
+            padding-top: 2px;
+            padding-bottom: 2px;
+        }
+
+        .significance, .upsc-relevance {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .significance p, .upsc-relevance p {
+            margin-bottom: 0.8em;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .significance p::before, .upsc-relevance p::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background-color: var(--hover-color-light);
+            transition: width 0.3s ease-in-out;
+            z-index: -1;
+        }
+
+        .significance p:hover::before, .upsc-relevance p:hover::before {
+            width: 100%;
+        }
+
+        .back-to-home {
+            display: block;
+            width: 200px;
+            margin: 30px auto 10px auto;
+            padding: 12px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .back-to-home:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .scroll-to-top {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5em;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            z-index: 1000;
+        }
+
+        .scroll-to-top:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .navbar nav ul {
+                flex-direction: column;
+            }
+
+            .navbar nav ul li {
+                margin: 10px 0;
+            }
+
+            .lang-switch-container {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+
+            .container {
+                margin: 15px;
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            h3 {
+                font-size: 1.2em;
+            }
+
+            .meta-info {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .meta-info span {
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <nav>
+            <ul>
+                <li><a href="index.html" data-en="Home" data-hi="होम">Home</a></li>
+                <li><a href="donation.html" data-en="Donation" data-hi="दान">Donation</a></li>
+                <li><a href="contact.html" data-en="Contact" data-hi="संपर्क">Contact</a></li>
+                <li class="lang-switch-container">
+                    <button class="lang-switch-button" onclick="toggleLanguage()">
+                        <span data-en="हिन्दी" data-hi="English">English</span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="container">
+        <h1 data-en="‘UN report’s mention of TRF a boost to anti-terror drive’" data-hi="‘संयुक्त राष्ट्र की रिपोर्ट में टीआरएफ का उल्लेख आतंकवाद विरोधी अभियान को बढ़ावा’">‘UN report’s mention of TRF a boost to anti-terror drive’</h1>
+        
+        <div class="meta-info">
+            <span data-en="🗓️ The Hindu | Dated: July 31, 2025" data-hi="🗓️ द हिंदू | दिनांक: 31 जुलाई, 2025">🗓️ The Hindu | Dated: July 31, 2025</span>
+            <span id="read-time" data-en="🕒 Read Time: ~3 mins" data-hi="🕒 पढ़ने का समय: ~3 मिनट">🕒 Read Time: ~3 mins</span>
+        </div>
+
+        <div class="content">
+            <h3 data-en="Context:" data-hi="संदर्भ:">Context:</h3>
+            <p data-en="India’s diplomatic efforts against cross-border terrorism received a major boost after the United Nations Security Council’s (UNSC) 1267 Monitoring Team mentioned The Resistance Front (TRF) in its latest report (published on July 24, 2025)." data-hi="संयुक्त राष्ट्र सुरक्षा परिषद (UNSC) की 1267 निगरानी टीम द्वारा अपनी नवीनतम रिपोर्ट (24 जुलाई, 2025 को प्रकाशित) में द रेजिस्टेंस फ्रंट (TRF) का उल्लेख करने के बाद सीमा पार आतंकवाद के खिलाफ भारत के राजनयिक प्रयासों को एक बड़ा बढ़ावा मिला है।">India’s diplomatic efforts against cross-border terrorism received a major boost after the United Nations Security Council’s (UNSC) 1267 Monitoring Team mentioned The Resistance Front (TRF) in its latest report (published on July 24, 2025).</p>
+            <p data-en="TRF was held responsible for the April 22 Pahalgam attack that killed 26 civilians." data-hi="टीआरएफ को 22 अप्रैल के पहलगाम हमले के लिए जिम्मेदार ठहराया गया था जिसमें 26 नागरिकों की मौत हो गई थी।">TRF was held responsible for the April 22 Pahalgam attack that killed 26 civilians.</p>
+
+            <h3 data-en="Key Highlights:" data-hi="मुख्य विशेषताएं:">Key Highlights:</h3>
+            
+            <h4 data-en="🔹 About TRF:" data-hi="🔹 टीआरएफ के बारे में:">🔹 About TRF:</h4>
+            <ul>
+                <li data-en="The Resistance Front (TRF) is allegedly a proxy of Lashkar-e-Taiba (LeT)." data-hi="द रेजिस्टेंस फ्रंट (TRF) कथित तौर पर लश्कर-ए-तैयबा (LeT) का एक प्रॉक्सी है।">The Resistance Front (TRF) is allegedly a proxy of Lashkar-e-Taiba (LeT).</li>
+                <li data-en="India blames TRF for the terror attack in Pahalgam, J&K." data-hi="भारत जम्मू-कश्मीर के पहलगाम में हुए आतंकी हमले के लिए टीआरएफ को दोषी ठहराता है।">India blames TRF for the terror attack in Pahalgam, J&K.</li>
+                <li data-en="Initially claimed responsibility on April 22 with photos, then retracted the claim on April 26." data-hi="शुरुआत में 22 अप्रैल को तस्वीरों के साथ जिम्मेदारी का दावा किया, फिर 26 अप्रैल को दावा वापस ले लिया।">Initially claimed responsibility on April 22 with photos, then retracted the claim on April 26.</li>
+                <li data-en="No further group claimed responsibility." data-hi="किसी अन्य समूह ने जिम्मेदारी नहीं ली।">No further group claimed responsibility.</li>
+            </ul>
+
+            <h4 data-en="🔹 UN Report:" data-hi="🔹 संयुक्त राष्ट्र रिपोर्ट:">🔹 UN Report:</h4>
+            <ul>
+                <li data-en="Issued by the Monitoring Team of the 1267 Sanctions Committee." data-hi="1267 प्रतिबंध समिति की निगरानी टीम द्वारा जारी।">Issued by the Monitoring Team of the 1267 Sanctions Committee.</li>
+                <li data-en="Confirms TRF’s initial claim and retraction." data-hi="टीआरएफ के शुरुआती दावे और वापसी की पुष्टि करता है।">Confirms TRF’s initial claim and retraction.</li>
+                <li data-en="Highlights Pakistan-based operations and possible exploitation of regional tensions by terror groups." data-hi="आतंकवादी समूहों द्वारा पाकिस्तान-आधारित संचालन और क्षेत्रीय तनावों के संभावित शोषण पर प्रकाश डालता है।">Highlights Pakistan-based operations and possible exploitation of regional tensions by terror groups.</li>
+            </ul>
+
+            <h4 data-en="🔹 India’s Diplomatic Efforts:" data-hi="🔹 भारत के राजनयिक प्रयास:">🔹 India’s Diplomatic Efforts:</h4>
+            <ul>
+                <li data-en="A technical team from India had engaged the UN to present its case on TRF and cross-border terrorism." data-hi="भारत की एक तकनीकी टीम ने टीआरएफ और सीमा पार आतंकवाद पर अपना मामला प्रस्तुत करने के लिए संयुक्त राष्ट्र के साथ जुड़ाव किया था।">A technical team from India had engaged the UN to present its case on TRF and cross-border terrorism.</li>
+                <li data-en="Part of a broader diplomatic campaign including multi-party outreach post Operation Sindoor." data-hi="ऑपरेशन सिंदूर के बाद बहु-पक्षीय आउटरीच सहित एक व्यापक राजनयिक अभियान का हिस्सा।">Part of a broader diplomatic campaign including multi-party outreach post Operation Sindoor.</li>
+            </ul>
+
+            <h4 data-en="🔹 Support from the U.S.:" data-hi="🔹 अमेरिका से समर्थन:">🔹 Support from the U.S.:</h4>
+            <ul>
+                <li data-en="On July 17, 2025, the U.S. State Department designated TRF as:" data-hi="17 जुलाई, 2025 को, अमेरिकी विदेश विभाग ने टीआरएफ को इस रूप में नामित किया:">On July 17, 2025, the U.S. State Department designated TRF as:</li>
+                <li data-en="Foreign Terrorist Organization (FTO)" data-hi="विदेशी आतंकवादी संगठन (FTO)">Foreign Terrorist Organization (FTO)</li>
+                <li data-en="Specially Designated Global Terrorist (SDGT)" data-hi="विशेष रूप से नामित वैश्विक आतंकवादी (SDGT)">Specially Designated Global Terrorist (SDGT)</li>
+            </ul>
+
+            <h4 data-en="🔹 Operation Sindoor:" data-hi="🔹 ऑपरेशन सिंदूर:">🔹 Operation Sindoor:</h4>
+            <ul>
+                <li data-en="Military operation by Indian forces targeting terror camps in Pakistan." data-hi="पाकिस्तानी आतंकी शिविरों को निशाना बनाने के लिए भारतीय सेना द्वारा सैन्य अभियान।">Military operation by Indian forces targeting terror camps in Pakistan.</li>
+                <li data-en="Post-operation diplomacy involved conveying threats of Pakistan-based groups like TRF, LeT, JeM to the international community." data-hi="ऑपरेशन के बाद की कूटनीति में टीआरएफ, लश्कर-ए-तैयबा, जैश-ए-मोहम्मद जैसे पाकिस्तान-आधारित समूहों के खतरों को अंतरराष्ट्रीय समुदाय तक पहुंचाना शामिल था।">Post-operation diplomacy involved conveying threats of Pakistan-based groups like TRF, LeT, JeM to the international community.</li>
+            </ul>
+
+            <div class="significance">
+                <h3 data-en="Significance:" data-hi="महत्व:">Significance:</h3>
+                <ul>
+                    <li data-en="Global legitimization of India’s concerns on cross-border terrorism." data-hi="सीमा पार आतंकवाद पर भारत की चिंताओं का वैश्विक वैधीकरण।">Global legitimization of India’s concerns on cross-border terrorism.</li>
+                    <li data-en="Sets a precedent for UN acknowledgment of newer terror fronts like TRF." data-hi="टीआरएफ जैसे नए आतंकी मोर्चों की संयुक्त राष्ट्र द्वारा स्वीकृति के लिए एक मिसाल कायम करता है।">Sets a precedent for UN acknowledgment of newer terror fronts like TRF.</li>
+                    <li data-en="May lead to future sanctions, blacklisting, or asset freezes under UN frameworks." data-hi="संयुक्त राष्ट्र के ढांचे के तहत भविष्य के प्रतिबंधों, ब्लैकलिस्टिंग या संपत्ति फ्रीज का कारण बन सकता है।">May lead to future sanctions, blacklisting, or asset freezes under UN frameworks.</li>
+                </ul>
+            </div>
+
+            <div class="upsc-relevance">
+                <h3 data-en="UPSC Mains Relevance:" data-hi="यूपीएससी मुख्य परीक्षा की प्रासंगिकता:">UPSC Mains Relevance:</h3>
+                <h4 data-en="GS Paper II – International Relations:" data-hi="जीएस पेपर II – अंतर्राष्ट्रीय संबंध:">GS Paper II – International Relations:</h4>
+                <ul>
+                    <li data-en="Role of global institutions in combating terrorism." data-hi="आतंकवाद से निपटने में वैश्विक संस्थानों की भूमिका।">Role of global institutions in combating terrorism.</li>
+                    <li data-en="India’s multilateral diplomacy and strategic partnerships." data-hi="भारत की बहुपक्षीय कूटनीति और रणनीतिक साझेदारी।">India’s multilateral diplomacy and strategic partnerships.</li>
+                </ul>
+                <h4 data-en="GS Paper III – Internal Security:" data-hi="जीएस पेपर III – आंतरिक सुरक्षा:">GS Paper III – Internal Security:</h4>
+                <ul>
+                    <li data-en="Threats from terrorism and challenges to internal security." data-hi="आतंकवाद से खतरे और आंतरिक सुरक्षा के लिए चुनौतियां।">Threats from terrorism and challenges to internal security.</li>
+                    <li data-en="Role of international cooperation in tackling non-state actors." data-hi="गैर-राज्य अभिनेताओं से निपटने में अंतरराष्ट्रीय सहयोग की भूमिका।">Role of international cooperation in tackling non-state actors.</li>
+                </ul>
+            </div>
+        </div>
+        <a href="index.html" class="back-to-home" data-en="Back to Home" data-hi="वापस होम पर">Back to Home</a>
+    </div>
+
+    <button class="scroll-to-top" onclick="scrollToTop()">↑</button>
+
+    <script>
+        const contentDiv = document.querySelector('.content');
+        const readTimeElement = document.getElementById('read-time');
+        const langSwitchButton = document.querySelector('.lang-switch-button span');
+        let currentLanguage = 'en'; // Default language
+
+        // Function to calculate read time
+        function calculateReadTime() {
+            const text = contentDiv.textContent;
+            const wordsPerMinute = 200; // Average reading speed
+            const wordCount = text.split(/\s+/).length;
+            const minutes = Math.ceil(wordCount / wordsPerMinute);
+            readTimeElement.setAttribute('data-en', `🕒 Read Time: ~${minutes} mins`);
+            readTimeElement.setAttribute('data-hi', `🕒 पढ़ने का समय: ~${minutes} मिनट`);
+            updateLanguage(); // Update read time text based on current language
+        }
+
+        // Language toggle function
+        function toggleLanguage() {
+            currentLanguage = currentLanguage === 'en' ? 'hi' : 'en';
+            updateLanguage();
+        }
+
+        function updateLanguage() {
+            document.querySelectorAll('[data-en], [data-hi]').forEach(element => {
+                if (element.tagName === 'LI' || element.tagName === 'P' || element.tagName === 'H1' || element.tagName === 'H3' || element.tagName === 'H4' || element.tagName === 'SPAN' || element.tagName === 'A') {
+                    if (currentLanguage === 'en') {
+                        element.textContent = element.getAttribute('data-en');
+                    } else {
+                        element.textContent = element.getAttribute('data-hi');
+                    }
+                }
+            });
+
+            if (currentLanguage === 'en') {
+                langSwitchButton.textContent = langSwitchButton.getAttribute('data-hi'); // Button shows 'हिन्दी' when current is English
+            } else {
+                langSwitchButton.textContent = langSwitchButton.getAttribute('data-en'); // Button shows 'English' when current is Hindi
+            }
+
+            // Update document title
+            if (currentLanguage === 'en') {
+                document.title = 'UN Report: Boost to Anti-Terror Drive';
+            } else {
+                document.title = 'संयुक्त राष्ट्र रिपोर्ट: आतंकवाद विरोधी अभियान को बढ़ावा';
+            }
+        }
+
+        // Scroll to top button functionality
+        const scrollToTopBtn = document.querySelector('.scroll-to-top');
+
+        window.onscroll = function() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                scrollToTopBtn.style.display = "block";
+            } else {
+                scrollToTopBtn.style.display = "none";
+            }
+        };
+
+        function scrollToTop() {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
+
+        // Initial calls
+        document.addEventListener('DOMContentLoaded', () => {
+            calculateReadTime();
+            updateLanguage(); // Set initial language based on currentLanguage variable
+        });
+    </script>
+</body>
+</html>

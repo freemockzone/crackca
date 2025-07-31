@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NISAR Satellite Launch</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+    :root {
+        --primary-color: #0056b3;
+        --secondary-color: #003d7a;
+        --text-color: #333;
+        --bg-color: #f4f7f6;
+        --card-bg: #ffffff;
+        --hover-color: #e0f2f7;
+        --shadow-light: rgba(0, 0, 0, 0.1);
+        --shadow-medium: rgba(0, 0, 0, 0.2);
+    }
+
+    body {
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        line-height: 1.6;
+    }
+
+    .container {
+        max-width: 900px;
+        margin: 20px auto;
+        padding: 0 15px;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+        background-color: var(--primary-color);
+        padding: 15px 0;
+        box-shadow: 0 2px 10px var(--shadow-medium);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .navbar .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav-links {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 25px;
+    }
+
+    .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        padding: 5px 0;
+        position: relative;
+        transition: color 0.3s ease;
+    }
+
+    .nav-links a::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        display: block;
+        margin-top: 5px;
+        right: 0;
+        background: white;
+        transition: width 0.3s ease, right 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+        width: 100%;
+        right: 0;
+        left: 0;
+    }
+
+    .lang-switch-container {
+        position: relative;
+        display: inline-block;
+    }
+
+    .lang-switch {
+        background-color: var(--secondary-color);
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 0.9em;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        box-shadow: 0 2px 5px var(--shadow-light);
+        outline: none;
+    }
+
+    .lang-switch:hover {
+        background-color: #002c5c;
+        transform: scale(1.05);
+    }
+
+    /* Post Content */
+    .post-card {
+        background-color: var(--card-bg);
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 5px 20px var(--shadow-medium);
+        margin-top: 30px;
+    }
+
+    .post-header h1 {
+        color: var(--primary-color);
+        margin-bottom: 10px;
+        font-size: 2.2em;
+    }
+
+    .post-meta {
+        font-size: 0.9em;
+        color: #666;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .post-meta span {
+        margin-right: 15px;
+        margin-bottom: 5px;
+    }
+
+    .post-content h2 {
+        color: var(--secondary-color);
+        margin-top: 25px;
+        margin-bottom: 15px;
+        font-size: 1.6em;
+        border-bottom: 2px solid var(--hover-color);
+        padding-bottom: 5px;
+    }
+
+    .post-content p, .post-content ul {
+        margin-bottom: 1em;
+        text-align: justify;
+    }
+
+    .post-content ul {
+        list-style-type: disc;
+        margin-left: 20px;
+    }
+
+    .post-content ul li {
+        margin-bottom: 0.5em;
+        transition: background-color 0.2s ease, transform 0.2s ease;
+        padding: 2px 5px;
+        border-radius: 3px;
+    }
+
+    .post-content ul li:hover {
+        background-color: var(--hover-color);
+        transform: translateX(5px);
+    }
+
+    .post-content p:hover {
+        background-color: var(--hover-color);
+        transform: translateX(5px);
+        padding: 2px 5px;
+        border-radius: 3px;
+    }
+
+    .post-content strong {
+        color: var(--primary-color);
+    }
+
+    /* Scroll to Top Button */
+    #scrollToTopBtn {
+        display: none;
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 99;
+        border: none;
+        outline: none;
+        background-color: var(--primary-color);
+        color: white;
+        cursor: pointer;
+        padding: 15px;
+        border-radius: 50%;
+        font-size: 1.2em;
+        box-shadow: 0 4px 10px var(--shadow-medium);
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    #scrollToTopBtn:hover {
+        background-color: var(--secondary-color);
+        transform: translateY(-3px);
+    }
+
+    /* Back to Home Button */
+    .back-to-home {
+        display: block;
+        width: fit-content;
+        margin: 30px auto 20px auto;
+        padding: 12px 25px;
+        background-color: var(--primary-color);
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 500;
+        transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 4px 8px var(--shadow-light);
+    }
+
+    .back-to-home:hover {
+        background-color: var(--secondary-color);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px var(--shadow-medium);
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+        .navbar .container {
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .nav-links {
+            flex-direction: column;
+            gap: 10px;
+            text-align: center;
+        }
+
+        .post-card {
+            padding: 20px;
+        }
+
+        .post-header h1 {
+            font-size: 1.8em;
+        }
+
+        .post-content h2 {
+            font-size: 1.4em;
+        }
+
+        #scrollToTopBtn {
+            padding: 12px;
+            font-size: 1em;
+            bottom: 20px;
+            right: 20px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .post-header h1 {
+            font-size: 1.6em;
+        }
+
+        .post-meta {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .post-meta span {
+            margin-bottom: 8px;
+        }
+    }
+</style>
+</head>
+<body>
+<nav class="navbar">
+<div class="container">
+<ul class="nav-links">
+<li><a href="index.html" data-en="Home" data-hi="होम">Home</a></li>
+<li><a href="donation.html" data-en="Donation" data-hi="दान">Donation</a></li>
+<li><a href="contact.html" data-en="Contact" data-hi="संपर्क करें">Contact</a></li>
+</ul>
+<div class="lang-switch-container">
+<button class="lang-switch" id="langToggle" data-lang="en">हिन्दी</button>
+</div>
+</div>
+</nav>
+
+<div class="container">
+    <div class="post-card">
+        <div class="post-header">
+            <h1 data-en="India Launches NISAR Satellite: A Landmark Indo-US Collaboration for Earth Observation" data-hi="भारत ने निसार उपग्रह का प्रक्षेपण किया: पृथ्वी अवलोकन के लिए एक ऐतिहासिक भारत-अमेरिका सहयोग">India Launches NISAR Satellite: A Landmark Indo-US Collaboration for Earth Observation</h1>
+            <div class="post-meta">
+                <span data-en="Date: July 30, 2025" data-hi="दिनांक: 30 जुलाई, 2025">Date: July 30, 2025</span>
+                <span data-en="Source: The Hindu" data-hi="स्रोत: यूपीएससी सीएसई नोट्स">Source: The Hindu</span>
+                <span id="read-time" data-en="Read Time: " data-hi="पढ़ने का समय: ">Read Time: </span>
+            </div>
+        </div>
+        <div class="post-content">
+            <p data-en="The NASA-ISRO Synthetic Aperture Radar (NISAR) satellite was successfully launched on Wednesday from the Satish Dhawan Space Centre at Sriharikota in Andhra Pradesh." data-hi="नासा-इसरो सिंथेटिक एपर्चर रडार (निसार) उपग्रह का बुधवार को आंध्र प्रदेश के श्रीहरिकोटा स्थित सतीश धवन अंतरिक्ष केंद्र से सफलतापूर्वक प्रक्षेपण किया गया।">The NASA-ISRO Synthetic Aperture Radar (NISAR) satellite was successfully launched on Wednesday from the Satish Dhawan Space Centre at Sriharikota in Andhra Pradesh.</p>
+
+            <p data-en="The Geosynchronous Satellite Launch Vehicle (GSLV)-F16 rocket carrying the earth observation satellite lifted off from the second launch pad of the space centre at 5.40 p.m. Eighteen minutes later, it injected the satellite into a sun-synchronous orbit." data-hi="पृथ्वी अवलोकन उपग्रह को ले जा रहे जियोसिंक्रोनस सैटेलाइट लॉन्च व्हीकल (जीएसएलवी)-एफ16 रॉकेट ने शाम 5.40 बजे अंतरिक्ष केंद्र के दूसरे लॉन्च पैड से उड़ान भरी। अठारह मिनट बाद, इसने उपग्रह को सूर्य-तुल्यकालिक कक्षा में स्थापित कर दिया।">The Geosynchronous Satellite Launch Vehicle (GSLV)-F16 rocket carrying the earth observation satellite lifted off from the second launch pad of the space centre at 5.40 p.m. Eighteen minutes later, it injected the satellite into a sun-synchronous orbit.</p>
+
+            <p data-en="“The GSLV-F16 vehicle has successfully and precisely injected the NISAR satellite weighing 2,392 kg into its intended orbit,” Indian Space Research Organisation (ISRO) Chairman V. Narayanan said after the launch." data-hi="भारतीय अंतरिक्ष अनुसंधान संगठन (इसरो) के अध्यक्ष वी. नारायणन ने प्रक्षेपण के बाद कहा, “जीएसएलवी-एफ16 वाहन ने 2,392 किलोग्राम वजनी निसार उपग्रह को सफलतापूर्वक और सटीक रूप से उसकी इच्छित कक्षा में स्थापित कर दिया है।”">“The GSLV-F16 vehicle has successfully and precisely injected the NISAR satellite weighing 2,392 kg into its intended orbit,” Indian Space Research Organisation (ISRO) Chairman V. Narayanan said after the launch.</p>
+
+            <h2 data-en="First Joint Venture" data-hi="पहला संयुक्त उद्यम">First Joint Venture</h2>
+            <p data-en="The NISAR, which has a mission life of five years, is the first satellite jointly developed by the ISRO and the U.S.’s National Aeronautics and Space Administration (NASA)." data-hi="निसार, जिसका मिशन जीवन पांच साल का है, इसरो और अमेरिकी राष्ट्रीय वैमानिकी एवं अंतरिक्ष प्रशासन (नासा) द्वारा संयुक्त रूप से विकसित पहला उपग्रह है।">The NISAR, which has a mission life of five years, is the first satellite jointly developed by the ISRO and the U.S.’s National Aeronautics and Space Administration (NASA).</p>
+
+            <p data-en="Casey Swails, Deputy Associate Administrator at NASA, said NISAR will give decision-makers the tools to monitor critical infrastructure; respond faster and smarter to natural disasters such as earthquakes, floods, and landslides; map farmland to improve crop output, and more." data-hi="नासा में उप सहयोगी प्रशासक केसी स्वेल्स ने कहा कि निसार निर्णय लेने वालों को महत्वपूर्ण बुनियादी ढांचे की निगरानी करने; भूकंप, बाढ़ और भूस्खलन जैसी प्राकृतिक आपदाओं का तेजी से और समझदारी से जवाब देने; फसल उत्पादन में सुधार के लिए कृषि भूमि का नक्शा बनाने, और बहुत कुछ करने के उपकरण देगा।">Casey Swails, Deputy Associate Administrator at NASA, said NISAR will give decision-makers the tools to monitor critical infrastructure; respond faster and smarter to natural disasters such as earthquakes, floods, and landslides; map farmland to improve crop output, and more.</p>
+
+            <p data-en="The NISAR satellite will scan the earth and provide all-weather, day-and-night data at 12-day intervals, and enable a wide range of applications. It will observe earth with a swathe of 242 km and high spatial resolution, using SweepSAR technology for the first time. “NISAR can detect even small changes on the earth’s surface, such as ground deformation, ice sheet movement, and vegetation dynamics,” the ISRO stated." data-hi="निसार उपग्रह पृथ्वी को स्कैन करेगा और 12-दिवसीय अंतराल पर सभी मौसम, दिन-रात का डेटा प्रदान करेगा, और अनुप्रयोगों की एक विस्तृत श्रृंखला को सक्षम करेगा। यह पहली बार स्वीपएसएआर तकनीक का उपयोग करके 242 किमी के स्वार्थ और उच्च स्थानिक रिज़ॉल्यूशन के साथ पृथ्वी का अवलोकन करेगा। इसरो ने कहा, “निसार पृथ्वी की सतह पर छोटे बदलावों का भी पता लगा सकता है, जैसे कि भू-विकृति, बर्फ की चादर का आंदोलन, और वनस्पति गतिशीलता।”">The NISAR satellite will scan the earth and provide all-weather, day-and-night data at 12-day intervals, and enable a wide range of applications. It will observe earth with a swathe of 242 km and high spatial resolution, using SweepSAR technology for the first time. “NISAR can detect even small changes on the earth’s surface, such as ground deformation, ice sheet movement, and vegetation dynamics,” the ISRO stated.</p>
+
+            <p data-en="“Further applications include sea ice classification, ship detection, shoreline monitoring, storm characterisation, changes in soil moisture, mapping and monitoring of surface water resources, and disaster response,” it added." data-hi="इसमें कहा गया है, “आगे के अनुप्रयोगों में समुद्री बर्फ वर्गीकरण, जहाज का पता लगाना, तटरेखा की निगरानी, तूफान का लक्षण वर्णन, मिट्टी की नमी में बदलाव, सतह जल संसाधनों का मानचित्रण और निगरानी, और आपदा प्रतिक्रिया शामिल है।”">“Further applications include sea ice classification, ship detection, shoreline monitoring, storm characterisation, changes in soil moisture, mapping and monitoring of surface water resources, and disaster response,” it added.</p>
+
+            <p data-en="NASA said that mission controllers for the NISAR mission had received full acquisition of signal from the spacecraft." data-hi="नासा ने कहा कि निसार मिशन के लिए मिशन नियंत्रकों को अंतरिक्ष यान से संकेत का पूरा अधिग्रहण प्राप्त हो गया था।">NASA said that mission controllers for the NISAR mission had received full acquisition of signal from the spacecraft.</p>
+
+            <p data-en="NISAR is the first satellite to observe the earth with a dual-frequency Synthetic Aperture Radar (SAR) — NASA’s L-band and ISRO’s S-band — both using NASA’s 12-metre unfurlable mesh reflector antenna, integrated with ISRO’s modified I3K satellite bus." data-hi="निसार पृथ्वी का अवलोकन करने वाला पहला उपग्रह है जिसमें दोहरी-आवृत्ति सिंथेटिक एपर्चर रडार (एसएआर) – नासा का एल-बैंड और इसरो का एस-बैंड – दोनों नासा के 12-मीटर अनफर्लेबल मेश रिफ्लेक्टर एंटीना का उपयोग करते हैं, जो इसरो के संशोधित आई3के उपग्रह बस के साथ एकीकृत है।">NISAR is the first satellite to observe the earth with a dual-frequency Synthetic Aperture Radar (SAR) — NASA’s L-band and ISRO’s S-band — both using NASA’s 12-metre unfurlable mesh reflector antenna, integrated with ISRO’s modified I3K satellite bus.</p>
+
+            <p data-en="According to NASA officials, its Jet Propulsion Laboratory (JPL) built the radar antenna reflection, radar antenna boom, L-Band SAR and engineering payload, while the ISRO developed the spacecraft bus, solar array S-band SAR and the launch vehicle." data-hi="नासा के अधिकारियों के अनुसार, इसकी जेट प्रोपल्शन लेबोरेटरी (जेपीएल) ने रडार एंटीना प्रतिबिंब, रडार एंटीना बूम, एल-बैंड एसएआर और इंजीनियरिंग पेलोड का निर्माण किया, जबकि इसरो ने अंतरिक्ष यान बस, सौर सरणी एस-बैंड एसएआर और लॉन्च वाहन विकसित किया।">According to NASA officials, its Jet Propulsion Laboratory (JPL) built the radar antenna reflection, radar antenna boom, L-Band SAR and engineering payload, while the ISRO developed the spacecraft bus, solar array S-band SAR and the launch vehicle.</p>
+
+            <h2 data-en="Mission Phases" data-hi="मिशन चरण">Mission Phases</h2>
+            <p data-en="The NISAR mission is broadly classified into different phases – launch, deployment, commissioning and science phases." data-hi="निसार मिशन को मोटे तौर पर विभिन्न चरणों में वर्गीकृत किया गया है – प्रक्षेपण, परिनियोजन, कमीशनिंग और विज्ञान चरण।">The NISAR mission is broadly classified into different phases – launch, deployment, commissioning and science phases.</p>
+
+            <p data-en="The launch phase has been accomplished with the launch of the GSLV-F16 rocket. During the deployment phase, a 12-metre reflector antenna will be deployed in orbit nine metres away from the satellite by a complex multistage deployable boom. The deployment process will begin on the 10th day after the launch. This will be followed by the commissioning phase." data-hi="जीएसएलवी-एफ16 रॉकेट के प्रक्षेपण के साथ प्रक्षेपण चरण पूरा हो गया है। परिनियोजन चरण के दौरान, एक 12-मीटर परावर्तक एंटीना एक जटिल बहु-स्तरीय परिनियोजन योग्य बूम द्वारा उपग्रह से नौ मीटर दूर कक्षा में तैनात किया जाएगा। परिनियोजन प्रक्रिया प्रक्षेपण के 10वें दिन शुरू होगी। इसके बाद कमीशनिंग चरण होगा।">The launch phase has been accomplished with the launch of the GSLV-F16 rocket. During the deployment phase, a 12-metre reflector antenna will be deployed in orbit nine metres away from the satellite by a complex multistage deployable boom. The deployment process will begin on the 10th day after the launch. This will be followed by the commissioning phase.</p>
+
+            <p data-en="This is the first time that a GSLV has put a satellite in a sun-synchronous polar orbit." data-hi="यह पहली बार है कि किसी जीएसएलवी ने किसी उपग्रह को सूर्य-तुल्यकालिक ध्रुवीय कक्षा में स्थापित किया है।">This is the first time that a GSLV has put a satellite in a sun-synchronous polar orbit.</p>
+        </div>
+        <a href="index.html" class="back-to-home" data-en="Back to Home" data-hi="वापस होम पर">Back to Home</a>
+    </div>
+</div>
+
+<button onclick="scrollToTop()" id="scrollToTopBtn" title="Go to top">&#9650;</button>
+
+<script>
+    const langToggle = document.getElementById('langToggle');
+    const elements = document.querySelectorAll('[data-en], [data-hi]');
+    let currentLang = 'en';
+
+    function setLanguage(lang) {
+        elements.forEach(el => {
+            if (el.dataset[lang]) {
+                el.textContent = el.dataset[lang];
+            }
+        });
+        langToggle.textContent = lang === 'en' ? 'हिन्दी' : 'English';
+        langToggle.dataset.lang = lang;
+        updateReadTime();
+    }
+
+    langToggle.addEventListener('click', () => {
+        currentLang = currentLang === 'en' ? 'hi' : 'en';
+        setLanguage(currentLang);
+    });
+
+    // Scroll to top button
+    const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+    window.onscroll = function() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            scrollToTopBtn.style.display = "block";
+        } else {
+            scrollToTopBtn.style.display = "none";
+        }
+    };
+
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Calculate Read Time
+    function updateReadTime() {
+        const postContent = document.querySelector('.post-content');
+        let text = '';
+        if (currentLang === 'en') {
+            document.querySelectorAll('.post-content [data-en]').forEach(el => {
+                text += el.dataset.en + ' ';
+            });
+        } else {
+            // For Hindi, we calculate based on the English content's word count.
+            // Or you could have separate word count for Hindi if the content varies significantly.
+            // For simplicity, we'll still use English word count to estimate read time.
+            document.querySelectorAll('.post-content [data-en]').forEach(el => {
+                text += el.dataset.en + ' ';
+            });
+        }
+
+        const wordsPerMinute = 200; // Average reading speed
+        const wordCount = text.trim().split(/\s+/).length;
+        const readTimeMinutes = Math.ceil(wordCount / wordsPerMinute);
+
+        const readTimeElement = document.getElementById('read-time');
+        if (currentLang === 'en') {
+            readTimeElement.textContent = `Read Time: ${readTimeMinutes} min`;
+        } else {
+            readTimeElement.textContent = `पढ़ने का समय: ${readTimeMinutes} मिनट`;
+        }
+    }
+
+    // Initial language and read time setting
+    document.addEventListener('DOMContentLoaded', () => {
+        setLanguage('en'); // Default to English on load
+    });
+</script>
+</body>
+</html>

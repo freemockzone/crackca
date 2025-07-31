@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>U.S. Imposes 25% Tariff and Penalty on Indian Imports</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-blue: #1a5276; /* Darker blue for header/accents */
+      --light-blue: #e0f2f7; /* Light background */
+      --accent-green: #2ecc71; /* For active states or highlights */
+      --text-dark: #333;
+      --text-light: #555;
+      --shadow-light: rgba(0, 0, 0, 0.08);
+      --shadow-medium: rgba(0, 0, 0, 0.15);
+      --border-light: #c1e4f0;
+      --transition-speed: 0.3s;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, var(--light-blue), #d9edf7); /* Soft gradient background */
+      color: var(--text-dark);
+      line-height: 1.7;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background-color: var(--primary-blue);
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 15px var(--shadow-medium);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      animation: fadeInDown 0.6s ease-out;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    header div strong {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8em;
+      letter-spacing: 0.5px;
+    }
+
+    header nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 400;
+      position: relative;
+      padding-bottom: 5px;
+      transition: color var(--transition-speed) ease;
+    }
+
+    header nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: white;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      transition: width var(--transition-speed) ease-in-out;
+    }
+
+    header nav a:hover {
+      color: #b3e5fc; /* Lighter hover color */
+    }
+
+    header nav a:hover::after {
+      width: 100%;
+    }
+
+    .lang-toggle {
+      cursor: pointer;
+      padding: 8px 15px;
+      background: rgba(255, 255, 255, 0.15); /* Slightly transparent white */
+      color: white;
+      border-radius: 25px; /* Pill shape */
+      font-weight: bold;
+      transition: background var(--transition-speed) ease, transform 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .lang-toggle:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .container {
+      padding: 40px;
+      max-width: 950px;
+      margin: 30px auto;
+      background-color: #ffffff;
+      border-radius: 15px; /* More rounded corners */
+      box-shadow: 0 10px 40px var(--shadow-light);
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2em;
+      color: var(--primary-blue);
+      text-align: center;
+      margin-bottom: 25px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--border-light);
+      position: relative;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      width: 50px;
+      height: 4px;
+      background: var(--accent-green);
+      left: 50%;
+      bottom: -2px;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    h3 {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      font-size: 1.5em;
+      color: var(--primary-blue);
+      margin-top: 35px;
+      margin-bottom: 15px;
+      border-left: 5px solid var(--accent-green);
+      padding-left: 15px;
+    }
+
+    p {
+      color: var(--text-dark);
+      margin-bottom: 15px;
+      padding: 8px 0;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-left: 20px; /* Indent for readability */
+    }
+
+    ul li {
+      background-color: #f7faff;
+      margin-bottom: 10px;
+      padding: 12px 20px;
+      border-radius: 8px;
+      border: 1px solid #e1f5fe;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      transition: all var(--transition-speed) ease;
+      position: relative;
+      color: var(--text-light);
+    }
+
+    ul li:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      background-color: #e8f7ff;
+      border-color: #a7d9f7;
+    }
+
+    ul li::before {
+      content: '•'; /* Custom bullet point */
+      color: var(--accent-green);
+      font-size: 1.2em;
+      position: absolute;
+      left: 5px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    ul ul {
+      margin-top: 8px;
+      margin-left: 15px; /* Further indent for nested lists */
+      border-left: 2px dashed var(--border-light); /* Dotted line for nested lists */
+      padding-left: 10px;
+    }
+
+    ul ul li {
+      background-color: #ffffff; /* White background for inner list items */
+      box-shadow: none; /* No shadow for inner items */
+      border: none;
+      border-bottom: 1px dotted #ccc; /* Dotted separator */
+      padding: 8px 10px;
+      font-size: 0.95em;
+      margin-bottom: 5px;
+    }
+
+    ul ul li:last-child {
+      border-bottom: none;
+    }
+
+    ul ul li:hover {
+      background-color: #f0f8ff;
+      transform: none; /* No vertical transform on inner hover */
+      box-shadow: none;
+    }
+
+    ul ul li::before {
+        content: '↳'; /* Different bullet for nested items */
+        color: var(--primary-blue);
+        font-size: 1em;
+        left: -10px; /* Adjust position */
+    }
+
+
+    .meta-info {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      font-size: 0.9em;
+      color: var(--text-light);
+      margin-bottom: 30px;
+      padding: 15px 0;
+      border-bottom: 1px dashed var(--border-light);
+      border-top: 1px dashed var(--border-light);
+      background-color: #fbfdff; /* Slightly different background */
+      border-radius: 8px;
+    }
+
+    .meta-info span {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-weight: 500;
+    }
+
+    .read-time {
+      color: var(--accent-green);
+      font-weight: 700;
+    }
+
+    .back-btn {
+      display: block;
+      width: fit-content;
+      margin: 40px auto 20px auto;
+      background: var(--primary-blue);
+      color: white;
+      padding: 14px 28px;
+      text-decoration: none;
+      border-radius: 30px; /* More rounded button */
+      font-weight: 600;
+      font-size: 1.1em;
+      transition: all var(--transition-speed) ease;
+      box-shadow: 0 5px 15px var(--shadow-medium);
+      cursor: pointer;
+    }
+
+    .back-btn:hover {
+      background-color: #15405c; /* Slightly darker */
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 8px 20px var(--shadow-medium);
+    }
+
+    #topBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: var(--accent-green);
+      color: white;
+      border: none;
+      padding: 15px; /* Larger hit area */
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 22px; /* Larger icon */
+      display: none;
+      z-index: 999;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transition: all var(--transition-speed) ease;
+    }
+
+    #topBtn:hover {
+      background-color: #28a745; /* Darker green */
+      transform: translateY(-3px) scale(1.1);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px 20px;
+      }
+      header nav {
+        margin-top: 15px;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+      }
+      header nav a {
+        margin: 0 5px;
+        font-size: 0.9em;
+      }
+      .lang-toggle {
+        margin-top: 15px;
+        width: auto;
+        justify-content: center;
+      }
+      .container {
+        margin: 15px;
+        padding: 25px;
+        border-radius: 10px;
+      }
+      h2 {
+        font-size: 1.8em;
+      }
+      h3 {
+        font-size: 1.3em;
+        padding-left: 10px;
+      }
+      ul li {
+        padding: 10px 15px;
+        font-size: 0.95em;
+      }
+      ul li::before {
+          left: 0;
+      }
+      ul ul li {
+          padding: 6px 8px;
+          font-size: 0.9em;
+      }
+      .meta-info {
+        flex-direction: column;
+        align-items: flex-start;
+        font-size: 0.8em;
+        padding: 10px;
+      }
+      .meta-info span {
+        margin-bottom: 8px;
+      }
+      .back-btn {
+        padding: 10px 20px;
+        font-size: 1em;
+      }
+      #topBtn {
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+        bottom: 20px;
+        right: 20px;
+        padding: 0; /* Reset padding for square to circle */
+        line-height: 45px; /* Center icon */
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div><strong>Free Mock Zone</strong></div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="donation.html">Donation</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="lang-toggle" onclick="toggleLanguage()">🌐 हिन्दी / English</div>
+  </header>
+
+  <div class="container">
+    <div id="english" class="section">
+      <h2>U.S. Imposes 25% Tariff and Penalty on Indian Imports</h2>
+      <div class="meta-info">
+        <span>Source: <strong>The Hindu</strong> (July 31, 2025)</span>
+        <span class="read-time">Read Time: 3 min</span>
+        <span>Category: International Relations | Trade | Economy</span>
+      </div>
+      <hr>
+
+      <h3>Context:</h3>
+      <p>The U.S. President Donald Trump has announced a 25% tariff plus an unspecified "penalty" on Indian imports, effective from <strong>August 1, 2025</strong>.</p>
+
+      <h3>Key Highlights:</h3>
+      <ul>
+        <li><strong>Tariff Announcement:</strong></li>
+        <ul>
+          <li>U.S. to impose <strong>25% tariff</strong> + an unspecified <strong>penalty</strong> on Indian imports.</li>
+          <li>Cited reasons:
+            <ul>
+              <li>India’s energy and defense purchases from Russia.</li>
+              <li>High tariffs on U.S. goods.</li>
+              <li>Non-monetary trade barriers (termed “strenuous and obnoxious”).</li>
+            </ul>
+          </li>
+        </ul>
+        <li><strong>Timing and Impact:</strong></li>
+        <ul>
+          <li>Effective <strong>from August 1, 2025</strong>.</li>
+          <li>Supersedes earlier threatened 26% tariff.</li>
+          <li>Penalty details <strong>not specified</strong>.</li>
+        </ul>
+        <li><strong>Indian Government’s Response:</strong></li>
+        <ul>
+          <li>Ministry of Commerce: “Studying implications” of the announcement.</li>
+          <li>Will <strong>take necessary steps</strong> to protect national interest.</li>
+          <li>Emphasis on safeguarding interests of <strong>farmers, entrepreneurs, MSMEs</strong>.</li>
+        </ul>
+      </ul>
+
+      <h3>Ongoing Trade Negotiations:</h3>
+      <ul>
+        <li><strong>Bilateral Trade Agreement:</strong></li>
+        <ul>
+          <li>Ongoing talks since <strong>February 2025</strong>.</li>
+          <li>Joint statement by PM Modi and President Trump: Deal to be finalized by <strong>Fall 2025</strong>.</li>
+        </ul>
+        <li><strong>Mini Trade Deal:</strong></li>
+        <ul>
+          <li>Parallel attempt at a <strong>"mini-deal"</strong> to reverse earlier retaliatory tariffs (April 2025).</li>
+          <li>USTR Jamieson Greer indicated <strong>missed deadline</strong> (August 1).</li>
+          <li>Trump’s announcement signals <strong>no immediate resolution</strong>.</li>
+        </ul>
+      </ul>
+
+      <h3>Background:</h3>
+      <ul>
+        <li><strong>Liberation Day Tariffs:</strong></li>
+        <ul>
+          <li>Imposed by Trump in <strong>April 2025</strong> on imports from multiple countries.</li>
+          <li>Justification: U.S. faces <strong>higher tariffs abroad</strong> than it imposes.</li>
+        </ul>
+        <li><strong>India’s Russia Connection:</strong></li>
+        <ul>
+          <li>Largest buyer of Russian energy and defense equipment, alongside China.</li>
+          <li>Criticized by U.S. amid global pressure to reduce ties with Russia due to the <strong>Ukraine conflict</strong>.</li>
+        </ul>
+      </ul>
+
+      <h3>Significance:</h3>
+      <ul>
+        <li><strong>Diplomatic Strain:</strong>
+          <ul>
+            <li>May affect ongoing <strong>India-U.S. trade negotiations</strong>.</li>
+            <li>Reflects <strong>strategic tensions</strong> due to India’s relations with Russia.</li>
+          </ul>
+        </li>
+        <li><strong>Economic Implications:</strong>
+          <ul>
+            <li>Potential impact on <strong>exports</strong>, <strong>MSMEs</strong>, and <strong>bilateral trade volume</strong>.</li>
+            <li>Increased uncertainty for Indian exporters reliant on U.S. market.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>Way Forward:</h3>
+      <ul>
+        <li>India to:
+          <ul>
+            <li>Evaluate tariff impacts on <strong>key export sectors</strong>.</li>
+            <li>Possibly seek WTO redress or <strong>bilateral de-escalation channels</strong>.</li>
+            <li>Continue working towards a <strong>fair and mutually beneficial trade agreement</strong> with the U.S.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>UPSC Mains Relevance:</h3>
+      <p><strong>GS Paper 2:</strong></p>
+      <ul>
+        <li>India-USA Relations</li>
+        <li>International Trade Policies</li>
+        <li>Role of Diplomacy in Trade Conflicts</li>
+      </ul>
+      <p><strong>GS Paper 3:</strong></p>
+      <ul>
+        <li>Effects of Liberalization on Indian Economy</li>
+        <li>Trade Agreements & Barriers</li>
+        <li>MSME Sector Challenges</li>
+      </ul>
+    </div>
+
+    <div id="hindi" class="section" style="display: none;">
+      <h2>अमेरिका ने भारतीय आयात पर 25% टैरिफ और जुर्माना लगाया</h2>
+      <div class="meta-info">
+        <span>स्रोत: <strong>द हिंदू</strong> (31 जुलाई, 2025)</span>
+        <span class="read-time">पढ़ने का समय: 3 मिनट</span>
+        <span>श्रेणी: अंतर्राष्ट्रीय संबंध | व्यापार | अर्थव्यवस्था</span>
+      </div>
+      <hr>
+
+      <h3>संदर्भ:</h3>
+      <p>अमेरिकी राष्ट्रपति डोनाल्ड ट्रम्प ने भारतीय आयात पर 25% टैरिफ और एक अनिर्दिष्ट "जुर्माना" लगाने की घोषणा की है, जो <strong>1 अगस्त, 2025</strong> से प्रभावी होगा।</p>
+
+      <h3>मुख्य विशेषताएं:</h3>
+      <ul>
+        <li><strong>टैरिफ घोषणा:</strong></li>
+        <ul>
+          <li>अमेरिका भारतीय आयात पर <strong>25% टैरिफ</strong> + एक अनिर्दिष्ट <strong>जुर्माना</strong> लगाएगा।</li>
+          <li>उल्लिखित कारण:
+            <ul>
+              <li>भारत की रूस से ऊर्जा और रक्षा खरीद।</li>
+              <li>अमेरिकी वस्तुओं पर उच्च टैरिफ।</li>
+              <li>गैर-मौद्रिक व्यापार बाधाएं (जिन्हें “कठोर और आपत्तिजनक” कहा गया)।</li>
+            </ul>
+          </li>
+        </ul>
+        <li><strong>समय और प्रभाव:</strong></li>
+        <ul>
+          <li><strong>1 अगस्त, 2025</strong> से प्रभावी।</li>
+          <li>पहले धमकी दिए गए 26% टैरिफ का स्थान लेता है।</li>
+          <li>जुर्माने का विवरण <strong>निर्दिष्ट नहीं</strong> है।</li>
+        </ul>
+        <li><strong>भारत सरकार की प्रतिक्रिया:</strong></li>
+        <ul>
+          <li>वाणिज्य मंत्रालय: घोषणा के “प्रभावों का अध्ययन” कर रहा है।</li>
+          <li>राष्ट्रीय हित की रक्षा के लिए <strong>आवश्यक कदम उठाएगा</strong>।</li>
+          <li><strong>किसानों, उद्यमियों, एमएसएमई</strong> के हितों की सुरक्षा पर जोर।</li>
+        </ul>
+      </ul>
+
+      <h3>चल रही व्यापार वार्ता:</h3>
+      <ul>
+        <li><strong>द्विपक्षीय व्यापार समझौता:</strong></li>
+        <ul>
+          <li><strong>फरवरी 2025</strong> से चल रही बातचीत।</li>
+          <li>पीएम मोदी और राष्ट्रपति ट्रम्प का संयुक्त बयान: सौदा <strong>2025 की शरद ऋतु</strong> तक अंतिम रूप दिया जाएगा।</li>
+        </ul>
+        <li><strong>मिनी व्यापार समझौता:</strong></li>
+        <ul>
+          <li>पहले के जवाबी टैरिफ (अप्रैल 2025) को पलटने के लिए एक <strong>"मिनी-डील"</strong> का समानांतर प्रयास।</li>
+          <li>यूएसटीआर जेमिसन ग्रीर ने <strong>समय सीमा चूकने</strong> (1 अगस्त) का संकेत दिया।</li>
+          <li>ट्रम्प की घोषणा का मतलब <strong>तत्काल कोई समाधान नहीं</strong> है।</li>
+        </ul>
+      </ul>
+
+      <h3>पृष्ठभूमि:</h3>
+      <ul>
+        <li><strong>मुक्ति दिवस टैरिफ:</strong></li>
+        <ul>
+          <li>ट्रम्प द्वारा <strong>अप्रैल 2025</strong> में कई देशों से आयात पर लगाया गया।</li>
+          <li>औचित्य: अमेरिका विदेशों में अपने द्वारा लगाए गए टैरिफ से <strong>अधिक टैरिफ</strong> का सामना करता है।</li>
+        </ul>
+        <li><strong>भारत का रूस से संबंध:</strong></li>
+        <ul>
+          <li>चीन के साथ-साथ रूसी ऊर्जा और रक्षा उपकरणों का सबसे बड़ा खरीदार।</li>
+          <li>यूक्रेन संघर्ष के कारण रूस के साथ संबंध कम करने के लिए वैश्विक दबाव के बीच अमेरिका द्वारा आलोचना की गई।</li>
+        </ul>
+      </ul>
+
+      <h3>महत्व:</h3>
+      <ul>
+        <li><strong>राजनयिक तनाव:</strong>
+          <ul>
+            <li>चल रही <strong>भारत-अमेरिका व्यापार वार्ता</strong> को प्रभावित कर सकता है।</li>
+            <li>रूस के साथ भारत के संबंधों के कारण <strong>रणनीतिक तनाव</strong> को दर्शाता है।</li>
+          </ul>
+        </li>
+        <li><strong>आर्थिक निहितार्थ:</strong>
+          <ul>
+            <li>Potential impact on <strong>exports</strong>, <strong>MSMEs</strong>, and <strong>bilateral trade volume</strong>.</li>
+            <li>Increased uncertainty for Indian exporters reliant on U.S. market.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>आगे का रास्ता:</h3>
+      <ul>
+        <li>भारत को:
+          <ul>
+            <li><strong>प्रमुख निर्यात क्षेत्रों</strong> पर टैरिफ प्रभावों का मूल्यांकन करें।</li>
+            <li>संभवतः डब्ल्यूटीओ से शिकायत या <strong>द्विपक्षीय तनाव कम करने के चैनलों</strong> की तलाश करें।</li>
+            <li>अमेरिका के साथ एक <strong>निष्पक्ष और पारस्परिक रूप से लाभकारी व्यापार समझौते</strong> की दिशा में काम करना जारी रखें।</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>यूपीएससी मेन्स प्रासंगिकता:</h3>
+      <p><strong>जीएस पेपर 2:</strong></p>
+      <ul>
+        <li>भारत-अमेरिका संबंध</li>
+        <li>अंतर्राष्ट्रीय व्यापार नीतियां</li>
+        <li>व्यापार संघर्षों में कूटनीति की भूमिका</li>
+      </ul>
+      <p><strong>जीएस पेपर 3:</strong></p>
+      <ul>
+        <li>भारतीय अर्थव्यवस्था पर उदारीकरण के प्रभाव</li>
+        <li>व्यापार समझौते और बाधाएं</li>
+        <li>एमएसएमई क्षेत्र की चुनौतियां</li>
+      </ul>
+    </div>
+
+    <a href="index.html" class="back-btn">← Back to Home</a>
+  </div>
+
+  <button id="topBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</button>
+
+  <script>
+    function toggleLanguage() {
+      const eng = document.getElementById('english');
+      const hin = document.getElementById('hindi');
+      eng.style.display = eng.style.display === 'none' ? 'block' : 'none';
+      hin.style.display = hin.style.display === 'none' ? 'block' : 'none';
+    }
+    window.onscroll = function () {
+      document.getElementById('topBtn').style.display = window.scrollY > 200 ? 'block' : 'none';
+    };
+  </script>
+</body>
+</html>
