@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Impact of Trump’s Tariffs on Indian Economy (2025-26)</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@400;600&display=swap');
+
+    :root {
+        --primary-color: #0056b3;
+        --secondary-color: #e2eafc;
+        --text-color: #333;
+        --bg-color: #ffffff;
+        --card-bg: #f9f9f9;
+        --border-color: #ddd;
+        --hover-color: #f0f8ff;
+        --accent-color: #d1e7ff;
+    }
+
+    [data-theme='dark'] {
+        --primary-color: #1a73e8;
+        --secondary-color: #2c3e50;
+        --text-color: #e0e0e0;
+        --bg-color: #121212;
+        --card-bg: #1e1e1e;
+        --border-color: #333;
+        --hover-color: #2c3e50;
+        --accent-color: #1a2a3a;
+    }
+
+    body {
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: var(--primary-color);
+        padding: 1rem 5%;
+        color: white;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar .logo {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        font-size: 1.5rem;
+    }
+
+    .navbar a {
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+        margin: 0 1rem;
+        transition: color 0.3s;
+    }
+
+    .navbar a:hover {
+        color: var(--secondary-color);
+    }
+
+    .lang-switch {
+        position: relative;
+        width: 60px;
+        height: 30px;
+    }
+
+    .lang-switch input {
+        display: none;
+    }
+
+    .lang-switch label {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: #fff;
+        border-radius: 15px;
+        cursor: pointer;
+        position: absolute;
+        transition: 0.3s;
+        box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .lang-switch label:after {
+        content: '';
+        width: 26px;
+        height: 26px;
+        background: var(--primary-color);
+        border-radius: 50%;
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        transition: 0.3s;
+    }
+
+    .lang-switch input:checked + label:after {
+        left: 32px;
+        transform: scale(1.1);
+    }
+
+    .lang-switch .lang-text {
+        position: absolute;
+        font-size: 12px;
+        font-weight: bold;
+        line-height: 30px;
+        color: var(--primary-color);
+        transition: 0.3s;
+        pointer-events: none;
+    }
+
+    .lang-switch .en {
+        left: 8px;
+    }
+
+    .lang-switch .hi {
+        right: 8px;
+    }
+
+    .lang-switch input:checked ~ .en {
+        color: white;
+    }
+
+    .lang-switch input:checked ~ .hi {
+        color: var(--primary-color);
+    }
+
+    .container {
+        max-width: 900px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+    }
+
+    .post-header {
+        text-align: center;
+        margin-bottom: 2rem;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 1rem;
+    }
+
+    .post-header h1 {
+        font-family: 'Poppins', sans-serif;
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        margin: 0 0 0.5rem;
+    }
+
+    .post-header p {
+        font-style: italic;
+        color: #666;
+        margin: 0;
+    }
+
+    .read-time {
+        font-size: 0.9rem;
+        color: #888;
+        margin-top: 0.5rem;
+    }
+
+    .content {
+        font-size: 1.1rem;
+    }
+
+    .content section {
+        margin-bottom: 2rem;
+    }
+
+    .content h2, .content h3, .content h4 {
+        color: var(--primary-color);
+        border-bottom: 1px solid var(--accent-color);
+        padding-bottom: 0.5rem;
+        margin-top: 2rem;
+    }
+
+    .content p, .content li, .content td, .content th {
+        margin: 0.5rem 0;
+    }
+
+    .content ul, .content ol {
+        padding-left: 1.5rem;
+    }
+
+    .content li {
+        list-style-type: disc;
+    }
+
+    .content li::marker {
+        color: var(--primary-color);
+    }
+
+    .content a {
+        color: var(--primary-color);
+        text-decoration: none;
+    }
+
+    .content a:hover {
+        text-decoration: underline;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1rem 0;
+        background-color: var(--card-bg);
+    }
+
+    table, th, td {
+        border: 1px solid var(--border-color);
+    }
+
+    th, td {
+        padding: 12px 15px;
+        text-align: left;
+    }
+
+    th {
+        background-color: var(--primary-color);
+        color: white;
+        font-weight: bold;
+    }
+
+    tr:nth-child(even) {
+        background-color: var(--secondary-color);
+    }
+
+    .quote {
+        border-left: 4px solid var(--primary-color);
+        padding-left: 1rem;
+        margin: 1rem 0;
+        font-style: italic;
+        background-color: var(--accent-color);
+        padding: 1rem;
+        border-radius: 5px;
+    }
+
+    .colored-hover-effect p:hover, 
+    .colored-hover-effect li:hover,
+    .colored-hover-effect tr:hover,
+    .colored-hover-effect h2:hover,
+    .colored-hover-effect h3:hover,
+    .colored-hover-effect th:hover,
+    .colored-hover-effect td:hover {
+        background-color: var(--hover-color);
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .colored-hover-effect h2:hover,
+    .colored-hover-effect h3:hover {
+        background-color: transparent;
+    }
+    
+    .colored-hover-effect h2,
+    .colored-hover-effect h3 {
+        color: var(--primary-color);
+        background-color: transparent;
+    }
+
+    .colored-hover-effect table tr:hover {
+        background-color: var(--hover-color);
+    }
+
+    .footer {
+        text-align: center;
+        padding: 2rem 1rem;
+        border-top: 1px solid var(--border-color);
+        margin-top: 2rem;
+    }
+
+    .footer a {
+        display: inline-block;
+        background-color: var(--primary-color);
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+
+    .footer a:hover {
+        background-color: #004494;
+    }
+
+    #scroll-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        display: none;
+        transition: background-color 0.3s;
+    }
+
+    #scroll-to-top:hover {
+        background-color: #004494;
+    }
+
+    @media (max-width: 768px) {
+        .navbar {
+            flex-direction: column;
+            text-align: center;
+        }
+        .navbar .logo {
+            margin-bottom: 1rem;
+        }
+        .navbar .nav-links {
+            margin-bottom: 1rem;
+        }
+        .navbar a {
+            margin: 0.5rem;
+        }
+        .post-header h1 {
+            font-size: 2rem;
+        }
+        .content {
+            font-size: 1rem;
+        }
+    }
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">Daily Insights</div>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="donation.html">Donation</a>
+        <a href="contact.html">Contact</a>
+    </div>
+    <div class="lang-switch">
+        <input type="checkbox" id="lang-toggle">
+        <label for="lang-toggle">
+            <span class="lang-text en">EN</span>
+            <span class="lang-text hi">HI</span>
+        </label>
+    </div>
+</nav>
+
+<div class="container">
+    <header class="post-header">
+        <h1 id="post-title">Impact of Trump’s Tariffs on Indian Economy (2025-26)</h1>
+        <p id="post-date">Published on August 1, 2025</p>
+        <p class="read-time" id="read-time"></p>
+    </header>
+
+    <main class="content colored-hover-effect">
+        <section id="context-section">
+            <h2 id="context-title">1. Context</h2>
+            <ul>
+                <li><span id="context-1">Former US President <strong>Donald Trump</strong> announced a <strong>25% tariff</strong> on <strong>Indian goods</strong> starting <strong>August 1, 2025</strong>.</span></li>
+                <li><span id="context-2">An <strong>additional “penalty”</strong> also hinted at due to India’s defense and energy ties with <strong>Russia</strong>.</span></li>
+                <li><span id="context-3">This has triggered <strong>concerns among economists</strong> about India's GDP slowdown in FY 2025-26.</span></li>
+            </ul>
+        </section>
+
+        <section id="macro-impact-section">
+            <h2 id="macro-impact-title">2. Macroeconomic Impact</h2>
+            <h3 id="gdp-estimates-title">🔻 GDP Growth Estimates</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th id="table-head-1">Institution</th>
+                        <th id="table-head-2">Earlier Projection</th>
+                        <th id="table-head-3">Revised/Estimated Impact</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td id="rbi-inst">RBI</td>
+                        <td id="rbi-proj">6.5%</td>
+                        <td id="rbi-impact">Still unchanged</td>
+                    </tr>
+                    <tr>
+                        <td id="anz-inst">ANZ</td>
+                        <td id="anz-proj">6.1%</td>
+                        <td id="anz-impact">-40 bps impact expected</td>
+                    </tr>
+                    <tr>
+                        <td id="hsbc-inst">HSBC</td>
+                        <td id="hsbc-proj">6.3%</td>
+                        <td id="hsbc-impact">-30 bps impact (+ indirect drag)</td>
+                    </tr>
+                    <tr>
+                        <td id="nomura-inst">Nomura</td>
+                        <td id="nomura-proj">6.2%</td>
+                        <td id="nomura-impact">-20 bps impact</td>
+                    </tr>
+                    <tr>
+                        <td id="barclays-inst">Barclays</td>
+                        <td id="barclays-proj">N/A</td>
+                        <td id="barclays-impact">-30 bps impact</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="quote">
+                <p id="table-note"><strong>Note</strong>: 1 percentage point (ppt) = 100 basis points (bps)</p>
+            </div>
+
+            <h3 id="economic-consequences-title">📉 Economic Consequences</h3>
+            <ul>
+                <li><span id="consequence-1">ANZ: Tariff could subtract <strong>40 bps</strong> from GDP if it stays for full FY 2025-26.</span></li>
+                <li><span id="consequence-2">HSBC: <strong>0.3 ppt</strong> direct hit; potential <strong>indirect drag</strong> via capital inflows, FDI.</span></li>
+                <li><span id="consequence-3"><strong>Lower GDP Growth</strong> likely to fall <strong>below 6%</strong> if tariff impact persists.</span></li>
+            </ul>
+        </section>
+
+        <section id="trade-export-section">
+            <h2 id="trade-export-title">3. Trade and Export Impact</h2>
+            <h3 id="trade-snapshot-title">🇮🇳↔🇺🇸 India-US Trade Snapshot (2024):</h3>
+            <ul>
+                <li><span id="trade-1">Total goods trade: <strong>$129.2 billion</strong></span></li>
+                <ul>
+                    <li><span id="trade-2">US exports to India: <strong>$41.8 billion</strong> (+3.4% YoY)</span></li>
+                    <li><span id="trade-3">India exports to US: <strong>$87.4 billion</strong> (+4.5% YoY)</span></li>
+                    <li><span id="trade-4">Trade deficit (US side): <strong>$45.7 billion</strong></span></li>
+                </ul>
+            </ul>
+
+            <h4 id="major-exports-title">⚙️ Major Indian exports to the US:</h4>
+            <ul>
+                <li><span id="export-1"><strong>Electronics</strong></span></li>
+                <li><span id="export-2"><strong>Gems & jewellery</strong></span></li>
+                <li><span id="export-3"><strong>Pharmaceuticals</strong></span></li>
+                <li><span id="export-4"><strong>Machinery</strong></span></li>
+                <li><span id="export-5"><strong>Textiles</strong></span></li>
+                <li><span id="export-6"><strong>Refined petroleum products</strong></span></li>
+            </ul>
+
+            <h4 id="export-shock-title">📊 Export Shock Estimate</h4>
+            <ul>
+                <li><span id="export-shock"><strong>Emkay Global</strong>: Export loss to US could be <strong>$30-33 billion</strong> at 25%+ tariff levels.</span></li>
+            </ul>
+        </section>
+
+        <section id="rbi-policy-section">
+            <h2 id="rbi-policy-title">4. RBI & Monetary Policy</h2>
+            <h3 id="monetary-update-title">💰 Monetary Policy Update (2025):</h3>
+            <ul>
+                <li><span id="monetary-1"><strong>Repo rate</strong> cut by <strong>100 bps</strong> to <strong>5.5%</strong> in 2025 so far.</span></li>
+                <li><span id="monetary-2"><strong>Inflation</strong> (June 2025): 2.1% – near lower bound of RBI’s 2-6% range.</span></li>
+                <li><span id="monetary-3">Next <strong>MPC Meeting</strong> scheduled <strong>next week</strong>.</span></li>
+                <ul>
+                    <li><span id="monetary-4">Market expectations: More rate cuts possible, <strong>limited room left</strong>.</span></li>
+                </ul>
+            </ul>
+        </section>
+
+        <section id="structural-context-section">
+            <h2 id="structural-context-title">5. Structural Context</h2>
+            <h3 id="slowing-growth-title">📉 Slowing Growth Trend:</h3>
+            <ul>
+                <li><span id="slowing-1">Q4 2024-25 GDP: <strong>7.4%</strong> (unexpectedly high)</span></li>
+                <li><span id="slowing-2">Q1 2025-26 (Apr-Jun): Expected slowdown to <strong>~6.5%</strong></span></li>
+                <ul>
+                    <li><span id="slowing-3">Official data release due <strong>end of August</strong>.</span></li>
+                </ul>
+            </ul>
+
+            <h4 id="domestic-demand-title">🧭 Domestic Demand Cushion:</h4>
+            <ul>
+                <li><span id="domestic-1">India is <strong>less export-reliant</strong> than peers in the region.</span></li>
+                <li><span id="domestic-2">Growth driven <strong>more by domestic consumption</strong> than trade.</span></li>
+            </ul>
+        </section>
+
+        <section id="geopolitical-angle-section">
+            <h2 id="geopolitical-angle-title">6. Geopolitical Angle</h2>
+            <ul>
+                <li><span id="geo-1">Trump accused India of having <strong>"obnoxious non-monetary trade barriers"</strong>.</span></li>
+                <li><span id="geo-2">Criticized India’s <strong>strategic ties with Russia</strong>.</span></li>
+                <li><span id="geo-3">India’s response: Open to a “<strong>fair, balanced and mutually beneficial</strong>” trade deal.</span></li>
+            </ul>
+        </section>
+
+        <section id="upsc-takeaway-section">
+            <h2 id="upsc-takeaway-title">7. Takeaway for UPSC Mains (GS Paper III - Economy & International Relations)</h2>
+            <ul>
+                <li><span id="upsc-1">Tariff shocks can <strong>destabilize bilateral trade</strong> and <strong>slow down economic growth</strong>.</span></li>
+                <li><span id="upsc-2">Export dependency can amplify external shocks.</span></li>
+                <li><span id="upsc-3">Strategic choices (like ties with Russia) can invite <strong>economic repercussions</strong>.</span></li>
+                <li><span id="upsc-4">India's <strong>monetary policy flexibility</strong> remains constrained despite low inflation.</span></li>
+                <li><span id="upsc-5">Calls for <strong>diversification of export markets</strong>, <strong>boosting domestic demand</strong>, and <strong>recalibrating trade strategy</strong>.</span></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <a href="index.html" id="back-to-home">Back to Home</a>
+    </footer>
+</div>
+
+<button id="scroll-to-top" title="Go to top">↑</button>
+
+<script>
+    const langToggle = document.getElementById('lang-toggle');
+    const elements = {
+        'post-title': { en: 'Impact of Trump’s Tariffs on Indian Economy (2025-26)', hi: 'भारतीय अर्थव्यवस्था पर ट्रंप के टैरिफ का प्रभाव (2025-26)' },
+        'post-date': { en: 'Published on August 1, 2025', hi: '1 अगस्त, 2025 को प्रकाशित' },
+        'context-title': { en: '1. Context', hi: '1. संदर्भ' },
+        'context-1': { en: 'Former US President <strong>Donald Trump</strong> announced a <strong>25% tariff</strong> on <strong>Indian goods</strong> starting <strong>August 1, 2025</strong>.', hi: 'पूर्व अमेरिकी राष्ट्रपति <strong>डोनाल्ड ट्रंप</strong> ने <strong>1 अगस्त, 2025</strong> से <strong>भारतीय सामानों</strong> पर <strong>25% टैरिफ</strong> की घोषणा की।' },
+        'context-2': { en: 'An <strong>additional “penalty”</strong> also hinted at due to India’s defense and energy ties with <strong>Russia</strong>.', hi: 'भारत के <strong>रूस</strong> के साथ रक्षा और ऊर्जा संबंधों के कारण एक <strong>अतिरिक्त “जुर्माना”</strong> का भी संकेत दिया गया।' },
+        'context-3': { en: 'This has triggered <strong>concerns among economists</strong> about India\'s GDP slowdown in FY 2025-26.', hi: 'इसने FY 2025-26 में भारत की जीडीपी में मंदी के बारे में <strong>अर्थशास्त्रियों के बीच चिंता</strong> पैदा कर दी है।' },
+        'macro-impact-title': { en: '2. Macroeconomic Impact', hi: '2. व्यापक आर्थिक प्रभाव' },
+        'gdp-estimates-title': { en: '🔻 GDP Growth Estimates', hi: '🔻 जीडीपी वृद्धि अनुमान' },
+        'table-head-1': { en: 'Institution', hi: 'संस्था' },
+        'table-head-2': { en: 'Earlier Projection', hi: 'पिछला अनुमान' },
+        'table-head-3': { en: 'Revised/Estimated Impact', hi: 'संशोधित/अनुमानित प्रभाव' },
+        'rbi-inst': { en: 'RBI', hi: 'आरबीआई' },
+        'rbi-proj': { en: '6.5%', hi: '6.5%' },
+        'rbi-impact': { en: 'Still unchanged', hi: 'अभी भी अपरिवर्तित' },
+        'anz-inst': { en: 'ANZ', hi: 'एएनजेड' },
+        'anz-proj': { en: '6.1%', hi: '6.1%' },
+        'anz-impact': { en: '-40 bps impact expected', hi: '-40 बीपीएस प्रभाव अपेक्षित' },
+        'hsbc-inst': { en: 'HSBC', hi: 'एचएसबीसी' },
+        'hsbc-proj': { en: '6.3%', hi: '6.3%' },
+        'hsbc-impact': { en: '-30 bps impact (+ indirect drag)', hi: '-30 बीपीएस प्रभाव (+ अप्रत्यक्ष खिंचाव)' },
+        'nomura-inst': { en: 'Nomura', hi: 'नोमुरा' },
+        'nomura-proj': { en: '6.2%', hi: '6.2%' },
+        'nomura-impact': { en: '-20 bps impact', hi: '-20 बीपीएस प्रभाव' },
+        'barclays-inst': { en: 'Barclays', hi: 'बार्कलेज' },
+        'barclays-proj': { en: 'N/A', hi: 'उपलब्ध नहीं' },
+        'barclays-impact': { en: '-30 bps impact', hi: '-30 बीपीएस प्रभाव' },
+        'table-note': { en: '<strong>Note</strong>: 1 percentage point (ppt) = 100 basis points (bps)', hi: '<strong>नोट</strong>: 1 प्रतिशत बिंदु (ppt) = 100 आधार अंक (bps)' },
+        'economic-consequences-title': { en: '📉 Economic Consequences', hi: '📉 आर्थिक परिणाम' },
+        'consequence-1': { en: 'ANZ: Tariff could subtract <strong>40 bps</strong> from GDP if it stays for full FY 2025-26.', hi: 'एएनजेड: यदि टैरिफ पूरे FY 2025-26 तक रहता है, तो जीडीपी से <strong>40 बीपीएस</strong> कम हो सकता है।' },
+        'consequence-2': { en: 'HSBC: <strong>0.3 ppt</strong> direct hit; potential <strong>indirect drag</strong> via capital inflows, FDI.', hi: 'एचएसबीसी: <strong>0.3 ppt</strong> का सीधा झटका; पूंजी प्रवाह, एफडीआई के माध्यम से संभावित <strong>अप्रत्यक्ष खिंचाव</strong>।' },
+        'consequence-3': { en: '<strong>Lower GDP Growth</strong> likely to fall <strong>below 6%</strong> if tariff impact persists.', hi: 'यदि टैरिफ का प्रभाव बना रहता है, तो <strong>जीडीपी वृद्धि</strong> के <strong>6% से नीचे</strong> गिरने की संभावना है।' },
+        'trade-export-title': { en: '3. Trade and Export Impact', hi: '3. व्यापार और निर्यात पर प्रभाव' },
+        'trade-snapshot-title': { en: '🇮🇳↔🇺🇸 India-US Trade Snapshot (2024):', hi: '🇮🇳↔🇺🇸 भारत-अमेरिका व्यापार स्नैपशॉट (2024):' },
+        'trade-1': { en: 'Total goods trade: <strong>$129.2 billion</strong>', hi: 'कुल माल व्यापार: <strong>$129.2 बिलियन</strong>' },
+        'trade-2': { en: 'US exports to India: <strong>$41.8 billion</strong> (+3.4% YoY)', hi: 'भारत को अमेरिकी निर्यात: <strong>$41.8 बिलियन</strong> (+3.4% YoY)' },
+        'trade-3': { en: 'India exports to US: <strong>$87.4 billion</strong> (+4.5% YoY)', hi: 'अमेरिका को भारतीय निर्यात: <strong>$87.4 बिलियन</strong> (+4.5% YoY)' },
+        'trade-4': { en: 'Trade deficit (US side): <strong>$45.7 billion</strong>', hi: 'व्यापार घाटा (अमेरिकी पक्ष): <strong>$45.7 बिलियन</strong>' },
+        'major-exports-title': { en: '⚙️ Major Indian exports to the US:', hi: '⚙️ अमेरिका को प्रमुख भारतीय निर्यात:' },
+        'export-1': { en: '<strong>Electronics</strong>', hi: '<strong>इलेक्ट्रॉनिक्स</strong>' },
+        'export-2': { en: '<strong>Gems & jewellery</strong>', hi: '<strong>रत्न और आभूषण</strong>' },
+        'export-3': { en: '<strong>Pharmaceuticals</strong>', hi: '<strong>फार्मास्यूटिकल्स</strong>' },
+        'export-4': { en: '<strong>Machinery</strong>', hi: '<strong>मशीनरी</strong>' },
+        'export-5': { en: '<strong>Textiles</strong>', hi: '<strong>वस्त्र</strong>' },
+        'export-6': { en: '<strong>Refined petroleum products</strong>', hi: '<strong>परिष्कृत पेट्रोलियम उत्पाद</strong>' },
+        'export-shock-title': { en: '📊 Export Shock Estimate', hi: '📊 निर्यात झटका अनुमान' },
+        'export-shock': { en: '<strong>Emkay Global</strong>: Export loss to US could be <strong>$30-33 billion</strong> at 25%+ tariff levels.', hi: '<strong>एमके ग्लोबल</strong>: 25%+ टैरिफ स्तरों पर अमेरिका को निर्यात का नुकसान <strong>$30-33 बिलियन</strong> हो सकता है।' },
+        'rbi-policy-title': { en: '4. RBI & Monetary Policy', hi: '4. आरबीआई और मौद्रिक नीति' },
+        'monetary-update-title': { en: '💰 Monetary Policy Update (2025):', hi: '💰 मौद्रिक नीति अद्यतन (2025):' },
+        'monetary-1': { en: '<strong>Repo rate</strong> cut by <strong>100 bps</strong> to <strong>5.5%</strong> in 2025 so far.', hi: '2025 में अब तक <strong>रेपो दर</strong> को <strong>100 बीपीएस</strong> घटाकर <strong>5.5%</strong> कर दिया गया है।' },
+        'monetary-2': { en: '<strong>Inflation</strong> (June 2025): 2.1% – near lower bound of RBI’s 2-6% range.', hi: '<strong>मुद्रास्फीति</strong> (जून 2025): 2.1% - आरबीआई के 2-6% रेंज के निचले सीमा के करीब।' },
+        'monetary-3': { en: 'Next <strong>MPC Meeting</strong> scheduled <strong>next week</strong>.', hi: 'अगली <strong>एमपीसी बैठक</strong> <strong>अगले सप्ताह</strong> निर्धारित है।' },
+        'monetary-4': { en: 'Market expectations: More rate cuts possible, <strong>limited room left</strong>.', hi: 'बाजार की उम्मीदें: और अधिक दर में कटौती संभव है, <strong>लेकिन गुंजाइश सीमित है</strong>।' },
+        'structural-context-title': { en: '5. Structural Context', hi: '5. संरचनात्मक संदर्भ' },
+        'slowing-growth-title': { en: '📉 Slowing Growth Trend:', hi: '📉 धीमी वृद्धि की प्रवृत्ति:' },
+        'slowing-1': { en: 'Q4 2024-25 GDP: <strong>7.4%</strong> (unexpectedly high)', hi: 'Q4 2024-25 जीडीपी: <strong>7.4%</strong> (अप्रत्याशित रूप से उच्च)' },
+        'slowing-2': { en: 'Q1 2025-26 (Apr-Jun): Expected slowdown to <strong>~6.5%</strong>', hi: 'Q1 2025-26 (अप्रैल-जून): <strong>~6.5%</strong> तक मंदी की उम्मीद' },
+        'slowing-3': { en: 'Official data release due <strong>end of August</strong>.', hi: 'आधिकारिक डेटा रिलीज <strong>अगस्त के अंत</strong> में देय है।' },
+        'domestic-demand-title': { en: '🧭 Domestic Demand Cushion:', hi: '🧭 घरेलू मांग का सहारा:' },
+        'domestic-1': { en: 'India is <strong>less export-reliant</strong> than peers in the region.', hi: 'भारत इस क्षेत्र के अपने समकक्षों की तुलना में <strong>कम निर्यात-निर्भर</strong> है।' },
+        'domestic-2': { en: 'Growth driven <strong>more by domestic consumption</strong> than trade.', hi: 'वृद्धि व्यापार की तुलना में <strong>अधिक घरेलू खपत</strong> से प्रेरित है।' },
+        'geopolitical-angle-title': { en: '6. Geopolitical Angle', hi: '6. भू-राजनीतिक कोण' },
+        'geo-1': { en: 'Trump accused India of having <strong>"obnoxious non-monetary trade barriers"</strong>.', hi: 'ट्रंप ने भारत पर <strong>"घिनौने गैर-मौद्रिक व्यापार बाधाएं"</strong> रखने का आरोप लगाया।' },
+        'geo-2': { en: 'Criticized India’s <strong>strategic ties with Russia</strong>.', hi: 'भारत के <strong>रूस के साथ रणनीतिक संबंधों</strong> की आलोचना की।' },
+        'geo-3': { en: 'India’s response: Open to a “<strong>fair, balanced and mutually beneficial</strong>” trade deal.', hi: 'भारत की प्रतिक्रिया: “<strong>निष्पक्ष, संतुलित और पारस्परिक रूप से लाभकारी</strong>” व्यापार समझौते के लिए तैयार।' },
+        'upsc-takeaway-title': { en: '7. Takeaway for UPSC Mains (GS Paper III - Economy & International Relations)', hi: '7. यूपीएससी मुख्य परीक्षा के लिए सार (जीएस पेपर III - अर्थव्यवस्था और अंतर्राष्ट्रीय संबंध)' },
+        'upsc-1': { en: 'Tariff shocks can <strong>destabilize bilateral trade</strong> and <strong>slow down economic growth</strong>.', hi: 'टैरिफ के झटके <strong>द्विपक्षीय व्यापार को अस्थिर</strong> कर सकते हैं और <strong>आर्थिक वृद्धि को धीमा</strong> कर सकते हैं।' },
+        'upsc-2': { en: 'Export dependency can amplify external shocks.', hi: 'निर्यात निर्भरता बाहरी झटकों को बढ़ा सकती है।' },
+        'upsc-3': { en: 'Strategic choices (like ties with Russia) can invite <strong>economic repercussions</strong>.', hi: 'रणनीतिक विकल्प (जैसे रूस के साथ संबंध) <strong>आर्थिक प्रतिफल</strong> को आमंत्रित कर सकते हैं।' },
+        'upsc-4': { en: 'India\'s <strong>monetary policy flexibility</strong> remains constrained despite low inflation.', hi: 'कम मुद्रास्फीति के बावजूद भारत की <strong>मौद्रिक नीति लचीलापन</strong> बाधित रहती है।' },
+        'upsc-5': { en: 'Calls for <strong>diversification of export markets</strong>, <strong>boosting domestic demand</strong>, and <strong>recalibrating trade strategy</strong>.', hi: '<strong>निर्यात बाजारों के विविधीकरण</strong>, <strong>घरेलू मांग को बढ़ावा देने</strong>, और <strong>व्यापार रणनीति को पुनर्संरेखित</strong> करने की आवश्यकता है।' },
+        'back-to-home': { en: 'Back to Home', hi: 'होम पर वापस जाएं' }
+    };
+
+    const enContent = `
+        ${document.querySelector('.content').innerHTML}
+    `;
+
+    const hiContent = `
+        ${document.querySelector('.content').innerHTML}
+    `;
+
+    function switchLanguage() {
+        const isHindi = langToggle.checked;
+        for (const key in elements) {
+            const element = document.getElementById(key);
+            if (element) {
+                element.innerHTML = elements[key][isHindi ? 'hi' : 'en'];
+            }
+        }
+    }
+
+    langToggle.addEventListener('change', switchLanguage);
+    switchLanguage(); // Initial call
+
+    // Read Time Calculation
+    const postContent = document.querySelector('.content').innerText;
+    const wordCount = postContent.split(/\s+/).length;
+    const wordsPerMinute = 200; // Average reading speed
+    const readTime = Math.ceil(wordCount / wordsPerMinute);
+    document.getElementById('read-time').innerText = `Approx. ${readTime} min read`;
+
+    // Scroll to top button
+    const scrollTopBtn = document.getElementById('scroll-to-top');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            scrollTopBtn.style.display = 'block';
+        } else {
+            scrollTopBtn.style.display = 'none';
+        }
+    });
+
+    scrollTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+</body>
+</html>

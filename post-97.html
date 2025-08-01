@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SC Verdict on Telangana Speaker’s Delay</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Lato:wght@300;400;700&display=swap');
+
+    :root {
+        --primary-color: #6a1b9a;
+        --secondary-color: #e0e0e0;
+        --text-color: #424242;
+        --light-text-color: #616161;
+        --bg-color: #f5f5f5;
+        --accent-color: #f9a825;
+        --highlight-color: #f1f8e9;
+        --nav-bg-color: #7b1fa2;
+        --hover-color: #fff9c4; /* A bright, colorful hover */
+    }
+
+    [data-theme="dark"] {
+        --primary-color: #ba68c8;
+        --secondary-color: #263238;
+        --text-color: #e0e0e0;
+        --light-text-color: #bdbdbd;
+        --bg-color: #1a1a1a;
+        --accent-color: #ffd54f;
+        --highlight-color: #383e44;
+        --nav-bg-color: #37474f;
+        --hover-color: #3e4e5e;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Lato', sans-serif;
+        line-height: 1.8;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        transition: background-color 0.5s, color 0.5s;
+        position: relative;
+    }
+
+    .container {
+        max-width: 900px;
+        margin: auto;
+        padding: 20px;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+        background-color: var(--nav-bg-color);
+        color: white;
+        padding: 15px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .logo {
+        font-family: 'Merriweather', serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: white;
+        text-decoration: none;
+    }
+
+    .nav-links {
+        list-style: none;
+        display: none;
+    }
+
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--nav-bg-color);
+        padding: 10px 0;
+    }
+    
+    .nav-links a {
+        color: white;
+        text-decoration: none;
+        padding: 15px 20px;
+        display: block;
+        transition: background-color 0.3s;
+    }
+
+    .nav-links a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .hamburger {
+        cursor: pointer;
+        display: block;
+    }
+
+    .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        background-color: white;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .hamburger.active .bar:nth-child(2) { opacity: 0; }
+    .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    /* Language & Theme Switch */
+    .switch-container {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .lang-switch-btn, .theme-switch-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 1rem;
+        color: white;
+        transition: color 0.3s;
+    }
+
+    .lang-switch-btn {
+        background-color: var(--accent-color);
+        color: var(--text-color);
+        padding: 8px 15px;
+        border-radius: 50px;
+        font-weight: 700;
+        transition: transform 0.3s, background-color 0.3s;
+    }
+
+    .lang-switch-btn:hover {
+        transform: scale(1.05);
+        background-color: #ffc107;
+    }
+    
+    /* Post Content */
+    .post-header {
+        text-align: center;
+        margin-top: 40px;
+        margin-bottom: 30px;
+        position: relative;
+    }
+
+    .post-header h1 {
+        font-family: 'Merriweather', serif;
+        font-size: 3rem;
+        color: var(--primary-color);
+        margin-bottom: 10px;
+    }
+
+    .post-meta {
+        color: var(--light-text-color);
+        font-size: 0.9rem;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        position: relative;
+    }
+
+    .read-time {
+        background-color: var(--accent-color);
+        color: white;
+        padding: 4px 10px;
+        border-radius: 20px;
+        font-weight: 700;
+        display: inline-block;
+    }
+
+    .post-content {
+        font-size: 1.1rem;
+        color: var(--light-text-color);
+    }
+
+    .post-content h3 {
+        font-family: 'Merriweather', serif;
+        color: var(--primary-color);
+        margin-top: 40px;
+        margin-bottom: 15px;
+        font-size: 1.8rem;
+        position: relative;
+        display: inline-block;
+    }
+
+    .post-content h3::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        width: 70%;
+        height: 3px;
+        background-color: var(--accent-color);
+    }
+    
+    .post-content p, .post-content li {
+        margin-bottom: 1.5rem;
+        padding: 10px;
+        border-radius: 8px;
+        transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+        cursor: pointer;
+        position: relative;
+    }
+    
+    .post-content p:hover, .post-content li:hover {
+        background-color: var(--hover-color);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        transform: translateY(-2px);
+    }
+
+    .post-content ul {
+        margin-bottom: 2rem;
+        padding-left: 20px;
+    }
+
+    .post-content strong {
+        color: var(--text-color);
+        font-weight: 700;
+    }
+
+    .back-to-home {
+        display: block;
+        width: fit-content;
+        margin: 40px auto 20px;
+        padding: 15px 30px;
+        background-color: var(--primary-color);
+        color: white;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 700;
+        text-align: center;
+        transition: background-color 0.3s, transform 0.2s;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .back-to-home:hover {
+        background-color: #4a148c;
+        transform: translateY(-3px);
+    }
+
+    /* Floating Button */
+    .float-button {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 60px;
+        height: 60px;
+        background-color: var(--accent-color);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s, visibility 0.3s;
+    }
+
+    .float-button.visible {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    /* Media Queries */
+    @media (min-width: 769px) {
+        .nav-links {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+        }
+        .hamburger {
+            display: none;
+        }
+    }
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+    <a href="index.html" class="logo">Article from The Hindu</a>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="donation.html">Donation</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="switch-container">
+        <button class="lang-switch-btn" id="lang-switch">
+            <span class="active">EN</span> | <span>HI</span>
+        </button>
+        <button class="theme-switch-btn" id="theme-switch">
+            &#9788;
+        </button>
+        <div class="hamburger" id="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="post-header">
+        <h1 data-en="SC Verdict on Telangana Speaker’s Delay in Disqualification Proceedings" data-hi="तेलंगाना स्पीकर के अयोग्यता कार्यवाही में देरी पर सुप्रीम कोर्ट का फैसला">SC Verdict on Telangana Speaker’s Delay in Disqualification Proceedings</h1>
+        <p class="post-meta">
+            <span data-en="Published on: August 1, 2025" data-hi="प्रकाशित तिथि: 1 अगस्त, 2025">Published on: August 1, 2025</span>
+            <span class="read-time" data-en="Read Time: 5 min" data-hi="पढ़ने का समय: 5 मिनट">Read Time: 5 min</span>
+        </p>
+    </div>
+
+    <div class="post-content">
+        <h3 data-en="1. Context of the Case:" data-hi="1. मामले का संदर्भ:">1. Context of the Case:</h3>
+        <ul>
+            <li data-en="The <strong>Supreme Court</strong> (SC) reprimanded the <strong>Telangana Assembly Speaker</strong> for delaying the disqualification proceedings against <strong>10 Bharat Rashtra Samithi (BRS) MLAs</strong> who defected to the ruling <strong>Congress</strong> in <strong>2024</strong>." data-hi="सुप्रीम कोर्ट (SC) ने तेलंगाना विधानसभा अध्यक्ष को 2024 में सत्ताधारी कांग्रेस में शामिल हुए 10 भारत राष्ट्र समिति (BRS) विधायकों के खिलाफ अयोग्यता कार्यवाही में देरी के लिए फटकार लगाई।">The <strong>Supreme Court</strong> (SC) reprimanded the <strong>Telangana Assembly Speaker</strong> for delaying the disqualification proceedings against <strong>10 Bharat Rashtra Samithi (BRS) MLAs</strong> who defected to the ruling <strong>Congress</strong> in <strong>2024</strong>.</li>
+            <li data-en="The SC observed that the delay undermined the dignity of the Speaker’s office and delayed the resolution of anti-defection petitions, violating the expectations laid out in the <strong>Tenth Schedule</strong> of the <strong>Indian Constitution</strong> (Anti-Defection Law)." data-hi="SC ने टिप्पणी की कि देरी ने अध्यक्ष के कार्यालय की गरिमा को कम किया और दलबदल विरोधी याचिकाओं के समाधान में देरी की, जो भारतीय संविधान की दसवीं अनुसूची (दलबदल विरोधी कानून) में निर्धारित अपेक्षाओं का उल्लंघन है।">The SC observed that the delay undermined the dignity of the Speaker’s office and delayed the resolution of anti-defection petitions, violating the expectations laid out in the <strong>Tenth Schedule</strong> of the <strong>Indian Constitution</strong> (Anti-Defection Law).</li>
+        </ul>
+
+        <h3 data-en="2. Key Observations by the SC:" data-hi="2. SC की मुख्य टिप्पणियां:">2. Key Observations by the SC:</h3>
+        <ul>
+            <li data-en="The SC <strong>directed the Telangana Speaker</strong> to decide the disqualification petitions within <strong>three months</strong>. The court emphasized that delays of several months or even years, as witnessed in some cases, make the anti-defection law ineffective and often lead to disqualification proceedings dying a “natural death” due to the Assembly's tenure ending." data-hi="SC ने तेलंगाना स्पीकर को निर्देश दिया कि वे अयोग्यता याचिकाओं पर तीन महीने के भीतर फैसला करें। कोर्ट ने जोर देकर कहा कि कुछ मामलों में देखी गई कई महीनों या वर्षों की देरी, दलबदल विरोधी कानून को अप्रभावी बनाती है और अक्सर विधानसभा का कार्यकाल समाप्त होने के कारण अयोग्यता कार्यवाही को “प्राकृतिक मौत” की ओर ले जाती है।">The SC <strong>directed the Telangana Speaker</strong> to decide the disqualification petitions within <strong>three months</strong>. The court emphasized that delays of several months or even years, as witnessed in some cases, make the anti-defection law ineffective and often lead to disqualification proceedings dying a “natural death” due to the Assembly's tenure ending.</li>
+            <li data-en="<strong>Adverse Inference</strong>: The court indicated that any <strong>MLA</strong> attempting to delay proceedings would be subjected to adverse inferences." data-hi="प्रतिकूल अनुमान: कोर्ट ने संकेत दिया कि कार्यवाही में देरी करने की कोशिश करने वाले किसी भी विधायक पर प्रतिकूल अनुमान लगाया जाएगा।"><strong>Adverse Inference</strong>: The court indicated that any <strong>MLA</strong> attempting to delay proceedings would be subjected to adverse inferences.</li>
+            <li data-en="<strong>Delay in Action</strong>: The Speaker took <strong>seven months</strong> to issue notices on the disqualification proceedings, which was deemed unacceptable by the SC. The court stressed that <strong>expedition</strong> was the core rationale for entrusting the responsibility of adjudicating defection petitions to the Speaker." data-hi="कार्यवाही में देरी: स्पीकर ने अयोग्यता कार्यवाही पर नोटिस जारी करने में सात महीने का समय लिया, जिसे SC ने अस्वीकार्य माना। कोर्ट ने जोर दिया कि शीघ्रता ही दलबदल याचिकाओं पर निर्णय लेने की जिम्मेदारी स्पीकर को सौंपने का मूल तर्क था।"><strong>Delay in Action</strong>: The Speaker took <strong>seven months</strong> to issue notices on the disqualification proceedings, which was deemed unacceptable by the SC. The court stressed that <strong>expedition</strong> was the core rationale for entrusting the responsibility of adjudicating defection petitions to the Speaker.</li>
+        </ul>
+
+        <h3 data-en="3. Constitutional and Legal Framework:" data-hi="3. संवैधानिक और कानूनी ढांचा:">3. Constitutional and Legal Framework:</h3>
+        <ul>
+            <li data-en="<strong>Tenth Schedule</strong>: The <strong>Anti-Defection Law</strong>, which deals with disqualification of elected representatives on grounds of defection, mandates that the Speaker or Chairman of the respective House acts as a <strong>tribunal</strong> for such cases." data-hi="दसवीं अनुसूची: दलबदल विरोधी कानून, जो दलबदल के आधार पर निर्वाचित प्रतिनिधियों की अयोग्यता से संबंधित है, यह अनिवार्य करता है कि संबंधित सदन के अध्यक्ष या सभापति ऐसे मामलों के लिए एक न्यायाधिकरण के रूप में कार्य करें।"><strong>Tenth Schedule</strong>: The <strong>Anti-Defection Law</strong>, which deals with disqualification of elected representatives on grounds of defection, mandates that the Speaker or Chairman of the respective House acts as a <strong>tribunal</strong> for such cases.</li>
+            <li data-en="<strong>Intent of Tenth Schedule</strong>: The law was introduced to prevent <strong>unprincipled defections</strong> and to maintain the integrity of the political process. The Speaker’s role was designed to act <strong>expeditiously</strong> to avoid delays, which could otherwise undermine the law’s effectiveness." data-hi="दसवीं अनुसूची का उद्देश्य: यह कानून अनैतिक दलबदल को रोकने और राजनीतिक प्रक्रिया की अखंडता बनाए रखने के लिए पेश किया गया था। स्पीकर की भूमिका को शीघ्रता से कार्य करने के लिए डिज़ाइन किया गया था ताकि देरी से बचा जा सके, जो अन्यथा कानून की प्रभावशीलता को कम कर सकती है।"><strong>Intent of Tenth Schedule</strong>: The law was introduced to prevent <strong>unprincipled defections</strong> and to maintain the integrity of the political process. The Speaker’s role was designed to act <strong>expeditiously</strong> to avoid delays, which could otherwise undermine the law’s effectiveness.</li>
+            <li data-en="<strong>Role of Speaker</strong>: The Speaker’s responsibility is to ensure that defection petitions are dealt with promptly and impartially, without unnecessary delays. The law intended for the Speaker to avoid <strong>judicial intervention</strong> by acting quickly and efficiently, thereby preventing prolonged judicial proceedings." data-hi="अध्यक्ष की भूमिका: स्पीकर की जिम्मेदारी यह सुनिश्चित करना है कि दलबदल याचिकाओं को अनावश्यक देरी के बिना, तुरंत और निष्पक्ष रूप से निपटाया जाए। कानून का उद्देश्य स्पीकर द्वारा तेजी और कुशलता से कार्य करके न्यायिक हस्तक्षेप से बचना था, जिससे लंबी न्यायिक कार्यवाही को रोका जा सके।"><strong>Role of Speaker</strong>: The Speaker’s responsibility is to ensure that defection petitions are dealt with promptly and impartially, without unnecessary delays. The law intended for the Speaker to avoid <strong>judicial intervention</strong> by acting quickly and efficiently, thereby preventing prolonged judicial proceedings.</li>
+        </ul>
+
+        <h3 data-en="4. Judicial Review and Accountability:" data-hi="4. न्यायिक समीक्षा और जवाबदेही:">4. Judicial Review and Accountability:</h3>
+        <ul>
+            <li data-en="The SC clarified that the Speaker’s role is not <strong>immune</strong> from judicial review. Even when acting as a tribunal under the Tenth Schedule, the Speaker’s decisions are <strong>subject to judicial scrutiny</strong> by the <strong>High Courts</strong> and <strong>Supreme Court</strong>. This is important for ensuring <strong>accountability</strong> and preventing abuse of power by the Speaker." data-hi="SC ने स्पष्ट किया कि स्पीकर की भूमिका न्यायिक समीक्षा से मुक्त नहीं है। दसवीं अनुसूची के तहत एक न्यायाधिकरण के रूप में कार्य करते समय भी, स्पीकर के फैसले उच्च न्यायालयों और सुप्रीम कोर्ट द्वारा न्यायिक जांच के अधीन हैं। यह जवाबदेही सुनिश्चित करने और स्पीकर द्वारा सत्ता के दुरुपयोग को रोकने के लिए महत्वपूर्ण है।">The SC clarified that the Speaker’s role is not <strong>immune</strong> from judicial review. Even when acting as a tribunal under the Tenth Schedule, the Speaker’s decisions are <strong>subject to judicial scrutiny</strong> by the <strong>High Courts</strong> and <strong>Supreme Court</strong>. This is important for ensuring <strong>accountability</strong> and preventing abuse of power by the Speaker.</li>
+        </ul>
+
+        <h3 data-en="5. Political and Constitutional Implications:" data-hi="5. राजनीतिक और संवैधानिक निहितार्थ:">5. Political and Constitutional Implications:</h3>
+        <ul>
+            <li data-en="<strong>Dignity of the Speaker’s Office</strong>: The SC’s observations underscore the importance of maintaining the integrity of the Speaker’s office. The role requires neutrality, fairness, and a commitment to upholding the <strong>Constitution</strong>." data-hi="अध्यक्ष के पद की गरिमा: SC की टिप्पणियां अध्यक्ष के पद की अखंडता बनाए रखने के महत्व को रेखांकित करती हैं। इस भूमिका के लिए निष्पक्षता, न्याय और संविधान को बनाए रखने की प्रतिबद्धता की आवश्यकता होती है।"><strong>Dignity of the Speaker’s Office</strong>: The SC’s observations underscore the importance of maintaining the integrity of the Speaker’s office. The role requires neutrality, fairness, and a commitment to upholding the <strong>Constitution</strong>.</li>
+            <li data-en="<strong>Erosion of Trust in Anti-Defection Law</strong>: Delays in adjudicating disqualification petitions erode the <strong>trust</strong> placed in the <strong>Tenth Schedule</strong> by Parliament. When Speakers delay decisions, it encourages defections and political opportunism, undermining the spirit of the law." data-hi="दलबदल विरोधी कानून में विश्वास का क्षरण: अयोग्यता याचिकाओं पर निर्णय लेने में देरी संसद द्वारा दसवीं अनुसूची में रखे गए विश्वास को कमजोर करती है। जब अध्यक्ष निर्णय लेने में देरी करते हैं, तो यह दलबदल और राजनीतिक अवसरवादिता को बढ़ावा देता है, जिससे कानून की भावना कमजोर होती है।"><strong>Erosion of Trust in Anti-Defection Law</strong>: Delays in adjudicating disqualification petitions erode the <strong>trust</strong> placed in the <strong>Tenth Schedule</strong> by Parliament. When Speakers delay decisions, it encourages defections and political opportunism, undermining the spirit of the law.</li>
+            <li data-en="<strong>Impact on Political Stability</strong>: Prolonged delays in deciding disqualification petitions can destabilize the political landscape by allowing defectors to continue holding office while awaiting a resolution, thereby affecting governance and public trust in the system." data-hi="राजनीतिक स्थिरता पर प्रभाव: अयोग्यता याचिकाओं पर निर्णय लेने में लंबे समय तक देरी से राजनीतिक परिदृश्य अस्थिर हो सकता है, क्योंकि यह दलबदल करने वालों को एक समाधान की प्रतीक्षा करते हुए पद पर बने रहने की अनुमति देता है, जिससे शासन और प्रणाली में जनता के विश्वास पर असर पड़ता है।"><strong>Impact on Political Stability</strong>: Prolonged delays in deciding disqualification petitions can destabilize the political landscape by allowing defectors to continue holding office while awaiting a resolution, thereby affecting governance and public trust in the system.</li>
+        </ul>
+
+        <h3 data-en="6. Legal Precedents and Future Implications:" data-hi="6. कानूनी मिसालें और भविष्य के निहितार्थ:">6. Legal Precedents and Future Implications:</h3>
+        <ul>
+            <li data-en="<strong>Rajesh Pilot’s Speech</strong>: The SC referenced a <strong>speech</strong> by the late parliamentarian <strong>Rajesh Pilot</strong>, highlighting the purpose of the Speaker acting as a tribunal to avoid judicial delays. The Court reaffirmed that the Speaker’s duty is to expedite proceedings and avoid &quot;dilly-dallying.&quot;" data-hi="राजेश पायलट का भाषण: SC ने दिवंगत सांसद राजेश पायलट के एक भाषण का उल्लेख किया, जिसमें न्यायिक देरी से बचने के लिए स्पीकर के न्यायाधिकरण के रूप में कार्य करने के उद्देश्य पर प्रकाश डाला गया था। कोर्ट ने फिर से पुष्टि की कि स्पीकर का कर्तव्य कार्यवाही को शीघ्रता से निपटाना और &quot;टालमटोल&quot; से बचना है।"><strong>Rajesh Pilot’s Speech</strong>: The SC referenced a <strong>speech</strong> by the late parliamentarian <strong>Rajesh Pilot</strong>, highlighting the purpose of the Speaker acting as a tribunal to avoid judicial delays. The Court reaffirmed that the Speaker’s duty is to expedite proceedings and avoid "dilly-dallying."</li>
+            <li data-en="<strong>Impact on Legislative Bodies</strong>: The ruling sets an important precedent for <strong>Assembly Speakers</strong> in all states to adhere to the timelines and procedural norms for adjudicating disqualification petitions. It also reinforces the <strong>judicial oversight</strong> on the Speaker’s decisions, ensuring that such matters cannot be indefinitely delayed." data-hi="विधायी निकायों पर प्रभाव: यह फैसला सभी राज्यों में विधानसभा अध्यक्षों के लिए अयोग्यता याचिकाओं पर निर्णय लेने के लिए समय-सीमा और प्रक्रियात्मक मानदंडों का पालन करने के लिए एक महत्वपूर्ण मिसाल कायम करता है। यह स्पीकर के निर्णयों पर न्यायिक निरीक्षण को भी मजबूत करता है, यह सुनिश्चित करता है कि ऐसे मामलों में अनिश्चित काल तक देरी नहीं की जा सकती है।"><strong>Impact on Legislative Bodies</strong>: The ruling sets an important precedent for <strong>Assembly Speakers</strong> in all states to adhere to the timelines and procedural norms for adjudicating disqualification petitions. It also reinforces the <strong>judicial oversight</strong> on the Speaker’s decisions, ensuring that such matters cannot be indefinitely delayed.</li>
+            <li data-en="<strong>Political Defections and Electoral Process</strong>: The decision reinforces the need for <strong>political accountability</strong> and could deter frequent defections, leading to greater stability in political parties and better alignment with the electorate’s mandate." data-hi="राजनीतिक दलबदल और चुनावी प्रक्रिया: यह निर्णय राजनीतिक जवाबदेही की आवश्यकता को मजबूत करता है और बार-बार होने वाले दलबदल को रोक सकता है, जिससे राजनीतिक दलों में अधिक स्थिरता और मतदाताओं के जनादेश के साथ बेहतर संरेखण हो सकता है।"><strong>Political Defections and Electoral Process</strong>: The decision reinforces the need for <strong>political accountability</strong> and could deter frequent defections, leading to greater stability in political parties and better alignment with the electorate’s mandate.</li>
+        </ul>
+
+        <h3 data-en="7. Conclusion:" data-hi="7. निष्कर्ष:">7. Conclusion:</h3>
+        <ul>
+            <li data-en="The Supreme Court’s decision is a significant reminder that the <strong>anti-defection law</strong> must be enforced promptly and with integrity. <strong>Speakers</strong> must be diligent in disqualifying errant legislators who violate the party’s mandate, and their decisions will remain subject to judicial scrutiny if delayed or mishandled. This strengthens the <strong>democratic process</strong> by promoting accountability in elected representatives." data-hi="सुप्रीम कोर्ट का फैसला एक महत्वपूर्ण अनुस्मारक है कि दलबदल विरोधी कानून को तुरंत और ईमानदारी के साथ लागू किया जाना चाहिए। स्पीकर को पार्टी के जनादेश का उल्लंघन करने वाले गलत विधायकों को अयोग्य घोषित करने में मेहनती होना चाहिए, और देरी या गलत तरीके से संभालने पर उनके निर्णय न्यायिक जांच के अधीन रहेंगे। यह निर्वाचित प्रतिनिधियों में जवाबदेही को बढ़ावा देकर लोकतांत्रिक प्रक्रिया को मजबूत करता है।">The Supreme Court’s decision is a significant reminder that the <strong>anti-defection law</strong> must be enforced promptly and with integrity. <strong>Speakers</strong> must be diligent in disqualifying errant legislators who violate the party’s mandate, and their decisions will remain subject to judicial scrutiny if delayed or mishandled. This strengthens the <strong>democratic process</strong> by promoting accountability in elected representatives.</li>
+        </ul>
+
+        <hr>
+        <h3 data-en="Potential UPSC CSE Themes for Essay/GS:" data-hi="यूपीएससी सिविल सेवा परीक्षा के लिए संभावित निबंध/जीएस विषय:">Potential UPSC CSE Themes for Essay/GS:</h3>
+        <ul>
+            <li data-en="<strong>Role of Legislature in Ensuring Political Stability</strong>" data-hi="राजनीतिक स्थिरता सुनिश्चित करने में विधायिका की भूमिका"><strong>Role of Legislature in Ensuring Political Stability</strong></li>
+            <li data-en="<strong>Challenges in the Implementation of Anti-Defection Law</strong>" data-hi="दलबदल विरोधी कानून के कार्यान्वयन में चुनौतियाँ"><strong>Challenges in the Implementation of Anti-Defection Law</strong></li>
+            <li data-en="<strong>The Dilemma of Political Defections and Governance in India</strong>" data-hi="भारत में राजनीतिक दलबदल और शासन की दुविधा"><strong>The Dilemma of Political Defections and Governance in India</strong></li>
+            <li data-en="<strong>Judicial Oversight and Its Impact on the Legislature’s Functions</strong>" data-hi="न्यायिक निरीक्षण और विधायिका के कार्यों पर इसका प्रभाव"><strong>Judicial Oversight and Its Impact on the Legislature’s Functions</strong></li>
+        </ul>
+    </div>
+    
+    <a href="index.html" class="back-to-home" data-en="Back to Home" data-hi="होम पेज पर वापस जाएं">Back to Home</a>
+</div>
+
+<button class="float-button" id="scrollToTopBtn">&#9650;</button>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const langSwitch = document.getElementById('lang-switch');
+        const themeSwitch = document.getElementById('theme-switch');
+        const body = document.body;
+        const scrollBtn = document.getElementById('scrollToTopBtn');
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        let isHindi = false;
+
+        // Language Switch
+        langSwitch.addEventListener('click', () => {
+            isHindi = !isHindi;
+            document.querySelectorAll('[data-en]').forEach(el => {
+                if (isHindi) {
+                    el.innerHTML = el.getAttribute('data-hi');
+                } else {
+                    el.innerHTML = el.getAttribute('data-en');
+                }
+            });
+            
+            langSwitch.querySelector('span:first-child').classList.toggle('active', !isHindi);
+            langSwitch.querySelector('span:last-child').classList.toggle('active', isHindi);
+        });
+
+        // Theme Switch
+        themeSwitch.addEventListener('click', () => {
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.removeAttribute('data-theme');
+                themeSwitch.innerHTML = '&#9788;';
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                themeSwitch.innerHTML = '&#9789;';
+            }
+        });
+
+        // Scroll to Top Button
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollBtn.classList.add('visible');
+            } else {
+                scrollBtn.classList.remove('visible');
+            }
+        });
+
+        scrollBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Hamburger menu
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+        
+        // Initial read time calculation
+        const content = document.querySelector('.post-content').textContent;
+        const wordCount = content.split(/\s+/).filter(Boolean).length;
+        const readTime = Math.ceil(wordCount / 200); // 200 words per minute
+        document.querySelector('.read-time').textContent = `Read Time: ${readTime} min`;
+        document.querySelector('.read-time').setAttribute('data-en', `Read Time: ${readTime} min`);
+        document.querySelector('.read-time').setAttribute('data-hi', `पढ़ने का समय: ${readTime} मिनट`);
+    });
+</script>
+</body>
+</html>

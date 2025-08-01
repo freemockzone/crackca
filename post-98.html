@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Psychological Impact of Infertility on Women in Delhi</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@700&display=swap');
+
+    :root {
+        --primary-color: #0056b3;
+        --secondary-color: #004494;
+        --text-color: #333;
+        --bg-color: #f4f7f6;
+        --hover-color: #e6f2ff;
+        --border-color: #ddd;
+        --hindi-font: 'Noto Sans Devanagari', sans-serif;
+        --english-font: 'Roboto', sans-serif;
+    }
+
+    body {
+        font-family: var(--english-font);
+        line-height: 1.7;
+        margin: 0;
+        padding: 0;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        transition: background-color 0.3s ease;
+    }
+
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+        background-color: var(--primary-color);
+        padding: 15px 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        transition: background-color 0.3s ease;
+    }
+
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 20px;
+    }
+
+    .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 1.1em;
+        position: relative;
+        transition: color 0.3s ease;
+    }
+
+    .nav-links a::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        width: 100%;
+        height: 2px;
+        background-color: white;
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+
+    /* Language Switch */
+    .language-switch {
+        width: 60px;
+        height: 30px;
+        background-color: white;
+        border-radius: 15px;
+        position: relative;
+        cursor: pointer;
+        border: 2px solid var(--primary-color);
+        transition: background-color 0.3s ease;
+        box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .language-switch::before {
+        content: 'EN';
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        transform: translateY(-50%);
+        font-size: 0.8em;
+        font-weight: bold;
+        color: var(--primary-color);
+        transition: all 0.3s ease;
+    }
+
+    .language-switch::after {
+        content: 'HI';
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        font-size: 0.8em;
+        font-weight: bold;
+        color: white;
+        transition: all 0.3s ease;
+    }
+
+    .language-switch-circle {
+        width: 26px;
+        height: 26px;
+        background-color: var(--primary-color);
+        border-radius: 50%;
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .language-switch.hindi-active .language-switch-circle {
+        transform: translateX(30px);
+    }
+
+    .language-switch.hindi-active::before {
+        color: white;
+    }
+
+    .language-switch.hindi-active::after {
+        color: var(--primary-color);
+    }
+
+    /* Post Header */
+    .post-header {
+        text-align: center;
+        padding: 40px 20px;
+        border-bottom: 2px solid var(--border-color);
+        background-color: #fff;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .post-header h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.8em;
+        color: var(--primary-color);
+        margin: 0 0 10px;
+        line-height: 1.2;
+    }
+
+    .post-meta {
+        font-size: 0.9em;
+        color: #777;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 10px;
+    }
+
+    /* Post Body */
+    .post-content {
+        background-color: #fff;
+        padding: 40px;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .post-content h3 {
+        font-family: 'Playfair Display', serif;
+        color: var(--secondary-color);
+        margin-top: 30px;
+        margin-bottom: 15px;
+        border-left: 4px solid var(--primary-color);
+        padding-left: 10px;
+        transition: all 0.3s ease;
+    }
+    
+    .post-content p, .post-content ul {
+        font-size: 1.1em;
+        color: var(--text-color);
+        margin-bottom: 20px;
+    }
+
+    .post-content ul {
+        padding-left: 25px;
+    }
+
+    .post-content li {
+        margin-bottom: 10px;
+    }
+
+    /* Colored Hover Effect */
+    .post-content p:hover,
+    .post-content li:hover,
+    .post-content h3:hover,
+    .post-content .section-title:hover {
+        background-color: var(--hover-color);
+        cursor: pointer;
+        padding-left: 10px;
+        margin-left: -10px;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+    }
+    
+    .post-content p,
+    .post-content li,
+    .post-content h3,
+    .post-content .section-title {
+        transition: all 0.3s ease;
+    }
+
+    .post-content .section-title {
+        font-weight: bold;
+    }
+
+    /* Back to Home Button */
+    .back-home {
+        display: block;
+        width: 200px;
+        margin: 40px auto 20px;
+        padding: 15px;
+        text-align: center;
+        background-color: var(--primary-color);
+        color: white;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: bold;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .back-home:hover {
+        background-color: var(--secondary-color);
+        transform: translateY(-3px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Floating Back to Top Button */
+    .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        opacity: 0;
+        visibility: hidden;
+        transform: scale(0.5);
+        transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+        z-index: 999;
+    }
+
+    .back-to-top.visible {
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1);
+    }
+
+    .back-to-top:hover {
+        background-color: var(--secondary-color);
+    }
+
+    /* Hindi Styles */
+    body.hindi {
+        font-family: var(--hindi-font);
+    }
+
+    .hindi .post-header h1 {
+        font-family: var(--hindi-font);
+    }
+
+    .hindi .post-content h3 {
+        font-family: var(--hindi-font);
+    }
+
+    .hindi .nav-links a {
+        font-family: var(--hindi-font);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .nav-container {
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .nav-links {
+            justify-content: center;
+        }
+
+        .post-header h1 {
+            font-size: 2em;
+        }
+
+        .post-content {
+            padding: 20px;
+        }
+
+        .post-content h3 {
+            font-size: 1.2em;
+        }
+        
+        .post-content p, .post-content li {
+            font-size: 1em;
+        }
+        
+        .language-switch {
+            margin-top: 10px;
+        }
+    }
+</style>
+<link href="[https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700&display=swap](https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700&display=swap)" rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="nav-links">
+            <a href="index.html" data-en="Home" data-hi="होम">Home</a>
+            <a href="donation.html" data-en="Donation" data-hi="दान">Donation</a>
+            <a href="contact.html" data-en="Contact" data-hi="संपर्क">Contact</a>
+        </div>
+        <div class="language-switch">
+            <div class="language-switch-circle"></div>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <header class="post-header">
+        <h1 id="post-title" data-en="Psychological Impact of Infertility on Women in Delhi" data-hi="दिल्ली में महिलाओं पर बांझपन का मनोवैज्ञानिक प्रभाव">Psychological Impact of Infertility on Women in Delhi</h1>
+        <div class="post-meta">
+            <span id="post-date" data-en="Date: August 1, 2025" data-hi="दिनांक: 1 अगस्त, 2025">Date: August 1, 2025</span>
+            <span>|</span>
+            <span id="read-time" data-en="Read Time: 5 min" data-hi="पढ़ने का समय: 5 मिनट">Read Time: 5 min</span>
+        </div>
+    </header>
+
+    <main class="post-content">
+        <div id="content-section">
+            <h3 data-en="1. Overview of the Study:" data-hi="1. अध्ययन का अवलोकन:">1. Overview of the Study:</h3>
+            <p data-en="A study titled ‘Infertility and its Psychological Impact’ was conducted by experts from Delhi University (DU) and Lady Hardinge Medical College (LHMC)." data-hi="‘बांझपन और इसका मनोवैज्ञानिक प्रभाव’ नामक एक अध्ययन दिल्ली विश्वविद्यालय (डीयू) और लेडी हार्डिंग मेडिकल कॉलेज (एलएचएमसी) के विशेषज्ञों द्वारा किया गया था।">A study titled ‘Infertility and its Psychological Impact’ was conducted by experts from Delhi University (DU) and Lady Hardinge Medical College (LHMC).</p>
+            <p data-en="The research, commissioned by the National Commission for Women (NCW) in 2019, focused on the mental health of women seeking fertility treatment, specifically looking at stress, anxiety, and depression among women diagnosed with infertility." data-hi="2019 में राष्ट्रीय महिला आयोग (एनसीडब्ल्यू) द्वारा शुरू किए गए इस शोध में प्रजनन उपचार की तलाश में लगी महिलाओं के मानसिक स्वास्थ्य पर ध्यान केंद्रित किया गया, विशेष रूप से बांझपन से पीड़ित महिलाओं में तनाव, चिंता और अवसाद को देखा गया।">The research, commissioned by the National Commission for Women (NCW) in 2019, focused on the mental health of women seeking fertility treatment, specifically looking at stress, anxiety, and depression among women diagnosed with infertility.</p>
+            <p data-en="The study spanned from 2020 to 2022 and was presented across eight papers, with six already published in peer-reviewed journals." data-hi="यह अध्ययन 2020 से 2022 तक चला और इसे आठ शोध पत्रों में प्रस्तुत किया गया, जिनमें से छह पहले ही सहकर्मी-समीक्षित पत्रिकाओं में प्रकाशित हो चुके हैं।">The study spanned from 2020 to 2022 and was presented across eight papers, with six already published in peer-reviewed journals.</p>
+
+            <h3 data-en="2. Key Findings:" data-hi="2. मुख्य निष्कर्ष:">2. Key Findings:</h3>
+            <ul data-en="" data-hi="">
+                <li data-en="Prevalence of Depression: The study revealed that approximately 77% of women seeking fertility treatment at LHMC were found to be suffering from depression. This figure is starkly higher than the 23% prevalence of depression among women who are not facing infertility issues." data-hi="अवसाद की व्यापकता: अध्ययन से पता चला कि एलएचएमसी में प्रजनन उपचार की तलाश में लगी लगभग 77% महिलाएं अवसाद से पीड़ित पाई गईं। यह आंकड़ा उन महिलाओं में अवसाद की 23% व्यापकता से काफी अधिक है जिन्हें बांझपन की समस्या नहीं है।">Prevalence of Depression: The study revealed that approximately 77% of women seeking fertility treatment at LHMC were found to be suffering from depression. This figure is starkly higher than the 23% prevalence of depression among women who are not facing infertility issues.</li>
+                <li data-en="Impact of Infertility on Mental Health: The study emphasizes the psychological burden associated with infertility, which often leads to heightened levels of stress, anxiety, and depression in women." data-hi="मानसिक स्वास्थ्य पर बांझपन का प्रभाव: अध्ययन बांझपन से जुड़े मनोवैज्ञानिक बोझ पर जोर देता है, जिसके कारण अक्सर महिलाओं में तनाव, चिंता और अवसाद का स्तर बढ़ जाता है।">Impact of Infertility on Mental Health: The study emphasizes the psychological burden associated with infertility, which often leads to heightened levels of stress, anxiety, and depression in women.</li>
+            </ul>
+
+            <h3 data-en="3. Influence of Support Systems:" data-hi="3. सहायक प्रणालियों का प्रभाव:">3. Influence of Support Systems:</h3>
+            <ul data-en="" data-hi="">
+                <li data-en="Emotional Support: The study found that women who had spousal support and supportive in-laws or were part of peer groups (such as women facing similar infertility challenges) fared better mentally than those who lacked emotional support." data-hi="भावनात्मक समर्थन: अध्ययन में पाया गया कि जिन महिलाओं को पति का समर्थन और ससुराल वालों का सहयोग मिला या जो सहकर्मी समूहों (जैसे समान बांझपन चुनौतियों का सामना करने वाली महिलाएं) का हिस्सा थीं, वे उन लोगों की तुलना में मानसिक रूप से बेहतर थीं जिन्हें भावनात्मक समर्थन की कमी थी।">Emotional Support: The study found that women who had spousal support and supportive in-laws or were part of peer groups (such as women facing similar infertility challenges) fared better mentally than those who lacked emotional support.</li>
+                <li data-en="Coping Mechanisms: Women who were able to share strategies for coping with infertility and had a social support system were better able to manage their emotional well-being." data-hi="सामना करने के तंत्र: जो महिलाएं बांझपन से निपटने की रणनीतियों को साझा करने में सक्षम थीं और उनके पास एक सामाजिक समर्थन प्रणाली थी, वे अपनी भावनात्मक भलाई को बेहतर ढंग से प्रबंधित करने में सक्षम थीं।">Coping Mechanisms: Women who were able to share strategies for coping with infertility and had a social support system were better able to manage their emotional well-being.</li>
+            </ul>
+
+            <h3 data-en="4. Relevance to Delhi’s Demographic Trends:" data-hi="4. दिल्ली के जनसांख्यिकीय रुझानों से प्रासंगिकता:">4. Relevance to Delhi’s Demographic Trends:</h3>
+            <ul data-en="" data-hi="">
+                <li data-en="Declining Total Fertility Rate (TFR): Delhi has seen the lowest TFR in India, reflecting an average number of children per woman. This decline in fertility is attributed to several factors, including inflation, increased women in the workforce, better maternal and infant health, independent decision-making, and infertility." data-hi="घटती कुल प्रजनन दर (टीएफआर): दिल्ली में भारत में सबसे कम टीएफआर देखी गई है, जो प्रति महिला बच्चों की औसत संख्या को दर्शाती है। प्रजनन क्षमता में यह गिरावट कई कारकों के कारण है, जिनमें महंगाई, कार्यबल में महिलाओं की वृद्धि, बेहतर मातृ और शिशु स्वास्थ्य, स्वतंत्र निर्णय लेना और बांझपन शामिल हैं।">Declining Total Fertility Rate (TFR): Delhi has seen the lowest TFR in India, reflecting an average number of children per woman. This decline in fertility is attributed to several factors, including inflation, increased women in the workforce, better maternal and infant health, independent decision-making, and infertility.</li>
+                <li data-en="Impact of Lifestyle: As women are postponing marriage, childbirth, or opting for fewer children, the stress related to infertility becomes more pronounced." data-hi="जीवनशैली का प्रभाव: चूंकि महिलाएं शादी, बच्चे पैदा करने में देरी कर रही हैं या कम बच्चे पैदा करने का विकल्प चुन रही हैं, इसलिए बांझपन से संबंधित तनाव अधिक स्पष्ट हो जाता है।">Impact of Lifestyle: As women are postponing marriage, childbirth, or opting for fewer children, the stress related to infertility becomes more pronounced.</li>
+            </ul>
+
+            <h3 data-en="5. Psychological Support:" data-hi="5. मनोवैज्ञानिक सहायता:">5. Psychological Support:</h3>
+            <ul data-en="" data-hi="">
+                <li data-en="Need for Psychological Services: The study highlights the importance of integrating psychological support into the fertility treatment process. It suggests that along with medical treatment, there should be mental health services to alleviate the emotional strain of infertility." data-hi="मनोवैज्ञानिक सेवाओं की आवश्यकता: अध्ययन प्रजनन उपचार प्रक्रिया में मनोवैज्ञानिक सहायता को एकीकृत करने के महत्व पर प्रकाश डालता है। यह बताता है कि चिकित्सा उपचार के साथ, बांझपन के भावनात्मक तनाव को कम करने के लिए मानसिक स्वास्थ्य सेवाएं भी होनी चाहिए।">Need for Psychological Services: The study highlights the importance of integrating psychological support into the fertility treatment process. It suggests that along with medical treatment, there should be mental health services to alleviate the emotional strain of infertility.</li>
+                <li data-en="Peer Support Groups: The study recommends the creation of peer groups where women undergoing infertility treatment can interact and share coping strategies. Such support groups can be instrumental in managing stress and providing emotional comfort." data-hi="सहकर्मी सहायता समूह: अध्ययन सहकर्मी समूहों के निर्माण की सिफारिश करता है जहां बांझपन उपचार से गुजर रही महिलाएं बातचीत कर सकें और सामना करने की रणनीतियों को साझा कर सकें। ऐसे सहायता समूह तनाव को प्रबंधित करने और भावनात्मक आराम प्रदान करने में सहायक हो सकते हैं।">Peer Support Groups: The study recommends the creation of peer groups where women undergoing infertility treatment can interact and share coping strategies. Such support groups can be instrumental in managing stress and providing emotional comfort.</li>
+                <li data-en="Counseling Services: It is proposed that counseling services be made a part of the infertility treatment process to help women manage the psychological burden and prepare them for the often exhaustive treatment processes." data-hi="परामर्श सेवाएँ: यह प्रस्तावित है कि महिलाओं को मनोवैज्ञानिक बोझ का प्रबंधन करने और उन्हें अक्सर थका देने वाली उपचार प्रक्रियाओं के लिए तैयार करने में मदद करने के लिए परामर्श सेवाओं को बांझपन उपचार प्रक्रिया का हिस्सा बनाया जाए।">Counseling Services: It is proposed that counseling services be made a part of the infertility treatment process to help women manage the psychological burden and prepare them for the often exhaustive treatment processes.</li>
+            </ul>
+
+            <h3 data-en="6. Implications for Public Healthcare System:" data-hi="6. सार्वजनिक स्वास्थ्य सेवा प्रणाली के लिए निहितार्थ:">6. Implications for Public Healthcare System:</h3>
+            <ul data-en="" data-hi="">
+                <li data-en="The study calls for a more holistic approach in the public healthcare system, which should not only provide medical treatment for infertility but also ensure the mental well-being of women." data-hi="यह अध्ययन सार्वजनिक स्वास्थ्य सेवा प्रणाली में एक अधिक समग्र दृष्टिकोण की मांग करता है, जिसे न केवल बांझपन के लिए चिकित्सा उपचार प्रदान करना चाहिए, बल्कि महिलाओं की मानसिक भलाई भी सुनिश्चित करनी चाहिए।">The study calls for a more holistic approach in the public healthcare system, which should not only provide medical treatment for infertility but also ensure the mental well-being of women.</li>
+                <li data-en="Integration of psychological counseling into the infertility treatment protocol can significantly improve treatment outcomes and reduce mental health problems associated with infertility." data-hi="बांझपन उपचार प्रोटोकॉल में मनोवैज्ञानिक परामर्श को एकीकृत करने से उपचार के परिणामों में काफी सुधार हो सकता है और बांझपन से जुड़ी मानसिक स्वास्थ्य समस्याओं को कम किया जा सकता है।">Integration of psychological counseling into the infertility treatment protocol can significantly improve treatment outcomes and reduce mental health problems associated with infertility.</li>
+            </ul>
+
+            <h3 data-en="7. Broader Societal and Health Implications:" data-hi="7. व्यापक सामाजिक और स्वास्थ्य निहितार्थ:">7. Broader Societal and Health Implications:</h3>
+            <ul data-en="" data-hi="">
+                <li data-en="Mental Health in Women’s Health Policy: The findings underscore the importance of considering mental health as a central component of women’s health policy. Infertility-related stress and depression should be recognized as critical factors in women’s reproductive health." data-hi="महिलाओं की स्वास्थ्य नीति में मानसिक स्वास्थ्य: निष्कर्ष महिलाओं की स्वास्थ्य नीति के एक केंद्रीय घटक के रूप में मानसिक स्वास्थ्य पर विचार करने के महत्व को रेखांकित करते हैं। बांझपन से संबंधित तनाव और अवसाद को महिलाओं के प्रजनन स्वास्थ्य में महत्वपूर्ण कारक के रूप में पहचाना जाना चाहिए।">Mental Health in Women’s Health Policy: The findings underscore the importance of considering mental health as a central component of women’s health policy. Infertility-related stress and depression should be recognized as critical factors in women’s reproductive health.</li>
+                <li data-en="Socio-cultural Aspects: In a country like India, where societal expectations around motherhood and fertility are deeply ingrained, the psychological impact of infertility can be exacerbated. This requires a shift in societal attitudes towards greater acceptance and understanding of infertility." data-hi="सामाजिक-सांस्कृतिक पहलू: भारत जैसे देश में, जहां मातृत्व और प्रजनन क्षमता के बारे में सामाजिक अपेक्षाएं गहराई से निहित हैं, बांझपन का मनोवैज्ञानिक प्रभाव बढ़ सकता है। इसके लिए बांझपन की अधिक स्वीकृति और समझ की दिशा में सामाजिक दृष्टिकोण में बदलाव की आवश्यकता है।">Socio-cultural Aspects: In a country like India, where societal expectations around motherhood and fertility are deeply ingrained, the psychological impact of infertility can be exacerbated. This requires a shift in societal attitudes towards greater acceptance and understanding of infertility.</li>
+                <li data-en="Government Initiatives: The study's call for counseling and peer support aligns with the government’s push to strengthen the mental health framework in India, especially in the context of reproductive health." data-hi="सरकारी पहल: परामर्श और सहकर्मी सहायता के लिए अध्ययन का आह्वान भारत में मानसिक स्वास्थ्य ढांचे को मजबूत करने के लिए सरकार के प्रयास के साथ मेल खाता है, विशेष रूप से प्रजनन स्वास्थ्य के संदर्भ में।">Government Initiatives: The study's call for counseling and peer support aligns with the government’s push to strengthen the mental health framework in India, especially in the context of reproductive health.</li>
+            </ul>
+
+            <h3 data-en="8. Future Directions and Areas of Concern:" data-hi="8. भविष्य की दिशाएँ और चिंता के क्षेत्र:">8. Future Directions and Areas of Concern:</h3>
+            <ul data-en="" data-hi="">
+                <li data-en="Further Research: The study points out the need for further research into the psychological effects of infertility on women, including exploring the impact of socio-economic factors and cultural norms." data-hi="आगे का शोध: अध्ययन महिलाओं पर बांझपन के मनोवैज्ञानिक प्रभावों पर आगे के शोध की आवश्यकता को इंगित करता है, जिसमें सामाजिक-आर्थिक कारकों और सांस्कृतिक मानदंडों के प्रभाव की खोज करना शामिल है।">Further Research: The study points out the need for further research into the psychological effects of infertility on women, including exploring the impact of socio-economic factors and cultural norms.</li>
+                <li data-en="Policy Recommendations: The findings suggest that there should be policy interventions aimed at reducing stigma surrounding infertility and providing emotional and psychological care as part of standard healthcare services for women." data-hi="नीतिगत सिफारिशें: निष्कर्ष बताते हैं कि बांझपन के आसपास के कलंक को कम करने और महिलाओं के लिए मानक स्वास्थ्य सेवा का हिस्सा के रूप में भावनात्मक और मनोवैज्ञानिक देखभाल प्रदान करने के उद्देश्य से नीतिगत हस्तक्षेप होने चाहिए।">Policy Recommendations: The findings suggest that there should be policy interventions aimed at reducing stigma surrounding infertility and providing emotional and psychological care as part of standard healthcare services for women.</li>
+                <li data-en="Community-Based Support Systems: Establishing community-based support systems for women facing infertility, especially in urban centers like Delhi, could reduce isolation and provide valuable coping mechanisms." data-hi="समुदाय-आधारित सहायता प्रणालियाँ: बांझपन का सामना कर रही महिलाओं के लिए, विशेष रूप से दिल्ली जैसे शहरी केंद्रों में, समुदाय-आधारित सहायता प्रणालियाँ स्थापित करने से अलगाव कम हो सकता है और मूल्यवान सामना करने के तंत्र प्रदान किए जा सकते हैं।">Community-Based Support Systems: Establishing community-based support systems for women facing infertility, especially in urban centers like Delhi, could reduce isolation and provide valuable coping mechanisms.</li>
+            </ul>
+
+            <h3 data-en="9. Conclusion:" data-hi="9. निष्कर्ष:">9. Conclusion:</h3>
+            <p data-en="The study emphasizes the psychological toll of infertility on women and advocates for integrating mental health support into fertility treatment. Addressing the emotional needs of women facing infertility is essential to improving both their mental and physical health outcomes." data-hi="यह अध्ययन महिलाओं पर बांझपन के मनोवैज्ञानिक प्रभाव पर जोर देता है और प्रजनन उपचार में मानसिक स्वास्थ्य सहायता को एकीकृत करने की वकालत करता है। बांझपन का सामना कर रही महिलाओं की भावनात्मक जरूरतों को संबोधित करना उनके मानसिक और शारीरिक स्वास्थ्य परिणामों दोनों को बेहतर बनाने के लिए आवश्यक है।">The study emphasizes the psychological toll of infertility on women and advocates for integrating mental health support into fertility treatment. Addressing the emotional needs of women facing infertility is essential to improving both their mental and physical health outcomes.</p>
+            <p data-en="As the fertility rate continues to decline, addressing the emotional and psychological aspects of infertility will be crucial in ensuring a balanced and supportive approach to reproductive health in India." data-hi="जैसे-जैसे प्रजनन दर में गिरावट जारी है, भारत में प्रजनन स्वास्थ्य के प्रति एक संतुलित और सहायक दृष्टिकोण सुनिश्चित करने के लिए बांझपन के भावनात्मक और मनोवैज्ञानिक पहलुओं को संबोधित करना महत्वपूर्ण होगा।">As the fertility rate continues to decline, addressing the emotional and psychological aspects of infertility will be crucial in ensuring a balanced and supportive approach to reproductive health in India.</p>
+
+            <h3 data-en="Potential UPSC CSE Themes for Essay/GS:" data-hi="यूपीएससी सीएसई निबंध/जीएस के लिए संभावित विषय:">Potential UPSC CSE Themes for Essay/GS:</h3>
+            <ul data-en="" data-hi="">
+                <li data-en="Women’s Health and Mental Health: Challenges and Solutions" data-hi="महिलाओं का स्वास्थ्य और मानसिक स्वास्थ्य: चुनौतियाँ और समाधान">Women’s Health and Mental Health: Challenges and Solutions</li>
+                <li data-en="Reproductive Health and Psychological Well-being" data-hi="प्रजनन स्वास्थ्य और मनोवैज्ञानिक भलाई">Reproductive Health and Psychological Well-being</li>
+                <li data-en="Declining Fertility Rates: Socioeconomic and Psychological Impacts" data-hi="घटती प्रजनन दरें: सामाजिक-आर्थिक और मनोवैज्ञानिक प्रभाव">Declining Fertility Rates: Socioeconomic and Psychological Impacts</li>
+                <li data-en="Mental Health in India: Addressing the Gaps in Healthcare" data-hi="भारत में मानसिक स्वास्थ्य: स्वास्थ्य सेवा में अंतराल को संबोधित करना">Mental Health in India: Addressing the Gaps in Healthcare</li>
+                <li data-en="The Role of Societal Support in Managing Infertility and Mental Health" data-hi="बांझपन और मानसिक स्वास्थ्य के प्रबंधन में सामाजिक समर्थन की भूमिका">The Role of Societal Support in Managing Infertility and Mental Health</li>
+            </ul>
+        </div>
+    </main>
+
+    <a href="index.html" class="back-home" data-en="Back to Home" data-hi="होम पेज पर वापस जाएं">Back to Home</a>
+</div>
+
+<button class="back-to-top" aria-label="Back to top">&#9650;</button>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const langSwitch = document.querySelector('.language-switch');
+        const body = document.body;
+        const elementsToTranslate = document.querySelectorAll('[data-en]');
+        const backToTopButton = document.querySelector('.back-to-top');
+
+        // Set initial language from local storage or default to English
+        const currentLang = localStorage.getItem('lang') || 'en';
+        if (currentLang === 'hi') {
+            body.classList.add('hindi');
+            langSwitch.classList.add('hindi-active');
+            translatePage('hi');
+        }
+
+        langSwitch.addEventListener('click', () => {
+            body.classList.toggle('hindi');
+            langSwitch.classList.toggle('hindi-active');
+            const newLang = body.classList.contains('hindi') ? 'hi' : 'en';
+            localStorage.setItem('lang', newLang);
+            translatePage(newLang);
+        });
+
+        function translatePage(lang) {
+            elementsToTranslate.forEach(el => {
+                if (el.dataset[lang]) {
+                    el.textContent = el.dataset[lang];
+                }
+            });
+        }
+
+        // Back to top button functionality
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+</body>
+</html>

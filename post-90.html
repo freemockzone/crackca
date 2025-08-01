@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>India-US Trade Relations amid Trump's Tariff Announcement (2025)</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@400;600&display=swap');
+
+    :root {
+        --primary-color: #0056b3;
+        --secondary-color: #e2eafc;
+        --text-color: #333;
+        --bg-color: #ffffff;
+        --card-bg: #f9f9f9;
+        --border-color: #ddd;
+        --hover-color: #f0f8ff;
+        --accent-color: #d1e7ff;
+    }
+
+    [data-theme='dark'] {
+        --primary-color: #1a73e8;
+        --secondary-color: #2c3e50;
+        --text-color: #e0e0e0;
+        --bg-color: #121212;
+        --card-bg: #1e1e1e;
+        --border-color: #333;
+        --hover-color: #2c3e50;
+        --accent-color: #1a2a3a;
+    }
+
+    body {
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: var(--primary-color);
+        padding: 1rem 5%;
+        color: white;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar .logo {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        font-size: 1.5rem;
+    }
+
+    .navbar a {
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+        margin: 0 1rem;
+        transition: color 0.3s;
+    }
+
+    .navbar a:hover {
+        color: var(--secondary-color);
+    }
+
+    .lang-switch {
+        position: relative;
+        width: 60px;
+        height: 30px;
+    }
+
+    .lang-switch input {
+        display: none;
+    }
+
+    .lang-switch label {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: #fff;
+        border-radius: 15px;
+        cursor: pointer;
+        position: absolute;
+        transition: 0.3s;
+        box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .lang-switch label:after {
+        content: '';
+        width: 26px;
+        height: 26px;
+        background: var(--primary-color);
+        border-radius: 50%;
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        transition: 0.3s;
+    }
+
+    .lang-switch input:checked + label:after {
+        left: 32px;
+        transform: scale(1.1);
+    }
+
+    .lang-switch .lang-text {
+        position: absolute;
+        font-size: 12px;
+        font-weight: bold;
+        line-height: 30px;
+        color: var(--primary-color);
+        transition: 0.3s;
+        pointer-events: none;
+    }
+
+    .lang-switch .en {
+        left: 8px;
+    }
+
+    .lang-switch .hi {
+        right: 8px;
+    }
+
+    .lang-switch input:checked ~ .en {
+        color: white;
+    }
+
+    .lang-switch input:checked ~ .hi {
+        color: var(--primary-color);
+    }
+
+    .container {
+        max-width: 900px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+    }
+
+    .post-header {
+        text-align: center;
+        margin-bottom: 2rem;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 1rem;
+    }
+
+    .post-header h1 {
+        font-family: 'Poppins', sans-serif;
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        margin: 0 0 0.5rem;
+    }
+
+    .post-header p {
+        font-style: italic;
+        color: #666;
+        margin: 0;
+    }
+
+    .read-time {
+        font-size: 0.9rem;
+        color: #888;
+        margin-top: 0.5rem;
+    }
+
+    .content {
+        font-size: 1.1rem;
+    }
+
+    .content section {
+        margin-bottom: 2rem;
+    }
+
+    .content h2, .content h3, .content h4 {
+        color: var(--primary-color);
+        border-bottom: 1px solid var(--accent-color);
+        padding-bottom: 0.5rem;
+        margin-top: 2rem;
+    }
+
+    .content p, .content li, .content td, .content th {
+        margin: 0.5rem 0;
+    }
+
+    .content ul, .content ol {
+        padding-left: 1.5rem;
+    }
+
+    .content li {
+        list-style-type: disc;
+    }
+
+    .content li::marker {
+        color: var(--primary-color);
+    }
+
+    .content a {
+        color: var(--primary-color);
+        text-decoration: none;
+    }
+
+    .content a:hover {
+        text-decoration: underline;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1rem 0;
+        background-color: var(--card-bg);
+    }
+
+    table, th, td {
+        border: 1px solid var(--border-color);
+    }
+
+    th, td {
+        padding: 12px 15px;
+        text-align: left;
+    }
+
+    th {
+        background-color: var(--primary-color);
+        color: white;
+        font-weight: bold;
+    }
+
+    tr:nth-child(even) {
+        background-color: var(--secondary-color);
+    }
+
+    .quote {
+        border-left: 4px solid var(--primary-color);
+        padding-left: 1rem;
+        margin: 1rem 0;
+        font-style: italic;
+        background-color: var(--accent-color);
+        padding: 1rem;
+        border-radius: 5px;
+    }
+
+    .colored-hover-effect p:hover, 
+    .colored-hover-effect li:hover,
+    .colored-hover-effect tr:hover,
+    .colored-hover-effect h2:hover,
+    .colored-hover-effect h3:hover,
+    .colored-hover-effect th:hover,
+    .colored-hover-effect td:hover {
+        background-color: var(--hover-color);
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .colored-hover-effect h2:hover,
+    .colored-hover-effect h3:hover,
+    .colored-hover-effect th:hover {
+        background-color: transparent;
+    }
+
+    .footer {
+        text-align: center;
+        padding: 2rem 1rem;
+        border-top: 1px solid var(--border-color);
+        margin-top: 2rem;
+    }
+
+    .footer a {
+        display: inline-block;
+        background-color: var(--primary-color);
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+
+    .footer a:hover {
+        background-color: #004494;
+    }
+
+    #scroll-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        display: none;
+        transition: background-color 0.3s;
+    }
+
+    #scroll-to-top:hover {
+        background-color: #004494;
+    }
+
+    @media (max-width: 768px) {
+        .navbar {
+            flex-direction: column;
+            text-align: center;
+        }
+        .navbar .logo {
+            margin-bottom: 1rem;
+        }
+        .navbar .nav-links {
+            margin-bottom: 1rem;
+        }
+        .navbar a {
+            margin: 0.5rem;
+        }
+        .post-header h1 {
+            font-size: 2rem;
+        }
+        .content {
+            font-size: 1rem;
+        }
+    }
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">01-August-2025 <br> Current Affairs</div>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="donation.html">Donation</a>
+        <a href="contact.html">Contact</a>
+    </div>
+    <div class="lang-switch">
+        <input type="checkbox" id="lang-toggle">
+        <label for="lang-toggle">
+            <span class="lang-text en">EN</span>
+            <span class="lang-text hi">HI</span>
+        </label>
+    </div>
+</nav>
+
+<div class="container">
+    <header class="post-header">
+        <h1 id="post-title">India-US Trade Relations amid Trump's Tariff Announcement (2025)</h1>
+        <p id="post-date">Published on August 1, 2025</p>
+        <p class="read-time" id="read-time"></p>
+    </header>
+
+    <main class="content colored-hover-effect">
+        <section id="context-section">
+            <h2 id="context-title">1. Context & Background</h2>
+            <ul>
+                <li><span id="context-1">President Donald Trump has announced a <strong>25% tariff on Indian goods</strong> starting <strong>August 1</strong>, 2025, along with an <strong>unspecified penalty</strong> related to <strong>India’s defence and energy imports from Russia</strong>.</span></li>
+                <li><span id="context-2">These moves disrupt India's earlier expectations of a <strong>favourable tariff differential (10-20%)</strong> compared to China and others.</span></li>
+            </ul>
+        </section>
+
+        <section id="assumptions-section">
+            <h2 id="assumptions-title">2. India's Core Assumptions (Now Challenged)</h2>
+            <ul>
+                <li><span id="assumption-1">Bilateral trade would be a <strong>give-and-take process</strong>.</span></li>
+                <li><span id="assumption-2">The US would maintain <strong>tariff gaps</strong> favouring India over China.</span></li>
+                <li><span id="assumption-3"><strong>Traditional redlines</strong> respected (e.g., rejection of GM food, protection for subsistence-level manufacturing).</span></li>
+                <li><span id="assumption-4">A <strong>mutually beneficial trade deal</strong> would be possible through dialogue.</span></li>
+            </ul>
+        </section>
+
+        <section id="strategy-section">
+            <h2 id="strategy-title">3. India's Stand & Strategy</h2>
+            <ul>
+                <li><span id="strategy-1">India is committed to <strong>not rushing into a bad deal</strong>; <strong>"No deal is better than a bad deal."</strong></span></li>
+                <li><span id="strategy-2"><strong>Short-term impact</strong> on exports acknowledged, but priority remains an <strong>equitable, long-term agreement</strong>.</span></li>
+                <li><span id="strategy-3">Willingness to <strong>cut tariffs</strong> on some industrial goods and allow concessions (e.g., public procurement, agriculture) if <strong>reciprocal benefits</strong> are guaranteed.</span></li>
+                <li><span id="strategy-4">Open to <strong>increased imports from the US</strong> in <strong>defence, fossil fuels, and nuclear sectors</strong> to offset trade imbalance.</span></li>
+            </ul>
+        </section>
+
+        <section id="concerns-section">
+            <h2 id="concerns-title">4. Concerns for India</h2>
+            <ul>
+                <li><span id="concern-1"><strong>Lack of clarity</strong> around the additional “penalty”.</span></li>
+                <li><span id="concern-2">Potential erosion of <strong>tariff advantage over China</strong> if deal delayed.</span></li>
+                <li><span id="concern-3"><strong>Trans-shipment clause</strong> (e.g., Vietnam) could hurt Indian exports with global input dependencies (pharma, electronics).</span></li>
+                <li><span id="concern-4">Unpredictability in US trade policy: BRICS tariffs, pharma/copper duties, changes to USMCA, etc.</span></li>
+                <li><span id="concern-5"><strong>Copper exports hit</strong>: New <strong>50% tariffs</strong> from August 1; US is a key market (~17% of Indian copper exports).</span></li>
+                <li><span id="concern-6">Pressure from US for <strong>zero-duty access</strong> to Indian markets (like deals with Vietnam and Indonesia).</span></li>
+            </ul>
+        </section>
+
+        <section id="comparison-section">
+            <h2 id="comparison-title">5. Global Comparison</h2>
+            <ul>
+                <li><span id="compare-1">China: Facing <strong>30-34% tariffs</strong>, but negotiations with US may lower them to 10-15%.</span></li>
+                <li><span id="compare-2">Other countries:</span></li>
+                <ul>
+                    <li><span id="compare-3">Indonesia: 19%</span></li>
+                    <li><span id="compare-4">Vietnam: 20-40%</span></li>
+                    <li><span id="compare-5">Bangladesh: 35%</span></li>
+                </ul>
+                <li><span id="compare-6">India's 25% tariff is competitive <strong>only in absence of Russian penalty & BRICS levy</strong>.</span></li>
+            </ul>
+        </section>
+
+        <section id="diplomacy-section">
+            <h2 id="diplomacy-title">6. Diplomatic & Strategic Dimensions</h2>
+            <ul>
+                <li><span id="diplomacy-1">India is <strong>closely tracking US-China tariff talks</strong> (e.g., Stockholm meetings).</span></li>
+                <li><span id="diplomacy-2">A <strong>tariff differential of 10–20%</strong> is seen as necessary to compensate for India’s structural challenges (e.g., infrastructure, interest rates, corruption).</span></li>
+                <li><span id="diplomacy-3">The <strong>final decision</strong> may come down to a <strong>Modi-Trump leader-level conversation</strong>, possibly before October 2025 (outer deadline for a deal).</span></li>
+            </ul>
+        </section>
+
+        <section id="wto-context-section">
+            <h2 id="wto-context-title">7. WTO & Multilateral Context</h2>
+            <ul>
+                <li><span id="wto-1">Indian tariffs are <strong>WTO-compliant</strong>.</span></li>
+                <li><span id="wto-2"><strong>Non-tariff barriers</strong> exist globally and cannot be selectively highlighted.</span></li>
+                <li><span id="wto-3"><strong>Russian oil imports</strong> have helped India manage inflation — but are now a point of contention with the US.</span></li>
+            </ul>
+        </section>
+
+        <section id="expert-opinions-section">
+            <h2 id="expert-opinions-title">8. Expert Opinions & Outlook</h2>
+            <ul>
+                <li><span id="expert-1">Experts suggest <strong>Trump's penalties may reach 100%</strong> for Russian imports.</span></li>
+                <li><span id="expert-2">India must avoid a <strong>one-sided, extractive trade deal</strong>.</span></li>
+                <li><span id="expert-3">Better to strike an <strong>early-harvest deal</strong> now and build towards a more comprehensive agreement by 2026.</span></li>
+                <li><span id="expert-4">Uncertainty around US trade deal sanctity — risk for long-term global supply chains.</span></li>
+            </ul>
+        </section>
+
+        <section id="upsc-takeaway-section">
+            <h2 id="upsc-takeaway-title">9. Key Takeaways for UPSC</h2>
+            <ul>
+                <li><span id="upsc-1"><strong>International Trade & Diplomacy</strong>: Impact of geopolitical alignments (Russia, BRICS) on bilateral trade.</span></li>
+                <li><span id="upsc-2"><strong>India’s Trade Policy</strong>: Balance between protecting domestic sectors and engaging with major trade partners.</span></li>
+                <li><span id="upsc-3"><strong>US-India Relations</strong>: Strategic, economic, and political dimensions.</span></li>
+                <li><span id="upsc-4"><strong>WTO Compliance</strong>: India’s stance on tariffs and non-tariff barriers.</span></li>
+                <li><span id="upsc-5"><strong>Negotiation Strategy</strong>: How India navigates asymmetrical power dynamics in trade negotiations.</span></li>
+                <li><span id="upsc-6"><strong>Current Affairs (2025)</strong>: Relevant for Prelims and GS-II (IR), GS-III (Economy), Essay.</span></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <a href="index.html" id="back-to-home">Back to Home</a>
+    </footer>
+</div>
+
+<button id="scroll-to-top" title="Go to top">↑</button>
+
+<script>
+    const langToggle = document.getElementById('lang-toggle');
+    const elements = {
+        'post-title': { en: "India-US Trade Relations amid Trump's Tariff Announcement (2025)", hi: "ट्रंप के टैरिफ घोषणा के बीच भारत-अमेरिका व्यापार संबंध (2025)" },
+        'post-date': { en: "Published on August 1, 2025", hi: "1 अगस्त, 2025 को प्रकाशित" },
+        'context-title': { en: "1. Context & Background", hi: "1. संदर्भ और पृष्ठभूमि" },
+        'context-1': { en: 'President Donald Trump has announced a <strong>25% tariff on Indian goods</strong> starting <strong>August 1</strong>, 2025, along with an <strong>unspecified penalty</strong> related to <strong>India’s defence and energy imports from Russia</strong>.', hi: 'पूर्व अमेरिकी राष्ट्रपति डोनाल्ड ट्रंप ने <strong>1 अगस्त, 2025</strong> से <strong>भारतीय सामानों पर 25% टैरिफ</strong> की घोषणा की है, साथ ही <strong>भारत के रूस से रक्षा और ऊर्जा आयात</strong> से संबंधित एक <strong>अनिर्दिष्ट दंड</strong> भी लगाया है।' },
+        'context-2': { en: "These moves disrupt India's earlier expectations of a <strong>favourable tariff differential (10-20%)</strong> compared to China and others.", hi: 'ये कदम चीन और अन्य देशों की तुलना में भारत की <strong>अनुकूल टैरिफ डिफरेंशियल (10-20%)</strong> की पिछली अपेक्षाओं को बाधित करते हैं।' },
+        'assumptions-title': { en: "2. India's Core Assumptions (Now Challenged)", hi: "2. भारत की मुख्य धारणाएं (अब चुनौती)" },
+        'assumption-1': { en: 'Bilateral trade would be a <strong>give-and-take process</strong>.', hi: 'द्विपक्षीय व्यापार एक <strong>आपसी लेन-देन की प्रक्रिया</strong> होगी।' },
+        'assumption-2': { en: 'The US would maintain <strong>tariff gaps</strong> favouring India over China.', hi: 'अमेरिका चीन की तुलना में भारत के पक्ष में <strong>टैरिफ अंतराल</strong> बनाए रखेगा।' },
+        'assumption-3': { en: '<strong>Traditional redlines</strong> respected (e.g., rejection of GM food, protection for subsistence-level manufacturing).', hi: '<strong>पारंपरिक सीमा रेखाओं</strong> का सम्मान किया जाएगा (जैसे, जीएम भोजन को अस्वीकार करना, निर्वाह-स्तर के विनिर्माण के लिए सुरक्षा)।' },
+        'assumption-4': { en: 'A <strong>mutually beneficial trade deal</strong> would be possible through dialogue.', hi: 'संवाद के माध्यम से एक <strong>आपसी लाभकारी व्यापार सौदा</strong> संभव होगा।' },
+        'strategy-title': { en: "3. India's Stand & Strategy", hi: "3. भारत का रुख और रणनीति" },
+        'strategy-1': { en: 'India is committed to <strong>not rushing into a bad deal</strong>; <strong>"No deal is better than a bad deal."</strong>', hi: 'भारत <strong>खराब सौदे में जल्दबाजी न करने</strong> के लिए प्रतिबद्ध है; <strong>"खराब सौदे से बेहतर कोई सौदा नहीं।"</strong>' },
+        'strategy-2': { en: '<strong>Short-term impact</strong> on exports acknowledged, but priority remains an <strong>equitable, long-term agreement</strong>.', hi: 'निर्यात पर <strong>अल्पकालिक प्रभाव</strong> स्वीकार किया गया है, लेकिन प्राथमिकता एक <strong>न्यायसंगत, दीर्घकालिक समझौता</strong> है।' },
+        'strategy-3': { en: 'Willingness to <strong>cut tariffs</strong> on some industrial goods and allow concessions (e.g., public procurement, agriculture) if <strong>reciprocal benefits</strong> are guaranteed.', hi: 'कुछ औद्योगिक वस्तुओं पर <strong>टैरिफ कम करने</strong> और रियायतें (जैसे, सार्वजनिक खरीद, कृषि) देने की इच्छा है यदि <strong>पारस्परिक लाभ</strong> की गारंटी हो।' },
+        'strategy-4': { en: 'Open to <strong>increased imports from the US</strong> in <strong>defence, fossil fuels, and nuclear sectors</strong> to offset trade imbalance.', hi: 'व्यापार असंतुलन को ऑफसेट करने के लिए <strong>रक्षा, जीवाश्म ईंधन और परमाणु क्षेत्रों</strong> में <strong>अमेरिका से आयात बढ़ाने</strong> के लिए तैयार है।' },
+        'concerns-title': { en: "4. Concerns for India", hi: "4. भारत के लिए चिंताएं" },
+        'concern-1': { en: '<strong>Lack of clarity</strong> around the additional “penalty”.', hi: 'अतिरिक्त “दंड” के बारे में <strong>स्पष्टता की कमी</strong>।' },
+        'concern-2': { en: 'Potential erosion of <strong>tariff advantage over China</strong> if deal delayed.', hi: 'यदि सौदा विलंबित होता है तो <strong>चीन पर टैरिफ लाभ</strong> का संभावित क्षरण।' },
+        'concern-3': { en: '<strong>Trans-shipment clause</strong> (e.g., Vietnam) could hurt Indian exports with global input dependencies (pharma, electronics).', hi: '<strong>ट्रांस-शिपमेंट क्लॉज</strong> (जैसे, वियतनाम) वैश्विक इनपुट निर्भरता (फार्मा, इलेक्ट्रॉनिक्स) वाले भारतीय निर्यात को नुकसान पहुंचा सकता है।' },
+        'concern-4': { en: 'Unpredictability in US trade policy: BRICS tariffs, pharma/copper duties, changes to USMCA, etc.', hi: 'अमेरिकी व्यापार नीति में अप्रत्याशितता: ब्रिक्स टैरिफ, फार्मा/तांबा शुल्क, यूएसएमसीए में बदलाव, आदि।' },
+        'concern-5': { en: '<strong>Copper exports hit</strong>: New <strong>50% tariffs</strong> from August 1; US is a key market (~17% of Indian copper exports).', hi: '<strong>तांबे के निर्यात पर मार</strong>: 1 अगस्त से नया <strong>50% टैरिफ</strong>; अमेरिका एक प्रमुख बाजार है (~भारतीय तांबे के निर्यात का 17%)।' },
+        'concern-6': { en: 'Pressure from US for <strong>zero-duty access</strong> to Indian markets (like deals with Vietnam and Indonesia).', hi: 'वियतनाम और इंडोनेशिया के साथ सौदों की तरह, भारतीय बाजारों में <strong>शून्य-शुल्क पहुंच</strong> के लिए अमेरिका का दबाव।' },
+        'comparison-title': { en: "5. Global Comparison", hi: "5. वैश्विक तुलना" },
+        'compare-1': { en: 'China: Facing <strong>30-34% tariffs</strong>, but negotiations with US may lower them to 10-15%.', hi: 'चीन: <strong>30-34% टैरिफ</strong> का सामना कर रहा है, लेकिन अमेरिका के साथ बातचीत उन्हें 10-15% तक कम कर सकती है।' },
+        'compare-2': { en: 'Other countries:', hi: 'अन्य देश:' },
+        'compare-3': { en: 'Indonesia: 19%', hi: 'इंडोनेशिया: 19%' },
+        'compare-4': { en: 'Vietnam: 20-40%', hi: 'वियतनाम: 20-40%' },
+        'compare-5': { en: 'Bangladesh: 35%', hi: 'बांग्लादेश: 35%' },
+        'compare-6': { en: 'India\'s 25% tariff is competitive <strong>only in absence of Russian penalty & BRICS levy</strong>.', hi: 'भारत का 25% टैरिफ <strong>केवल रूसी दंड और ब्रिक्स लेवी की अनुपस्थिति में</strong> ही प्रतिस्पर्धी है।' },
+        'diplomacy-title': { en: "6. Diplomatic & Strategic Dimensions", hi: "6. राजनयिक और रणनीतिक आयाम" },
+        'diplomacy-1': { en: 'India is <strong>closely tracking US-China tariff talks</strong> (e.g., Stockholm meetings).', hi: 'भारत <strong>अमेरिका-चीन टैरिफ वार्ता</strong> (जैसे, स्टॉकहोम बैठकें) पर <strong>बारीकी से नजर</strong> रख रहा है।' },
+        'diplomacy-2': { en: 'A <strong>tariff differential of 10–20%</strong> is seen as necessary to compensate for India’s structural challenges (e.g., infrastructure, interest rates, corruption).', hi: 'भारत की संरचनात्मक चुनौतियों (जैसे, बुनियादी ढांचा, ब्याज दरें, भ्रष्टाचार) की भरपाई के लिए <strong>10–20% का टैरिफ डिफरेंशियल</strong> आवश्यक माना जाता है।' },
+        'diplomacy-3': { en: 'The <strong>final decision</strong> may come down to a <strong>Modi-Trump leader-level conversation</strong>, possibly before October 2025 (outer deadline for a deal).', hi: '<strong>अंतिम निर्णय</strong> एक <strong>मोदी-ट्रंप नेता-स्तर की बातचीत</strong> पर आ सकता है, संभवतः अक्टूबर 2025 (एक सौदे के लिए बाहरी समय सीमा) से पहले।' },
+        'wto-context-title': { en: "7. WTO & Multilateral Context", hi: "7. डब्ल्यूटीओ और बहुपक्षीय संदर्भ" },
+        'wto-1': { en: 'Indian tariffs are <strong>WTO-compliant</strong>.', hi: 'भारतीय टैरिफ <strong>डब्ल्यूटीओ-अनुरूप</strong> हैं।' },
+        'wto-2': { en: '<strong>Non-tariff barriers</strong> exist globally and cannot be selectively highlighted.', hi: '<strong>गैर-टैरिफ बाधाएं</strong> विश्व स्तर पर मौजूद हैं और उन्हें चुनिंदा रूप से उजागर नहीं किया जा सकता है।' },
+        'wto-3': { en: '<strong>Russian oil imports</strong> have helped India manage inflation — but are now a point of contention with the US.', hi: '<strong>रूसी तेल आयात</strong> ने भारत को मुद्रास्फीति को प्रबंधित करने में मदद की है - लेकिन अब अमेरिका के साथ विवाद का एक बिंदु हैं।' },
+        'expert-opinions-title': { en: "8. Expert Opinions & Outlook", hi: "8. विशेषज्ञ राय और दृष्टिकोण" },
+        'expert-1': { en: 'Experts suggest <strong>Trump\'s penalties may reach 100%</strong> for Russian imports.', hi: 'विशेषज्ञों का सुझाव है कि रूसी आयात के लिए <strong>ट्रंप के दंड 100% तक पहुंच सकते हैं</strong>।' },
+        'expert-2': { en: 'India must avoid a <strong>one-sided, extractive trade deal</strong>.', hi: 'भारत को <strong>एकतरफा, शोषणकारी व्यापार सौदे</strong> से बचना चाहिए।' },
+        'expert-3': { en: 'Better to strike an <strong>early-harvest deal</strong> now and build towards a more comprehensive agreement by 2026.', hi: 'अभी एक <strong>प्रारंभिक-फसल सौदा</strong> करना और 2026 तक एक अधिक व्यापक समझौते की दिशा में काम करना बेहतर है।' },
+        'expert-4': { en: 'Uncertainty around US trade deal sanctity — risk for long-term global supply chains.', hi: 'अमेरिकी व्यापार सौदे की पवित्रता के आसपास अनिश्चितता — दीर्घकालिक वैश्विक आपूर्ति श्रृंखलाओं के लिए जोखिम।' },
+        'upsc-takeaway-title': { en: "9. Key Takeaways for UPSC", hi: "9. यूपीएससी के लिए मुख्य निष्कर्ष" },
+        'upsc-1': { en: '<strong>International Trade & Diplomacy</strong>: Impact of geopolitical alignments (Russia, BRICS) on bilateral trade.', hi: '<strong>अंतर्राष्ट्रीय व्यापार और कूटनीति</strong>: द्विपक्षीय व्यापार पर भू-राजनीतिक संरेखण (रूस, ब्रिक्स) का प्रभाव।' },
+        'upsc-2': { en: '<strong>India’s Trade Policy</strong>: Balance between protecting domestic sectors and engaging with major trade partners.', hi: '<strong>भारत की व्यापार नीति</strong>: घरेलू क्षेत्रों की रक्षा करने और प्रमुख व्यापार भागीदारों के साथ जुड़ने के बीच संतुलन।' },
+        'upsc-3': { en: '<strong>US-India Relations</strong>: Strategic, economic, and political dimensions.', hi: '<strong>अमेरिका-भारत संबंध</strong>: रणनीतिक, आर्थिक और राजनीतिक आयाम।' },
+        'upsc-4': { en: '<strong>WTO Compliance</strong>: India’s stance on tariffs and non-tariff barriers.', hi: '<strong>डब्ल्यूटीओ अनुपालन</strong>: टैरिफ और गैर-टैरिफ बाधाओं पर भारत का रुख।' },
+        'upsc-5': { en: '<strong>Negotiation Strategy</strong>: How India navigates asymmetrical power dynamics in trade negotiations.', hi: '<strong>बातचीत की रणनीति</strong>: भारत व्यापार वार्ताओं में विषम शक्ति गतिशीलता को कैसे नेविगेट करता है।' },
+        'upsc-6': { en: '<strong>Current Affairs (2025)</strong>: Relevant for Prelims and GS-II (IR), GS-III (Economy), Essay.', hi: '<strong>समसामयिक मामले (2025)</strong>: प्रारंभिक और जीएस-II (आईआर), जीएस-III (अर्थव्यवस्था), निबंध के लिए प्रासंगिक।' },
+        'back-to-home': { en: 'Back to Home', hi: 'होम पर वापस जाएं' }
+    };
+
+    function switchLanguage() {
+        const isHindi = langToggle.checked;
+        for (const key in elements) {
+            const element = document.getElementById(key);
+            if (element) {
+                element.innerHTML = elements[key][isHindi ? 'hi' : 'en'];
+            }
+        }
+    }
+
+    langToggle.addEventListener('change', switchLanguage);
+    switchLanguage(); // Initial call
+
+    // Read Time Calculation
+    const postContent = document.querySelector('.content').innerText;
+    const wordCount = postContent.split(/\s+/).length;
+    const wordsPerMinute = 200; // Average reading speed
+    const readTime = Math.ceil(wordCount / wordsPerMinute);
+    document.getElementById('read-time').innerText = `Approx. ${readTime} min read`;
+
+    // Scroll to top button
+    const scrollTopBtn = document.getElementById('scroll-to-top');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            scrollTopBtn.style.display = 'block';
+        } else {
+            scrollTopBtn.style.display = 'none';
+        }
+    });
+
+    scrollTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+</body>
+</html>

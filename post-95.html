@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>India–US Trade and Foreign Policy under Trump Administration</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@400;600&display=swap');
+
+    :root {
+        --primary-color: #2c3e50; /* Darker blue-gray */
+        --secondary-color: #ecf0f1; /* Light gray */
+        --text-color: #2c3e50; /* Dark blue-gray */
+        --bg-color: #f4f7f9; /* Off-white */
+        --card-bg: #ffffff; /* White */
+        --border-color: #bdc3c7; /* Gray */
+        --hover-color: #e0e6e9; /* Lighter gray */
+        --accent-color: #3498db; /* Bright blue */
+    }
+
+    [data-theme='dark'] {
+        --primary-color: #95a5a6;
+        --secondary-color: #34495e;
+        --text-color: #ecf0f1;
+        --bg-color: #2c3e50;
+        --card-bg: #34495e;
+        --border-color: #7f8c8d;
+        --hover-color: #445a70;
+        --accent-color: #3498db;
+    }
+
+    body {
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: var(--primary-color);
+        padding: 1rem 5%;
+        color: white;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar .logo {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        font-size: 1.5rem;
+    }
+
+    .navbar a {
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+        margin: 0 1rem;
+        transition: color 0.3s;
+    }
+
+    .navbar a:hover {
+        color: var(--accent-color);
+    }
+
+    .lang-switch {
+        position: relative;
+        width: 60px;
+        height: 30px;
+    }
+
+    .lang-switch input {
+        display: none;
+    }
+
+    .lang-switch label {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: var(--card-bg);
+        border-radius: 15px;
+        cursor: pointer;
+        position: absolute;
+        transition: 0.3s;
+        box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .lang-switch label:after {
+        content: '';
+        width: 26px;
+        height: 26px;
+        background: var(--primary-color);
+        border-radius: 50%;
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        transition: 0.3s;
+    }
+
+    .lang-switch input:checked + label:after {
+        left: 32px;
+        transform: scale(1.1);
+    }
+
+    .lang-switch .lang-text {
+        position: absolute;
+        font-size: 12px;
+        font-weight: bold;
+        line-height: 30px;
+        color: var(--primary-color);
+        transition: 0.3s;
+        pointer-events: none;
+    }
+
+    .lang-switch .en {
+        left: 8px;
+    }
+
+    .lang-switch .hi {
+        right: 8px;
+    }
+
+    .lang-switch input:checked ~ .en {
+        color: white;
+    }
+
+    .lang-switch input:checked ~ .hi {
+        color: var(--primary-color);
+    }
+
+    .container {
+        max-width: 900px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+    }
+
+    .post-header {
+        text-align: center;
+        margin-bottom: 2rem;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 1rem;
+    }
+
+    .post-header h1 {
+        font-family: 'Poppins', sans-serif;
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        margin: 0 0 0.5rem;
+    }
+
+    .post-header p {
+        font-style: italic;
+        color: #666;
+        margin: 0;
+    }
+
+    .read-time {
+        font-size: 0.9rem;
+        color: #888;
+        margin-top: 0.5rem;
+    }
+
+    .content {
+        font-size: 1.1rem;
+        background-color: var(--card-bg);
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .content section {
+        margin-bottom: 2rem;
+    }
+
+    .content h2, .content h3, .content h4 {
+        color: var(--accent-color);
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 0.5rem;
+        margin-top: 2rem;
+    }
+
+    .content p, .content li {
+        margin: 0.5rem 0;
+    }
+
+    .content ul, .content ol {
+        padding-left: 1.5rem;
+    }
+
+    .content li {
+        list-style-type: disc;
+    }
+
+    .content li::marker {
+        color: var(--accent-color);
+    }
+
+    .content a {
+        color: var(--accent-color);
+        text-decoration: none;
+    }
+
+    .content a:hover {
+        text-decoration: underline;
+    }
+
+    .colored-hover-effect p:hover,
+    .colored-hover-effect li:hover,
+    .colored-hover-effect h2:hover,
+    .colored-hover-effect h3:hover,
+    .colored-hover-effect h4:hover {
+        background-color: var(--hover-color);
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .colored-hover-effect h2:hover,
+    .colored-hover-effect h3:hover,
+    .colored-hover-effect h4:hover {
+        background-color: transparent;
+    }
+
+    .footer {
+        text-align: center;
+        padding: 2rem 1rem;
+        border-top: 1px solid var(--border-color);
+        margin-top: 2rem;
+    }
+
+    .footer a {
+        display: inline-block;
+        background-color: var(--primary-color);
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+
+    .footer a:hover {
+        background-color: #34495e;
+    }
+
+    #scroll-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: var(--accent-color);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        display: none;
+        transition: background-color 0.3s;
+    }
+
+    #scroll-to-top:hover {
+        background-color: #2980b9;
+    }
+
+    @media (max-width: 768px) {
+        .navbar {
+            flex-direction: column;
+            text-align: center;
+        }
+        .navbar .logo {
+            margin-bottom: 1rem;
+        }
+        .navbar .nav-links {
+            margin-bottom: 1rem;
+        }
+        .navbar a {
+            margin: 0.5rem;
+        }
+        .post-header h1 {
+            font-size: 2rem;
+        }
+        .content {
+            font-size: 1rem;
+            padding: 1rem;
+        }
+    }
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">01 August 2025 - Current Affairs</div>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="donation.html">Donation</a>
+        <a href="contact.html">Contact</a>
+    </div>
+    <div class="lang-switch">
+        <input type="checkbox" id="lang-toggle">
+        <label for="lang-toggle">
+            <span class="lang-text en">EN</span>
+            <span class="lang-text hi">HI</span>
+        </label>
+    </div>
+</nav>
+
+<div class="container">
+    <header class="post-header">
+        <h1 id="post-title">India–US Trade and Foreign Policy under Trump Administration</h1>
+        <p id="post-date">Published on August 1, 2025</p>
+        <p class="read-time" id="read-time"></p>
+    </header>
+
+    <main class="content colored-hover-effect">
+        <section id="context-section">
+            <h2 id="context-title">1. Context</h2>
+            <ul>
+                <li><span id="context-1">President Donald Trump has imposed <strong>25% tariffs on India</strong>, a developing economy, while offering more lenient terms (15%) to <strong>EU and Japan</strong>.</span></li>
+                <li><span id="context-2">The move comes <strong>after India was optimistic</strong> about ongoing negotiations.</span></li>
+                <li><span id="context-3">It coincides with Trump claiming credit for halting <strong>Operation Sindoor</strong> (India-Pakistan conflict), implicitly demanding acknowledgment from India.</span></li>
+            </ul>
+        </section>
+
+        <section id="key-issues-section">
+            <h2 id="key-issues-title">2. Key Issues Identified</h2>
+            <h3 id="trade-policy-title">a. Trade Policy and Tariffs</h3>
+            <ul>
+                <li><span id="trade-1">India labelled as a <strong>“tariff king”</strong> by Trump; targeted in trade policy.</span></li>
+                <li><span id="trade-2">Despite offers like <strong>buying more US defence equipment</strong> and proposing an FTA, India failed to avoid tariffs.</span></li>
+                <li><span id="trade-3">EU and Japan struck deals by committing to <strong>investment</strong> and <strong>economic cooperation</strong>.</span></li>
+            </ul>
+            <h3 id="foreign-policy-title">b. Foreign Policy Challenges</h3>
+            <ul>
+                <li><span id="fp-1">Unprecedented alignment of <strong>US and China</strong> on an issue involving Pakistan.</span></li>
+                <li><span id="fp-2">Simultaneous pressure on India to <strong>justify ties with Russia</strong>—complex diplomatic tightrope.</span></li>
+                <li><span id="fp-3">A <strong>low point in India’s foreign policy</strong>, reflecting a potential <strong>strategic miscalculation</strong>.</span></li>
+            </ul>
+            <h3 id="ceasefire-title">c. Operation Sindoor Ceasefire Link</h3>
+            <ul>
+                <li><span id="ceasefire-1">Trump sought <strong>credit for peace talks</strong>, linking it to trade concessions.</span></li>
+                <li><span id="ceasefire-2">Modi government upheld India’s <strong>bilateral approach</strong> to Pakistan, not crediting Trump.</span></li>
+                <li><span id="ceasefire-3">Missed opportunity to <strong>acknowledge</strong> Trump’s “interest” in peace without compromising diplomatic principles.</span></li>
+            </ul>
+        </section>
+
+        <section id="modi-strategy-section">
+            <h2 id="modi-strategy-title">3. Analysis of Modi Government's Strategy</h2>
+            <h3 id="misreading-trump-title">a. Misreading Trump’s Personality</h3>
+            <ul>
+                <li><span id="misread-1">Failure to <strong>manage Trump’s ego</strong>, which demanded public credit and gestures.</span></li>
+                <li><span id="misread-2">Overestimated Trump’s commitment to India despite:</span>
+                    <ul>
+                        <li><span id="misread-2-1">Ignoring Modi during inaugural events.</span></li>
+                        <li><span id="misread-2-2">Choosing to engage with Xi Jinping and Pakistan instead.</span></li>
+                    </ul>
+                </li>
+            </ul>
+            <h3 id="miscalculations-title">b. Strategic Miscalculations</h3>
+            <ul>
+                <li><span id="miscalc-1">Many Indian policymakers and diaspora assumed <strong>Trump was pro-India</strong>, even post-Biden.</span></li>
+                <li><span id="miscalc-2">Pakistan, in contrast, <strong>read the shift</strong> and <strong>invested in Trump’s circle</strong>, including deals like oil cooperation.</span></li>
+            </ul>
+            <h3 id="communication-title">c. Communication Gap</h3>
+            <ul>
+                <li><span id="comms-1">Indian diplomacy appeared <strong>unprepared</strong> for Trump’s transactional style.</span></li>
+                <li><span id="comms-2"><strong>Delayed reassessment</strong> of US policy direction under Trump.</span></li>
+                <li><span id="comms-3">Reliance on symbolic gestures over <strong>concrete diplomatic gains</strong>.</span></li>
+            </ul>
+        </section>
+
+        <section id="what-if-section">
+            <h2 id="what-if-title">4. What Could Have Been Done Differently?</h2>
+            <ul>
+                <li><span id="what-if-1">Modi could have:</span>
+                    <ul>
+                        <li><span id="what-if-1-1">Publicly acknowledged Trump's <strong>"concern for peace"</strong>, not "credit".</span></li>
+                        <li><span id="what-if-1-2">Framed ceasefire as a <strong>strategic decision by India</strong>, with Trump as a helpful observer.</span></li>
+                    </ul>
+                </li>
+                <li><span id="what-if-2">Example of alternative statement:</span>
+                    <blockquote><span id="what-if-quote">“We appreciate President Trump’s concern. India remains committed to bilateral resolution once objectives are met.”</span></blockquote>
+                </li>
+                <li><span id="what-if-3">This would maintain India’s position while satisfying Trump’s <strong>need for validation</strong>.</span></li>
+            </ul>
+        </section>
+
+        <section id="implications-section">
+            <h2 id="implications-title">5. Broader Implications for Indian Foreign Policy</h2>
+            <ul>
+                <li><span id="imp-1">Demonstrates <strong>lack of adaptability</strong> in foreign policy tools to <strong>personalized diplomacy</strong>.</span></li>
+                <li><span id="imp-2">A cautionary tale on:</span>
+                    <ul>
+                        <li><span id="imp-2-1"><strong>Over-dependence</strong> on individual leaders’ preferences.</span></li>
+                        <li><span id="imp-2-2">Need for <strong>institutional consistency</strong> in foreign policy beyond party leaderships.</span></li>
+                    </ul>
+                </li>
+                <li><span id="imp-3">Urges Parliament to <strong>review India’s strategic approach</strong>, especially with shifting global alliances.</span></li>
+            </ul>
+        </section>
+
+        <section id="upsc-section">
+            <h2 id="upsc-title">6. UPSC Mains Relevance</h2>
+            <h3 id="gs2-title">GS Paper II – International Relations</h3>
+            <ul>
+                <li><span id="gs2-1"><strong>India–US Relations</strong>: Trade, diplomacy, and strategic engagement.</span></li>
+                <li><span id="gs2-2"><strong>India–Pakistan–China Triangle</strong>: Geopolitical positioning and bilateralism.</span></li>
+                <li><span id="gs2-3"><strong>Foreign Policy Tools</strong>: Adapting to personalized global leadership styles.</span></li>
+            </ul>
+            <h3 id="gs3-title">GS Paper III – Economy</h3>
+            <ul>
+                <li><span id="gs3-1"><strong>Impact of Tariffs</strong> on trade relations and bilateral agreements.</span></li>
+                <li><span id="gs3-2"><strong>Defence Procurement & Strategic Autonomy</strong> in foreign trade decisions.</span></li>
+            </ul>
+        </section>
+
+        <section id="takeaway-section">
+            <h2 id="takeaway-title">7. Takeaway for Aspirants</h2>
+            <ul>
+                <li><span id="takeaway-1">International relations are <strong>deeply influenced by leader psychology</strong>, especially in transactional democracies like the US.</span></li>
+                <li><span id="takeaway-2">Diplomacy must be <strong>flexible yet principled</strong>—balancing <strong>national interest</strong> and <strong>global realpolitik</strong>.</span></li>
+                <li><span id="takeaway-3">Always look beyond <strong>symbolism</strong> in diplomacy—<strong>outcomes matter more than optics</strong>.</span></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <a href="index.html" id="back-to-home">Back to Home</a>
+    </footer>
+</div>
+
+<button id="scroll-to-top" title="Go to top">↑</button>
+
+<script>
+    const langToggle = document.getElementById('lang-toggle');
+    const elements = {
+        'post-title': { en: 'India–US Trade and Foreign Policy under Trump Administration', hi: 'ट्रम्प प्रशासन के तहत भारत-अमेरिका व्यापार और विदेश नीति' },
+        'post-date': { en: 'Published on August 1, 2025', hi: '1 अगस्त, 2025 को प्रकाशित' },
+        'context-title': { en: '1. Context', hi: '1. संदर्भ' },
+        'context-1': { en: 'President Donald Trump has imposed <strong>25% tariffs on India</strong>, a developing economy, while offering more lenient terms (15%) to <strong>EU and Japan</strong>.', hi: 'राष्ट्रपति डोनाल्ड ट्रम्प ने एक विकासशील अर्थव्यवस्था, <strong>भारत पर 25% टैरिफ</strong> लगाया है, जबकि <strong>यूरोपीय संघ और जापान</strong> को अधिक उदार शर्तें (15%) प्रदान की हैं।' },
+        'context-2': { en: 'The move comes <strong>after India was optimistic</strong> about ongoing negotiations.', hi: 'यह कदम <strong>भारत द्वारा जारी बातचीत को लेकर आशावादी</strong> होने के बाद उठाया गया है।' },
+        'context-3': { en: 'It coincides with Trump claiming credit for halting <strong>Operation Sindoor</strong> (India-Pakistan conflict), implicitly demanding acknowledgment from India.', hi: 'यह ट्रम्प के <strong>ऑपरेशन सिंदूर</strong> (भारत-पाकिस्तान संघर्ष) को रोकने का श्रेय लेने के साथ मेल खाता है, जिसमें भारत से स्पष्ट रूप से स्वीकारोक्ति की मांग की गई है।' },
+        'key-issues-title': { en: '2. Key Issues Identified', hi: '2. पहचान किए गए प्रमुख मुद्दे' },
+        'trade-policy-title': { en: 'a. Trade Policy and Tariffs', hi: 'ए. व्यापार नीति और टैरिफ' },
+        'trade-1': { en: 'India labelled as a <strong>“tariff king”</strong> by Trump; targeted in trade policy.', hi: 'ट्रम्प द्वारा भारत को <strong>"टैरिफ किंग"</strong> के रूप में लेबल किया गया; व्यापार नीति में लक्षित किया गया।' },
+        'trade-2': { en: 'Despite offers like <strong>buying more US defence equipment</strong> and proposing an FTA, India failed to avoid tariffs.', hi: '<strong>अधिक अमेरिकी रक्षा उपकरण खरीदने</strong> और एक एफटीए का प्रस्ताव करने जैसे प्रस्तावों के बावजूद, भारत टैरिफ से बचने में विफल रहा।' },
+        'trade-3': { en: 'EU and Japan struck deals by committing to <strong>investment</strong> and <strong>economic cooperation</strong>.', hi: 'यूरोपीय संघ और जापान ने <strong>निवेश</strong> और <strong>आर्थिक सहयोग</strong> के लिए प्रतिबद्ध होकर सौदे किए।' },
+        'foreign-policy-title': { en: 'b. Foreign Policy Challenges', hi: 'बी. विदेश नीति चुनौतियां' },
+        'fp-1': { en: 'Unprecedented alignment of <strong>US and China</strong> on an issue involving Pakistan.', hi: 'पाकिस्तान से जुड़े एक मुद्दे पर <strong>अमेरिका और चीन</strong> का अभूतपूर्व संरेखण।' },
+        'fp-2': { en: 'Simultaneous pressure on India to <strong>justify ties with Russia</strong>—complex diplomatic tightrope.', hi: 'भारत पर <strong>रूस के साथ संबंधों को सही ठहराने</strong> का एक साथ दबाव—जटिल राजनयिक संतुलन।' },
+        'fp-3': { en: 'A <strong>low point in India’s foreign policy</strong>, reflecting a potential <strong>strategic miscalculation</strong>.', hi: '<strong>भारत की विदेश नीति में एक निम्न बिंदु</strong>, जो एक संभावित <strong>रणनीतिक गलत अनुमान</strong> को दर्शाता है।' },
+        'ceasefire-title': { en: 'c. Operation Sindoor Ceasefire Link', hi: 'सी. ऑपरेशन सिंदूर संघर्ष विराम लिंक' },
+        'ceasefire-1': { en: 'Trump sought <strong>credit for peace talks</strong>, linking it to trade concessions.', hi: 'ट्रम्प ने व्यापार रियायतों से जोड़कर <strong>शांति वार्ता का श्रेय</strong> मांगा।' },
+        'ceasefire-2': { en: 'Modi government upheld India’s <strong>bilateral approach</strong> to Pakistan, not crediting Trump.', hi: 'मोदी सरकार ने ट्रम्प को श्रेय दिए बिना पाकिस्तान के प्रति भारत के <strong>द्विपक्षीय दृष्टिकोण</strong> को बरकरार रखा।' },
+        'ceasefire-3': { en: 'Missed opportunity to <strong>acknowledge</strong> Trump’s “interest” in peace without compromising diplomatic principles.', hi: 'राजनयिक सिद्धांतों से समझौता किए बिना शांति में ट्रम्प की "रुचि" को <strong>स्वीकार करने</strong> का चूक गया अवसर।' },
+        'modi-strategy-title': { en: '3. Analysis of Modi Government\'s Strategy', hi: '3. मोदी सरकार की रणनीति का विश्लेषण' },
+        'misreading-trump-title': { en: 'a. Misreading Trump’s Personality', hi: 'ए. ट्रम्प के व्यक्तित्व को गलत समझना' },
+        'misread-1': { en: 'Failure to <strong>manage Trump’s ego</strong>, which demanded public credit and gestures.', hi: '<strong>ट्रम्प के अहंकार को प्रबंधित करने</strong> में विफलता, जिसने सार्वजनिक श्रेय और इशारों की मांग की।' },
+        'misread-2': { en: 'Overestimated Trump’s commitment to India despite:', hi: 'भारत के प्रति ट्रम्प की प्रतिबद्धता को अधिक महत्व देना, इसके बावजूद:' },
+        'misread-2-1': { en: 'Ignoring Modi during inaugural events.', hi: 'उद्घाटन कार्यक्रमों के दौरान मोदी की अनदेखी।' },
+        'misread-2-2': { en: 'Choosing to engage with Xi Jinping and Pakistan instead.', hi: 'इसके बजाय शी जिनपिंग और पाकिस्तान के साथ जुड़ने का चुनाव करना।' },
+        'miscalculations-title': { en: 'b. Strategic Miscalculations', hi: 'बी. रणनीतिक गलत अनुमान' },
+        'miscalc-1': { en: 'Many Indian policymakers and diaspora assumed <strong>Trump was pro-India</strong>, even post-Biden.', hi: 'कई भारतीय नीति निर्माताओं और डायस्पोरा ने माना कि <strong>ट्रम्प भारत समर्थक थे</strong>, यहां तक कि बिडेन के बाद भी।' },
+        'miscalc-2': { en: 'Pakistan, in contrast, <strong>read the shift</strong> and <strong>invested in Trump’s circle</strong>, including deals like oil cooperation.', hi: 'इसके विपरीत, पाकिस्तान ने <strong>बदलाव को समझा</strong> और <strong>ट्रम्प के सर्कल में निवेश किया</strong>, जिसमें तेल सहयोग जैसे सौदे शामिल थे।' },
+        'communication-title': { en: 'c. Communication Gap', hi: 'सी. संचार अंतर' },
+        'comms-1': { en: 'Indian diplomacy appeared <strong>unprepared</strong> for Trump’s transactional style.', hi: 'भारतीय कूटनीति ट्रम्प की लेन-देन वाली शैली के लिए <strong>तैयार</strong> नहीं दिखी।' },
+        'comms-2': { en: '<strong>Delayed reassessment</strong> of US policy direction under Trump.', hi: 'ट्रम्प के तहत अमेरिकी नीति दिशा का <strong>विलंबित पुनर्मूल्यांकन</strong>।' },
+        'comms-3': { en: 'Reliance on symbolic gestures over <strong>concrete diplomatic gains</strong>.', hi: '<strong>ठोस राजनयिक लाभों</strong> पर प्रतीकात्मक इशारों पर निर्भरता।' },
+        'what-if-title': { en: '4. What Could Have Been Done Differently?', hi: '4. क्या अलग किया जा सकता था?' },
+        'what-if-1': { en: 'Modi could have:', hi: 'मोदी कर सकते थे:' },
+        'what-if-1-1': { en: 'Publicly acknowledged Trump\'s <strong>"concern for peace"</strong>, not "credit".', hi: 'ट्रम्प की <strong>"शांति के लिए चिंता"</strong> को सार्वजनिक रूप से स्वीकार किया, न कि "श्रेय" को।' },
+        'what-if-1-2': { en: 'Framed ceasefire as a <strong>strategic decision by India</strong>, with Trump as a helpful observer.', hi: 'संघर्ष विराम को <strong>भारत द्वारा एक रणनीतिक निर्णय</strong> के रूप में तैयार किया, जिसमें ट्रम्प एक सहायक पर्यवेक्षक के रूप में थे।' },
+        'what-if-2': { en: 'Example of alternative statement:', hi: 'वैकल्पिक बयान का उदाहरण:' },
+        'what-if-quote': { en: '“We appreciate President Trump’s concern. India remains committed to bilateral resolution once objectives are met.”', hi: '“हम राष्ट्रपति ट्रम्प की चिंता की सराहना करते हैं। एक बार जब उद्देश्य पूरे हो जाते हैं तो भारत द्विपक्षीय समाधान के लिए प्रतिबद्ध रहता है।”' },
+        'what-if-3': { en: 'This would maintain India’s position while satisfying Trump’s <strong>need for validation</strong>.', hi: 'यह ट्रम्प की <strong>सत्यापन की आवश्यकता</strong> को संतुष्ट करते हुए भारत की स्थिति को बनाए रखेगा।' },
+        'implications-title': { en: '5. Broader Implications for Indian Foreign Policy', hi: '5. भारतीय विदेश नीति के लिए व्यापक निहितार्थ' },
+        'imp-1': { en: 'Demonstrates <strong>lack of adaptability</strong> in foreign policy tools to <strong>personalized diplomacy</strong>.', hi: '<strong>व्यक्तिगत कूटनीति</strong> के लिए विदेश नीति के उपकरणों में <strong>अनुकूलनशीलता की कमी</strong> को दर्शाता है।' },
+        'imp-2': { en: 'A cautionary tale on:', hi: 'इस पर एक चेतावनी:' },
+        'imp-2-1': { en: '<strong>Over-dependence</strong> on individual leaders’ preferences.', hi: 'व्यक्तिगत नेताओं की प्राथमिकताओं पर <strong>अति-निर्भरता</strong>।' },
+        'imp-2-2': { en: 'Need for <strong>institutional consistency</strong> in foreign policy beyond party leaderships.', hi: 'पार्टी नेतृत्व से परे विदेश नीति में <strong>संस्थागत स्थिरता</strong> की आवश्यकता।' },
+        'imp-3': { en: 'Urges Parliament to <strong>review India’s strategic approach</strong>, especially with shifting global alliances.', hi: 'संसद से आग्रह करता है कि वह <strong>भारत के रणनीतिक दृष्टिकोण की समीक्षा करे</strong>, विशेष रूप से बदलते वैश्विक गठबंधनों के साथ।' },
+        'upsc-title': { en: '6. UPSC Mains Relevance', hi: '6. यूपीएससी मुख्य परीक्षा के लिए प्रासंगिकता' },
+        'gs2-title': { en: 'GS Paper II – International Relations', hi: 'जीएस पेपर II – अंतर्राष्ट्रीय संबंध' },
+        'gs2-1': { en: '<strong>India–US Relations</strong>: Trade, diplomacy, and strategic engagement.', hi: '<strong>भारत-अमेरिका संबंध</strong>: व्यापार, कूटनीति, और रणनीतिक जुड़ाव।' },
+        'gs2-2': { en: '<strong>India–Pakistan–China Triangle</strong>: Geopolitical positioning and bilateralism.', hi: '<strong>भारत-पाकिस्तान-चीन त्रिभुज</strong>: भू-राजनीतिक स्थिति और द्विपक्षीयता।' },
+        'gs2-3': { en: '<strong>Foreign Policy Tools</strong>: Adapting to personalized global leadership styles.', hi: '<strong>विदेश नीति के उपकरण</strong>: व्यक्तिगत वैश्विक नेतृत्व शैलियों के अनुकूलन।' },
+        'gs3-title': { en: 'GS Paper III – Economy', hi: 'जीएस पेपर III – अर्थव्यवस्था' },
+        'gs3-1': { en: '<strong>Impact of Tariffs</strong> on trade relations and bilateral agreements.', hi: 'व्यापार संबंधों और द्विपक्षीय समझौतों पर <strong>टैरिफ का प्रभाव</strong>।' },
+        'gs3-2': { en: '<strong>Defence Procurement & Strategic Autonomy</strong> in foreign trade decisions.', hi: 'विदेश व्यापार निर्णयों में <strong>रक्षा खरीद और रणनीतिक स्वायत्तता</strong>।' },
+        'takeaway-title': { en: '7. Takeaway for Aspirants', hi: '7. उम्मीदवारों के लिए सबक' },
+        'takeaway-1': { en: 'International relations are <strong>deeply influenced by leader psychology</strong>, especially in transactional democracies like the US.', hi: 'अंतर्राष्ट्रीय संबंध <strong>नेता के मनोविज्ञान से गहराई से प्रभावित</strong> होते हैं, खासकर अमेरिका जैसे लेन-देन वाले लोकतंत्रों में।' },
+        'takeaway-2': { en: 'Diplomacy must be <strong>flexible yet principled</strong>—balancing <strong>national interest</strong> and <strong>global realpolitik</strong>.', hi: 'कूटनीति को <strong>लचीला लेकिन सैद्धांतिक</strong> होना चाहिए—<strong>राष्ट्रीय हित</strong> और <strong>वैश्विक भू-राजनीति</strong> को संतुलित करना।' },
+        'takeaway-3': { en: 'Always look beyond <strong>symbolism</strong> in diplomacy—<strong>outcomes matter more than optics</strong>.', hi: 'कूटनीति में हमेशा <strong>प्रतीकवाद</strong> से परे देखें—<strong>परिणाम दिखावे से ज्यादा मायने रखते हैं</strong>।' },
+        'back-to-home': { en: 'Back to Home', hi: 'होम पर वापस जाएं' }
+    };
+
+    function switchLanguage() {
+        const isHindi = langToggle.checked;
+        for (const key in elements) {
+            const element = document.getElementById(key);
+            if (element) {
+                element.innerHTML = elements[key][isHindi ? 'hi' : 'en'];
+            }
+        }
+    }
+
+    langToggle.addEventListener('change', switchLanguage);
+    switchLanguage(); // Initial call
+
+    // Read Time Calculation
+    const postContent = document.querySelector('.content').innerText;
+    const wordCount = postContent.split(/\s+/).length;
+    const wordsPerMinute = 200; // Average reading speed
+    const readTime = Math.ceil(wordCount / wordsPerMinute);
+    document.getElementById('read-time').innerText = `Approx. ${readTime} min read`;
+
+    // Scroll to top button
+    const scrollTopBtn = document.getElementById('scroll-to-top');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            scrollTopBtn.style.display = 'block';
+        } else {
+            scrollTopBtn.style.display = 'none';
+        }
+    });
+
+    scrollTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+</body>
+</html>

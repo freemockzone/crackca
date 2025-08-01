@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>G20 Ceremonial Plantation</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@400;600&display=swap');
+
+    :root {
+        --primary-color: #0056b3;
+        --secondary-color: #e2eafc;
+        --text-color: #333;
+        --bg-color: #ffffff;
+        --card-bg: #f9f9f9;
+        --border-color: #ddd;
+        --hover-color: #f0f8ff;
+        --accent-color: #d1e7ff;
+    }
+
+    [data-theme='dark'] {
+        --primary-color: #1a73e8;
+        --secondary-color: #2c3e50;
+        --text-color: #e0e0e0;
+        --bg-color: #121212;
+        --card-bg: #1e1e1e;
+        --border-color: #333;
+        --hover-color: #2c3e50;
+        --accent-color: #1a2a3a;
+    }
+
+    body {
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: var(--primary-color);
+        padding: 1rem 5%;
+        color: white;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar .logo {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        font-size: 1.5rem;
+    }
+
+    .navbar a {
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+        margin: 0 1rem;
+        transition: color 0.3s;
+    }
+
+    .navbar a:hover {
+        color: var(--secondary-color);
+    }
+
+    .lang-switch {
+        position: relative;
+        width: 60px;
+        height: 30px;
+    }
+
+    .lang-switch input {
+        display: none;
+    }
+
+    .lang-switch label {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: #fff;
+        border-radius: 15px;
+        cursor: pointer;
+        position: absolute;
+        transition: 0.3s;
+        box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .lang-switch label:after {
+        content: '';
+        width: 26px;
+        height: 26px;
+        background: var(--primary-color);
+        border-radius: 50%;
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        transition: 0.3s;
+    }
+
+    .lang-switch input:checked + label:after {
+        left: 32px;
+        transform: scale(1.1);
+    }
+
+    .lang-switch .lang-text {
+        position: absolute;
+        font-size: 12px;
+        font-weight: bold;
+        line-height: 30px;
+        color: var(--primary-color);
+        transition: 0.3s;
+        pointer-events: none;
+    }
+
+    .lang-switch .en {
+        left: 8px;
+    }
+
+    .lang-switch .hi {
+        right: 8px;
+    }
+
+    .lang-switch input:checked ~ .en {
+        color: white;
+    }
+
+    .lang-switch input:checked ~ .hi {
+        color: var(--primary-color);
+    }
+
+    .container {
+        max-width: 900px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+    }
+
+    .post-header {
+        text-align: center;
+        margin-bottom: 2rem;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 1rem;
+    }
+
+    .post-header h1 {
+        font-family: 'Poppins', sans-serif;
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        margin: 0 0 0.5rem;
+    }
+
+    .post-header p {
+        font-style: italic;
+        color: #666;
+        margin: 0;
+    }
+
+    .read-time {
+        font-size: 0.9rem;
+        color: #888;
+        margin-top: 0.5rem;
+    }
+
+    .content {
+        font-size: 1.1rem;
+    }
+
+    .content section {
+        margin-bottom: 2rem;
+    }
+
+    .content h2, .content h3, .content h4 {
+        color: var(--primary-color);
+        border-bottom: 1.5px solid var(--accent-color);
+        padding-bottom: 0.5rem;
+        margin-top: 2rem;
+    }
+
+    .content p, .content li, .content td, .content th {
+        margin: 0.5rem 0;
+    }
+
+    .content ul, .content ol {
+        padding-left: 1.5rem;
+    }
+
+    .content li {
+        list-style-type: disc;
+    }
+
+    .content li::marker {
+        color: var(--primary-color);
+    }
+
+    .content a {
+        color: var(--primary-color);
+        text-decoration: none;
+    }
+
+    .content a:hover {
+        text-decoration: underline;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1rem 0;
+        background-color: var(--card-bg);
+    }
+
+    table, th, td {
+        border: 1px solid var(--border-color);
+    }
+
+    th, td {
+        padding: 12px 15px;
+        text-align: left;
+    }
+
+    th {
+        background-color: var(--primary-color);
+        color: white;
+        font-weight: bold;
+    }
+
+    tr:nth-child(even) {
+        background-color: var(--secondary-color);
+    }
+
+    .quote {
+        border-left: 4px solid var(--primary-color);
+        padding-left: 1rem;
+        margin: 1rem 0;
+        font-style: italic;
+        background-color: var(--accent-color);
+        padding: 1rem;
+        border-radius: 5px;
+    }
+    
+    .colored-hover-effect p:hover, 
+    .colored-hover-effect li:hover,
+    .colored-hover-effect tr:hover,
+    .colored-hover-effect h2:hover,
+    .colored-hover-effect h3:hover,
+    .colored-hover-effect th:hover,
+    .colored-hover-effect td:hover {
+        background-color: var(--hover-color);
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .colored-hover-effect h2:hover,
+    .colored-hover-effect h3:hover,
+    .colored-hover-effect th:hover {
+        background-color: transparent;
+    }
+
+    .footer {
+        text-align: center;
+        padding: 2rem 1rem;
+        border-top: 1px solid var(--border-color);
+        margin-top: 2rem;
+    }
+
+    .footer a {
+        display: inline-block;
+        background-color: var(--primary-color);
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+
+    .footer a:hover {
+        background-color: #004494;
+    }
+
+    #scroll-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        display: none;
+        transition: background-color 0.3s;
+    }
+
+    #scroll-to-top:hover {
+        background-color: #004494;
+    }
+
+    @media (max-width: 768px) {
+        .navbar {
+            flex-direction: column;
+            text-align: center;
+        }
+        .navbar .logo {
+            margin-bottom: 1rem;
+        }
+        .navbar .nav-links {
+            margin-bottom: 1rem;
+        }
+        .navbar a {
+            margin: 0.5rem;
+        }
+        .post-header h1 {
+            font-size: 2rem;
+        }
+        .content {
+            font-size: 1rem;
+        }
+    }
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">01/August/2025 - Current Affairs</div>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="donation.html">Donation</a>
+        <a href="contact.html">Contact</a>
+    </div>
+    <div class="lang-switch">
+        <input type="checkbox" id="lang-toggle">
+        <label for="lang-toggle">
+            <span class="lang-text en">EN</span>
+            <span class="lang-text hi">HI</span>
+        </label>
+    </div>
+</nav>
+
+<div class="container">
+    <header class="post-header">
+        <h1 id="post-title">G20 Ceremonial Plantation</h1>
+        <p id="post-date">Published on September 15, 2023</p>
+        <p class="read-time" id="read-time"></p>
+    </header>
+
+    <main class="content colored-hover-effect">
+        <section id="context-section">
+            <h2 id="context-title">🔹 Context:</h2>
+            <ul>
+                <li><span id="context-1">A controversy emerged regarding the misidentification of a tree labelled as "African Mahogany" at the G20 ceremonial plantation site in Nehru Park, New Delhi.</span></li>
+                <li><span id="context-2">A citizen-led group *DelhiTrees* flagged that the sapling resembled *Jamun*, a native Indian tree.</span></li>
+                <li><span id="context-3">Subsequent investigations confirmed that the original *African Mahogany* sapling gifted by Nigeria had failed and was replaced temporarily with Jamun for aesthetic purposes.</span></li>
+            </ul>
+        </section>
+
+        <section id="key-facts-section">
+            <h2 id="key-facts-title">🔹 Key Facts:</h2>
+            <h3>1. Event:</h3>
+            <ul>
+                <li><span id="event-1">G20 **Ceremonial Plantation** was held in **September 2023** during India’s G20 Presidency.</span></li>
+                <li><span id="event-2">Involved live saplings gifted by **G20 member countries and invited international organisations**.</span></li>
+            </ul>
+            <h3>2. Objective:</h3>
+            <ul>
+                <li><span id="objective-1">Symbolic representation of countries through trees.</span></li>
+                <li><span id="objective-2">Promote environmental significance and cultural diplomacy.</span></li>
+            </ul>
+            <h3>3. Location:</h3>
+            <ul>
+                <li><span id="location-1">**Nehru Park**, Chanakyapuri, New Delhi.</span></li>
+            </ul>
+            <h3>4. Tree from Nigeria:</h3>
+            <ul>
+                <li><span id="tree-nigeria-1">Gifted species: **African Mahogany**.</span></li>
+                <li><span id="tree-nigeria-2">Failed after plantation due to climatic/environmental stress.</span></li>
+                <li><span id="tree-nigeria-3">Temporarily replaced with **Jamun (Syzygium cumini)**.</span></li>
+            </ul>
+            <h3>5. Replacement Process:</h3>
+            <ul>
+                <li><span id="replacement-1">Replacement African Mahogany sapling has now been sourced and will be planted shortly.</span></li>
+                <li><span id="replacement-2">Similar issues occurred with saplings from **South Korea** and **South Africa**.</span></li>
+                <li><span id="replacement-3">South Korea has already replanted a replacement.</span></li>
+                <li><span id="replacement-4">South Africa is in process of sourcing one.</span></li>
+            </ul>
+        </section>
+
+        <section id="botanical-relevance-section">
+            <h2 id="botanical-relevance-title">🔹 Botanical & Environmental Relevance:</h2>
+            <ul>
+                <li><span id="botanical-1">**African Mahogany** (*Khaya senegalensis*):</span></li>
+                <ul>
+                    <li><span id="botanical-2">Native to West Africa; valued for timber.</span></li>
+                    <li><span id="botanical-3">Not naturally suited for Indian climatic zones—requires adaptation.</span></li>
+                </ul>
+                <li><span id="botanical-4">**Jamun (Indian substitute):**</span></li>
+                <ul>
+                    <li><span id="botanical-5">Hardy, native species.</span></li>
+                    <li><span id="botanical-6">Chosen for visual continuity and ease of growth in Indian climate.</span></li>
+                </ul>
+                <li><span id="botanical-7">**Quarantine Requirement:**</span></li>
+                <ul>
+                    <li><span id="botanical-8">All foreign-origin saplings were quarantined at **ICAR-NBPGR**, Pusa, Delhi.</span></li>
+                </ul>
+            </ul>
+        </section>
+
+        <section id="policy-governance-section">
+            <h2 id="policy-governance-title">🔹 Policy and Governance Angle:</h2>
+            <h3>Logistics and Oversight:</h3>
+            <ul>
+                <li><span id="policy-1">Managed by **NDMC** and coordinated with the **Ministry of External Affairs (MEA)**.</span></li>
+                <li><span id="policy-2">Highlighted the role of **inter-agency coordination** for international ceremonial events.</span></li>
+            </ul>
+            <h3>Contingency Planning:</h3>
+            <ul>
+                <li><span id="policy-3">Local alternatives (mango, jamun) were pre-identified as backup to maintain visual symmetry in case of sapling failure.</span></li>
+            </ul>
+            <h3>Public Accountability:</h3>
+            <ul>
+                <li><span id="policy-4">Triggered by civil society activism (DelhiTrees on X), leading to government clarification.</span></li>
+            </ul>
+        </section>
+
+        <section id="symbolism-section">
+            <h2 id="symbolism-title">🔹 Symbolism and International Relations:</h2>
+            <ul>
+                <li><span id="symbolism-1">Trees as *soft diplomacy tools*.</span></li>
+                <li><span id="symbolism-2">Countries chose trees representing their **culture**, **climate**, or **symbolic significance**.</span></li>
+                <ul>
+                    <li><span id="symbolism-3">**Examples:**</span></li>
+                    <ul>
+                        <li><span id="symbolism-4">*Olive trees* – Turkey, Spain, Italy (Peace & longevity).</span></li>
+                        <li><span id="symbolism-5">*Real Yellowwood* – South Africa (National tree).</span></li>
+                        <li><span id="symbolism-6">*Camphor Laurel* – China.</span></li>
+                        <li><span id="symbolism-7">*Teak* – Indonesia.</span></li>
+                        <li><span id="symbolism-8">*Date Palm* – Egypt, Saudi Arabia.</span></li>
+                        <li><span id="symbolism-9">*Sausage Tree*, *Red Frangipani* – African Union.</span></li>
+                    </ul>
+                </ul>
+            </ul>
+        </section>
+
+        <section id="ethics-section">
+            <h2 id="ethics-title">🔹 Ethics/GS-IV Insight:</h2>
+            <ul>
+                <li><span id="ethics-1">**Transparency in governance**: Public queries and social media vigilance led to administrative accountability.</span></li>
+                <li><span id="ethics-2">**Environmental ethics**: Sustainable choices vs. symbolic gestures—balancing ecological suitability with diplomatic intent.</span></li>
+            </ul>
+        </section>
+
+        <section id="mains-questions-section">
+            <h2 id="mains-questions-title">🔹 Probable Mains Questions:</h2>
+            <ol>
+                <li><span id="mains-question-1">*"Discuss the role of symbolic plantation drives like the G20 ceremonial plantation in enhancing diplomatic relations. Highlight challenges in execution."*</span></li>
+                <li><span id="mains-question-2">*"How can environmental concerns be balanced with ceremonial or diplomatic activities in India’s public governance?"*</span></li>
+            </ol>
+        </section>
+
+        <section id="prelims-pointers-section">
+            <h2 id="prelims-pointers-title">🔹 Prelims Pointers:</h2>
+            <ul>
+                <li><span id="prelims-pointer-1">**ICAR-NBPGR**: Handles quarantine of foreign plant species.</span></li>
+                <li><span id="prelims-pointer-2">**African Mahogany**: Native to West Africa.</span></li>
+                <li><span id="prelims-pointer-3">**Jamun**: Native Indian species; used for soil conservation and fruit.</span></li>
+                <li><span id="prelims-pointer-4">**NDMC**: New Delhi Municipal Council; manages civic functions in Lutyens' Delhi.</span></li>
+                <li><span id="prelims-pointer-5">**DelhiTrees**: Citizen-led green advocacy group.</span></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <a href="index.html" id="back-to-home">Back to Home</a>
+    </footer>
+</div>
+
+<button id="scroll-to-top" title="Go to top">↑</button>
+
+<script>
+    const langToggle = document.getElementById('lang-toggle');
+    const elements = {
+        'post-title': { en: 'G20 Ceremonial Plantation', hi: 'जी20 औपचारिक वृक्षारोपण' },
+        'post-date': { en: 'Published on September 15, 2023', hi: '15 सितंबर, 2023 को प्रकाशित' },
+        'context-title': { en: '🔹 Context:', hi: '🔹 संदर्भ:' },
+        'context-1': { en: 'A controversy emerged regarding the misidentification of a tree labelled as "African Mahogany" at the G20 ceremonial plantation site in Nehru Park, New Delhi.', hi: 'नई दिल्ली के नेहरू पार्क में जी20 औपचारिक वृक्षारोपण स्थल पर "अफ्रीकन महोगनी" के रूप में लेबल किए गए एक पेड़ की गलत पहचान को लेकर एक विवाद सामने आया।' },
+        'context-2': { en: 'A citizen-led group *DelhiTrees* flagged that the sapling resembled *Jamun*, a native Indian tree.', hi: 'एक नागरिक-नेतृत्व वाले समूह *DelhiTrees* ने बताया कि पौधा *जामुन* से मिलता-जुलता था, जो एक देशी भारतीय पेड़ है।' },
+        'context-3': { en: 'Subsequent investigations confirmed that the original *African Mahogany* sapling gifted by Nigeria had failed and was replaced temporarily with Jamun for aesthetic purposes.', hi: 'बाद की जांचों में पुष्टि हुई कि नाइजीरिया द्वारा उपहार में दिया गया मूल *अफ्रीकन महोगनी* का पौधा विफल हो गया था और सौंदर्य के उद्देश्यों के लिए इसे अस्थायी रूप से जामुन से बदल दिया गया था।' },
+        'key-facts-title': { en: '🔹 Key Facts:', hi: '🔹 मुख्य तथ्य:' },
+        'event-1': { en: 'G20 *Ceremonial Plantation* was held in **September 2023** during India’s G20 Presidency.', hi: 'भारत की जी20 अध्यक्षता के दौरान **सितंबर 2023** में जी20 *औपचारिक वृक्षारोपण* आयोजित किया गया था।' },
+        'event-2': { en: 'Involved live saplings gifted by **G20 member countries and invited international organisations**.', hi: 'इसमें **जी20 सदस्य देशों और आमंत्रित अंतर्राष्ट्रीय संगठनों** द्वारा उपहार में दिए गए जीवित पौधे शामिल थे।' },
+        'objective-1': { en: 'Symbolic representation of countries through trees.', hi: 'पेड़ों के माध्यम से देशों का प्रतीकात्मक प्रतिनिधित्व।' },
+        'objective-2': { en: 'Promote environmental significance and cultural diplomacy.', hi: 'पर्यावरण महत्व और सांस्कृतिक कूटनीति को बढ़ावा देना।' },
+        'location-1': { en: '**Nehru Park**, Chanakyapuri, New Delhi.', hi: '**नेहरू पार्क**, चाणक्यपुरी, नई दिल्ली।' },
+        'tree-nigeria-1': { en: 'Gifted species: **African Mahogany**.', hi: 'उपहार में दी गई प्रजाति: **अफ्रीकन महोगनी**।' },
+        'tree-nigeria-2': { en: 'Failed after plantation due to climatic/environmental stress.', hi: 'जलवायु/पर्यावरणीय तनाव के कारण वृक्षारोपण के बाद विफल हो गया।' },
+        'tree-nigeria-3': { en: 'Temporarily replaced with **Jamun (Syzygium cumini)**.', hi: 'अस्थायी रूप से **जामुन (Syzygium cumini)** से बदल दिया गया।' },
+        'replacement-1': { en: 'Replacement African Mahogany sapling has now been sourced and will be planted shortly.', hi: 'प्रतिस्थापन अफ्रीकन महोगनी का पौधा अब मंगाया गया है और जल्द ही लगाया जाएगा।' },
+        'replacement-2': { en: 'Similar issues occurred with saplings from **South Korea** and **South Africa**.', hi: 'इसी तरह के मुद्दे **दक्षिण कोरिया** और **दक्षिण अफ्रीका** के पौधों के साथ भी हुए।' },
+        'replacement-3': { en: 'South Korea has already replanted a replacement.', hi: 'दक्षिण कोरिया ने पहले ही एक प्रतिस्थापन लगा दिया है।' },
+        'replacement-4': { en: 'South Africa is in process of sourcing one.', hi: 'दक्षिण अफ्रीका एक पौधा मंगाने की प्रक्रिया में है।' },
+        'botanical-relevance-title': { en: '🔹 Botanical & Environmental Relevance:', hi: '🔹 वानस्पतिक और पर्यावरणीय प्रासंगिकता:' },
+        'botanical-1': { en: '**African Mahogany** (*Khaya senegalensis*):', hi: '**अफ्रीकन महोगनी** (*Khaya senegalensis*):' },
+        'botanical-2': { en: 'Native to West Africa; valued for timber.', hi: 'पश्चिम अफ्रीका का मूल निवासी; लकड़ी के लिए मूल्यवान।' },
+        'botanical-3': { en: 'Not naturally suited for Indian climatic zones—requires adaptation.', hi: 'भारतीय जलवायु क्षेत्रों के लिए स्वाभाविक रूप से अनुकूल नहीं है—अनुकूलन की आवश्यकता है।' },
+        'botanical-4': { en: '**Jamun (Indian substitute):**', hi: '**जामुन (भारतीय प्रतिस्थापन):**' },
+        'botanical-5': { en: 'Hardy, native species.', hi: 'मजबूत, देशी प्रजाति।' },
+        'botanical-6': { en: 'Chosen for visual continuity and ease of growth in Indian climate.', hi: 'भारतीय जलवायु में दृश्य निरंतरता और विकास में आसानी के लिए चुना गया।' },
+        'botanical-7': { en: '**Quarantine Requirement:**', hi: '**संगरोध आवश्यकता:**' },
+        'botanical-8': { en: 'All foreign-origin saplings were quarantined at **ICAR-NBPGR**, Pusa, Delhi.', hi: 'सभी विदेशी मूल के पौधों को **आईसीएआर-एनबीपीजीआर**, पूसा, दिल्ली में संगरोध किया गया था।' },
+        'policy-governance-title': { en: '🔹 Policy and Governance Angle:', hi: '🔹 नीति और शासन का दृष्टिकोण:' },
+        'policy-1': { en: 'Managed by **NDMC** and coordinated with the **Ministry of External Affairs (MEA)**.', hi: '**एनडीएमसी** द्वारा प्रबंधित और **विदेश मंत्रालय (एमईए)** के साथ समन्वित।' },
+        'policy-2': { en: 'Highlighted the role of **inter-agency coordination** for international ceremonial events.', hi: 'अंतर्राष्ट्रीय औपचारिक कार्यक्रमों के लिए **अंतर-एजेंसी समन्वय** की भूमिका पर प्रकाश डाला।' },
+        'policy-3': { en: 'Local alternatives (mango, jamun) were pre-identified as backup to maintain visual symmetry in case of sapling failure.', hi: 'पौधे की विफलता के मामले में दृश्य समरूपता बनाए रखने के लिए स्थानीय विकल्प (आम, जामुन) को बैकअप के रूप में पहले से ही पहचान लिया गया था।' },
+        'policy-4': { en: 'Triggered by civil society activism (DelhiTrees on X), leading to government clarification.', hi: 'नागरिक समाज की सक्रियता (एक्स पर DelhiTrees) द्वारा शुरू किया गया, जिससे सरकार की ओर से स्पष्टीकरण आया।' },
+        'symbolism-title': { en: '🔹 Symbolism and International Relations:', hi: '🔹 प्रतीकात्मकता और अंतर्राष्ट्रीय संबंध:' },
+        'symbolism-1': { en: 'Trees as *soft diplomacy tools*.', hi: 'पेड़ *सॉफ्ट डिप्लोमेसी टूल* के रूप में।' },
+        'symbolism-2': { en: 'Countries chose trees representing their **culture**, **climate**, or **symbolic significance**.', hi: 'देशों ने अपनी **संस्कृति**, **जलवायु**, या **प्रतीकात्मक महत्व** का प्रतिनिधित्व करने वाले पेड़ों को चुना।' },
+        'symbolism-3': { en: '**Examples:**', hi: '**उदाहरण:**' },
+        'symbolism-4': { en: '*Olive trees* – Turkey, Spain, Italy (Peace & longevity).', hi: '*जैतून के पेड़* – तुर्की, स्पेन, इटली (शांति और दीर्घायु)।' },
+        'symbolism-5': { en: '*Real Yellowwood* – South Africa (National tree).', hi: '*रियल येलोवुड* – दक्षिण अफ्रीका (राष्ट्रीय वृक्ष)।' },
+        'symbolism-6': { en: '*Camphor Laurel* – China.', hi: '*कपूर लॉरेल* – चीन।' },
+        'symbolism-7': { en: '*Teak* – Indonesia.', hi: '*टीक* – इंडोनेशिया।' },
+        'symbolism-8': { en: '*Date Palm* – Egypt, Saudi Arabia.', hi: '*खजूर का पेड़* – मिस्र, सऊदी अरब।' },
+        'symbolism-9': { en: '*Sausage Tree*, *Red Frangipani* – African Union.', hi: '*सॉसेज ट्री*, *रेड फ्रांगिपानी* – अफ्रीकी संघ।' },
+        'ethics-title': { en: '🔹 Ethics/GS-IV Insight:', hi: '🔹 नैतिकता/जीएस-IV अंतर्दृष्टि:' },
+        'ethics-1': { en: '**Transparency in governance**: Public queries and social media vigilance led to administrative accountability.', hi: '**शासन में पारदर्शिता**: सार्वजनिक पूछताछ और सोशल मीडिया की सतर्कता से प्रशासनिक जवाबदेही मिली।' },
+        'ethics-2': { en: '**Environmental ethics**: Sustainable choices vs. symbolic gestures—balancing ecological suitability with diplomatic intent.', hi: '**पर्यावरण नैतिकता**: टिकाऊ विकल्प बनाम प्रतीकात्मक इशारे—राजनयिक इरादे के साथ पारिस्थितिक उपयुक्तता को संतुलित करना।' },
+        'mains-questions-title': { en: '🔹 Probable Mains Questions:', hi: '🔹 संभावित मुख्य परीक्षा के प्रश्न:' },
+        'mains-question-1': { en: '*"Discuss the role of symbolic plantation drives like the G20 ceremonial plantation in enhancing diplomatic relations. Highlight challenges in execution."*', hi: '*"जी20 औपचारिक वृक्षारोपण जैसे प्रतीकात्मक वृक्षारोपण अभियानों की राजनयिक संबंधों को बढ़ाने में भूमिका पर चर्चा करें। कार्यान्वयन में आने वाली चुनौतियों पर प्रकाश डालें।"*' },
+        'mains-question-2': { en: '*"How can environmental concerns be balanced with ceremonial or diplomatic activities in India’s public governance?"*', hi: '*"भारत के सार्वजनिक शासन में पर्यावरण संबंधी चिंताओं को औपचारिक या राजनयिक गतिविधियों के साथ कैसे संतुलित किया जा सकता है?"*' },
+        'prelims-pointers-title': { en: '🔹 Prelims Pointers:', hi: '🔹 प्रारंभिक परीक्षा के लिए महत्वपूर्ण बिंदु:' },
+        'prelims-pointer-1': { en: '**ICAR-NBPGR**: Handles quarantine of foreign plant species.', hi: '**आईसीएआर-एनबीपीजीआर**: विदेशी पौधों की प्रजातियों के संगरोध का प्रबंधन करता है।' },
+        'prelims-pointer-2': { en: '**African Mahogany**: Native to West Africa.', hi: '**अफ्रीकन महोगनी**: पश्चिम अफ्रीका का मूल निवासी।' },
+        'prelims-pointer-3': { en: '**Jamun**: Native Indian species; used for soil conservation and fruit.', hi: '**जामुन**: देशी भारतीय प्रजाति; मिट्टी के संरक्षण और फल के लिए उपयोग किया जाता है।' },
+        'prelims-pointer-4': { en: '**NDMC**: New Delhi Municipal Council; manages civic functions in Lutyens\' Delhi.', hi: '**एनडीएमसी**: नई दिल्ली नगर परिषद; लुटियंस दिल्ली में नागरिक कार्यों का प्रबंधन करता है।' },
+        'prelims-pointer-5': { en: '**DelhiTrees**: Citizen-led green advocacy group.', hi: '**DelhiTrees**: नागरिक-नेतृत्व वाला हरित वकालत समूह।' },
+        'back-to-home': { en: 'Back to Home', hi: 'होम पर वापस जाएं' }
+    };
+    
+    function switchLanguage() {
+        const isHindi = langToggle.checked;
+        for (const key in elements) {
+            const element = document.getElementById(key);
+            if (element) {
+                element.innerHTML = elements[key][isHindi ? 'hi' : 'en'];
+            }
+        }
+    }
+
+    langToggle.addEventListener('change', switchLanguage);
+    switchLanguage(); // Initial call
+
+    // Read Time Calculation
+    const postContent = document.querySelector('.content').innerText;
+    const wordCount = postContent.split(/\s+/).length;
+    const wordsPerMinute = 200; // Average reading speed
+    const readTime = Math.ceil(wordCount / wordsPerMinute);
+    document.getElementById('read-time').innerText = `Approx. ${readTime} min read`;
+
+    // Scroll to top button
+    const scrollTopBtn = document.getElementById('scroll-to-top');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            scrollTopBtn.style.display = 'block';
+        } else {
+            scrollTopBtn.style.display = 'none';
+        }
+    });
+
+    scrollTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+</body>
+</html>

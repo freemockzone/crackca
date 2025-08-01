@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Locked Out in Fear - Gurugram's Migrant Crisis</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    :root {
+        --primary-color: #4a90e2;
+        --secondary-color: #50e3c2;
+        --background-color: #f0f2f5;
+        --text-color: #333;
+        --heading-color: #1a1a1a;
+        --card-background: #fff;
+        --hover-color: #e6f7ff;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: var(--background-color);
+        color: var(--text-color);
+        line-height: 1.8;
+        padding-top: 60px;
+        transition: all 0.3s ease;
+    }
+
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: var(--card-background);
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Navigation Bar */
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 5%;
+        background-color: var(--primary-color);
+        color: #fff;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar .logo {
+        font-size: 1.8em;
+        font-weight: 600;
+    }
+
+    .navbar ul {
+        display: flex;
+        list-style: none;
+    }
+
+    .navbar ul li {
+        margin-left: 25px;
+    }
+
+    .navbar ul li a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 1.1em;
+        transition: color 0.3s ease;
+    }
+
+    .navbar ul li a:hover {
+        color: var(--secondary-color);
+    }
+
+    /* Language Switch */
+    .lang-switch {
+        position: relative;
+        width: 60px;
+        height: 30px;
+        background-color: #fff;
+        border-radius: 30px;
+        cursor: pointer;
+        overflow: hidden;
+        border: 2px solid var(--secondary-color);
+        transition: all 0.3s ease;
+    }
+    
+    .lang-switch::before {
+        content: 'EN';
+        position: absolute;
+        top: 50%;
+        left: 8px;
+        transform: translateY(-50%);
+        font-size: 0.9em;
+        font-weight: 600;
+        color: #fff;
+        z-index: 1;
+        transition: all 0.3s ease;
+    }
+
+    .lang-switch::after {
+        content: 'HI';
+        position: absolute;
+        top: 50%;
+        right: 8px;
+        transform: translateY(-50%);
+        font-size: 0.9em;
+        font-weight: 600;
+        color: var(--primary-color);
+        z-index: 1;
+        transition: all 0.3s ease;
+    }
+
+    .lang-switch .toggle {
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: 22px;
+        height: 22px;
+        background-color: var(--primary-color);
+        border-radius: 50%;
+        transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    }
+
+    .lang-switch.hindi .toggle {
+        transform: translateX(30px);
+        background-color: var(--secondary-color);
+    }
+
+    .lang-switch.hindi::before {
+        color: var(--primary-color);
+    }
+
+    .lang-switch.hindi::after {
+        color: #fff;
+    }
+
+    /* Hero Section */
+    .hero {
+        text-align: center;
+        padding: 50px 0 30px;
+        border-bottom: 2px solid #eee;
+    }
+
+    .hero h1 {
+        font-size: 2.5em;
+        color: var(--heading-color);
+        margin-bottom: 10px;
+        line-height: 1.2;
+    }
+    
+    .hero p {
+        font-style: italic;
+        color: #666;
+        margin-bottom: 20px;
+    }
+
+    .meta-info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        color: #888;
+        font-size: 0.9em;
+    }
+    
+    .read-time {
+        background-color: var(--secondary-color);
+        color: #fff;
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-weight: 600;
+    }
+
+    /* Post Content */
+    .post-section {
+        padding: 20px 0;
+    }
+
+    .post-section h2 {
+        font-size: 1.8em;
+        color: var(--primary-color);
+        border-left: 4px solid var(--secondary-color);
+        padding-left: 10px;
+        margin: 30px 0 15px;
+        position: relative;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .post-section h2:hover {
+        color: var(--secondary-color);
+    }
+
+    .post-section p, .post-section ul {
+        margin-bottom: 15px;
+        padding: 0;
+    }
+    
+    .post-section li {
+        margin-left: 30px;
+        list-style: disc;
+    }
+
+    /* Colorful Hover Effect for Lines */
+    .hover-line {
+        padding: 5px 10px;
+        margin: 5px -10px;
+        border-radius: 6px;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        cursor: pointer;
+        display: block;
+    }
+    
+    .hover-line:hover {
+        background-color: var(--hover-color);
+        transform: translateX(5px);
+    }
+    
+    .hover-line.active {
+        background-color: var(--hover-color);
+    }
+
+    .hover-line-p:hover { background-color: var(--hover-color); transform: translateX(5px); }
+    .hover-line-li:hover { background-color: var(--hover-color); transform: translateX(5px); }
+
+    /* Floating Back to Top Button */
+    .back-to-top {
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        background-color: var(--primary-color);
+        color: #fff;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5em;
+        text-decoration: none;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+        z-index: 999;
+    }
+    
+    .back-to-top:hover {
+        background-color: var(--secondary-color);
+        transform: translateY(-5px);
+    }
+    
+    .back-to-top.show {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    /* Back to Home Button */
+    .back-home-btn {
+        display: block;
+        width: fit-content;
+        margin: 30px auto 20px;
+        padding: 12px 25px;
+        background-color: var(--primary-color);
+        color: #fff;
+        text-decoration: none;
+        border-radius: 25px;
+        font-weight: 600;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    
+    .back-home-btn:hover {
+        background-color: var(--secondary-color);
+        transform: translateY(-3px);
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .navbar {
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 15px;
+        }
+        
+        .navbar ul {
+            margin-top: 10px;
+            flex-direction: column;
+            width: 100%;
+        }
+        
+        .navbar ul li {
+            margin: 5px 0;
+        }
+        
+        .lang-switch {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+        }
+        
+        .container {
+            padding: 15px;
+        }
+        
+        .hero h1 {
+            font-size: 2em;
+        }
+    }
+    
+    .section-separator {
+        border: 0;
+        height: 1px;
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0), var(--primary-color), rgba(0, 0, 0, 0));
+        margin: 40px 0;
+    }
+    
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">Article From The Hindu</div>
+    <ul>
+        <li><a href="index.html" class="en-text">Home</a><a href="index.html" class="hi-text" style="display: none;">होम</a></li>
+        <li><a href="donation.html" class="en-text">Donation</a><a href="donation.html" class="hi-text" style="display: none;">दान</a></li>
+        <li><a href="contact.html" class="en-text">Contact</a><a href="contact.html" class="hi-text" style="display: none;">संपर्क</a></li>
+    </ul>
+    <div class="lang-switch">
+        <div class="toggle"></div>
+    </div>
+</nav>
+
+<div class="container">
+    
+    <header class="hero">
+        <h1 class="en-text">"Locked Out in Fear" – Gurugram’s Migrant Crisis and Verification Drive</h1>
+        <h1 class="hi-text" style="display: none;">"डर में बाहर" – गुरुग्राम का प्रवासी संकट और सत्यापन अभियान</h1>
+        <div class="meta-info">
+            <span class="en-text">Date: 2025-08-01</span>
+            <span class="hi-text" style="display: none;">दिनांक: 2025-08-01</span>
+            <span class="read-time en-text">Read Time: 5 min</span>
+            <span class="read-time hi-text" style="display: none;">पढ़ने का समय: 5 मिनट</span>
+        </div>
+    </header>
+    
+    <main class="post-content">
+    
+        <section class="post-section">
+            <h2 class="en-text">1. Background</h2>
+            <h2 class="hi-text" style="display: none;">1. पृष्ठभूमि</h2>
+            <p class="en-text hover-line"><strong>Urbanization and Inequality:</strong> Gurugram is a rapidly urbanizing city, with sleek corporate buildings juxtaposed against sprawling slums. The city’s development, particularly along Golf Course Road, has created stark contrasts between luxury homes and informal settlements (jhuggi-jhopri clusters).</p>
+            <p class="hi-text hover-line" style="display: none;"><strong>शहरीकरण और असमानता:</strong> गुरुग्राम एक तेजी से शहरीकरण हो रहा शहर है, जहां चिकनी कॉर्पोरेट इमारतें फैली हुई झुग्गियों के विपरीत हैं। शहर के विकास, विशेष रूप से गोल्फ कोर्स रोड के साथ, लक्जरी घरों और अनौपचारिक बस्तियों (झुग्गी-झोपड़ी क्लस्टर) के बीच गहरा विरोधाभास पैदा किया है।</p>
+            <p class="en-text hover-line"><strong>Living Conditions in Slums:</strong> Poor sanitation, overcrowding, and inadequate infrastructure define the daily struggles of slum dwellers. Despite the hardship, many migrant workers continue to call these areas home, contributing to the city's growth as construction laborers, domestic workers, and in the gig economy.</p>
+            <p class="hi-text hover-line" style="display: none;"><strong>झुग्गियों में रहने की स्थिति:</strong> खराब स्वच्छता, भीड़भाड़ और अपर्याप्त बुनियादी ढाँचा झुग्गी-झोपड़ियों में रहने वालों के दैनिक संघर्षों को परिभाषित करता है। कठिनाई के बावजूद, कई प्रवासी श्रमिक इन क्षेत्रों को घर कहते हैं, जो निर्माण मजदूरों, घरेलू कामगारों और गिग इकॉनमी में शहर के विकास में योगदान करते हैं।</p>
+        </section>
+        
+        <hr class="section-separator">
+        
+        <section class="post-section">
+            <h2 class="en-text">2. Police Verification Drive</h2>
+            <h2 class="hi-text" style="display: none;">2. पुलिस सत्यापन अभियान</h2>
+            <p class="en-text hover-line"><strong>Objective:</strong> A large-scale verification drive was launched to identify and deport alleged illegal Bangladeshi migrants, particularly in Bengali-speaking communities.</p>
+            <p class="hi-text hover-line" style="display: none;"><strong>उद्देश्य:</strong> कथित अवैध बांग्लादेशी प्रवासियों, विशेष रूप से बंगाली भाषी समुदायों में, को पहचानने और निर्वासित करने के लिए एक बड़े पैमाने पर सत्यापन अभियान शुरू किया गया था।</p>
+            <p class="en-text hover-line"><strong>Holding Centres:</strong> Four community centers in Gurugram have been converted into special detention centers as per the Union Home Ministry’s directive (May 2), aimed at deporting illegal foreign nationals.</p>
+            <p class="hi-text hover-line" style="display: none;"><strong>होल्डिंग सेंटर:</strong> केंद्रीय गृह मंत्रालय के निर्देश (2 मई) के अनुसार, गुरुग्राम में चार सामुदायिक केंद्रों को विशेष निरोध केंद्रों में परिवर्तित किया गया है, जिसका उद्देश्य अवैध विदेशी नागरिकों को निर्वासित करना है।</p>
+            <p class="en-text hover-line"><strong>Migrant Impact:</strong> Fear of arbitrary detentions has led to an exodus of Bengali-speaking migrants, primarily from West Bengal and Assam, who work in low-wage jobs like domestic help, construction, and waste management.</p>
+            <p class="hi-text hover-line" style="display: none;"><strong>प्रवासी प्रभाव:</strong> मनमाने ढंग से हिरासत में लिए जाने के डर से बंगाली भाषी प्रवासियों का पलायन हुआ है, जो मुख्य रूप से पश्चिम बंगाल और असम से हैं और जो घरेलू सहायता, निर्माण और अपशिष्ट प्रबंधन जैसे कम वेतन वाली नौकरियों में काम करते हैं।</p>
+            <p class="en-text hover-line"><strong>Detention Practices:</strong> Some workers claim they were detained without being asked for documents, fueling fear. While police insist the detentions were legitimate and based on "intelligence," there have been reports of police brutality, extortion, and ill-treatment.</p>
+            <p class="hi-text hover-line" style="display: none;"><strong>हिरासत प्रथाएं:</strong> कुछ श्रमिकों का दावा है कि उन्हें दस्तावेजों के लिए पूछे बिना हिरासत में लिया गया था, जिससे डर बढ़ गया। जबकि पुलिस जोर देती है कि हिरासत वैध और "खुफिया" पर आधारित थी, पुलिस बर्बरता, जबरन वसूली और दुर्व्यवहार की खबरें आई हैं।</p>
+        </section>
+
+        <hr class="section-separator">
+
+        <section class="post-section">
+            <h2 class="en-text">3. Migrant Fears and Exodus</h2>
+            <h2 class="hi-text" style="display: none;">3. प्रवासी डर और पलायन</h2>
+            <ul class="en-text">
+                <li class="hover-line"><strong>Fear of Detentions:</strong> Migrants, even with proper documentation, are fleeing under the cover of night to avoid detention. The raids have been indiscriminate, targeting Bengali-speaking individuals, and many workers, especially in domestic and service sectors, are disappearing.</li>
+                <li class="hover-line"><strong>Consequences for Urban Life:</strong> The exodus has led to severe labor shortages, especially in the domestic work and waste collection sectors. This has caused sanitation crises in the city, particularly in housing societies that rely on migrant workers for services.</li>
+                <li class="hover-line"><strong>Local Responses:</strong>
+                    <ul>
+                        <li class="hover-line-li">Employers express concern over the lack of workers, especially domestic help, due to the sudden flight of migrants.</li>
+                        <li class="hover-line-li">Some resident welfare associations (RWAs) and local contractors express support for the drive, but others condemn the manner in which it was executed, leading to a sense of fear among the working-class migrants.</li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="hi-text" style="display: none;">
+                <li class="hover-line"><strong>हिरासत का डर:</strong> प्रवासी, यहां तक कि उचित दस्तावेजों के साथ, हिरासत से बचने के लिए रात के अंधेरे में भाग रहे हैं। छापे अंधाधुंध रहे हैं, जो बंगाली भाषी व्यक्तियों को निशाना बना रहे हैं, और कई श्रमिक, विशेष रूप से घरेलू और सेवा क्षेत्रों में, गायब हो रहे हैं।</li>
+                <li class="hover-line"><strong>शहरी जीवन के लिए परिणाम:</strong> इस पलायन से गंभीर श्रम की कमी हो गई है, विशेष रूप से घरेलू काम और अपशिष्ट संग्रह क्षेत्रों में। इसने शहर में स्वच्छता संकट पैदा कर दिया है, विशेष रूप से उन आवास समाजों में जो सेवाओं के लिए प्रवासी श्रमिकों पर निर्भर हैं।</li>
+                <li class="hover-line"><strong>स्थानीय प्रतिक्रियाएं:</strong>
+                    <ul>
+                        <li class="hover-line-li">प्रवासी श्रमिकों के अचानक पलायन के कारण नियोक्ताओं ने श्रमिकों, विशेष रूप से घरेलू सहायता, की कमी पर चिंता व्यक्त की है।</li>
+                        <li class="hover-line-li">कुछ निवासी कल्याण संघ (आरडब्ल्यूए) और स्थानीय ठेकेदार इस अभियान का समर्थन करते हैं, लेकिन अन्य जिस तरह से इसे निष्पादित किया गया था, उसकी निंदा करते हैं, जिससे कामकाजी वर्ग के प्रवासियों के बीच डर की भावना पैदा होती है।</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <hr class="section-separator">
+        
+        <section class="post-section">
+            <h2 class="en-text">4. Human Rights and Legal Concerns</h2>
+            <h2 class="hi-text" style="display: none;">4. मानवाधिकार और कानूनी चिंताएं</h2>
+            <p class="en-text hover-line"><strong>Violation of Rights:</strong> Various political leaders and human rights organizations have raised concerns over the treatment of Bengali-speaking migrants. Allegations of extortion, illegal detentions, and violation of due process rights have surfaced.</p>
+            <p class="hi-text hover-line" style="display: none;"><strong>अधिकारों का उल्लंघन:</strong> विभिन्न राजनीतिक नेताओं और मानवाधिकार संगठनों ने बंगाली भाषी प्रवासियों के साथ किए गए व्यवहार पर चिंता जताई है। जबरन वसूली, अवैध हिरासत और उचित प्रक्रिया अधिकारों के उल्लंघन के आरोप सामने आए हैं।</p>
+            <ul class="en-text">
+                <li class="hover-line"><strong>Political Reactions:</strong>
+                    <ul>
+                        <li class="hover-line-li">Aftab Ahmed, Congress MLA from Nuh, criticized the police for their "inhuman treatment" of the migrants and likened the situation to ethnic discrimination, particularly targeting Muslims.</li>
+                        <li class="hover-line-li">The State Trade Union Council expressed concerns over the illegal practices, including arbitrary detentions, money extortion, and holding documents without giving proper receipts or informing families.</li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="hi-text" style="display: none;">
+                <li class="hover-line"><strong>राजनीतिक प्रतिक्रियाएं:</strong>
+                    <ul>
+                        <li class="hover-line-li">नूह से कांग्रेस विधायक आफताब अहमद ने प्रवासियों के "अमानवीय व्यवहार" के लिए पुलिस की आलोचना की और स्थिति को जातीय भेदभाव के समान बताया, विशेष रूप से मुसलमानों को निशाना बनाते हुए।</li>
+                        <li class="hover-line-li">राज्य व्यापार संघ परिषद ने अवैध प्रथाओं पर चिंता व्यक्त की, जिसमें मनमाने ढंग से हिरासत, पैसे की जबरन वसूली और उचित रसीद दिए बिना या परिवारों को सूचित किए बिना दस्तावेजों को रखना शामिल है।</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <hr class="section-separator">
+
+        <section class="post-section">
+            <h2 class="en-text">5. Social and Economic Impact</h2>
+            <h2 class="hi-text" style="display: none;">5. सामाजिक और आर्थिक प्रभाव</h2>
+            <ul class="en-text">
+                <li class="hover-line"><strong>Labor Shortages:</strong> The loss of workers, especially domestic help and garbage collectors, has caused serious disruptions in the urban service economy.</li>
+                <li class="hover-line"><strong>Economic Burden:</strong> The migration of workers is affecting the functioning of municipal services, and many employers have been left struggling to find replacements for skilled and unskilled workers.</li>
+                <li class="hover-line"><strong>Community Impact:</strong> The sudden absence of workers has affected middle-class households, with some RWA members acknowledging the inconvenience caused by the verification drive but supporting the broader objective of identifying illegal migrants.</li>
+            </ul>
+            <ul class="hi-text" style="display: none;">
+                <li class="hover-line"><strong>श्रम की कमी:</strong> श्रमिकों, विशेष रूप से घरेलू सहायता और कचरा संग्रहकर्ताओं के नुकसान ने शहरी सेवा अर्थव्यवस्था में गंभीर व्यवधान पैदा किया है।</li>
+                <li class="hover-line"><strong>आर्थिक बोझ:</strong> श्रमिकों का पलायन नगरपालिका सेवाओं के कामकाज को प्रभावित कर रहा है, और कई नियोक्ता कुशल और अकुशल श्रमिकों के लिए प्रतिस्थापन खोजने के लिए संघर्ष कर रहे हैं।</li>
+                <li class="hover-line"><strong>सामुदायिक प्रभाव:</strong> श्रमिकों की अचानक अनुपस्थिति ने मध्यम वर्ग के घरों को प्रभावित किया है, जिसमें कुछ आरडब्ल्यूए सदस्यों ने सत्यापन अभियान के कारण हुई असुविधा को स्वीकार किया है, लेकिन अवैध प्रवासियों की पहचान करने के व्यापक उद्देश्य का समर्थन करते हैं।</li>
+            </ul>
+        </section>
+
+        <hr class="section-separator">
+
+        <section class="post-section">
+            <h2 class="en-text">6. Governance and Implementation Issues</h2>
+            <h2 class="hi-text" style="display: none;">6. शासन और कार्यान्वयन मुद्दे</h2>
+            <p class="en-text hover-line"><strong>Flaws in Execution:</strong> There has been criticism over the lack of a clear, transparent process for verifying the status of migrants. The fear is compounded by allegations of brutality and poor communication between police and local communities.</p>
+            <p class="hi-text hover-line" style="display: none;"><strong>कार्यान्वयन में दोष:</strong> प्रवासियों की स्थिति को सत्यापित करने के लिए एक स्पष्ट, पारदर्शी प्रक्रिया की कमी पर आलोचना हुई है। क्रूरता और पुलिस और स्थानीय समुदायों के बीच खराब संचार के आरोपों से डर बढ़ गया है।</p>
+            <p class="en-text hover-line"><strong>Need for Clear Protocol:</strong> Many residents argue for a more orderly approach, such as organized verification camps, where migrants can present their documents and resolve issues without fear of harassment or detention.</p>
+            <p class="hi-text hover-line" style="display: none;"><strong>स्पष्ट प्रोटोकॉल की आवश्यकता:</strong> कई निवासी एक अधिक व्यवस्थित दृष्टिकोण के लिए तर्क देते हैं, जैसे कि संगठित सत्यापन शिविर, जहां प्रवासी अपने दस्तावेज प्रस्तुत कर सकते हैं और उत्पीड़न या हिरासत के डर के बिना मुद्दों को हल कर सकते हैं।</p>
+        </section>
+
+        <hr class="section-separator">
+
+        <section class="post-section">
+            <h2 class="en-text">7. Sociopolitical Dimensions</h2>
+            <h2 class="hi-text" style="display: none;">7. सामाजिक-राजनीतिक आयाम</h2>
+            <p class="en-text hover-line"><strong>Identity and Citizenship:</strong> The crackdown has raised broader questions of identity and citizenship. For many Bengali-speaking migrants, their Indian citizenship has been questioned despite possessing valid documents.</p>
+            <p class="hi-text hover-line" style="display: none;"><strong>पहचान और नागरिकता:</strong> इस कार्रवाई ने पहचान और नागरिकता के व्यापक सवाल उठाए हैं। कई बंगाली भाषी प्रवासियों के लिए, वैध दस्तावेज होने के बावजूद उनकी भारतीय नागरिकता पर सवाल उठाया गया है।</p>
+            <p class="en-text hover-line"><strong>Ethnic Profiling:</strong> The focus on Bengali-speaking individuals has led to accusations of ethnic profiling. Critics argue that such drives unfairly target poor, marginalized communities and create an atmosphere of distrust and fear.</p>
+            <p class="hi-text hover-line" style="display: none;"><strong>जातीय प्रोफाइलिंग:</strong> बंगाली भाषी व्यक्तियों पर ध्यान केंद्रित करने से जातीय प्रोफाइलिंग के आरोप लगे हैं। आलोचकों का तर्क है कि ऐसे अभियान गरीब, हाशिए पर रहने वाले समुदायों को अनुचित रूप से लक्षित करते हैं और अविश्वास और डर का माहौल बनाते हैं।</p>
+        </section>
+
+        <hr class="section-separator">
+
+        <section class="post-section">
+            <h2 class="en-text">8. Potential Solutions</h2>
+            <h2 class="hi-text" style="display: none;">8. संभावित समाधान</h2>
+            <ul class="en-text">
+                <li class="hover-line"><strong>Improved Verification Process:</strong> To avoid arbitrary detentions, there is a need for a more organized and transparent process. Camps where documents can be checked and processed in a manner that respects human dignity are necessary.</li>
+                <li class="hover-line"><strong>Human Rights Protections:</strong> Adequate safeguards against police excesses, including clear channels for legal recourse, are essential to prevent violations.</li>
+                <li class="hover-line"><strong>Community Engagement:</strong> Building trust between police, local residents, and migrant communities is crucial. Public awareness campaigns and communication between stakeholders can alleviate fears and promote legal compliance.</li>
+            </ul>
+            <ul class="hi-text" style="display: none;">
+                <li class="hover-line"><strong>बेहतर सत्यापन प्रक्रिया:</strong> मनमाने ढंग से हिरासत से बचने के लिए, एक अधिक संगठित और पारदर्शी प्रक्रिया की आवश्यकता है। शिविर जहां दस्तावेजों की जांच और प्रसंस्करण मानव गरिमा का सम्मान करने वाले तरीके से किया जा सकता है, आवश्यक हैं।</li>
+                <li class="hover-line"><strong>मानवाधिकार सुरक्षा:</strong> पुलिस ज्यादतियों के खिलाफ पर्याप्त सुरक्षा, जिसमें कानूनी सहारा के लिए स्पष्ट चैनल शामिल हैं, उल्लंघनों को रोकने के लिए आवश्यक हैं।</li>
+                <li class="hover-line"><strong>सामुदायिक जुड़ाव:</strong> पुलिस, स्थानीय निवासियों और प्रवासी समुदायों के बीच विश्वास बनाना महत्वपूर्ण है। जन जागरूकता अभियान और हितधारकों के बीच संचार डर को कम कर सकता है और कानूनी अनुपालन को बढ़ावा दे सकता है।</li>
+            </ul>
+        </section>
+
+        <hr class="section-separator">
+
+        <section class="post-section">
+            <h2 class="en-text">9. Conclusion</h2>
+            <h2 class="hi-text" style="display: none;">9. निष्कर्ष</h2>
+            <p class="en-text hover-line"><strong>Involuntary Migration:</strong> The ongoing migration of workers from Gurugram due to fear of police raids underscores the vulnerabilities of migrant populations, who often lack the resources or political voice to defend their rights.</p>
+            <p class="hi-text hover-line" style="display: none;"><strong>अनैच्छिक प्रवासन:</strong> पुलिस छापे के डर से गुरुग्राम से श्रमिकों का चल रहा पलायन प्रवासी आबादी की कमजोरियों को रेखांकित करता है, जिनके पास अक्सर अपने अधिकारों की रक्षा करने के लिए संसाधन या राजनीतिक आवाज नहीं होती है।</p>
+            <p class="en-text hover-line"><strong>Urgency of Inclusive Urban Policy:</strong> The situation in Gurugram highlights the need for an inclusive urban policy that addresses the socio-economic needs of migrant workers while balancing security concerns. Ensuring that migrants feel secure in their workplaces and homes is essential for the continued growth and stability of urban centers.</p>
+            <p class="hi-text hover-line" style="display: none;"><strong>समावेशी शहरी नीति की तात्कालिकता:</strong> गुरुग्राम में स्थिति एक समावेशी शहरी नीति की आवश्यकता पर प्रकाश डालती है जो सुरक्षा चिंताओं को संतुलित करते हुए प्रवासी श्रमिकों की सामाजिक-आर्थिक जरूरतों को संबोधित करती है। यह सुनिश्चित करना कि प्रवासी अपने कार्यस्थलों और घरों में सुरक्षित महसूस करें, शहरी केंद्रों के निरंतर विकास और स्थिरता के लिए आवश्यक है।</p>
+        </section>
+
+        <hr class="section-separator">
+
+        <section class="post-section">
+            <h2 class="en-text">Key Takeaways for UPSC CSE Aspirant:</h2>
+            <h2 class="hi-text" style="display: none;">यूपीएससी सीएसई उम्मीदवारों के लिए मुख्य बातें:</h2>
+            <ul class="en-text">
+                <li class="hover-line"><strong>Interlinking Urbanization and Migrant Labor:</strong> Understanding the socio-economic dynamics of urbanization, particularly the role of informal workers, in shaping urban policy and governance.</li>
+                <li class="hover-line"><strong>Human Rights and Governance:</strong> Examining issues related to human rights, ethnic profiling, and the implementation of government policies affecting marginalized communities.</li>
+                <li class="hover-line"><strong>Policing and Legal Procedures:</strong> Analyzing law enforcement strategies, their human impact, and the legal safeguards needed to protect citizens and non-citizens alike.</li>
+            </ul>
+            <ul class="hi-text" style="display: none;">
+                <li class="hover-line"><strong>शहरीकरण और प्रवासी श्रम को आपस में जोड़ना:</strong> शहरी नीति और शासन को आकार देने में शहरीकरण की सामाजिक-आर्थिक गतिशीलता, विशेष रूप से अनौपचारिक श्रमिकों की भूमिका को समझना।</li>
+                <li class="hover-line"><strong>मानवाधिकार और शासन:</strong> मानवाधिकार, जातीय प्रोफाइलिंग, और हाशिए पर रहने वाले समुदायों को प्रभावित करने वाली सरकारी नीतियों के कार्यान्वयन से संबंधित मुद्दों की जांच करना।</li>
+                <li class="hover-line"><strong>पुलिसिंग और कानूनी प्रक्रियाएं:</strong> कानून प्रवर्तन रणनीतियों, उनके मानवीय प्रभाव और नागरिकों और गैर-नागरिकों दोनों की रक्षा के लिए आवश्यक कानूनी सुरक्षा उपायों का विश्लेषण करना।</li>
+            </ul>
+        </section>
+    </main>
+    
+    <a href="index.html" class="back-home-btn en-text">Back to Home</a>
+    <a href="index.html" class="back-home-btn hi-text" style="display: none;">होम पर वापस जाएं</a>
+</div>
+
+<a href="#" class="back-to-top" id="backToTopBtn">&#8679;</a>
+
+<script>
+    const langSwitch = document.querySelector('.lang-switch');
+    const enTexts = document.querySelectorAll('.en-text');
+    const hiTexts = document.querySelectorAll('.hi-text');
+    const lines = document.querySelectorAll('.hover-line, .hover-line-p, .hover-line-li');
+    
+    langSwitch.addEventListener('click', () => {
+        langSwitch.classList.toggle('hindi');
+        const isHindi = langSwitch.classList.contains('hindi');
+
+        enTexts.forEach(el => el.style.display = isHindi ? 'none' : 'block');
+        hiTexts.forEach(el => el.style.display = isHindi ? 'block' : 'none');
+        
+        // Re-apply display for list items
+        const enLists = document.querySelectorAll('ul.en-text');
+        const hiLists = document.querySelectorAll('ul.hi-text');
+        enLists.forEach(ul => ul.style.display = isHindi ? 'none' : 'block');
+        hiLists.forEach(ul => ul.style.display = isHindi ? 'block' : 'none');
+    });
+
+    // Back to Top Button
+    const backToTopBtn = document.getElementById('backToTopBtn');
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            backToTopBtn.classList.add('show');
+        } else {
+            backToTopBtn.classList.remove('show');
+        }
+    });
+
+    backToTopBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
+    // Calculate Read Time
+    function calculateReadTime() {
+        const articleText = Array.from(enTexts).map(el => el.textContent).join(' ');
+        const wordsPerMinute = 200;
+        const wordCount = articleText.split(/\s+/).length;
+        const readTime = Math.ceil(wordCount / wordsPerMinute);
+        document.querySelector('.read-time.en-text').textContent = `Read Time: ${readTime} min`;
+    }
+
+    document.addEventListener('DOMContentLoaded', calculateReadTime);
+</script>
+</body>
+</html>

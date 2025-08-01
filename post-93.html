@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>No Legal Category of “Suspicious Voters” – Clarification by Election Commission</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@400;600&display=swap');
+
+    :root {
+        --primary-color: #2c3e50; /* Darker blue-gray */
+        --secondary-color: #ecf0f1; /* Light gray */
+        --text-color: #2c3e50; /* Dark blue-gray */
+        --bg-color: #f4f7f9; /* Off-white */
+        --card-bg: #ffffff; /* White */
+        --border-color: #bdc3c7; /* Gray */
+        --hover-color: #e0e6e9; /* Lighter gray */
+        --accent-color: #3498db; /* Bright blue */
+    }
+
+    [data-theme='dark'] {
+        --primary-color: #95a5a6;
+        --secondary-color: #34495e;
+        --text-color: #ecf0f1;
+        --bg-color: #2c3e50;
+        --card-bg: #34495e;
+        --border-color: #7f8c8d;
+        --hover-color: #445a70;
+        --accent-color: #3498db;
+    }
+
+    body {
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: var(--primary-color);
+        padding: 1rem 5%;
+        color: white;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar .logo {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        font-size: 1.5rem;
+    }
+
+    .navbar a {
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+        margin: 0 1rem;
+        transition: color 0.3s;
+    }
+
+    .navbar a:hover {
+        color: var(--accent-color);
+    }
+
+    .lang-switch {
+        position: relative;
+        width: 60px;
+        height: 30px;
+    }
+
+    .lang-switch input {
+        display: none;
+    }
+
+    .lang-switch label {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: var(--card-bg);
+        border-radius: 15px;
+        cursor: pointer;
+        position: absolute;
+        transition: 0.3s;
+        box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .lang-switch label:after {
+        content: '';
+        width: 26px;
+        height: 26px;
+        background: var(--primary-color);
+        border-radius: 50%;
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        transition: 0.3s;
+    }
+
+    .lang-switch input:checked + label:after {
+        left: 32px;
+        transform: scale(1.1);
+    }
+
+    .lang-switch .lang-text {
+        position: absolute;
+        font-size: 12px;
+        font-weight: bold;
+        line-height: 30px;
+        color: var(--primary-color);
+        transition: 0.3s;
+        pointer-events: none;
+    }
+
+    .lang-switch .en {
+        left: 8px;
+    }
+
+    .lang-switch .hi {
+        right: 8px;
+    }
+
+    .lang-switch input:checked ~ .en {
+        color: white;
+    }
+
+    .lang-switch input:checked ~ .hi {
+        color: var(--primary-color);
+    }
+
+    .container {
+        max-width: 900px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+    }
+
+    .post-header {
+        text-align: center;
+        margin-bottom: 2rem;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 1rem;
+    }
+
+    .post-header h1 {
+        font-family: 'Poppins', sans-serif;
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        margin: 0 0 0.5rem;
+    }
+
+    .post-header p {
+        font-style: italic;
+        color: #666;
+        margin: 0;
+    }
+
+    .read-time {
+        font-size: 0.9rem;
+        color: #888;
+        margin-top: 0.5rem;
+    }
+
+    .content {
+        font-size: 1.1rem;
+        background-color: var(--card-bg);
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .content section {
+        margin-bottom: 2rem;
+    }
+
+    .content h2, .content h3, .content h4 {
+        color: var(--accent-color);
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 0.5rem;
+        margin-top: 2rem;
+    }
+
+    .content p, .content li, .content td, .content th {
+        margin: 0.5rem 0;
+    }
+
+    .content ul, .content ol {
+        padding-left: 1.5rem;
+    }
+
+    .content li {
+        list-style-type: disc;
+    }
+
+    .content li::marker {
+        color: var(--accent-color);
+    }
+
+    .content a {
+        color: var(--accent-color);
+        text-decoration: none;
+    }
+
+    .content a:hover {
+        text-decoration: underline;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1rem 0;
+        background-color: var(--secondary-color);
+    }
+
+    table, th, td {
+        border: 1px solid var(--border-color);
+    }
+
+    th, td {
+        padding: 12px 15px;
+        text-align: left;
+    }
+
+    th {
+        background-color: var(--accent-color);
+        color: white;
+        font-weight: bold;
+    }
+
+    tr:nth-child(even) {
+        background-color: var(--hover-color);
+    }
+    
+    .colored-hover-effect p:hover, 
+    .colored-hover-effect li:hover,
+    .colored-hover-effect tr:hover,
+    .colored-hover-effect h2:hover,
+    .colored-hover-effect h3:hover,
+    .colored-hover-effect th:hover,
+    .colored-hover-effect td:hover {
+        background-color: var(--hover-color);
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .colored-hover-effect h2:hover,
+    .colored-hover-effect h3:hover,
+    .colored-hover-effect th:hover {
+        background-color: transparent;
+    }
+
+    .footer {
+        text-align: center;
+        padding: 2rem 1rem;
+        border-top: 1px solid var(--border-color);
+        margin-top: 2rem;
+    }
+
+    .footer a {
+        display: inline-block;
+        background-color: var(--primary-color);
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+
+    .footer a:hover {
+        background-color: #34495e;
+    }
+
+    #scroll-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: var(--accent-color);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        display: none;
+        transition: background-color 0.3s;
+    }
+
+    #scroll-to-top:hover {
+        background-color: #2980b9;
+    }
+
+    @media (max-width: 768px) {
+        .navbar {
+            flex-direction: column;
+            text-align: center;
+        }
+        .navbar .logo {
+            margin-bottom: 1rem;
+        }
+        .navbar .nav-links {
+            margin-bottom: 1rem;
+        }
+        .navbar a {
+            margin: 0.5rem;
+        }
+        .post-header h1 {
+            font-size: 2rem;
+        }
+        .content {
+            font-size: 1rem;
+            padding: 1rem;
+        }
+    }
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">01 August 2025 - Current Affairs</div>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="donation.html">Donation</a>
+        <a href="contact.html">Contact</a>
+    </div>
+    <div class="lang-switch">
+        <input type="checkbox" id="lang-toggle">
+        <label for="lang-toggle">
+            <span class="lang-text en">EN</span>
+            <span class="lang-text hi">HI</span>
+        </label>
+    </div>
+</nav>
+
+<div class="container">
+    <header class="post-header">
+        <h1 id="post-title">No Legal Category of “Suspicious Voters” – Clarification by Election Commission</h1>
+        <p id="post-date">Published on August 1, 2025</p>
+        <p class="read-time" id="read-time"></p>
+    </header>
+
+    <main class="content colored-hover-effect">
+        <section id="context-section">
+            <h2 id="context-title">🔹 <strong>Context:</strong></h2>
+            <ul>
+                <li><span id="context-1">The <strong>Election Commission of India (ECI)</strong>, via the <strong>Law Ministry</strong>, informed the <strong>Rajya Sabha</strong> that there is <em>no legal category called “suspicious voters”</em> under the <strong>Representation of the People Act, 1951</strong>.</span></li>
+                <li><span id="context-2">This came amidst questions raised during the <strong>Special Intensive Revision of Electoral Rolls in Bihar</strong>, especially concerning the alleged inclusion of <strong>illegal foreign immigrants</strong>.</span></li>
+            </ul>
+        </section>
+
+        <section id="highlights-section">
+            <h2 id="highlights-title">🔹 <strong>Key Highlights:</strong></h2>
+            <h3>1. No ‘Suspicious Voter’ Category:</h3>
+            <ul>
+                <li><span id="highlight-1">Term not recognized under <strong>Representation of the People (RP) Act, 1951</strong>.</span></li>
+                <li><span id="highlight-2">Clarification made in response to a query by <strong>Samajwadi Party MP Ramji Lal Suman</strong>.</span></li>
+            </ul>
+            <h3>2. Special Intensive Revision in Bihar:</h3>
+            <ul>
+                <li><span id="highlight-3">Ongoing exercise by the ECI.</span></li>
+                <li><span id="highlight-4">Cited reason: alleged inclusion of <em>foreign illegal immigrants</em> over the years in electoral rolls.</span></li>
+            </ul>
+            <h3>3. Aadhaar-EPIC Linking:</h3>
+            <ul>
+                <li><span id="highlight-5">Aadhaar linkage with Voter ID (EPIC) <strong>has not started</strong> officially.</span></li>
+                <li><span id="highlight-6">Confirmed by Minister of State for Law and Justice <strong>Arjun Ram Meghwal</strong> in response to <strong>RJD MP Manoj Kumar Jha</strong>.</span></li>
+            </ul>
+            <h3>4. Legal Provisions for Aadhaar Linking:</h3>
+            <ul>
+                <li><span id="highlight-7">2021 amendment to <strong>RP Act, 1950</strong> introduced Sections <strong>23(4), 23(5), 23(6)</strong>.</span></li>
+                <li><span id="highlight-8">Aadhaar collection is <strong>voluntary</strong> and started on <strong>August 1, 2022</strong>.</span></li>
+                <li><span id="highlight-9">Purpose: improve <strong>purity of electoral rolls</strong> and reduce duplication.</span></li>
+            </ul>
+            <h3>5. Constitutional Safeguard:</h3>
+            <ul>
+                <li><span id="highlight-10"><strong>Article 326</strong>: Voting rights are for <strong>citizens only</strong>.</span></li>
+                <li><span id="highlight-11"><strong>Aadhaar is not proof of citizenship</strong> — it merely establishes identity.</span></li>
+                <li><span id="highlight-12">Supreme Court case: <strong>WP (Civil) No. 177/2023</strong>—referenced to uphold legal position.</span></li>
+            </ul>
+            <h3>6. Institutional Consultation:</h3>
+            <ul>
+                <li><span id="highlight-13">March 2025: EC met <strong>UIDAI</strong>, <strong>Union Home Secretary</strong>, and <strong>Legislative Secretary</strong>.</span></li>
+                <li><span id="highlight-14">Decision to proceed with technical integration only within legal framework and SC directions.</span></li>
+            </ul>
+        </section>
+
+        <section id="legal-provisions-section">
+            <h2 id="legal-provisions-title">🔹 <strong>Legal & Constitutional Provisions:</strong></h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th id="table-header-1">Provision</th>
+                        <th id="table-header-2">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td id="table-row-1-col-1"><strong>RP Act, 1950 – Sec 23(4-6)</strong></td>
+                        <td id="table-row-1-col-2">Empower ECI to collect Aadhaar for authentication of electoral rolls (voluntarily)</td>
+                    </tr>
+                    <tr>
+                        <td id="table-row-2-col-1"><strong>RP Act, 1951</strong></td>
+                        <td id="table-row-2-col-2">No mention of "suspicious voters"</td>
+                    </tr>
+                    <tr>
+                        <td id="table-row-3-col-1"><strong>Article 326</strong></td>
+                        <td id="table-row-3-col-2">Voting rights based solely on <strong>citizenship</strong>, not Aadhaar</td>
+                    </tr>
+                    <tr>
+                        <td id="table-row-4-col-1"><strong>SC Judgment (WP Civil No. 177/2023)</strong></td>
+                        <td id="table-row-4-col-2">Aadhaar cannot be made mandatory for voting or voter registration; identity ≠ citizenship</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="ethics-section">
+            <h2 id="ethics-title">🔹 <strong>Ethical/GS-IV Insights:</strong></h2>
+            <ul>
+                <li><span id="ethics-1"><strong>Transparency & Clarity</strong>: Clarifying misconceptions prevents misinformation in democratic processes.</span></li>
+                <li><span id="ethics-2"><strong>Right to Vote</strong>: Needs safeguarding from both disenfranchisement and fraudulent inclusion.</span></li>
+                <li><span id="ethics-3"><strong>Data Privacy Concerns</strong>: Voluntary Aadhaar linkage aligns with privacy jurisprudence.</span></li>
+            </ul>
+        </section>
+
+        <section id="mains-questions-section">
+            <h2 id="mains-questions-title">🔹 <strong>Probable Mains Questions:</strong></h2>
+            <ol>
+                <li><span id="mains-question-1"><em>"Discuss the challenges associated with linking Aadhaar with Voter ID in the context of Indian electoral laws and privacy concerns."</em></span></li>
+                <li><span id="mains-question-2"><em>"Do you think the categorisation of voters based on suspicion can be legally or ethically justified? Evaluate in light of constitutional provisions."</em></span></li>
+            </ol>
+        </section>
+
+        <section id="prelims-pointers-section">
+            <h2 id="prelims-pointers-title">🔹 <strong>Prelims Pointers:</strong></h2>
+            <ul>
+                <li><span id="prelims-pointer-1"><strong>Election Commission of India (ECI)</strong>: Constitutional body under Article 324.</span></li>
+                <li><span id="prelims-pointer-2"><strong>EPIC</strong>: Election Photo Identity Card.</span></li>
+                <li><span id="prelims-pointer-3"><strong>UIDAI</strong>: Statutory authority under Aadhaar Act, 2016.</span></li>
+                <li><span id="prelims-pointer-4"><strong>Article 326</strong>: Provides universal adult suffrage to Indian citizens.</span></li>
+                <li><span id="prelims-pointer-5"><strong>Representation of the People Act, 1950 & 1951</strong>: Deal with preparation of electoral rolls and conduct of elections respectively.</span></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <a href="index.html" id="back-to-home">Back to Home</a>
+    </footer>
+</div>
+
+<button id="scroll-to-top" title="Go to top">↑</button>
+
+<script>
+    const langToggle = document.getElementById('lang-toggle');
+    const elements = {
+        'post-title': { en: 'No Legal Category of “Suspicious Voters” – Clarification by Election Commission', hi: '“संदिग्ध मतदाता” की कोई कानूनी श्रेणी नहीं – चुनाव आयोग द्वारा स्पष्टीकरण' },
+        'post-date': { en: 'Published on August 1, 2025', hi: '1 अगस्त, 2025 को प्रकाशित' },
+        'context-title': { en: '🔹 <strong>Context:</strong>', hi: '🔹 <strong>संदर्भ:</strong>' },
+        'context-1': { en: 'The <strong>Election Commission of India (ECI)</strong>, via the <strong>Law Ministry</strong>, informed the <strong>Rajya Sabha</strong> that there is <em>no legal category called “suspicious voters”</em> under the <strong>Representation of the People Act, 1951</strong>.', hi: '<strong>चुनाव आयोग (ECI)</strong> ने <strong>कानून मंत्रालय</strong> के माध्यम से <strong>राज्यसभा</strong> को सूचित किया कि <strong>लोक प्रतिनिधित्व अधिनियम, 1951</strong> के तहत <em>“संदिग्ध मतदाता”</em> नामक कोई कानूनी श्रेणी नहीं है।' },
+        'context-2': { en: 'This came amidst questions raised during the <strong>Special Intensive Revision of Electoral Rolls in Bihar</strong>, especially concerning the alleged inclusion of <strong>illegal foreign immigrants</strong>.', hi: 'यह <strong>बिहार में मतदाता सूचियों के विशेष गहन संशोधन</strong> के दौरान उठाए गए सवालों के बीच आया, विशेष रूप से <strong>अवैध विदेशी अप्रवासियों</strong> के कथित समावेश के संबंध में।' },
+        'highlights-title': { en: '🔹 <strong>Key Highlights:</strong>', hi: '🔹 <strong>मुख्य बातें:</strong>' },
+        'highlight-1': { en: 'Term not recognized under <strong>Representation of the People (RP) Act, 1951</strong>.', hi: 'शब्द को <strong>लोक प्रतिनिधित्व (RP) अधिनियम, 1951</strong> के तहत मान्यता नहीं मिली है।' },
+        'highlight-2': { en: 'Clarification made in response to a query by <strong>Samajwadi Party MP Ramji Lal Suman</strong>.', hi: '<strong>समाजवादी पार्टी के सांसद रामजी लाल सुमन</strong> द्वारा एक प्रश्न के जवाब में स्पष्टीकरण दिया गया।' },
+        'highlight-3': { en: 'Ongoing exercise by the ECI.', hi: 'ईसीआई द्वारा चल रहा अभ्यास।' },
+        'highlight-4': { en: 'Cited reason: alleged inclusion of <em>foreign illegal immigrants</em> over the years in electoral rolls.', hi: 'बताया गया कारण: मतदाता सूचियों में वर्षों से <em>विदेशी अवैध अप्रवासियों</em> का कथित समावेश।' },
+        'highlight-5': { en: 'Aadhaar linkage with Voter ID (EPIC) <strong>has not started</strong> officially.', hi: 'वोटर आईडी (EPIC) के साथ आधार को आधिकारिक तौर पर <strong>लिंक करना शुरू नहीं हुआ है</strong>।' },
+        'highlight-6': { en: 'Confirmed by Minister of State for Law and Justice <strong>Arjun Ram Meghwal</strong> in response to <strong>RJD MP Manoj Kumar Jha</strong>.', hi: '<strong>कानून और न्याय राज्य मंत्री अर्जुन राम मेघवाल</strong> द्वारा <strong>राजद सांसद मनोज कुमार झा</strong> के जवाब में पुष्टि की गई।' },
+        'highlight-7': { en: '2021 amendment to <strong>RP Act, 1950</strong> introduced Sections <strong>23(4), 23(5), 23(6)</strong>.', hi: '<strong>RP अधिनियम, 1950</strong> में 2021 के संशोधन ने धारा <strong>23(4), 23(5), 23(6)</strong> को पेश किया।' },
+        'highlight-8': { en: 'Aadhaar collection is <strong>voluntary</strong> and started on <strong>August 1, 2022</strong>.', hi: 'आधार संग्रह <strong>स्वैच्छिक</strong> है और <strong>1 अगस्त, 2022</strong> को शुरू हुआ।' },
+        'highlight-9': { en: 'Purpose: improve <strong>purity of electoral rolls</strong> and reduce duplication.', hi: 'उद्देश्य: <strong>मतदाता सूचियों की शुद्धता</strong> में सुधार और डुप्लिकेट को कम करना।' },
+        'highlight-10': { en: '<strong>Article 326</strong>: Voting rights are for <strong>citizens only</strong>.', hi: '<strong>अनुच्छेद 326</strong>: मतदान का अधिकार <strong>केवल नागरिकों</strong> के लिए है।' },
+        'highlight-11': { en: '<strong>Aadhaar is not proof of citizenship</strong> — it merely establishes identity.', hi: '<strong>आधार नागरिकता का प्रमाण नहीं है</strong> — यह केवल पहचान स्थापित करता है।' },
+        'highlight-12': { en: 'Supreme Court case: <strong>WP (Civil) No. 177/2023</strong>—referenced to uphold legal position.', hi: 'सुप्रीम कोर्ट का मामला: <strong>WP (Civil) No. 177/2023</strong>—कानूनी स्थिति को बनाए रखने के लिए संदर्भित।' },
+        'highlight-13': { en: 'March 2025: EC met <strong>UIDAI</strong>, <strong>Union Home Secretary</strong>, and <strong>Legislative Secretary</strong>.', hi: 'मार्च 2025: ईसी ने <strong>यूआईडीएआई</strong>, <strong>केंद्रीय गृह सचिव</strong>, और <strong>विधायी सचिव</strong> से मुलाकात की।' },
+        'highlight-14': { en: 'Decision to proceed with technical integration only within legal framework and SC directions.', hi: 'केवल कानूनी ढांचे और एससी निर्देशों के भीतर तकनीकी एकीकरण के साथ आगे बढ़ने का निर्णय।' },
+        'legal-provisions-title': { en: '🔹 <strong>Legal & Constitutional Provisions:</strong>', hi: '🔹 <strong>कानूनी और संवैधानिक प्रावधान:</strong>' },
+        'table-header-1': { en: 'Provision', hi: 'प्रावधान' },
+        'table-header-2': { en: 'Description', hi: 'विवरण' },
+        'table-row-1-col-1': { en: '<strong>RP Act, 1950 – Sec 23(4-6)</strong>', hi: '<strong>RP अधिनियम, 1950 – धारा 23(4-6)</strong>' },
+        'table-row-1-col-2': { en: 'Empower ECI to collect Aadhaar for authentication of electoral rolls (voluntarily)', hi: 'ईसीआई को मतदाता सूचियों के प्रमाणीकरण के लिए आधार एकत्र करने का अधिकार (स्वैच्छिक रूप से)' },
+        'table-row-2-col-1': { en: '<strong>RP Act, 1951</strong>', hi: '<strong>RP अधिनियम, 1951</strong>' },
+        'table-row-2-col-2': { en: 'No mention of "suspicious voters"', hi: '"संदिग्ध मतदाताओं" का कोई उल्लेख नहीं' },
+        'table-row-3-col-1': { en: '<strong>Article 326</strong>', hi: '<strong>अनुच्छेद 326</strong>' },
+        'table-row-3-col-2': { en: 'Voting rights based solely on <strong>citizenship</strong>, not Aadhaar', hi: 'मतदान का अधिकार केवल <strong>नागरिकता</strong> पर आधारित है, आधार पर नहीं' },
+        'table-row-4-col-1': { en: '<strong>SC Judgment (WP Civil No. 177/2023)</strong>', hi: '<strong>एससी फैसला (WP सिविल नं. 177/2023)</strong>' },
+        'table-row-4-col-2': { en: 'Aadhaar cannot be made mandatory for voting or voter registration; identity ≠ citizenship', hi: 'मतदान या मतदाता पंजीकरण के लिए आधार को अनिवार्य नहीं बनाया जा सकता है; पहचान ≠ नागरिकता' },
+        'ethics-title': { en: '🔹 <strong>Ethical/GS-IV Insights:</strong>', hi: '🔹 <strong>नैतिक/जीएस-IV अंतर्दृष्टि:</strong>' },
+        'ethics-1': { en: '<strong>Transparency & Clarity</strong>: Clarifying misconceptions prevents misinformation in democratic processes.', hi: '<strong>पारदर्शिता और स्पष्टता</strong>: गलत धारणाओं को स्पष्ट करने से लोकतांत्रिक प्रक्रियाओं में गलत सूचना को रोका जा सकता है।' },
+        'ethics-2': { en: '<strong>Right to Vote</strong>: Needs safeguarding from both disenfranchisement and fraudulent inclusion.', hi: '<strong>मतदान का अधिकार</strong>: मताधिकार से वंचित होने और धोखाधड़ी से समावेश दोनों से सुरक्षा की आवश्यकता है।' },
+        'ethics-3': { en: '<strong>Data Privacy Concerns</strong>: Voluntary Aadhaar linkage aligns with privacy jurisprudence.', hi: '<strong>डेटा गोपनीयता चिंताएं</strong>: स्वैच्छिक आधार लिंकिंग गोपनीयता न्यायशास्त्र के अनुरूप है।' },
+        'mains-questions-title': { en: '🔹 <strong>Probable Mains Questions:</strong>', hi: '🔹 <strong>संभावित मुख्य परीक्षा के प्रश्न:</strong>' },
+        'mains-question-1': { en: '<em>"Discuss the challenges associated with linking Aadhaar with Voter ID in the context of Indian electoral laws and privacy concerns."</em>', hi: '<em>"भारतीय चुनावी कानूनों और गोपनीयता चिंताओं के संदर्भ में वोटर आईडी के साथ आधार को जोड़ने से जुड़ी चुनौतियों पर चर्चा करें।"</em>' },
+        'mains-question-2': { en: '<em>"Do you think the categorisation of voters based on suspicion can be legally or ethically justified? Evaluate in light of constitutional provisions."</em>', hi: '<em>"क्या आपको लगता है कि संदेह के आधार पर मतदाताओं का वर्गीकरण कानूनी या नैतिक रूप से उचित हो सकता है? संवैधानिक प्रावधानों के आलोक में मूल्यांकन करें।"</em>' },
+        'prelims-pointers-title': { en: '🔹 <strong>Prelims Pointers:</strong>', hi: '🔹 <strong>प्रारंभिक परीक्षा के लिए महत्वपूर्ण बिंदु:</strong>' },
+        'prelims-pointer-1': { en: '<strong>Election Commission of India (ECI)</strong>: Constitutional body under Article 324.</a>', hi: '<strong>भारतीय चुनाव आयोग (ECI)</strong>: अनुच्छेद 324 के तहत एक संवैधानिक निकाय।' },
+        'prelims-pointer-2': { en: '<strong>EPIC</strong>: Election Photo Identity Card.', hi: '<strong>EPIC</strong>: चुनाव फोटो पहचान पत्र।' },
+        'prelims-pointer-3': { en: '<strong>UIDAI</strong>: Statutory authority under Aadhaar Act, 2016.', hi: '<strong>UIDAI</strong>: आधार अधिनियम, 2016 के तहत एक वैधानिक प्राधिकरण।' },
+        'prelims-pointer-4': { en: '<strong>Article 326</strong>: Provides universal adult suffrage to Indian citizens.', hi: '<strong>अनुच्छेद 326</strong>: भारतीय नागरिकों को सार्वभौमिक वयस्क मताधिकार प्रदान करता है।' },
+        'prelims-pointer-5': { en: '<strong>Representation of the People Act, 1950 & 1951</strong>: Deal with preparation of electoral rolls and conduct of elections respectively.', hi: '<strong>लोक प्रतिनिधित्व अधिनियम, 1950 और 1951</strong>: क्रमशः मतदाता सूचियों की तैयारी और चुनाव के संचालन से संबंधित हैं।' },
+        'back-to-home': { en: 'Back to Home', hi: 'होम पर वापस जाएं' }
+    };
+
+    function switchLanguage() {
+        const isHindi = langToggle.checked;
+        for (const key in elements) {
+            const element = document.getElementById(key);
+            if (element) {
+                element.innerHTML = elements[key][isHindi ? 'hi' : 'en'];
+            }
+        }
+    }
+
+    langToggle.addEventListener('change', switchLanguage);
+    switchLanguage(); // Initial call
+
+    // Read Time Calculation
+    const postContent = document.querySelector('.content').innerText;
+    const wordCount = postContent.split(/\s+/).length;
+    const wordsPerMinute = 200; // Average reading speed
+    const readTime = Math.ceil(wordCount / wordsPerMinute);
+    document.getElementById('read-time').innerText = `Approx. ${readTime} min read`;
+
+    // Scroll to top button
+    const scrollTopBtn = document.getElementById('scroll-to-top');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            scrollTopBtn.style.display = 'block';
+        } else {
+            scrollTopBtn.style.display = 'none';
+        }
+    });
+
+    scrollTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+</body>
+</html>
