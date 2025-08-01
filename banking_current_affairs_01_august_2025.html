@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Banking Current Affairs</title>
+    <meta name="description" content="A clean, modern, multilingual, and responsive web page featuring daily current affairs for bank aspirants.">
+    <meta name="keywords" content="current affairs, bank aspirants, banking, finance, India, news, 2025, multilingual, responsive, accessibility, HTML, CSS, JavaScript, clean design">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Color Palette */
+            --color-primary: #007bff;
+            --color-secondary: #6c757d;
+            --color-dark: #343a40;
+            --color-text: #495057;
+            --color-light-gray: #f8f9fa;
+            --color-white: #ffffff;
+            --color-accent: #28a745;
+            --color-hover-bg: #e2f0ff;
+
+            /* Font & Typography */
+            --font-roboto: 'Roboto', sans-serif;
+            --font-size-base: 16px;
+
+            /* Spacing */
+            --spacing-xs: 5px;
+            --spacing-sm: 10px;
+            --spacing-md: 20px;
+            --spacing-lg: 40px;
+
+            /* Border Radius */
+            --border-radius-sm: 4px;
+            --border-radius-md: 8px;
+        }
+
+        /* General Body and Page Styles */
+        body {
+            font-family: var(--font-roboto);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: var(--color-text);
+            background: linear-gradient(135deg, #e0eafc, #cfdef3);
+            min-height: 100vh;
+        }
+
+        /* Utility classes for language toggling */
+        .lang-en { display: block; }
+        .lang-hi { display: none; }
+        body.hindi .lang-en { display: none; }
+        body.hindi .lang-hi { display: block; }
+
+        /* Header and Navigation Bar */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-sm) var(--spacing-lg);
+        }
+        
+        nav {
+            display: flex;
+            gap: var(--spacing-md);
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--color-dark);
+            text-decoration: none;
+            font-weight: 700;
+            padding: var(--spacing-sm) var(--spacing-sm);
+            transition: color 0.2s ease, background-color 0.2s ease;
+            border-radius: var(--border-radius-sm);
+        }
+
+        nav a:hover, nav a:focus {
+            color: var(--color-primary);
+            background-color: var(--color-light-gray);
+            outline: none;
+        }
+
+        .lang-switch {
+            cursor: pointer;
+            border: 1px solid var(--color-primary);
+            background-color: var(--color-white);
+            color: var(--color-primary);
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: var(--border-radius-md);
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .lang-switch:hover, .lang-switch:focus {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+            outline: none;
+        }
+
+        /* Main Content Section */
+        .content-wrapper {
+            background-color: var(--color-white);
+            margin: var(--spacing-lg) auto;
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-md);
+            max-width: 900px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .content-wrapper h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--color-dark);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .content-wrapper ol {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .content-wrapper li {
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+            background-color: var(--color-light-gray);
+            border-radius: var(--border-radius-md);
+            border: 1px solid #dee2e6;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .content-wrapper li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .content-wrapper h3 {
+            color: var(--color-primary);
+            font-size: 1.25rem;
+            margin-top: 0;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .content-wrapper p {
+            margin: 0;
+        }
+
+        .read-time {
+            text-align: center;
+            font-style: italic;
+            color: var(--color-secondary);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        /* Back to Top Button */
+        #backToTopBtn {
+            position: fixed;
+            bottom: var(--spacing-md);
+            right: var(--spacing-md);
+            z-index: 999;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            border: none;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+            font-size: 24px;
+            text-align: center;
+            line-height: 50px;
+        }
+
+        #backToTopBtn.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #backToTopBtn:hover, #backToTopBtn:focus {
+            background-color: #0056b3;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 123, 255, 0.4);
+            outline: none;
+        }
+
+        /* Footer and "Back to Home" Button */
+        footer {
+            text-align: center;
+            padding: var(--spacing-lg);
+        }
+
+        .back-to-home-btn {
+            background-color: var(--color-accent);
+            color: var(--color-white);
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: var(--border-radius-md);
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(40, 167, 69, 0.3);
+        }
+
+        .back-to-home-btn:hover, .back-to-home-btn:focus {
+            background-color: #218838;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(40, 167, 69, 0.4);
+            outline: none;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: var(--spacing-md);
+            }
+            nav {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+                margin-top: var(--spacing-sm);
+            }
+            .lang-switch {
+                margin-top: var(--spacing-sm);
+            }
+            .content-wrapper {
+                margin: var(--spacing-md);
+                padding: var(--spacing-md);
+            }
+            .content-wrapper h1 {
+                font-size: 2rem;
+            }
+            #backToTopBtn {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+                line-height: 40px;
+                bottom: var(--spacing-md);
+                right: var(--spacing-md);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header role="banner">
+        <nav role="navigation">
+            <a href="index.html" class="lang-en">Home</a>
+            <a href="index.html" class="lang-hi">होम</a>
+            <a href="donation.html" class="lang-en">Donation</a>
+            <a href="donation.html" class="lang-hi">दान</a>
+            <a href="contact.html" class="lang-en">Contact</a>
+            <a href="contact.html" class="lang-hi">संपर्क</a>
+        </nav>
+        <button class="lang-switch" id="langSwitchBtn" aria-live="polite">Switch to Hindi</button>
+    </header>
+
+    <main class="content-wrapper" role="main">
+        <h1 class="lang-en">Daily Current Affairs for Bank Aspirants: August 1, 2025</h1>
+        <h1 class="lang-hi">बैंक उम्मीदवारों के लिए दैनिक करेंट अफेयर्स: 1 अगस्त, 2025</h1>
+
+        <p class="read-time lang-en" aria-label="Estimated reading time">Reading time: <span id="read-time-value"></span></p>
+        <p class="read-time lang-hi" aria-label="अनुमानित पढ़ने का समय">पढ़ने का समय: <span id="read-time-value-hi"></span></p>
+        
+        <section class="lang-en" id="english-content" aria-labelledby="english-heading">
+            <h2 id="english-heading" class="visually-hidden">Current Affairs in English</h2>
+            <ol>
+                <li>
+                    <h3>Trump Imposes 25% Tariff on Indian Goods</h3>
+                    <p>In a significant development, US President Donald Trump has imposed a <strong>25% tariff on Indian exports</strong>, effective August 1, 2025. This move comes after the two countries failed to finalize a trade deal. The tariffs, which also include an additional penalty for India's ties with Russia, are expected to impact a wide range of Indian products, including steel, smartphones, and jewelry. Analysts believe this could strain the growing Indo-US strategic partnership.</p>
+                </li>
+                <li>
+                    <h3>New UPI Rules for Users from August 1</h3>
+                    <p>The National Payments Corporation of India (NPCI) has introduced new rules for Unified Payments Interface (UPI) transactions, effective August 1, 2025. The changes aim to improve the performance of the UPI ecosystem by regulating API usage. Key changes include a maximum of <strong>50 balance checks per day per app</strong>, a limit on transaction status checks, and the processing of autopay mandates only during non-peak hours.</p>
+                </li>
+                <li>
+                    <h3>RBI Extends Money Market Trading Hours</h3>
+                    <p>The Reserve Bank of India (RBI) has expanded trading hours in the money markets in a phased manner. Starting August 1, 2025, market repo and Tri-Party Repo (TREPs) trading hours have been extended from 9:00 am to <strong>4:00 pm</strong>, aiming to enhance market liquidity and efficiency.</p>
+                </li>
+                <li>
+                    <h3>Department of Posts Merges Registered Post with Speed Post</h3>
+                    <p>The Department of Posts has announced the <strong>merger of Registered Post with Speed Post services</strong> for domestic transmissions, effective September 1, 2025. The initiative seeks to streamline mail services, improve tracking, and enhance operational efficiency by consolidating similar services under a unified framework.</p>
+                </li>
+                <li>
+                    <h3>PNB Sets August 8 as KYC Update Deadline</h3>
+                    <p>Punjab National Bank (PNB) has mandated that customers with pending Know Your Customer (KYC) details as of June 30, 2025, must update them by <strong>August 8, 2025</strong>. This is in line with RBI guidelines to ensure the smooth operation of customer accounts.</p>
+                </li>
+                <li>
+                    <h3>Indian Railways Commissions 'Kavach 4.0' on Delhi-Mumbai Corridor</h3>
+                    <p>Indian Railways has commissioned the indigenously developed Automatic Train Protection (ATP) system, <strong>'Kavach 4.0,'</strong> on the Mathura–Kota section of the high-density Delhi–Mumbai corridor. The move is a part of a national plan to implement the system across the entire railway network within the next six years to enhance safety and operational efficiency.</p>
+                </li>
+                <li>
+                    <h3>SBI Discontinues Air Accident Insurance on Several Credit Cards</h3>
+                    <p>State Bank of India (SBI) has announced that it will discontinue the complimentary air accident insurance cover on several of its co-branded credit cards, including the ELITE and PRIME variants. The change, effective <strong>August 11, 2025</strong>, affects insurance covers worth up to ₹1 crore.</p>
+                </li>
+                <li>
+                    <h3>FASTag Annual Pass to be Launched on August 15</h3>
+                    <p>The Ministry of Road Transport & Highways will introduce an optional <strong>FASTag annual pass</strong> from August 15, 2025. Priced at ₹3,000, the pass will allow for up to 200 toll transactions or be valid for one year, whichever comes earlier.</p>
+                </li>
+                <li>
+                    <h3>India and UAE Sign Defence Cooperation Agreement</h3>
+                    <p>India and the United Arab Emirates (UAE) have signed a bilateral defence agreement to strengthen cooperation. The agreement, signed during the 13th Joint Defence Cooperation Committee (JDCC) meeting, covers joint military exercises, maritime security, and technological development. The Indian Coast Guard and the UAE National Guard also signed a separate MoU for maritime security operations.</p>
+                </li>
+                <li>
+                    <h3>Government to Release 20th Installment of PM-Kisan</h3>
+                    <p>The 20th installment of the Pradhan Mantri Kisan Samman Nidhi (PM-Kisan) scheme is scheduled to be released on <strong>August 2, 2025</strong>. The announcement was made after a high-level meeting chaired by the Union Minister of Agriculture and Farmers' Welfare.</p>
+                </li>
+                <li>
+                    <h3>Q1 Results of Several Companies to be Announced</h3>
+                    <p>Several major Indian companies, including ITC, Adani Power, and Godrej Properties, are set to announce their first-quarter results on <strong>August 1, 2025</strong>. The performance of these companies will be a key indicator for the market, particularly in light of global economic uncertainties.</p>
+                </li>
+                <li>
+                    <h3>Google to Build Data Centre in Visakhapatnam</h3>
+                    <p>Google has announced its plan to build its first data center in India, located in <strong>Visakhapatnam, Andhra Pradesh</strong>. The company is set to invest USD 6 billion in the project, which will have a capacity of 1 Gigawatt.</p>
+                </li>
+            </ol>
+        </section>
+
+        <section class="lang-hi" id="hindi-content" aria-labelledby="hindi-heading">
+            <h2 id="hindi-heading" class="visually-hidden">हिंदी में करेंट अफेयर्स</h2>
+            <ol>
+                <li>
+                    <h3>ट्रंप ने भारतीय सामानों पर 25% टैरिफ लगाया</h3>
+                    <p>एक महत्वपूर्ण घटनाक्रम में, अमेरिकी राष्ट्रपति डोनाल्ड ट्रंप ने 1 अगस्त, 2025 से प्रभावी भारतीय निर्यात पर <strong>25% टैरिफ</strong> लगाया है। यह कदम दोनों देशों के व्यापार समझौते को अंतिम रूप देने में विफल रहने के बाद आया है। टैरिफ, जिसमें रूस के साथ भारत के संबंधों के लिए एक अतिरिक्त जुर्माना भी शामिल है, से स्टील, स्मार्टफोन और गहनों सहित भारतीय उत्पादों की एक विस्तृत श्रृंखला पर प्रभाव पड़ने की उम्मीद है। विश्लेषकों का मानना ​​है कि इससे बढ़ते भारत-अमेरिका रणनीतिक साझेदारी पर दबाव पड़ सकता है।</p>
+                </li>
+                <li>
+                    <h3>1 अगस्त से यूजर्स के लिए UPI के नियम बदले</h3>
+                    <p>नेशनल पेमेंट्स कॉर्पोरेशन ऑफ इंडिया (NPCI) ने 1 अगस्त, 2025 से प्रभावी, यूनिफाइड पेमेंट्स इंटरफेस (UPI) लेनदेन के लिए नए नियम पेश किए हैं। इन बदलावों का उद्देश्य API उपयोग को विनियमित करके UPI पारिस्थितिकी तंत्र के प्रदर्शन में सुधार करना है। प्रमुख बदलावों में प्रति ऐप प्रति दिन अधिकतम <strong>50 बैलेंस चेक</strong>, लेनदेन की स्थिति जांच पर एक सीमा, और केवल गैर-पीक घंटों के दौरान ऑटोपे जनादेश का प्रसंस्करण शामिल है।</p>
+                </li>
+                <li>
+                    <h3>RBI ने मनी मार्केट ट्रेडिंग के घंटे बढ़ाए</h3>
+                    <p>भारतीय रिजर्व बैंक (RBI) ने चरणबद्ध तरीके से मनी मार्केट में ट्रेडिंग के घंटों का विस्तार किया है। 1 अगस्त, 2025 से शुरू होकर, बाजार रेपो और त्रि-पार्टी रेपो (TREPs) ट्रेडिंग के घंटे सुबह 9:00 बजे से शाम <strong>4:00 बजे</strong> तक बढ़ा दिए गए हैं, जिसका उद्देश्य बाजार की तरलता और दक्षता को बढ़ाना है।</p>
+                </li>
+                <li>
+                    <h3>डाक विभाग ने रजिस्टर्ड पोस्ट को स्पीड पोस्ट में मिलाया</h3>
+                    <p>डाक विभाग ने 1 सितंबर, 2025 से प्रभावी, घरेलू प्रसारणों के लिए <strong>रजिस्टर्ड पोस्ट को स्पीड पोस्ट सेवाओं के साथ विलय</strong> करने की घोषणा की है। इस पहल का उद्देश्य मेल सेवाओं को सुव्यवस्थित करना, ट्रैकिंग में सुधार करना और एक एकीकृत ढांचे के तहत समान सेवाओं को समेकित करके परिचालन दक्षता को बढ़ाना है।</p>
+                </li>
+                <li>
+                    <h3>PNB ने 8 अगस्त को KYC अपडेट की समय सीमा तय की</h3>
+                    <p>पंजाब नेशनल बैंक (PNB) ने आदेश दिया है कि 30 जून, 2025 तक लंबित नो योर कस्टमर (KYC) विवरण वाले ग्राहकों को <strong>8 अगस्त, 2025</strong> तक उन्हें अपडेट करना होगा। यह ग्राहकों के खातों के सुचारू संचालन को सुनिश्चित करने के लिए RBI के दिशानिर्देशों के अनुरूप है।</p>
+                </li>
+                <li>
+                    <h3>भारतीय रेलवे ने दिल्ली-मुंबई कॉरिडोर पर 'कवच 4.0' शुरू किया</h3>
+                    <p>भारतीय रेलवे ने उच्च-घनत्व वाले दिल्ली-मुंबई कॉरिडोर के मथुरा-कोटा खंड पर स्वदेशी रूप से विकसित स्वचालित ट्रेन सुरक्षा (ATP) प्रणाली, <strong>'कवच 4.0'</strong> को चालू किया है। यह कदम सुरक्षा और परिचालन दक्षता को बढ़ाने के लिए अगले छह वर्षों के भीतर पूरे रेलवे नेटवर्क में इस प्रणाली को लागू करने की एक राष्ट्रीय योजना का हिस्सा है।</p>
+                </li>
+                <li>
+                    <h3>SBI ने कई क्रेडिट कार्डों पर एयर एक्सीडेंट इंश्योरेंस बंद किया</h3>
+                    <p>भारतीय स्टेट बैंक (SBI) ने घोषणा की है कि वह ELITE और PRIME वेरिएंट सहित अपने कई सह-ब्रांडेड क्रेडिट कार्डों पर मानार्थ एयर एक्सीडेंट इंश्योरेंस कवर को बंद कर देगा। 11 अगस्त, 2025 से प्रभावी, यह बदलाव ₹1 करोड़ तक के बीमा कवर को प्रभावित करता है।</p>
+                </li>
+                <li>
+                    <h3>15 अगस्त को लॉन्च होगा FASTag वार्षिक पास</h3>
+                    <p>सड़क परिवहन और राजमार्ग मंत्रालय <strong>15 अगस्त, 2025</strong> से एक वैकल्पिक FASTag वार्षिक पास पेश करेगा। ₹3,000 की कीमत वाले इस पास से 200 टोल लेनदेन की अनुमति होगी या यह एक वर्ष के लिए वैध होगा, जो भी पहले हो।</p>
+                </li>
+                <li>
+                    <h3>भारत और UAE ने रक्षा सहयोग समझौते पर हस्ताक्षर किए</h3>
+                    <p>भारत और संयुक्त अरब अमीरात (UAE) ने सहयोग को मजबूत करने के लिए एक द्विपक्षीय रक्षा समझौते पर हस्ताक्षर किए हैं। 13वें संयुक्त रक्षा सहयोग समिति (JDCC) की बैठक के दौरान हस्ताक्षरित यह समझौता, संयुक्त सैन्य अभ्यास, समुद्री सुरक्षा और तकनीकी विकास को कवर करता है। भारतीय तटरक्षक और UAE राष्ट्रीय गार्ड ने भी समुद्री सुरक्षा अभियानों के लिए एक अलग MoU पर हस्ताक्षर किए।</p>
+                </li>
+                <li>
+                    <h3>सरकार PM-किसान की 20वीं किस्त जारी करेगी</h3>
+                    <p>प्रधान मंत्री किसान सम्मान निधि (PM-किसान) योजना की 20वीं किस्त <strong>2 अगस्त, 2025</strong> को जारी होने वाली है। यह घोषणा केंद्रीय कृषि और किसान कल्याण मंत्री की अध्यक्षता में हुई एक उच्च-स्तरीय बैठक के बाद की गई।</p>
+                </li>
+                <li>
+                    <h3>कई कंपनियों के Q1 परिणाम घोषित किए जाएंगे</h3>
+                    <p>ITC, अदानी पावर और गोदरेज प्रॉपर्टीज सहित कई प्रमुख भारतीय कंपनियों के <strong>1 अगस्त, 2025</strong> को अपनी पहली तिमाही के परिणाम घोषित करने की उम्मीद है। वैश्विक आर्थिक अनिश्चितताओं के मद्देनजर इन कंपनियों का प्रदर्शन बाजार के लिए एक प्रमुख संकेतक होगा।</p>
+                </li>
+                <li>
+                    <h3>गूगल विशाखापत्तनम में डेटा सेंटर बनाएगा</h3>
+                    <p>गूगल ने भारत में अपना पहला डेटा सेंटर <strong>विशाखापत्तनम, आंध्र प्रदेश</strong> में बनाने की योजना की घोषणा की है। कंपनी इस परियोजना में USD 6 बिलियन का निवेश करने के लिए तैयार है, जिसकी क्षमता 1 गीगावाट होगी।</p>
+                </li>
+            </ol>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <a href="index.html" class="back-to-home-btn lang-en">Back to Home</a>
+        <a href="index.html" class="back-to-home-btn lang-hi">वापस होम पर जाएं</a>
+    </footer>
+
+    <button id="backToTopBtn" title="Go to top" aria-label="Scroll to top of page" aria-hidden="true" tabindex="-1">↑</button>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const langSwitchBtn = document.getElementById('langSwitchBtn');
+            const body = document.body;
+            const backToTopBtn = document.getElementById('backToTopBtn');
+            const englishContent = document.getElementById('english-content');
+            const hindiContent = document.getElementById('hindi-content');
+            const readTimeValue = document.getElementById('read-time-value');
+            const readTimeValueHi = document.getElementById('read-time-value-hi');
+
+            // 1. Language Switch Logic
+            langSwitchBtn.addEventListener('click', () => {
+                if (body.classList.contains('hindi')) {
+                    body.classList.remove('hindi');
+                    langSwitchBtn.textContent = 'Switch to Hindi';
+                    langSwitchBtn.setAttribute('aria-label', 'Switch to Hindi');
+                } else {
+                    body.classList.add('hindi');
+                    langSwitchBtn.textContent = 'अंग्रेजी पर स्विच करें';
+                    langSwitchBtn.setAttribute('aria-label', 'अंग्रेजी पर स्विच करें');
+                }
+            });
+
+            // 2. Back to Top Button Logic
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.add('show');
+                    backToTopBtn.setAttribute('aria-hidden', 'false');
+                    backToTopBtn.setAttribute('tabindex', '0');
+                } else {
+                    backToTopBtn.classList.remove('show');
+                    backToTopBtn.setAttribute('aria-hidden', 'true');
+                    backToTopBtn.setAttribute('tabindex', '-1');
+                }
+            });
+
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // 3. Read Time Calculation
+            function calculateReadTime(contentElement, outputElement) {
+                const wordsPerMinute = 200;
+                const totalWords = contentElement.textContent.split(/\s+/).length;
+                const minutes = Math.ceil(totalWords / wordsPerMinute);
+                outputElement.textContent = `${minutes} min read`;
+            }
+
+            function calculateReadTimeHi(contentElement, outputElement) {
+                const wordsPerMinute = 200; // Assuming same reading speed
+                const totalWords = contentElement.textContent.split(/\s+/).length;
+                const minutes = Math.ceil(totalWords / wordsPerMinute);
+                outputElement.textContent = `${minutes} मिनट का समय`;
+            }
+
+            calculateReadTime(englishContent, readTimeValue);
+            calculateReadTimeHi(hindiContent, readTimeValueHi);
+        });
+    </script>
+</body>
+</html>
