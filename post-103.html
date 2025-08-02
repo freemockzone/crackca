@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SC on Environmental Degradation in Himachal Pradesh</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&family=Poppins:wght@400;600&display=swap');
+
+    :root {
+        --primary-color: #007bff;
+        --secondary-color: #6c757d;
+        --bg-color: #f8f9fa;
+        --text-color: #343a40;
+        --heading-color: #212529;
+        --accent-color: #ffc107;
+        --card-bg: #fff;
+        --shadow: rgba(0, 0, 0, 0.05);
+        --border-radius: 8px;
+        --transition: all 0.3s ease-in-out;
+    }
+
+    body {
+        font-family: 'Nunito Sans', sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        line-height: 1.7;
+        margin: 0;
+        padding: 0;
+        transition: var(--transition);
+    }
+
+    body.dark-mode {
+        --bg-color: #222;
+        --text-color: #eee;
+        --heading-color: #fff;
+        --card-bg: #333;
+        --shadow: rgba(255, 255, 255, 0.05);
+    }
+
+    .container {
+        max-width: 1000px;
+        margin: 2rem auto;
+        padding: 0 1.5rem;
+    }
+
+    /* Navbar */
+    .navbar {
+        background-color: var(--card-bg);
+        box-shadow: 0 2px 4px var(--shadow);
+        padding: 1rem 1.5rem;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        transition: var(--transition);
+    }
+
+    .navbar .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0;
+    }
+
+    .navbar-brand {
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--heading-color);
+        text-decoration: none;
+    }
+
+    .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 1.5rem;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-links a {
+        color: var(--text-color);
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+        color: var(--primary-color);
+    }
+
+    .language-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--text-color);
+    }
+
+    .toggle-switch {
+        width: 50px;
+        height: 24px;
+        position: relative;
+        display: inline-block;
+    }
+
+    .toggle-switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: .4s;
+        border-radius: 24px;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 16px;
+        width: 16px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: .4s;
+        border-radius: 50%;
+    }
+
+    input:checked + .slider {
+        background-color: var(--primary-color);
+    }
+
+    input:checked + .slider:before {
+        transform: translateX(26px);
+    }
+
+    /* Header */
+    .post-header {
+        padding: 2rem 0;
+        text-align: center;
+    }
+
+    .post-header h1 {
+        font-family: 'Poppins', sans-serif;
+        font-size: 2.5rem;
+        color: var(--heading-color);
+        margin-bottom: 0.5rem;
+    }
+
+    .post-meta {
+        color: var(--secondary-color);
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+
+    .post-content {
+        background-color: var(--card-bg);
+        padding: 2rem;
+        border-radius: var(--border-radius);
+        box-shadow: 0 2px 8px var(--shadow);
+        margin-bottom: 2rem;
+        transition: var(--transition);
+    }
+
+    .post-content h3 {
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.8rem;
+        color: var(--primary-color);
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+        border-bottom: 2px solid #eee;
+        padding-bottom: 0.5rem;
+    }
+
+    body.dark-mode .post-content h3 {
+        border-bottom-color: #555;
+    }
+
+    .post-content h4 {
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.2rem;
+        color: var(--heading-color);
+        margin-top: 1rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .post-content p, .post-content ul, .post-content ol {
+        line-height: 1.8;
+        margin-bottom: 1rem;
+    }
+
+    .post-content ul {
+        list-style: disc;
+        padding-left: 20px;
+    }
+
+    .post-content ol {
+        list-style: decimal;
+        padding-left: 20px;
+    }
+
+    /* Colored Hover Effect */
+    .post-content p,
+    .post-content ul li,
+    .post-content ol li,
+    .post-content .mcq-option {
+        padding: 0.5rem;
+        margin: 0.2rem 0;
+        border-radius: 4px;
+        transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    }
+
+    .post-content p:hover,
+    .post-content ul li:hover,
+    .post-content ol li:hover,
+    .post-content .mcq-option:hover {
+        background-color: rgba(0, 123, 255, 0.1);
+        color: var(--primary-color);
+    }
+
+    body.dark-mode .post-content p:hover,
+    body.dark-mode .post-content ul li:hover,
+    body.dark-mode .post-content ol li:hover,
+    body.dark-mode .post-content .mcq-option:hover {
+        background-color: rgba(0, 123, 255, 0.2);
+        color: var(--accent-color);
+    }
+
+    .question-box {
+        background-color: var(--bg-color);
+        border: 1px solid #ddd;
+        border-radius: var(--border-radius);
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    body.dark-mode .question-box {
+        background-color: #333;
+        border-color: #555;
+    }
+
+    .question-box h4 {
+        font-family: 'Poppins', sans-serif;
+        color: var(--heading-color);
+        margin-bottom: 1rem;
+    }
+
+    .mcq-option {
+        cursor: pointer;
+        padding: 0.75rem 1rem;
+        margin-bottom: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        transition: var(--transition);
+    }
+
+    .mcq-option.correct {
+        background-color: #d1e7dd;
+        color: #0f5132;
+        border-color: #badbcc;
+    }
+
+    body.dark-mode .mcq-option.correct {
+        background-color: #244936;
+        color: #d1e7dd;
+        border-color: #2a5340;
+    }
+
+    .explanation {
+        margin-top: 1.5rem;
+        padding-top: 1rem;
+        border-top: 1px dashed #ccc;
+    }
+
+    body.dark-mode .explanation {
+        border-top-color: #777;
+    }
+
+    .back-home-button {
+        display: inline-block;
+        background-color: var(--primary-color);
+        color: white;
+        padding: 0.8rem 1.5rem;
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: 600;
+        transition: var(--transition);
+    }
+
+    .back-home-button:hover {
+        background-color: #0056b3;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .float-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition);
+    }
+
+    .float-button:hover {
+        background-color: #0056b3;
+        transform: translateY(-2px);
+    }
+
+    .lang-en .english-content { display: block; }
+    .lang-en .hindi-content { display: none; }
+    .lang-hi .english-content { display: none; }
+    .lang-hi .hindi-content { display: block; }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .navbar .container {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+        .nav-links {
+            margin-top: 0.5rem;
+            gap: 1rem;
+        }
+        .post-header h1 {
+            font-size: 2rem;
+        }
+        .post-content {
+            padding: 1.5rem;
+        }
+    }
+</style>
+</head>
+<body class="lang-en">
+<nav class="navbar">
+<div class="container">
+<a href="index.html" class="navbar-brand">02 August 2025</a>
+<ul class="nav-links">
+<li><a href="index.html">Home</a></li>
+<li><a href="donation.html">Donation</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+<div class="language-container">
+<span>EN</span>
+<label class="toggle-switch">
+<input type="checkbox" id="language-toggle">
+<span class="slider"></span>
+</label>
+<span>HI</span>
+</div>
+</div>
+</nav>
+
+<div class="container">
+    <header class="post-header">
+        <div class="english-content">
+            <h1>SC on Environmental Degradation in Himachal Pradesh</h1>
+            <div class="post-meta">
+                <span>Published: August 2, 2025</span>
+                <span>Read Time: 5 mins</span>
+                <span>Source: The Hindu</span>
+            </div>
+        </div>
+        <div class="hindi-content">
+            <h1>हिमाचल प्रदेश में पर्यावरण क्षरण पर सुप्रीम कोर्ट</h1>
+            <div class="post-meta">
+                <span>प्रकाशित: 2 अगस्त, 2025</span>
+                <span>पढ़ने का समय: 5 मिनट</span>
+                <span>स्रोत: द हिंदू</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="post-content">
+            <div class="english-content">
+                <h3>📍 Context</h3>
+                <p>The <b>Supreme Court of India</b> has expressed grave concern over the <b>worsening ecological crisis</b> in <b>Himachal Pradesh</b>, warning that continued neglect and unplanned development could lead to the state’s virtual disappearance.</p>
+
+                <h3>⚖️ Key Observations by the Supreme Court</h3>
+                <ul>
+                    <li>Bench: <b>Justices J B Pardiwala and R Mahadevan</b></li>
+                    <li>Case: Challenge to HP High Court’s order restricting construction in <b>green zones</b>.</li>
+                    <li>Refused to interfere with HC ruling; used the occasion to issue <b>strong environmental warnings</b>.</li>
+                </ul>
+
+                <h3>🔺 Major Issues Highlighted</h3>
+                <ol>
+                    <li><b>Ecological Imbalance & Climate Change</b>
+                        <ul>
+                            <li>Frequent <b>landslides, floods</b>, and <b>rain-related fatalities</b>.</li>
+                            <li>94 deaths, 36 missing, and ₹1,539 crore losses since monsoon onset (as per HP Emergency Operation Centre).</li>
+                        </ul>
+                    </li>
+                    <li><b>Deforestation & Hydropower Projects</b>
+                        <ul>
+                            <li>Resulting in <b>water shortages, landslides</b>, and <b>structural damage</b> in nearby homes.</li>
+                            <li>Contractually mandated <b>minimum water flows</b> not being maintained.</li>
+                            <li><b>Sutlej River</b> reduced to a <b>rivulet</b>, aquatic life threatened.</li>
+                        </ul>
+                    </li>
+                    <li><b>Unchecked Tourism</b>
+                        <ul>
+                            <li>Over-tourism causes:
+                                <ul>
+                                    <li><b>Traffic congestion</b></li>
+                                    <li><b>Waste generation</b></li>
+                                    <li><b>Overuse of water</b></li>
+                                    <li><b>Encroachment into eco-sensitive zones</b></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><b>Unregulated Construction</b>
+                        <ul>
+                            <li><b>Four-lane roads, tunnels, multi-storey buildings</b> harming fragile ecosystems.</li>
+                        </ul>
+                    </li>
+                    <li><b>Waste & Water Management Issues</b>
+                        <ul>
+                            <li>Hill towns <b>struggle to manage solid waste</b> during tourist season.</li>
+                            <li>Severe <b>water shortages</b> during peak months.</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h3>🧭 Court’s Directions & Suggestions</h3>
+                <ul>
+                    <li>Urged the <b>State Government and the Union of India</b> to:
+                        <ul>
+                            <li>Prioritize <b>ecological preservation</b> over revenue generation.</li>
+                            <li>Implement <b>sustainable planning and conservation</b>.</li>
+                        </ul>
+                    </li>
+                    <li>Called for <b>inter-Himalayan state coordination</b> to deal with climate and environmental issues collectively.</li>
+                    <li>Directed <b>registration of a public interest case</b> and sought the <b>state’s reply in 4 weeks</b>.</li>
+                </ul>
+
+                <h3>🏛️ Relevance for UPSC</h3>
+                <h4>📌 <i>Prelims Focus:</i></h4>
+                <ul>
+                    <li>Indian judiciary’s role in <b>environmental protection</b></li>
+                    <li>Geography: <b>Himalayan ecology</b>, <b>river systems</b> (e.g., Sutlej)</li>
+                    <li>Climate Change impacts in <b>mountain ecosystems</b></li>
+                </ul>
+                <h4>📌 <i>Mains Focus:</i></h4>
+                <p><b>GS III – Environment</b></p>
+                <ul>
+                    <li>Discuss the ecological challenges faced by Himalayan states due to unregulated development.</li>
+                    <li>Examine the role of judicial activism in pushing environmental accountability.</li>
+                    <li>Suggest policy measures for <b>sustainable mountain development</b>.</li>
+                </ul>
+            </div>
+            <div class="hindi-content">
+                <h3>📍 संदर्भ</h3>
+                <p><b>भारत के सर्वोच्च न्यायालय</b> ने <b>हिमाचल प्रदेश</b> में <b>बढ़ते पारिस्थितिक संकट</b> पर गहरी चिंता व्यक्त की है, चेतावनी दी है कि निरंतर उपेक्षा और अनियोजित विकास से राज्य का वस्तुतः अस्तित्व समाप्त हो सकता है।</p>
+
+                <h3>⚖️ सुप्रीम कोर्ट द्वारा की गई मुख्य टिप्पणियाँ</h3>
+                <ul>
+                    <li>पीठ: <b>न्यायमूर्ति जे.बी. पारदीवाला और आर. महादेवन</b></li>
+                    <li>मामला: <b>ग्रीन ज़ोन</b> में निर्माण को प्रतिबंधित करने वाले एचपी उच्च न्यायालय के आदेश को चुनौती।</li>
+                    <li>उच्च न्यायालय के फैसले में हस्तक्षेप करने से इनकार कर दिया; इस अवसर का उपयोग <b>कड़ी पर्यावरणीय चेतावनी</b> जारी करने के लिए किया।</li>
+                </ul>
+
+                <h3>🔺 उजागर किए गए प्रमुख मुद्दे</h3>
+                <ol>
+                    <li><b>पारिस्थितिक असंतुलन और जलवायु परिवर्तन</b>
+                        <ul>
+                            <li>बार-बार <b>भूस्खलन, बाढ़</b> और <b>बारिश से संबंधित मौतें</b>।</li>
+                            <li>मानसून की शुरुआत से 94 मौतें, 36 लापता और ₹1,539 करोड़ का नुकसान (एचपी इमरजेंसी ऑपरेशन सेंटर के अनुसार)।</li>
+                        </ul>
+                    </li>
+                    <li><b>वनों की कटाई और जलविद्युत परियोजनाएँ</b>
+                        <ul>
+                            <li>जिसके परिणामस्वरूप <b>पानी की कमी, भूस्खलन</b> और आस-पास के घरों में <b>संरचनात्मक क्षति</b> हुई।</li>
+                            <li>अनुबंध के अनुसार <b>न्यूनतम जल प्रवाह</b> बनाए नहीं रखा जा रहा है।</li>
+                            <li><b>सतलुज नदी</b> एक <b>छोटी नदी</b> में बदल गई है, जलीय जीवन खतरे में है।</li>
+                        </ul>
+                    </li>
+                    <li><b>अनियंत्रित पर्यटन</b>
+                        <ul>
+                            <li>अति-पर्यटन के कारण:
+                                <ul>
+                                    <li><b>यातायात जाम</b></li>
+                                    <li><b>कचरा उत्पादन</b></li>
+                                    <li><b>पानी का अत्यधिक उपयोग</b></li>
+                                    <li><b>पारिस्थितिक-संवेदनशील क्षेत्रों पर अतिक्रमण</b></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><b>अनियमित निर्माण</b>
+                        <ul>
+                            <li><b>चार-लेन की सड़कें, सुरंगें, बहुमंजिला इमारतें</b> नाजुक पारिस्थितिकी तंत्र को नुकसान पहुँचा रही हैं।</li>
+                        </ul>
+                    </li>
+                    <li><b>कचरा और जल प्रबंधन के मुद्दे</b>
+                        <ul>
+                            <li>पहाड़ी कस्बों को पर्यटन के मौसम में <b>ठोस कचरे का प्रबंधन</b> करने में कठिनाई होती है।</li>
+                            <li>पीक महीनों के दौरान <b>पानी की गंभीर कमी</b>।</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h3>🧭 न्यायालय के निर्देश और सुझाव</h3>
+                <ul>
+                    <li><b>राज्य सरकार और भारत संघ</b> से आग्रह किया कि:
+                        <ul>
+                            <li>राजस्व सृजन के बजाय <b>पारिस्थितिक संरक्षण</b> को प्राथमिकता दें।</li>
+                            <li><b>सतत योजना और संरक्षण</b> को लागू करें।</li>
+                        </ul>
+                    </li>
+                    <li>जलवायु और पर्यावरणीय मुद्दों से सामूहिक रूप से निपटने के लिए <b>अंतर-हिमालयी राज्य समन्वय</b> का आह्वान किया।</li>
+                    <li><b>एक जनहित याचिका दर्ज करने</b> और <b>4 सप्ताह में राज्य से जवाब</b> माँगा।</li>
+                </ul>
+
+                <h3>🏛️ यूपीएससी के लिए प्रासंगिकता</h3>
+                <h4>📌 <i>प्रारंभिक परीक्षा पर ध्यान:</i></h4>
+                <ul>
+                    <li><b>पर्यावरण संरक्षण</b> में भारतीय न्यायपालिका की भूमिका</li>
+                    <li>भूगोल: <b>हिमालयी पारिस्थितिकी</b>, <b>नदी प्रणालियाँ</b> (जैसे सतलुज)</li>
+                    <li><b>पहाड़ी पारिस्थितिकी तंत्र</b> पर जलवायु परिवर्तन के प्रभाव</li>
+                </ul>
+                <h4>📌 <i>मुख्य परीक्षा पर ध्यान:</i></h4>
+                <p><b>जीएस III – पर्यावरण</b></p>
+                <ul>
+                    <li>अनियमित विकास के कारण हिमालयी राज्यों द्वारा सामना की जाने वाली पारिस्थितिक चुनौतियों पर चर्चा करें।</li>
+                    <li>पर्यावरण जवाबदेही को बढ़ावा देने में न्यायिक सक्रियता की भूमिका की जाँच करें।</li>
+                    <li><b>सतत पर्वतीय विकास</b> के लिए नीतिगत उपायों का सुझाव दें।</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="question-box">
+            <div class="english-content">
+                <h4>✅ MCQ (Prelims Practice Question)</h4>
+                <p><b>Q.</b> With reference to the recent Supreme Court observations on Himachal Pradesh’s environmental crisis, consider the following statements:</p>
+                <ol>
+                    <li class="mcq-option">1. The Court acknowledged that hydropower projects have been contributing to water scarcity and landslides in the region.</li>
+                    <li class="mcq-option">2. The Supreme Court directed the dismantling of all existing hydroelectric projects in Himachal Pradesh.</li>
+                    <li class="mcq-option">3. The Sutlej River was mentioned as having been significantly depleted due to environmental mismanagement.</li>
+                    <li class="mcq-option">4. The Court emphasized the role of the Union of India and neighboring Himalayan states in addressing the environmental crisis.</li>
+                </ol>
+                <p><b>Which of the above statements are correct?</b></p>
+                <p class="mcq-option">A. 1, 2 and 4</p>
+                <p class="mcq-option correct">B. 1, 3 and 4</p>
+                <p class="mcq-option">C. 2, 3 and 4</p>
+                <p class="mcq-option">D. 1, 2 and 3</p>
+
+                <div class="explanation">
+                    <h4>✅ Answer: B. 1, 3 and 4</h4>
+                    <ul>
+                        <li>Statement 2 is incorrect: The SC did <b>not</b> order dismantling of projects, but raised concerns and called for regulation.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="hindi-content">
+                <h4>✅ MCQ (प्रारंभिक परीक्षा अभ्यास प्रश्न)</h4>
+                <p><b>प्रश्न.</b> हिमाचल प्रदेश के पर्यावरणीय संकट पर हाल ही में सुप्रीम कोर्ट की टिप्पणियों के संदर्भ में, निम्नलिखित कथनों पर विचार करें:</p>
+                <ol>
+                    <li class="mcq-option">1. न्यायालय ने स्वीकार किया कि जलविद्युत परियोजनाएँ इस क्षेत्र में पानी की कमी और भूस्खलन में योगदान दे रही हैं।</li>
+                    <li class="mcq-option">2. सुप्रीम कोर्ट ने हिमाचल प्रदेश में सभी मौजूदा जलविद्युत परियोजनाओं को ध्वस्त करने का निर्देश दिया।</li>
+                    <li class="mcq-option">3. पर्यावरणीय कुप्रबंधन के कारण सतलुज नदी के काफी हद तक कम होने का उल्लेख किया गया था।</li>
+                    <li class="mcq-option">4. न्यायालय ने पर्यावरणीय संकट को संबोधित करने में भारत संघ और पड़ोसी हिमालयी राज्यों की भूमिका पर जोर दिया।</li>
+                </ol>
+                <p><b>उपरोक्त में से कौन से कथन सही हैं?</b></p>
+                <p class="mcq-option">A. 1, 2 और 4</p>
+                <p class="mcq-option correct">B. 1, 3 और 4</p>
+                <p class="mcq-option">C. 2, 3 और 4</p>
+                <p class="mcq-option">D. 1, 2 और 3</p>
+
+                <div class="explanation">
+                    <h4>✅ उत्तर: B. 1, 3 और 4</h4>
+                    <ul>
+                        <li>कथन 2 गलत है: सुप्रीम कोर्ट ने परियोजनाओं को ध्वस्त करने का आदेश नहीं दिया, बल्कि चिंताएं जताईं और विनियमन का आह्वान किया।</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <a href="index.html" class="back-home-button">Back to Home</a>
+    </main>
+</div>
+
+<button class="float-button" id="scrollToTopBtn" title="Go to top">↑</button>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const langToggle = document.getElementById('language-toggle');
+        const body = document.body;
+        const scrollBtn = document.getElementById('scrollToTopBtn');
+
+        function setLanguage(lang) {
+            if (lang === 'hi') {
+                body.classList.remove('lang-en');
+                body.classList.add('lang-hi');
+                langToggle.checked = true;
+            } else {
+                body.classList.remove('lang-hi');
+                body.classList.add('lang-en');
+                langToggle.checked = false;
+            }
+        }
+
+        langToggle.addEventListener('change', (event) => {
+            const lang = event.target.checked ? 'hi' : 'en';
+            setLanguage(lang);
+            localStorage.setItem('lang', lang);
+        });
+
+        const savedLang = localStorage.getItem('lang') || 'en';
+        setLanguage(savedLang);
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollBtn.style.display = 'flex';
+            } else {
+                scrollBtn.style.display = 'none';
+            }
+        });
+
+        scrollBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+</body>
+</html>

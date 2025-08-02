@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Electoral Reforms & Democratic Institutions</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Merriweather:wght@400;700&display=swap');
+
+    :root {
+        --primary-color: #5d5d81;
+        --secondary-color: #a7a7d3;
+        --bg-color: #eef2f6;
+        --text-color: #333;
+        --heading-color: #4a4a6b;
+        --accent-color: #a7a7d3;
+        --card-bg: #ffffff;
+        --shadow-light: rgba(0, 0, 0, 0.05);
+        --shadow-heavy: rgba(0, 0, 0, 0.1);
+        --border-radius: 12px;
+    }
+
+    body {
+        font-family: 'Montserrat', sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        line-height: 1.7;
+        margin: 0;
+        padding: 0;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    body.dark-mode {
+        --primary-color: #c0c0e0;
+        --secondary-color: #8c8cbe;
+        --bg-color: #1a1a2e;
+        --text-color: #e0e0e0;
+        --heading-color: #e0e0f0;
+        --accent-color: #8c8cbe;
+        --card-bg: #2a2a4a;
+        --shadow-light: rgba(255, 255, 255, 0.05);
+        --shadow-heavy: rgba(255, 255, 255, 0.1);
+    }
+
+    .container {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+        background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+        color: white;
+        padding: 1rem 1rem;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 4px 12px var(--shadow-heavy);
+    }
+
+    .navbar .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0;
+    }
+
+    .navbar-brand {
+        font-family: 'Merriweather', serif;
+        font-size: 2rem;
+        font-weight: 700;
+        color: white;
+        text-decoration: none;
+        letter-spacing: 1px;
+    }
+
+    .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 2rem;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-weight: 700;
+        position: relative;
+        transition: color 0.3s ease;
+    }
+
+    .nav-links a::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 3px;
+        display: block;
+        margin-top: 5px;
+        right: 0;
+        background: #fff;
+        transition: width 0.4s ease;
+    }
+
+    .nav-links a:hover::after {
+        width: 100%;
+        left: 0;
+        background: #fff;
+    }
+
+    .language-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: white;
+    }
+
+    .toggle-switch {
+        width: 60px;
+        height: 34px;
+        position: relative;
+        display: inline-block;
+    }
+
+    .toggle-switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: .4s;
+        border-radius: 34px;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: .4s;
+        border-radius: 50%;
+    }
+
+    input:checked + .slider {
+        background-color: var(--accent-color);
+    }
+
+    input:checked + .slider:before {
+        transform: translateX(26px);
+    }
+
+    /* Main Content */
+    .post-header {
+        text-align: center;
+        padding: 2.5rem 0 1.5rem;
+    }
+
+    .post-header h1 {
+        font-family: 'Merriweather', serif;
+        font-size: 2.8rem;
+        color: var(--heading-color);
+        margin-bottom: 0.5rem;
+    }
+
+    .post-meta {
+        color: #666;
+        font-style: italic;
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .post-meta span {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .post-content {
+        background-color: var(--card-bg);
+        padding: 3rem;
+        border-radius: var(--border-radius);
+        box-shadow: 0 10px 30px var(--shadow-light);
+        margin-top: 2rem;
+    }
+
+    .post-content h3 {
+        font-family: 'Merriweather', serif;
+        color: var(--heading-color);
+        margin-top: 2.5rem;
+        margin-bottom: 1.2rem;
+        position: relative;
+        padding-left: 1.5rem;
+    }
+
+    .post-content h3::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 8px;
+        height: 8px;
+        background-color: var(--accent-color);
+        border-radius: 50%;
+    }
+
+    .post-content p, .post-content ul, .post-content ol {
+        margin-bottom: 1.5rem;
+    }
+
+    .post-content ul {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    .post-content ul li {
+        position: relative;
+        padding-left: 25px;
+        margin-bottom: 10px;
+    }
+    
+    .post-content ul li::before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        color: var(--primary-color);
+        font-weight: bold;
+    }
+
+    .post-content ol {
+        padding-left: 20px;
+    }
+
+    .post-content ol li {
+        margin-bottom: 10px;
+    }
+    
+    /* Hover Effect for each line */
+    .post-content p, 
+    .post-content ul li, 
+    .post-content ol li, 
+    .post-content .mcq-option {
+        position: relative;
+        transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+
+    .post-content p:hover, 
+    .post-content ul li:hover, 
+    .post-content ol li:hover, 
+    .post-content .mcq-option:hover {
+        transform: translateX(5px);
+        background-color: rgba(93, 93, 129, 0.05);
+        border-radius: 4px;
+    }
+    
+    body.dark-mode .post-content p:hover, 
+    body.dark-mode .post-content ul li:hover, 
+    body.dark-mode .post-content ol li:hover, 
+    body.dark-mode .post-content .mcq-option:hover {
+        background-color: rgba(167, 167, 211, 0.1);
+    }
+
+    .question-box {
+        border-left: 4px solid var(--accent-color);
+        padding-left: 1.5rem;
+        margin-top: 3rem;
+        background-color: var(--bg-color);
+        padding: 2rem;
+        border-radius: var(--border-radius);
+    }
+
+    body.dark-mode .question-box {
+        background-color: #3a3a5a;
+    }
+
+    .mcq-option {
+        cursor: pointer;
+        margin-bottom: 0.8rem;
+        padding: 10px 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        transition: background-color 0.3s;
+    }
+
+    .mcq-option.correct {
+        background-color: #d4edda;
+        color: #155724;
+        border-color: #c3e6cb;
+        font-weight: 700;
+    }
+
+    body.dark-mode .mcq-option.correct {
+        background-color: #2e593d;
+        color: #d4edda;
+        border-color: #3b764c;
+    }
+
+    .explanation {
+        margin-top: 2rem;
+        padding-top: 1.5rem;
+        border-top: 1px dashed var(--secondary-color);
+    }
+    
+    .back-home-button {
+        display: block;
+        width: 250px;
+        margin: 3rem auto;
+        padding: 1rem;
+        text-align: center;
+        background-color: var(--primary-color);
+        color: white;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 700;
+        transition: background-color 0.3s, transform 0.3s;
+        letter-spacing: 1px;
+        box-shadow: 0 4px 8px var(--shadow-light);
+    }
+
+    .back-home-button:hover {
+        background-color: var(--secondary-color);
+        transform: translateY(-3px);
+        box-shadow: 0 6px 12px var(--shadow-heavy);
+    }
+
+    .float-button {
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 55px;
+        height: 55px;
+        font-size: 1.8rem;
+        box-shadow: 0 4px 12px var(--shadow-heavy);
+        cursor: pointer;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.3s, transform 0.3s;
+        z-index: 999;
+    }
+
+    .float-button:hover {
+        background-color: var(--secondary-color);
+        transform: translateY(-3px);
+    }
+
+    .lang-en .english-content { display: block; }
+    .lang-en .hindi-content { display: none; }
+    .lang-hi .english-content { display: none; }
+    .lang-hi .hindi-content { display: block; }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .navbar .container {
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .navbar-brand {
+            font-size: 1.5rem;
+        }
+        .nav-links {
+            gap: 1rem;
+        }
+        .post-header h1 {
+            font-size: 2rem;
+        }
+        .post-content {
+            padding: 1.5rem;
+        }
+    }
+</style>
+</head>
+<body class="lang-en">
+
+<nav class="navbar">
+    <div class="container">
+        <a href="index.html" class="navbar-brand">02 August 2025 - Current Affairs</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="donation.html">Donation</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="language-container">
+            <span>EN</span>
+            <label class="toggle-switch">
+                <input type="checkbox" id="language-toggle">
+                <span class="slider"></span>
+            </label>
+            <span>HI</span>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <header class="post-header">
+        <div class="english-content">
+            <h1>EC publishes draft electoral rolls in Bihar, objections allowed until Sept 1</h1>
+            <div class="post-meta">
+                <span>📅 August 2, 2025</span>
+                <span>⏱️ Read Time: 5 mins</span>
+                <span>📰 Source: The Hindu</span>
+            </div>
+        </div>
+        <div class="hindi-content">
+            <h1>चुनाव आयोग ने बिहार में मतदाता सूची का मसौदा प्रकाशित किया, 1 सितंबर तक आपत्तियाँ स्वीकार</h1>
+            <div class="post-meta">
+                <span>📅 2 अगस्त, 2025</span>
+                <span>⏱️ पढ़ने का समय: 5 मिनट</span>
+                <span>📰 स्रोत: द हिंदू</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="post-content">
+        <section class="english-content">
+            <h3>🔍 Context:</h3>
+            <p>The Election Commission (EC) of India has released <b>draft electoral rolls for Bihar</b> as part of the <b>Special Intensive Revision (SIR)</b> exercise to ensure the accuracy of voter data ahead of elections.</p>
+            
+            <h3>🧾 Key Highlights:</h3>
+            <ul>
+                <li>📅 <b>Draft Rolls Published</b>: August 1, 2025</li>
+                <li>📥 <b>Claims and Objections Period</b>: August 1 – September 1, 2025</li>
+                <li>🗳️ <b>Total Enumeration Forms Received</b>: 7.24 crore</li>
+                <li>📤 <b>Forms Not Received</b>: Over 65 lakh</li>
+                <li>📍 <b>Distribution Format</b>: Both physical and digital formats; shared with all 12 recognised political parties across Bihar's 38 districts.</li>
+            </ul>
+
+            <h3>👥 Electoral Oversight Structure:</h3>
+            <ul>
+                <li><b>243</b> Electoral Registration Officers (EROs)</li>
+                <li><b>2,976</b> Assistant EROs (AEROs)</li>
+                <li>Trained volunteers to assist citizens in appeal and form-filling</li>
+                <li>Appeals against ERO decisions allowed to District Magistrates or the Chief Electoral Officer</li>
+            </ul>
+
+            <h3>🛠️ Objectives of SIR (Special Intensive Revision):</h3>
+            <ul>
+                <li>Ensure inclusion of <b>missing eligible voters</b></li>
+                <li>Delete names of <b>deceased, migrated, or untraceable individuals</b></li>
+                <li>Correct inaccuracies in personal details</li>
+                <li>Prevent deletion of names without due process and proper notice</li>
+            </ul>
+
+            <h3>📊 Key Statistics:</h3>
+            <ul>
+                <li>❌ Identified Issues During Enumeration:
+                    <ul>
+                        <li>22 lakh deceased voters</li>
+                        <li>7 lakh duplicate entries</li>
+                        <li>36 lakh migrated/untraceable voters</li>
+                    </ul>
+                </li>
+                <li>🏙️ <b>Highest Pendency Districts</b>:
+                    <ul>
+                        <li>Patna (3,95,500 forms not received)</li>
+                        <li>Madhubani (3,52,545), Gopalganj, Purvi Champaran</li>
+                    </ul>
+                </li>
+                <li>🏡 <b>Lowest Pendency Districts</b>:
+                    <ul>
+                        <li>Sheikhpura (26,256), Sheohar, Arwal</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>🏛️ Significance for UPSC:</h3>
+            <ul>
+                <li>Demonstrates EC’s efforts towards <b>voter roll integrity</b></li>
+                <li>Highlights importance of <b>transparency, accountability, and citizen participation</b></li>
+                <li>Illustrates <b>federal structure</b> in electoral management (Role of CEO, DM, EROs)</li>
+                <li>Relevant to topics under <b>Polity</b>, <b>Governance</b>, and <b>GS Paper II</b></li>
+            </ul>
+
+            <div class="question-box">
+                <h3>❓ MCQ (UPSC CSE Prelims Style):</h3>
+                <p><b>Q. With reference to the Special Intensive Revision (SIR) of electoral rolls conducted in Bihar in 2025, consider the following statements:</b></p>
+                <ol type="1">
+                    <li class="mcq-option">1. No name can be deleted from the draft rolls without a speaking order from the Electoral Registration Officer.</li>
+                    <li class="mcq-option">2. Claims and objections can only be submitted by recognised political parties, not individual electors.</li>
+                    <li class="mcq-option">3. Final electoral rolls will be published after review of all submissions.</li>
+                </ol>
+                <p><b>Which of the above statements is/are correct?</b></p>
+                <p class="mcq-option">A. 1 and 2 only</p>
+                <p class="mcq-option">B. 2 and 3 only</p>
+                <p class="mcq-option correct">C. 1 and 3 only</p>
+                <p class="mcq-option">D. 1, 2, and 3</p>
+                
+                <div class="explanation">
+                    <h3>✅ Answer: C. 1 and 3 only</h3>
+                    <h3>🧠 Explanation:</h3>
+                    <ul>
+                        <li>Statement 1 is <b>correct</b>: Deletion requires due notice and a speaking order.</li>
+                        <li>Statement 2 is <b>incorrect</b>: Individual electors can also file claims/objections.</li>
+                        <li>Statement 3 is <b>correct</b>: Final rolls will be published after submission review.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section class="hindi-content">
+            <h3>🔍 संदर्भ:</h3>
+            <p>भारत के चुनाव आयोग (ईसी) ने चुनाव से पहले मतदाता डेटा की सटीकता सुनिश्चित करने के लिए <b>विशेष गहन पुनरीक्षण (एसआईआर)</b> अभ्यास के तहत <b>बिहार के लिए मतदाता सूची का मसौदा</b> जारी किया है।</p>
+            
+            <h3>🧾 मुख्य अंश:</h3>
+            <ul>
+                <li>📅 <b>ड्राफ्ट रोल प्रकाशित</b>: 1 अगस्त, 2025</li>
+                <li>📥 <b>दावे और आपत्तियों की अवधि</b>: 1 अगस्त - 1 सितंबर, 2025</li>
+                <li>🗳️ <b>कुल प्राप्त गणना फॉर्म</b>: 7.24 करोड़</li>
+                <li>📤 <b>अप्राप्त फॉर्म</b>: 65 लाख से अधिक</li>
+                <li>📍 <b>वितरण प्रारूप</b>: भौतिक और डिजिटल दोनों प्रारूप; बिहार के 38 जिलों के सभी 12 मान्यता प्राप्त राजनीतिक दलों के साथ साझा किया गया।</li>
+            </ul>
+
+            <h3>👥 निर्वाचन निरीक्षण संरचना:</h3>
+            <ul>
+                <li><b>243</b> निर्वाचक पंजीकरण अधिकारी (ERO)</li>
+                <li><b>2,976</b> सहायक ERO (AERO)</li>
+                <li>नागरिकों को अपील और फ़ॉर्म भरने में सहायता के लिए प्रशिक्षित स्वयंसेवक</li>
+                <li>ERO के फ़ैसलों के ख़िलाफ़ ज़िला मजिस्ट्रेट या मुख्य निर्वाचन अधिकारी को अपील की अनुमति</li>
+            </ul>
+
+            <h3>🛠️ SIR (विशेष गहन पुनरीक्षण) के उद्देश्य:</h3>
+            <ul>
+                <li><b>छूटे हुए पात्र मतदाताओं</b> का समावेश सुनिश्चित करना</li>
+                <li><b>मृत, विस्थापित या लापता व्यक्तियों</b> के नाम हटाना</li>
+                <li>व्यक्तिगत विवरण में अशुद्धियों को ठीक करना</li>
+                <li>उचित प्रक्रिया और उचित सूचना के बिना नामों को हटाने से रोकना</li>
+            </ul>
+
+            <h3>📊 मुख्य आँकड़े:</h3>
+            <ul>
+                <li>❌ गणना के दौरान पहचाने गए मुद्दे:
+                    <ul>
+                        <li>22 लाख मृत मतदाता</li>
+                        <li>7 लाख डुप्लिकेट प्रविष्टियाँ</li>
+                        <li>36 लाख प्रवासी/अज्ञात मतदाता</li>
+                    </ul>
+                </li>
+                <li>🏙️ <b>सबसे ज़्यादा लंबित ज़िले</b>:
+                    <ul>
+                        <li>पटना (3,95,500 फ़ॉर्म प्राप्त नहीं हुए)</li>
+                        <li>मधुबनी (3,52,545), गोपालगंज, पूर्वी चंपारण</li>
+                    </ul>
+                </li>
+                <li>🏡 <b>सबसे कम लंबित ज़िले</b>:
+                    <ul>
+                        <li>शेखपुरा (26,256), शिवहर, अरवल</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>🏛️ यूपीएससी के लिए महत्व:</h3>
+            <ul>
+                <li>मतदाता सूची की अखंडता के लिए चुनाव आयोग के प्रयासों को दर्शाता है</li>
+                <li><b>पारदर्शिता, जवाबदेही और नागरिक भागीदारी</b> के महत्व पर प्रकाश डालता है</li>
+                <li>चुनाव प्रबंधन में <b>संघीय ढाँचे</b> को दर्शाता है (मुख्य कार्यकारी अधिकारी, ज़िला मजिस्ट्रेट, निर्वाचन अधिकारी की भूमिका)</li>
+                <li><b>राजनीति</b> के अंतर्गत आने वाले विषयों से संबंधित, <b>शासन</b>, और <b>सामान्य अध्ययन प्रश्नपत्र II</b></li>
+            </ul>
+
+            <div class="question-box">
+                <h3>❓ MCQ (UPSC CSE प्रारंभिक परीक्षा शैली):</h3>
+                <p><b>प्रश्न: 2025 में बिहार में मतदाता सूचियों के विशेष गहन पुनरीक्षण (SIR) के संदर्भ में, निम्नलिखित कथनों पर विचार करें:</b></p>
+                <ol type="1">
+                    <li class="mcq-option">1. निर्वाचक पंजीयन अधिकारी के आदेश के बिना मसौदा सूची से किसी का नाम नहीं हटाया जा सकता।</li>
+                    <li class="mcq-option">2. दावे और आपत्तियाँ केवल मान्यता प्राप्त राजनीतिक दलों द्वारा प्रस्तुत की जा सकती हैं, व्यक्तिगत मतदाताओं द्वारा नहीं।</li>
+                    <li class="mcq-option">3. सभी प्रस्तुतियों की समीक्षा के बाद अंतिम मतदाता सूचियाँ प्रकाशित की जाएँगी।</li>
+                </ol>
+                <p><b>उपरोक्त में से कौन सा/से कथन सही है/हैं?</b></p>
+                <p class="mcq-option">A. केवल 1 और 2</p>
+                <p class="mcq-option">B. केवल 2 और 3</p>
+                <p class="mcq-option correct">C. केवल 1 और 3</p>
+                <p class="mcq-option">D. 1, 2 और 3</p>
+                
+                <div class="explanation">
+                    <h3>✅ उत्तर: C. केवल 1 और 3</h3>
+                    <h3>🧠 स्पष्टीकरण:</h3>
+                    <ul>
+                        <li>कथन 1 सही है: नाम हटाने के लिए उचित सूचना और स्पष्ट आदेश की आवश्यकता होती है।</li>
+                        <li>कथन 2 गलत है: व्यक्तिगत मतदाता भी दावे/आपत्ति दर्ज कर सकते हैं।</li>
+                        <li>कथन 3 सही है: अंतिम नामावलियाँ प्रस्तुतीकरण की समीक्षा के बाद प्रकाशित की जाएँगी।</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+
+<a href="index.html" class="back-home-button">Back to Home</a>
+
+<button class="float-button" id="scrollToTopBtn" title="Go to top">↑</button>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const langToggle = document.getElementById('language-toggle');
+        const body = document.body;
+        const scrollBtn = document.getElementById('scrollToTopBtn');
+
+        function setLanguage(lang) {
+            if (lang === 'hi') {
+                body.classList.remove('lang-en');
+                body.classList.add('lang-hi');
+                langToggle.checked = true;
+            } else {
+                body.classList.remove('lang-hi');
+                body.classList.add('lang-en');
+                langToggle.checked = false;
+            }
+        }
+
+        langToggle.addEventListener('change', (event) => {
+            const lang = event.target.checked ? 'hi' : 'en';
+            setLanguage(lang);
+            localStorage.setItem('lang', lang);
+        });
+        
+        const savedLang = localStorage.getItem('lang') || 'en';
+        setLanguage(savedLang);
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollBtn.style.display = 'flex';
+            } else {
+                scrollBtn.style.display = 'none';
+            }
+        });
+
+        scrollBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+</body>
+</html>

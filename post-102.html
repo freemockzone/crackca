@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SC Refuses Plea on POSH Act</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&display=swap');
+
+    :root {
+        --primary-color: #3f51b5;
+        --secondary-color: #5c6bc0;
+        --bg-color: #e8eaf6;
+        --text-color: #37474f;
+        --heading-color: #263238;
+        --accent-color: #ffc107;
+        --card-bg: #ffffff;
+        --shadow: rgba(0, 0, 0, 0.1);
+        --border-radius: 10px;
+    }
+
+    body {
+        font-family: 'Montserrat', sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        line-height: 1.7;
+        margin: 0;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    body.dark-mode {
+        --primary-color: #7986cb;
+        --secondary-color: #3f51b5;
+        --bg-color: #1a1b26;
+        --text-color: #cfd8dc;
+        --heading-color: #eceff1;
+        --accent-color: #ffeb3b;
+        --card-bg: #2a2c39;
+        --shadow: rgba(255, 255, 255, 0.1);
+    }
+
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+    }
+
+    /* Navbar */
+    .navbar {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 1rem 0;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 4px 10px var(--shadow);
+    }
+
+    .navbar .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 1rem;
+    }
+
+    .navbar-brand {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: white;
+        text-decoration: none;
+    }
+
+    .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 1.5rem;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+        color: var(--accent-color);
+    }
+
+    .language-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: white;
+    }
+
+    .toggle-switch {
+        width: 60px;
+        height: 34px;
+        position: relative;
+        display: inline-block;
+    }
+
+    .toggle-switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: .4s;
+        border-radius: 34px;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: .4s;
+        border-radius: 50%;
+    }
+
+    input:checked + .slider {
+        background-color: var(--accent-color);
+    }
+
+    input:checked + .slider:before {
+        transform: translateX(26px);
+    }
+
+    /* Main Content */
+    .post-header {
+        text-align: center;
+        padding: 2rem 0;
+        border-bottom: 2px solid var(--secondary-color);
+    }
+
+    .post-header h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.5rem;
+        color: var(--heading-color);
+        margin-bottom: 0.5rem;
+    }
+    
+    .post-meta {
+        color: #78909c;
+        font-style: italic;
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .post-meta span {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .post-content {
+        background-color: var(--card-bg);
+        padding: 2.5rem;
+        border-radius: var(--border-radius);
+        box-shadow: 0 5px 15px var(--shadow);
+        margin-top: 2rem;
+    }
+    
+    .post-content h3 {
+        font-family: 'Playfair Display', serif;
+        color: var(--primary-color);
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        border-left: 4px solid var(--accent-color);
+        padding-left: 10px;
+    }
+
+    .post-content p, .post-content ul, .post-content ol {
+        margin-bottom: 1.5rem;
+    }
+
+    .post-content ul {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    .post-content ul li {
+        position: relative;
+        padding-left: 25px;
+        margin-bottom: 8px;
+    }
+    
+    .post-content ul li::before {
+        content: '•';
+        position: absolute;
+        left: 0;
+        color: var(--primary-color);
+        font-weight: bold;
+        font-size: 1.2em;
+        line-height: 1;
+    }
+    
+    .post-content ol {
+        padding-left: 20px;
+    }
+
+    .post-content ol li {
+        margin-bottom: 10px;
+    }
+
+    /* Colored Hover Effect for each line */
+    .post-content p, 
+    .post-content ul li, 
+    .post-content ol li, 
+    .post-content .mcq-option,
+    .post-content .key-highlight-item {
+        position: relative;
+        transition: transform 0.2s ease, background-color 0.2s ease;
+        border-radius: 6px;
+        padding: 5px 10px;
+        margin-left: -10px;
+    }
+
+    .post-content p:hover, 
+    .post-content ul li:hover, 
+    .post-content ol li:hover, 
+    .post-content .mcq-option:hover,
+    .post-content .key-highlight-item:hover {
+        transform: translateX(5px);
+        background-color: var(--secondary-color);
+        color: white;
+    }
+    
+    body.dark-mode .post-content p:hover, 
+    body.dark-mode .post-content ul li:hover, 
+    body.dark-mode .post-content ol li:hover, 
+    body.dark-mode .post-content .mcq-option:hover,
+    body.dark-mode .post-content .key-highlight-item:hover {
+        background-color: var(--secondary-color);
+        color: white;
+    }
+
+    .question-box {
+        border: 1px solid var(--secondary-color);
+        border-left: 5px solid var(--primary-color);
+        padding: 2rem;
+        margin-top: 3rem;
+        background-color: var(--bg-color);
+        border-radius: var(--border-radius);
+    }
+
+    body.dark-mode .question-box {
+        background-color: #3b3c4f;
+    }
+
+    .mcq-option {
+        cursor: pointer;
+        margin-bottom: 0.8rem;
+        padding: 12px 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        transition: background-color 0.3s;
+    }
+
+    .mcq-option.correct {
+        background-color: #d4edda;
+        color: #155724;
+        border-color: #c3e6cb;
+        font-weight: 700;
+    }
+    
+    body.dark-mode .mcq-option.correct {
+        background-color: #2e593d;
+        color: #d4edda;
+        border-color: #3b764c;
+    }
+
+    .explanation {
+        margin-top: 2rem;
+        padding-top: 1.5rem;
+        border-top: 1px dashed var(--accent-color);
+    }
+    
+    .back-home-button {
+        display: block;
+        width: 250px;
+        margin: 3rem auto;
+        padding: 1rem;
+        text-align: center;
+        background-color: var(--primary-color);
+        color: white;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 700;
+        transition: background-color 0.3s, transform 0.3s;
+        letter-spacing: 1px;
+        box-shadow: 0 4px 8px var(--shadow);
+    }
+
+    .back-home-button:hover {
+        background-color: var(--secondary-color);
+        transform: translateY(-3px);
+        box-shadow: 0 6px 12px var(--shadow);
+    }
+
+    .float-button {
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 55px;
+        height: 55px;
+        font-size: 1.8rem;
+        box-shadow: 0 4px 12px var(--shadow);
+        cursor: pointer;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.3s, transform 0.3s;
+        z-index: 999;
+    }
+
+    .float-button:hover {
+        background-color: var(--secondary-color);
+        transform: translateY(-3px);
+    }
+
+    .lang-en .english-content { display: block; }
+    .lang-en .hindi-content { display: none; }
+    .lang-hi .english-content { display: none; }
+    .lang-hi .hindi-content { display: block; }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .navbar .container {
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .navbar-brand {
+            font-size: 1.5rem;
+        }
+        .nav-links {
+            gap: 1rem;
+        }
+        .post-header h1 {
+            font-size: 2rem;
+        }
+        .post-content {
+            padding: 1.5rem;
+        }
+    }
+</style>
+</head>
+<body class="lang-en">
+
+<nav class="navbar">
+    <div class="container">
+        <a href="index.html" class="navbar-brand">02 August 2025</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="donation.html">Donation</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="language-container">
+            <span>EN</span>
+            <label class="toggle-switch">
+                <input type="checkbox" id="language-toggle">
+                <span class="slider"></span>
+            </label>
+            <span>HI</span>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <header class="post-header">
+        <div class="english-content">
+            <h1>SC Refuses Plea to Apply POSH Act to Political Parties</h1>
+            <div class="post-meta">
+                <span>📅 August 2, 2025</span>
+                <span>⏱️ Read Time: 5 mins</span>
+                <span>📰 Source: The Hindu</span>
+            </div>
+        </div>
+        <div class="hindi-content">
+            <h1>सुप्रीम कोर्ट ने राजनीतिक दलों पर POSH अधिनियम लागू करने की याचिका खारिज की</h1>
+            <div class="post-meta">
+                <span>📅 2 अगस्त, 2025</span>
+                <span>⏱️ पढ़ने का समय: 5 मिनट</span>
+                <span>📰 स्रोत: द हिंदू</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="post-content">
+        <section class="english-content">
+            <h3>📍 Context</h3>
+            <p>The <b>Supreme Court of India</b> has declined to entertain a petition seeking to bring <b>political parties</b> under the ambit of the <b>POSH Act, 2013</b> (Sexual Harassment of Women at Workplace Act).</p>
+
+            <h3>⚖️ Key Highlights</h3>
+            <ul>
+                <li class="key-highlight-item">A <b>two-judge bench</b> led by <b>CJI B R Gavai</b> held that the plea falls within the <b>policy domain of the legislature or executive</b>, not the judiciary.</li>
+                <li class="key-highlight-item">The petitioner, <b>Senior Advocate Rekha Gupta</b>, argued for an <b>interpretation of "workplace" and "employee"</b> under the Act to include political parties.</li>
+                <li class="key-highlight-item">The court advised the petitioner to:
+                    <ul>
+                        <li>Challenge the <b>Kerala High Court ruling</b>, which held POSH Act does not apply to political parties.</li>
+                        <li>Consider urging <b>women MPs to move a Private Member’s Bill</b> in Parliament.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>📘 About the POSH Act, 2013</h3>
+            <ul>
+                <li class="key-highlight-item">Aims to <b>prevent and redress sexual harassment at workplaces</b>.</li>
+                <li class="key-highlight-item">Mandates the formation of <b>Internal Complaints Committees (ICCs)</b> at every workplace.</li>
+                <li class="key-highlight-item">Broadly defines:
+                    <ul>
+                        <li><b>"Workplace"</b>: Includes both formal and informal work environments.</li>
+                        <li><b>"Employee"</b>: Covers a wide spectrum of workers, including temporary and voluntary.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>🚨 Issue Raised in Petition</h3>
+            <ul>
+                <li class="key-highlight-item">Despite broad definitions, <b>political parties</b> often lack ICCs.</li>
+                <li class="key-highlight-item">Women in <b>political engagement</b> (especially grassroots workers) face <b>systemic harassment</b> without institutional redress.</li>
+                <li class="key-highlight-item"><b>Studies cited</b>:
+                    <ul>
+                        <li>UN Women (2013)</li>
+                        <li>Inter-Parliamentary Union (2016) – Highlight systemic nature of harassment in political spaces.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>🧾 Judicial Observations</h3>
+            <ul>
+                <li class="key-highlight-item">Judicial intervention <b>not appropriate</b> in matters of <b>policy formulation</b>.</li>
+                <li class="key-highlight-item"><b>Legislative intervention</b> (such as a private bill) is the correct route.</li>
+            </ul>
+
+            <h3>🏛️ Relevance for UPSC</h3>
+            <h4>📌 <i>Prelims:</i></h4>
+            <ul>
+                <li class="key-highlight-item">POSH Act – Features, scope, ICC</li>
+                <li class="key-highlight-item">Separation of powers: Judiciary vs Legislature</li>
+            </ul>
+            <h4>📌 <i>Mains:</i></h4>
+            <ul>
+                <li class="key-highlight-item"><b>GS II:</b> Governance, Constitution, Judiciary, Women Issues</li>
+                <li class="key-highlight-item">Discuss the scope and limitations of the judiciary in shaping public policy.</li>
+                <li class="key-highlight-item">Analyze the need for extending workplace harassment laws to <b>political organizations</b>.</li>
+            </ul>
+        </section>
+        
+        <section class="hindi-content">
+            <h3>📍 संदर्भ</h3>
+            <p><b>भारत के सर्वोच्च न्यायालय</b> ने <b>राजनीतिक दलों</b> को <b>POSH अधिनियम, 2013</b> (कार्यस्थल पर महिलाओं का यौन उत्पीड़न अधिनियम) के दायरे में लाने की मांग वाली याचिका पर विचार करने से इनकार कर दिया है।</p>
+            
+            <h3>⚖️ मुख्य बातें</h3>
+            <ul>
+                <li class="key-highlight-item"><b>सीजेआई बी आर गवई</b> की अध्यक्षता वाली <b>दो-न्यायाधीशों की पीठ</b> ने कहा कि यह याचिका <b>विधायिका या कार्यपालिका के नीतिगत दायरे</b> में आती है, न कि न्यायपालिका के।</li>
+                <li class="key-highlight-item">याचिकाकर्ता, <b>वरिष्ठ अधिवक्ता रेखा गुप्ता</b>, ने अधिनियम के तहत "कार्यस्थल" और "कर्मचारी" की <b>व्याख्या</b> में राजनीतिक दलों को शामिल करने की दलील दी थी।</li>
+                <li class="key-highlight-item">न्यायालय ने याचिकाकर्ता को सलाह दी कि:
+                    <ul>
+                        <li><b>केरल उच्च न्यायालय के फैसले को चुनौती दें</b>, जिसने POSH अधिनियम को राजनीतिक दलों पर लागू नहीं माना था।</li>
+                        <li>संसद में <b>महिला सांसदों से एक निजी सदस्य विधेयक</b> लाने का आग्रह करने पर विचार करें।</li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <h3>📘 POSH अधिनियम, 2013 के बारे में</h3>
+            <ul>
+                <li class="key-highlight-item">इसका उद्देश्य <b>कार्यस्थलों पर यौन उत्पीड़न को रोकना और उसका निवारण करना</b> है।</li>
+                <li class="key-highlight-item">यह प्रत्येक कार्यस्थल पर <b>आंतरिक शिकायत समितियों (ICCs)</b> के गठन को अनिवार्य करता है।</li>
+                <li class="key-highlight-item">यह व्यापक रूप से परिभाषित करता है:
+                    <ul>
+                        <li><b>"कार्यस्थल"</b>: इसमें औपचारिक और अनौपचारिक दोनों तरह के कार्य वातावरण शामिल हैं।</li>
+                        <li><b>"कर्मचारी"</b>: इसमें अस्थायी और स्वैच्छिक सहित श्रमिकों का एक व्यापक स्पेक्ट्रम शामिल है।</li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <h3>🚨 याचिका में उठाया गया मुद्दा</h3>
+            <ul>
+                <li class="key-highlight-item">व्यापक परिभाषाओं के बावजूद, <b>राजनीतिक दलों</b> में अक्सर ICCs का अभाव होता है।</li>
+                <li class="key-highlight-item"><b>राजनीतिक भागीदारी</b> (विशेषकर जमीनी स्तर की कार्यकर्ता) में महिलाओं को संस्थागत निवारण के बिना <b>प्रणालीगत उत्पीड़न</b> का सामना करना पड़ता है।</li>
+                <li class="key-highlight-item"><b>उद्धृत अध्ययन</b>:
+                    <ul>
+                        <li>संयुक्त राष्ट्र महिला (2013)</li>
+                        <li>अंतर-संसदीय संघ (2016) – राजनीतिक स्थानों में उत्पीड़न की प्रणालीगत प्रकृति पर प्रकाश डालते हैं।</li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <h3>🧾 न्यायिक टिप्पणियाँ</h3>
+            <ul>
+                <li class="key-highlight-item"><b>नीति निर्माण</b> के मामलों में न्यायिक हस्तक्षेप <b>उचित नहीं</b> है।</li>
+                <li class="key-highlight-item"><b>विधायी हस्तक्षेप</b> (जैसे एक निजी विधेयक) सही मार्ग है।</li>
+            </ul>
+            
+            <h3>🏛️ यूपीएससी के लिए प्रासंगिकता</h3>
+            <h4>📌 <i>प्रारंभिक परीक्षा:</i></h4>
+            <ul>
+                <li class="key-highlight-item">POSH अधिनियम – विशेषताएँ, दायरा, ICC</li>
+                <li class="key-highlight-item">शक्तियों का पृथक्करण: न्यायपालिका बनाम विधायिका</li>
+            </ul>
+            <h4>📌 <i>मुख्य परीक्षा:</i></h4>
+            <ul>
+                <li class="key-highlight-item"><b>जीएस II:</b> शासन, संविधान, न्यायपालिका, महिला मुद्दे</li>
+                <li class="key-highlight-item">सार्वजनिक नीति को आकार देने में न्यायपालिका के दायरे और सीमाओं पर चर्चा करें।</li>
+                <li class="key-highlight-item"><b>राजनीतिक संगठनों</b> तक कार्यस्थल पर उत्पीड़न कानूनों के विस्तार की आवश्यकता का विश्लेषण करें।</li>
+            </ul>
+        </section>
+
+        <section class="english-content">
+            <div class="question-box">
+                <h3>✅ MCQ (Prelims Practice Question)</h3>
+                <p><b>Q.</b> Consider the following statements about the POSH Act, 2013:</p>
+                <ol>
+                    <li class="mcq-option">1. The Act mandates the constitution of Internal Complaints Committees (ICCs) only in public sector workplaces.</li>
+                    <li class="mcq-option">2. The definition of "workplace" under the Act includes informal workspaces.</li>
+                    <li class="mcq-option">3. As per the Supreme Court, political parties are explicitly included under the Act.</li>
+                </ol>
+                <p>Which of the above statements is/are correct?</p>
+                <p class="mcq-option">A. 1 and 2 only</p>
+                <p class="mcq-option correct">B. 2 only</p>
+                <p class="mcq-option">C. 2 and 3 only</p>
+                <p class="mcq-option">D. 1, 2, and 3</p>
+                
+                <div class="explanation">
+                    <h4>✅ Answer: B. 2 only</h4>
+                    <ul>
+                        <li class="key-highlight-item">Statement 1 is incorrect – ICCs are mandated in both public and private sectors.</li>
+                        <li class="key-highlight-item">Statement 3 is incorrect – SC refused to interpret the Act to include political parties.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section class="hindi-content">
+            <div class="question-box">
+                <h3>✅ MCQ (प्रारंभिक परीक्षा अभ्यास प्रश्न)</h3>
+                <p><b>प्रश्न.</b> POSH अधिनियम, 2013 के बारे में निम्नलिखित कथनों पर विचार करें:</p>
+                <ol>
+                    <li class="mcq-option">1. अधिनियम केवल सार्वजनिक क्षेत्र के कार्यस्थलों में आंतरिक शिकायत समितियों (ICCs) के गठन को अनिवार्य करता है।</li>
+                    <li class="mcq-option">2. अधिनियम के तहत "कार्यस्थल" की परिभाषा में अनौपचारिक कार्यस्थल शामिल हैं।</li>
+                    <li class="mcq-option">3. सुप्रीम कोर्ट के अनुसार, राजनीतिक दल स्पष्ट रूप से अधिनियम के तहत शामिल हैं।</li>
+                </ol>
+                <p>उपरोक्त में से कौन सा/से कथन सही है/हैं?</p>
+                <p class="mcq-option">A. केवल 1 और 2</p>
+                <p class="mcq-option correct">B. केवल 2</p>
+                <p class="mcq-option">C. केवल 2 और 3</p>
+                <p class="mcq-option">D. 1, 2 और 3</p>
+                
+                <div class="explanation">
+                    <h4>✅ उत्तर: B. केवल 2</h4>
+                    <ul>
+                        <li class="key-highlight-item">कथन 1 गलत है - ICCs को सार्वजनिक और निजी दोनों क्षेत्रों में अनिवार्य किया गया है।</li>
+                        <li class="key-highlight-item">कथन 3 गलत है - सुप्रीम कोर्ट ने राजनीतिक दलों को शामिल करने के लिए अधिनियम की व्याख्या करने से इनकार कर दिया।</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+
+<a href="index.html" class="back-home-button">Back to Home</a>
+
+<button class="float-button" id="scrollToTopBtn" title="Go to top">↑</button>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const langToggle = document.getElementById('language-toggle');
+        const body = document.body;
+        const scrollBtn = document.getElementById('scrollToTopBtn');
+
+        function setLanguage(lang) {
+            if (lang === 'hi') {
+                body.classList.remove('lang-en');
+                body.classList.add('lang-hi');
+                langToggle.checked = true;
+            } else {
+                body.classList.remove('lang-hi');
+                body.classList.add('lang-en');
+                langToggle.checked = false;
+            }
+        }
+
+        langToggle.addEventListener('change', (event) => {
+            const lang = event.target.checked ? 'hi' : 'en';
+            setLanguage(lang);
+            localStorage.setItem('lang', lang);
+        });
+        
+        const savedLang = localStorage.getItem('lang') || 'en';
+        setLanguage(savedLang);
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollBtn.style.display = 'flex';
+            } else {
+                scrollBtn.style.display = 'none';
+            }
+        });
+
+        scrollBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+</body>
+</html>

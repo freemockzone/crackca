@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>71st National Film Awards (2023)</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Merriweather:wght@400;700&display=swap');
+
+    :root {
+        --primary-color: #7b2cbf;
+        --secondary-color: #5a189a;
+        --bg-color: #f3e9f8;
+        --text-color: #333;
+        --heading-color: #2b0c45;
+        --accent-color: #e0b4ff;
+        --card-bg: #ffffff;
+        --shadow-light: rgba(0, 0, 0, 0.08);
+        --shadow-heavy: rgba(0, 0, 0, 0.15);
+        --border-radius: 16px;
+    }
+
+    body {
+        font-family: 'Montserrat', sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        line-height: 1.8;
+        margin: 0;
+        padding: 0;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    body.dark-mode {
+        --primary-color: #a361e0;
+        --secondary-color: #6a25b1;
+        --bg-color: #1a1122;
+        --text-color: #e0e0e0;
+        --heading-color: #f0e6f7;
+        --accent-color: #6a25b1;
+        --card-bg: #2a1a38;
+        --shadow-light: rgba(255, 255, 255, 0.05);
+        --shadow-heavy: rgba(255, 255, 255, 0.1);
+    }
+
+    .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+        background: linear-gradient(90deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+        color: white;
+        padding: 1rem 1rem;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 5px 15px var(--shadow-heavy);
+    }
+
+    .navbar .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0;
+    }
+
+    .navbar-brand {
+        font-family: 'Merriweather', serif;
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: white;
+        text-decoration: none;
+        letter-spacing: 1px;
+    }
+
+    .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 2.5rem;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-weight: 700;
+        position: relative;
+        transition: color 0.3s ease;
+    }
+
+    .nav-links a::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 3px;
+        display: block;
+        margin-top: 5px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--accent-color);
+        transition: width 0.4s ease;
+    }
+
+    .nav-links a:hover::after {
+        width: 100%;
+    }
+
+    .language-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: white;
+    }
+
+    .toggle-switch {
+        width: 60px;
+        height: 34px;
+        position: relative;
+        display: inline-block;
+    }
+
+    .toggle-switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: .4s;
+        border-radius: 34px;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: .4s;
+        border-radius: 50%;
+    }
+
+    input:checked + .slider {
+        background-color: var(--accent-color);
+    }
+
+    input:checked + .slider:before {
+        transform: translateX(26px);
+    }
+
+    /* Main Content */
+    .post-header {
+        text-align: center;
+        padding: 3rem 0 2rem;
+    }
+
+    .post-header h1 {
+        font-family: 'Merriweather', serif;
+        font-size: 3.5rem;
+        color: var(--heading-color);
+        margin-bottom: 0.5rem;
+        text-shadow: 2px 2px 4px var(--shadow-light);
+    }
+
+    .post-meta {
+        color: #666;
+        font-style: italic;
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        font-size: 0.9rem;
+    }
+
+    .post-meta span {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .post-content {
+        background-color: var(--card-bg);
+        padding: 3.5rem;
+        border-radius: var(--border-radius);
+        box-shadow: 0 10px 30px var(--shadow-light);
+        margin-top: 2rem;
+    }
+
+    .post-content h3 {
+        font-family: 'Merriweather', serif;
+        color: var(--primary-color);
+        margin-top: 2.5rem;
+        margin-bottom: 1.5rem;
+        position: relative;
+        padding-left: 20px;
+        border-bottom: 2px solid var(--accent-color);
+        padding-bottom: 10px;
+    }
+    
+    .post-content h3::before {
+        content: '🏆';
+        position: absolute;
+        left: -10px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.5rem;
+        color: var(--accent-color);
+    }
+
+    .post-content p, .post-content ul, .post-content ol {
+        margin-bottom: 1.5rem;
+    }
+
+    .post-content ul {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    .post-content ul li {
+        position: relative;
+        padding-left: 30px;
+        margin-bottom: 10px;
+    }
+    
+    .post-content ul li::before {
+        content: '★';
+        position: absolute;
+        left: 0;
+        color: var(--primary-color);
+        font-weight: bold;
+    }
+
+    .post-content ol {
+        padding-left: 20px;
+    }
+
+    .post-content ol li {
+        margin-bottom: 10px;
+    }
+    
+    /* Colored Hover Effect for each line */
+    .post-content p, 
+    .post-content ul li, 
+    .post-content ol li, 
+    .post-content .mcq-option {
+        position: relative;
+        transition: transform 0.2s ease, background-color 0.2s ease;
+        border-radius: 8px;
+        padding: 5px 10px;
+        margin-left: -10px;
+    }
+
+    .post-content p:hover, 
+    .post-content ul li:hover, 
+    .post-content ol li:hover, 
+    .post-content .mcq-option:hover {
+        transform: translateX(5px);
+        background-color: var(--accent-color);
+    }
+    
+    body.dark-mode .post-content p:hover, 
+    body.dark-mode .post-content ul li:hover, 
+    body.dark-mode .post-content ol li:hover, 
+    body.dark-mode .post-content .mcq-option:hover {
+        background-color: var(--secondary-color);
+    }
+
+    .question-box {
+        border: 2px solid var(--accent-color);
+        border-radius: var(--border-radius);
+        padding: 2.5rem;
+        margin-top: 3rem;
+        background-color: var(--bg-color);
+    }
+
+    body.dark-mode .question-box {
+        background-color: #3b284e;
+    }
+
+    .mcq-option {
+        cursor: pointer;
+        margin-bottom: 0.8rem;
+        padding: 12px 20px;
+        border: 1px solid var(--primary-color);
+        border-radius: 12px;
+        transition: background-color 0.3s;
+    }
+
+    .mcq-option.correct {
+        background-color: #d4edda;
+        color: #155724;
+        border-color: #c3e6cb;
+        font-weight: 700;
+    }
+
+    body.dark-mode .mcq-option.correct {
+        background-color: #2e593d;
+        color: #d4edda;
+        border-color: #3b764c;
+    }
+    .mcq-option.correct:hover {
+        background-color: #2e593d;
+    }
+    
+    .explanation {
+        margin-top: 2.5rem;
+        padding-top: 1.5rem;
+        border-top: 2px dashed var(--accent-color);
+    }
+    
+    .back-home-button {
+        display: block;
+        width: 280px;
+        margin: 3.5rem auto;
+        padding: 1.2rem;
+        text-align: center;
+        background-color: var(--primary-color);
+        color: white;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 700;
+        transition: background-color 0.3s, transform 0.3s;
+        letter-spacing: 1px;
+        box-shadow: 0 4px 12px var(--shadow-light);
+    }
+
+    .back-home-button:hover {
+        background-color: var(--secondary-color);
+        transform: translateY(-4px);
+        box-shadow: 0 6px 15px var(--shadow-heavy);
+    }
+
+    .float-button {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
+        box-shadow: 0 4px 15px var(--shadow-heavy);
+        cursor: pointer;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.3s, transform 0.3s;
+        z-index: 999;
+    }
+
+    .float-button:hover {
+        background-color: var(--secondary-color);
+        transform: translateY(-4px);
+    }
+
+    .lang-en .english-content { display: block; }
+    .lang-en .hindi-content { display: none; }
+    .lang-hi .english-content { display: none; }
+    .lang-hi .hindi-content { display: block; }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .navbar .container {
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .navbar-brand {
+            font-size: 1.8rem;
+        }
+        .nav-links {
+            gap: 1.5rem;
+        }
+        .post-header h1 {
+            font-size: 2.5rem;
+        }
+        .post-content {
+            padding: 2rem;
+        }
+    }
+</style>
+</head>
+<body class="lang-en">
+
+<nav class="navbar">
+    <div class="container">
+        <a href="index.html" class="navbar-brand">02 August 2025</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="donation.html">Donation</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="language-container">
+            <span>EN</span>
+            <label class="toggle-switch">
+                <input type="checkbox" id="language-toggle">
+                <span class="slider"></span>
+            </label>
+            <span>HI</span>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <header class="post-header">
+        <div class="english-content">
+            <h1>71st National Film Awards (2023)</h1>
+            <div class="post-meta">
+                <span>📅 August 2, 2025</span>
+                <span>⏱️ Read Time: 5 mins</span>
+                <span>📰 Source: Various Media Outlets</span>
+            </div>
+        </div>
+        <div class="hindi-content">
+            <h1>71वें राष्ट्रीय फिल्म पुरस्कार (2023)</h1>
+            <div class="post-meta">
+                <span>📅 2 अगस्त, 2025</span>
+                <span>⏱️ पढ़ने का समय: 5 मिनट</span>
+                <span>📰 स्रोत: विभिन्न मीडिया आउटलेट्स</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="post-content">
+        <section class="english-content">
+            <h3>🏆 Key Highlights:</h3>
+
+            <h4>1. Best Feature Film:</h4>
+            <ul>
+                <li><b>Winner:</b> <i>12th Fail</i></li>
+                <li><b>Director:</b> Vidhu Vinod Chopra</li>
+                <li><b>Theme:</b> Real-life story of a young man's struggle to become an IPS officer</li>
+                <li><b>Significance:</b> Highlights perseverance, education, and the Indian civil service journey</li>
+            </ul>
+
+            <h4>2. Best Actor (Shared Award):</h4>
+            <ul>
+                <li><b>Vikrant Massey</b> for <i>12th Fail</i>
+                    <ul>
+                        <li><b>Jury Note:</b> "Raw honesty and emotional depth"</li>
+                    </ul>
+                </li>
+                <li><b>Shah Rukh Khan</b> for <i>Jawan</i> (dual role of father and son)
+                    <ul>
+                        <li><b>Historic First National Award</b> for SRK in his multi-decade career</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h4>3. Best Actress:</h4>
+            <ul>
+                <li><b>Rani Mukerji</b> for <i>Mrs. Chatterjee Vs Norway</i>
+                    <ul>
+                        <li><b>Role:</b> A mother fighting for her children</li>
+                        <li><b>Significance:</b> Her <b>first National Award</b> in a 30-year career</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h4>4. Best Director:</h4>
+            <ul>
+                <li><b>Sudipto Sen</b> for <i>The Kerala Story</i>
+                    <ul>
+                        <li><b>Jury Note:</b> Praised for handling a controversial and complex topic with clarity</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h4>5. Best Popular Film Providing Wholesome Entertainment:</h4>
+            <ul>
+                <li><i>Rocky Aur Rani Kii Prem Kahaani</i> – <b>Karan Johar</b></li>
+            </ul>
+
+            <h4>6. Best Choreography:</h4>
+            <ul>
+                <li><i>Dhindhora Baje Re</i> (from <i>Rocky Aur Rani…</i>)
+                    <ul>
+                        <li><b>Choreographer:</b> Vaibhavi Merchant</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h4>7. Best Film Promoting National, Social, and Environmental Values:</h4>
+            <ul>
+                <li><i>Sam Bahadur</i>
+                    <ul>
+                        <li><b>Director:</b> Meghna Gulzar</li>
+                        <li><b>Subject:</b> Life of Field Marshal Sam Manekshaw</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h4>8. Best Female Playback Singer:</h4>
+            <ul>
+                <li><b>Shilpa Rao</b> for <i>Chaliya</i> (from <i>Jawan</i>)</li>
+            </ul>
+
+            <h4>9. Best Male Playback Singer:</h4>
+            <ul>
+                <li><b>P V N S Rohit</b> for <i>Premisthunna</i> (Telugu film <i>Baby</i>)</li>
+            </ul>
+
+            <h4>10. Best Sound Design:</h4>
+            <ul>
+                <li><b>Sachin Sudhakaran</b> for <i>Animal</i></li>
+            </ul>
+
+            <h4>11. Best Music Direction (Shared):</h4>
+            <ul>
+                <li><i>Animal</i> – <b>Harshavardhan Rameshwar</b></li>
+                <li><i>Vaathi</i> (Tamil) – <b>G V Prakash Kumar</b></li>
+            </ul>
+
+            <h4>12. Best Screenplay (Shared):</h4>
+            <ul>
+                <li><i>Baby</i> (Telugu)</li>
+                <li><i>Parking</i> (Tamil)</li>
+                <li><i>Sirf Ek Bandaa Kaafi Hai</i> (Hindi)</li>
+            </ul>
+
+            <h4>13. Best Hindi Feature Film:</h4>
+            <ul>
+                <li><i>Kathal: A Jackfruit Mystery</i> – starring Sanya Malhotra</li>
+            </ul>
+
+            <h4>14. Best Film in AVGC (Animation, VFX, Gaming & Comics):</h4>
+            <ul>
+                <li><i>Hanu-Man</i> (Telugu)
+                    <ul>
+                        <li>Also won <b>Best Action Direction</b></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h4>15. Best Supporting Actor (Shared):</h4>
+            <ul>
+                <li><b>Vijayaraghavan</b> – <i>Pookkaalam</i> (Malayalam)</li>
+                <li><b>M S Bhaskar</b> – <i>Parking</i> (Tamil)</li>
+            </ul>
+
+            <h4>16. Best Supporting Actress (Shared):</h4>
+            <ul>
+                <li><b>Urvashi</b> – <i>Ullozhukku</i> (Malayalam)</li>
+                <li><b>Janki Bodiwala</b> – <i>Vash</i> (Gujarati)</li>
+            </ul>
+
+            <h3>📊 Other Key Data:</h3>
+            <ul>
+                <li><b>Total Entries:</b>
+                    <ul>
+                        <li><b>Feature Films:</b> 332</li>
+                        <li><b>Non-Feature Films:</b> 115</li>
+                        <li><b>Books:</b> 27</li>
+                        <li><b>Critics’ Entries:</b> 16</li>
+                    </ul>
+                </li>
+                <li><b>Jury Head:</b> Ashutosh Gowariker (Filmmaker)</li>
+            </ul>
+        </section>
+        
+        <section class="hindi-content">
+            <h3>🏆 मुख्य बातें:</h3>
+
+            <h4>1. सर्वश्रेष्ठ फीचर फिल्म:</h4>
+            <ul>
+                <li><b>विजेता:</b> <i>12th Fail</i></li>
+                <li><b>निर्देशक:</b> विधु विनोद चोपड़ा</li>
+                <li><b>विषय:</b> एक युवा के आईपीएस अधिकारी बनने के संघर्ष की सच्ची कहानी</li>
+                <li><b>महत्व:</b> दृढ़ता, शिक्षा और भारतीय सिविल सेवा यात्रा पर प्रकाश डालता है</li>
+            </ul>
+
+            <h4>2. सर्वश्रेष्ठ अभिनेता (साझा पुरस्कार):</h4>
+            <ul>
+                <li><b>विक्रांत मैसी</b> को <i>12th Fail</i> के लिए
+                    <ul>
+                        <li><b>जूरी नोट:</b> "कच्ची ईमानदारी और भावनात्मक गहराई"</li>
+                    </ul>
+                </li>
+                <li><b>शाहरुख खान</b> को <i>Jawan</i> के लिए (पिता और बेटे की दोहरी भूमिका)
+                    <ul>
+                        <li>अपने दशकों के करियर में एसआरके के लिए <b>पहला ऐतिहासिक राष्ट्रीय पुरस्कार</b></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h4>3. सर्वश्रेष्ठ अभिनेत्री:</h4>
+            <ul>
+                <li><b>रानी मुखर्जी</b> को <i>Mrs. Chatterjee Vs Norway</i> के लिए
+                    <ul>
+                        <li><b>भूमिका:</b> अपने बच्चों के लिए लड़ रही एक माँ</li>
+                        <li><b>महत्व:</b> 30 साल के करियर में उनका <b>पहला राष्ट्रीय पुरस्कार</b></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h4>4. सर्वश्रेष्ठ निर्देशक:</h4>
+            <ul>
+                <li><b>सुदीप्तो सेन</b> को <i>The Kerala Story</i> के लिए
+                    <ul>
+                        <li><b>जूरी नोट:</b> एक विवादास्पद और जटिल विषय को स्पष्टता के साथ संभालने के लिए सराहा गया</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h4>5. संपूर्ण मनोरंजन प्रदान करने वाली सर्वश्रेष्ठ लोकप्रिय फिल्म:</h4>
+            <ul>
+                <li><i>Rocky Aur Rani Kii Prem Kahaani</i> – <b>करण जौहर</b></li>
+            </ul>
+
+            <h4>6. सर्वश्रेष्ठ कोरियोग्राफी:</h4>
+            <ul>
+                <li><i>Dhindhora Baje Re</i> (फिल्म <i>Rocky Aur Rani…</i> से)
+                    <ul>
+                        <li><b>कोरियोग्राफर:</b> वैभवी मर्चेंट</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h4>7. राष्ट्रीय, सामाजिक और पर्यावरणीय मूल्यों को बढ़ावा देने वाली सर्वश्रेष्ठ फिल्म:</h4>
+            <ul>
+                <li><i>Sam Bahadur</i>
+                    <ul>
+                        <li><b>निर्देशक:</b> मेघना गुलजार</li>
+                        <li><b>विषय:</b> फील्ड मार्शल सैम मानेकशॉ का जीवन</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h4>8. सर्वश्रेष्ठ महिला पार्श्व गायिका:</h4>
+            <ul>
+                <li><b>शिल्पा राव</b> को <i>Chaliya</i> (फिल्म <i>Jawan</i> से) के लिए</li>
+            </ul>
+
+            <h4>9. सर्वश्रेष्ठ पुरुष पार्श्व गायक:</h4>
+            <ul>
+                <li><b>पी.वी.एन.एस. रोहित</b> को <i>Premisthunna</i> (तेलुगु फिल्म <i>Baby</i>) के लिए</li>
+            </ul>
+
+            <h4>10. सर्वश्रेष्ठ साउंड डिज़ाइन:</h4>
+            <ul>
+                <li><b>सचिन सुधाकरन</b> को <i>Animal</i> के लिए</li>
+            </ul>
+
+            <h4>11. सर्वश्रेष्ठ संगीत निर्देशन (साझा):</h4>
+            <ul>
+                <li><i>Animal</i> – <b>हर्षवर्धन रामेश्वर</b></li>
+                <li><i>Vaathi</i> (तमिल) – <b>जी.वी. प्रकाश कुमार</b></li>
+            </ul>
+
+            <h4>12. सर्वश्रेष्ठ पटकथा (साझा):</h4>
+            <ul>
+                <li><i>Baby</i> (तेलुगु)</li>
+                <li><i>Parking</i> (तमिल)</li>
+                <li><i>Sirf Ek Bandaa Kaafi Hai</i> (हिंदी)</li>
+            </ul>
+
+            <h4>13. सर्वश्रेष्ठ हिंदी फीचर फिल्म:</h4>
+            <ul>
+                <li><i>Kathal: A Jackfruit Mystery</i> – जिसमें सान्या मल्होत्रा ​​मुख्य भूमिका में हैं</li>
+            </ul>
+
+            <h4>14. AVGC में सर्वश्रेष्ठ फिल्म (एनीमेशन, VFX, गेमिंग और कॉमिक्स):</h4>
+            <ul>
+                <li><i>Hanu-Man</i> (तेलुगु)
+                    <ul>
+                        <li>इसे <b>सर्वश्रेष्ठ एक्शन निर्देशन</b> भी मिला</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h4>15. सर्वश्रेष्ठ सहायक अभिनेता (साझा):</h4>
+            <ul>
+                <li><b>विजयराघवन</b> – <i>Pookkaalam</i> (मलयालम)</li>
+                <li><b>एम.एस. भास्कर</b> – <i>Parking</i> (तमिल)</li>
+            </ul>
+
+            <h4>16. सर्वश्रेष्ठ सहायक अभिनेत्री (साझा):</h4>
+            <ul>
+                <li><b>उर्वशी</b> – <i>Ullozhukku</i> (मलयालम)</li>
+                <li><b>जानकी बोडीवाला</b> – <i>Vash</i> (गुजराती)</li>
+            </ul>
+
+            <h3>📊 अन्य मुख्य डेटा:</h3>
+            <ul>
+                <li><b>कुल प्रविष्टियाँ:</b>
+                    <ul>
+                        <li><b>फीचर फिल्में:</b> 332</li>
+                        <li><b>गैर-फीचर फिल्में:</b> 115</li>
+                        <li><b>किताबें:</b> 27</li>
+                        <li><b>आलोचकों की प्रविष्टियां:</b> 16</li>
+                    </ul>
+                </li>
+                <li><b>जूरी अध्यक्ष:</b> आशुतोष गोवारिकर (फिल्म निर्माता)</li>
+            </ul>
+        </section>
+
+        <section class="english-content">
+            <div class="question-box">
+                <h3>🧠 MCQs for Practice</h3>
+                <p><b>1. Which of the following films won the Best Feature Film at the 71st National Film Awards (2023)?</b></p>
+                <p class="mcq-option">A. Sam Bahadur</p>
+                <p class="mcq-option correct">B. 12th Fail</p>
+                <p class="mcq-option">C. The Kerala Story</p>
+                <p class="mcq-option">D. Jawan</p>
+                <br>
+                <p><b>2. Shah Rukh Khan won his first National Film Award for which of the following films?</b></p>
+                <p class="mcq-option">A. My Name is Khan</p>
+                <p class="mcq-option">B. Pathaan</p>
+                <p class="mcq-option correct">C. Jawan</p>
+                <p class="mcq-option">D. Raees</p>
+                <br>
+                <p><b>3. Which director won the Best Direction award at the 71st National Film Awards?</b></p>
+                <p class="mcq-option">A. Karan Johar</p>
+                <p class="mcq-option correct">B. Sudipto Sen</p>
+                <p class="mcq-option">C. Meghna Gulzar</p>
+                <p class="mcq-option">D. Ashutosh Gowariker</p>
+                <br>
+                <p><b>4. The award for Best Popular Film Providing Wholesome Entertainment was awarded to:</b></p>
+                <p class="mcq-option">A. Animal</p>
+                <p class="mcq-option">B. Sam Bahadur</p>
+                <p class="mcq-option correct">C. Rocky Aur Rani Kii Prem Kahaani</p>
+                <p class="mcq-option">D. Jawan</p>
+                <br>
+                <p><b>5. Who among the following won the Best Actress award at the 71st National Film Awards?</b></p>
+                <p class="mcq-option">A. Alia Bhatt</p>
+                <p class="mcq-option correct">B. Rani Mukerji</p>
+                <p class="mcq-option">C. Deepika Padukone</p>
+                <p class="mcq-option">D. Sanya Malhotra</p>
+                <br>
+                <p><b>6. ‘Hanu-Man’ won awards in which of the following categories?</b></p>
+                <ol>
+                    <li class="mcq-option">1. Best Film in AVGC</li>
+                    <li class="mcq-option">2. Best Choreography</li>
+                    <li class="mcq-option">3. Best Action Direction</li>
+                    <li class="mcq-option">4. Best Sound Design</li>
+                </ol>
+                <p class="mcq-option">A. 1 and 2 only</p>
+                <p class="mcq-option correct">B. 1 and 3 only</p>
+                <p class="mcq-option">C. 2 and 4 only</p>
+                <p class="mcq-option">D. 1, 3, and 4 only</p>
+                <br>
+                <p><b>7. Match the following Playback Singers with their Songs:</b></p>
+                <p>a. Shilpa Rao &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; i. Chaliya</p>
+                <p>b. P V N S Rohit &nbsp;&nbsp;&nbsp;&nbsp; ii. Premisthunna</p>
+                <p>Options:</p>
+                <p class="mcq-option">A. a–ii, b–i</p>
+                <p class="mcq-option correct">B. a–i, b–ii</p>
+                <p class="mcq-option">C. a–i, b–i</p>
+                <p class="mcq-option">D. a–ii, b–ii</p>
+            </div>
+        </section>
+
+        <section class="hindi-content">
+            <div class="question-box">
+                <h3>🧠 अभ्यास के लिए MCQ</h3>
+                <p><b>1. 71वें राष्ट्रीय फिल्म पुरस्कार (2023) में निम्नलिखित में से किस फिल्म ने सर्वश्रेष्ठ फीचर फिल्म का पुरस्कार जीता?</b></p>
+                <p class="mcq-option">A. Sam Bahadur</p>
+                <p class="mcq-option correct">B. 12th Fail</p>
+                <p class="mcq-option">C. The Kerala Story</p>
+                <p class="mcq-option">D. Jawan</p>
+                <br>
+                <p><b>2. शाहरुख खान ने अपनी पहली राष्ट्रीय फिल्म पुरस्कार किस फिल्म के लिए जीता?</b></p>
+                <p class="mcq-option">A. My Name is Khan</p>
+                <p class="mcq-option">B. Pathaan</p>
+                <p class="mcq-option correct">C. Jawan</p>
+                <p class="mcq-option">D. Raees</p>
+                <br>
+                <p><b>3. 71वें राष्ट्रीय फिल्म पुरस्कार में किस निर्देशक ने सर्वश्रेष्ठ निर्देशन का पुरस्कार जीता?</b></p>
+                <p class="mcq-option">A. करण जौहर</p>
+                <p class="mcq-option correct">B. सुदीप्तो सेन</p>
+                <p class="mcq-option">C. मेघना गुलजार</p>
+                <p class="mcq-option">D. आशुतोष गोवारिकर</p>
+                <br>
+                <p><b>4. संपूर्ण मनोरंजन प्रदान करने वाली सर्वश्रेष्ठ लोकप्रिय फिल्म का पुरस्कार किसे दिया गया?</b></p>
+                <p class="mcq-option">A. Animal</p>
+                <p class="mcq-option">B. Sam Bahadur</p>
+                <p class="mcq-option correct">C. Rocky Aur Rani Kii Prem Kahaani</p>
+                <p class="mcq-option">D. Jawan</p>
+                <br>
+                <p><b>5. 71वें राष्ट्रीय फिल्म पुरस्कार में निम्नलिखित में से किसने सर्वश्रेष्ठ अभिनेत्री का पुरस्कार जीता?</b></p>
+                <p class="mcq-option">A. आलिया भट्ट</p>
+                <p class="mcq-option correct">B. रानी मुखर्जी</p>
+                <p class="mcq-option">C. दीपिका पादुकोण</p>
+                <p class="mcq-option">D. सान्या मल्होत्रा</p>
+                <br>
+                <p><b>6. ‘Hanu-Man’ ने निम्नलिखित में से किन श्रेणियों में पुरस्कार जीते?</b></p>
+                <ol>
+                    <li class="mcq-option">1. AVGC में सर्वश्रेष्ठ फिल्म</li>
+                    <li class="mcq-option">2. सर्वश्रेष्ठ कोरियोग्राफी</li>
+                    <li class="mcq-option">3. सर्वश्रेष्ठ एक्शन निर्देशन</li>
+                    <li class="mcq-option">4. सर्वश्रेष्ठ साउंड डिज़ाइन</li>
+                </ol>
+                <p class="mcq-option">A. केवल 1 और 2</p>
+                <p class="mcq-option correct">B. केवल 1 और 3</p>
+                <p class="mcq-option">C. केवल 2 और 4</p>
+                <p class="mcq-option">D. केवल 1, 3 और 4</p>
+                <br>
+                <p><b>7. निम्नलिखित पार्श्व गायकों का उनके गीतों से मिलान करें:</b></p>
+                <p>a. शिल्पा राव &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; i. Chaliya</p>
+                <p>b. पी.वी.एन.एस. रोहित &nbsp;&nbsp; ii. Premisthunna</p>
+                <p>विकल्प:</p>
+                <p class="mcq-option">A. a–ii, b–i</p>
+                <p class="mcq-option correct">B. a–i, b–ii</p>
+                <p class="mcq-option">C. a–i, b–i</p>
+                <p class="mcq-option">D. a–ii, b–ii</p>
+            </div>
+        </section>
+    </main>
+</div>
+
+<a href="index.html" class="back-home-button">Back to Home</a>
+
+<button class="float-button" id="scrollToTopBtn" title="Go to top">↑</button>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const langToggle = document.getElementById('language-toggle');
+        const body = document.body;
+        const scrollBtn = document.getElementById('scrollToTopBtn');
+
+        function setLanguage(lang) {
+            if (lang === 'hi') {
+                body.classList.remove('lang-en');
+                body.classList.add('lang-hi');
+                langToggle.checked = true;
+            } else {
+                body.classList.remove('lang-hi');
+                body.classList.add('lang-en');
+                langToggle.checked = false;
+            }
+        }
+
+        langToggle.addEventListener('change', (event) => {
+            const lang = event.target.checked ? 'hi' : 'en';
+            setLanguage(lang);
+            localStorage.setItem('lang', lang);
+        });
+        
+        const savedLang = localStorage.getItem('lang') || 'en';
+        setLanguage(savedLang);
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollBtn.style.display = 'flex';
+            } else {
+                scrollBtn.style.display = 'none';
+            }
+        });
+
+        scrollBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+</body>
+</html>
