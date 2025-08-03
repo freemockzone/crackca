@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hindu - 03-Aug-25</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;0,1700;1,900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<style>
+:root {
+--primary-bg: #fdfdfd;
+--secondary-bg: #ffffff;
+--text-color: #333;
+--accent-color: #4CAF50;
+--hover-bg: #e8f5e9;
+--header-bg: #ffffff;
+--nav-bg: #4CAF50;
+--nav-text: #ffffff;
+--border-color: #ddd;
+--box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+    body {
+        font-family: 'Noto Sans', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: var(--primary-bg);
+        color: var(--text-color);
+        line-height: 1.6;
+    }
+
+    header {
+        background-color: var(--header-bg);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        padding: 1rem;
+        text-align: center;
+    }
+
+    header h1 {
+        margin: 0;
+        font-size: 1.5rem;
+        color: var(--accent-color);
+    }
+
+    .line {
+        padding: 0.5rem 1rem;
+        margin: 0.5rem 0;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .line:hover {
+        background-color: var(--hover-bg);
+    }
+
+    nav {
+        background-color: var(--nav-bg);
+        box-shadow: var(--box-shadow);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    nav li a {
+        display: block;
+        padding: 1rem 1.5rem;
+        color: var(--nav-text);
+        text-decoration: none;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+    }
+
+    nav li a:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: var(--secondary-bg);
+        box-shadow: var(--box-shadow);
+        border-radius: 8px;
+    }
+
+    article {
+        font-family: 'Merriweather', serif;
+    }
+
+    article h1 {
+        color: #333;
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+
+    .article-meta {
+        font-size: 0.9rem;
+        color: #666;
+        margin-bottom: 1.5rem;
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 1rem;
+    }
+
+    .article-meta span {
+        margin-right: 1rem;
+        display: block;
+    }
+
+    .article-meta .read-time {
+        color: var(--accent-color);
+        font-weight: bold;
+        margin-top: 0.5rem;
+    }
+
+    h2,
+    h3,
+    h4 {
+        color: var(--accent-color);
+        border-left: 4px solid var(--accent-color);
+        padding-left: 10px;
+        margin-top: 2rem;
+    }
+
+    p,
+    ul,
+    ol {
+        margin-bottom: 1rem;
+    }
+
+    strong {
+        font-weight: 700;
+    }
+
+    em {
+        font-style: italic;
+    }
+
+    ul,
+    ol {
+        padding-left: 20px;
+    }
+
+    .lang-switch-btn {
+        background-color: var(--accent-color);
+        color: #fff;
+        border: none;
+        padding: 0.75rem 1.25rem;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+        margin-bottom: 1rem;
+    }
+
+    .lang-switch-btn:hover {
+        background-color: #388e3c;
+    }
+
+    .scroll-top-btn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: var(--accent-color);
+        color: var(--nav-text);
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        display: none;
+        box-shadow: var(--box-shadow);
+        transition: background-color 0.3s ease;
+        z-index: 1000;
+    }
+
+    .scroll-top-btn:hover {
+        background-color: #388e3c;
+    }
+
+    .back-home-btn {
+        display: block;
+        width: 100%;
+        text-align: center;
+        background-color: var(--accent-color);
+        color: var(--nav-text);
+        padding: 1rem;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        margin-top: 2rem;
+        transition: background-color 0.3s ease;
+    }
+
+    .back-home-btn:hover {
+        background-color: #388e3c;
+    }
+
+    footer {
+        text-align: center;
+        padding: 1rem;
+        color: #777;
+        font-size: 0.9rem;
+        border-top: 1px solid var(--border-color);
+        margin-top: 2rem;
+    }
+
+    .hindi-content {
+        display: none;
+    }
+
+    .hindi-line {
+        font-family: 'Noto Sans', sans-serif;
+        font-size: 1.1rem;
+        color: #555;
+    }
+
+    @media (max-width: 600px) {
+        .container {
+            padding: 10px;
+            margin: 10px;
+        }
+
+        nav ul {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        nav li a {
+            padding: 0.75rem 1rem;
+        }
+
+        header h1 {
+            font-size: 1.2rem;
+        }
+    }
+</style>
+</head>
+
+<body>
+<header>
+<h1>03-August-2025</h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="donation.html">Donation</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+<main class="container">
+    <button class="lang-switch-btn" id="lang-switch-btn">Switch to Hindi</button>
+    <article id="article-content">
+        <header>
+            <h1>Discovery of Portuguese-era Arsenal in Goa</h1>
+            <div class="article-meta">
+                <span class="source">Source: Indian Express</span>
+                <span class="date">Publication Date: 03-August-2025</span>
+                <span class="read-time" id="read-time"></span>
+                <span class="subject">Subject: GS Paper I - Indian History, Art & Culture; GS Paper II - Governance, Heritage; GS Paper III - Science & Technology, Archaeological Discoveries</span>
+            </div>
+        </header>
+
+        <section class="english-content">
+            <p class="line"><strong>Topic:</strong> Discovery of Portuguese-era Arsenal in Goa</p>
+            <p class="line"><strong>Context:</strong> The discovery of cannonballs during an excavation in Old Goa has confirmed the location of a significant Portuguese arsenal that also housed a mint and naval dockyard. This discovery provides new insights into the region's colonial history.</p>
+
+            <section>
+                <h2 class="line">1. The Discovery</h2>
+                <ul>
+                    <li class="line"><em><strong>What:</strong></em> Cannonballs of various sizes, weights, and materials. Also found pottery and porcelain sherds.</li>
+                    <li class="line"><em><strong>Where:</strong></em> Old Goa, at a site west of the Basilica of Bom Jesus.</li>
+                    <li class="line"><em><strong>When:</strong></em> March 2025, during excavation work for a tourism project.</li>
+                    <li class="line"><em><strong>Who:</strong></em> The Archaeological Survey of India (ASI) Goa circle directed the Goa Tourism Development Corporation (GTDC) to halt work after the discovery.</li>
+                    <li class="line"><em><strong>Significance:</strong></em> The discovery confirms the location of a historically documented Portuguese-era arsenal, mint, naval dockyard, and gun foundry.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="line">2. The Portuguese Arsenal</h2>
+                <ul>
+                    <li class="line"><em><strong>Location:</strong></em> Lies within the city walls of Old Goa, the capital of <em>Estado da India</em>.</li>
+                    <li class="line"><em><strong>Historical Origins:</strong></em>
+                        <ul>
+                            <li class="line">The ASI report suggests the arsenal may have predated the Portuguese conquest, existing during the <strong>Adil Shahi period</strong>.</li>
+                            <li class="line">It was a prominent edifice even before the arrival of <strong>Afonso de Albuquerque</strong>.</li>
+                        </ul>
+                    </li>
+                    <li class="line"><em><strong>Development under Portuguese Rule:</strong></em>
+                        <ul>
+                            <li class="line"><em><strong>Early 16th Century:</strong></em> Albuquerque initiated the complex's development after conquering Goa in 1510.</li>
+                            <li class="line"><em><strong>1540:</strong></em> Employed about 700 workers.</li>
+                            <li class="line"><em><strong>Late 16th Century:</strong></em> The arsenal reached its zenith.</li>
+                            <li class="line"><em><strong>1608:</strong></em> French navigator Francois Pyrard de Laval described it as "well-fortified and equipped with stone-built rooms for artisans."</li>
+                        </ul>
+                    </li>
+                    <li class="line"><em><strong>Functions:</strong></em>
+                        <ul>
+                            <li class="line"><em><strong>Arsenal:</strong></em> Storing and manufacturing European weaponry and naval equipment.</li>
+                            <li class="line"><em><strong>Gun Foundry:</strong></em> Manufacturing cannons.</li>
+                            <li class="line"><em><strong>Naval Dockyard:</strong></em> Building and repairing warships.</li>
+                            <li class="line"><em><strong>Mint:</strong></em> Coining gold, silver, and copper money. Albuquerque established the mint to address a currency shortage.</li>
+                            <li class="line"><em><strong>Elephant Stable:</strong></em> Historical accounts mention stables with 160 horses.</li>
+                        </ul>
+                    </li>
+                    <li class="line"><em><strong>Decline:</strong></em>
+                        <ul>
+                            <li class="line"><em><strong>1753:</strong></em> A major fire damaged part of the arsenal.</li>
+                            <li class="line"><em><strong>1773:</strong></em> Renovated and expanded.</li>
+                            <li class="line"><em><strong>1856:</strong></em> Lost importance with the decline of Portuguese influence and was eventually closed.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="line">3. Insights from the Discovery and Historical Accounts</h2>
+                <ul>
+                    <li class="line"><em><strong>Portuguese Weaponry:</strong></em>
+                        <ul>
+                            <li class="line"><em><strong>Cannons:</strong></em> Typically smaller in size, could be mounted on ships or land, but had a limited range.</li>
+                            <li class="line"><em><strong>Cannonballs:</strong></em> Stone cannonballs were used because they splintered upon impact, causing more damage than metal ones.</li>
+                        </ul>
+                    </li>
+                    <li class="line"><em><strong>City Planning:</strong></em> The arsenal was a walled enclosure within the walled city of Old Goa, guarded by Portuguese soldiers.</li>
+                    <li class="line"><em><strong>Historical Sources:</strong></em>
+                        <ul>
+                            <li class="line"><strong>Frederick Charles Danvers's book, *The Portuguese in India*:</strong> Documents the vast stores of artillery, ships, and other materials Albuquerque found upon conquering Goa.</li>
+                            <li class="line"><strong>Portuguese maritime and colonial historians:</strong> Their accounts have been corroborated by this discovery.</li>
+                        </ul>
+                    </li>
+                    <li class="line"><em><strong>Archaeological Potential:</strong></em> The ASI report highlights that the area has significant archaeological potential, and future work is likely to reveal more "cultural vestiges."</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3 class="line">Potential Questions for UPSC Prelims/Mains:</h3>
+                <ul>
+                    <li class="line"><em><strong>Prelims:</strong></em>
+                        <ul>
+                            <li class="line">Who was Afonso de Albuquerque? What was his role in the Portuguese conquest of Goa?</li>
+                            <li class="line">What was the "Estado da India"?</li>
+                            <li class="line">Who were the Adil Shahis? What was their relationship with Goa before the Portuguese conquest?</li>
+                            <li class="line">What is the significance of the Basilica of Bom Jesus in Old Goa?</li>
+                            <li class="line">What is the role of the Archaeological Survey of India (ASI)?</li>
+                        </ul>
+                    </li>
+                    <li class="line"><em><strong>Mains:</strong></em>
+                        <ul>
+                            <li class="line">"Discuss the significance of the recent archaeological discovery in Goa in understanding the military and economic strategy of the Portuguese in India. How do such findings contribute to the historiography of colonial rule?"</li>
+                            <li class="line">"Examine the role of fortified port cities like Old Goa in the expansion of European colonial powers in the Indian subcontinent. How did the military and economic infrastructure of these cities facilitate colonial control?"</li>
+                            <li class="line">"Trace the evolution of Portuguese colonial architecture and urban planning in India, with a specific focus on their administrative and military installations."</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+        </section>
+
+        <section class="hindi-content">
+            <p class="hindi-line" lang="hi"><strong>विषय:</strong> गोवा में पुर्तगाली युग के शस्त्रागार की खोज</p>
+            <p class="hindi-line" lang="hi"><strong>संदर्भ:</strong> पुराने गोवा में एक खुदाई के दौरान तोप के गोले मिलने से एक महत्वपूर्ण पुर्तगाली शस्त्रागार के स्थान की पुष्टि हुई है, जिसमें एक टकसाल और नौसेना गोदी भी थी। यह खोज इस क्षेत्र के औपनिवेशिक इतिहास के बारे में नई जानकारी प्रदान करती है।</p>
+
+            <section>
+                <h2 class="hindi-line" lang="hi">1. खोज</h2>
+                <ul>
+                    <li class="hindi-line" lang="hi"><em><strong>क्या:</strong></em> विभिन्न आकार, वज़न और सामग्री के तोप के गोले। मिट्टी के बर्तन और चीनी मिट्टी के टुकड़े भी मिले।</li>
+                    <li class="hindi-line" lang="hi"><em><strong>कहाँ:</strong></em> पुराना गोवा, बोम जीसस बेसिलिका के पश्चिम में एक स्थान पर।</li>
+                    <li class="hindi-line" lang="hi"><em><strong>कब:</strong></em> मार्च 2025, एक पर्यटन परियोजना के लिए खुदाई कार्य के दौरान।</li>
+                    <li class="hindi-line" lang="hi"><em><strong>कौन:</strong></em> भारतीय पुरातत्व सर्वेक्षण (एएसआई) गोवा सर्कल ने इस खोज के बाद गोवा पर्यटन विकास निगम (जीटीडीसी) को काम रोकने का निर्देश दिया।</li>
+                    <li class="hindi-line" lang="hi"><em><strong>महत्व:</strong></em> यह खोज ऐतिहासिक रूप से प्रलेखित पुर्तगाली युग के शस्त्रागार, टकसाल, नौसैनिक गोदी और तोप ढलाईघर के स्थान की पुष्टि करती है।</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="hindi-line" lang="hi">2. पुर्तगाली शस्त्रागार</h2>
+                <ul>
+                    <li class="hindi-line" lang="hi"><em><strong>स्थान:</strong></em> यह *एस्टाडो दा इंडिया* की राजधानी, पुराने गोवा की शहर की दीवारों के भीतर स्थित है।</li>
+                    <li class="hindi-line" lang="hi"><em><strong>ऐतिहासिक उत्पत्ति:</strong></em>
+                        <ul>
+                            <li class="hindi-line" lang="hi">एएसआई रिपोर्ट से पता चलता है कि यह शस्त्रागार पुर्तगाली विजय से पहले का हो सकता है, जो <strong>आदिल शाही काल</strong> के दौरान मौजूद था।</li>
+                            <li class="hindi-line" lang="hi"><strong>अफोंसो डी अल्बुकर्क</strong> के आगमन से पहले भी यह एक प्रमुख इमारत थी।</li>
+                        </ul>
+                    </li>
+                    <li class="hindi-line" lang="hi"><em><strong>पुर्तगाली शासन के तहत विकास:</strong></em>
+                        <ul>
+                            <li class="hindi-line" lang="hi"><em><strong>16वीं शताब्दी की शुरुआत:</strong></em> अल्बुकर्क ने 1510 में गोवा पर विजय प्राप्त करने के बाद इस परिसर के विकास की शुरुआत की।</li>
+                            <li class="hindi-line" lang="hi"><em><strong>1540:</strong></em> इसमें लगभग 700 कर्मचारी कार्यरत थे।</li>
+                            <li class="hindi-line" lang="hi"><em><strong>16वीं शताब्दी के उत्तरार्ध में:</strong></em> शस्त्रागार अपने चरमोत्कर्ष पर पहुँच गया।</li>
+                            <li class="hindi-line" lang="hi"><em><strong>1608:</strong></em> फ्रांसीसी नाविक फ्रांस्वा पिरार्ड डी लावल ने इसे "अच्छी तरह से किलाबंद और कारीगरों के लिए पत्थर से बने कमरों से सुसज्जित" बताया।</li>
+                        </ul>
+                    </li>
+                    <li class="hindi-line" lang="hi"><em><strong>कार्य:</strong></em>
+                        <ul>
+                            <li class="hindi-line" lang="hi"><em><strong>शस्त्रागार:</strong></em> यूरोपीय हथियारों और नौसैनिक उपकरणों का भंडारण और निर्माण।</li>
+                            <li class="hindi-line" lang="hi"><em><strong>बंदूक ढलाई:</strong></em> तोपों का निर्माण।</li>
+                            <li class="hindi-line" lang="hi"><em><strong>नौसेना गोदी:</strong></em> युद्धपोतों का निर्माण और मरम्मत।</li>
+                            <li class="hindi-line" lang="hi"><em><strong>टकसाल:</strong></em> सोने, चाँदी और ताँबे के सिक्के बनाना। अल्बुकर्क ने मुद्रा की कमी को दूर करने के लिए टकसाल की स्थापना की।</li>
+                            <li class="hindi-line" lang="hi"><em><strong>हाथी अस्तबल:</strong></em> ऐतिहासिक विवरणों में 160 घोड़ों वाले अस्तबल का उल्लेख है।</li>
+                        </ul>
+                    </li>
+                    <li class="hindi-line" lang="hi"><em><strong>पतन:</strong></em>
+                        <ul>
+                            <li class="hindi-line" lang="hi"><em><strong>1753:</strong></em> एक भीषण आग ने शस्त्रागार के एक हिस्से को क्षतिग्रस्त कर दिया।</li>
+                            <li class="hindi-line" lang="hi"><em><strong>1773:</strong></em> जीर्णोद्धार और विस्तार किया गया।</li>
+                            <li class="hindi-line" lang="hi"><em><strong>1856:</strong></em> पुर्तगाली प्रभाव के कम होने के साथ इसका महत्व कम हो गया और अंततः इसे बंद कर दिया गया।</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="hindi-line" lang="hi">3. खोज और ऐतिहासिक विवरणों से अंतर्दृष्टि</h2>
+                <ul>
+                    <li class="hindi-line" lang="hi"><em><strong>पुर्तगाली हथियार:</strong></em>
+                        <ul>
+                            <li class="hindi-line" lang="hi"><em><strong>तोपें:</strong></em> आमतौर पर आकार में छोटी होती थीं, इन्हें जहाजों या ज़मीन पर लगाया जा सकता था, लेकिन इनकी मारक क्षमता सीमित थी।</li>
+                            <li class="hindi-line" lang="hi"><em><strong>तोप के गोले:</strong></em> पत्थर के तोप के गोले इस्तेमाल किए जाते थे क्योंकि टकराने पर ये टूट जाते थे और धातु के तोपों की तुलना में ज़्यादा नुकसान पहुँचाते थे।</li>
+                        </ul>
+                    </li>
+                    <li class="hindi-line" lang="hi"><em><strong>नगर नियोजन:</strong></em> शस्त्रागार पुराने गोवा के चारदीवारी वाले शहर के भीतर एक चारदीवारी वाला घेरा था, जिसकी सुरक्षा पुर्तगाली सैनिक करते थे।</li>
+                    <li class="hindi-line" lang="hi"><em><strong>ऐतिहासिक स्रोत:</strong></em>
+                        <ul>
+                            <li class="hindi-line" lang="hi"><strong>फ्रेडरिक चार्ल्स डेनवर्स की पुस्तक, *भारत में पुर्तगाली*:</strong> गोवा पर विजय प्राप्त करने के बाद अल्बुकर्क को मिले तोपखाने, जहाजों और अन्य सामग्रियों के विशाल भंडार का दस्तावेजीकरण करती है।</li>
+                            <li class="hindi-line" lang="hi"><strong>पुर्तगाली समुद्री और औपनिवेशिक इतिहासकार:</strong> इस खोज से उनके विवरण पुष्ट हुए हैं।</li>
+                        </ul>
+                    </li>
+                    <li class="hindi-line" lang="hi"><em><strong>पुरातात्विक संभावना:</strong></em> एएसआई की रिपोर्ट इस बात पर प्रकाश डालती है कि इस क्षेत्र में महत्वपूर्ण पुरातात्विक क्षमता है, और भविष्य में किए जाने वाले कार्यों से और अधिक "सांस्कृतिक अवशेष" सामने आने की संभावना है।</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3 class="hindi-line" lang="hi">यूपीएससी प्रारंभिक/मुख्य परीक्षा के लिए संभावित प्रश्न:</h3>
+                <ul>
+                    <li class="hindi-line" lang="hi"><em><strong>प्रारंभिक परीक्षा:</strong></em>
+                        <ul>
+                            <li class="hindi-line" lang="hi">अफोंसो डी अल्बुकर्क कौन थे? गोवा पर पुर्तगाली विजय में उनकी क्या भूमिका थी?</li>
+                            <li class="hindi-line" lang="hi">"एस्टाडो दा इंडिया" क्या था?</li>
+                            <li class="hindi-line" lang="hi">आदिल शाही कौन थे? पुर्तगाली विजय से पहले गोवा के साथ उनका क्या संबंध था?</li>
+                            <li class="hindi-line" lang="hi">पुराने गोवा में बोम जीसस बेसिलिका का क्या महत्व है?</li>
+                            <li class="hindi-line" lang="hi">भारतीय पुरातत्व सर्वेक्षण (एएसआई) की क्या भूमिका है?</li>
+                        </ul>
+                    </li>
+                    <li class="hindi-line" lang="hi"><em><strong>मुख्य परीक्षा:</strong></em>
+                        <ul>
+                            <li class="hindi-line" lang="hi">"भारत में पुर्तगालियों की सैन्य और आर्थिक रणनीति को समझने में गोवा में हाल ही में हुई पुरातात्विक खोज के महत्व पर चर्चा कीजिए। ऐसी खोजें औपनिवेशिक शासन के इतिहासलेखन में कैसे योगदान देती हैं?"</li>
+                            <li class="hindi-line" lang="hi">"भारतीय उपमहाद्वीप में यूरोपीय औपनिवेशिक शक्तियों के विस्तार में पुराने गोवा जैसे किलेबंद बंदरगाह शहरों की भूमिका का परीक्षण कीजिए। इन शहरों के सैन्य और आर्थिक बुनियादी ढाँचे ने औपनिवेशिक नियंत्रण को कैसे सुगम बनाया?"</li>
+                            <li class="hindi-line" lang="hi">"भारत में पुर्तगाली औपनिवेशिक वास्तुकला और शहरी नियोजन के विकास का पता लगाइए, विशेष रूप से उनके प्रशासनिक और सैन्य प्रतिष्ठानों पर ध्यान केंद्रित करते हुए।"</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+        </section>
+
+        <a href="index.html" class="back-home-btn">Back to Home</a>
+    </article>
+</main>
+
+<footer>
+    <p>&copy; 2025 Crack Current Affairs (CrackCA). All rights reserved.</p>
+</footer>
+
+<button class="scroll-top-btn" id="scroll-top-btn" title="Scroll to Top">&#8679;</button>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const articleContent = document.getElementById('article-content');
+        const englishContent = articleContent.querySelector('.english-content');
+        const hindiContent = articleContent.querySelector('.hindi-content');
+        const langSwitchBtn = document.getElementById('lang-switch-btn');
+        const scrollTopBtn = document.getElementById('scroll-top-btn');
+
+        let isEnglish = true;
+        langSwitchBtn.addEventListener('click', () => {
+            isEnglish = !isEnglish;
+            if (isEnglish) {
+                englishContent.style.display = 'block';
+                hindiContent.style.display = 'none';
+                langSwitchBtn.textContent = 'Switch to Hindi';
+            } else {
+                englishContent.style.display = 'none';
+                hindiContent.style.display = 'block';
+                langSwitchBtn.textContent = 'Switch to English';
+            }
+        });
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollTopBtn.style.display = 'block';
+            } else {
+                scrollTopBtn.style.display = 'none';
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        const calculateReadTime = () => {
+            const text = englishContent.textContent;
+            const wordsPerMinute = 200;
+            const wordCount = text.split(/\s+/).length;
+            const readTimeMinutes = Math.ceil(wordCount / wordsPerMinute);
+            document.getElementById('read-time').textContent = `Read Time: ${readTimeMinutes} min`;
+        };
+        calculateReadTime();
+    });
+</script>
+</body>
+
+</html>

@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hindu - 03-Aug-25</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3f51b5;
+            --secondary-color: #ff9800;
+            --background-color: #f0f4f8;
+            --text-color: #333;
+            --highlight-color: #e8eaf6;
+            --hover-color: #e3f2fd;
+            --font-family-body: 'Noto Sans', sans-serif;
+            --font-family-heading: 'Merriweather', serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-family-body);
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            padding-top: 60px;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            background-color: var(--primary-color);
+        }
+
+        header h1 {
+            font-family: var(--font-family-heading);
+            font-size: 1.5rem;
+            margin: 0;
+            color: white;
+        }
+
+        nav {
+            background-color: var(--secondary-color);
+            text-align: right;
+            padding: 0.5rem 1rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            display: inline-block;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #ffb74d;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        article header {
+            position: static;
+            background-color: transparent;
+            color: var(--text-color);
+            padding: 0;
+            text-align: left;
+            box-shadow: none;
+            margin-bottom: 1.5rem;
+        }
+
+        article h2 {
+            font-family: var(--font-family-heading);
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+            color: var(--primary-color);
+        }
+
+        .meta-info {
+            font-size: 0.9rem;
+            color: #777;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .meta-info span {
+            padding: 0 5px;
+        }
+
+        .meta-info .read-time {
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
+        .line {
+            display: block;
+            padding: 0.5rem;
+            margin: 0.2rem 0;
+            transition: background-color 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .line:hover {
+            background-color: var(--hover-color);
+        }
+
+        .line p {
+            margin: 0;
+        }
+
+        h3,
+        h4 {
+            font-family: var(--font-family-heading);
+            color: var(--primary-color);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+        }
+
+        h4 {
+            font-size: 1.2rem;
+            border-bottom: none;
+        }
+
+        .line ul,
+        .line ol {
+            padding-left: 2rem;
+        }
+
+        .line ul li,
+        .line ol li {
+            margin-bottom: 0.5rem;
+        }
+
+        .line ul li::marker {
+            color: var(--primary-color);
+        }
+
+        .lang-hi {
+            color: #555;
+            font-style: italic;
+        }
+
+        .contact-us-link {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .contact-us-link a {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .contact-us-link a:hover {
+            background-color: #ffb74d;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+            position: relative;
+        }
+
+        .footer-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-button {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .footer-button:hover {
+            background-color: #ffb74d;
+        }
+        
+        #scrollToTopBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99;
+            font-size: 1.5rem;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 10px 15px;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: opacity 0.3s;
+        }
+
+        #scrollToTopBtn:hover {
+            background-color: #ffb74d;
+        }
+        
+        #langSwitchBtn {
+            position: fixed;
+            top: 150px; /* Adjust as needed */
+            right: 20px; /* Adjust as needed */
+            z-index: 99;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s;
+        }
+        
+        #langSwitchBtn:hover {
+            background-color: #5c6bc0;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 100px;
+            }
+
+            .header-top {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .header-top h1 {
+                margin-bottom: 0.5rem;
+            }
+
+            nav {
+                text-align: center;
+                padding: 0.5rem 0;
+            }
+
+            nav a {
+                padding: 0.5rem;
+            }
+
+            .container {
+                margin: 1rem auto;
+                padding: 0.5rem;
+            }
+
+            article h2 {
+                font-size: 1.5rem;
+            }
+
+            h3 {
+                font-size: 1.3rem;
+            }
+
+            #scrollToTopBtn {
+                bottom: 10px;
+                right: 10px;
+                font-size: 1rem;
+                padding: 8px 12px;
+            }
+            
+            #langSwitchBtn {
+                top: 110px;
+                right: 10px;
+            }
+        }
+        
+        .line .eng {
+            font-size: 1rem;
+            font-weight: normal;
+        }
+        
+        .line .hin {
+            font-size: 0.9rem;
+            font-style: italic;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-top">
+            <h1>03-August-2025</h1>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="donation.html">Donation</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+    
+    <button id="langSwitchBtn">Switch to Hindi</button>
+
+    <main class="container">
+        <article>
+            <header>
+                <h2>How to Deal with the Hepatitis A Virus</h2>
+                <div class="meta-info">
+                    <span>Source: Indian Express</span>
+                    <span>Publication Date: 03-August-2025</span>
+                    <span class="read-time">Read Time: <span id="readTime"></span> min</span>
+                </div>
+            </header>
+
+            <section class="article-content">
+                <div class="line" data-lang="en">
+                    <h3>Why in the News?</h3>
+                    <p class="eng">With the onset of the monsoon season, there is a surge in water-borne diseases like Hepatitis A. The article addresses the challenges of diagnosis due to overlapping symptoms with other infections and provides a comprehensive guide on managing the disease, its prevention, and dietary recommendations for recovery.</p>
+                </div>
+                <div class="line lang-hi" data-lang="hi">
+                    <h3 class="hin">खबरों में क्यों?</h3>
+                    <p class="hin">मानसून के मौसम की शुरुआत के साथ, हेपेटाइटिस ए जैसी जल जनित बीमारियों में तेज़ी से वृद्धि होती है। यह लेख अन्य संक्रमणों के साथ लक्षणों के मेल के कारण निदान की चुनौतियों पर चर्चा करता है और रोग के प्रबंधन, उसकी रोकथाम और स्वास्थ्य लाभ के लिए आहार संबंधी सुझावों पर एक व्यापक मार्गदर्शिका प्रदान करता है।</p>
+                </div>
+
+                <hr>
+
+                <div class="line" data-lang="en">
+                    <h3>Hepatitis A: A Medical and Public Health Perspective</h3>
+                    <h4>1. What is Hepatitis A?</h4>
+                    <ul>
+                        <li><p class="eng"><strong>Nature:</strong> A viral infection that affects the liver.</p></li>
+                        <li><p class="eng"><strong>Transmission:</strong> Primarily through contaminated food and water.</p></li>
+                        <li><p class="eng"><strong>Symptoms:</strong></p>
+                            <ul>
+                                <li><p class="eng"><strong>Early Stage:</strong> Overlaps with other gastrointestinal diseases (loose motions, vomiting, loss of appetite) and may include high fever, headache, and body ache (similar to vector-borne diseases).</p></li>
+                                <li><p class="eng"><strong>Later Stage:</strong> Characterized by jaundice (yellowing of the skin and eyes) due to the accumulation of <strong>bilirubin</strong>, a yellow pigment that the liver fails to clear.</p></li>
+                            </ul>
+                        </li>
+                        <li><p class="eng"><strong>Prognosis:</strong> Most people recover within 4 to 16 weeks. However, in rare cases, it can lead to severe complications like liver failure and coma. It is a self-limiting infection, meaning the body's immune system clears the virus.</p></li>
+                    </ul>
+                </div>
+                <div class="line lang-hi" data-lang="hi">
+                    <h3 class="hin">हेपेटाइटिस ए: एक चिकित्सा और जन स्वास्थ्य परिप्रेक्ष्य</h3>
+                    <h4 class="hin">1. हेपेटाइटिस ए क्या है?</h4>
+                    <ul>
+                        <li><p class="hin"><strong>प्रकृति:</strong> एक वायरल संक्रमण जो यकृत को प्रभावित करता है।</p></li>
+                        <li><p class="hin"><strong>संचरण:</strong> मुख्य रूप से दूषित भोजन और पानी के माध्यम से।</p></li>
+                        <li><p class="hin"><strong>लक्षण:</strong></p>
+                            <ul>
+                                <li><p class="hin"><strong>प्रारंभिक चरण:</strong> अन्य जठरांत्र रोगों (दस्त, उल्टी, भूख न लगना) के साथ मेल खाता है और इसमें तेज़ बुखार, सिरदर्द और शरीर में दर्द (वेक्टर जनित रोगों के समान) शामिल हो सकते हैं।</p></li>
+                                <li><p class="hin"><strong>बाद का चरण:</strong> <strong>बिलीरुबिन</strong> के संचय के कारण पीलिया (त्वचा और आँखों का पीला पड़ना) की विशेषता, एक पीला रंगद्रव्य जिसे यकृत साफ़ नहीं कर पाता।</p></li>
+                            </ul>
+                        </li>
+                        <li><p class="hin"><strong>रोग का निदान:</strong> अधिकांश लोग 4 से 16 हफ़्तों के भीतर ठीक हो जाते हैं। हालाँकि, दुर्लभ मामलों में, यह यकृत विफलता और कोमा जैसी गंभीर जटिलताओं का कारण बन सकता है। यह एक स्व-सीमित संक्रमण है, जिसका अर्थ है कि शरीर की प्रतिरक्षा प्रणाली वायरस को साफ़ कर देती है।</p></li>
+                    </ul>
+                </div>
+
+                <hr>
+
+                <div class="line" data-lang="en">
+                    <h4>2. Diagnosis and Medical Management</h4>
+                    <ul>
+                        <li><p class="eng"><strong>Importance of Early Diagnosis:</strong> Early symptoms are non-specific, making proper diagnosis crucial to avoid complications.</p></li>
+                        <li><p class="eng"><strong>Diagnostic Tests:</strong></p>
+                            <ul>
+                                <li><p class="eng"><strong>Complete Blood Count (CBC):</strong> To assess overall health and detect signs of infection.</p></li>
+                                <li><p class="eng"><strong>Liver Enzyme Test:</strong> Elevated levels (e.g., 3,000 IU/L against a normal range of 7-55 IU/L) are a key indicator of liver inflammation.</p></li>
+                                <li><p class="eng"><strong>C-Reactive Protein (CRP):</strong> Indicates inflammation in the body.</p></li>
+                                <li><p class="eng"><strong>Specific Tests:</strong> Doctors may also test for dengue, malaria, typhoid, and in some cases, urinary tract infections (UTI).</p></li>
+                            </ul>
+                        </li>
+                        <li><p class="eng"><strong>Treatment Protocol:</strong></p>
+                            <ul>
+                                <li><p class="eng"><strong>Rest and Fluids:</strong> Essential for the body to recover.</p></li>
+                                <li><p class="eng"><strong>Symptomatic Relief:</strong> Paracetamol and anti-vomiting pills can be taken.</p></li>
+                                <li><p class="eng"><strong>Strict No-Nos:</strong></p>
+                                    <ul>
+                                        <li><p class="eng"><strong>NSAIDs (Non-Steroidal Anti-Inflammatory Drugs):</strong> Medications like diclofenac or mefenamic acid should be avoided, especially if dengue is a possibility, as they can increase the risk of bleeding.</p></li>
+                                        <li><p class="eng"><strong>Antibiotics:</strong> Ineffective against viral infections and contribute to <strong>antimicrobial resistance</strong>. They can also interfere with diagnostic tests.</p></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="line lang-hi" data-lang="hi">
+                    <h4 class="hin">2. निदान और चिकित्सा प्रबंधन</h4>
+                    <ul>
+                        <li><p class="hin"><strong>शीघ्र निदान का महत्व:</strong> प्रारंभिक लक्षण विशिष्ट नहीं होते हैं, इसलिए जटिलताओं से बचने के लिए उचित निदान महत्वपूर्ण है।</p></li>
+                        <li><p class="hin"><strong>नैदानिक परीक्षण:</strong></p>
+                            <ul>
+                                <li><p class="hin"><strong>पूर्ण रक्त गणना (सीबीसी):</strong> समग्र स्वास्थ्य का आकलन करने और संक्रमण के लक्षणों का पता लगाने के लिए।</p></li>
+                                <li><p class="hin"><strong>लिवर एंजाइम परीक्षण:</strong> उच्च स्तर (उदाहरण के लिए, 7-55 IU/L की सामान्य सीमा के मुकाबले 3,000 IU/L) लिवर में सूजन का एक प्रमुख संकेतक हैं।</p></li>
+                                <li><p class="hin"><strong>सी-रिएक्टिव प्रोटीन (सीआरपी):</strong> शरीर में सूजन का संकेत देता है।</p></li>
+                                <li><p class="hin"><strong>विशिष्ट परीक्षण:</strong> डॉक्टर डेंगू, मलेरिया, टाइफाइड और कुछ मामलों में मूत्र मार्ग में संक्रमण (यूटीआई) की भी जाँच कर सकते हैं।</p></li>
+                            </ul>
+                        </li>
+                        <li><p class="hin"><strong>उपचार प्रोटोकॉल:</strong></p>
+                            <ul>
+                                <li><p class="hin"><strong>आराम और तरल पदार्थ:</strong> शरीर के ठीक होने के लिए आवश्यक।</p></li>
+                                <li><p class="hin"><strong>लक्षणों से राहत:</strong> पैरासिटामोल और उल्टी-रोधी गोलियाँ ली जा सकती हैं।</p></li>
+                                <li><p class="hin"><strong>सख्त मनाही:</strong></p>
+                                    <ul>
+                                        <li><p class="hin"><strong>एनएसएआईडी (गैर-स्टेरायडल एंटी-इंफ्लेमेटरी ड्रग्स):</strong> डाइक्लोफेनाक या मेफेनेमिक एसिड जैसी दवाओं से बचना चाहिए, खासकर अगर डेंगू होने की संभावना हो, क्योंकि ये रक्तस्राव के जोखिम को बढ़ा सकती हैं।</p></li>
+                                        <li><p class="hin"><strong>एंटीबायोटिक्स:</strong> वायरल संक्रमणों के खिलाफ अप्रभावी और <strong>एंटीमाइक्रोबियल प्रतिरोध</strong> में योगदान करते हैं। ये नैदानिक परीक्षणों में भी बाधा डाल सकते हैं।</p></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <hr>
+
+                <div class="line" data-lang="en">
+                    <h4>3. Diet and Recovery</h4>
+                    <ul>
+                        <li><p class="eng"><strong>Dispelling Myths:</strong> It is a myth that a patient must eat bland, boiled food.</p></li>
+                        <li><p class="eng"><strong>Dietary Recommendations:</strong></p>
+                            <ul>
+                                <li><p class="eng"><strong>Hydration:</strong> Drink plenty of fluids (boiled and filtered water).</p></li>
+                                <li><p class="eng"><strong>Small, Frequent Meals:</strong> To match the reduced appetite often seen in hepatitis patients.</p></li>
+                                <li><p class="eng"><strong>Nutrient Focus:</strong></p>
+                                    <ul>
+                                        <li><p class="eng"><strong>Protein:</strong> Essential for liver cell regeneration (e.g., eggs, milk, paneer).</p></li>
+                                        <li><p class="eng"><strong>Fats:</strong> Good fats from refined, olive, or nut oils in moderation. Ghee can be used to improve appetite.</p></li>
+                                        <li><p class="eng"><strong>Carbohydrates:</strong> Important for regenerating liver cells.</p></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><p class="eng"><strong>Long-Term Discipline:</strong> A disciplined diet and lifestyle must be maintained for at least six months to prevent a relapse.</p></li>
+                    </ul>
+                </div>
+                <div class="line lang-hi" data-lang="hi">
+                    <h4 class="hin">3. आहार और स्वास्थ्य लाभ</h4>
+                    <ul>
+                        <li><p class="hin"><strong>मिथकों का खंडन:</strong> यह एक मिथक है कि रोगी को सादा, उबला हुआ भोजन ही खाना चाहिए।</p></li>
+                        <li><p class="hin"><strong>आहार संबंधी सुझाव:</strong></p>
+                            <ul>
+                                <li><p class="hin"><strong>जलयोजन:</strong> खूब सारे तरल पदार्थ (उबला और फ़िल्टर किया हुआ पानी) पिएं।</p></li>
+                                <li><p class="hin"><strong>थोड़े-थोड़े, बार-बार भोजन:</strong> हेपेटाइटिस के रोगियों में अक्सर देखी जाने वाली कम भूख को संतुलित करने के लिए।</p></li>
+                                <li><p class="hin"><strong>पोषक तत्वों पर ध्यान:</strong></p>
+                                    <ul>
+                                        <li><p class="hin"><strong>प्रोटीन:</strong> यकृत कोशिकाओं के पुनर्जनन के लिए आवश्यक (जैसे, अंडे, दूध, पनीर)।</p></li>
+                                        <li><p class="hin"><strong>वसा:</strong> रिफाइंड, जैतून या अखरोट के तेल से प्राप्त अच्छे वसा, सीमित मात्रा में। भूख बढ़ाने के लिए घी का उपयोग किया जा सकता है।</p></li>
+                                        <li><p class="hin"><strong>कार्बोहाइड्रेट:</strong> यकृत कोशिकाओं के पुनर्जनन के लिए महत्वपूर्ण।</p></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><p class="hin"><strong>दीर्घकालिक अनुशासन:</strong> पुनरावृत्ति को रोकने के लिए कम से कम छह महीने तक एक अनुशासित आहार और जीवनशैली बनाए रखना आवश्यक है।</p></li>
+                    </ul>
+                </div>
+
+                <hr>
+
+                <div class="line" data-lang="en">
+                    <h4>4. Prevention</h4>
+                    <ul>
+                        <li><p class="eng"><strong>Hygiene:</strong></p>
+                            <ul>
+                                <li><p class="eng"><strong>Hand Hygiene:</strong> Wash hands thoroughly.</p></li>
+                                <li><p class="eng"><strong>Water Safety:</strong> Drink only filtered and boiled water, and use it for cooking.</p></li>
+                                <li><p class="eng"><strong>Food Safety:</strong> Wash fruits and vegetables thoroughly. Avoid raw or undercooked foods.</p></li>
+                            </ul>
+                        </li>
+                        <li><p class="eng"><strong>Avoidance of Contaminated Sources:</strong> Avoid street food, pre-cut fruits, and ice drinks from roadside vendors or certain restaurants.</p></li>
+                        <li><p class="eng"><strong>Vaccination:</strong></p>
+                            <ul>
+                                <li><p class="eng"><strong>Types of Hepatitis Viruses:</strong> There are five types (A, B, C, D, E).</p></li>
+                                <li><p class="eng"><strong>Vaccine Availability:</strong> Vaccines are available for Hepatitis A and B. A vaccine for Hepatitis C does not exist, but an effective antiviral treatment is available.</p></li>
+                                <li><p class="eng"><strong>Who should get the Hepatitis A vaccine?</strong></p>
+                                    <ul>
+                                        <li><p class="eng">Children</p></li>
+                                        <li><p class="eng">Students living in hostels</p></li>
+                                        <li><p class="eng">People who frequently eat out</p></li>
+                                        <li><p class="eng">Immunocompromised individuals (those with heart disease, liver/kidney disease, diabetes, cancer, HIV, or organ transplants).</p></li>
+                                    </ul>
+                                </li>
+                                <li><p class="eng"><strong>Immunity:</strong> A person who has had Hepatitis A is immune for life. However, Hepatitis E can occur multiple times.</p></li>
+                                <li><p class="eng"><strong>Pregnancy Risk:</strong> Hepatitis E infection in pregnant women can lead to severe complications, including maternal mortality.</p></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="line lang-hi" data-lang="hi">
+                    <h4 class="hin">4. रोकथाम</h4>
+                    <ul>
+                        <li><p class="hin"><strong>स्वच्छता:</strong></p>
+                            <ul>
+                                <li><p class="hin"><strong>हाथों की स्वच्छता:</strong> हाथों को अच्छी तरह धोएँ।</p></li>
+                                <li><p class="hin"><strong>जल सुरक्षा:</strong> केवल फ़िल्टर किया हुआ और उबला हुआ पानी पिएँ, और खाना पकाने के लिए इसका उपयोग करें।</p></li>
+                                <li><p class="hin"><strong>खाद्य सुरक्षा:</strong> फलों और सब्जियों को अच्छी तरह धोएँ। कच्चे या अधपके खाद्य पदार्थों से बचें।</p></li>
+                            </ul>
+                        </li>
+                        <li><p class="hin"><strong>दूषित स्रोतों से बचें:</strong> सड़क किनारे के ठेलों या कुछ रेस्टोरेंट से मिलने वाले स्ट्रीट फ़ूड, पहले से कटे हुए फल और आइस ड्रिंक्स से बचें।</p></li>
+                        <li><p class="hin"><strong>टीकाकरण:</strong></p>
+                            <ul>
+                                <li><p class="hin"><strong>हेपेटाइटिस वायरस के प्रकार:</strong> इसके पाँच प्रकार (A, B, C, D, E) हैं।</p></li>
+                                <li><p class="hin"><strong>टीके की उपलब्धता:</strong> हेपेटाइटिस A और B के लिए टीके उपलब्ध हैं। हेपेटाइटिस C के लिए कोई टीका उपलब्ध नहीं है, लेकिन एक प्रभावी एंटीवायरल उपचार उपलब्ध है।</p></li>
+                                <li><p class="hin"><strong>हेपेटाइटिस A का टीका किसे लगवाना चाहिए?</strong></p>
+                                    <ul>
+                                        <li><p class="hin">बच्चे</p></li>
+                                        <li><p class="hin">छात्रावासों में रहने वाले छात्र</p></li>
+                                        <li><p class="hin">जो लोग अक्सर बाहर खाना खाते हैं</p></li>
+                                        <li><p class="hin">कमज़ोर प्रतिरक्षा वाले व्यक्ति (हृदय रोग, यकृत/गुर्दे की बीमारी, मधुमेह, कैंसर, एचआईवी या अंग प्रत्यारोपण वाले लोग)।</p></li>
+                                    </ul>
+                                </li>
+                                <li><p class="hin"><strong>प्रतिरक्षा:</strong> हेपेटाइटिस A से पीड़ित व्यक्ति जीवन भर के लिए प्रतिरक्षित हो जाता है। हालाँकि, हेपेटाइटिस E कई बार हो सकता है।</p></li>
+                                <li><p class="hin"><strong>गर्भावस्था जोखिम:</strong> गर्भवती महिलाओं में हेपेटाइटिस ई संक्रमण से गंभीर जटिलताएँ हो सकती हैं, जिनमें मातृ मृत्यु भी शामिल है।</p></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <hr>
+                <div class="line" data-lang="en">
+                    <h3>Potential Questions for UPSC Prelims/Mains:</h3>
+                    <h4>Prelims:</h4>
+                    <ul>
+                        <li><p class="eng">What are the modes of transmission for Hepatitis A and Hepatitis E?</p></li>
+                        <li><p class="eng">What is the difference in transmission for Hepatitis B, C, and D?</p></li>
+                        <li><p class="eng">What is bilirubin, and what is its role in liver function?</p></li>
+                        <li><p class="eng">What is antimicrobial resistance, and how do antibiotics contribute to it in viral infections?</p></li>
+                        <li><p class="eng">Who is recommended to take the Hepatitis A vaccine in India?</p></li>
+                    </ul>
+                    <h4>Mains:</h4>
+                    <ul>
+                        <li><p class="eng">"Discuss the public health challenges posed by water-borne diseases like Hepatitis A in India, especially during the monsoon season. What preventive measures and healthcare strategies are required to mitigate their impact?"</p></li>
+                        <li><p class="eng">"Examine the concept of antimicrobial resistance and its implications for public health in India. What steps can be taken to promote responsible antibiotic use and combat this growing threat?"</p></li>
+                        <li><p class="eng">"Write a note on the importance of food safety and sanitation in preventing the spread of communicable diseases."</p></li>
+                    </ul>
+                </div>
+                <div class="line lang-hi" data-lang="hi">
+                    <h3 class="hin">यूपीएससी प्रारंभिक/मुख्य परीक्षा के लिए संभावित प्रश्न:</h3>
+                    <h4 class="hin">प्रारंभिक परीक्षा:</h4>
+                    <ul>
+                        <li><p class="hin">हेपेटाइटिस ए और हेपेटाइटिस ई के संचरण के तरीके क्या हैं?</p></li>
+                        <li><p class="hin">हेपेटाइटिस बी, सी और डी के संचरण में क्या अंतर है?</p></li>
+                        <li><p class="hin">बिलीरुबिन क्या है और यकृत के कार्य में इसकी क्या भूमिका है?</p></li>
+                        <li><p class="hin">रोगाणुरोधी प्रतिरोध क्या है और वायरल संक्रमणों में एंटीबायोटिक्स इसमें कैसे योगदान करते हैं?</p></li>
+                        <li><p class="hin">भारत में हेपेटाइटिस ए का टीका किसे लगवाने की सलाह दी जाती है?</p></li>
+                    </ul>
+                    <h4 class="hin">मुख्य परीक्षा:</h4>
+                    <ul>
+                        <li><p class="hin">"भारत में, विशेष रूप से मानसून के मौसम में, हेपेटाइटिस ए जैसी जल जनित बीमारियों से उत्पन्न जन स्वास्थ्य चुनौतियों पर चर्चा करें। उनके प्रभाव को कम करने के लिए कौन से निवारक उपाय और स्वास्थ्य देखभाल रणनीतियाँ आवश्यक हैं?"</p></li>
+                        <li><p class="hin">"भारत में रोगाणुरोधी प्रतिरोध की अवधारणा और जन स्वास्थ्य पर इसके प्रभावों का परीक्षण करें। ज़िम्मेदार एंटीबायोटिक उपयोग को बढ़ावा देने और इस बढ़ते खतरे से निपटने के लिए क्या कदम उठाए जा सकते हैं?"</p></li>
+                        <li><p class="hin">"संचारी रोगों के प्रसार को रोकने में खाद्य सुरक्षा और स्वच्छता के महत्व पर एक टिप्पणी लिखें।"</p></li>
+                    </ul>
+                </div>
+            </section>
+            
+            <div class="contact-us-link">
+                <p>Contact us on WhatsApp: <a href="https://wa.me/918168305050" target="_blank">+91-8168305050</a></p>
+            </div>
+            
+        </article>
+    </main>
+
+    <footer>
+        <div class="footer-buttons">
+            <a href="index.html" class="footer-button">Back to Home</a>
+        </div>
+        <p>© 2025 Crack Current Affairs (CrackCA). All rights reserved.</p>
+    </footer>
+    
+    <button id="scrollToTopBtn" title="Go to top">↑</button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const articleContent = document.querySelector('.article-content');
+            const langSwitchBtn = document.getElementById('langSwitchBtn');
+            const lines = document.querySelectorAll('.line');
+            const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+            let isEnglish = true;
+
+            // Read Time Calculation
+            const englishContent = Array.from(lines)
+                .filter(line => line.dataset.lang === 'en')
+                .map(line => line.textContent)
+                .join(' ');
+            const wordCount = englishContent.split(/\s+/).filter(word => word.length > 0).length;
+            const readTime = Math.ceil(wordCount / 200);
+            document.getElementById('readTime').textContent = readTime;
+            
+            // Initial display
+            lines.forEach(line => {
+                if (line.dataset.lang === 'hi') {
+                    line.style.display = 'none';
+                }
+            });
+
+            // Language Switch functionality
+            langSwitchBtn.addEventListener('click', () => {
+                isEnglish = !isEnglish;
+                langSwitchBtn.textContent = isEnglish ? 'Switch to Hindi' : 'Switch to English';
+                
+                lines.forEach(line => {
+                    if (isEnglish) {
+                        line.style.display = (line.dataset.lang === 'en') ? 'block' : 'none';
+                    } else {
+                        line.style.display = (line.dataset.lang === 'hi') ? 'block' : 'none';
+                    }
+                });
+            });
+
+            // Scroll to Top Button functionality
+            window.onscroll = () => {
+                if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                    scrollToTopBtn.style.display = 'block';
+                } else {
+                    scrollToTopBtn.style.display = 'none';
+                }
+            };
+
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Italicize content inside asterisks
+            lines.forEach(line => {
+                line.innerHTML = line.innerHTML.replace(/\*(.*?)\*/g, '<i>$1</i>');
+            });
+        });
+    </script>
+
+</body>
+
+</html>

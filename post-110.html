@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hindu - 03-Aug-25</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<style>
+:root {
+--primary-bg: #fdfdfd;
+--secondary-bg: #ffffff;
+--text-color: #333;
+--accent-color: #4CAF50;
+--hover-bg: #f0f0f0;
+--header-bg: #ffffff;
+--nav-bg: #4CAF50;
+--nav-text: #ffffff;
+--border-color: #ddd;
+--box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+    /* Light and Colorful Theme */
+    body {
+        font-family: 'Noto Sans', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: var(--primary-bg);
+        color: var(--text-color);
+        line-height: 1.6;
+    }
+
+    header {
+        background-color: var(--header-bg);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        padding: 1rem;
+        text-align: center;
+    }
+
+    header h1 {
+        margin: 0;
+        font-size: 1.5rem;
+        color: var(--accent-color);
+    }
+
+    .line {
+        padding: 0.5rem 1rem;
+        margin: 0.5rem 0;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .line:hover {
+        background-color: var(--hover-bg);
+    }
+
+    nav {
+        background-color: var(--nav-bg);
+        box-shadow: var(--box-shadow);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    nav li a {
+        display: block;
+        padding: 1rem 1.5rem;
+        color: var(--nav-text);
+        text-decoration: none;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+    }
+
+    nav li a:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: var(--secondary-bg);
+        box-shadow: var(--box-shadow);
+        border-radius: 8px;
+    }
+
+    article {
+        font-family: 'Merriweather', serif;
+    }
+
+    article h1 {
+        color: #333;
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+
+    .article-meta {
+        font-size: 0.9rem;
+        color: #666;
+        margin-bottom: 1.5rem;
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 1rem;
+    }
+
+    .article-meta span {
+        margin-right: 1rem;
+        display: block;
+    }
+    
+    .article-meta .read-time {
+        color: #007BFF;
+        font-weight: bold;
+        margin-top: 0.5rem;
+    }
+
+    h2, h3, h4 {
+        color: var(--accent-color);
+        border-left: 4px solid var(--accent-color);
+        padding-left: 10px;
+        margin-top: 2rem;
+    }
+
+    p, ul, ol {
+        margin-bottom: 1rem;
+    }
+
+    strong {
+        font-weight: 700;
+    }
+
+    em {
+        font-style: italic;
+    }
+
+    ul, ol {
+        padding-left: 20px;
+    }
+
+    .lang-switch-btn {
+        background-color: #007BFF;
+        color: #fff;
+        border: none;
+        padding: 0.75rem 1.25rem;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+        margin-bottom: 1rem;
+    }
+
+    .lang-switch-btn:hover {
+        background-color: #0056b3;
+    }
+
+    .scroll-top-btn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: var(--accent-color);
+        color: var(--nav-text);
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        display: none;
+        box-shadow: var(--box-shadow);
+        transition: background-color 0.3s ease;
+        z-index: 1000;
+    }
+
+    .scroll-top-btn:hover {
+        background-color: #45a049;
+    }
+
+    .back-home-btn {
+        display: block;
+        width: 100%;
+        text-align: center;
+        background-color: var(--accent-color);
+        color: var(--nav-text);
+        padding: 1rem;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        margin-top: 2rem;
+        transition: background-color 0.3s ease;
+    }
+
+    .back-home-btn:hover {
+        background-color: #45a049;
+    }
+
+    footer {
+        text-align: center;
+        padding: 1rem;
+        color: #777;
+        font-size: 0.9rem;
+        border-top: 1px solid var(--border-color);
+        margin-top: 2rem;
+    }
+
+    .hindi-content {
+        display: none;
+    }
+    
+    .hindi-line {
+         font-family: 'Noto Sans', sans-serif;
+         font-size: 1.1rem;
+         color: #555;
+    }
+
+
+    /* Mobile-first responsive design */
+    @media (max-width: 600px) {
+        .container {
+            padding: 10px;
+            margin: 10px;
+        }
+
+        nav ul {
+            flex-direction: column;
+            text-align: center;
+        }
+        
+        nav li a {
+            padding: 0.75rem 1rem;
+        }
+
+        header h1 {
+            font-size: 1.2rem;
+        }
+    }
+</style>
+</head>
+
+<body>
+<header>
+<h1>03-August-2025</h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="donation.html">Donation</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+<main class="container">
+    <button class="lang-switch-btn" id="lang-switch-btn">Switch to Hindi</button>
+    <article id="article-content">
+        <header>
+            <h1>Wind Energy Development and its Environmental Impact in India</h1>
+            <div class="article-meta">
+                <span class="source">Source: The Hindu</span>
+                <span class="date">Publication Date: 03-August-2025</span>
+                <span class="read-time" id="read-time"></span>
+                <span class="subject">Subject: GS Paper III - Environment, Conservation, Ecology, Infrastructure</span>
+            </div>
+        </header>
+
+        <section class="english-content">
+            <p class="line"><strong>Topic:</strong> Wind Energy Development and its Environmental Impact in India</p>
+            <p class="line"><strong>Context:</strong> India's rapid expansion of wind energy infrastructure to meet climate goals, with a focus on the environmental consequences, particularly on avian species.</p>
+
+            <section>
+                <h2 class="line">1. Wind Energy Sector in India</h2>
+                <ul>
+                    <li class="line"><em><strong>Growth & Capacity (H1 2025):</strong></em> Added ~3.5 GW, an 82% YoY growth.</li>
+                    <li class="line"><em><strong>Total Installed Capacity:</strong></em> 51.3 GW.</li>
+                    <li class="line"><em><strong>Potential:</strong></em> 1163.9 GW at 150m above ground level (as per National Institute of Wind Energy).</li>
+                    <li class="line"><em><strong>Driving Factors:</strong></em> Ambitious climate goals and surging energy demands.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="line">2. Avian Mortality at Wind Farms: The Thar Desert Case Study</h2>
+                <ul>
+                    <li class="line"><em><strong>Source:</strong></em> A recent study by the Wildlife Institute of India (WII), published in *Scientific Reports*.</li>
+                    <li class="line"><em><strong>Location:</strong></em> 3,000 sq. km desert landscape in Jaisalmer, Rajasthan.</li>
+                    <li class="line"><em><strong>Infrastructure:</strong></em> ~900 wind turbines.</li>
+                    <li class="line"><em><strong>Biodiversity:</strong></em> 272 bird species, including the critically endangered <strong>Great Indian Bustard (Ardeotis nigriceps)</strong>.</li>
+                    <li class="line"><em><strong>Methodology:</strong></em>
+                        <ul>
+                            <li class="line">Surveyed a 150-m radius around 90 randomly selected turbines.</li>
+                            <li class="line">Conducted seven multi-season surveys.</li>
+                            <li class="line">Found 124 bird carcasses.</li>
+                            <li class="line">Used control sites (28 randomly selected sites between 500-2,000m from any turbine) to account for natural mortality; no carcasses found at these sites.</li>
+                        </ul>
+                    </li>
+                    <li class="line"><em><strong>Key Findings:</strong></em>
+                        <ul>
+                            <li class="line"><em><strong>Estimated Annual Mortality Rate:</strong></em> 4,464 birds per 1,000 sq. km (after correcting for non-detection and scavenging).</li>
+                            <li class="line"><em><strong>Highest in the World:</strong></em> The study estimates the highest bird mortality rates at wind farms globally.</li>
+                            <li class="line"><em><strong>Per-Turbine Mortality:</strong></em> 1.24 bird deaths per turbine per month. This is significantly higher than previous studies.</li>
+                        </ul>
+                    </li>
+                    <li class="line"><em><strong>Comparison with Previous Studies:</strong></em>
+                        <ul>
+                            <li class="line">A 2019 study in Kutch and Davangere found 0.47 bird deaths per turbine per year.</li>
+                            <li class="line">The Thar study's rate is substantially higher, possibly due to:
+                                <ul>
+                                    <li class="line"><em><strong>Geographical factors:</strong></em> The Thar Desert's unique ecology.</li>
+                                    <li class="line"><em><strong>Seasonal variations.</strong></em></li>
+                                    <li class="line"><em><strong>Bird density and migration:</strong></em> Thar is part of the <strong>Central Asian Flyway</strong>.</li>
+                                    <li class="line"><em><strong>Infrastructure density and configuration.</strong></em></li>
+                                    <li class="line"><em><strong>Inclusion of power line collisions:</strong></em> The Thar study included deaths from collisions with power lines, unlike the 2019 study.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="line"><em><strong>Most Affected Species:</strong></em> <strong>Raptors</strong> were the most impacted group, consistent with global findings.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="line">3. Mitigation Measures & Solutions</h2>
+                <ul>
+                    <li class="line"><em><strong>Site Selection:</strong></em> The most crucial step, according to experts, is carefully choosing wind farm locations to avoid sensitive ecological areas (e.g., bird migration routes, habitats of endangered species).</li>
+                    <li class="line"><em><strong>Blade Painting:</strong></em> Painting one of the turbine blades to increase visibility for birds (proposed by organizations like Birdlife International).</li>
+                    <li class="line"><em><strong>Operational Curtailment:</strong></em> Shutting down turbines during peak bird activity hours or seasons.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="line">4. Offshore Wind Energy</h2>
+                <ul>
+                    <li class="line"><em><strong>Global Context:</strong></em> Growing resource, with ~83 GW of operational capacity globally.</li>
+                    <li class="line"><em><strong>India's Potential:</strong></em>
+                        <ul>
+                            <li class="line">Vast coastline (7,600 km).</li>
+                            <li class="line">Exclusive Economic Zones (2.3 million sq. km).</li>
+                            <li class="line"><em><strong>Target:</strong></em> 30 GW by 2030.</li>
+                        </ul>
+                    </li>
+                    <li class="line"><em><strong>Environmental Concerns:</strong></em> Limited research on environmental consequences.</li>
+                    <li class="line"><em><strong>Policy & Assessments:</strong></em>
+                        <ul>
+                            <li class="line"><em><strong>National Offshore Wind Energy Policy:</strong></em> Mandates Environmental Impact Assessments (EIAs).</li>
+                            <li class="line"><em><strong>Proposed Gulf of Khambhat Project:</strong></em>
+                                <ul>
+                                    <li class="line"><em><strong>Rapid EIA Findings:</strong></em> Identified marine mammals (dolphins, sharks) and reptiles.</li>
+                                    <li class="line"><em><strong>Impacts:</strong></em> Recognized increased turbidity and noise during construction as a potential threat to sensitive species.</li>
+                                    <li class="line"><em><strong>Operational Phase:</strong></em> Deemed noise and vibrations to be "limited."</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="line"><em><strong>Key Takeaway:</strong></em> Offshore wind energy requires detailed marine spatial planning to assess both environmental and social impacts effectively.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3 class="line">Potential Questions for UPSC Prelims/Mains:</h3>
+                <ul>
+                    <li class="line"><em><strong>Prelims:</strong></em>
+                        <ul>
+                            <li class="line">Critically endangered Great Indian Bustard (habitat, threats).</li>
+                            <li class="line">Central Asian Flyway (its importance and countries covered).</li>
+                            <li class="line">National Institute of Wind Energy (its role).</li>
+                            <li class="line">National Offshore Wind Energy Policy (key provisions).</li>
+                        </ul>
+                    </li>
+                    <li class="line"><em><strong>Mains:</strong></em>
+                        <ul>
+                            <li class="line">"Discuss the dual challenge of India's renewable energy expansion: balancing climate goals with environmental conservation, particularly in the context of wind energy."</li>
+                            <li class="line">"Examine the specific environmental impacts of wind farms on avian populations in India, using the Thar Desert study as a case example. Suggest mitigation strategies to address these concerns."</li>
+                            <li class="line">"Compare and contrast the environmental impact assessments and challenges for onshore vs. offshore wind energy development in India."</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+        </section>
+        
+        <section class="hindi-content">
+            <p class="hindi-line" lang="hi"><strong>विषय:</strong> भारत में पवन ऊर्जा विकास और उसका पर्यावरणीय प्रभाव</p>
+            <p class="hindi-line" lang="hi"><strong>संदर्भ:</strong> जलवायु लक्ष्यों को पूरा करने के लिए भारत द्वारा पवन ऊर्जा अवसंरचना का तेज़ी से विस्तार, पर्यावरणीय परिणामों, विशेष रूप से पक्षी प्रजातियों पर, पर ध्यान केंद्रित करते हुए।</p>
+
+            <section>
+                <h2 class="hindi-line" lang="hi">1. भारत में पवन ऊर्जा क्षेत्र</h2>
+                <ul>
+                    <li class="hindi-line" lang="hi"><em><strong>विकास और क्षमता (वर्ष 2025 की पहली छमाही):</strong></em> लगभग 3.5 गीगावाट की वृद्धि, जो वर्ष-दर-वर्ष 82% की वृद्धि है।</li>
+                    <li class="hindi-line" lang="hi"><em><strong>कुल स्थापित क्षमता:</strong></em> 51.3 गीगावाट।</li>
+                    <li class="hindi-line" lang="hi"><em><strong>संभावित:</strong></em> जमीनी स्तर से 150 मीटर ऊपर 1163.9 गीगावाट (राष्ट्रीय पवन ऊर्जा संस्थान के अनुसार)।</li>
+                    <li class="hindi-line" lang="hi"><em><strong>प्रेरक कारक:</strong></em> महत्वाकांक्षी जलवायु लक्ष्य और बढ़ती ऊर्जा माँग।</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="hindi-line" lang="hi">2. पवन फार्मों में पक्षियों की मृत्यु दर: थार रेगिस्तान का केस स्टडी</h2>
+                <ul>
+                    <li class="hindi-line" lang="hi"><em><strong>स्रोत:</strong></em> भारतीय वन्यजीव संस्थान (WII) द्वारा हाल ही में किया गया एक अध्ययन, जो *साइंटिफिक रिपोर्ट्स* में प्रकाशित हुआ है।</li>
+                    <li class="hindi-line" lang="hi"><em><strong>स्थान:</strong></em> राजस्थान के जैसलमेर में 3,000 वर्ग किलोमीटर का रेगिस्तानी भूभाग।</li>
+                    <li class="hindi-line" lang="hi"><em><strong>बुनियादी ढाँचा:</strong></em> लगभग 900 पवन टर्बाइन।</li>
+                    <li class="hindi-line" lang="hi"><em><strong>जैव विविधता:</strong></em> 272 पक्षी प्रजातियाँ, जिनमें गंभीर रूप से लुप्तप्राय <strong>ग्रेट इंडियन बस्टर्ड (आर्डियोटिस नाइग्रिसेप्स)</strong> शामिल है।</li>
+                    <li class="hindi-line" lang="hi"><em><strong>कार्यप्रणाली:</strong></em>
+                        <ul>
+                            <li class="hindi-line" lang="hi">90 यादृच्छिक रूप से चयनित टर्बाइनों के आसपास 150 मीटर के दायरे में सर्वेक्षण किया गया।</li>
+                            <li class="hindi-line" lang="hi">सात बहु-मौसमी सर्वेक्षण किए गए।</li>
+                            <li class="hindi-line" lang="hi">124 पक्षियों के शव पाए गए।</li>
+                            <li class="hindi-line" lang="hi">प्राकृतिक मृत्यु दर को ध्यान में रखने के लिए नियंत्रण स्थलों (किसी भी टर्बाइन से 500-2,000 मीटर के बीच 28 यादृच्छिक रूप से चयनित स्थल) का उपयोग किया गया; इन स्थलों पर कोई शव नहीं मिला।</li>
+                        </ul>
+                    </li>
+                    <li class="hindi-line" lang="hi"><em><strong>मुख्य निष्कर्ष:</strong></em>
+                        <ul>
+                            <li class="hindi-line" lang="hi"><em><strong>अनुमानित वार्षिक मृत्यु दर:</strong></em> प्रति 1,000 वर्ग किमी में 4,464 पक्षी (पता न लगने और मृत पक्षियों की खोज के बाद)</li>
+                            <li class="hindi-line" lang="hi"><em><strong>विश्व में सबसे अधिक:</strong></em> अध्ययन में दुनिया भर के पवन फार्मों में सबसे अधिक पक्षी मृत्यु दर का अनुमान लगाया गया है।</li>
+                            <li class="hindi-line" lang="hi"><em><strong>प्रति-टरबाइन मृत्यु दर:</strong></em> प्रति माह प्रति टरबाइन 1.24 पक्षी मृत्यु। यह पिछले अध्ययनों की तुलना में काफी अधिक है।</li>
+                        </ul>
+                    </li>
+                    <li class="hindi-line" lang="hi"><em><strong>पिछले अध्ययनों से तुलना:</strong></em>
+                        <ul>
+                            <li class="hindi-line" lang="hi">कच्छ और दावणगेरे में 2019 में किए गए एक अध्ययन में प्रति वर्ष प्रति टरबाइन 0.47 पक्षी मृत्यु पाई गई।</li>
+                            <li class="hindi-line" lang="hi">थार अध्ययन की दर काफी अधिक है, संभवतः इसके कारण:
+                                <ul>
+                                    <li class="hindi-line" lang="hi"><em><strong>भौगोलिक कारक:</strong></em> थार रेगिस्तान की अनूठी पारिस्थितिकी।</li>
+                                    <li class="hindi-line" lang="hi"><em><strong>मौसमी बदलाव।</strong></em></li>
+                                    <li class="hindi-line" lang="hi"><em><strong>पक्षी घनत्व और प्रवास:</strong></em> थार, <strong>मध्य एशियाई उड़ान मार्ग</strong> का हिस्सा है।</li>
+                                    <li class="hindi-line" lang="hi"><em><strong>बुनियादी ढाँचे का घनत्व और विन्यास।</strong></em></li>
+                                    <li class="hindi-line" lang="hi"><em><strong>बिजली लाइनों की टक्करों को शामिल करना:</strong></em> थार अध्ययन में 2019 के अध्ययन के विपरीत, बिजली लाइनों से टकराने से होने वाली मौतों को शामिल किया गया था।</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="hindi-line" lang="hi"><em><strong>सबसे अधिक प्रभावित प्रजातियाँ:</strong></em> <strong>शिकारी पक्षी</strong> सबसे अधिक प्रभावित समूह थे, जो वैश्विक निष्कर्षों के अनुरूप है।</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="hindi-line" lang="hi">3. शमन उपाय और समाधान</h2>
+                <ul>
+                    <li class="hindi-line" lang="hi"><em><strong>स्थान चयन:</strong></em> विशेषज्ञों के अनुसार, सबसे महत्वपूर्ण कदम संवेदनशील पारिस्थितिक क्षेत्रों (जैसे, पक्षियों के प्रवास मार्ग, लुप्तप्राय प्रजातियों के आवास) से बचने के लिए पवन फार्म के स्थानों का सावधानीपूर्वक चयन करना है।</li>
+                    <li class="hindi-line" lang="hi"><em><strong>ब्लेड पेंटिंग:</strong></em> पक्षियों की दृश्यता बढ़ाने के लिए टरबाइन के एक ब्लेड को पेंट करना (बर्डलाइफ इंटरनेशनल जैसे संगठनों द्वारा प्रस्तावित)।</li>
+                    <li class="hindi-line" lang="hi"><em><strong>परिचालन में कटौती:</strong></em> पक्षियों की गतिविधि के चरम घंटों या मौसमों के दौरान टर्बाइनों को बंद करना।</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="hindi-line" lang="hi">4. अपतटीय पवन ऊर्जा</h2>
+                <ul>
+                    <li class="hindi-line" lang="hi"><em><strong>वैश्विक संदर्भ:</strong></em> बढ़ता हुआ संसाधन, वैश्विक स्तर पर लगभग 83 गीगावाट की परिचालन क्षमता के साथ।</li>
+                    <li class="hindi-line" lang="hi"><em><strong>भारत की क्षमता:</strong></em>
+                        <ul>
+                            <li class="hindi-line" lang="hi">विशाल समुद्र तट (7,600 किमी)।</li>
+                            <li class="hindi-line" lang="hi">अनन्य आर्थिक क्षेत्र (2.3 मिलियन वर्ग किमी)।</li>
+                            <li class="hindi-line" lang="hi"><em><strong>लक्ष्य:</strong></em> 2030 तक 30 गीगावाट।</li>
+                        </ul>
+                    </li>
+                    <li class="hindi-line" lang="hi"><em><strong>पर्यावरण संबंधी चिंताएँ:</strong></em> पर्यावरणीय परिणामों पर सीमित शोध।</li>
+                    <li class="hindi-line" lang="hi"><em><strong>नीति और आकलन:</strong></em>
+                        <ul>
+                            <li class="hindi-line" lang="hi"><em><strong>राष्ट्रीय अपतटीय पवन ऊर्जा नीति:</strong></em> पर्यावरणीय प्रभाव आकलन (ईआईए) अनिवार्य करती है।</li>
+                            <li class="hindi-line" lang="hi"><em><strong>प्रस्तावित खंभात की खाड़ी परियोजना:</strong></em>
+                                <ul>
+                                    <li class="hindi-line" lang="hi"><em><strong>तीव्र ईआईए निष्कर्ष:</strong></em> समुद्री स्तनधारियों (डॉल्फ़िन, शार्क) और सरीसृपों की पहचान की गई।</li>
+                                    <li class="hindi-line" lang="hi"><em><strong>प्रभाव:</strong></em> निर्माण के दौरान बढ़ी हुई गंदलापन और शोर को संवेदनशील प्रजातियों के लिए संभावित ख़तरे के रूप में पहचाना गया।</li>
+                                    <li class="hindi-line" lang="hi"><em><strong>परिचालन चरण:</strong></em> शोर और कंपन को "सीमित" माना गया।</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="hindi-line" lang="hi"><em><strong>मुख्य निष्कर्ष:</strong></em> अपतटीय पवन ऊर्जा के पर्यावरणीय और सामाजिक प्रभावों का प्रभावी ढंग से आकलन करने के लिए विस्तृत समुद्री स्थानिक योजना की आवश्यकता होती है।</li>
+                </ul>
+            </section>
+            
+            <section>
+                <h3 class="hindi-line" lang="hi">यूपीएससी प्रारंभिक/मुख्य परीक्षा के लिए संभावित प्रश्न:</h3>
+                <ul>
+                    <li class="hindi-line" lang="hi"><em><strong>प्रारंभिक परीक्षा:</strong></em>
+                        <ul>
+                            <li class="hindi-line" lang="hi">गंभीर रूप से संकटग्रस्त ग्रेट इंडियन बस्टर्ड (आवास, ख़तरे)।</li>
+                            <li class="hindi-line" lang="hi">मध्य एशियाई फ्लाईवे (इसका महत्व और शामिल देश)।</li>
+                            <li class="hindi-line" lang="hi">राष्ट्रीय पवन ऊर्जा संस्थान (इसकी भूमिका)।</li>
+                            <li class="hindi-line" lang="hi">राष्ट्रीय अपतटीय पवन ऊर्जा नीति (प्रमुख प्रावधान)।</li>
+                        </ul>
+                    </li>
+                    <li class="hindi-line" lang="hi"><em><strong>मुख्य परीक्षा:</strong></em>
+                        <ul>
+                            <li class="hindi-line" lang="hi">"भारत के नवीकरणीय ऊर्जा विस्तार की दोहरी चुनौती पर चर्चा करें: जलवायु लक्ष्यों को पर्यावरण संरक्षण के साथ संतुलित करना, विशेष रूप से पवन ऊर्जा के संदर्भ में।"</li>
+                            <li class="hindi-line" lang="hi">"थार रेगिस्तान अध्ययन को एक उदाहरण के रूप में उपयोग करते हुए, भारत में पवन फार्मों के पक्षी आबादी पर विशिष्ट पर्यावरणीय प्रभावों का परीक्षण कीजिए। इन चिंताओं को दूर करने के लिए शमन रणनीतियों का सुझाव दीजिए।"</li>
+                            <li class="hindi-line" lang="hi">"भारत में तटीय बनाम अपतटीय पवन ऊर्जा विकास के पर्यावरणीय प्रभाव आकलन और चुनौतियों की तुलना और अंतर कीजिए।"</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+        </section>
+        
+        <a href="index.html" class="back-home-btn">Back to Home</a>
+    </article>
+</main>
+
+<footer>
+    <p>&copy; 2025 Crack Current Affairs (CrackCA). All rights reserved.</p>
+</footer>
+
+<button class="scroll-top-btn" id="scroll-top-btn" title="Scroll to Top">&#8679;</button>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const articleContent = document.getElementById('article-content');
+        const englishContent = articleContent.querySelector('.english-content');
+        const hindiContent = articleContent.querySelector('.hindi-content');
+        const langSwitchBtn = document.getElementById('lang-switch-btn');
+        const scrollTopBtn = document.getElementById('scroll-top-btn');
+
+        // Language Switch
+        let isEnglish = true;
+        langSwitchBtn.addEventListener('click', () => {
+            isEnglish = !isEnglish;
+            if (isEnglish) {
+                englishContent.style.display = 'block';
+                hindiContent.style.display = 'none';
+                langSwitchBtn.textContent = 'Switch to Hindi';
+            } else {
+                englishContent.style.display = 'none';
+                hindiContent.style.display = 'block';
+                langSwitchBtn.textContent = 'Switch to English';
+            }
+        });
+
+        // Scroll to Top button
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollTopBtn.style.display = 'block';
+            } else {
+                scrollTopBtn.style.display = 'none';
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Read Time Calculation
+        const calculateReadTime = () => {
+            const text = englishContent.textContent;
+            const wordsPerMinute = 200;
+            const wordCount = text.split(/\s+/).length;
+            const readTimeMinutes = Math.ceil(wordCount / wordsPerMinute);
+            document.getElementById('read-time').textContent = `Read Time: ${readTimeMinutes} min`;
+        };
+        calculateReadTime();
+    });
+</script>
+</body>
+
+</html>

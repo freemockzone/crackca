@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hindu - 03-Aug-25</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3f51b5;
+            --secondary-color: #ff9800;
+            --background-color: #f0f4f8;
+            --text-color: #333;
+            --highlight-color: #e8eaf6;
+            --hover-color: #e3f2fd;
+            --font-family-body: 'Noto Sans', sans-serif;
+            --font-family-heading: 'Merriweather', serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-family-body);
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            padding-top: 60px;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            background-color: var(--primary-color);
+        }
+
+        header h1 {
+            font-family: var(--font-family-heading);
+            font-size: 1.5rem;
+            margin: 0;
+            color: white;
+        }
+
+        nav {
+            background-color: var(--secondary-color);
+            text-align: right;
+            padding: 0.5rem 1rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            display: inline-block;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #ffb74d;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        article header {
+            position: static;
+            background-color: transparent;
+            color: var(--text-color);
+            padding: 0;
+            text-align: left;
+            box-shadow: none;
+            margin-bottom: 1.5rem;
+        }
+
+        article h2 {
+            font-family: var(--font-family-heading);
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+            color: var(--primary-color);
+        }
+
+        .meta-info {
+            font-size: 0.9rem;
+            color: #777;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .meta-info span {
+            padding: 0 5px;
+        }
+
+        .meta-info .read-time {
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
+        .line {
+            display: block;
+            padding: 0.5rem;
+            margin: 0.2rem 0;
+            transition: background-color 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .line:hover {
+            background-color: var(--hover-color);
+        }
+
+        .line p {
+            margin: 0;
+        }
+
+        h3,
+        h4 {
+            font-family: var(--font-family-heading);
+            color: var(--primary-color);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+        }
+
+        h4 {
+            font-size: 1.2rem;
+            border-bottom: none;
+        }
+
+        .line ul,
+        .line ol {
+            padding-left: 2rem;
+        }
+
+        .line ul li,
+        .line ol li {
+            margin-bottom: 0.5rem;
+        }
+
+        .line ul li::marker {
+            color: var(--primary-color);
+        }
+
+        .lang-hi {
+            color: #555;
+            font-style: italic;
+        }
+
+        .contact-us-link {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .contact-us-link a {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .contact-us-link a:hover {
+            background-color: #ffb74d;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+            position: relative;
+        }
+
+        .footer-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-button {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .footer-button:hover {
+            background-color: #ffb74d;
+        }
+        
+        #scrollToTopBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99;
+            font-size: 1.5rem;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 10px 15px;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: opacity 0.3s;
+        }
+
+        #scrollToTopBtn:hover {
+            background-color: #ffb74d;
+        }
+        
+        #langSwitchBtn {
+            position: fixed;
+            top: 150px; /* Adjust as needed */
+            right: 20px; /* Adjust as needed */
+            z-index: 99;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s;
+        }
+        
+        #langSwitchBtn:hover {
+            background-color: #5c6bc0;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 100px;
+            }
+
+            .header-top {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .header-top h1 {
+                margin-bottom: 0.5rem;
+            }
+
+            nav {
+                text-align: center;
+                padding: 0.5rem 0;
+            }
+
+            nav a {
+                padding: 0.5rem;
+            }
+
+            .container {
+                margin: 1rem auto;
+                padding: 0.5rem;
+            }
+
+            article h2 {
+                font-size: 1.5rem;
+            }
+
+            h3 {
+                font-size: 1.3rem;
+            }
+
+            #scrollToTopBtn {
+                bottom: 10px;
+                right: 10px;
+                font-size: 1rem;
+                padding: 8px 12px;
+            }
+            
+            #langSwitchBtn {
+                top: 110px;
+                right: 10px;
+            }
+        }
+        
+        .line .eng {
+            font-size: 1rem;
+            font-weight: normal;
+        }
+        
+        .line .hin {
+            font-size: 0.9rem;
+            font-style: italic;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-top">
+            <h1>03-August-2025</h1>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="donation.html">Donation</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+    
+    <button id="langSwitchBtn">Switch to Hindi</button>
+
+    <main class="container">
+        <article>
+            <header>
+                <h2>Chola Dynasty: A Critical Analysis for UPSC</h2>
+                <div class="meta-info">
+                    <span>Source: The Hindu</span>
+                    <span>Publication Date: 03-August-2025</span>
+                    <span class="read-time">Read Time: <span id="readTime"></span> min</span>
+                </div>
+            </header>
+
+            <section class="article-content">
+                <div class="line" data-lang="en">
+                    <h3>Why in the News?</h3>
+                    <p class="eng">The Chola dynasty has recently re-entered public discourse following Prime Minister Narendra Modi's visit to <strong>Gangaikonda Cholapuram</strong>, the former Chola capital. This has reignited interest in their legacy, with the government portraying them as an inspiration for a <strong>'Viksit Bharat'</strong> (developed India), highlighting their naval and economic achievements. This modern political framing prompts a re-evaluation of the Cholas, moving beyond romanticized narratives to a more critical historical analysis.</p>
+                </div>
+                <div class="line lang-hi" data-lang="hi">
+                    <h3 class="hin">खबरों में क्यों?</h3>
+                    <p class="hin">प्रधानमंत्री नरेंद्र मोदी की पूर्व चोल राजधानी <strong>गंगईकोंडा चोलपुरम</strong> की यात्रा के बाद, चोल राजवंश हाल ही में सार्वजनिक चर्चा में फिर से आया है। इससे उनकी विरासत में रुचि फिर से जागृत हुई है, सरकार उन्हें <strong>'विकसित भारत'</strong> (विकसित भारत) के लिए प्रेरणा के रूप में चित्रित कर रही है और उनकी नौसैनिक और आर्थिक उपलब्धियों पर प्रकाश डाल रही है। यह आधुनिक राजनीतिक रूपरेखा चोलों के पुनर्मूल्यांकन को प्रेरित करती है, जो रोमांटिक आख्यानों से आगे बढ़कर एक अधिक आलोचनात्मक ऐतिहासिक विश्लेषण की ओर ले जाती है।</p>
+                </div>
+
+                <hr>
+
+                <div class="line" data-lang="en">
+                    <h3>Chola Dynasty: A Critical Analysis for UPSC</h3>
+                    <h4>1. Periodisation and Key Rulers</h4>
+                    <ul>
+                        <li><p class="eng"><strong>Timeline:</strong> The Cholas are generally dated between the <strong>9th and 13th century AD</strong>. Some historians trace their origins back to the Sangam period (~350 BC), with a re-emergence in 850 AD.</p></li>
+                        <li><p class="eng"><strong>Founder:</strong> <strong>Vijayalaya</strong>, who, with Pallava approval, seized Thanjavur.</p></li>
+                        <li><p class="eng"><strong>Prominent Rulers:</strong></p>
+                            <ul>
+                                <li><p class="eng"><strong>Parantaka-I:</strong> Defeated the Pandyas and Pallavas.</p></li>
+                                <li><p class="eng"><strong>Rajaraja Chola-I</strong> (985-1014 AD): Known for his towering temples (Brihadeeswarar Temple at Thanjavur), administrative reforms, and conquests of northern Sri Lanka and the Maldives.</p></li>
+                                <li><p class="eng"><strong>Rajendra Chola-I</strong> (1014-1044 AD): Extended the empire north to the Ganges and launched a successful naval expedition to Southeast Asia against the *Srivijaya Empire*, which gave him the title 'Gangaikonda Chola' (the Chola who captured the Ganga).</p></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="line lang-hi" data-lang="hi">
+                    <h3 class="hin">चोल राजवंश: यूपीएससी के लिए एक आलोचनात्मक विश्लेषण</h3>
+                    <h4 class="hin">1. कालक्रम और प्रमुख शासक</h4>
+                    <ul>
+                        <li><p class="hin"><strong>समयरेखा:</strong> चोलों का काल सामान्यतः <strong>9वीं और 13वीं शताब्दी ईस्वी</strong> के बीच माना जाता है। कुछ इतिहासकार इनकी उत्पत्ति संगम काल (लगभग 350 ईसा पूर्व) से मानते हैं, जिसका पुनः उदय 850 ईस्वी में हुआ।</p></li>
+                        <li><p class="hin"><strong>संस्थापक:</strong> <strong>विजयालय</strong>, जिसने पल्लवों की स्वीकृति से तंजावुर पर अधिकार कर लिया।</p></li>
+                        <li><p class="hin"><strong>प्रमुख शासक:</strong></p>
+                            <ul>
+                                <li><p class="hin"><strong>परान्तक-I:</strong> जिसने पांड्यों और पल्लवों को पराजित किया।</p></li>
+                                <li><p class="hin"><strong>राजराज चोल-I</strong> (985-1014 ईस्वी): अपने विशाल मंदिरों (तंजावुर स्थित बृहदेश्वर मंदिर), प्रशासनिक सुधारों और उत्तरी श्रीलंका तथा मालदीव पर विजय के लिए जाने जाते हैं।</p></li>
+                                <li><p class="hin"><strong>राजेंद्र चोल-I</strong> (1014-1044 ईस्वी): इसने साम्राज्य का उत्तर में गंगा तक विस्तार किया और श्रीविजय साम्राज्य के विरुद्ध दक्षिण-पूर्व एशिया में एक सफल नौसैनिक अभियान चलाया, जिसके कारण इसे 'गंगईकोंडा चोल' (गंगा पर अधिकार करने वाला चोल) की उपाधि मिली।</p></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                
+                <hr>
+
+                <div class="line" data-lang="en">
+                    <h4>2. Art and Architecture</h4>
+                    <ul>
+                        <li><p class="eng"><strong>Temples:</strong> The most visible legacy. The "Great Living Chola Temples" at <strong>Thanjavur</strong> (Brihadeeswarar Temple), <strong>Gangaikonda Cholapuram</strong> (Brihadeeswarar Temple), and <strong>Darasuram</strong> (Airavatesvara Temple) are UNESCO World Heritage Sites.</p></li>
+                        <li><p class="eng"><strong>Vimanas:</strong> Towering pyramid-like structures above the inner sanctum (<strong>garbhagriha</strong>), reaching their architectural zenith in the Chola period.</p></li>
+                        <li><p class="eng"><strong>Bronzes:</strong> The Cholas were master craftsmen of bronze sculptures, most famously the <strong>Nataraja</strong> (dancing Shiva) idol, celebrated for its *fluid grace and intricate details*.</p></li>
+                        <li><p class="eng"><strong>Patronage:</strong> Temples were not just religious sites but also economic and social hubs, receiving <strong>devadana</strong> (land grants) and controlling irrigation and artisanal production.</p></li>
+                    </ul>
+                </div>
+                <div class="line lang-hi" data-lang="hi">
+                    <h4 class="hin">2. कला और वास्तुकला</h4>
+                    <ul>
+                        <li><p class="hin"><strong>मंदिर:</strong> सबसे प्रत्यक्ष विरासत। <strong>तंजावुर</strong> (बृहदीश्वर मंदिर), <strong>गंगईकोंडा चोलपुरम</strong> (बृहदीश्वर मंदिर), और <strong>दारासुरम</strong> (ऐरावतेश्वर मंदिर) स्थित "महान जीवित चोल मंदिर" यूनेस्को विश्व धरोहर स्थल हैं।</p></li>
+                        <li><p class="hin"><strong>विमान:</strong> आंतरिक गर्भगृह (<strong>गर्भगृह</strong>) के ऊपर ऊँची पिरामिड जैसी संरचनाएँ, जो चोल काल में अपनी स्थापत्य कला के चरमोत्कर्ष पर पहुँचीं।</p></li>
+                        <li><p class="hin"><strong>कांस्य:</strong> चोल कांस्य मूर्तियों के कुशल शिल्पकार थे, जिनमें सबसे प्रसिद्ध <strong>नटराज</strong> (नृत्य करते शिव) की मूर्ति थी, जो अपनी *तरल सुंदरता और जटिल विवरणों* के लिए प्रसिद्ध थी।</p></li>
+                        <li><p class="hin"><strong>संरक्षण:</strong> मंदिर केवल धार्मिक स्थल ही नहीं, बल्कि आर्थिक और सामाजिक केंद्र भी थे, जिन्हें <strong>देवदान</strong> (भूमि अनुदान) प्राप्त होता था और सिंचाई एवं हस्तशिल्प उत्पादन पर नियंत्रण होता था।</p></li>
+                    </ul>
+                </div>
+                
+                <hr>
+
+                <div class="line" data-lang="en">
+                    <h4>3. Administration and Governance</h4>
+                    <ul>
+                        <li><p class="eng"><strong>Three-tiered System:</strong></p>
+                            <ul>
+                                <li><p class="eng"><strong>Nadu:</strong> Supra-village units.</p></li>
+                                <li><p class="eng"><strong>Ur:</strong> Village assemblies.</p></li>
+                                <li><p class="eng"><strong>Brahmadeya:</strong> Brahminical *agraharas* (settlements).</p></li>
+                            </ul>
+                        </li>
+                        <li><p class="eng"><strong>Merchant Governance:</strong> <strong>Nagarams</strong> (merchant towns) were governed by <strong>nagarattars</strong>.</p></li>
+                        <li><p class="eng"><strong>Democracy and Elections:</strong> The <strong>kudavolai</strong> (lottery system) for electing local committees is often cited as a sign of Chola democracy.</p>
+                            <ul>
+                                <li><p class="eng"><strong>Critical Perspective:</strong> This system was not a true democracy. The franchise was restricted to a narrow, *clannish elite*, and state-appointed commissioners held ultimate veto power, ensuring communal decisions aligned with royal revenue goals.</p></li>
+                            </ul>
+                        </li>
+                        <li><p class="eng"><strong>Surveillance and Record-Keeping:</strong> The administration was highly centralized and obsessed with revenue.</p>
+                            <ul>
+                                <li><p class="eng"><strong>Officials:</strong> <strong>Naduvagai ceyvars</strong> (accountants) and <strong>kankani nayakas</strong> (overseers) ensured strict adherence to state directives.</p></li>
+                                <li><p class="eng"><strong>Audits:</strong> Rigorous audits were conducted to review revenue targets and exemptions, which required centralized ratification.</p></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="line lang-hi" data-lang="hi">
+                    <h4 class="hin">3. प्रशासन और शासन</h4>
+                    <ul>
+                        <li><p class="hin"><strong>त्रि-स्तरीय प्रणाली:</strong></p>
+                            <ul>
+                                <li><p class="hin"><strong>नाडु:</strong> अधि-ग्राम इकाइयाँ।</p></li>
+                                <li><p class="hin"><strong>उर:</strong> ग्राम सभाएँ।</p></li>
+                                <li><p class="hin"><strong>ब्रह्मदेय:</strong> ब्राह्मणवादी अग्रहार (बस्तियाँ)।</p></li>
+                            </ul>
+                        </li>
+                        <li><p class="hin"><strong>व्यापारी शासन:</strong> <strong>नगरम</strong> (व्यापारी नगर) <strong>नगरात्तरों</strong> द्वारा शासित होते थे।</p></li>
+                        <li><p class="hin"><strong>लोकतंत्र और चुनाव:</strong> स्थानीय समितियों के चुनाव के लिए <strong>कुदावोलाई</strong> (लॉटरी प्रणाली) को अक्सर चोल लोकतंत्र का प्रतीक माना जाता है।</p>
+                            <ul>
+                                <li><p class="hin"><strong>आलोचनात्मक दृष्टिकोण:</strong> यह प्रणाली वास्तविक लोकतंत्र नहीं थी। मताधिकार एक संकीर्ण, कुलीन अभिजात वर्ग तक ही सीमित था, और राज्य द्वारा नियुक्त आयुक्तों के पास अंतिम वीटो शक्ति थी, जिससे यह सुनिश्चित होता था कि सांप्रदायिक निर्णय शाही राजस्व लक्ष्यों के अनुरूप हों।</p></li>
+                            </ul>
+                        </li>
+                        <li><p class="hin"><strong>निगरानी और अभिलेख-पालन:</strong> प्रशासन अत्यधिक केंद्रीकृत और राजस्व-केंद्रित था।</p>
+                            <ul>
+                                <li><p class="hin"><strong>अधिकारी:</strong> <strong>नादुवगई सेयवार</strong> (लेखाकार) और <strong>कंकाणी नायक</strong> (निरीक्षक) राज्य के निर्देशों का कड़ाई से पालन सुनिश्चित करते थे।</p></li>
+                                <li><p class="hin"><strong>लेखापरीक्षा:</strong> राजस्व लक्ष्यों और छूटों की समीक्षा के लिए कठोर लेखापरीक्षाएँ की जाती थीं, जिनके लिए केंद्रीकृत अनुमोदन की आवश्यकता होती थी।</p></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <hr>
+
+                <div class="line" data-lang="en">
+                    <h4>4. Maritime and Military Prowess</h4>
+                    <ul>
+                        <li><p class="eng"><strong>Naval Supremacy:</strong> The Chola navy was a formidable force, enabling the empire to project power across the Bay of Bengal. It was instrumental in their conquests of Sri Lanka and their expedition to Southeast Asia.</p></li>
+                        <li><p class="eng"><strong>Mercantile Collaboration:</strong> The Chola state closely collaborated with <strong>merchant guilds</strong> (<strong>ayyavole</strong> and <strong>manigramam</strong>), which financed and provisioned their naval fleets.</p></li>
+                        <li><p class="eng"><strong>Nature of Expansion:</strong> The Chola maritime empire, spanning over 2,200 miles, was driven by both martial hegemony and <strong>mercantile profits</strong>.</p>
+                            <ul>
+                                <li><p class="eng"><strong>Plunder and Wealth:</strong> Historians argue that their raids, particularly in Sri Lanka and Southeast Asia, targeted portable wealth like temple treasuries, in the name of territorial expansion. This challenges the idealized "*dharmic*" image of their rule.</p></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="line lang-hi" data-lang="hi">
+                    <h4 class="hin">4. समुद्री और सैन्य कौशल</h4>
+                    <ul>
+                        <li><p class="hin"><strong>नौसैनिक प्रभुत्व:</strong> चोल नौसेना एक दुर्जेय शक्ति थी, जिसने साम्राज्य को बंगाल की खाड़ी के पार अपनी शक्ति का प्रदर्शन करने में सक्षम बनाया। यह श्रीलंका पर उनकी विजय और दक्षिण-पूर्व एशिया के उनके अभियान में सहायक रही।</p></li>
+                        <li><p class="hin"><strong>व्यापारिक सहयोग:</strong> चोल राज्य ने <strong>व्यापारी संघों</strong> (<strong>अय्यावोल</strong> और <strong>मणिग्रामम</strong>) के साथ घनिष्ठ सहयोग किया, जो उनके नौसैनिक बेड़े को वित्तपोषित और आपूर्ति करते थे।</p></li>
+                        <li><p class="hin"><strong>विस्तार की प्रकृति:</strong> 2,200 मील से अधिक क्षेत्र में फैला चोल समुद्री साम्राज्य, सैन्य आधिपत्य और <strong>व्यापारिक लाभ</strong>, दोनों से प्रेरित था।</p>
+                            <ul>
+                                <li><p class="hin"><strong>लूट और धन:</strong> इतिहासकारों का तर्क है कि उनके आक्रमण, विशेष रूप से श्रीलंका और दक्षिण-पूर्व एशिया में, क्षेत्रीय विस्तार के नाम पर मंदिर के खजाने जैसी पोर्टेबल संपत्ति को निशाना बनाते थे। यह उनके शासन की आदर्श "धार्मिक" छवि को चुनौती देता है।</p></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                
+                <hr>
+
+                <div class="line" data-lang="en">
+                    <h4>5. Political Legacy and Modern Relevance</h4>
+                    <ul>
+                        <li><p class="eng"><strong>Nationalist Romanticism:</strong> Historians like K.A.N. Sastri and R.C. Majumdar in the 1930s romanticized Chola imperialism to counter British pride in its Roman past.</p></li>
+                        <li><p class="eng"><strong>Kalki Krishnamurthy's *Ponniyin Selvan*:</strong> The immensely popular novel further cemented the idealized image of the Cholas, particularly Rajaraja I, as a symbol of enlightened, unified rule.</p></li>
+                        <li><p class="eng"><strong>Modern Political Impulse:</strong> The current public discourse on the Cholas is driven by a political impulse to find a glorious past for a modern nation. This is similar to how other nations have invoked their past empires for contemporary ideological purposes.</p></li>
+                        <li><p class="eng"><strong>Hidden Narratives:</strong> A critical study of the Cholas reveals complex and often contradictory aspects: a sophisticated administrative system alongside ruthless revenue collection, a veneer of democracy concealing a restricted franchise, and a history of profit-driven plunder behind the facade of glorious maritime conquests.</p></li>
+                        <li><p class="eng"><strong>Ram Setu Connection:</strong> A lesser-known fact is that Vedic scholar Justice T. Paramasiva Iyer revealed that during the reign of Rajaraja-I, Rajendra-I, and Kulottunga-I, the supposed location of the <strong>Ram Setu</strong> was shifted from the Korkai harbor to Adam's Bridge, and the consecration of the Rameswaram lingam at the Rameswaram temple was a deliberate move to synergize Vaishnavite and Shaivite traditions. This shows a *strategic use of religious symbolism for political purposes*.</p></li>
+                    </ul>
+                </div>
+                <div class="line lang-hi" data-lang="hi">
+                    <h4 class="hin">5. राजनीतिक विरासत और आधुनिक प्रासंगिकता</h4>
+                    <ul>
+                        <li><p class="hin"><strong>राष्ट्रवादी स्वच्छंदतावाद:</strong> 1930 के दशक में के.ए.एन. शास्त्री और आर.सी. मजूमदार जैसे इतिहासकारों ने रोमन अतीत पर ब्रिटिश गर्व का प्रतिकार करने के लिए चोल साम्राज्यवाद का रोमांटिकीकरण किया।</p></li>
+                        <li><p class="hin"><strong>कल्कि कृष्णमूर्ति का *पोन्नियिन सेल्वन*:</strong> इस बेहद लोकप्रिय उपन्यास ने चोलों, विशेषकर राजराजा प्रथम की, प्रबुद्ध और एकीकृत शासन के प्रतीक के रूप में आदर्श छवि को और पुख्ता किया।</p></li>
+                        <li><p class="hin"><strong>आधुनिक राजनीतिक आवेग:</strong> चोलों पर वर्तमान सार्वजनिक चर्चा एक आधुनिक राष्ट्र के गौरवशाली अतीत की खोज के राजनीतिक आवेग से प्रेरित है। यह उसी तरह है जैसे अन्य राष्ट्रों ने समकालीन वैचारिक उद्देश्यों के लिए अपने अतीत के साम्राज्यों का आह्वान किया है।</p></li>
+                        <li><p class="hin"><strong>छिपे हुए आख्यान:</strong> चोलों के आलोचनात्मक अध्ययन से जटिल और प्रायः विरोधाभासी पहलू उजागर होते हैं: एक परिष्कृत प्रशासनिक व्यवस्था के साथ-साथ निर्मम राजस्व संग्रह, सीमित मताधिकार को छुपाने वाला लोकतंत्र का आवरण, और शानदार समुद्री विजयों के मुखौटे के पीछे लाभ-प्रेरित लूट का इतिहास।</p></li>
+                        <li><p class="hin"><strong>राम सेतु संबंध:</strong> एक कम ज्ञात तथ्य यह है कि वैदिक विद्वान न्यायमूर्ति टी. परमशिव अय्यर ने बताया कि राजराजा-प्रथम, राजेंद्र-प्रथम और कुलोत्तुंग-प्रथम के शासनकाल के दौरान, <strong>राम सेतु</strong> का कथित स्थान कोरकाई बंदरगाह से एडम्स ब्रिज पर स्थानांतरित कर दिया गया था, और रामेश्वरम मंदिर में रामेश्वरम लिंगम की प्राण-प्रतिष्ठा वैष्णव और शैव परंपराओं के समन्वय के लिए एक जानबूझकर किया गया कदम था। यह राजनीतिक उद्देश्यों के लिए धार्मिक प्रतीकवाद के *रणनीतिक उपयोग* को दर्शाता है।</p></li>
+                    </ul>
+                </div>
+            </section>
+            
+            <div class="contact-us-link">
+                <p>Contact us on WhatsApp: <a href="https://wa.me/918168305050" target="_blank">+91-8168305050</a></p>
+            </div>
+            
+        </article>
+    </main>
+
+    <footer>
+        <div class="footer-buttons">
+            <a href="index.html" class="footer-button">Back to Home</a>
+        </div>
+        <p>© 2025 Crack Current Affairs (CrackCA). All rights reserved.</p>
+    </footer>
+    
+    <button id="scrollToTopBtn" title="Go to top">↑</button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const articleContent = document.querySelector('.article-content');
+            const langSwitchBtn = document.getElementById('langSwitchBtn');
+            const lines = document.querySelectorAll('.line');
+            const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+            let isEnglish = true;
+
+            // Read Time Calculation
+            const englishContent = Array.from(lines)
+                .filter(line => line.dataset.lang === 'en')
+                .map(line => line.textContent)
+                .join(' ');
+            const wordCount = englishContent.split(/\s+/).filter(word => word.length > 0).length;
+            const readTime = Math.ceil(wordCount / 200);
+            document.getElementById('readTime').textContent = readTime;
+            
+            // Initial display
+            lines.forEach(line => {
+                if (line.dataset.lang === 'hi') {
+                    line.style.display = 'none';
+                }
+            });
+
+            // Language Switch functionality
+            langSwitchBtn.addEventListener('click', () => {
+                isEnglish = !isEnglish;
+                langSwitchBtn.textContent = isEnglish ? 'Switch to Hindi' : 'Switch to English';
+                
+                lines.forEach(line => {
+                    if (isEnglish) {
+                        line.style.display = (line.dataset.lang === 'en') ? 'block' : 'none';
+                    } else {
+                        line.style.display = (line.dataset.lang === 'hi') ? 'block' : 'none';
+                    }
+                });
+            });
+
+            // Scroll to Top Button functionality
+            window.onscroll = () => {
+                if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                    scrollToTopBtn.style.display = 'block';
+                } else {
+                    scrollToTopBtn.style.display = 'none';
+                }
+            };
+
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Italicize content inside asterisks
+            lines.forEach(line => {
+                line.innerHTML = line.innerHTML.replace(/\*(.*?)\*/g, '<i>$1</i>');
+            });
+        });
+    </script>
+
+</body>
+
+</html>

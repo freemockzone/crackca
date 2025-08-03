@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hindu - 03-Aug-25</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3f51b5;
+            --secondary-color: #ff4081;
+            --background-color: #f0f2f5;
+            --text-color: #333;
+            --light-text-color: #666;
+            --border-color: #ddd;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            margin: 0;
+            padding: 0 1rem;
+        }
+
+        nav {
+            background-color: #303f9f;
+            padding: 0.5rem 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            display: block;
+            font-weight: 700;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: var(--secondary-color);
+        }
+
+        article {
+            background-color: white;
+            padding: 2rem;
+            margin-top: 1rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        article h2 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 2rem;
+        }
+
+        .article-meta {
+            color: var(--light-text-color);
+            font-style: italic;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .article-meta span {
+            display: block;
+        }
+
+        .read-time {
+            background-color: #e8eaf6;
+            color: var(--primary-color);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-weight: 700;
+            margin-top: 0.5rem;
+            font-style: normal;
+        }
+
+        section {
+            margin-bottom: 2rem;
+        }
+
+        section h3 {
+            color: var(--primary-color);
+            border-left: 4px solid var(--secondary-color);
+            padding-left: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .content-section {
+            padding: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+
+        .content-section h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .line {
+            padding: 0.75rem 1rem;
+            border-left: 3px solid transparent;
+            margin-bottom: 0.5rem;
+            transition: background-color 0.3s, border-left-color 0.3s;
+        }
+
+        .line:hover {
+            background-color: #e8eaf6;
+            border-left-color: var(--primary-color);
+        }
+        
+        .line p {
+            margin: 0;
+        }
+
+        strong {
+            font-weight: 700;
+        }
+
+        em, .italic {
+            font-style: italic;
+        }
+
+        .line ul {
+            margin-top: 0.5rem;
+            margin-left: 2rem;
+        }
+        .line ol {
+            margin-top: 0.5rem;
+            margin-left: 2rem;
+        }
+        .line li {
+            margin-bottom: 0.5rem;
+        }
+
+        #scrollToTopBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99;
+            border: none;
+            outline: none;
+            background-color: var(--secondary-color);
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 50%;
+            font-size: 18px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: opacity 0.3s;
+        }
+
+        #scrollToTopBtn:hover {
+            opacity: 0.8;
+        }
+
+        .back-home-btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 1rem;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 8px;
+            margin-top: 2rem;
+            transition: background-color 0.3s;
+        }
+
+        .back-home-btn:hover {
+            background-color: #303f9f;
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.2rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav a {
+                text-align: center;
+            }
+            
+            article {
+                padding: 1rem;
+            }
+
+            .article-meta {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .read-time {
+                margin-top: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>03-August-2025</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="donation.html">Donation</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <article>
+            <h2 id="article-title">Calls grow to set up permanent National Commission for DNTs</h2>
+            <div class="article-meta">
+                <div>
+                    <span class="source">Source: The Hindu</span>
+                    <span class="date">Publication Date: August 3, 2025</span>
+                </div>
+                <span class="read-time"></span>
+            </div>
+
+            <section class="content-section" lang="en">
+                <h3>🔷 English Content:</h3>
+                
+                <div class="line">
+                    <p><strong>Context:</strong> A <strong>national conference of Denotified, Nomadic, and Semi-Nomadic Tribes (DNTs)</strong> held in <strong>New Delhi</strong> saw growing demands for the establishment of a <strong>permanent national commission</strong> for these marginalized communities.</p>
+                </div>
+                
+                <div class="line">
+                    <p><strong>Who are DNTs?</strong></p>
+                    <ul>
+                        <li><p><strong>Denotified Tribes (DNTs):</strong> Communities <strong>notified as “criminal tribes”</strong> under British-era <strong>Criminal Tribes Act of 1871</strong>, later *denotified* after independence.</p></li>
+                        <li><p><strong>Nomadic and Semi-Nomadic Tribes (NTs/SNTs):</strong> Traditionally <strong>migratory</strong> communities with <strong>non-sedentary lifestyles</strong>, often <strong>excluded from mainstream welfare schemes</strong>.</p></li>
+                    </ul>
+                </div>
+
+                <div class="line">
+                    <p><strong>Key Developments at the Conference:</strong></p>
+                    <ul>
+                        <li><p>Organised by the <strong>Development and Welfare Board for DNTs, NTs, and SNTs</strong>.</p></li>
+                        <li><p>Attended by <strong>BJP OBC Morcha chief and Rajya Sabha MP K. Laxman</strong>.</p></li>
+                        <li><p>Community leaders: <strong>Presented a list of demands</strong>, led by the <strong>request for a permanent commission</strong>. Urged political advocacy in Parliament and executive support.</p></li>
+                    </ul>
+                </div>
+
+                <div class="line">
+                    <p><strong>Historical Context – Idate Commission (2015–2018):</strong></p>
+                    <ul>
+                        <li><p>Headed by <strong>Bhiku Ramji Idate</strong>.</p></li>
+                        <li><p>Submitted report in <strong>2018</strong> recommending: <strong>Permanent national commission</strong> for DNTs. <strong>Classification and documentation</strong> of all DNT/NT/SNT communities. Special measures for <strong>development, education, livelihood, and legal protection</strong>.</p></li>
+                    </ul>
+                </div>
+
+                <div class="line">
+                    <p><strong>Current Status:</strong></p>
+                    <ul>
+                        <li><p><strong>No dedicated constitutional or statutory body</strong> for DNTs.</p></li>
+                        <li><p><strong>Existing welfare schemes</strong> often fail to reach these communities due to: Lack of <strong>documentation</strong>, <strong>fixed address</strong>, or <strong>community certificates</strong>. Overlap between SC/ST/OBC and DNTs leads to <strong>ambiguity in reservations</strong>.</p></li>
+                    </ul>
+                </div>
+                
+                <div class="line">
+                    <p><strong>Why a Permanent Commission?</strong></p>
+                    <ul>
+                        <li><p>To ensure: <strong>Focused policy formulation</strong>. <strong>Welfare implementation and grievance redressal</strong>. <strong>Institutional continuity and monitoring</strong>.</p></li>
+                        <li><p>Parallel to other commissions like: <strong>National Commission for Scheduled Castes (NCSC)</strong>. <strong>National Commission for Scheduled Tribes (NCST)</strong>. <strong>National Commission for Backward Classes (NCBC)</strong>.</p></li>
+                    </ul>
+                </div>
+                
+                <div class="line">
+                    <p><strong>Significance:</strong></p>
+                    <ul>
+                        <li><p>Would address <strong>decades of systemic marginalization</strong>.</p></li>
+                        <li><p>Facilitate <strong>inclusive development</strong>, social justice, and <strong>constitutional guarantees</strong>.</p></li>
+                        <li><p>Strengthens India's commitment to <strong>Sabka Saath, Sabka Vikas</strong> by reaching the most deprived.</p></li>
+                    </ul>
+                </div>
+
+                <div class="line">
+                    <p><strong>Relevant UPSC Syllabus Linkages:</strong></p>
+                    <ul>
+                        <li><p><strong>GS II:</strong> Welfare schemes for vulnerable sections; mechanisms, laws, institutions for protection and betterment of these sections.</p></li>
+                        <li><p><strong>GS I (Society):</strong> *Salient features of Indian society; diversity of India; role of marginalized communities.*</p></li>
+                    </ul>
+                </div>
+
+                <div class="line">
+                    <p><strong>Potential UPSC Mains Questions:</strong></p>
+                    <ol>
+                        <li><p><strong>GS II:</strong> *“Discuss the challenges faced by Denotified, Nomadic, and Semi-Nomadic Tribes in accessing welfare schemes. Do you support the creation of a permanent commission for these communities?”*</p></li>
+                        <li><p><strong>GS I:</strong> *“The historical stigmatization of DNTs continues to impact their socio-economic development. Analyze with examples.”*</p></li>
+                    </ol>
+                </div>
+            </section>
+
+            <section class="content-section" lang="hi">
+                <h3>🔷 हिंदी सामग्री:</h3>
+
+                <div class="line">
+                    <p><strong>संदर्भ:</strong> **नई दिल्ली** में आयोजित विमुक्त, घुमंतू और अर्ध-घुमंतू जनजातियों (डीएनटी)** के एक **राष्ट्रीय सम्मेलन** में इन हाशिए पर पड़े समुदायों के लिए एक **स्थायी राष्ट्रीय आयोग** की स्थापना की माँग बढ़ती देखी गई।</p>
+                </div>
+
+                <div class="line">
+                    <p><strong>विमुक्त जनजातियाँ (DNTs):</strong></p>
+                    <ul>
+                        <li><p>ब्रिटिश काल के **आपराधिक जनजाति अधिनियम 1871** के तहत **"आपराधिक जनजातियाँ"** के रूप में अधिसूचित समुदाय, जिन्हें बाद में स्वतंत्रता के बाद *विमुक्त* कर दिया गया।</p></li>
+                        <li><p>**खानाबदोश और अर्ध-खानाबदोश जनजातियाँ (NTs/SNTs):** पारंपरिक रूप से **प्रवासी** समुदाय जिनकी **गतिहीन जीवनशैली** है, जिन्हें अक्सर **मुख्यधारा की कल्याणकारी योजनाओं** से बाहर रखा जाता है।</p></li>
+                    </ul>
+                </div>
+
+                <div class="line">
+                    <p><strong>सम्मेलन में प्रमुख घटनाक्रम:</strong></p>
+                    <ul>
+                        <li><p>DNTs, NTs और SNTs के लिए **विकास एवं कल्याण बोर्ड** द्वारा आयोजित।</p></li>
+                        <li><p>**भाजपा ओबीसी मोर्चा प्रमुख और राज्यसभा सांसद के. लक्ष्मण** ने भाग लिया।</p></li>
+                        <li><p>समुदाय के नेता: **मांगों की एक सूची प्रस्तुत की**, जिसमें **स्थायी आयोग के लिए अनुरोध** प्रमुख था। संसद में राजनीतिक वकालत और कार्यपालिका के समर्थन का आग्रह किया।</p></li>
+                    </ul>
+                </div>
+
+                <div class="line">
+                    <p><strong>ऐतिहासिक संदर्भ - इदाते आयोग (2015-2018):</strong></p>
+                    <ul>
+                        <li><p>**भीकू रामजी इदाते** की अध्यक्षता में।</p></li>
+                        <li><p>**2018** में रिपोर्ट प्रस्तुत की जिसमें निम्नलिखित की सिफ़ारिश की गई: **विमुक्त जनजातियों के लिए स्थायी राष्ट्रीय आयोग**। **सभी विमुक्त जनजातियों/विमुक्त जनजातियों/विमुक्त जनजातियों समुदायों का वर्गीकरण और दस्तावेज़ीकरण**। **विकास, शिक्षा, आजीविका और कानूनी सुरक्षा** के लिए विशेष उपाय।</p></li>
+                    </ul>
+                </div>
+
+                <div class="line">
+                    <p><strong>वर्तमान स्थिति:</strong></p>
+                    <ul>
+                        <li><p>**विमुक्त जनजातियों के लिए कोई समर्पित संवैधानिक या वैधानिक निकाय** नहीं है।</p></li>
+                        <li><p>**मौजूदा कल्याणकारी योजनाएँ** अक्सर इन समुदायों तक पहुँचने में विफल रहती हैं, क्योंकि: **दस्तावेजों**, **स्थायी पते**, या **सामुदायिक प्रमाणपत्रों** का अभाव। अनुसूचित जाति/अनुसूचित जनजाति/अन्य पिछड़ा वर्ग और विमुक्त जनजातियों के बीच ओवरलैप के कारण **आरक्षण में अस्पष्टता** उत्पन्न होती है।</p></li>
+                    </ul>
+                </div>
+                
+                <div class="line">
+                    <p><strong>स्थायी आयोग क्यों?</strong></p>
+                    <ul>
+                        <li><p>यह सुनिश्चित करने के लिए: **केंद्रित नीति निर्माण**। **कल्याण कार्यान्वयन और शिकायत निवारण**। **संस्थागत निरंतरता और निगरानी**।</p></li>
+                        <li><p>अन्य आयोगों के समानांतर जैसे: **राष्ट्रीय अनुसूचित जाति आयोग (एनसीएससी)**। **राष्ट्रीय अनुसूचित जनजाति आयोग (एनसीएसटी)**। **राष्ट्रीय पिछड़ा वर्ग आयोग (एनसीबीसी)**।</p></li>
+                    </ul>
+                </div>
+
+                <div class="line">
+                    <p><strong>महत्व:</strong></p>
+                    <ul>
+                        <li><p>दशकों से चली आ रही व्यवस्थागत हाशिए पर धकेले जाने की समस्या का समाधान करेगा।</p></li>
+                        <li><p>**समावेशी विकास**, सामाजिक न्याय और **संवैधानिक गारंटी** को सुगम बनाएगा।</p></li>
+                        <li><p>सबसे वंचितों तक पहुँचकर **सबका साथ, सबका विकास** के प्रति भारत की प्रतिबद्धता को मज़बूत करेगा।</p></li>
+                    </ul>
+                </div>
+
+                <div class="line">
+                    <p><strong>प्रासंगिक यूपीएससी पाठ्यक्रम लिंकेज:</strong></p>
+                    <ul>
+                        <li><p>**सामान्य अध्ययन II:** कमज़ोर वर्गों के लिए कल्याणकारी योजनाएँ; इन वर्गों की सुरक्षा और बेहतरी के लिए तंत्र, कानून, संस्थान।</p></li>
+                        <li><p>**सामान्य अध्ययन I (समाज):** भारतीय समाज की प्रमुख विशेषताएँ; भारत की विविधता; हाशिए पर पड़े समुदायों की भूमिका।</p></li>
+                    </ul>
+                </div>
+
+                <div class="line">
+                    <p><strong>संभावित यूपीएससी मुख्य परीक्षा प्रश्न:</strong></p>
+                    <ol>
+                        <li><p>**सामान्य अध्ययन II:** *“कल्याणकारी योजनाओं तक पहुँचने में विमुक्त, घुमंतू और अर्ध-घुमंतू जनजातियों के सामने आने वाली चुनौतियों पर चर्चा करें। क्या आप इन समुदायों के लिए एक स्थायी आयोग के गठन का समर्थन करते हैं?”*</p></li>
+                        <li><p>**सामान्य अध्ययन I:** *“विमुक्त जनजातियों पर ऐतिहासिक कलंक उनके सामाजिक-आर्थिक विकास को प्रभावित करता रहा है। उदाहरणों सहित विश्लेषण करें।”*</p></li>
+                    </ol>
+                </div>
+            </section>
+            
+            <a href="index.html" class="back-home-btn">Back to Home</a>
+        </article>
+    </div>
+    
+    <button id="scrollToTopBtn" title="Go to top">↑</button>
+
+    <footer>
+        © 2025 Crack Current Affairs (CrackCA). All rights reserved.
+    </footer>
+
+    <script>
+        const articleContent = `
+            A national conference of Denotified, Nomadic, and Semi-Nomadic Tribes (DNTs) held in New Delhi saw growing demands for the establishment of a permanent national commission for these marginalized communities.
+            Denotified Tribes (DNTs): Communities notified as “criminal tribes” under British-era Criminal Tribes Act of 1871, later denotified after independence. Nomadic and Semi-Nomadic Tribes (NTs/SNTs): Traditionally migratory communities with non-sedentary lifestyles, often excluded from mainstream welfare schemes.
+            Key Developments at the Conference: Organised by the Development and Welfare Board for DNTs, NTs, and SNTs. Attended by BJP OBC Morcha chief and Rajya Sabha MP K. Laxman. Community leaders presented a list of demands, led by the request for a permanent commission. Urged political advocacy in Parliament and executive support.
+            Historical Context – Idate Commission (2015–2018): Headed by Bhiku Ramji Idate. Submitted report in 2018 recommending: Permanent national commission for DNTs. Classification and documentation of all DNT/NT/SNT communities. Special measures for development, education, livelihood, and legal protection.
+            Current Status: No dedicated constitutional or statutory body for DNTs. Existing welfare schemes often fail to reach these communities due to: Lack of documentation, fixed address, or community certificates. Overlap between SC/ST/OBC and DNTs leads to ambiguity in reservations.
+            Why a Permanent Commission? To ensure: Focused policy formulation. Welfare implementation and grievance redressal. Institutional continuity and monitoring. Parallel to other commissions like: National Commission for Scheduled Castes (NCSC). National Commission for Scheduled Tribes (NCST). National Commission for Backward Classes (NCBC).
+            Significance: Would address decades of systemic marginalization. Facilitate inclusive development, social justice, and constitutional guarantees. Strengthens India's commitment to Sabka Saath, Sabka Vikas by reaching the most deprived.
+            Relevant UPSC Syllabus Linkages: GS II: Welfare schemes for vulnerable sections; mechanisms, laws, institutions for protection and betterment of these sections. GS I (Society): Salient features of Indian society; diversity of India; role of marginalized communities.
+            Potential UPSC Mains Questions: GS II: “Discuss the challenges faced by Denotified, Nomadic, and Semi-Nomadic Tribes in accessing welfare schemes. Do you support the creation of a permanent commission for these communities?” GS I: “The historical stigmatization of DNTs continues to impact their socio-economic development. Analyze with examples.”
+        `;
+        const wordsPerMinute = 200;
+        const wordCount = articleContent.split(/\s+/).filter(Boolean).length;
+        const readTime = Math.ceil(wordCount / wordsPerMinute);
+        document.querySelector('.read-time').innerText = `Read Time: ≈ ${readTime} min`;
+
+        const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+        window.onscroll = function() { scrollFunction() };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                scrollToTopBtn.style.display = "block";
+            } else {
+                scrollToTopBtn.style.display = "none";
+            }
+        }
+
+        scrollToTopBtn.addEventListener("click", function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>

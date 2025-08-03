@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hindu - 03-Aug-25</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<style>
+:root {
+--primary-bg: #fdfdfd;
+--secondary-bg: #ffffff;
+--text-color: #333;
+--accent-color: #007BFF;
+--hover-bg: #e7f2ff;
+--header-bg: #ffffff;
+--nav-bg: #007BFF;
+--nav-text: #ffffff;
+--border-color: #ddd;
+--box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+    /* Light and Colorful Theme */
+    body {
+        font-family: 'Noto Sans', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: var(--primary-bg);
+        color: var(--text-color);
+        line-height: 1.6;
+    }
+
+    header {
+        background-color: var(--header-bg);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        padding: 1rem;
+        text-align: center;
+    }
+
+    header h1 {
+        margin: 0;
+        font-size: 1.5rem;
+        color: var(--accent-color);
+    }
+
+    .line {
+        padding: 0.5rem 1rem;
+        margin: 0.5rem 0;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .line:hover {
+        background-color: var(--hover-bg);
+    }
+
+    nav {
+        background-color: var(--nav-bg);
+        box-shadow: var(--box-shadow);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    nav li a {
+        display: block;
+        padding: 1rem 1.5rem;
+        color: var(--nav-text);
+        text-decoration: none;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+    }
+
+    nav li a:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: var(--secondary-bg);
+        box-shadow: var(--box-shadow);
+        border-radius: 8px;
+    }
+
+    article {
+        font-family: 'Merriweather', serif;
+    }
+
+    article h1 {
+        color: #333;
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+
+    .article-meta {
+        font-size: 0.9rem;
+        color: #666;
+        margin-bottom: 1.5rem;
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 1rem;
+    }
+
+    .article-meta span {
+        margin-right: 1rem;
+        display: block;
+    }
+
+    .article-meta .read-time {
+        color: #007BFF;
+        font-weight: bold;
+        margin-top: 0.5rem;
+    }
+
+    h2, h3, h4 {
+        color: var(--accent-color);
+        border-left: 4px solid var(--accent-color);
+        padding-left: 10px;
+        margin-top: 2rem;
+    }
+
+    p, ul, ol {
+        margin-bottom: 1rem;
+    }
+
+    strong {
+        font-weight: 700;
+    }
+
+    em {
+        font-style: italic;
+    }
+
+    ul, ol {
+        padding-left: 20px;
+    }
+
+    .lang-switch-btn {
+        background-color: #28a745;
+        color: #fff;
+        border: none;
+        padding: 0.75rem 1.25rem;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+        margin-bottom: 1rem;
+    }
+
+    .lang-switch-btn:hover {
+        background-color: #218838;
+    }
+
+    .scroll-top-btn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: var(--accent-color);
+        color: var(--nav-text);
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        display: none;
+        box-shadow: var(--box-shadow);
+        transition: background-color 0.3s ease;
+        z-index: 1000;
+    }
+
+    .scroll-top-btn:hover {
+        background-color: #0056b3;
+    }
+
+    .back-home-btn {
+        display: block;
+        width: 100%;
+        text-align: center;
+        background-color: var(--accent-color);
+        color: var(--nav-text);
+        padding: 1rem;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        margin-top: 2rem;
+        transition: background-color 0.3s ease;
+    }
+
+    .back-home-btn:hover {
+        background-color: #0056b3;
+    }
+
+    footer {
+        text-align: center;
+        padding: 1rem;
+        color: #777;
+        font-size: 0.9rem;
+        border-top: 1px solid var(--border-color);
+        margin-top: 2rem;
+    }
+
+    .hindi-content {
+        display: none;
+    }
+
+    .hindi-line {
+        font-family: 'Noto Sans', sans-serif;
+        font-size: 1.1rem;
+        color: #555;
+    }
+
+    /* Mobile-first responsive design */
+    @media (max-width: 600px) {
+        .container {
+            padding: 10px;
+            margin: 10px;
+        }
+
+        nav ul {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        nav li a {
+            padding: 0.75rem 1rem;
+        }
+
+        header h1 {
+            font-size: 1.2rem;
+        }
+    }
+</style>
+</head>
+
+<body>
+<header>
+<h1>03-August-2025</h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="donation.html">Donation</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+<main class="container">
+    <button class="lang-switch-btn" id="lang-switch-btn">Switch to Hindi</button>
+    <article id="article-content">
+        <header>
+            <h1>US Tariffs on India and their Impact</h1>
+            <div class="article-meta">
+                <span class="source">Source: The Hindu</span>
+                <span class="date">Publication Date: 03-August-2025</span>
+                <span class="read-time" id="read-time"></span>
+                <span class="subject">Subject: GS Paper II - International Relations, Governance, Indian Economy; GS Paper III - Indian Economy, Trade & Commerce, Bilateral Relations</span>
+            </div>
+        </header>
+
+        <section class="english-content">
+            <p class="line"><strong>Topic:</strong> US Tariffs on India and their Impact</p>
+            <p class="line"><strong>Context:</strong> The imposition of a 25% tariff on Indian imports by US President Donald Trump and its implications for India’s economy and bilateral relations.</p>
+
+            <section>
+                <h2 class="line">1. Background of the Announcement</h2>
+                <ul>
+                    <li class="line"><em><strong>Date:</strong></em> July 30, 2025.</li>
+                    <li class="line"><em><strong>Announcement:</strong></em> US President Donald Trump announced a 25% tariff on imports from India, plus an unspecified "penalty."</li>
+                    <li class="line"><em><strong>Effective Date:</strong></em> The tariffs are to come into effect 7 days after the Executive Order dated July 31, 2025.</li>
+                    <li class="line"><em><strong>Rationale (as per Trump):</strong></em>
+                        <ul>
+                            <li class="line">India's high tariffs and non-tariff barriers on US goods.</li>
+                            <li class="line">India's engagement with Russia, specifically on energy (oil imports) and military equipment.</li>
+                            <li class="line">Trump has previously threatened an additional 10% tariff on BRICS countries, which could raise the effective tariff on India to 35%.</li>
+                            <li class="line">A proposed US legislation could impose an even higher 500% tariff for dealings with Russia.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="line">2. Economic Impact on India</h2>
+                <ul>
+                    <li class="line"><em><strong>Macro-level:</strong></em>
+                        <ul>
+                            <li class="line">The tariffs will be paid by US importers, making Indian goods more expensive in the US market.</li>
+                            <li class="line">Bank of Baroda research estimates a minimal impact, with a potential 0.2% decrease in India's GDP growth (e.g., from 6.6% to 6.4%).</li>
+                        </ul>
+                    </li>
+                    <li class="line"><em><strong>Sector-level (Sectors most likely to be impacted):</strong></em>
+                        <ul>
+                            <li class="line">Garments and Textiles</li>
+                            <li class="line">Precious Stones and Gems</li>
+                            <li class="line">Auto parts</li>
+                            <li class="line">Leather products</li>
+                            <li class="line">Electronics (inclusion is uncertain, but could face challenges)</li>
+                            <li class="line">The issue is compounded by the fact that competing nations like Vietnam (20%), Korea (15%), and Indonesia (19%) have lower tariffs with the US.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="line">3. Points of Friction in India-US Relations</h2>
+                <ul>
+                    <li class="line"><em><strong>Trade Barriers:</strong></em> Trump has consistently criticized India for having some of the world's highest tariffs and "obnoxious non-tariff barriers."</li>
+                    <li class="line"><em><strong>Russia Engagement:</strong></em>
+                        <ul>
+                            <li class="line">Trump alleges that India's purchase of cheap Russian oil and military equipment helps finance Russia's war in Ukraine.</li>
+                            <li class="line">India's stand: It will prioritize its national and energy security, which currently involves buying cheap Russian oil (accounting for 35-40% of its oil imports).</li>
+                        </ul>
+                    </li>
+                    <li class="line"><em><strong>Agriculture and Dairy Sectors:</strong></em>
+                        <ul>
+                            <li class="line">India has maintained a "red line," keeping its agriculture and dairy sectors out of trade deals.</li>
+                            <li class="line"><em><strong>Reason:</strong></em> To protect the livelihoods of its low-productivity farmers from global competition.</li>
+                            <li class="line">The US has pushed for greater market access in these sectors, which has been a major point of deadlock in negotiations.</li>
+                        </ul>
+                    </li>
+                    <li class="line"><em><strong>Political Disputes:</strong></em> Trump's claim that his mediation led to the India-Pakistan ceasefire (Operation Sindoor), which has been refuted by the Indian government, has reportedly angered him.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="line">4. Status of Trade Negotiations</h2>
+                <ul>
+                    <li class="line"><em><strong>Previous Expectations:</strong></em> In February 2025, PM Modi and Trump announced plans to conclude a "first tranche" of a trade deal by fall 2025.</li>
+                    <li class="line"><em><strong>Timeline of Events:</strong></em>
+                        <ul>
+                            <li class="line"><em><strong>April 2:</strong></em> Trump announced "Liberation Day" reciprocal tariffs, including a 10% baseline for all countries and an additional 16% on India, totaling 26%.</li>
+                            <li class="line"><em><strong>A week later:</strong></em> A 90-day pause was announced for bilateral deals, with a deadline of August 1.</li>
+                            <li class="line"><em><strong>July 30:</strong></em> The 25% tariff announcement confirms that a "mini-deal" to prevent the tariffs has not been reached.</li>
+                        </ul>
+                    </li>
+                    <li class="line"><em><strong>Current Status:</strong></em>
+                        <ul>
+                            <li class="line">The tariff announcement complicates future negotiations.</li>
+                            <li class="line">Negotiators have met five times so far.</li>
+                            <li class="line">A US team is scheduled to visit India in late August to continue talks.</li>
+                        </ul>
+                    </li>
+                    <li class="line"><em><strong>India's Recourse:</strong></em> India has informed the WTO that it reserves the right to impose retaliatory tariffs on US imports.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="line">5. Comparison with other Countries</h2>
+                <ul>
+                    <li class="line">Over the last month, the US has concluded deals with several countries at lower tariff rates:
+                        <ul>
+                            <li class="line"><em><strong>Japan & EU:</strong></em> 15%</li>
+                            <li class="line"><em><strong>Philippines, South Korea:</strong></em> Deals concluded, with lower tariffs (e.g., British car exports to the US now face a 10% tariff).</li>
+                        </ul>
+                    </li>
+                    <li class="line">This places India at a competitive disadvantage.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3 class="line">Potential Questions for UPSC Prelims/Mains:</h3>
+                <ul>
+                    <li class="line"><em><strong>Prelims:</strong></em>
+                        <ul>
+                            <li class="line">What are the main reasons cited by the US for imposing tariffs on Indian imports?</li>
+                            <li class="line">What is the estimated impact of these tariffs on India’s GDP?</li>
+                            <li class="line">Which sectors of the Indian economy are most vulnerable to these tariffs?</li>
+                            <li class="line">What is India's official stance on opening up its agriculture and dairy sectors in trade deals?</li>
+                        </ul>
+                    </li>
+                    <li class="line"><em><strong>Mains:</strong></em>
+                        <ul>
+                            <li class="line">"Critically analyze the factors that led to the breakdown in India-US trade negotiations, culminating in the imposition of tariffs. What is the potential impact on the bilateral relationship and India's economic strategy?"</li>
+                            <li class="line">"In the context of the recent US tariffs, discuss India's diplomatic and economic options to protect its national interests. How does India's energy and defense partnership with Russia complicate its trade relations with the US?"</li>
+                            <li class="line">"Examine India's trade negotiation strategy, particularly its 'red lines' on agriculture and dairy. How does this approach align with India's domestic economic and political priorities?"</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+        </section>
+        
+        <section class="hindi-content">
+            <p class="hindi-line" lang="hi"><strong>विषय:</strong> भारत पर अमेरिकी टैरिफ और उनका प्रभाव</p>
+            <p class="hindi-line" lang="hi"><strong>संदर्भ:</strong> अमेरिकी राष्ट्रपति डोनाल्ड ट्रम्प द्वारा भारतीय आयातों पर 25% टैरिफ लगाना और भारत की अर्थव्यवस्था एवं द्विपक्षीय संबंधों पर इसके प्रभाव।</p>
+
+            <section>
+                <h2 class="hindi-line" lang="hi">1. घोषणा की पृष्ठभूमि</h2>
+                <ul>
+                    <li class="hindi-line" lang="hi"><em><strong>दिनांक:</strong></em> 30 जुलाई, 2025।</li>
+                    <li class="hindi-line" lang="hi"><em><strong>घोषणा:</strong></em> अमेरिकी राष्ट्रपति डोनाल्ड ट्रम्प ने भारत से आयात पर 25% टैरिफ और एक अनिर्दिष्ट "जुर्माना" लगाने की घोषणा की।</li>
+                    <li class="hindi-line" lang="hi"><em><strong>प्रभावी तिथि:</strong></em> ये टैरिफ 31 जुलाई, 2025 के कार्यकारी आदेश के 7 दिन बाद प्रभावी होंगे।</li>
+                    <li class="hindi-line" lang="hi"><em><strong>तर्क (ट्रम्प के अनुसार):</strong></em>
+                        <ul>
+                            <li class="hindi-line" lang="hi">अमेरिकी वस्तुओं पर भारत के उच्च टैरिफ और गैर-टैरिफ अवरोध।</li>
+                            <li class="hindi-line" lang="hi">रूस के साथ भारत का जुड़ाव, विशेष रूप से ऊर्जा (तेल आयात) और सैन्य उपकरणों पर।</li>
+                            <li class="hindi-line" lang="hi">ट्रम्प ने पहले ब्रिक्स देशों पर अतिरिक्त 10% टैरिफ लगाने की धमकी दी थी, जिससे भारत पर प्रभावी टैरिफ 35% तक बढ़ सकता है।</li>
+                            <li class="hindi-line" lang="hi">एक प्रस्तावित अमेरिकी कानून रूस के साथ लेन-देन पर 500% से भी ज़्यादा टैरिफ लगा सकता है।</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="hindi-line" lang="hi">2. भारत पर आर्थिक प्रभाव</h2>
+                <ul>
+                    <li class="hindi-line" lang="hi"><em><strong>वृहद स्तर:</strong></em>
+                        <ul>
+                            <li class="hindi-line" lang="hi">टैरिफ का भुगतान अमेरिकी आयातकों द्वारा किया जाएगा, जिससे अमेरिकी बाज़ार में भारतीय सामान महंगे हो जाएँगे।</li>
+                            <li class="hindi-line" lang="hi">बैंक ऑफ बड़ौदा के शोध का अनुमान है कि इसका बहुत कम प्रभाव पड़ेगा, भारत की जीडीपी वृद्धि में 0.2% की संभावित कमी (उदाहरण के लिए, 6.6% से 6.4% तक) होगी।</li>
+                        </ul>
+                    </li>
+                    <li class="hindi-line" lang="hi"><em><strong>क्षेत्र-स्तर (सबसे ज़्यादा प्रभावित होने वाले क्षेत्र):</strong></em>
+                        <ul>
+                            <li class="hindi-line" lang="hi">वस्त्र और वस्त्र उत्पाद</li>
+                            <li class="hindi-line" lang="hi">कीमती पत्थर और रत्न</li>
+                            <li class="hindi-line" lang="hi">ऑटो पार्ट्स</li>
+                            <li class="hindi-line" lang="hi">चमड़े के उत्पाद</li>
+                            <li class="hindi-line" lang="hi">इलेक्ट्रॉनिक्स (इसमें शामिल करना अनिश्चित है, लेकिन चुनौतियों का सामना करना पड़ सकता है)</li>
+                            <li class="hindi-line" lang="hi">यह समस्या इस तथ्य से और भी जटिल हो जाती है कि वियतनाम (20%), कोरिया (15%), और इंडोनेशिया (19%) जैसे प्रतिस्पर्धी देशों के अमेरिका के साथ टैरिफ कम हैं।</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="hindi-line" lang="hi">3. भारत-अमेरिका संबंधों में टकराव के बिंदु</h2>
+                <ul>
+                    <li class="hindi-line" lang="hi"><em><strong>व्यापार बाधाएँ:</strong></em> ट्रम्प ने दुनिया के कुछ सबसे ऊँचे टैरिफ और "घृणित गैर-टैरिफ बाधाओं" के लिए भारत की लगातार आलोचना की है।</li>
+                    <li class="hindi-line" lang="hi"><em><strong>रूस के साथ जुड़ाव:</strong></em>
+                        <ul>
+                            <li class="hindi-line" lang="hi">ट्रम्प का आरोप है कि भारत द्वारा सस्ते रूसी तेल और सैन्य उपकरणों की खरीद से यूक्रेन में रूस के युद्ध के वित्तपोषण में मदद मिलती है।</li>
+                            <li class="hindi-line" lang="hi">भारत का रुख: वह अपनी राष्ट्रीय और ऊर्जा सुरक्षा को प्राथमिकता देगा, जिसमें वर्तमान में सस्ता रूसी तेल खरीदना शामिल है (जो उसके तेल आयात का 35-40% है)।</li>
+                        </ul>
+                    </li>
+                    <li class="hindi-line" lang="hi"><em><strong>कृषि और डेयरी क्षेत्र:</strong></em>
+                        <ul>
+                            <li class="hindi-line" lang="hi">भारत ने अपने कृषि और डेयरी क्षेत्रों को व्यापार समझौतों से बाहर रखते हुए एक "रेड लाइन" बनाए रखी है।</li>
+                            <li class="hindi-line" lang="hi"><em><strong>कारण:</strong></em> अपने कम उत्पादकता वाले किसानों की आजीविका को वैश्विक प्रतिस्पर्धा से बचाना।</li>
+                            <li class="hindi-line" lang="hi">अमेरिका ने इन क्षेत्रों में अधिक बाज़ार पहुँच पर ज़ोर दिया है, जो वार्ता में गतिरोध का एक प्रमुख बिंदु रहा है।</li>
+                        </ul>
+                    </li>
+                    <li class="hindi-line" lang="hi"><em><strong>राजनीतिक विवाद:</strong></em> ट्रम्प का यह दावा कि उनकी मध्यस्थता के कारण भारत-पाकिस्तान युद्धविराम (ऑपरेशन सिंदूर) हुआ, जिसका भारत सरकार ने खंडन किया है, कथित तौर पर उन्हें नाराज़ कर रहा है।</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="hindi-line" lang="hi">4. व्यापार वार्ता की स्थिति</h2>
+                <ul>
+                    <li class="hindi-line" lang="hi"><em><strong>पूर्व अपेक्षाएँ:</strong></em> फरवरी 2025 में, प्रधानमंत्री मोदी और ट्रम्प ने 2025 की शरद ऋतु तक व्यापार समझौते के "पहले चरण" को पूरा करने की योजना की घोषणा की।</li>
+                    <li class="hindi-line" lang="hi"><em><strong>घटनाक्रम:</strong></em>
+                        <ul>
+                            <li class="hindi-line" lang="hi"><em><strong>2 अप्रैल:</strong></em> ट्रम्प ने "मुक्ति दिवस" पर पारस्परिक टैरिफ की घोषणा की, जिसमें सभी देशों के लिए 10% बेसलाइन और भारत पर अतिरिक्त 16% टैरिफ शामिल है, कुल मिलाकर 26%।</li>
+                            <li class="hindi-line" lang="hi"><em><strong>एक सप्ताह बाद:</strong></em> द्विपक्षीय सौदों के लिए 90 दिनों के विराम की घोषणा की गई, जिसकी समय सीमा 1 अगस्त है।</li>
+                            <li class="hindi-line" lang="hi"><em><strong>30 जुलाई:</strong></em> 25% टैरिफ की घोषणा इस बात की पुष्टि करती है कि टैरिफ को रोकने के लिए कोई "मिनी-डील" नहीं बन पाई है।</li>
+                        </ul>
+                    </li>
+                    <li class="hindi-line" lang="hi"><em><strong>वर्तमान स्थिति:</strong></em>
+                        <ul>
+                            <li class="hindi-line" lang="hi">टैरिफ की घोषणा भविष्य की वार्ताओं को जटिल बनाती है।</li>
+                            <li class="hindi-line" lang="hi">वार्ताकार अब तक पाँच बार मिल चुके हैं।</li>
+                            <li class="hindi-line" lang="hi">बातचीत जारी रखने के लिए अगस्त के अंत में एक अमेरिकी दल भारत आने वाला है।</li>
+                        </ul>
+                    </li>
+                    <li class="hindi-line" lang="hi"><em><strong>भारत का विकल्प:</strong></em> भारत ने विश्व व्यापार संगठन को सूचित किया है कि वह अमेरिकी आयातों पर जवाबी शुल्क लगाने का अधिकार सुरक्षित रखता है।</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="hindi-line" lang="hi">5. अन्य देशों के साथ तुलना</h2>
+                <ul>
+                    <li class="hindi-line" lang="hi">पिछले महीने, अमेरिका ने कई देशों के साथ कम शुल्क दरों पर समझौते किए हैं:
+                        <ul>
+                            <li class="hindi-line" lang="hi"><em><strong>जापान और यूरोपीय संघ:</strong></em> 15%</li>
+                            <li class="hindi-line" lang="hi"><em><strong>फिलीपींस, दक्षिण कोरिया:</strong></em> कम शुल्क दरों पर समझौते हुए (उदाहरण के लिए, अमेरिका को ब्रिटिश कार निर्यात पर अब 10% शुल्क लगता है)।</li>
+                        </ul>
+                    </li>
+                    <li class="hindi-line" lang="hi">इससे भारत प्रतिस्पर्धात्मक रूप से नुकसान में है।</li>
+                </ul>
+            </section>
+            
+            <section>
+                <h3 class="hindi-line" lang="hi">यूपीएससी प्रारंभिक/मुख्य परीक्षा के लिए संभावित प्रश्न:</h3>
+                <ul>
+                    <li class="hindi-line" lang="hi"><em><strong>प्रारंभिक:</strong></em>
+                        <ul>
+                            <li class="hindi-line" lang="hi">भारतीय आयातों पर शुल्क लगाने के लिए अमेरिका द्वारा बताए गए मुख्य कारण क्या हैं?</li>
+                            <li class="hindi-line" lang="hi">इन शुल्कों का भारत के सकल घरेलू उत्पाद पर अनुमानित प्रभाव क्या है?</li>
+                            <li class="hindi-line" lang="hi">भारतीय अर्थव्यवस्था के कौन से क्षेत्र इन शुल्कों के प्रति सबसे अधिक संवेदनशील हैं?</li>
+                            <li class="hindi-line" lang="hi">व्यापार समझौतों में अपने कृषि और डेयरी क्षेत्रों को खोलने पर भारत का आधिकारिक रुख क्या है?</li>
+                        </ul>
+                    </li>
+                    <li class="hindi-line" lang="hi"><em><strong>मुख्य विषय:</strong></em>
+                        <ul>
+                            <li class="hindi-line" lang="hi">"भारत-अमेरिका व्यापार वार्ता में विफलता और अंततः शुल्क लगाने के कारणों का आलोचनात्मक विश्लेषण कीजिए। द्विपक्षीय संबंधों और भारत की आर्थिक रणनीति पर इसका क्या संभावित प्रभाव है?"</li>
+                            <li class="hindi-line" lang="hi">"हाल ही में अमेरिकी शुल्कों के संदर्भ में, अपने राष्ट्रीय हितों की रक्षा के लिए भारत के कूटनीतिक और आर्थिक विकल्पों पर चर्चा कीजिए। रूस के साथ भारत की ऊर्जा और रक्षा साझेदारी अमेरिका के साथ उसके व्यापारिक संबंधों को कैसे जटिल बनाती है?"</li>
+                            <li class="hindi-line" lang="hi">"भारत की व्यापार वार्ता रणनीति, विशेष रूप से कृषि और डेयरी पर उसकी 'लाल रेखाओं' का परीक्षण कीजिए। यह दृष्टिकोण भारत की घरेलू आर्थिक और राजनीतिक प्राथमिकताओं के साथ कैसे संरेखित है?"</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+        </section>
+        
+        <a href="index.html" class="back-home-btn">Back to Home</a>
+    </article>
+</main>
+
+<footer>
+    <p>&copy; 2025 Crack Current Affairs (CrackCA). All rights reserved.</p>
+</footer>
+
+<button class="scroll-top-btn" id="scroll-top-btn" title="Scroll to Top">&#8679;</button>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const articleContent = document.getElementById('article-content');
+        const englishContent = articleContent.querySelector('.english-content');
+        const hindiContent = articleContent.querySelector('.hindi-content');
+        const langSwitchBtn = document.getElementById('lang-switch-btn');
+        const scrollTopBtn = document.getElementById('scroll-top-btn');
+
+        // Language Switch
+        let isEnglish = true;
+        langSwitchBtn.addEventListener('click', () => {
+            isEnglish = !isEnglish;
+            if (isEnglish) {
+                englishContent.style.display = 'block';
+                hindiContent.style.display = 'none';
+                langSwitchBtn.textContent = 'Switch to Hindi';
+            } else {
+                englishContent.style.display = 'none';
+                hindiContent.style.display = 'block';
+                langSwitchBtn.textContent = 'Switch to English';
+            }
+        });
+
+        // Scroll to Top button
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollTopBtn.style.display = 'block';
+            } else {
+                scrollTopBtn.style.display = 'none';
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Read Time Calculation
+        const calculateReadTime = () => {
+            const text = englishContent.textContent;
+            const wordsPerMinute = 200;
+            const wordCount = text.split(/\s+/).length;
+            const readTimeMinutes = Math.ceil(wordCount / wordsPerMinute);
+            document.getElementById('read-time').textContent = `Read Time: ${readTimeMinutes} min`;
+        };
+        calculateReadTime();
+    });
+</script>
+</body>
+
+</html>

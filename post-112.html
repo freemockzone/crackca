@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hindu - 03-Aug-25</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<style>
+:root {
+--primary-bg: #fdfdfd;
+--secondary-bg: #ffffff;
+--text-color: #333;
+--accent-color: #f44336;
+--hover-bg: #ffebee;
+--header-bg: #ffffff;
+--nav-bg: #f44336;
+--nav-text: #ffffff;
+--border-color: #ddd;
+--box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+    /* Light and Colorful Theme */
+    body {
+        font-family: 'Noto Sans', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: var(--primary-bg);
+        color: var(--text-color);
+        line-height: 1.6;
+    }
+
+    header {
+        background-color: var(--header-bg);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        padding: 1rem;
+        text-align: center;
+    }
+
+    header h1 {
+        margin: 0;
+        font-size: 1.5rem;
+        color: var(--accent-color);
+    }
+
+    .line {
+        padding: 0.5rem 1rem;
+        margin: 0.5rem 0;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .line:hover {
+        background-color: var(--hover-bg);
+    }
+
+    nav {
+        background-color: var(--nav-bg);
+        box-shadow: var(--box-shadow);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    nav li a {
+        display: block;
+        padding: 1rem 1.5rem;
+        color: var(--nav-text);
+        text-decoration: none;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+    }
+
+    nav li a:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: var(--secondary-bg);
+        box-shadow: var(--box-shadow);
+        border-radius: 8px;
+    }
+
+    article {
+        font-family: 'Merriweather', serif;
+    }
+
+    article h1 {
+        color: #333;
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+
+    .article-meta {
+        font-size: 0.9rem;
+        color: #666;
+        margin-bottom: 1.5rem;
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 1rem;
+    }
+
+    .article-meta span {
+        margin-right: 1rem;
+        display: block;
+    }
+
+    .article-meta .read-time {
+        color: var(--accent-color);
+        font-weight: bold;
+        margin-top: 0.5rem;
+    }
+
+    h2, h3, h4 {
+        color: var(--accent-color);
+        border-left: 4px solid var(--accent-color);
+        padding-left: 10px;
+        margin-top: 2rem;
+    }
+
+    p, ul, ol {
+        margin-bottom: 1rem;
+    }
+
+    strong {
+        font-weight: 700;
+    }
+
+    em {
+        font-style: italic;
+    }
+
+    ul, ol {
+        padding-left: 20px;
+    }
+
+    .lang-switch-btn {
+        background-color: var(--accent-color);
+        color: #fff;
+        border: none;
+        padding: 0.75rem 1.25rem;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+        margin-bottom: 1rem;
+    }
+
+    .lang-switch-btn:hover {
+        background-color: #d32f2f;
+    }
+
+    .scroll-top-btn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: var(--accent-color);
+        color: var(--nav-text);
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        display: none;
+        box-shadow: var(--box-shadow);
+        transition: background-color 0.3s ease;
+        z-index: 1000;
+    }
+
+    .scroll-top-btn:hover {
+        background-color: #d32f2f;
+    }
+
+    .back-home-btn {
+        display: block;
+        width: 100%;
+        text-align: center;
+        background-color: var(--accent-color);
+        color: var(--nav-text);
+        padding: 1rem;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        margin-top: 2rem;
+        transition: background-color 0.3s ease;
+    }
+
+    .back-home-btn:hover {
+        background-color: #d32f2f;
+    }
+
+    footer {
+        text-align: center;
+        padding: 1rem;
+        color: #777;
+        font-size: 0.9rem;
+        border-top: 1px solid var(--border-color);
+        margin-top: 2rem;
+    }
+
+    .hindi-content {
+        display: none;
+    }
+
+    .hindi-line {
+        font-family: 'Noto Sans', sans-serif;
+        font-size: 1.1rem;
+        color: #555;
+    }
+
+
+    /* Mobile-first responsive design */
+    @media (max-width: 600px) {
+        .container {
+            padding: 10px;
+            margin: 10px;
+        }
+
+        nav ul {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        nav li a {
+            padding: 0.75rem 1rem;
+        }
+
+        header h1 {
+            font-size: 1.2rem;
+        }
+    }
+</style>
+</head>
+
+<body>
+<header>
+<h1>03-August-2025</h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="donation.html">Donation</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+<main class="container">
+    <button class="lang-switch-btn" id="lang-switch-btn">Switch to Hindi</button>
+    <article id="article-content">
+        <header>
+            <h1>Assam's Eviction Drives and Inter-State Tensions in the North-East</h1>
+            <div class="article-meta">
+                <span class="source">Source: Indian Express</span>
+                <span class="date">Publication Date: 03-August-2025</span>
+                <span class="read-time" id="read-time"></span>
+                <span class="subject">Subject: GS Paper II - Polity, Governance, Federalism, Internal Security; GS Paper III - Land Reforms, Border Management</span>
+            </div>
+        </header>
+
+        <section class="english-content">
+            <p class="line"><strong>Topic:</strong> Assam's Eviction Drives and Inter-State Tensions in the North-East</p>
+            <p class="line"><strong>Context:</strong> The Assam government's aggressive eviction drive against "encroachers," which has led to a backlash from neighboring states concerned about the movement of displaced people and its connection to long-standing border disputes.</p>
+
+            <section>
+                <h2 class="line">1. Assam's Eviction Drive: Genesis and Key Features</h2>
+                <ul>
+                    <li class="line"><em><strong>Political Context:</strong></em> The BJP came to power in 2016 on the promise of protecting "jaati, maati, bheti" (race, land, hearth).</li>
+                    <li class="line"><em><strong>Legal Basis:</strong></em> Based on a Gauhati High Court order to reclaim encroached forestlands.</li>
+                    <li class="line"><em><strong>Timeline:</strong></em>
+                        <ul>
+                            <li class="line"><em><strong>September 2016:</strong></em> First drive in villages around Kaziranga National Park.</li>
+                            <li class="line"><em><strong>September 2021:</strong></em> Resumed after the BJP's re-election, leading to two deaths in Darrang district.</li>
+                            <li class="line"><em><strong>June 2025 onwards:</strong></em> Renewed and intensified, coinciding with corruption allegations against the state government.</li>
+                        </ul>
+                    </li>
+                    <li class="line"><em><strong>Target:</strong></em> The drives, though also affecting non-Muslims, are seen as being primarily targeted at "Bengali," "Miya," or "illegal infiltrators" (pejoratives for Muslims of Bangladeshi origin).</li>
+                    <li class="line"><em><strong>Official Rhetoric:</strong></em> The Chief Minister and other leaders have framed the drive as a fight against "land jihad" to save Assam from a "demographic invasion."</li>
+                    <li class="line"><em><strong>Statistics Cited:</strong></em>
+                        <ul>
+                            <li class="line">3,620.9 sq. km of forest area under encroachment as of March 2024 (as per Union Environment Ministry report to NGT).</li>
+                            <li class="line">15,288.52 bighas of 'satra' (Vaishnav monastery) lands illegally occupied.</li>
+                            <li class="line">The government has vowed to clear encroachment in at least 10 years.</li>
+                        </ul>
+                    </li>
+                    <li class="line"><em><strong>Exclusions:</strong></em> The Forest Rights Act (FRA) of 2006 protects tribal people living in forest areas from before 2005. The Assam government has pledged not to evict such communities.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="line">2. Reasons for Neighbors' Concern (Why is NE on edge?)</h2>
+                <ul>
+                    <li class="line"><em><strong>Fear of Infiltration:</strong></em> Other states fear that the people evicted from Assam will be pushed into their territories.</li>
+                    <li class="line"><em><strong>Interception of Migrants:</strong></em>
+                        <ul>
+                            <li class="line">Nagaland's Niuland district police intercepted and turned back ~200 vehicles carrying "illegal migrants."</li>
+                            <li class="line">Extremist groups in Nagaland have formed a task force to guard the border.</li>
+                        </ul>
+                    </li>
+                    <li class="line"><em><strong>State-Level Measures:</strong></em>
+                        <ul>
+                            <li class="line">Governments of Nagaland, Manipur, Meghalaya, Arunachal Pradesh, and Mizoram have increased vigilance at their borders.</li>
+                            <li class="line">They have made the issuance of the Inner-Line Permit (ILP), a travel document, stricter.</li>
+                        </ul>
+                    </li>
+                    <li class="line"><em><strong>Assertion of "Ancestral Lands":</strong></em> Some NGOs and groups in Nagaland view the drive as a ploy to usurp "ancestral Naga lands" under the guise of evicting "illegal Bangladeshi immigrants."</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="line">3. Linkage with Border Disputes</h2>
+                <ul>
+                    <li class="line"><em><strong>Historical Context:</strong></em> All these states (Arunachal Pradesh, Meghalaya, Mizoram, Nagaland) were carved out of Assam between 1963 and 1972. The boundaries were not always clearly demarcated, leading to long-standing disputes.</li>
+                    <li class="line"><em><strong>Encroachment as a Core Issue:</strong></em> Encroachment is a central element of these disputes. Neighboring states accuse Assam of deliberately settling "illegal immigrants" in disputed border areas to claim land.</li>
+                    <li class="line"><em><strong>Territorial Claims:</strong></em> As of March 2025, Assam claims its neighbors are occupying ~83,000 hectares of its land.</li>
+                    <li class="line"><em><strong>Violence:</strong></em> Inter-state disputes have led to the deaths of over 350 people over the years.</li>
+                    <li class="line"><em><strong>Resolution Efforts:</strong></em> Assam has partially resolved disputes with Arunachal Pradesh and Meghalaya. The Gauhati High Court has also directed the five states to form a high-level committee for coordinated action to clear illegal settlements.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3 class="line">Potential Questions for UPSC Prelims/Mains:</h3>
+                <ul>
+                    <li class="line"><em><strong>Prelims:</strong></em>
+                        <ul>
+                            <li class="line">What is the significance of the "jaati, maati, bheti" slogan in Assam's politics?</li>
+                            <li class="line">What is the cutoff date for "illegal immigrants" as per the Assam Accord?</li>
+                            <li class="line">Which states in the North-East require an Inner-Line Permit (ILP)?</li>
+                            <li class="line">What is the purpose of the Forest Rights Act (FRA) of 2006?</li>
+                            <li class="line">On what grounds did the Gauhati High Court order the eviction drive?</li>
+                        </ul>
+                    </li>
+                    <li class="line"><em><strong>Mains:</strong></em>
+                        <ul>
+                            <li class="line">"Examine the socio-political and economic dimensions of Assam's eviction drives. How do these drives, while rooted in court orders, become a source of communal tension and inter-state conflict in the North-East?"</li>
+                            <li class="line">"Analyze the historical context of border disputes between Assam and its neighboring states. How has the issue of illegal immigration and land encroachment exacerbated these long-standing tensions?"</li>
+                            <li class="line">"Discuss the challenges and potential solutions for managing internal migration and border disputes in the North-East region. What role can the central government and a coordinated regional approach play in ensuring peace and stability?"</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+        </section>
+
+        <section class="hindi-content">
+            <p class="hindi-line" lang="hi"><strong>विषय:</strong> असम के बेदखली अभियान और पूर्वोत्तर में अंतर्राज्यीय तनाव</p>
+            <p class="hindi-line" lang="hi"><strong>संदर्भ:</strong> असम सरकार द्वारा "अतिक्रमणकारियों" के विरुद्ध आक्रामक बेदखली अभियान चलाया जा रहा है, जिसके कारण पड़ोसी राज्यों ने विस्थापित लोगों की आवाजाही और लंबे समय से चले आ रहे सीमा विवादों से इसके संबंध को लेकर तीखी प्रतिक्रिया व्यक्त की है।</p>
+
+            <section>
+                <h2 class="hindi-line" lang="hi">1. असम का बेदखली अभियान: उत्पत्ति और मुख्य विशेषताएँ</h2>
+                <ul>
+                    <li class="hindi-line" lang="hi"><em><strong>राजनीतिक संदर्भ:</strong></em> भाजपा 2016 में "जाति, माटी, भेटी" (नस्ल, ज़मीन, चूल्हा) की रक्षा के वादे पर सत्ता में आई थी।</li>
+                    <li class="hindi-line" lang="hi"><em><strong>कानूनी आधार:</strong></em> अतिक्रमित वनभूमि को पुनः प्राप्त करने के गुवाहाटी उच्च न्यायालय के आदेश पर आधारित।</li>
+                    <li class="hindi-line" lang="hi"><em><strong>समयरेखा:</strong></em>
+                        <ul>
+                            <li class="hindi-line" lang="hi"><em><strong>सितंबर 2016:</strong></em> काजीरंगा राष्ट्रीय उद्यान के आसपास के गाँवों में पहला अभियान।</li>
+                            <li class="hindi-line" lang="hi"><em><strong>सितंबर 2021:</strong></em> भाजपा के पुनः चुनाव जीतने के बाद फिर से शुरू हुआ, जिसके परिणामस्वरूप दरांग ज़िले में दो लोगों की मौत हो गई।</li>
+                            <li class="hindi-line" lang="hi"><em><strong>जून 2025 के बाद:</strong></em> राज्य सरकार पर भ्रष्टाचार के आरोपों के साथ ही इसे फिर से शुरू और तीव्र किया गया।</li>
+                        </ul>
+                    </li>
+                    <li class="hindi-line" lang="hi"><em><strong>लक्ष्य:</strong></em> ये अभियान, हालाँकि गैर-मुसलमानों को भी प्रभावित कर रहे हैं, लेकिन इन्हें मुख्य रूप से "बंगाली", "मिया" या "अवैध घुसपैठियों" (बांग्लादेशी मूल के मुसलमानों के लिए अपमानजनक शब्द) को लक्षित करने वाला माना जाता है।</li>
+                    <li class="hindi-line" lang="hi"><em><strong>आधिकारिक बयानबाजी:</strong></em> मुख्यमंत्री और अन्य नेताओं ने इस अभियान को असम को "जनसांख्यिकीय आक्रमण" से बचाने के लिए "भूमि जिहाद" के खिलाफ लड़ाई के रूप में प्रस्तुत किया है।</li>
+                    <li class="hindi-line" lang="hi"><em><strong>उद्धृत आँकड़े:</strong></em>
+                        <ul>
+                            <li class="hindi-line" lang="hi">मार्च 2024 तक 3,620.9 वर्ग किमी वन क्षेत्र अतिक्रमण के अधीन है (एनजीटी को केंद्रीय पर्यावरण मंत्रालय की रिपोर्ट के अनुसार)।</li>
+                            <li class="hindi-line" lang="hi">15,288.52 बीघा 'सत्र' (वैष्णव मठ) भूमि पर अवैध कब्ज़ा।</li>
+                            <li class="hindi-line" lang="hi">सरकार ने कम से कम 10 वर्षों में अतिक्रमण हटाने का संकल्प लिया है।</li>
+                        </ul>
+                    </li>
+                    <li class="hindi-line" lang="hi"><em><strong>अपवर्जन:</strong></em> 2006 का वन अधिकार अधिनियम (FRA) 2005 से पहले से वन क्षेत्रों में रहने वाले आदिवासी लोगों की रक्षा करता है। असम सरकार ने ऐसे समुदायों को बेदखल न करने का संकल्प लिया है।</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="hindi-line" lang="hi">2. पड़ोसियों की चिंता के कारण (पूर्वोत्तर क्षेत्र क्यों चिंतित है?)</h2>
+                <ul>
+                    <li class="hindi-line" lang="hi"><em><strong>घुसपैठ का डर:</strong></em> अन्य राज्यों को डर है कि असम से बेदखल किए गए लोगों को उनके क्षेत्रों में धकेल दिया जाएगा।</li>
+                    <li class="hindi-line" lang="hi"><em><strong>प्रवासियों को रोकना:</strong></em>
+                        <ul>
+                            <li class="hindi-line" lang="hi">नागालैंड की निउलैंड जिला पुलिस ने "अवैध प्रवासियों" को ले जा रहे लगभग 200 वाहनों को रोका और वापस भेज दिया।</li>
+                            <li class="hindi-line" lang="hi">नागालैंड में चरमपंथी समूहों ने सीमा की सुरक्षा के लिए एक टास्क फोर्स का गठन किया है।</li>
+                        </ul>
+                    </li>
+                    <li class="hindi-line" lang="hi"><em><strong>राज्य-स्तरीय उपाय:</strong></em>
+                        <ul>
+                            <li class="hindi-line" lang="hi">नागालैंड, मणिपुर, मेघालय, अरुणाचल प्रदेश और मिज़ोरम की सरकारों ने अपनी सीमाओं पर सतर्कता बढ़ा दी है।</li>
+                            <li class="hindi-line" lang="hi">उन्होंने यात्रा दस्तावेज़, इनर-लाइन परमिट (ILP) जारी करने को और सख्त बना दिया है।</li>
+                        </ul>
+                    </li>
+                    <li class="hindi-line" lang="hi"><em><strong>"पैतृक भूमि" का दावा:</strong></em> नागालैंड के कुछ गैर-सरकारी संगठन और समूह इस अभियान को "अवैध बांग्लादेशी प्रवासियों" को बाहर निकालने की आड़ में "पैतृक नागा भूमि" हड़पने की एक चाल मानते हैं।</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="hindi-line" lang="hi">3. सीमा विवादों से जुड़ाव</h2>
+                <ul>
+                    <li class="hindi-line" lang="hi"><em><strong>ऐतिहासिक संदर्भ:</strong></em> ये सभी राज्य (अरुणाचल प्रदेश, मेघालय, मिज़ोरम, नागालैंड) 1963 और 1972 के बीच असम से अलग होकर बने थे। सीमाओं का हमेशा स्पष्ट रूप से सीमांकन नहीं किया गया था, जिसके कारण लंबे समय से विवाद चल रहे थे।</li>
+                    <li class="hindi-line" lang="hi"><em><strong>अतिक्रमण एक प्रमुख मुद्दा:</strong></em> अतिक्रमण इन विवादों का एक केंद्रीय तत्व है। पड़ोसी राज्य असम पर विवादित सीमावर्ती क्षेत्रों में जानबूझकर "अवैध प्रवासियों" को बसाने और ज़मीन पर कब्ज़ा करने का आरोप लगाते हैं।</li>
+                    <li class="hindi-line" lang="hi"><em><strong>क्षेत्रीय दावे:</strong></em> मार्च 2025 तक, असम का दावा है कि उसके पड़ोसी उसकी लगभग 83,000 हेक्टेयर ज़मीन पर कब्ज़ा कर रहे हैं।</li>
+                    <li class="hindi-line" lang="hi"><em><strong>हिंसा:</strong></em> पिछले कुछ वर्षों में अंतर्राज्यीय विवादों के कारण 350 से ज़्यादा लोगों की मौत हो चुकी है।</li>
+                    <li class="hindi-line" lang="hi"><em><strong>समाधान के प्रयास:</strong></em> असम ने अरुणाचल प्रदेश और मेघालय के साथ विवादों को आंशिक रूप से सुलझा लिया है। गुवाहाटी उच्च न्यायालय ने पाँचों राज्यों को अवैध बस्तियों को हटाने के लिए समन्वित कार्रवाई हेतु एक उच्च-स्तरीय समिति बनाने का भी निर्देश दिया है।</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3 class="hindi-line" lang="hi">यूपीएससी प्रारंभिक/मुख्य परीक्षा के लिए संभावित प्रश्न:</h3>
+                <ul>
+                    <li class="hindi-line" lang="hi"><em><strong>प्रारंभिक परीक्षा:</strong></em>
+                        <ul>
+                            <li class="hindi-line" lang="hi">असम की राजनीति में "जाति, माटी, भेटी" नारे का क्या महत्व है?</li>
+                            <li class="hindi-line" lang="hi">असम समझौते के अनुसार "अवैध प्रवासियों" के लिए अंतिम तिथि क्या है?</li>
+                            <li class="hindi-line" lang="hi">पूर्वोत्तर के किन राज्यों में इनर-लाइन परमिट (ILP) की आवश्यकता होती है?</li>
+                            <li class="hindi-line" lang="hi">2006 के वन अधिकार अधिनियम (FRA) का उद्देश्य क्या है?</li>
+                            <li class="hindi-line" lang="hi">गुवाहाटी उच्च न्यायालय ने बेदखली अभियान का आदेश किस आधार पर दिया था?</li>
+                        </ul>
+                    </li>
+                    <li class="hindi-line" lang="hi"><em><strong>मुख्य परीक्षा:</strong></em>
+                        <ul>
+                            <li class="hindi-line" lang="hi">"असम के बेदखली अभियानों के सामाजिक-राजनीतिक और आर्थिक आयामों का परीक्षण कीजिए। ये अभियान, अदालती आदेशों पर आधारित होते हुए भी, पूर्वोत्तर में सांप्रदायिक तनाव और अंतर्राज्यीय संघर्ष का स्रोत कैसे बन जाते हैं?"</li>
+                            <li class="hindi-line" lang="hi">"असम और उसके पड़ोसी राज्यों के बीच सीमा विवादों के ऐतिहासिक संदर्भ का विश्लेषण कीजिए। अवैध आव्रजन और भूमि अतिक्रमण के मुद्दे ने इन दीर्घकालिक तनावों को कैसे बढ़ाया है?"</li>
+                            <li class="hindi-line" lang="hi">"पूर्वोत्तर क्षेत्र में आंतरिक प्रवास और सीमा विवादों के प्रबंधन की चुनौतियों और संभावित समाधानों पर चर्चा कीजिए। शांति और स्थिरता सुनिश्चित करने में केंद्र सरकार और एक समन्वित क्षेत्रीय दृष्टिकोण क्या भूमिका निभा सकते हैं?"</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+        </section>
+        
+        <a href="index.html" class="back-home-btn">Back to Home</a>
+    </article>
+</main>
+
+<footer>
+    <p>&copy; 2025 Crack Current Affairs (CrackCA). All rights reserved.</p>
+</footer>
+
+<button class="scroll-top-btn" id="scroll-top-btn" title="Scroll to Top">&#8679;</button>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const articleContent = document.getElementById('article-content');
+        const englishContent = articleContent.querySelector('.english-content');
+        const hindiContent = articleContent.querySelector('.hindi-content');
+        const langSwitchBtn = document.getElementById('lang-switch-btn');
+        const scrollTopBtn = document.getElementById('scroll-top-btn');
+
+        // Language Switch
+        let isEnglish = true;
+        langSwitchBtn.addEventListener('click', () => {
+            isEnglish = !isEnglish;
+            if (isEnglish) {
+                englishContent.style.display = 'block';
+                hindiContent.style.display = 'none';
+                langSwitchBtn.textContent = 'Switch to Hindi';
+            } else {
+                englishContent.style.display = 'none';
+                hindiContent.style.display = 'block';
+                langSwitchBtn.textContent = 'Switch to English';
+            }
+        });
+
+        // Scroll to Top button
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollTopBtn.style.display = 'block';
+            } else {
+                scrollTopBtn.style.display = 'none';
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Read Time Calculation
+        const calculateReadTime = () => {
+            const text = englishContent.textContent;
+            const wordsPerMinute = 200;
+            const wordCount = text.split(/\s+/).length;
+            const readTimeMinutes = Math.ceil(wordCount / wordsPerMinute);
+            document.getElementById('read-time').textContent = `Read Time: ${readTimeMinutes} min`;
+        };
+        calculateReadTime();
+    });
+</script>
+</body>
+
+</html>
