@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>03-Aug-2025</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Noto+Sans:wght@400;700&display=swap">
+<style>
+:root {
+--primary-color: #ff6f61; /* Coral /
+--secondary-color: #6a5acd; / Slate Blue /
+--accent-color: #40e0d0; / Turquoise /
+--text-color: #333;
+--bg-light: #f0f8ff; / Alice Blue /
+--highlight-color: #ffff00; / Yellow */
+--font-family-serif: 'Merriweather', serif;
+--font-family-sans: 'Noto Sans', sans-serif;
+--container-width: 1000px;
+}
+
+    body {
+        font-family: var(--font-family-sans);
+        line-height: 1.6;
+        color: var(--text-color);
+        background-image: linear-gradient(to right, var(--bg-light), #e0ffff); /* Light Cyan */
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        max-width: var(--container-width);
+        margin: auto;
+        padding: 1.5rem;
+        background-color: #fff;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+    }
+
+    .header-main {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 2rem 1rem;
+        text-align: center;
+        border-radius: 8px 8px 0 0;
+        margin-bottom: 1.5rem;
+    }
+
+    .header-main h1 {
+        font-family: var(--font-family-serif);
+        font-size: 2.5rem;
+        margin: 0;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 1rem 0 0;
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+    }
+
+    nav li {
+        background-color: var(--secondary-color);
+        padding: 0.75rem 1.5rem;
+        border-radius: 5px;
+        box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: 700;
+        transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+        background-color: var(--accent-color);
+        color: var(--primary-color);
+        padding: 0.75rem 1.5rem;
+        border-radius: 5px;
+    }
+
+    article {
+        padding: 2.5rem;
+        border-radius: 10px;
+        margin: 2rem 0;
+        background-image: linear-gradient(to bottom right, #fff, var(--secondary-color));
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .article-title {
+        font-family: var(--font-family-serif);
+        color: var(--accent-color);
+        font-size: 2.8rem;
+        line-height: 1.2;
+        margin-top: 0;
+        margin-bottom: 1rem;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    .article-meta {
+        font-size: 1rem;
+        color: var(--primary-color);
+        border-bottom: 3px dotted var(--accent-color);
+        padding-bottom: 1.5rem;
+        margin-bottom: 2.5rem;
+        font-style: italic;
+    }
+
+    .article-meta p {
+        margin: 0.75rem 0;
+    }
+
+    .read-time {
+        font-weight: 700;
+        color: var(--secondary-color);
+        background-color: var(--highlight-color);
+        padding: 0.2rem 0.5rem;
+        border-radius: 3px;
+    }
+
+    section {
+        margin-bottom: 3rem;
+        padding: 1.5rem;
+        background-color: #f9e79f; /* Light Yellow */
+        border-radius: 8px;
+        border-left: 5px solid var(--primary-color);
+        box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.05);
+    }
+    
+    .content-block h2 {
+        text-align: center;
+        font-size: 2.2rem;
+        font-family: var(--font-family-serif);
+        color: var(--secondary-color);
+        margin-top: 2.5rem;
+        margin-bottom: 1.2rem;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+        border-bottom: 2px dashed var(--accent-color); 
+        padding-bottom: 0.8rem;
+    }
+
+    h3, h4 {
+        font-family: var(--font-family-serif);
+        color: var(--secondary-color);
+        margin-top: 2.5rem;
+        margin-bottom: 1.2rem;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+        border-left: 6px solid var(--accent-color); 
+        padding-left: 1.2rem;
+    }
+
+    h4 { font-size: 1.4rem; color: var(--primary-color); }
+
+    strong {
+        color: var(--accent-color);
+        font-weight: 700;
+        text-decoration: underline wavy var(--secondary-color);
+    }
+
+    .line {
+        padding: 1rem 1.2rem;
+        margin-bottom: 0.8rem;
+        border-radius: 6px;
+        background-color: #e6f9ff; /* Light Cyan */
+        border-left: 3px solid var(--secondary-color);
+    }
+
+    .line:hover {
+        background-color: #d4f0f9;
+    }
+
+    ul {
+        padding-left: 2rem;
+        list-style-type: disc;
+        color: var(--secondary-color);
+    }
+
+    li {
+        margin-bottom: 0.6rem;
+    }
+
+    li strong {
+        color: var(--primary-color);
+    }
+
+    blockquote {
+        background-color: #ffe4e1; /* Misty Rose */
+        border-left: 8px solid var(--primary-color);
+        padding: 1.2rem 1.8rem;
+        margin: 1.5rem 0;
+        font-style: italic;
+        color: #555;
+        border-radius: 5px;
+    }
+
+    .back-to-home-btn {
+        display: block;
+        width: fit-content;
+        margin: 3rem auto 0;
+        background-color: var(--accent-color);
+        color: var(--primary-color);
+        padding: 1rem 3rem;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: bold;
+        text-align: center;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        font-size: 1.2rem;
+    }
+
+    .back-to-home-btn:hover {
+        background-color: var(--primary-color);
+        color: var(--accent-color);
+        transform: scale(1.05);
+    }
+
+    .scroll-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background-color: var(--secondary-color);
+        color: var(--highlight-color);
+        border: 2px solid var(--accent-color);
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        font-size: 1.8rem;
+        cursor: pointer;
+        display: none;
+        box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        transition: background-color 0.3s, color 0.3s, transform 0.3s, border-color 0.3s;
+        z-index: 1000;
+        line-height: 60px;
+        text-align: center;
+    }
+
+    .scroll-to-top:hover {
+        background-color: var(--accent-color);
+        color: var(--secondary-color);
+        transform: translateY(-5px);
+        border-color: var(--primary-color);
+    }
+
+    footer {
+        text-align: center;
+        padding: 2rem;
+        margin-top: 3rem;
+        background-color: var(--primary-color);
+        color: var(--accent-color);
+        border-radius: 0 0 10px 10px;
+        box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
+        font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+        .header-main h1 {
+            font-size: 2rem;
+        }
+        nav ul {
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+        nav li {
+            width: 80%;
+            text-align: center;
+        }
+        .article-title {
+            font-size: 2rem;
+        }
+        .container {
+            padding: 1rem;
+        }
+        article {
+            padding: 1.5rem;
+        }
+        section {
+            padding: 1rem;
+        }
+        h2 { font-size: 1.8rem; }
+        h3 { font-size: 1.5rem; }
+    }
+</style>
+</head>
+<body>
+
+<header class="header-main">
+    <h1>03 August 2025</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Donation.html">Donation Drive</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="container">
+    <article>
+        <div class="article-meta">
+            <h1 class="article-title">“Our air defence systems, missiles, drones showcased power of self-reliant India: Modi”</h1>
+            <p><strong>Source:</strong> <em>The Hindu</em></p>
+            <p><strong>Publication Date:</strong> August 3, 2025</p>
+            <p id="read-time">Estimated Read Time: <span class="read-time"></span></p>
+        </div>
+
+        <div class="content-block" id="english-content">
+            <section class="content-section">
+                <h3>Context & Background</h3>
+                <div class="line">
+                    <p>PM Narendra Modi addressed a public rally at Banauli village in <strong>Sevapuri, Varanasi</strong>, invoking <strong>Lord Shiva’s “Rudra roop”</strong> to highlight India's stern action against terrorism.</p>
+                </div>
+                <div class="line">
+                    <p>He referred to <strong>Operation Sindoor</strong>, launched in response to the <strong>April 22 terrorist attack in Pahalgam</strong>, which claimed lives and drew national grief.</p>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Key Highlights of PM's Address</h2>
+                <h3>On Counter-Terrorism Measures</h3>
+                <div class="line">
+                    <p>Cited the success of <strong>Operation Sindoor</strong> as <strong>retribution for Pahalgam attack</strong>.</p>
+                </div>
+                <div class="line">
+                    <blockquote>“My promise to avenge the sindoor of our daughters was fulfilled with the blessings of Mahadev.”</blockquote>
+                </div>
+                <div class="line">
+                    <p>Criticised opposition parties (Congress & SP) for allegedly sympathizing with Pakistan.</p>
+                </div>
+
+                <h3>Attack on Opposition</h3>
+                <div class="line">
+                    <p>Accused <strong>Congress and its allies</strong> of being upset at India's success in destroying Pakistan-based terror camps.</p>
+                </div>
+                <div class="line">
+                    <p>Questioned why Pakistan’s sorrow seemed shared by Indian opposition parties.</p>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Defence & Self-Reliance (Atmanirbhar Bharat)</h2>
+                <div class="line">
+                    <p>Emphasised India's growing <strong>indigenous defence capabilities</strong>.</p>
+                </div>
+                <div class="line">
+                    <p>Highlighted the use of:</p>
+                    <ul>
+                        <li><strong>Air defence systems</strong></li>
+                        <li><strong>Missiles</strong> (including <strong>BrahMos</strong>)</li>
+                        <li><strong>Drones</strong></li>
+                    </ul>
+                </div>
+                <div class="line">
+                    <p>Stated these showcased "<strong>the power of a self-reliant India</strong>".</p>
+                </div>
+
+                <h3>U.P. Defence Industrial Corridor</h3>
+                <div class="line">
+                    <p>Announced that <strong>BrahMos missiles will soon be manufactured in Lucknow</strong>.</p>
+                </div>
+                <div class="line">
+                    <p>Mentioned that <strong>weapons from the U.P. Defence Corridor</strong> would form the <strong>backbone of India’s military power</strong>.</p>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Relevance for UPSC Aspirants</h2>
+                <h3>GS Paper II – Polity & Governance</h3>
+                <div class="line">
+                    <ul>
+                        <li>Role of executive leadership in <strong>national security</strong>.</li>
+                        <li>Political accountability and <strong>public discourse on counter-terrorism</strong>.</li>
+                    </ul>
+                </div>
+                
+                <h3>GS Paper III – Internal Security & Defence</h3>
+                <div class="line">
+                    <ul>
+                        <li><strong>Operation Sindoor</strong> as a case study on India’s counter-terror response.</li>
+                        <li>Importance of <strong>defence indigenisation</strong> (Make in India in Defence).</li>
+                        <li>Strategic value of <strong>U.P. Defence Corridor</strong>.</li>
+                    </ul>
+                </div>
+
+                <h3>Ethics (GS Paper IV)</h3>
+                <div class="line">
+                    <ul>
+                        <li><strong>Public leadership</strong>, symbolism, and <strong>emotional resonance with citizens</strong>.</li>
+                        <li>Question of <strong>political rhetoric</strong> vs. national unity in times of crisis.</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section class="content-section">
+                <h2>Keywords for Prelims/Mains</h2>
+                <div class="line">
+                    <ul>
+                        <li>Operation Sindoor</li>
+                        <li>Pahalgam Terror Attack</li>
+                        <li>U.P. Defence Industrial Corridor</li>
+                        <li>BrahMos Missile Production – Lucknow</li>
+                        <li>Atmanirbhar Bharat in Defence</li>
+                        <li>Air Defence Systems</li>
+                        <li>Rudra Roop – Lord Shiva symbolism in leadership</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <div class="content-block" id="hindi-content" lang="hi">
+            <hr style="border-top: 3px solid var(--primary-color);">
+            <h2>हिंदी अनुवाद</h2>
+            <section class="content-section">
+                <h3>संदर्भ और पृष्ठभूमि</h3>
+                <div class="line">
+                    <p>प्रधानमंत्री नरेंद्र मोदी ने <strong>सेवापुरी, वाराणसी</strong> के बनौली गाँव में एक जनसभा को संबोधित किया और आतंकवाद के खिलाफ भारत की कड़ी कार्रवाई को उजागर करने के लिए <strong>भगवान शिव के "रुद्र रूप"</strong> का आह्वान किया।</p>
+                </div>
+                <div class="line">
+                    <p>उन्होंने <strong>22 अप्रैल को पहलगाम</strong> में हुए आतंकवादी हमले के जवाब में शुरू किए गए <strong>ऑपरेशन सिंदूर</strong> का ज़िक्र किया, जिसमें कई जानें गईं और राष्ट्रीय शोक की लहर दौड़ गई।</p>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>प्रधानमंत्री के संबोधन के मुख्य अंश</h2>
+                <h3>आतंकवाद-रोधी उपायों पर</h3>
+                <div class="line">
+                    <p><strong>ऑपरेशन सिंदूर</strong> की सफलता को <strong>पहलगाम हमले का प्रतिशोध</strong> बताया।</p>
+                </div>
+                <div class="line">
+                    <blockquote>कहा: <strong>“महादेव के आशीर्वाद से हमारी बेटियों के सिंदूर का बदला लेने का मेरा वादा पूरा हुआ।”</strong></blockquote>
+                </div>
+                <div class="line">
+                    <p>विपक्षी दलों (कांग्रेस और सपा) की पाकिस्तान के प्रति कथित सहानुभूति रखने के लिए आलोचना की।</p>
+                </div>
+
+                <h3>विपक्ष पर हमला</h3>
+                <div class="line">
+                    <p><strong>कांग्रेस और उसके सहयोगियों</strong> पर पाकिस्तान स्थित आतंकी शिविरों को नष्ट करने में भारत की सफलता से नाराज़ होने का आरोप लगाया।</p>
+                </div>
+                <div class="line">
+                    <p>सवाल किया कि पाकिस्तान के दुःख को भारतीय विपक्षी दल क्यों साझा करते दिख रहे हैं।</p>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>रक्षा और आत्मनिर्भरता (आत्मनिर्भर भारत)</h2>
+                <div class="line">
+                    <p>भारत की बढ़ती <strong>स्वदेशी रक्षा क्षमताओं</strong> पर ज़ोर दिया।</p>
+                </div>
+                <div class="line">
+                    <p>इनके उपयोग पर प्रकाश डाला:</p>
+                    <ul>
+                        <li><strong>वायु रक्षा प्रणालियाँ</strong></li>
+                        <li><strong>मिसाइलें</strong> (ब्रह्मोस सहित)</li>
+                        <li><strong>ड्रोन</strong></li>
+                    </ul>
+                </div>
+                <div class="line">
+                    <p>कहा कि ये "<strong>आत्मनिर्भर भारत की शक्ति</strong>" प्रदर्शित करते हैं।</p>
+                </div>
+
+                <h3>यू.पी. रक्षा औद्योगिक गलियारा</h3>
+                <div class="line">
+                    <p>घोषणा की कि <strong>ब्रह्मोस मिसाइलों का निर्माण जल्द ही लखनऊ में किया जाएगा</strong>।</p>
+                </div>
+                <div class="line">
+                    <p>उल्लेख किया कि <strong>यू.पी. रक्षा गलियारे</strong> के हथियार भारत की सैन्य शक्ति की रीढ़ बनेंगे।</p>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>यूपीएससी उम्मीदवारों के लिए प्रासंगिकता</h2>
+                <h3>सामान्य अध्ययन प्रश्नपत्र II – राजनीति एवं शासन</h3>
+                <div class="line">
+                    <ul>
+                        <li>राष्ट्रीय सुरक्षा में कार्यकारी नेतृत्व की भूमिका।</li>
+                        <li>राजनीतिक जवाबदेही और आतंकवाद-निरोध पर सार्वजनिक संवाद।</li>
+                    </ul>
+                </div>
+                
+                <h3>सामान्य अध्ययन प्रश्नपत्र III – आंतरिक सुरक्षा एवं रक्षा</h3>
+                <div class="line">
+                    <ul>
+                        <li><strong>ऑपरेशन सिंदूर</strong> भारत की आतंकवाद-निरोध प्रतिक्रिया पर एक केस स्टडी के रूप में।</li>
+                        <li><strong>रक्षा स्वदेशीकरण</strong> (रक्षा में मेक इन इंडिया) का महत्व।</li>
+                        <li><strong>उत्तर प्रदेश रक्षा गलियारे</strong> का सामरिक महत्व।</li>
+                    </ul>
+                </div>
+
+                <h3>नैतिकता (सामान्य अध्ययन प्रश्नपत्र IV)</h3>
+                <div class="line">
+                    <ul>
+                        <li><strong>सार्वजनिक नेतृत्व</strong>, प्रतीकवाद, और <strong>नागरिकों के साथ भावनात्मक जुड़ाव</strong>।</li>
+                        <li>संकट के समय <strong>राजनीतिक बयानबाजी</strong> बनाम राष्ट्रीय एकता का प्रश्न।</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section class="content-section">
+                <h2>प्रारंभिक/मुख्य परीक्षा के लिए कीवर्ड</h2>
+                <div class="line">
+                    <ul>
+                        <li>ऑपरेशन सिंदूर</li>
+                        <li>पहलगाम आतंकी हमला</li>
+                        <li>उत्तर प्रदेश रक्षा औद्योगिक गलियारा</li>
+                        <li>ब्रह्मोस मिसाइल उत्पादन - लखनऊ</li>
+                        <li>रक्षा क्षेत्र में आत्मनिर्भर भारत</li>
+                        <li>वायु रक्षा प्रणालियाँ</li>
+                        <li>रुद्र रूप - नेतृत्व में भगवान शिव का प्रतीक</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <a href="#" class="back-to-home-btn">Go Back Home</a>
+    </article>
+</main>
+
+<footer>
+    <p>&copy; 2025 Incredible UPSC Prep. All Rights Reserved.</p>
+</footer>
+
+<button id="scrollToTopBtn" class="scroll-to-top">↑</button>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // Read Time Calculation
+        const englishContentDiv = document.getElementById('english-content');
+        const englishWords = (englishContentDiv.textContent.match(/[a-zA-Z]+/g) || []).length;
+        const readTime = Math.ceil(englishWords / 200);
+        
+        // Corrected JS to directly set the text content
+        document.querySelector('#read-time .read-time').textContent = `${readTime} minutes`;
+
+        // Scroll to Top Button Logic
+        const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.style.display = "block";
+            } else {
+                scrollToTopBtn.style.display = "none";
+            }
+        });
+
+        scrollToTopBtn.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hindu-03-Aug-2025</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Noto+Sans:wght@400;700&display=swap">
+<style>
+:root {
+--primary-color: #004d40; /* Dark Teal /
+--secondary-color: #f0f4f7; / Very light gray /
+--accent-color: #00796b; / Darker Teal */
+--text-color: #333;
+--light-text-color: #666;
+--font-family-serif: 'Merriweather', serif;
+--font-family-sans: 'Noto Sans', sans-serif;
+--container-width: 950px;
+}
+
+    body {
+        font-family: var(--font-family-sans);
+        line-height: 1.6;
+        color: var(--text-color);
+        background-color: var(--secondary-color);
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    .container {
+        max-width: var(--container-width);
+        margin: auto;
+        padding: 1.5rem;
+    }
+
+    header {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 1.5rem 1rem;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+        font-family: var(--font-family-serif);
+        font-size: 2rem;
+        margin: 0;
+    }
+
+    nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 1rem 0 0;
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+        color: var(--accent-color);
+    }
+
+    main {
+        flex: 1;
+    }
+
+    article {
+        background: white;
+        padding: 2.5rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        margin: 2rem 0;
+    }
+
+    .article-meta {
+        border-bottom: 2px solid #ddd;
+        padding-bottom: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .article-title {
+        font-family: var(--font-family-serif);
+        color: var(--primary-color);
+        font-size: 2.5rem;
+        line-height: 1.2;
+        margin: 0 0 0.5rem 0;
+    }
+
+    .article-meta p {
+        margin: 0.5rem 0;
+        font-size: 0.9rem;
+        color: var(--light-text-color);
+    }
+
+    .read-time {
+        font-weight: bold;
+        color: var(--accent-color);
+    }
+    
+    .content-block h2, .content-block h3 {
+        font-family: var(--font-family-serif);
+        color: var(--primary-color);
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        border-left: 4px solid var(--accent-color);
+        padding-left: 1rem;
+    }
+
+    h2 { font-size: 1.8rem; }
+    h3 { font-size: 1.5rem; }
+
+    strong {
+        font-weight: 700;
+        color: var(--text-color);
+    }
+
+    .line {
+        padding: 0.8rem 1rem;
+        margin-bottom: 0.5rem;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+    }
+
+    .line:hover {
+        background-color: #f0f0f0; /* Simple, noticeable hover effect */
+    }
+    
+    .line ul {
+        margin: 0.5rem 0 0.5rem 1.5rem;
+        padding: 0;
+        list-style-type: disc;
+    }
+
+    blockquote {
+        background-color: #f9f9f9;
+        border-left: 5px solid var(--accent-color);
+        padding: 1rem 1.5rem;
+        margin: 1rem 0;
+        font-style: italic;
+        color: #555;
+        border-radius: 4px;
+    }
+    
+    .button-group {
+        display: flex;
+        justify-content: center;
+        margin-top: 3rem;
+    }
+
+    .button-group a {
+        display: inline-block;
+        background-color: var(--accent-color);
+        color: white;
+        padding: 0.75rem 2rem;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+    }
+
+    .button-group a:hover {
+        background-color: #004d40;
+    }
+
+    .scroll-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        display: none;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        transition: background-color 0.3s, transform 0.3s;
+        z-index: 1000;
+    }
+
+    .scroll-to-top:hover {
+        background-color: #00382e;
+        transform: scale(1.1);
+    }
+
+    footer {
+        text-align: center;
+        padding: 1.5rem;
+        margin-top: 2rem;
+        background-color: var(--primary-color);
+        color: white;
+        box-shadow: 0 -4px 8px rgba(0,0,0,0.1);
+    }
+
+    /* Mobile-first Media Queries */
+    @media (max-width: 768px) {
+        header h1 {
+            font-size: 1.5rem;
+        }
+        .article-title {
+            font-size: 2rem;
+        }
+        article {
+            padding: 1.5rem;
+        }
+        nav ul {
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>03 August 2025</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="donation.html">Donation</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="container">
+    <article>
+        <div class="article-meta">
+            <h1 class="article-title">“Bengal govt. launches ₹8,000-crore drive to address local issues”</h1>
+            <p><strong>Source:</strong> <em>The Hindu</em></p>
+            <p><strong>Publication Date:</strong> August 3, 2025</p>
+            <p id="read-time" class="read-time"></p>
+        </div>
+
+        <div id="english-content" class="content-block">
+            <section>
+                <h3>Context</h3>
+                <div class="line">
+                    <p>In the run-up to the <strong>West Bengal Assembly Elections 2026</strong>, the <strong>Trinamool Congress (TMC)</strong> government launched a massive <strong>₹8,000-crore outreach programme</strong> on August 2, 2025.</p>
+                </div>
+                <div class="line">
+                    <p>Named <strong>“Amader Para, Amader Samadhan (APAS)”</strong> meaning “Our neighbourhood, our solution”.</p>
+                </div>
+            </section>
+
+            <section>
+                <h3>Key Features of the Programme (APAS)</h3>
+                <div class="line">
+                    <p><strong>Objective:</strong> Address <strong>local-level infrastructure issues</strong> like:</p>
+                    <ul>
+                        <li>Setting up <strong>street lamps</strong>.</li>
+                        <li><strong>Repairing roads</strong>.</li>
+                        <li><strong>Water supply systems</strong>.</li>
+                    </ul>
+                </div>
+                <div class="line">
+                    <p><strong>Participatory Governance:</strong></p>
+                    <ul>
+                        <li>Local people to <strong>deliberate, identify, and prioritize</strong> needs.</li>
+                        <li>Aimed at <strong>empowering grassroots service delivery</strong>.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h3>Financial Allocation</h3>
+                <div class="line">
+                    <p>Total Outlay: <strong>₹8,000+ crore</strong>.</p>
+                </div>
+                <div class="line">
+                    <p><strong>₹10 lakh allocated per polling booth</strong>.</p>
+                </div>
+                <div class="line">
+                    <p><strong>Coverage:</strong></p>
+                    <ul>
+                        <li>Over <strong>80,000 booths</strong>.</li>
+                        <li><strong>27,000+ APAS camps</strong> to be conducted.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h3>Additional Features</h3>
+                <div class="line">
+                    <p><strong>Duare Sarkar (Govt at Doorstep) counters</strong> integrated into the APAS camps.</p>
+                    <blockquote>
+                        <p><strong>Note:</strong> Duare Sarkar is a flagship welfare outreach program launched in <strong>December 2020</strong>.</p>
+                    </blockquote>
+                </div>
+                <div class="line">
+                    <p>Camps will operate for <strong>2 months</strong>.</p>
+                </div>
+                <div class="line">
+                    <p>Followed by <strong>30 days of administrative evaluation</strong>.</p>
+                </div>
+            </section>
+
+            <section>
+                <h3>Monitoring Mechanism</h3>
+                <div class="line">
+                    <p>A <strong>State-level Task Force</strong> headed by <strong>Chief Secretary Manoj Pant</strong>.</p>
+                </div>
+                <div class="line">
+                    <p><strong>District-level task forces</strong> also constituted for local implementation.</p>
+                </div>
+            </section>
+
+            <section>
+                <h3>Political Context</h3>
+                <div class="line">
+                    <p>Comes amid BJP’s efforts to:</p>
+                    <ul>
+                        <li>Reclaim <strong>Matua votes</strong> (a key SC community in Bengal).</li>
+                        <li>Counter Mamata Banerjee’s narrative of <strong>“Bengali Asmita” (pride)</strong>.</li>
+                    </ul>
+                </div>
+                <div class="line">
+                    <p>BJP has launched <strong>‘CAA Sahajogita Shibirs’ (CAA Help Desks)</strong>:</p>
+                    <ul>
+                        <li>Facilitate citizenship applications under <strong>Citizenship (Amendment) Act, 2019</strong>.</li>
+                        <li>First appeared in <strong>Bagda (North 24 Parganas)</strong>, now spreading to <strong>Bongaon South</strong> and other <strong>Matua-majority areas</strong>.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h3>Significance</h3>
+                <div class="line">
+                    <p>A major <strong>grassroots-level governance initiative</strong> before elections.</p>
+                </div>
+                <div class="line">
+                    <p>Reflects shift towards <strong>localized participatory planning</strong>.</p>
+                </div>
+                <div class="line">
+                    <p>Politically significant as a <strong>counter to BJP’s CAA push</strong> and community mobilization efforts.</p>
+                </div>
+            </section>
+            
+            <section>
+                <h2>Potential UPSC Mains Questions</h2>
+                <div class="line">
+                    <ol>
+                        <li><strong>GS II:</strong> *"Discuss the role of participatory governance in enhancing the effectiveness of local service delivery, citing recent examples."*</li>
+                        <li><strong>GS II:</strong> *"Evaluate the impact of welfare outreach programs like Duare Sarkar and APAS on inclusive governance in Indian states."*</li>
+                    </ol>
+                </div>
+            </section>
+        </div>
+
+        <div id="hindi-content" class="content-block" lang="hi">
+            <hr>
+            <h2>बंगाल सरकार ने स्थानीय मुद्दों के समाधान के लिए ₹8,000 करोड़ का अभियान शुरू किया</h2>
+            <section>
+                <h3>संदर्भ</h3>
+                <div class="line">
+                    <p><strong>पश्चिम बंगाल विधानसभा चुनाव 2026</strong> से पहले, <strong>तृणमूल कांग्रेस (टीएमसी)</strong> सरकार ने 2 अगस्त, 2025 को एक विशाल <strong>₹8,000 करोड़ का आउटरीच कार्यक्रम</strong> शुरू किया।</p>
+                </div>
+                <div class="line">
+                    <p>जिसका नाम <strong>“आमादेर पारा, आमदेर समाधान (एपीएएस)”</strong> है, जिसका अर्थ है “हमारा पड़ोस, हमारा समाधान”।</p>
+                </div>
+            </section>
+
+            <section>
+                <h3>कार्यक्रम (APAS) की मुख्य विशेषताएँ</h3>
+                <div class="line">
+                    <p>उद्देश्य: <strong>स्थानीय स्तर के बुनियादी ढाँचे से जुड़े मुद्दों</strong> का समाधान, जैसे:</p>
+                    <ul>
+                        <li><strong>स्ट्रीट लैंप</strong> लगाना।</li>
+                        <li><strong>सड़कों की मरम्मत</strong>।</li>
+                        <li><strong>जल आपूर्ति प्रणालियाँ</strong>।</li>
+                    </ul>
+                </div>
+                <div class="line">
+                    <p><strong>सहभागी शासन:</strong></p>
+                    <ul>
+                        <li>स्थानीय लोगों की ज़रूरतों पर विचार-विमर्श, पहचान और प्राथमिकता तय करना।</li>
+                        <li><strong>ज़मीनी स्तर पर सेवा वितरण को सशक्त बनाना</strong>।</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h3>वित्तीय आवंटन</h3>
+                <div class="line">
+                    <p>कुल व्यय: <strong>₹8,000+ करोड़</strong>।</p>
+                </div>
+                <div class="line">
+                    <p><strong>प्रति मतदान केंद्र ₹10 लाख आवंटित</strong>।</p>
+                </div>
+                <div class="line">
+                    <p><strong>कवरेज:</strong></p>
+                    <ul>
+                        <li><strong>80,000 से ज़्यादा बूथ</strong>।</li>
+                        <li><strong>27,000+ एपीएएस शिविर</strong> आयोजित किए जाएँगे।</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h3>अतिरिक्त विशेषताएँ</h3>
+                <div class="line">
+                    <p><strong>दुआरे सरकार (घर-द्वार पर सरकार) काउंटर</strong> को एपीएएस शिविरों में एकीकृत किया गया है।</p>
+                    <blockquote>
+                        <p><strong>नोट:</strong> दुआरे सरकार एक प्रमुख कल्याणकारी आउटरीच कार्यक्रम है जिसकी शुरुआत <strong>दिसंबर 2020</strong> में हुई थी।</p>
+                    </blockquote>
+                </div>
+                <div class="line">
+                    <p>शिविर <strong>2 महीने</strong> तक चलेंगे।</p>
+                </div>
+                <div class="line">
+                    <p>इसके बाद <strong>30 दिनों का प्रशासनिक मूल्यांकन</strong> होगा।</p>
+                </div>
+            </section>
+
+            <section>
+                <h3>निगरानी तंत्र</h3>
+                <div class="line">
+                    <p><strong>मुख्य सचिव मनोज पंत</strong> की अध्यक्षता में एक <strong>राज्य स्तरीय टास्क फोर्स</strong>।</p>
+                </div>
+                <div class="line">
+                    <p><strong>स्थानीय कार्यान्वयन के लिए जिला स्तरीय टास्क फोर्स</strong> का भी गठन किया गया है।</p>
+                </div>
+            </section>
+
+            <section>
+                <h3>राजनीतिक संदर्भ</h3>
+                <div class="line">
+                    <p>भाजपा के इन प्रयासों के बीच आया है:</p>
+                    <ul>
+                        <li><strong>मटुआ वोटों</strong> (बंगाल में एक प्रमुख अनुसूचित जाति समुदाय) को पुनः प्राप्त करना।</li>
+                        <li>ममता बनर्जी के <strong>“बंगाली अस्मिता” (गर्व)</strong> के आख्यान का प्रतिकार करना।</li>
+                    </ul>
+                </div>
+                <div class="line">
+                    <p>भाजपा ने <strong>‘सीएए सहयोगिता शिविर’ (सीएए हेल्प डेस्क)</strong> शुरू किए हैं:</p>
+                    <ul>
+                        <li><strong>नागरिकता (संशोधन) अधिनियम, 2019</strong> के तहत नागरिकता आवेदनों को सुगम बनाना।</li>
+                        <li>सबसे पहले <strong>बागदा (उत्तर 24 परगना)</strong> में दिखाई दिया, अब <strong>बोंगांव दक्षिण</strong> और अन्य <strong>मटुआ-बहुल क्षेत्रों</strong> में फैल रहा है।</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h3>महत्व</h3>
+                <div class="line">
+                    <p>चुनावों से पहले एक प्रमुख <strong>जमीनी स्तर की शासन पहल</strong>।</p>
+                </div>
+                <div class="line">
+                    <p>स्थानीयकृत सहभागी नियोजन की ओर बदलाव को दर्शाता है।</p>
+                </div>
+                <div class="line">
+                    <p>भाजपा के सीएए के विरोध और सामुदायिक लामबंदी के प्रयासों के प्रतिकार के रूप में राजनीतिक रूप से महत्वपूर्ण।</p>
+                </div>
+            </section>
+            
+            <section>
+                <h2>संभावित यूपीएससी मुख्य परीक्षा प्रश्न</h2>
+                <div class="line">
+                    <ol>
+                        <li><strong>सामान्य अध्ययन II:</strong> *"हाल के उदाहरणों का हवाला देते हुए, स्थानीय सेवा वितरण की प्रभावशीलता बढ़ाने में सहभागी शासन की भूमिका पर चर्चा करें।"*</li>
+                        <li><strong>सामान्य अध्ययन II:</strong> *"भारतीय राज्यों में समावेशी शासन पर दुआरे सरकार और एपीएएस जैसे कल्याणकारी आउटरीच कार्यक्रमों के प्रभाव का मूल्यांकन करें।"*</li>
+                    </ol>
+                </div>
+            </section>
+        </div>
+
+        <div class="button-group">
+            <a href="index.html">Back to Home</a>
+        </div>
+    </article>
+</main>
+
+<footer>
+    <p>&copy; 2025 UPSC Prep. All Rights Reserved.</p>
+</footer>
+
+<button id="scrollToTopBtn" class="scroll-to-top">↑</button>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const englishContentDiv = document.getElementById('english-content');
+        const englishWords = (englishContentDiv.textContent.match(/[a-zA-Z]+/g) || []).length;
+        const readTime = Math.ceil(englishWords / 200);
+        document.getElementById('read-time').textContent = `Estimated Read Time: ${readTime} minutes`;
+
+        const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.style.display = "block";
+            } else {
+                scrollToTopBtn.style.display = "none";
+            }
+        });
+
+        scrollToTopBtn.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    });
+</script>
+</body>
+</html>

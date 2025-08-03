@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hindu - 03-Aug-25</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-bg-color: #f0f4f7;
+            --secondary-bg-color: #e3e9ef;
+            --text-color: #343a40;
+            --link-color: #3b5998;
+            --hover-bg-color: #e9f0f5;
+            --border-color: #d1d9e2;
+            --header-color: #212529;
+            --accent-color-1: #6c757d;
+            --accent-color-2: #e04141;
+            --accent-color-3: #4caf50;
+            --accent-color-4: #ffc107;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--primary-bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+        }
+
+        header {
+            background: linear-gradient(135deg, #a7b7c7, #e1e9f1);
+            color: var(--header-color);
+            padding: 1.5rem 1.5rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            font-family: 'Merriweather', serif;
+            letter-spacing: 1px;
+        }
+
+        nav {
+            background-color: var(--secondary-bg-color);
+            padding: 1rem 1.5rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        nav a {
+            color: var(--link-color);
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent-color-2);
+            transform: translateY(-2px);
+        }
+
+        article {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        .article-meta {
+            text-align: center;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .article-meta h2 {
+            font-family: 'Merriweather', serif;
+            font-size: 2.2rem;
+            color: var(--header-color);
+            margin: 0 0 0.5rem;
+        }
+        
+        .article-meta h3 {
+            font-size: 1.2rem;
+            font-weight: normal;
+            color: var(--accent-color-1);
+            margin: 0 0 0.5rem;
+        }
+
+        .read-time {
+            font-weight: bold;
+            color: var(--accent-color-2);
+            margin-top: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .line {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 1.5rem;
+            padding: 1rem 1.25rem;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            background-color: #fafbfd;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .line:hover {
+            background-color: var(--hover-bg-color);
+            transform: translateY(-3px);
+        }
+        
+        .line > * {
+            margin: 0;
+        }
+
+        .english-content {
+            font-size: 1.05rem;
+            color: var(--text-color);
+        }
+        
+        .hindi-content {
+            font-size: 1rem;
+            color: var(--accent-color-1);
+            font-style: italic;
+            margin-top: 0.75rem;
+        }
+
+        strong {
+            font-weight: 700;
+        }
+
+        em {
+            font-style: italic;
+        }
+
+        section h3 {
+            font-family: 'Merriweather', serif;
+            font-size: 1.75rem;
+            color: var(--header-color);
+            border-left: 5px solid var(--link-color);
+            padding-left: 1.25rem;
+            margin: 2.5rem 0 1.25rem;
+        }
+        
+        ul {
+            list-style: none; /* Remove default list style */
+            padding-left: 0;
+            margin: 1.5rem 0;
+        }
+
+        ul li {
+            position: relative;
+            margin-bottom: 1rem;
+            padding-left: 25px; /* Space for the custom bullet */
+        }
+        
+        ul li::before {
+            content: '•';
+            color: var(--link-color);
+            font-size: 1.5em;
+            line-height: 1;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        footer {
+            background-color: var(--header-color);
+            color: #ffffff;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2.5rem;
+            border-top: 2px solid var(--border-color);
+        }
+
+        .back-home {
+            display: block;
+            width: 220px;
+            margin: 2rem auto;
+            padding: 1rem 1.5rem;
+            background-color: var(--link-color);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: var(--shadow);
+        }
+
+        .back-home:hover {
+            background-color: #003366;
+            transform: scale(1.05);
+        }
+
+        #scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--link-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 55px;
+            height: 55px;
+            font-size: 1.8rem;
+            cursor: pointer;
+            display: none;
+            box-shadow: var(--shadow);
+            transition: background-color 0.3s ease, opacity 0.3s ease;
+            z-index: 1000;
+        }
+
+        #scroll-to-top:hover {
+            background-color: #003366;
+        }
+        
+        .line-subheading {
+            font-size: 1.15rem;
+            font-weight: bold;
+            color: var(--link-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            nav a {
+                display: block;
+                margin: 0.5rem 0;
+            }
+
+            article {
+                margin: 1rem;
+                padding: 1rem;
+            }
+            
+            .article-meta h2 {
+                font-size: 1.75rem;
+            }
+            
+            .line {
+                padding: 0.75rem 1rem;
+            }
+
+            section h3 {
+                font-size: 1.5rem;
+                padding-left: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>03-August-2025</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="donation.html">Donation</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <article>
+        <div class="article-meta">
+            <h2 id="article-title"></h2>
+            <h3 id="article-source"></h3>
+            <h3 id="article-date"></h3>
+            <div id="read-time" class="read-time"></div>
+        </div>
+
+        <div id="article-content"></div>
+
+        <a href="index.html" class="back-home">Back to Home</a>
+    </article>
+
+    <footer>
+        <p>&copy; 2025 UPSC CSE News. All rights reserved.</p>
+    </footer>
+
+    <button id="scroll-to-top">▲</button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const englishContent = `
+                ## **“The Naxals are receding. Now what?”**
+                🗓️ Source: The Hindu - August 3, 2025
+                📚 *GS Paper II - Governance | Internal Security | Welfare Schemes*
+                📚 *GS Paper III - Security Challenges in Border & Tribal Areas*
+                ---
+                ### 🔷 **Context:**
+                * The **Narayanpur district** in Chhattisgarh’s **Bastar region**, historically affected by **Left Wing Extremism (LWE)**, is gradually becoming accessible due to security operations and outreach initiatives.
+                * This article explores the **transition from conflict to governance**, challenges in **service delivery**, and the **incremental integration** of tribal communities into the formal administrative system.
+                ---
+                ### 🔷 **Geographic & Security Background:**
+                * **Region:** Bastar division - includes **7 tribal-majority districts**, including **Narayanpur**.
+                * **Maoist insurgency:** Ongoing for 5 decades in the **Abujhmad forests**.
+                * **Security operations (since Dec 2023):**
+                * Over **425 Maoists neutralized**.
+                * Home Minister aims for **full eradication by March 2026**.
+                * **Five "access" pockets** established through security camps and pucca road construction.
+                ---
+                ### 🔷 **Administrative Divisions & Accessibility:**
+                * **Narayanpur District:**
+                * **2 Blocks:** Narayanpur and Orchha.
+                * **377 villages**, **133 still inaccessible**.
+                * Some villages require **four-day treks** to access markets.
+                * Terrain challenges: Hilly, forested, low-population density; distances measured in **"hills crossed"**.
+                ---
+                ### 🔷 **Key Development Schemes:**
+                #### 🟩 **Niyad Nellanar Scheme** *(Chhattisgarh Government):*
+                * Focus: Delivery of **basic amenities & welfare services** within a **10-km radius** of new security camps.
+                * **Camp types:**
+                * **Security camps:** Forces are stationed.
+                * **Welfare camps:** Temporary facilities for scheme delivery.
+                #### 🟩 **Major Schemes Implemented:**
+                * **Mahtari Vandan Yojana:** ₹1,000/month cash assistance to women.
+                * **Pradhan Mantri Awaas Yojana - Gramin:** ₹2 lakh housing assistance.
+                * **MGNREGS:** Locals actively seek employment under this rural jobs scheme.
+                ---
+                ### 🔷 **Challenges in Governance Transition:**
+                #### 🟨 **Infrastructure & Access:**
+                * Poor/no **road connectivity** in remote areas.
+                * High cost: ₹1 crore road for 10-family villages is economically challenging.
+                * Construction material transportation (e.g., 7 tractor trips at ₹3,000 each).
+                #### 🟨 **Digital & Telecom Connectivity:**
+                * **Non-electrified areas** and **no mobile networks**.
+                * Aadhaar-related duplications delay welfare access.
+                #### 🟨 **Lack of Demand for Education:**
+                * Low initial demand for **schools**; higher demand for **rations, health facilities, housing**.
+                #### 🟨 **Skilled Labour Shortage:**
+                * No local masons or construction workers.
+                * Govt plans to train **surrendered Maoists** in construction & telecom tower building.
+                ---
+                ### 🔷 **Progress Indicators:**
+                * Travel time to town **reduced from 5 hours to 2** for village leaders like Mahru Potai.
+                * New **bus services** introduced, although underutilized due to novelty.
+                * **Villagers asserting rights** — e.g., Thulthuli residents seeking MGNREG work despite proximity to recent conflict zones.
+                * **Willingness to participate** in governance rising as fear recedes.
+                ---
+                ### 🔷 **Learnings for Governance in Conflict Zones:**
+                * **Stepwise approach:** Security first, followed by welfare and services.
+                * **Community engagement crucial:** Services more effective when built on **trust and prior interaction** (e.g., health workers).
+                * **Need for contextual planning:** Small population villages need flexible, innovative planning models.
+                * **Cost-effectiveness vs. inclusivity:** Balancing financial constraints with social justice and access.
+                ---
+                ### 🔷 **Relevant UPSC Syllabus Linkages:**
+                * **GS II:** Welfare schemes for vulnerable sections; Government policies and interventions.
+                * **GS III:** Challenges to internal security through communication networks, role of media, and social networking sites; Basics of cyber security; Role of external state and non-state actors in creating challenges to internal security.
+                ---
+                ### 🔷 **The Naxals are receding. Now what?**
+                1. **GS II:** *“Discuss the challenges and prospects of extending governance in regions affected by Left Wing Extremism.”*
+                2. **GS III:** *“Security-led development is essential but not sufficient for state integration in LWE-affected areas. Elaborate.”*
+            `;
+            const hindiContent = `
+                ## **“नक्सली पीछे हट रहे हैं। अब क्या?”**
+                🗓️ *द हिंदू - 3 अगस्त, 2025*
+                📚 *सामान्य अध्ययन प्रश्नपत्र II - शासन | आंतरिक सुरक्षा | कल्याणकारी योजनाएँ*
+                📚 *सामान्य अध्ययन प्रश्नपत्र III - सीमावर्ती एवं जनजातीय क्षेत्रों में सुरक्षा चुनौतियाँ*
+                ---
+                ### 🔷 **संदर्भ:**
+                * छत्तीसगढ़ के **बस्तर क्षेत्र** का **नारायणपुर जिला**, जो ऐतिहासिक रूप से **वामपंथी उग्रवाद (LWE)** से प्रभावित रहा है, सुरक्षा अभियानों और आउटरीच पहलों के कारण धीरे-धीरे सुगम हो रहा है।
+                * यह लेख **संघर्ष से शासन** की ओर संक्रमण, **सेवा वितरण** में चुनौतियों, और औपचारिक प्रशासनिक व्यवस्था में जनजातीय समुदायों के **क्रमिक एकीकरण** की पड़ताल करता है।
+                ---
+                ### 🔷 **भौगोलिक एवं सुरक्षा पृष्ठभूमि:**
+                * **क्षेत्र:** बस्तर संभाग - इसमें **नारायणपुर** सहित **7 आदिवासी बहुल जिले** शामिल हैं।
+                * **माओवादी विद्रोह:** **अबूझमाड़ के जंगलों** में 5 दशकों से जारी है।
+                * **सुरक्षा अभियान (दिसंबर 2023 से):**
+                * **425 से ज़्यादा माओवादियों को मार गिराया गया**।
+                * गृह मंत्री का लक्ष्य **मार्च 2026 तक पूर्ण उन्मूलन** है।
+                * **सुरक्षा शिविरों और पक्की सड़कों के निर्माण के माध्यम से पाँच "पहुँच" क्षेत्र** स्थापित किए गए हैं।
+                ---
+                ### 🔷 **प्रशासनिक प्रभाग एवं पहुँच:**
+                * **नारायणपुर ज़िला:**
+                * **2 ब्लॉक:** नारायणपुर और ओरछा।
+                * **377 गाँव**, **133 अभी भी दुर्गम**।
+                * कुछ गाँवों में बाज़ारों तक पहुँचने के लिए **चार दिन की पैदल यात्रा** करनी पड़ती है।
+                * भू-भाग की चुनौतियाँ: पहाड़ी, वनाच्छादित, कम जनसंख्या घनत्व; दूरियाँ **"पहाड़ियों को पार करके"** में मापी जाती हैं।
+                ---
+                ### 🔷 **प्रमुख विकास योजनाएँ:**
+                #### 🟩 **नियाद नेल्लनार योजना** *(छत्तीसगढ़ सरकार):*
+                * फोकस: नए सुरक्षा शिविरों के **10 किलोमीटर के दायरे** में **बुनियादी सुविधाओं और कल्याणकारी सेवाओं** का वितरण।
+                * **शिविर के प्रकार:**
+                * **सुरक्षा शिविर:** बल तैनात हैं।
+                * **कल्याण शिविर:** योजना कार्यान्वयन के लिए अस्थायी सुविधाएँ।
+                #### 🟩 **कार्यान्वित प्रमुख योजनाएँ:**
+                * **महतारी वंदन योजना:** महिलाओं को ₹1,000/माह नकद सहायता।
+                * **प्रधानमंत्री आवास योजना - ग्रामीण:** ₹2 लाख आवास सहायता।
+                * **मनरेगा:** स्थानीय लोग इस ग्रामीण रोज़गार योजना के तहत सक्रिय रूप से रोज़गार की तलाश करते हैं।
+                ---
+                ### 🔷 **शासन परिवर्तन में चुनौतियाँ:**
+                #### 🟨 **बुनियादी ढाँचा और पहुँच:**
+                * दूरदराज के इलाकों में सड़क संपर्क का अभाव/बिना।
+                * उच्च लागत: 10 परिवारों वाले गाँवों के लिए ₹1 करोड़ की सड़क आर्थिक रूप से चुनौतीपूर्ण है।
+                * निर्माण सामग्री का परिवहन (उदाहरण के लिए, ₹3,000 प्रति व्यक्ति की दर से 7 ट्रैक्टर यात्राएँ)।
+                #### 🟨 **डिजिटल और दूरसंचार कनेक्टिविटी:**
+                * **बिजली रहित क्षेत्र** और **मोबाइल नेटवर्क नहीं**।
+                * आधार से संबंधित दोहराव कल्याणकारी योजनाओं तक पहुँच में देरी करते हैं।
+                #### 🟨 **शिक्षा की माँग में कमी:**
+                * **स्कूलों** की शुरुआती माँग कम; **राशन, स्वास्थ्य सुविधाओं, आवास** की माँग ज़्यादा।
+                #### 🟨 **कुशल श्रमिकों की कमी:**
+                * कोई स्थानीय राजमिस्त्री या निर्माण श्रमिक नहीं।
+                * सरकार **आत्मसमर्पण करने वाले माओवादियों** को निर्माण और दूरसंचार टावर निर्माण का प्रशिक्षण देने की योजना बना रही है।
+                ---
+                ### 🔷 **प्रगति संकेतक:**
+                * महरू पोटाई जैसे गाँव के नेताओं के लिए शहर तक यात्रा का समय **5 घंटे से घटाकर 2 घंटे** कर दिया गया।
+                * नई **बस सेवाएँ** शुरू की गईं, हालाँकि नवीनता के कारण उनका कम उपयोग हुआ।
+                * **ग्रामीण अपने अधिकारों का दावा कर रहे हैं** — उदाहरण के लिए, थुलथुली के निवासी हाल ही में संघर्ष क्षेत्रों से निकटता के बावजूद मनरेगा में काम की तलाश कर रहे हैं।
+                * **भय कम होने के साथ शासन में भागीदारी की इच्छा** बढ़ रही है।
+                ---
+                ### 🔷 **संघर्ष क्षेत्रों में शासन के लिए सीख:**
+                * **चरणबद्ध दृष्टिकोण:** पहले सुरक्षा, उसके बाद कल्याण और सेवाएँ।
+                * **सामुदायिक सहभागिता महत्वपूर्ण:** सेवाएँ तब अधिक प्रभावी होती हैं जब **विश्वास और पूर्व संपर्क** पर आधारित हों (उदाहरण के लिए, स्वास्थ्य कार्यकर्ता)।
+                * **प्रासंगिक नियोजन की आवश्यकता:** छोटी आबादी वाले गाँवों को लचीले, नवीन नियोजन मॉडल की आवश्यकता होती है।
+                * **लागत-प्रभावशीलता बनाम समावेशिता:** वित्तीय बाधाओं को सामाजिक न्याय और पहुँच के साथ संतुलित करना।
+                ---
+                ### 🔷 **प्रासंगिक यूपीएससी पाठ्यक्रम लिंकेज:**
+                * **जीएस II:** कमजोर वर्गों के लिए कल्याणकारी योजनाएँ; सरकारी नीतियाँ और हस्तक्षेप।
+                * **जीएस III:** संचार नेटवर्क के माध्यम से आंतरिक सुरक्षा के लिए चुनौतियाँ, मीडिया और सोशल नेटवर्किंग साइटों की भूमिका; साइबर सुरक्षा की मूल बातें; आंतरिक सुरक्षा के लिए चुनौतियाँ पैदा करने में बाहरी राज्य और गैर-राज्य अभिनेताओं की भूमिका।
+                ---
+                ### 🔷 **“The Naxals are receding. Now what?”**
+                1. **जीएस II:** *“वामपंथी उग्रवाद से प्रभावित क्षेत्रों में शासन के विस्तार की चुनौतियों और संभावनाओं पर चर्चा करें।”*
+                2. **जीएस III:** *“सुरक्षा-आधारित विकास आवश्यक है, लेकिन वामपंथी उग्रवाद प्रभावित क्षेत्रों में राज्य एकीकरण के लिए पर्याप्त नहीं है। विस्तार से बताएँ।”*
+            `;
+            
+            function formatText(text) {
+                return text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                           .replace(/\*(.*?)\*/g, '<em>$1</em>');
+            }
+
+            function getWordCount(text) {
+                const cleanText = text.replace(/<[^>]*>?/gm, '').replace(/[\*#🔷]/g, '').trim();
+                return cleanText.split(/\s+/).filter(word => word.length > 0).length;
+            }
+
+            const englishLines = englishContent.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+            const hindiLines = hindiContent.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+
+            const articleTitle = document.getElementById('article-title');
+            const articleSource = document.getElementById('article-source');
+            const articleDate = document.getElementById('article-date');
+            const articleContentDiv = document.getElementById('article-content');
+            const readTimeDiv = document.getElementById('read-time');
+
+            let totalEnglishWords = 0;
+            let currentSection = null;
+            let currentList = null;
+
+            for (let i = 0; i < englishLines.length; i++) {
+                const engLine = englishLines[i];
+                const hinLine = hindiLines[i] || '';
+
+                if (engLine.startsWith('##')) {
+                    articleTitle.innerHTML = formatText(engLine.replace('##', '').trim());
+                    continue;
+                }
+
+                if (engLine.startsWith('🗓️')) {
+                    const parts = engLine.split('-');
+                    articleSource.innerHTML = formatText(parts[0].replace('🗓️', '').trim());
+                    articleDate.innerHTML = formatText(parts[1].trim());
+                    continue;
+                }
+
+                if (engLine.startsWith('📚')) {
+                    totalEnglishWords += getWordCount(engLine);
+                    continue;
+                }
+                
+                if (engLine === '---') {
+                    if (currentSection) {
+                        articleContentDiv.appendChild(currentSection);
+                        currentSection = null;
+                    }
+                    continue;
+                }
+
+                if (engLine.startsWith('###')) {
+                    if (currentSection) {
+                        articleContentDiv.appendChild(currentSection);
+                    }
+                    currentSection = document.createElement('section');
+                    const heading = document.createElement('h3');
+                    heading.innerHTML = formatText(engLine.replace('###', '').trim());
+                    currentSection.appendChild(heading);
+                    currentList = null;
+                    continue;
+                }
+                
+                if (engLine.startsWith('*')) {
+                    if (!currentList) {
+                        currentList = document.createElement('ul');
+                        (currentSection || articleContentDiv).appendChild(currentList);
+                    }
+                    const listItem = document.createElement('li');
+                    listItem.innerHTML = `<div class="line"><p class="english-content">${formatText(engLine.substring(engLine.indexOf(' ') + 1))}</p>` + 
+                                         `<p class="hindi-content" lang="hi">${formatText(hinLine.substring(hinLine.indexOf(' ') + 1))}</p></div>`;
+                    currentList.appendChild(listItem);
+                    totalEnglishWords += getWordCount(engLine);
+                } else {
+                    currentList = null; // Reset list if a non-list line is encountered
+                    
+                    const lineDiv = document.createElement('div');
+                    lineDiv.className = 'line';
+                    
+                    let processedEngLine = engLine;
+                    let processedHinLine = hinLine;
+
+                    if (engLine.startsWith('####')) {
+                        processedEngLine = `<p class="english-content line-subheading">${formatText(engLine.replace('####', '').trim())}</p>`;
+                        processedHinLine = `<p class="hindi-content" lang="hi">${formatText(hinLine.replace('####', '').trim())}</p>`;
+                    } else {
+                        processedEngLine = `<p class="english-content">${formatText(engLine)}</p>`;
+                        processedHinLine = `<p class="hindi-content" lang="hi">${formatText(hinLine)}</p>`;
+                    }
+
+                    lineDiv.innerHTML = processedEngLine + processedHinLine;
+                    
+                    if (currentSection) {
+                        currentSection.appendChild(lineDiv);
+                    } else {
+                        articleContentDiv.appendChild(lineDiv);
+                    }
+                     totalEnglishWords += getWordCount(engLine);
+                }
+            }
+
+            if (currentSection) {
+                articleContentDiv.appendChild(currentSection);
+            }
+            
+            const readTime = Math.ceil(totalEnglishWords / 200);
+            readTimeDiv.textContent = `Read Time: approx. ${readTime} min`;
+
+            const scrollBtn = document.getElementById('scroll-to-top');
+            window.onscroll = function() {
+                if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                    scrollBtn.style.display = "block";
+                    scrollBtn.style.opacity = "1";
+                } else {
+                    scrollBtn.style.opacity = "0";
+                    setTimeout(() => {
+                        if (document.body.scrollTop <= 300 && document.documentElement.scrollTop <= 300) {
+                            scrollBtn.style.display = "none";
+                        }
+                    }, 300);
+                }
+            };
+
+            scrollBtn.onclick = function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            };
+        });
+    </script>
+</body>
+</html>

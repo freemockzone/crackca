@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hindu - 03-Aug-25</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3f51b5;
+            --secondary-color: #ff4081;
+            --background-color: #f0f2f5;
+            --text-color: #333;
+            --light-text-color: #666;
+            --border-color: #ddd;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            margin: 0;
+            padding: 0 1rem;
+        }
+
+        nav {
+            background-color: #303f9f;
+            padding: 0.5rem 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            display: block;
+            font-weight: 700;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: var(--secondary-color);
+        }
+
+        article {
+            background-color: white;
+            padding: 2rem;
+            margin-top: 1rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        article h2 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 2rem;
+        }
+
+        .article-meta {
+            color: var(--light-text-color);
+            font-style: italic;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .article-meta span {
+            display: block;
+        }
+
+        .read-time {
+            background-color: #e8eaf6;
+            color: var(--primary-color);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-weight: 700;
+            margin-top: 0.5rem;
+            font-style: normal;
+        }
+
+        section {
+            margin-bottom: 2rem;
+        }
+
+        section h3 {
+            color: var(--primary-color);
+            border-left: 4px solid var(--secondary-color);
+            padding-left: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .line {
+            padding: 0.75rem 1rem;
+            border-left: 3px solid transparent;
+            margin-bottom: 0.5rem;
+            transition: background-color 0.3s, border-left-color 0.3s;
+        }
+
+        .line:hover {
+            background-color: #e8eaf6;
+            border-left-color: var(--primary-color);
+        }
+
+        .line p {
+            margin: 0;
+        }
+
+        .hindi {
+            color: var(--light-text-color);
+            font-style: italic;
+            margin-top: 0.25rem;
+        }
+
+        strong {
+            font-weight: 700;
+        }
+
+        em, .italic {
+            font-style: italic;
+        }
+
+        .line ul {
+            margin-top: 0.5rem;
+            margin-left: 2rem;
+        }
+        .line ol {
+            margin-top: 0.5rem;
+            margin-left: 2rem;
+        }
+        .line li {
+            margin-bottom: 0.5rem;
+        }
+
+        #scrollToTopBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99;
+            border: none;
+            outline: none;
+            background-color: var(--secondary-color);
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 50%;
+            font-size: 18px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: opacity 0.3s;
+        }
+
+        #scrollToTopBtn:hover {
+            opacity: 0.8;
+        }
+
+        .back-home-btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 1rem;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 8px;
+            margin-top: 2rem;
+            transition: background-color 0.3s;
+        }
+
+        .back-home-btn:hover {
+            background-color: #303f9f;
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.2rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav a {
+                text-align: center;
+            }
+            
+            article {
+                padding: 1rem;
+            }
+
+            .article-meta {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .read-time {
+                margin-top: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>03-August-2025</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="donation.html">Donation</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <article>
+            <h2 id="article-title">ISRO targets 2027 launch for LVM3 semi-cryogenic stage</h2>
+            <div class="article-meta">
+                <div>
+                    <span class="source">Source: The Hindu</span>
+                    <span class="date">Publication Date: August 3, 2025</span>
+                </div>
+                <span class="read-time"></span>
+            </div>
+
+            <section>
+                <h3>🔷 Context:</h3>
+                <div class="line">
+                    <p>The <strong>Indian Space Research Organisation (ISRO)</strong> is set to launch an upgraded <strong>LVM3 rocket</strong> with a <strong>semi-cryogenic stage</strong> by the <strong>first quarter of 2027</strong>.</p>
+                    <p class="hindi" lang="hi">भारतीय अंतरिक्ष अनुसंधान संगठन (इसरो) 2027 की पहली तिमाही तक एक उन्नत LVM3 रॉकेट को सेमी-क्रायोजेनिक चरण के साथ प्रक्षेपित करने के लिए तैयार है।</p>
+                </div>
+                <div class="line">
+                    <p>This marks a significant milestone in India’s efforts to enhance <strong>payload capacity</strong> and reduce <strong>launch costs</strong>.</p>
+                    <p class="hindi" lang="hi">यह भारत के पेलोड क्षमता बढ़ाने और प्रक्षेपण लागत कम करने के प्रयासों में एक महत्वपूर्ण मील का पत्थर है।</p>
+                </div>
+            </section>
+
+            <section>
+                <h3>🔷 About LVM3:</h3>
+                <div class="line">
+                    <p><strong>Full Name:</strong> Launch Vehicle Mark-3 (formerly <strong>GSLV Mk III</strong>).</p>
+                    <p class="hindi" lang="hi">पूरा नाम: प्रक्षेपण यान मार्क-3 (पूर्व में GSLV Mk III)।</p>
+                </div>
+                <div class="line">
+                    <p><strong>First experimental flight:</strong> December 2014.</p>
+                    <p class="hindi" lang="hi">पहली प्रायोगिक उड़ान: दिसंबर 2014.</p>
+                </div>
+                <div class="line">
+                    <p><strong>Current capability:</strong> Uplifts <strong>up to 4,200 kg</strong> payloads to <strong>Geosynchronous Transfer Orbit (GTO)</strong>.</p>
+                    <p class="hindi" lang="hi">वर्तमान क्षमता: 4,200 किलोग्राम तक के पेलोड को जियोसिंक्रोनस ट्रांसफर ऑर्बिट (GTO) तक ले जाता है।</p>
+                </div>
+                <div class="line">
+                    <p>It is India’s <strong>most powerful rocket</strong> till date and has been used for missions like <strong>Chandrayaan-2</strong> and <strong>Gaganyaan</strong>.</p>
+                    <p class="hindi" lang="hi">यह भारत का अब तक का सबसे शक्तिशाली रॉकेट है और इसका इस्तेमाल चंद्रयान-2 और गगनयान जैसे मिशनों के लिए किया गया है।</p>
+                </div>
+            </section>
+
+            <section>
+                <h3>🔷 Upcoming Upgrade: Semi-Cryogenic Stage</h3>
+                <div class="line">
+                    <h4>✅ What is being changed:</h4>
+                    <ul>
+                        <li><p><strong>Current stage:</strong> *L110 core stage with <strong>liquid propellant (UH25 + N2O4)</strong>.*</p></li>
+                        <li><p class="hindi" lang="hi">वर्तमान चरण: तरल प्रणोदक (UH25 + N2O4) के साथ L110 कोर चरण।</p></li>
+                        <li><p><strong>Upgrade:</strong> *Replace with <strong>semi-cryogenic stage</strong> using <strong>refined kerosene (RP-1)</strong> + <strong>Liquid Oxygen (LOX)</strong>.*</p></li>
+                        <li><p class="hindi" lang="hi">अपग्रेड: रिफाइंड केरोसिन (RP-1) + लिक्विड ऑक्सीजन (LOX) का उपयोग करके अर्ध-क्रायोजेनिक चरण से प्रतिस्थापित करें।</p></li>
+                    </ul>
+                </div>
+                <div class="line">
+                    <h4>✅ Benefits:</h4>
+                    <ul>
+                        <li><p><strong>Increased payload capacity.</strong></p></li>
+                        <li><p class="hindi" lang="hi">बढ़ी हुई पेलोड क्षमता।</p></li>
+                        <li><p><strong>Reduced operational cost.</strong></p></li>
+                        <li><p class="hindi" lang="hi">कम परिचालन लागत।</p></li>
+                        <li><p>Use of <strong>indigenously developed SE2000 engine</strong>.</p></li>
+                        <li><p class="hindi" lang="hi">स्वदेशी रूप से विकसित SE2000 इंजन का उपयोग।</p></li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h3>🔷 Technical Features:</h3>
+                <div class="line">
+                    <ul>
+                        <li><p><strong>SE2000 Engine:</strong> *Thrust: <strong>200 tonnes</strong>. Compared to <strong>Vikas engine</strong> (80 tonnes thrust). Features <strong>oxidiser-rich combustion cycle</strong> and <strong>high-temp resistant materials</strong>.*</p></li>
+                        <li><p class="hindi" lang="hi">SE2000 इंजन: थ्रस्ट: 200 टन। विकास इंजन (80 टन थ्रस्ट) की तुलना में। ऑक्सीडाइज़र-समृद्ध दहन चक्र और उच्च-तापमान प्रतिरोधी सामग्री की विशेषताएँ।</p></li>
+                        <li><p><strong>Cryogenic upper stage (C25):</strong> *Propellant upgraded from <strong>28 tonnes to 32 tonnes</strong>. Uses <strong>Liquid Hydrogen + LOX</strong>.*</p></li>
+                        <li><p class="hindi" lang="hi">क्रायोजेनिक ऊपरी चरण (C25): प्रणोदक को 28 टन से बढ़ाकर 32 टन किया गया। इसमें तरल हाइड्रोजन + LOX का उपयोग किया गया है।</p></li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h3>🔷 Developmental Status:</h3>
+                <div class="line">
+                    <p><strong>Power head testing underway.</strong></p>
+                    <p class="hindi" lang="hi">पावर हेड परीक्षण जारी है।</p>
+                </div>
+                <div class="line">
+                    <p><strong>5–6 successful tests</strong> already completed.</p>
+                    <p class="hindi" lang="hi">5-6 सफल परीक्षण हो चुके हैं।</p>
+                </div>
+                <div class="line">
+                    <p>Development considered <strong>"on track"</strong>, as per ISRO Chairman <strong>V. Narayanan</strong>.</p>
+                    <p class="hindi" lang="hi">इसरो अध्यक्ष वी. नारायणन के अनुसार, विकास को "ट्रैक पर" माना जा रहा है।</p>
+                </div>
+            </section>
+
+            <section>
+                <h3>🔷 Significance:</h3>
+                <div class="line">
+                    <p>Strengthens India’s position in <strong>heavy-lift space missions</strong> and <strong>commercial launches</strong>.</p>
+                    <p class="hindi" lang="hi">भारी-भरकम अंतरिक्ष मिशनों और व्यावसायिक प्रक्षेपणों में भारत की स्थिति को मज़बूत करता है।</p>
+                </div>
+                <div class="line">
+                    <p>Paves way for:</p>
+                    <ul>
+                        <li><p><strong>Reusable launch vehicle (RLV)</strong> technology.</p></li>
+                        <li><p class="hindi" lang="hi">पुन: प्रयोज्य प्रक्षेपण यान (RLV) तकनीक।</p></li>
+                        <li><p>Future missions like <strong>manned spaceflight (Gaganyaan)</strong>.</p></li>
+                        <li><p class="hindi" lang="hi">मानवयुक्त अंतरिक्ष उड़ान (गगनयान) जैसे भविष्य के मिशन।</p></li>
+                        <li><p>Enhanced competitiveness in <strong>global space launch market</strong>.</p></li>
+                        <li><p class="hindi" lang="hi">वैश्विक अंतरिक्ष प्रक्षेपण बाज़ार में बढ़ी हुई प्रतिस्पर्धा।</p></li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h3>🔷 What is Semi-Cryogenic Propulsion?</h3>
+                <div class="line">
+                    <p><strong>Definition:</strong> Engine uses <strong>liquid oxygen (cryogenic)</strong> and <strong>refined kerosene (semi-cryogenic)</strong>.</p>
+                    <p class="hindi" lang="hi">परिभाषा: इंजन तरल ऑक्सीजन (क्रायोजेनिक) और परिष्कृत केरोसिन (अर्ध-क्रायोजेनिक) का उपयोग करता है।</p>
+                </div>
+                <div class="line">
+                    <p>Combines advantages of:</p>
+                    <ul>
+                        <li><p><strong>Cryogenic propulsion:</strong> High efficiency.</p></li>
+                        <li><p class="hindi" lang="hi">क्रायोजेनिक प्रणोदन: उच्च दक्षता।</p></li>
+                        <li><p><strong>Liquid propulsion:</strong> Simpler design & cost-effective.</p></li>
+                        <li><p class="hindi" lang="hi">द्रव प्रणोदन: सरल डिज़ाइन और लागत प्रभावी।</p></li>
+                    </ul>
+                </div>
+                <div class="line">
+                    <p>More powerful than standard liquid engines, less complex than full cryogenic systems.</p>
+                    <p class="hindi" lang="hi">मानक द्रव इंजनों की तुलना में अधिक शक्तिशाली, पूर्ण क्रायोजेनिक प्रणालियों की तुलना में कम जटिल।</p>
+                </div>
+            </section>
+
+            <section>
+                <h3>🔷 Relevant UPSC Syllabus Linkages:</h3>
+                <div class="line">
+                    <ul>
+                        <li><p><strong>GS III:</strong> Developments in Space Technology, Indigenization of technology.</p></li>
+                        <li><p class="hindi" lang="hi">जीएस III: अंतरिक्ष प्रौद्योगिकी में विकास, प्रौद्योगिकी का स्वदेशीकरण।</p></li>
+                        <li><p><strong>Prelims:</strong> *Science and Technology – Basics of Rocket Propulsion, Cryogenic vs Semi-cryogenic engines.*</p></li>
+                        <li><p class="hindi" lang="hi">प्रारंभिक: विज्ञान और प्रौद्योगिकी - रॉकेट प्रणोदन की मूल बातें, क्रायोजेनिक बनाम अर्ध-क्रायोजेनिक इंजन।</p></li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h3>🔷 Potential UPSC Mains Questions:</h3>
+                <div class="line">
+                    <ol>
+                        <li><p><strong>GS III:</strong> *“Discuss the advantages of using semi-cryogenic propulsion systems in launch vehicles. How will it enhance India’s space capabilities?”*</p></li>
+                        <li><p class="hindi" lang="hi">सामान्य अध्ययन III: “प्रक्षेपण वाहनों में अर्ध-क्रायोजेनिक प्रणोदन प्रणालियों के उपयोग के लाभों पर चर्चा करें। यह भारत की अंतरिक्ष क्षमताओं को कैसे बढ़ाएगा?”</p></li>
+                        <li><p><strong>GS III:</strong> *“Evaluate the strategic significance of indigenously developed heavy-lift launch vehicles for India’s space program.”*</p></li>
+                        <li><p class="hindi" lang="hi">सामान्य अध्ययन III: “भारत के अंतरिक्ष कार्यक्रम के लिए स्वदेशी रूप से विकसित भारी-भरकम प्रक्षेपण वाहनों के सामरिक महत्व का मूल्यांकन करें।”</p></li>
+                    </ol>
+                </div>
+            </section>
+
+            <a href="index.html" class="back-home-btn">Back to Home</a>
+        </article>
+    </div>
+    
+    <button id="scrollToTopBtn" title="Go to top">↑</button>
+
+    <footer>
+        © 2025 Crack Current Affairs (CrackCA). All rights reserved.
+    </footer>
+
+    <script>
+        // Read Time Calculation
+        const articleContent = `
+            The Indian Space Research Organisation (ISRO) is set to launch an upgraded LVM3 rocket with a semi-cryogenic stage by the first quarter of 2027. This marks a significant milestone in India’s efforts to enhance payload capacity and reduce launch costs.
+            Full Name: Launch Vehicle Mark-3 (formerly GSLV Mk III). First experimental flight: December 2014. Current capability: Uplifts up to 4,200 kg payloads to Geosynchronous Transfer Orbit (GTO). It is India’s most powerful rocket till date and has been used for missions like Chandrayaan-2 and Gaganyaan.
+            Upcoming Upgrade: Semi-Cryogenic Stage. What is being changed: Current stage: L110 core stage with liquid propellant (UH25 + N2O4). Upgrade: Replace with semi-cryogenic stage using refined kerosene (RP-1) + Liquid Oxygen (LOX). Benefits: Increased payload capacity. Reduced operational cost. Use of indigenously developed SE2000 engine.
+            Technical Features: SE2000 Engine: Thrust: 200 tonnes. Compared to Vikas engine (80 tonnes thrust). Features oxidiser-rich combustion cycle and high-temp resistant materials. Cryogenic upper stage (C25): Propellant upgraded from 28 tonnes to 32 tonnes. Uses Liquid Hydrogen + LOX.
+            Developmental Status: Power head testing underway. 5–6 successful tests already completed. Development considered "on track", as per ISRO Chairman V. Narayanan.
+            Significance: Strengthens India’s position in heavy-lift space missions and commercial launches. Paves way for: Reusable launch vehicle (RLV) technology. Future missions like manned spaceflight (Gaganyaan). Enhanced competitiveness in global space launch market.
+            What is Semi-Cryogenic Propulsion? Definition: Engine uses liquid oxygen (cryogenic) and refined kerosene (semi-cryogenic). Combines advantages of: Cryogenic propulsion: High efficiency. Liquid propulsion: Simpler design & cost-effective. More powerful than standard liquid engines, less complex than full cryogenic systems.
+            Relevant UPSC Syllabus Linkages: GS III: Developments in Space Technology, Indigenization of technology. Prelims: Science and Technology – Basics of Rocket Propulsion, Cryogenic vs Semi-cryogenic engines.
+            Potential UPSC Mains Questions: GS III: “Discuss the advantages of using semi-cryogenic propulsion systems in launch vehicles. How will it enhance India’s space capabilities?” GS III: “Evaluate the strategic significance of indigenously developed heavy-lift launch vehicles for India’s space program.”
+        `;
+        const wordsPerMinute = 200;
+        const wordCount = articleContent.split(/\s+/).filter(Boolean).length;
+        const readTime = Math.ceil(wordCount / wordsPerMinute);
+        document.querySelector('.read-time').innerText = `Read Time: ≈ ${readTime} min`;
+
+        // Scroll to Top button functionality
+        const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+        window.onscroll = function() { scrollFunction() };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                scrollToTopBtn.style.display = "block";
+            } else {
+                scrollToTopBtn.style.display = "none";
+            }
+        }
+
+        scrollToTopBtn.addEventListener("click", function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>

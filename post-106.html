@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hindu - 03-Aug-25</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Noto+Sans:wght@400;700&display=swap">
+<style>
+:root {
+--primary-color: #004d40; /* Dark Teal /
+--secondary-color: #f0f4f7; / Very light gray /
+--accent-color: #00796b; / Darker Teal */
+--text-color: #333;
+--light-text-color: #666;
+--font-family-serif: 'Merriweather', serif;
+--font-family-sans: 'Noto Sans', sans-serif;
+--container-width: 950px;
+}
+
+    body {
+        font-family: var(--font-family-sans);
+        line-height: 1.6;
+        color: var(--text-color);
+        background-color: var(--secondary-color);
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    .container {
+        max-width: var(--container-width);
+        margin: auto;
+        padding: 1.5rem;
+    }
+
+    header {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 1.5rem 1rem;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+        font-family: var(--font-family-serif);
+        font-size: 2rem;
+        margin: 0;
+    }
+
+    nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 1rem 0 0;
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+        color: var(--accent-color);
+    }
+
+    main {
+        flex: 1;
+    }
+
+    article {
+        background: white;
+        padding: 2.5rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        margin: 2rem 0;
+    }
+
+    .article-meta {
+        border-bottom: 2px solid #ddd;
+        padding-bottom: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .article-title {
+        font-family: var(--font-family-serif);
+        color: var(--primary-color);
+        font-size: 2.5rem;
+        line-height: 1.2;
+        margin: 0 0 0.5rem 0;
+    }
+
+    .article-meta p {
+        margin: 0.5rem 0;
+        font-size: 0.9rem;
+        color: var(--light-text-color);
+    }
+
+    .read-time {
+        font-weight: bold;
+        color: var(--accent-color);
+    }
+    
+    .content-block h2, .content-block h3 {
+        font-family: var(--font-family-serif);
+        color: var(--primary-color);
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        border-left: 4px solid var(--accent-color);
+        padding-left: 1rem;
+    }
+
+    h2 { font-size: 1.8rem; }
+    h3 { font-size: 1.5rem; }
+
+    strong {
+        font-weight: 700;
+        color: var(--text-color);
+    }
+
+    .line {
+        padding: 0.8rem 1rem;
+        margin-bottom: 0.5rem;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+    }
+
+    .line:hover {
+        background-color: #f0f0f0; /* Simple, noticeable hover effect */
+    }
+    
+    .line ul {
+        margin: 0.5rem 0 0.5rem 1.5rem;
+        padding: 0;
+        list-style-type: disc;
+    }
+
+    blockquote {
+        background-color: #f9f9f9;
+        border-left: 5px solid var(--accent-color);
+        padding: 1rem 1.5rem;
+        margin: 1rem 0;
+        font-style: italic;
+        color: #555;
+        border-radius: 4px;
+    }
+    
+    .button-group {
+        display: flex;
+        justify-content: center;
+        margin-top: 3rem;
+    }
+
+    .button-group a {
+        display: inline-block;
+        background-color: var(--accent-color);
+        color: white;
+        padding: 0.75rem 2rem;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+    }
+
+    .button-group a:hover {
+        background-color: #004d40;
+    }
+
+    .scroll-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        display: none;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        transition: background-color 0.3s, transform 0.3s;
+        z-index: 1000;
+    }
+
+    .scroll-to-top:hover {
+        background-color: #00382e;
+        transform: scale(1.1);
+    }
+
+    footer {
+        text-align: center;
+        padding: 1.5rem;
+        margin-top: 2rem;
+        background-color: var(--primary-color);
+        color: white;
+        box-shadow: 0 -4px 8px rgba(0,0,0,0.1);
+    }
+
+    /* Mobile-first Media Queries */
+    @media (max-width: 768px) {
+        header h1 {
+            font-size: 1.5rem;
+        }
+        .article-title {
+            font-size: 2rem;
+        }
+        article {
+            padding: 1.5rem;
+        }
+        nav ul {
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>03-August-2025</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="donation.html">Donation</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="container">
+    <article>
+        <div class="article-meta">
+            <h1 class="article-title">“Marathi made mandatory, but nothing wrong with learning another Indian language: CM”</h1>
+            <p><strong>Source:</strong> <em>The Hindu</em></p>
+            <p><strong>Publication Date:</strong> August 3, 2025</p>
+            <p id="read-time" class="read-time"></p>
+        </div>
+
+        <div id="english-content" class="content-block">
+            <section>
+                <h3>Context</h3>
+                <div class="line">
+                    <p>Maharashtra Chief Minister <strong>Devendra Fadnavis</strong> defended the move to promote <strong>Marathi</strong> as a compulsory language in schools, while also advocating for <strong>learning other Indian languages</strong> over prioritizing English.</p>
+                </div>
+                <div class="line">
+                    <p>His statement came amid a <strong>political controversy over the inclusion of Hindi</strong> as a third language in the school curriculum.</p>
+                </div>
+            </section>
+
+            <section>
+                <h3>Key Highlights</h3>
+                <div class="line">
+                    <p><strong>Marathi Language Compulsory:</strong></p>
+                    <ul>
+                        <li>CM reiterated that <strong>Marathi has been made mandatory</strong> in schools across Maharashtra.</li>
+                        <li>Stressed Marathi’s role in upholding <strong>cultural and linguistic identity</strong> of the State.</li>
+                    </ul>
+                </div>
+                <div class="line">
+                    <p><strong>Learning Other Indian Languages Encouraged:</strong></p>
+                    <ul>
+                        <li>CM emphasized that <strong>learning another Indian language</strong> (besides Marathi) is not wrong.</li>
+                        <li>Opposed the “mindset that valorizes English and neglects Indian languages.”</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h3>Three-Language Policy & NEP 2020</h3>
+                <div class="line">
+                    <p>In alignment with the <strong>National Education Policy (NEP) 2020</strong>, Maharashtra government had issued <strong>two Government Resolutions (GRs)</strong> to:</p>
+                    <ul>
+                        <li>Introduce <strong>Hindi as a third language</strong> from <strong>Classes 1 to 5</strong>.</li>
+                    </ul>
+                </div>
+                <div class="line">
+                    <p>These GRs were <strong>withdrawn</strong> following widespread political and public backlash.</p>
+                </div>
+            </section>
+
+            <section>
+                <h3>Political Reactions</h3>
+                <div class="line">
+                    <p><strong>Opposition Parties’ Criticism:</strong></p>
+                    <ul>
+                        <li><strong>Shiv Sena (UBT)</strong> leader <strong>Uddhav Thackeray</strong> accused the government of trying to “finish Marathi”.</li>
+                        <li>Advocated for <strong>linguistic self-respect</strong> and non-imposition of Hindi.</li>
+                        <li><strong>Raj Thackeray</strong> (MNS) questioned why the government isn’t ensuring <strong>migrants learn Marathi</strong>, instead of making schoolchildren learn Hindi.</li>
+                    </ul>
+                </div>
+                <div class="line">
+                    <p><strong>Joint Opposition Rally:</strong></p>
+                    <ul>
+                        <li>On <strong>July 5, 2025</strong>, Uddhav and Raj Thackeray <strong>made a rare joint appearance</strong> to celebrate the rollback of Hindi GRs.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h3>Significance of the Issue</h3>
+                <div class="line">
+                    <p><strong>Linguistic Identity vs. National Integration:</strong></p>
+                    <ul>
+                        <li>Reflects <strong>regional pride in native languages</strong> (Marathi) vs. broader efforts for <strong>linguistic integration</strong> (Hindi).</li>
+                    </ul>
+                </div>
+                <div class="line">
+                    <p><strong>Tension Between Language and Migration:</strong></p>
+                    <ul>
+                        <li>Debate over whether <strong>migrants</strong> should adopt the regional language or vice versa.</li>
+                    </ul>
+                </div>
+                <div class="line">
+                    <p><strong>Education Policy as a Political Tool:</strong></p>
+                    <ul>
+                        <li>Highlights how <strong>language policy in education</strong> can become a <strong>politically sensitive issue</strong>.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h3>Relevant Constitutional Provisions</h3>
+                <div class="line">
+                    <p><strong>Article 350A</strong> – Facilities for instruction in the mother tongue at primary stage.</p>
+                </div>
+                <div class="line">
+                    <p><strong>Article 351</strong> – Directive for development of the Hindi language.</p>
+                </div>
+                <div class="line">
+                    <p><strong>Eighth Schedule</strong> – Lists 22 official languages including Marathi and Hindi.</p>
+                </div>
+                <div class="line">
+                    <p><strong>NEP 2020</strong> – Promotes the <strong>three-language formula</strong>, preferably regional language + Hindi + English or other Indian languages.</p>
+                </div>
+            </section>
+
+            <section>
+                <h2>Potential UPSC Mains Questions</h2>
+                <div class="line">
+                    <ol>
+                        <li><strong>GS II:</strong> *"Discuss the implications of language policies in education on federalism and cultural identity in India."*</li>
+                        <li><strong>GS II:</strong> *"Critically evaluate the three-language formula in light of recent controversies over linguistic imposition."*</li>
+                    </ol>
+                </div>
+            </section>
+        </div>
+
+        <div id="hindi-content" class="content-block" lang="hi">
+            <hr>
+            <h2>मराठी अनिवार्य, लेकिन दूसरी भारतीय भाषा सीखने में कोई बुराई नहीं: मुख्यमंत्री</h2>
+            <section>
+                <h3>संदर्भ</h3>
+                <div class="line">
+                    <p>महाराष्ट्र के मुख्यमंत्री <strong>देवेंद्र फडणवीस</strong> ने स्कूलों में <strong>मराठी</strong> को अनिवार्य भाषा के रूप में बढ़ावा देने के कदम का बचाव किया, साथ ही अंग्रेजी को प्राथमिकता देने के बजाय <strong>अन्य भारतीय भाषाएँ सीखने</strong> की वकालत की।</p>
+                </div>
+                <div class="line">
+                    <p>उनका यह बयान स्कूली पाठ्यक्रम में तीसरी भाषा के रूप में हिंदी को शामिल करने पर उठे राजनीतिक विवाद के बीच आया है।</p>
+                </div>
+            </section>
+
+            <section>
+                <h3>मुख्य अंश</h3>
+                <div class="line">
+                    <p><strong>मराठी भाषा अनिवार्य:</strong></p>
+                    <ul>
+                        <li>मुख्यमंत्री ने दोहराया कि पूरे महाराष्ट्र के स्कूलों में <strong>मराठी को अनिवार्य</strong> कर दिया गया है।</li>
+                        <li>राज्य की <strong>सांस्कृतिक और भाषाई पहचान</strong> को बनाए रखने में मराठी की भूमिका पर ज़ोर दिया।</li>
+                    </ul>
+                </div>
+                <div class="line">
+                    <p><strong>अन्य भारतीय भाषाएँ सीखने को प्रोत्साहित किया गया:</strong></p>
+                    <ul>
+                        <li>मुख्यमंत्री ने ज़ोर देकर कहा कि <strong>(मराठी के अलावा) एक और भारतीय भाषा सीखना</strong> ग़लत नहीं है।</li>
+                        <li>"अंग्रेज़ी को महत्व देने और भारतीय भाषाओं की उपेक्षा करने वाली मानसिकता" का विरोध किया।</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h3>त्रि-भाषा नीति और राष्ट्रीय शिक्षा नीति 2020</h3>
+                <div class="line">
+                    <p><strong>राष्ट्रीय शिक्षा नीति (NEP) 2020</strong> के अनुरूप, महाराष्ट्र सरकार ने <strong>दो सरकारी प्रस्ताव (GR)</strong> जारी किए थे:</p>
+                    <ul>
+                        <li><strong>कक्षा 1 से 5 तक</strong> हिंदी को तीसरी भाषा के रूप में लागू करना।</li>
+                    </ul>
+                </div>
+                <div class="line">
+                    <p>व्यापक राजनीतिक और सार्वजनिक प्रतिक्रिया के बाद इन प्रस्तावों को <strong>वापस ले लिया गया</strong>।</p>
+                </div>
+            </section>
+
+            <section>
+                <h3>राजनीतिक प्रतिक्रियाएँ</h3>
+                <div class="line">
+                    <p><strong>विपक्षी दलों की आलोचना:</strong></p>
+                    <ul>
+                        <li><strong>शिवसेना (यूबीटी)</strong> नेता <strong>उद्धव ठाकरे</strong> ने सरकार पर "मराठी को ख़त्म करने" की कोशिश करने का आरोप लगाया।</li>
+                        <li><strong>भाषाई स्वाभिमान</strong> और हिंदी न थोपने की वकालत की।</li>
+                        <li><strong>राज ठाकरे</strong> (मनसे) ने सवाल किया कि सरकार स्कूली बच्चों को हिंदी सिखाने के बजाय <strong>प्रवासियों को मराठी सिखाने</strong> का प्रावधान क्यों नहीं कर रही है।</li>
+                    </ul>
+                </div>
+                <div class="line">
+                    <p><strong>संयुक्त विपक्षी रैली:</strong></p>
+                    <ul>
+                        <li><strong>5 जुलाई, 2025</strong> को, उद्धव और राज ठाकरे ने हिंदी जीआर वापस लेने का जश्न मनाने के लिए <strong>एक दुर्लभ संयुक्त उपस्थिति</strong> दिखाई।</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h3>मुद्दे का महत्व</h3>
+                <div class="line">
+                    <p><strong>भाषाई पहचान बनाम राष्ट्रीय एकता:</strong></p>
+                    <ul>
+                        <li><strong>मूल भाषाओं में क्षेत्रीय गौरव</strong> (मराठी) बनाम <strong>भाषाई एकीकरण</strong> (हिंदी) के व्यापक प्रयासों को दर्शाता है।</li>
+                    </ul>
+                </div>
+                <div class="line">
+                    <p><strong>भाषा और प्रवास के बीच तनाव:</strong></p>
+                    <ul>
+                        <li>इस बात पर बहस कि <strong>प्रवासियों</strong> को क्षेत्रीय भाषा अपनानी चाहिए या इसके विपरीत।</li>
+                    </ul>
+                </div>
+                <div class="line">
+                    <p><strong>राजनीतिक उपकरण के रूप में शिक्षा नीति:</strong></p>
+                    <ul>
+                        <li>इस बात पर प्रकाश डालता है कि कैसे <strong>शिक्षा में भाषा नीति</strong> एक <strong>राजनीतिक रूप से संवेदनशील मुद्दा</strong> बन सकती है।</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h3>प्रासंगिक संवैधानिक प्रावधान</h3>
+                <div class="line">
+                    <p><strong>अनुच्छेद 350A</strong> - प्राथमिक स्तर पर मातृभाषा में शिक्षा की सुविधाएँ।</p>
+                </div>
+                <div class="line">
+                    <p><strong>अनुच्छेद 351</strong> - हिंदी भाषा के विकास के लिए निर्देश।</p>
+                </div>
+                <div class="line">
+                    <p><strong>आठवीं अनुसूची</strong> – मराठी और हिंदी सहित 22 आधिकारिक भाषाओं को सूचीबद्ध करती है।</p>
+                </div>
+                <div class="line">
+                    <p><strong>एनईपी 2020</strong> – <strong>त्रि-भाषा सूत्र</strong> को बढ़ावा देती है, अधिमानतः क्षेत्रीय भाषा + हिंदी + अंग्रेजी या अन्य भारतीय भाषाएँ।</p>
+                </div>
+            </section>
+
+            <section>
+                <h2>संभावित यूपीएससी मुख्य परीक्षा प्रश्न</h2>
+                <div class="line">
+                    <ol>
+                        <li><strong>सामान्य अध्ययन II:</strong> *"भारत में संघवाद और सांस्कृतिक पहचान पर शिक्षा में भाषा नीतियों के प्रभावों पर चर्चा करें।"*</li>
+                        <li><strong>सामान्य अध्ययन II:</strong> *"भाषाई अधिरोपण पर हाल के विवादों के आलोक में त्रि-भाषा सूत्र का आलोचनात्मक मूल्यांकन करें।"*</li>
+                    </ol>
+                </div>
+            </section>
+        </div>
+
+        <div class="button-group">
+            <a href="index.html">Back to Home</a>
+        </div>
+    </article>
+</main>
+
+<footer>
+    <p>&copy; 2025 UPSC Prep. All Rights Reserved.</p>
+</footer>
+
+<button id="scrollToTopBtn" class="scroll-to-top">↑</button>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const englishContentDiv = document.getElementById('english-content');
+        const englishWords = (englishContentDiv.textContent.match(/[a-zA-Z]+/g) || []).length;
+        const readTime = Math.ceil(englishWords / 200);
+        document.getElementById('read-time').textContent = `Estimated Read Time: ${readTime} minutes`;
+
+        const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.style.display = "block";
+            } else {
+                scrollToTopBtn.style.display = "none";
+            }
+        });
+
+        scrollToTopBtn.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    });
+</script>
+</body>
+</html>
