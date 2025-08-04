@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IE - 04-Aug-25</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+--primary-color: #007bff;
+--secondary-color: #6c757d;
+--text-color: #212529;
+--background-color: #f8f9fa;
+--hover-bg: #e2e6ea;
+--light-blue: #cfe2ff;
+}
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'Noto Sans', sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        background-color: var(--background-color);
+        padding-bottom: 80px;
+        /* Space for the "Back to Home" button */
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 1rem;
+    }
+
+    header {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 1rem 0;
+        text-align: center;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+        margin: 0;
+    }
+
+    nav {
+        background-color: #343a40;
+        padding: 0.5rem 0;
+    }
+
+    nav ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: 700;
+        padding: 0.5rem 1rem;
+        transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+        background-color: var(--secondary-color);
+        border-radius: 5px;
+    }
+
+    .article-meta {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .article-meta h1 {
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+    }
+
+    .article-meta p {
+        color: var(--secondary-color);
+        margin: 0.25rem 0;
+    }
+
+    .read-time {
+        font-style: italic;
+        color: var(--secondary-color);
+        font-weight: bold;
+    }
+
+    .article-content {
+        background-color: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .line {
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        margin-bottom: 0.5rem;
+        transition: background-color 0.3s ease;
+    }
+
+    .line:hover {
+        background-color: var(--hover-bg);
+    }
+
+    h2, h3, h4 {
+        color: var(--primary-color);
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        margin-bottom: 1rem;
+    }
+
+    ul {
+        margin-bottom: 1rem;
+        padding-left: 2rem;
+    }
+
+    li {
+        margin-bottom: 0.5rem;
+    }
+
+    strong {
+        font-weight: 700;
+    }
+
+    em {
+        font-style: italic;
+    }
+
+    .contact-link {
+        display: block;
+        margin-top: 2rem;
+        text-align: center;
+    }
+    .contact-link a {
+        color: var(--primary-color);
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.1rem;
+    }
+
+    .contact-link a:hover {
+        text-decoration: underline;
+    }
+
+    footer {
+        text-align: center;
+        padding: 1rem;
+        background-color: #343a40;
+        color: white;
+        margin-top: 2rem;
+    }
+
+    .scroll-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        display: none;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s ease;
+    }
+
+    .scroll-to-top:hover {
+        background-color: #0056b3;
+    }
+
+    .bottom-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+
+    .bottom-buttons .button {
+        padding: 0.75rem 1.5rem;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 700;
+        transition: transform 0.2s, background-color 0.3s;
+    }
+
+    .bottom-buttons .button.home-button {
+        background-color: var(--primary-color);
+        color: white;
+    }
+
+    .bottom-buttons .button.home-button:hover {
+        background-color: #0056b3;
+        transform: scale(1.05);
+    }
+    
+    .language-switch {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    .language-switch button {
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 700;
+        transition: background-color 0.3s ease;
+    }
+    
+    .language-switch button:hover {
+        background-color: #0056b3;
+    }
+    
+    .lang-hi {
+        display: none;
+    }
+
+
+    @media (max-width: 768px) {
+        .container {
+            padding: 0.5rem;
+        }
+
+        .article-meta h1 {
+            font-size: 1.8rem;
+        }
+
+        nav ul {
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .article-content {
+            padding: 1rem;
+        }
+
+        .scroll-to-top {
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>04-August-2025</h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="quiz.html">Quiz</a></li>
+        <li><a href="donation.html">Donation</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+    <article>
+        <div class="article-meta">
+            <h1 class="article-title">Harassment of Minorities and Erosion of Rights</h1>
+            <p><strong>Source:</strong> Indian Express</p>
+            <p><strong>Publication Date:</strong> 04-August-2025</p>
+            <p class="read-time">Read Time: <span id="read-time"></span> min</p>
+        </div>
+        
+        <div class="language-switch">
+            <button id="lang-switch-btn">Switch to Hindi</button>
+        </div>
+        
+        <section class="article-content">
+            <div class="lang-en">
+                <h3 class="line">Harassment of Minorities and Erosion of Rights</h3>
+                <h4 class="line"><strong>Why in the News?</strong></h4>
+                <p class="line">The arrest of two nuns and a tribal Christian youth in Chhattisgarh on unsubstantiated charges of "forcible conversion" and "human trafficking" has brought into sharp focus the harassment of religious minorities, specifically Christians and Adivasis. The incident, where law enforcement allegedly collaborated with a right-wing outfit to intimidate and bully the individuals, has raised urgent questions about the rule of law, constitutional rights, and the safety of marginalized communities in India.</p>
+                <hr>
+                <h4 class="line"><strong>Key Details of the Incident</strong></h4>
+                <ul>
+                    <li class="line"><em><strong>Incident:</strong></em> Two nuns, Sisters Preeti Mary and Vandana Francis, and an Adivasi youth, Sukhman Mandavi, were arrested at Durg railway station. They were accompanying three adult Adivasi women traveling to Agra for a job at a hospital run by the nuns.</li>
+                    <li class="line"><em><strong>Charges:</strong></em> The arrest was made on charges of forcible conversion and human trafficking, following a complaint by a Bajrang Dal leader.</li>
+                    <li class="line"><em><strong>Factual Discrepancies:</strong></em>
+                        <ul>
+                            <li>The Adivasi women were adults, as proven by their Aadhaar cards.</li>
+                            <li>Their parents had given consent for them to travel for work and confirmed this to the police.</li>
+                            <li>The families had been Christian for several years, making the charge of forcible conversion baseless.</li>
+                        </ul>
+                    </li>
+                    <li class="line"><em><strong>Police and State Role:</strong></em> The police reportedly stood by while members of the Bajrang Dal harassed and intimidated the nuns and youth. The Adivasi women were also taken to a government home, isolated from their parents, and allegedly pressured to change their statements.</li>
+                    <li class="line"><em><strong>Hate Speech:</strong></em> The nuns were verbally abused with "filthy, sexist language" and called "deemak" (termites) and "foreigners" for their work, linking their religion to an anti-national agenda.</li>
+                    <li class="line"><em><strong>Legal Outcome:</strong></em> The accused were granted bail by an NIA court, indicating a lack of substantial evidence for the serious charges.</li>
+                </ul>
+                <hr>
+                <h4 class="line"><strong>Critical Issues for UPSC CSE</strong></h4>
+                <p class="line">This incident highlights several interconnected issues critical for the study of Indian governance, constitution, and social justice:</p>
+                <ol>
+                    <li class="line"><strong>Violation of Constitutional Rights:</strong>
+                        <ul>
+                            <li class="line"><em><strong>Freedom of Religion (Article 25):</strong></em> The harassment on the basis of their Christian faith, despite the families having been followers for years, is a direct assault on the right to freely profess, practice, and propagate religion.</li>
+                            <li class="line"><em><strong>Freedom of Movement and Livelihood (Article 19):</strong></em> The incident challenges a citizen's fundamental right to travel and work anywhere in the country without fear of being accosted or harassed by non-state actors.</li>
+                            <li class="line"><em><strong>Right to Life and Liberty (Article 21) and Equality (Article 14):</strong></em> The verbal sexual assault, beating, and intimidation of individuals in police custody, with the police as passive bystanders, are grave violations of their fundamental rights.</li>
+                        </ul>
+                    </li>
+                    <li class="line"><strong>Rule of Law and Police Accountability:</strong>
+                        <ul>
+                            <li class="line">The case exposes a breakdown of the rule of law where a mob, led by a religious outfit, dictated police action.</li>
+                            <li class="line">The failure of the police to protect citizens from harassment, register FIRs against the perpetrators of violence, and conduct an independent inquiry raises serious questions about police accountability and neutrality.</li>
+                        </ul>
+                    </li>
+                    <li class="line"><strong>Targeting of Marginalized Communities:</strong>
+                        <ul>
+                            <li class="line">The incident disproportionately affects Adivasi women, who are often vulnerable and travel for work. It sets a dangerous precedent that can curtail the freedom and livelihood opportunities of marginalized groups.</li>
+                            <li class="line">The use of derogatory terms like "termites" against Christians and the broader linking of minorities to being "foreigners" or "anti-national" points to a worrying trend of political rhetoric being used to justify the harassment of specific communities.</li>
+                        </ul>
+                    </li>
+                    <li class="line"><strong>Misuse of Law and Legal Process:</strong>
+                        <ul>
+                            <li class="line">Serious charges like "human trafficking" and "forcible conversion" were used without factual basis to harass and detain individuals.</li>
+                            <li class="line">The article highlights the potential for the misuse of such laws to target and intimidate religious minorities and those working with them.</li>
+                        </ul>
+                    </li>
+                    <li class="line"><strong>Threat to Democratic Principles:</strong>
+                        <ul>
+                            <li class="line">The article connects this specific incident to a larger pattern, including the deletion of voters from electoral lists and the targeting of communities on the pretext of detecting "illegal immigrants."</li>
+                            <li class="line">It warns of a broader trend where anyone who does not conform to a specific political ideology can be branded as anti-national, thus undermining the principles of a pluralistic democracy.</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+            
+            <div class="lang-hi">
+                <h3 class="line" lang="hi">अल्पसंख्यकों का उत्पीड़न और अधिकारों का हनन</h3>
+                <h4 class="line" lang="hi"><strong>खबरों में क्यों?</strong></h4>
+                <p class="line" lang="hi">छत्तीसगढ़ में "जबरन धर्मांतरण" और "मानव तस्करी" के बेबुनियाद आरोपों में दो ननों और एक आदिवासी ईसाई युवक की गिरफ्तारी ने धार्मिक अल्पसंख्यकों, खासकर ईसाइयों और आदिवासियों के उत्पीड़न के मुद्दे को और भी ज़्यादा तूल दे दिया है। इस घटना ने, जहाँ कानून प्रवर्तन एजेंसियों ने कथित तौर पर एक दक्षिणपंथी संगठन के साथ मिलकर इन लोगों को डराने-धमकाने का काम किया, भारत में कानून के शासन, संवैधानिक अधिकारों और हाशिए पर पड़े समुदायों की सुरक्षा को लेकर गंभीर सवाल खड़े कर दिए हैं।</p>
+                <hr>
+                <h4 class="line" lang="hi"><strong>घटना के मुख्य विवरण</strong></h4>
+                <ul class="line">
+                    <li class="line" lang="hi"><em><strong>घटना:</strong></em> दो नन, सिस्टर प्रीति मैरी और वंदना फ्रांसिस, और एक आदिवासी युवक, सुखमन मंडावी को दुर्ग रेलवे स्टेशन पर गिरफ्तार किया गया। वे तीन वयस्क आदिवासी महिलाओं के साथ ननों द्वारा संचालित एक अस्पताल में नौकरी के लिए आगरा जा रही थीं।</li>
+                    <li class="line" lang="hi"><em><strong>आरोप:</strong></em> बजरंग दल के एक नेता की शिकायत के बाद, जबरन धर्मांतरण और मानव तस्करी के आरोप में गिरफ़्तारी की गई।</li>
+                    <li class="line" lang="hi"><em><strong>तथ्यात्मक विसंगतियाँ:</strong></em>
+                        <ul>
+                            <li lang="hi">आदिवासी महिलाएँ वयस्क थीं, जैसा कि उनके आधार कार्ड से साबित होता है।</li>
+                            <li lang="hi">उनके माता-पिता ने उन्हें काम पर जाने की अनुमति दी थी और पुलिस को इसकी पुष्टि भी की थी।</li>
+                            <li lang="hi">परिवार कई वर्षों से ईसाई थे, जिससे जबरन धर्मांतरण का आरोप निराधार है।</li>
+                        </ul>
+                    </li>
+                    <li class="line" lang="hi"><em><strong>पुलिस और राज्य की भूमिका:</strong></em> कथित तौर पर पुलिस मूकदर्शक बनी रही, जबकि बजरंग दल के सदस्य ननों और युवाओं को परेशान और धमका रहे थे। आदिवासी महिलाओं को एक सरकारी आश्रय गृह में भी ले जाया गया, उनके माता-पिता से अलग रखा गया और कथित तौर पर उन पर अपना बयान बदलने का दबाव डाला गया।</li>
+                    <li class="line" lang="hi"><em><strong>घृणास्पद भाषण:</strong></em> ननों को "गंदी और लैंगिक भेदभावपूर्ण भाषा" से गालियाँ दी गईं और उनके काम के लिए उन्हें "दीमक" (दीमक) और "विदेशी" कहा गया, उनके धर्म को राष्ट्र-विरोधी एजेंडे से जोड़ा गया।</li>
+                    <li class="line" lang="hi"><em><strong>कानूनी परिणाम:</strong></em> एनआईए अदालत ने आरोपियों को ज़मानत दे दी, जो गंभीर आरोपों के लिए पर्याप्त सबूतों के अभाव को दर्शाता है।</li>
+                </ul>
+                <hr>
+                <h4 class="line" lang="hi"><strong>यूपीएससी सिविल सेवा परीक्षा के लिए महत्वपूर्ण मुद्दे</strong></h4>
+                <p class="line" lang="hi">यह घटना भारतीय शासन, संविधान और सामाजिक न्याय के अध्ययन के लिए महत्वपूर्ण कई परस्पर जुड़े मुद्दों को उजागर करती है:</p>
+                <ol>
+                    <li class="line" lang="hi"><strong>संवैधानिक अधिकारों का उल्लंघन:</strong>
+                        <ul>
+                            <li lang="hi"><em><strong>धार्मिक स्वतंत्रता (अनुच्छेद 25):</strong></em> परिवारों द्वारा वर्षों से ईसाई धर्म का पालन करने के बावजूद, उनके ईसाई धर्म के आधार पर उत्पीड़न, धर्म को स्वतंत्र रूप से मानने, आचरण करने और प्रचार करने के अधिकार पर सीधा हमला है।</li>
+                            <li lang="hi"><em><strong>आवागमन और आजीविका की स्वतंत्रता (अनुच्छेद 19):</strong></em> यह घटना किसी नागरिक के देश में कहीं भी यात्रा करने और काम करने के मौलिक अधिकार को चुनौती देती है, बिना किसी गैर-राज्यीय तत्वों द्वारा परेशान किए जाने या परेशान किए जाने के डर के।</li>
+                            <li lang="hi"><em><strong>जीवन और स्वतंत्रता का अधिकार (अनुच्छेद 21) और समानता का अधिकार (अनुच्छेद 14):</strong></em> पुलिस हिरासत में व्यक्तियों पर मौखिक यौन हमला, मारपीट और धमकी, जबकि पुलिस मूकदर्शक बनी रहती है, उनके मौलिक अधिकारों का गंभीर उल्लंघन है।</li>
+                        </ul>
+                    </li>
+                    <li class="line" lang="hi"><strong>कानून का शासन और पुलिस की जवाबदेही:</strong>
+                        <ul>
+                            <li lang="hi">यह मामला कानून के शासन की विफलता को उजागर करता है जहाँ एक धार्मिक संगठन के नेतृत्व में भीड़ ने पुलिस कार्रवाई को निर्देशित किया।</li>
+                            <li lang="hi">नागरिकों को उत्पीड़न से बचाने, हिंसा करने वालों के खिलाफ प्राथमिकी दर्ज करने और स्वतंत्र जाँच करने में पुलिस की विफलता पुलिस की जवाबदेही और निष्पक्षता पर गंभीर प्रश्न उठाती है।</li>
+                        </ul>
+                    </li>
+                    <li class="line" lang="hi"><strong>हाशिये पर पड़े समुदायों को निशाना बनाना:</strong>
+                        <ul>
+                            <li lang="hi">यह घटना आदिवासी महिलाओं को असमान रूप से प्रभावित करती है, जो अक्सर असुरक्षित होती हैं और काम के लिए यात्रा करती हैं। यह एक खतरनाक मिसाल कायम करती है जो हाशिये पर पड़े समूहों की स्वतंत्रता और आजीविका के अवसरों को कम कर सकती है।</li>
+                            <li lang="hi">ईसाइयों के विरुद्ध "दीमक" जैसे अपमानजनक शब्दों का प्रयोग और अल्पसंख्यकों को "विदेशी" या "राष्ट्र-विरोधी" से व्यापक रूप से जोड़ना, विशिष्ट समुदायों के उत्पीड़न को उचित ठहराने के लिए राजनीतिक बयानबाजी के एक चिंताजनक चलन की ओर इशारा करता है।</li>
+                        </ul>
+                    </li>
+                    <li class="line" lang="hi"><strong>कानून और कानूनी प्रक्रिया का दुरुपयोग:</strong>
+                        <ul>
+                            <li lang="hi">"मानव तस्करी" और "जबरन धर्मांतरण" जैसे गंभीर आरोपों का इस्तेमाल बिना किसी तथ्यात्मक आधार के व्यक्तियों को परेशान करने और हिरासत में लेने के लिए किया गया।</li>
+                            <li lang="hi">लेख धार्मिक अल्पसंख्यकों और उनके साथ काम करने वालों को निशाना बनाने और डराने के लिए ऐसे कानूनों के दुरुपयोग की संभावना पर प्रकाश डालता है।</li>
+                        </ul>
+                    </li>
+                    <li class="line" lang="hi"><strong>लोकतांत्रिक सिद्धांतों के लिए खतरा:</strong>
+                        <ul>
+                            <li lang="hi">लेख इस विशिष्ट घटना को एक बड़े पैटर्न से जोड़ता है, जिसमें मतदाता सूचियों से मतदाताओं का नाम हटाना और "अवैध अप्रवासियों" का पता लगाने के बहाने समुदायों को निशाना बनाना शामिल है।</li>
+                            <li lang="hi">यह एक व्यापक चलन की चेतावनी देता है जहाँ किसी भी व्यक्ति को जो किसी विशिष्ट राजनीतिक विचारधारा का पालन नहीं करता है, राष्ट्र-विरोधी करार दिया जा सकता है, जिससे बहुलवादी लोकतंत्र के सिद्धांतों को नुकसान पहुँचता है।</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+        
+        </section>
+        
+        <p class="contact-link"><a href="[https://wa.me/918168305050](https://wa.me/918168305050)" target="_blank">Contact us on WhatsApp: +91-8168305050</a></p>
+
+        <div class="bottom-buttons">
+            <a href="index.html" class="button home-button">Back to Home</a>
+        </div>
+        
+    </article>
+</div>
+
+<button id="scroll-to-top" class="scroll-to-top">▲</button>
+
+<footer>
+    <div class="container">
+        <p>© 2025 Crack Current Affairs (CrackCA). All rights reserved.</p>
+    </div>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const articleContent = document.querySelector('.article-content');
+        const englishContent = document.querySelector('.lang-en');
+        const hindiContent = document.querySelector('.lang-hi');
+        const langSwitchBtn = document.getElementById('lang-switch-btn');
+        const scrollToTopBtn = document.getElementById('scroll-to-top');
+        
+        let isHindi = false;
+        
+        // Initial state
+        englishContent.style.display = 'block';
+        hindiContent.style.display = 'none';
+
+        // Language switch functionality
+        langSwitchBtn.addEventListener('click', () => {
+            isHindi = !isHindi;
+            if (isHindi) {
+                englishContent.style.display = 'none';
+                hindiContent.style.display = 'block';
+                langSwitchBtn.textContent = 'Switch to English';
+            } else {
+                englishContent.style.display = 'block';
+                hindiContent.style.display = 'none';
+                langSwitchBtn.textContent = 'Switch to Hindi';
+            }
+        });
+
+        // Read Time Calculation
+        const wordsPerMinute = 200;
+        const englishText = englishContent.textContent;
+        const wordCount = englishText.split(/\s+/).length;
+        const readTime = Math.ceil(wordCount / wordsPerMinute);
+        document.getElementById('read-time').textContent = readTime;
+
+        // Scroll to Top Button
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.style.display = 'block';
+            } else {
+                scrollToTopBtn.style.display = 'none';
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+</body>
+
+</html>

@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IE - 04-Aug-25</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+--primary-color: #007bff;
+--secondary-color: #6c757d;
+--text-color: #212529;
+--background-color: #f8f9fa;
+--hover-bg: #e2e6ea;
+--light-blue: #cfe2ff;
+}
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'Noto Sans', sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        background-color: var(--background-color);
+        padding-bottom: 80px;
+        /* Space for the "Back to Home" button */
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 1rem;
+    }
+
+    header {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 1rem 0;
+        text-align: center;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+        margin: 0;
+    }
+
+    nav {
+        background-color: #343a40;
+        padding: 0.5rem 0;
+    }
+
+    nav ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: 700;
+        padding: 0.5rem 1rem;
+        transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+        background-color: var(--secondary-color);
+        border-radius: 5px;
+    }
+
+    .article-meta {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .article-meta h1 {
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+    }
+
+    .article-meta p {
+        color: var(--secondary-color);
+        margin: 0.25rem 0;
+    }
+
+    .read-time {
+        font-style: italic;
+        color: var(--secondary-color);
+        font-weight: bold;
+    }
+
+    .article-content {
+        background-color: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .line {
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        margin-bottom: 0.5rem;
+        transition: background-color 0.3s ease;
+    }
+
+    .line:hover {
+        background-color: var(--hover-bg);
+    }
+
+    h2, h3, h4 {
+        color: var(--primary-color);
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        margin-bottom: 1rem;
+    }
+
+    ul {
+        margin-bottom: 1rem;
+        padding-left: 2rem;
+    }
+
+    li {
+        margin-bottom: 0.5rem;
+    }
+
+    strong {
+        font-weight: 700;
+    }
+
+    em {
+        font-style: italic;
+    }
+
+    .contact-link {
+        display: block;
+        margin-top: 2rem;
+        text-align: center;
+    }
+    .contact-link a {
+        color: var(--primary-color);
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.1rem;
+    }
+
+    .contact-link a:hover {
+        text-decoration: underline;
+    }
+
+    footer {
+        text-align: center;
+        padding: 1rem;
+        background-color: #343a40;
+        color: white;
+        margin-top: 2rem;
+    }
+
+    .scroll-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        display: none;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s ease;
+    }
+
+    .scroll-to-top:hover {
+        background-color: #0056b3;
+    }
+
+    .bottom-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+
+    .bottom-buttons .button {
+        padding: 0.75rem 1.5rem;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 700;
+        transition: transform 0.2s, background-color 0.3s;
+    }
+
+    .bottom-buttons .button.home-button {
+        background-color: var(--primary-color);
+        color: white;
+    }
+
+    .bottom-buttons .button.home-button:hover {
+        background-color: #0056b3;
+        transform: scale(1.05);
+    }
+    
+    .language-switch {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    .language-switch button {
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 700;
+        transition: background-color 0.3s ease;
+    }
+    
+    .language-switch button:hover {
+        background-color: #0056b3;
+    }
+    
+    .lang-hi {
+        display: none;
+    }
+
+
+    @media (max-width: 768px) {
+        .container {
+            padding: 0.5rem;
+        }
+
+        .article-meta h1 {
+            font-size: 1.8rem;
+        }
+
+        nav ul {
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .article-content {
+            padding: 1rem;
+        }
+
+        .scroll-to-top {
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>04-August-2025</h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="quiz.html">Quiz</a></li>
+        <li><a href="donation.html">Donation</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+    <article>
+        <div class="article-meta">
+            <h1 class="article-title">Redesigning Energy Security in India</h1>
+            <p><strong>Source:</strong> Indian Express</p>
+            <p><strong>Publication Date:</strong> 04-August-2025</p>
+            <p class="read-time">Read Time: <span id="read-time"></span> min</p>
+        </div>
+        
+        <div class="language-switch">
+            <button id="lang-switch-btn">Switch to Hindi</button>
+        </div>
+        
+        <section class="article-content">
+            <div class="lang-en">
+                <h3 class="line">Redesigning Energy Security in India</h3>
+                <h4 class="line"><strong>Why in the News?</strong></h4>
+                <p class="line">The article argues that India's traditional approach to energy security, which focused on fossil fuels, is no longer sufficient given the country's commitment to a net-zero carbon economy by 2070. While India has been successful in securing its fossil fuel supply, the editorial highlights major systemic and regulatory hurdles in the renewable energy sector. The verdict is that a comprehensive redesign of the energy regulatory system is urgently needed to achieve national goals of energy transition and "Energy Atmanirbharta."</p>
+                <hr>
+                <h4 class="line"><strong>Analysis of India's Energy Trajectory</strong></h4>
+                <p class="line">India is currently pursuing a two-track energy strategy:</p>
+                <ul>
+                    <li class="line"><em><strong>Track 1: Fossil Fuels:</strong></em> The objective is to decrease reliance on fossil fuels. India has demonstrated success by diversifying its crude oil sources, including increasing imports from Russia, which has helped in securing a resilient supply chain and reducing import costs.</li>
+                    <li class="line"><em><strong>Track 2: Renewables:</strong></em> The objective is to increase the share of renewable energy (RE) in the national energy mix. Impressive growth has been seen, with RE capacity rising from 19% of total electricity generating capacity five years ago to 49% (234 GW) today. However, this growth is now slowing down.</li>
+                </ul>
+                <h4 class="line"><strong>Challenges in the Renewable Energy Sector</strong></h4>
+                <p class="line">The article identifies a "regulatory miasma" as a major factor slowing down the pace of renewable energy growth and its usability.</p>
+                <ol>
+                    <li class="line"><strong>Compliance Burden:</strong> A study by Team Lease Regtech highlighted the following:
+                        <ul>
+                            <li class="line"><em><strong>Numerous Obligations:</strong></em> The renewable energy industry faces 2,735 compliance obligations across 35 state and central governments and 30 different government departments.</li>
+                            <li class="line"><em><strong>Manual and Repetitive Processes:</strong></em> 60% of these compliances require manual form submissions and physical visits to regulatory offices.</li>
+                            <li class="line"><em><strong>High Licensing Requirements:</strong></em> A small 1 MW solar plant may require over 100 licenses, registrations, and approvals, which are not one-time processes but involve continuous filings and inspections.</li>
+                            <li class="line"><em><strong>Compliance Categories:</strong></em> A significant portion of these obligations (40%) relates to labor laws, with the rest predominantly concerning land acquisition, environment, and safety.</li>
+                        </ul>
+                    </li>
+                    <li class="line"><strong>Infrastructure Imbalance:</strong> There is a worrying imbalance between the impressive growth in renewable energy generation capacity and the slow development of supporting infrastructure. This includes:
+                        <ul>
+                            <li class="line"><em><strong>Inadequate Transmission and Distribution:</strong></em> The interstate transmission network and local distribution networks have not kept pace with the increase in generation capacity, making it difficult to utilize the generated power.</li>
+                            <li class="line"><em><strong>Lack of Backup Systems:</strong></em> The intermittent nature of solar and wind power requires robust backup storage systems, which are currently underdeveloped.</li>
+                        </ul>
+                    </li>
+                    <li class="line"><strong>Regulatory Fragmentation:</strong> The sector is plagued by a multiplicity of regulatory agencies and a lack of a single executive authority with nodal responsibility for operations and accountability. This fragmented oversight creates confusion and hurdles for investors.</li>
+                </ol>
+                <h4 class="line"><strong>Recommendations for a Redesign of the Regulatory System</strong></h4>
+                <p class="line">To overcome these non-structural challenges, the article suggests a "root and branch reconfiguration and redesign" of the current system. This can be achieved through:</p>
+                <ul>
+                    <li class="line"><em><strong>Simplification and Convergence:</strong></em> Removing or consolidating the multiple layers of oversight to streamline the approval process.</li>
+                    <li class="line"><em><strong>Digitization:</strong></em> Shifting to a fully digitized approval and compliance process to reduce manual intervention and bureaucratic hurdles.</li>
+                    <li class="line"><em><strong>Standardization:</strong></em> Aligning technical standards, safety conditions, and operational rules across states and central departments.</li>
+                    <li class="line"><em><strong>Easing Land Acquisition:</strong></em> Simplifying the process of acquiring land, which is a major bottleneck for large-scale renewable projects.</li>
+                    <li class="line"><em><strong>Transparent Mechanisms:</strong></em> Making the setting of network charges and supply contracts transparent to build investor confidence.</li>
+                    <li class="line"><em><strong>Expediting Dispute Resolution:</strong></em> Creating a faster and more efficient mechanism to resolve disputes.</li>
+                    <li class="line"><em><strong>Nodal Authority:</strong></em> Establishing a single, empowered executive authority with clear responsibility and accountability for the entire renewable energy value chain.</li>
+                </ul>
+                <h4 class="line"><strong>Conclusion</strong></h4>
+                <p class="line">The article concludes that while India's traditional energy security has been well-managed, achieving its ambitious net-zero targets and ensuring future energy security requires an urgent focus on reforming the renewable energy sector. Overcoming the existing regulatory and institutional blocks requires strong political will to dismantle legacy vested interests and create a coherent, simplified, and efficient governance framework for the new energy economy. This is the key to decoupling economic growth from fossil fuel demand and achieving true "Energy Atmanirbharta."</p>
+            </div>
+            
+            <div class="lang-hi">
+                <h3 class="line" lang="hi">भारत में ऊर्जा सुरक्षा का पुनर्निर्माण</h3>
+                <h4 class="line" lang="hi"><strong>खबरों में क्यों?</strong></h4>
+                <p class="line" lang="hi">लेख में तर्क दिया गया है कि ऊर्जा सुरक्षा के प्रति भारत का पारंपरिक दृष्टिकोण, जो जीवाश्म ईंधन पर केंद्रित था, अब 2070 तक शुद्ध-शून्य कार्बन अर्थव्यवस्था के प्रति देश की प्रतिबद्धता को देखते हुए पर्याप्त नहीं है। हालाँकि भारत अपनी जीवाश्म ईंधन आपूर्ति सुनिश्चित करने में सफल रहा है, लेकिन संपादकीय नवीकरणीय ऊर्जा क्षेत्र में प्रमुख प्रणालीगत और नियामक बाधाओं पर प्रकाश डालता है। निष्कर्ष यह है कि ऊर्जा परिवर्तन और "ऊर्जा आत्मनिर्भरता" के राष्ट्रीय लक्ष्यों को प्राप्त करने के लिए ऊर्जा नियामक प्रणाली का व्यापक पुनर्निर्माण तत्काल आवश्यक है।</p>
+                <hr>
+                <h4 class="line" lang="hi"><strong>भारत के ऊर्जा प्रक्षेप पथ का विश्लेषण</strong></h4>
+                <p class="line" lang="hi">भारत वर्तमान में दो-तरफ़ा ऊर्जा रणनीति अपना रहा है:</p>
+                <ul>
+                    <li class="line" lang="hi"><em><strong>ट्रैक 1: जीवाश्म ईंधन:</strong></em> इसका उद्देश्य जीवाश्म ईंधन पर निर्भरता कम करना है। भारत ने रूस से आयात बढ़ाने सहित अपने कच्चे तेल के स्रोतों में विविधता लाकर सफलता का प्रदर्शन किया है, जिससे एक लचीली आपूर्ति श्रृंखला सुनिश्चित करने और आयात लागत कम करने में मदद मिली है।</li>
+                    <li class="line" lang="hi"><em><strong>ट्रैक 2: नवीकरणीय ऊर्जा:</strong></em> इसका उद्देश्य राष्ट्रीय ऊर्जा मिश्रण में नवीकरणीय ऊर्जा (RE) की हिस्सेदारी बढ़ाना है। इसमें उल्लेखनीय वृद्धि देखी गई है, जहाँ पाँच साल पहले नवीकरणीय ऊर्जा क्षमता कुल बिजली उत्पादन क्षमता के 19% से बढ़कर आज 49% (234 गीगावाट) हो गई है। हालाँकि, यह वृद्धि अब धीमी हो रही है।</li>
+                </ul>
+                <h4 class="line" lang="hi"><strong>नवीकरणीय ऊर्जा क्षेत्र में चुनौतियाँ</strong></h4>
+                <p class="line" lang="hi">लेख में "नियामकीय अस्पष्टता" को नवीकरणीय ऊर्जा के विकास और इसकी उपयोगिता की गति को धीमा करने वाले एक प्रमुख कारक के रूप में पहचाना गया है।</p>
+                <ol>
+                    <li class="line" lang="hi"><strong>अनुपालन का बोझ:</strong> टीम लीज़ रेगटेक द्वारा किए गए एक अध्ययन में निम्नलिखित बातों पर प्रकाश डाला गया है:
+                        <ul>
+                            <li class="line" lang="hi"><em><strong>अनेक दायित्व:</strong></em> नवीकरणीय ऊर्जा उद्योग को 35 राज्य और केंद्र सरकारों तथा 30 विभिन्न सरकारी विभागों में 2,735 अनुपालन दायित्वों का सामना करना पड़ता है।</li>
+                            <li class="line" lang="hi"><em><strong>मैन्युअल और दोहराव वाली प्रक्रियाएँ:</strong></em> इनमें से 60% अनुपालनों के लिए मैन्युअल रूप से फ़ॉर्म जमा करने और नियामक कार्यालयों में प्रत्यक्ष रूप से जाने की आवश्यकता होती है।</li>
+                            <li class="line" lang="hi"><em><strong>उच्च लाइसेंसिंग आवश्यकताएँ:</strong></em> एक छोटे 1 मेगावाट सौर संयंत्र के लिए 100 से ज़्यादा लाइसेंस, पंजीकरण और अनुमोदन की आवश्यकता हो सकती है, जो एक बार की प्रक्रिया नहीं है, बल्कि इसमें निरंतर फाइलिंग और निरीक्षण शामिल हैं।</li>
+                            <li class="line" lang="hi"><em><strong>अनुपालन श्रेणियाँ:</strong></em> इन दायित्वों का एक महत्वपूर्ण हिस्सा (40%) श्रम कानूनों से संबंधित है, जबकि शेष मुख्य रूप से भूमि अधिग्रहण, पर्यावरण और सुरक्षा से संबंधित हैं।</li>
+                        </ul>
+                    </li>
+                    <li class="line" lang="hi"><strong>बुनियादी ढाँचे में असंतुलन:</strong> नवीकरणीय ऊर्जा उत्पादन क्षमता में प्रभावशाली वृद्धि और सहायक बुनियादी ढाँचे के धीमे विकास के बीच एक चिंताजनक असंतुलन है। इसमें शामिल हैं:
+                        <ul>
+                            <li class="line" lang="hi"><em><strong>अपर्याप्त पारेषण और वितरण:</strong></em> अंतरराज्यीय पारेषण नेटवर्क और स्थानीय वितरण नेटवर्क उत्पादन क्षमता में वृद्धि के साथ तालमेल नहीं रख पाए हैं, जिससे उत्पादित बिजली का उपयोग करना मुश्किल हो गया है।</li>
+                            <li class="line" lang="hi"><em><strong>बैकअप सिस्टम का अभाव:</strong></em> सौर और पवन ऊर्जा की अस्थायी प्रकृति के लिए मज़बूत बैकअप भंडारण प्रणालियों की आवश्यकता होती है, जो वर्तमान में अविकसित हैं।</li>
+                        </ul>
+                    </li>
+                    <li class="line" lang="hi"><strong>नियामक विखंडन:</strong> यह क्षेत्र नियामक एजेंसियों की बहुलता और संचालन एवं जवाबदेही के लिए नोडल ज़िम्मेदारी वाले एकल कार्यकारी प्राधिकरण के अभाव से ग्रस्त है। यह विखंडित निगरानी निवेशकों के लिए भ्रम और बाधाएँ पैदा करती है।</li>
+                </ol>
+                <h4 class="line" lang="hi"><strong>नियामक प्रणाली के पुनर्रचना हेतु सुझाव</strong></h4>
+                <p class="line" lang="hi">इन गैर-संरचनात्मक चुनौतियों से निपटने के लिए, लेख वर्तमान प्रणाली के "मूलभूत पुनर्गठन और पुनर्रचना" का सुझाव देता है। इसे निम्नलिखित के माध्यम से प्राप्त किया जा सकता है:</p>
+                <ul>
+                    <li class="line" lang="hi"><em><strong>सरलीकरण और अभिसरण:</strong></em> अनुमोदन प्रक्रिया को सुव्यवस्थित करने के लिए निगरानी की कई परतों को हटाना या समेकित करना।</li>
+                    <li class="line" lang="hi"><em><strong>डिजिटलीकरण:</strong></em> मैन्युअल हस्तक्षेप और नौकरशाही बाधाओं को कम करने के लिए पूरी तरह से डिजिटल अनुमोदन और अनुपालन प्रक्रिया में बदलाव।</li>
+                    <li class="line" lang="hi"><em><strong>मानकीकरण:</strong></em> राज्यों और केंद्रीय विभागों में तकनीकी मानकों, सुरक्षा शर्तों और परिचालन नियमों को संरेखित करना।</li>
+                    <li class="line" lang="hi"><em><strong>भूमि अधिग्रहण को आसान बनाना:</strong></em> भूमि अधिग्रहण की प्रक्रिया को सरल बनाना, जो बड़े पैमाने पर नवीकरणीय परियोजनाओं के लिए एक बड़ी बाधा है।</li>
+                    <li class="line" lang="hi"><em><strong>पारदर्शी तंत्र:</strong></em> निवेशकों का विश्वास बढ़ाने के लिए नेटवर्क शुल्क और आपूर्ति अनुबंधों के निर्धारण को पारदर्शी बनाना।</li>
+                    <li class="line" lang="hi"><em><strong>विवाद समाधान में तेज़ी लाना:</strong></em> विवादों को सुलझाने के लिए एक तेज़ और अधिक कुशल तंत्र बनाना।</li>
+                    <li class="line" lang="hi"><em><strong>नोडल प्राधिकरण:</strong></em> संपूर्ण नवीकरणीय ऊर्जा मूल्य श्रृंखला के लिए स्पष्ट ज़िम्मेदारी और जवाबदेही के साथ एक एकल, सशक्त कार्यकारी प्राधिकरण की स्थापना करना।</li>
+                </ul>
+                <h4 class="line" lang="hi"><strong>निष्कर्ष</strong></h4>
+                <p class="line" lang="hi">लेख का निष्कर्ष है कि यद्यपि भारत की पारंपरिक ऊर्जा सुरक्षा का प्रबंधन अच्छी तरह से किया गया है, फिर भी अपने महत्वाकांक्षी शुद्ध-शून्य लक्ष्यों को प्राप्त करने और भविष्य की ऊर्जा सुरक्षा सुनिश्चित करने के लिए नवीकरणीय ऊर्जा क्षेत्र में सुधार पर तत्काल ध्यान देने की आवश्यकता है। मौजूदा नियामक और संस्थागत अवरोधों को दूर करने के लिए, विरासत में मिले निहित स्वार्थों को खत्म करने और नई ऊर्जा अर्थव्यवस्था के लिए एक सुसंगत, सरलीकृत और कुशल शासन ढाँचा बनाने हेतु दृढ़ राजनीतिक इच्छाशक्ति की आवश्यकता है। यह आर्थिक विकास को जीवाश्म ईंधन की मांग से अलग करने और सच्ची "ऊर्जा आत्मनिर्भरता" प्राप्त करने की कुंजी है।</p>
+            </div>
+        
+        </section>
+        
+        <p class="contact-link"><a href="[https://wa.me/918168305050](https://wa.me/918168305050)" target="_blank">Contact us on WhatsApp: +91-8168305050</a></p>
+
+        <div class="bottom-buttons">
+            <a href="index.html" class="button home-button">Back to Home</a>
+        </div>
+        
+    </article>
+</div>
+
+<button id="scroll-to-top" class="scroll-to-top">▲</button>
+
+<footer>
+    <div class="container">
+        <p>© 2025 Crack Current Affairs (CrackCA). All rights reserved.</p>
+    </div>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const articleContent = document.querySelector('.article-content');
+        const englishContent = document.querySelector('.lang-en');
+        const hindiContent = document.querySelector('.lang-hi');
+        const langSwitchBtn = document.getElementById('lang-switch-btn');
+        const scrollToTopBtn = document.getElementById('scroll-to-top');
+        
+        let isHindi = false;
+        
+        // Initial state
+        englishContent.style.display = 'block';
+        hindiContent.style.display = 'none';
+
+        // Language switch functionality
+        langSwitchBtn.addEventListener('click', () => {
+            isHindi = !isHindi;
+            if (isHindi) {
+                englishContent.style.display = 'none';
+                hindiContent.style.display = 'block';
+                langSwitchBtn.textContent = 'Switch to English';
+            } else {
+                englishContent.style.display = 'block';
+                hindiContent.style.display = 'none';
+                langSwitchBtn.textContent = 'Switch to Hindi';
+            }
+        });
+
+        // Read Time Calculation
+        const wordsPerMinute = 200;
+        const englishText = englishContent.textContent;
+        const wordCount = englishText.split(/\s+/).length;
+        const readTime = Math.ceil(wordCount / wordsPerMinute);
+        document.getElementById('read-time').textContent = readTime;
+
+        // Scroll to Top Button
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.style.display = 'block';
+            } else {
+                scrollToTopBtn.style.display = 'none';
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+</body>
+
+</html>

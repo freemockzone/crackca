@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03 August 2025</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        :root {
+            --primary-color: #007bff;
+            --primary-dark: #0056b3;
+            --background-color: #f0f2f5;
+            --card-background: #ffffff;
+            --text-color: #333;
+            --light-text-color: #777;
+            --border-color: #ddd;
+            --correct-color: #28a745;
+            --incorrect-color: #dc3545;
+            --answered-color: #28a745;
+            --not-answered-color: #ffc107;
+            --marked-review-color: #6c757d;
+            --not-visited-color: #e9ecef;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: flex-end;
+            background-color: var(--primary-color);
+            padding: 1rem 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            font-weight: 600;
+            transition: background-color 0.2s;
+            border-radius: 4px;
+        }
+
+        .navbar a:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            padding: 1rem;
+            gap: 1rem;
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            flex-grow: 1;
+        }
+
+        .test-title {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+
+        .question-card, .result-card {
+            background-color: var(--card-background);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .question-display {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        .question-col {
+            padding: 1rem;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+        }
+
+        .question-col h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .question-text {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .hint {
+            font-size: 0.9rem;
+            font-style: italic;
+            color: var(--light-text-color);
+            margin-top: -0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .options label {
+            display: block;
+            background-color: var(--background-color);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 0.75rem 1rem;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            transition: background-color 0.2s, border-color 0.2s;
+        }
+
+        .options label:hover {
+            background-color: #e2e6ea;
+            border-color: #c8ced3;
+        }
+
+        input[type="radio"] {
+            margin-right: 0.75rem;
+        }
+        
+        .options .correct-answer {
+            background-color: var(--correct-color);
+            color: #fff;
+            border-color: var(--correct-color);
+        }
+
+        .options .correct-answer:hover {
+            background-color: var(--correct-color);
+            border-color: var(--correct-color);
+        }
+
+        .options .incorrect-answer {
+            background-color: var(--incorrect-color);
+            color: #fff;
+            border-color: var(--incorrect-color);
+        }
+        
+        .question-navigation {
+            display: none;
+            background-color: var(--card-background);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 1rem;
+            border: 1px solid var(--border-color);
+        }
+        
+        .question-navigation h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .palette {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0.5rem;
+        }
+        
+        .palette-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            color: var(--text-color);
+        }
+        
+        .palette-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .palette-item.not-visited {
+            background-color: var(--not-visited-color);
+        }
+        .palette-item.answered {
+            background-color: var(--answered-color);
+            color: #fff;
+        }
+        .palette-item.not-answered {
+            background-color: var(--not-answered-color);
+        }
+        .palette-item.marked-review {
+            background-color: var(--marked-review-color);
+            color: #fff;
+        }
+
+        .action-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .action-buttons button {
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+        }
+
+        #next-btn {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        #next-btn:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        #review-btn {
+            background-color: var(--marked-review-color);
+            color: white;
+        }
+        
+        #review-btn:hover {
+            background-color: #5a6268;
+        }
+
+        #submit-btn {
+            background-color: var(--incorrect-color);
+            color: white;
+        }
+
+        #submit-btn:hover {
+            background-color: #c82333;
+        }
+        
+        .result-card h2 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .result-details {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .score-box {
+            background-color: #e9ecef;
+            padding: 1rem;
+            border-radius: 6px;
+            flex-grow: 1;
+            margin: 0.5rem;
+        }
+
+        .result-details h3 {
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+        }
+
+        .result-details p {
+            margin-top: 0.5rem;
+            font-size: 1rem;
+            color: var(--light-text-color);
+        }
+
+        .result-questions .question-result {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 1.5rem;
+        }
+
+        .result-questions .question-result:last-child {
+            border-bottom: none;
+        }
+
+        .result-questions h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .result-questions p {
+            margin-bottom: 0.25rem;
+        }
+
+        .result-questions .correct {
+            color: var(--correct-color);
+            font-weight: 500;
+        }
+        
+        .result-questions .incorrect {
+            color: var(--incorrect-color);
+            font-weight: 500;
+        }
+
+        .footer-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+            gap: 1rem;
+        }
+
+        .footer-buttons a, .footer-buttons button {
+            padding: 0.75rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            background-color: var(--primary-color);
+            color: white;
+            transition: background-color 0.2s;
+        }
+
+        .footer-buttons a:hover, .footer-buttons button:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .footer {
+            background-color: var(--primary-dark);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .footer h3 {
+            margin-bottom: 1rem;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-icons a {
+            color: white;
+            transition: transform 0.2s;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.1);
+        }
+
+        /* Mobile-responsive styles */
+        @media (min-width: 768px) {
+            .container {
+                flex-direction: row;
+                padding: 2rem;
+            }
+
+            .main-content {
+                flex: 3;
+            }
+            
+            .question-navigation {
+                flex: 1;
+                display: block;
+            }
+            
+            .question-display {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .palette {
+                grid-template-columns: repeat(5, 1fr);
+            }
+
+            .question-card, .result-card {
+                padding: 2rem;
+            }
+
+            .action-buttons {
+                justify-content: flex-end;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="quiz.html">Home</a>
+        <a href="index.html">Current Affairs</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="container">
+        <div class="main-content">
+            <h1 class="test-title">03 August 2025 - Hindu Quiz</h1>
+            
+            <div id="question-area" class="question-card">
+                <div id="question-display" class="question-display">
+                    <div class="question-col">
+                        <h3 id="question-number-en">Question 1</h3>
+                        <p class="question-text" id="question-text-en"></p>
+                        <p class="hint" id="hint-text"></p>
+                        <div class="options" id="options-en"></div>
+                    </div>
+                    <div class="question-col">
+                        <h3 id="question-number-hi">प्रश्न 1</h3>
+                        <p class="question-text" id="question-text-hi"></p>
+                        <p class="hint" id="hint-text-hi"></p>
+                        <div class="options" id="options-hi"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button id="review-btn">Mark for Review</button>
+                <button id="next-btn">Next Question</button>
+                <button id="submit-btn">Submit</button>
+            </div>
+            
+            <div id="result-area" class="result-card" style="display: none;">
+                <h2>Test Submitted!</h2>
+                <div class="result-details">
+                    <div class="score-box">
+                        <h3>Total Questions</h3>
+                        <p id="total-questions-count">0</p>
+                    </div>
+                    <div class="score-box">
+                        <h3>Questions Answered</h3>
+                        <p id="answered-count">0</p>
+                    </div>
+                    <div class="score-box">
+                        <h3>Correct Answers</h3>
+                        <p id="correct-count">0</p>
+                    </div>
+                    <div class="score-box">
+                        <h3>Your Score</h3>
+                        <p id="total-score">0</p>
+                    </div>
+                </div>
+                <div class="result-questions" id="result-questions-list"></div>
+                <div class="footer-buttons">
+                    <button id="restart-btn">Restart Test</button>
+                    <a href="index.html">Back to Home</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="question-navigation">
+            <h4>Question Palette</h4>
+            <div class="palette" id="question-palette"></div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <h3>Connect with us</h3>
+        <div class="social-icons">
+            <a href="https://www.youtube.com/@essaymasterji" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://wa.me/918168305050" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://t.me/newspapersontelegram" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                english: {
+                    question: "Consider the following statement regarding India's self-reliance in defence. What was the name of the operation where the strength of indigenous weapons was recently showcased?",
+                    options: [
+                        "Operation Sindoor",
+                        "Operation Vajra",
+                        "Operation Shakti",
+                        "Operation Vijay"
+                    ]
+                },
+                hindi: {
+                    question: "भारत की रक्षा में आत्मनिर्भरता के संबंध में निम्नलिखित कथनों पर विचार करें। उस ऑपरेशन का क्या नाम था जिसमें हाल ही में स्वदेशी हथियारों की ताकत का प्रदर्शन किया गया था?",
+                    options: [
+                        "ऑपरेशन सिंदूर",
+                        "ऑपरेशन वज्र",
+                        "ऑपरेशन शक्ति",
+                        "ऑपरेशन विजय"
+                    ]
+                },
+                hint: "Our air defence systems, missiles, drones showcased power of self-reliant India: Modi",
+                correctAnswer: "Operation Sindoor",
+                correctAnswer_hi: "ऑपरेशन सिंदूर"
+            },
+            {
+                english: {
+                    question: "Which of the following describes the 'Niyad Nellanar scheme' of the Chhattisgarh government?",
+                    options: [
+                        "A scheme to provide free education to tribal children.",
+                        "A scheme to enhance basic facilities and welfare benefits in a 10-km radius of new camps in Maoist-affected areas.",
+                        "A scheme to provide cash assistance to women.",
+                        "A scheme for skill development of surrendered Maoists."
+                    ]
+                },
+                hindi: {
+                    question: "निम्नलिखित में से कौन छत्तीसगढ़ सरकार की 'नियाद नेल्लनार योजना' का वर्णन करता है?",
+                    options: [
+                        "आदिवासी बच्चों को मुफ्त शिक्षा प्रदान करने की एक योजना।",
+                        "माओवाद प्रभावित क्षेत्रों में नए शिविरों के 10 किलोमीटर के दायरे में बुनियादी सुविधाओं और कल्याणकारी लाभों को बढ़ाने की एक योजना।",
+                        "महिलाओं को नकद सहायता प्रदान करने की एक योजना।",
+                        "आत्मसमर्पण करने वाले माओवादियों के कौशल विकास के लिए एक योजना।"
+                    ]
+                },
+                hint: "The Naxals are receding. Now what?",
+                correctAnswer: "A scheme to enhance basic facilities and welfare benefits in a 10-km radius of new camps in Maoist-affected areas.",
+                correctAnswer_hi: "माओवाद प्रभावित क्षेत्रों में नए शिविरों के 10 किलोमीटर के दायरे में बुनियादी सुविधाओं और कल्याणकारी लाभों को बढ़ाने की एक योजना।"
+            },
+            {
+                english: {
+                    question: "According to the provided text, what is the stand of the Union government regarding the citizenship of Sri Lankan Tamil refugees?",
+                    options: [
+                        "They are eligible to apply for citizenship by registration under the Citizenship Act, 1955, as they are not illegal migrants.",
+                        "They can be forcibly repatriated to Sri Lanka if conditions improve.",
+                        "Any foreigner can acquire citizenship by registration or naturalisation, but illegal migrants are not eligible.",
+                        "The government does not have a formal stand on this issue."
+                    ]
+                },
+                hindi: {
+                    question: "प्रदान किए गए पाठ के अनुसार, श्रीलंकाई तमिल शरणार्थियों की नागरिकता के संबंध में केंद्र सरकार का क्या रुख है?",
+                    options: [
+                        "वे नागरिकता अधिनियम, 1955 के तहत पंजीकरण द्वारा नागरिकता के लिए आवेदन करने के पात्र हैं, क्योंकि वे अवैध अप्रवासी नहीं हैं।",
+                        "यदि स्थितियाँ सुधरती हैं तो उन्हें जबरन श्रीलंका वापस भेजा जा सकता है।",
+                        "कोई भी विदेशी पंजीकरण या प्राकृतिककरण द्वारा नागरिकता प्राप्त कर सकता है, लेकिन अवैध अप्रवासी पात्र नहीं हैं।",
+                        "सरकार का इस मुद्दे पर कोई औपचारिक रुख नहीं है।"
+                    ]
+                },
+                hint: "No data on SL refugees willing to return or apply for Indian citizenship",
+                correctAnswer: "Any foreigner can acquire citizenship by registration or naturalisation, but illegal migrants are not eligible.",
+                correctAnswer_hi: "कोई भी विदेशी पंजीकरण या प्राकृतिककरण द्वारा नागरिकता प्राप्त कर सकता है, लेकिन अवैध अप्रवासी पात्र नहीं हैं।"
+            },
+            {
+                english: {
+                    question: "What is the primary objective of ISRO's new LVM3 semi-cryogenic stage?",
+                    options: [
+                        "To increase the speed of the launch vehicle.",
+                        "To reduce the overall weight of the rocket.",
+                        "To enhance payload capability while keeping costs down.",
+                        "To replace the L110 core stage with a more powerful liquid propellant engine."
+                    ]
+                },
+                hindi: {
+                    question: "इसरो के नए LVM3 अर्ध-क्रायोजेनिक चरण का प्राथमिक उद्देश्य क्या है?",
+                    options: [
+                        "लॉन्च वाहन की गति को बढ़ाना।",
+                        "रॉकेट के कुल वजन को कम करना।",
+                        "लागत कम रखते हुए पेलोड क्षमता को बढ़ाना।",
+                        "L110 कोर चरण को अधिक शक्तिशाली तरल प्रणोदक इंजन से बदलना।"
+                    ]
+                },
+                hint: "ISRO targets 2027 launch for LVM3 semi-cryogenic stage",
+                correctAnswer: "To enhance payload capability while keeping costs down.",
+                correctAnswer_hi: "लागत कम रखते हुए पेलोड क्षमता को बढ़ाना।"
+            },
+            {
+                english: {
+                    question: "In the context of the Denotified, Nomadic, and Semi-Nomadic Tribes (DNTs), what was the key recommendation of the Idate Commission?",
+                    options: [
+                        "To classify these communities as Scheduled Castes.",
+                        "To provide them with special economic packages.",
+                        "To establish a permanent national commission for these communities.",
+                        "To repeal the erstwhile colonial government's laws against them."
+                    ]
+                },
+                hindi: {
+                    question: "विमुक्त, घुमंतू और अर्ध-घुमंतू जनजातियों (DNTs) के संदर्भ में, इदाते आयोग की प्रमुख सिफारिश क्या थी?",
+                    options: [
+                        "इन समुदायों को अनुसूचित जाति के रूप में वर्गीकृत करना।",
+                        "उन्हें विशेष आर्थिक पैकेज प्रदान करना।",
+                        "इन समुदायों के लिए एक स्थायी राष्ट्रीय आयोग की स्थापना करना।",
+                        "उनके खिलाफ औपनिवेशिक सरकार के पुराने कानूनों को रद्द करना।"
+                    ]
+                },
+                hint: "Calls grow to set up permanent National Commission for DNTs",
+                correctAnswer: "To establish a permanent national commission for these communities.",
+                correctAnswer_hi: "इन समुदायों के लिए एक स्थायी राष्ट्रीय आयोग की स्थापना करना।"
+            },
+            {
+                english: {
+                    question: "What is the primary reason for the drop in the number of voters in Bihar's draft electoral rolls, as per the Election Commission?",
+                    options: [
+                        "Migration of voters to other states.",
+                        "The special intensive revision (SIR) of the electoral rolls.",
+                        "Lack of interest from young electors.",
+                        "Political parties not filing claims for inclusion."
+                    ]
+                },
+                hindi: {
+                    question: "चुनाव आयोग के अनुसार, बिहार की मसौदा मतदाता सूची में मतदाताओं की संख्या में गिरावट का प्राथमिक कारण क्या है?",
+                    options: [
+                        "मतदाताओं का अन्य राज्यों में पलायन।",
+                        "मतदाता सूचियों का विशेष गहन पुनरीक्षण (SIR)।",
+                        "युवा मतदाताओं की ओर से रुचि की कमी।",
+                        "राजनीतिक दलों द्वारा समावेशन के लिए दावे दायर न करना।"
+                    ]
+                },
+                hint: "No complaints yet on Bihar draft roll from parties: EC",
+                correctAnswer: "The special intensive revision (SIR) of the electoral rolls.",
+                correctAnswer_hi: "मतदाता सूचियों का विशेष गहन पुनरीक्षण (SIR)।"
+            },
+            {
+                english: {
+                    question: "Odisha and Chhattisgarh have expressed a willingness to resolve a water dispute. What river is at the center of this dispute?",
+                    options: [
+                        "Godavari",
+                        "Narmada",
+                        "Mahanadi",
+                        "Krishna"
+                    ]
+                },
+                hindi: {
+                    question: "ओडिशा और छत्तीसगढ़ ने जल विवाद को सौहार्दपूर्ण ढंग से हल करने की इच्छा व्यक्त की है। इस विवाद के केंद्र में कौन सी नदी है?",
+                    options: [
+                        "गोदावरी",
+                        "नर्मदा",
+                        "महानदी",
+                        "कृष्णा"
+                    ]
+                },
+                hint: "Odisha, Chhattisgarh may 'amicably' resolve Mahanadi water row",
+                correctAnswer: "Mahanadi",
+                correctAnswer_hi: "महानदी"
+            },
+            {
+                english: {
+                    question: "Which of the following is a new initiative by India Post to upgrade its services?",
+                    options: [
+                        "Introducing a new 'Registered Post' service.",
+                        "Only accepting cash payments for all services.",
+                        "Integrating Unified Payments Interface (UPI) for booking Speed Post.",
+                        "Halting the transport of mail bags on flights."
+                    ]
+                },
+                hindi: {
+                    question: "निम्नलिखित में से कौन भारत डाक द्वारा अपनी सेवाओं को अपग्रेड करने की एक नई पहल है?",
+                    options: [
+                        "एक नई 'पंजीकृत डाक' सेवा शुरू करना।",
+                        "सभी सेवाओं के लिए केवल नकद भुगतान स्वीकार करना।",
+                        "स्पीड पोस्ट की बुकिंग के लिए यूनिफाइड पेमेंट्स इंटरफेस (UPI) को एकीकृत करना।",
+                        "उड़ानों में मेल बैग के परिवहन को रोकना।"
+                    ]
+                },
+                hint: "Post offices across India to accept digital payments soon",
+                correctAnswer: "Integrating Unified Payments Interface (UPI) for booking Speed Post.",
+                correctAnswer_hi: "स्पीड पोस्ट की बुकिंग के लिए यूनिफाइड पेमेंट्स इंटरफेस (UPI) को एकीकृत करना।"
+            },
+            {
+                english: {
+                    question: "What is the primary concern of Indian exporters regarding the new U.S. tariffs?",
+                    options: [
+                        "Increased competition from other countries.",
+                        "Losing high-volume orders, as no other market offers similar demand.",
+                        "Difficulty in transporting goods to the U.S.",
+                        "Lack of government support for exporters."
+                    ]
+                },
+                hindi: {
+                    question: "नए अमेरिकी शुल्कों के संबंध में भारतीय निर्यातकों की प्राथमिक चिंता क्या है?",
+                    options: [
+                        "अन्य देशों से बढ़ी हुई प्रतिस्पर्धा।",
+                        "उच्च मात्रा के ऑर्डर खोना, क्योंकि कोई अन्य बाजार समान मांग प्रदान नहीं करता है।",
+                        "अमेरिका में माल के परिवहन में कठिनाई।",
+                        "निर्यातकों के लिए सरकारी सहायता की कमी।"
+                    ]
+                },
+                hint: "Exporters fear tariffs likely to dent high volume U.S. market. Exporters of textiles, garments and engineering goods fear the 25% U.S. tariff will not only lead to loss of orders but also put them in a quandary as no other market offers such high-volume demand as the U.S.",
+                correctAnswer: "Losing high-volume orders, as no other market offers similar demand.",
+                correctAnswer_hi: "उच्च मात्रा के ऑर्डर खोना, क्योंकि कोई अन्य बाजार समान मांग प्रदान नहीं करता है।"
+            },
+            {
+                english: {
+                    question: "The 'Niyad Nellanar' scheme is related to which state?",
+                    options: [
+                        "Maharashtra",
+                        "Odisha",
+                        "Chhattisgarh",
+                        "Uttar Pradesh"
+                    ]
+                },
+                hindi: {
+                    question: "'नियाद नेल्लनार' योजना किस राज्य से संबंधित है?",
+                    options: [
+                        "महाराष्ट्र",
+                        "ओडिशा",
+                        "छत्तीसगढ़",
+                        "उत्तर प्रदेश"
+                    ]
+                },
+                hint: "The 'Niyad Nellanar scheme of the Chhattisgarh government aims at en hancing basic facilities and welfare benefits in a 10-km radius of the new camps set up in the Maoist-affect ed areas.",
+                correctAnswer: "Chhattisgarh",
+                correctAnswer_hi: "छत्तीसगढ़"
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let userAnswers = {};
+        let questionStatus = {}; // 0: Not Visited, 1: Answered, 2: Not Answered, 3: Marked for Review
+        const totalQuestions = questions.length;
+        
+        const questionArea = document.getElementById('question-area');
+        const questionDisplay = document.getElementById('question-display');
+        const questionPalette = document.getElementById('question-palette');
+        const resultArea = document.getElementById('result-area');
+        const actionButtons = document.querySelector('.action-buttons');
+        
+        const nextBtn = document.getElementById('next-btn');
+        const reviewBtn = document.getElementById('review-btn');
+        const submitBtn = document.getElementById('submit-btn');
+        const restartBtn = document.getElementById('restart-btn');
+
+        // Initialize the test
+        function initTest() {
+            currentQuestionIndex = 0;
+            userAnswers = {};
+            questionStatus = {};
+            for (let i = 0; i < totalQuestions; i++) {
+                questionStatus[i] = 0; // Not Visited
+            }
+            questionArea.style.display = 'block';
+            actionButtons.style.display = 'flex';
+            resultArea.style.display = 'none';
+            document.querySelector('.question-navigation').style.display = 'block';
+            displayQuestion();
+            updatePalette();
+        }
+
+        // Display the current question
+        function displayQuestion() {
+            const q = questions[currentQuestionIndex];
+            
+            // Update question numbers
+            document.getElementById('question-number-en').innerText = `Question ${currentQuestionIndex + 1}`;
+            document.getElementById('question-number-hi').innerText = `प्रश्न ${currentQuestionIndex + 1}`;
+            
+            // Update question text
+            document.getElementById('question-text-en').innerText = q.english.question;
+            document.getElementById('question-text-hi').innerText = q.hindi.question;
+            
+            // Update hint text
+            document.getElementById('hint-text').innerText = `Hint: ${q.hint}`;
+            document.getElementById('hint-text-hi').innerText = `संकेत: ${q.hint}`;
+            
+            // Clear previous options
+            const optionsEnContainer = document.getElementById('options-en');
+            const optionsHiContainer = document.getElementById('options-hi');
+            optionsEnContainer.innerHTML = '';
+            optionsHiContainer.innerHTML = '';
+            
+            // Render English options
+            q.english.options.forEach((option, index) => {
+                const radioId = `q${currentQuestionIndex}-en-opt${index}`;
+                optionsEnContainer.innerHTML += `
+                    <label for="${radioId}">
+                        <input type="radio" id="${radioId}" name="q${currentQuestionIndex}-en" value="${option}" data-lang="en">
+                        ${option}
+                    </label>
+                `;
+            });
+            
+            // Render Hindi options
+            q.hindi.options.forEach((option, index) => {
+                const radioId = `q${currentQuestionIndex}-hi-opt${index}`;
+                optionsHiContainer.innerHTML += `
+                    <label for="${radioId}">
+                        <input type="radio" id="${radioId}" name="q${currentQuestionIndex}-hi" value="${option}" data-lang="hi">
+                        ${option}
+                    </label>
+                `;
+            });
+            
+            // Pre-select user's previous answer if it exists
+            const prevAnswer = userAnswers[currentQuestionIndex];
+            if (prevAnswer) {
+                const radios = document.querySelectorAll(`input[name="q${currentQuestionIndex}-en"]`);
+                radios.forEach(radio => {
+                    if (radio.value === prevAnswer) {
+                        radio.checked = true;
+                    }
+                });
+            }
+            
+            // Add event listeners for option selection
+            const radios = document.querySelectorAll(`input[name="q${currentQuestionIndex}-en"], input[name="q${currentQuestionIndex}-hi"]`);
+            radios.forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    const selectedValue = e.target.value;
+                    const lang = e.target.dataset.lang;
+                    
+                    // Update user's answer
+                    userAnswers[currentQuestionIndex] = selectedValue;
+                    
+                    // Automatically update other language's radio button
+                    const otherLangRadios = document.querySelectorAll(`input[name="q${currentQuestionIndex}-${lang === 'en' ? 'hi' : 'en'}"]`);
+                    const otherLangOptions = questions[currentQuestionIndex][lang === 'en' ? 'hindi' : 'english'].options;
+                    const correspondingOptionIndex = questions[currentQuestionIndex][lang].options.indexOf(selectedValue);
+                    
+                    if (otherLangRadios[correspondingOptionIndex]) {
+                         otherLangRadios[correspondingOptionIndex].checked = true;
+                    }
+
+                    // Update question status to 'Answered'
+                    questionStatus[currentQuestionIndex] = 1;
+                    updatePalette();
+                });
+            });
+            
+            // Update button text for last question
+            if (currentQuestionIndex === totalQuestions - 1) {
+                nextBtn.innerText = "Finish Test";
+            } else {
+                nextBtn.innerText = "Next Question";
+            }
+        }
+        
+        // Update the question palette
+        function updatePalette() {
+            questionPalette.innerHTML = '';
+            for (let i = 0; i < totalQuestions; i++) {
+                const status = questionStatus[i];
+                let statusClass = '';
+                switch (status) {
+                    case 0:
+                        statusClass = 'not-visited';
+                        break;
+                    case 1:
+                        statusClass = 'answered';
+                        break;
+                    case 2:
+                        statusClass = 'not-answered';
+                        break;
+                    case 3:
+                        statusClass = 'marked-review';
+                        break;
+                }
+                const paletteItem = document.createElement('div');
+                paletteItem.classList.add('palette-item', statusClass);
+                paletteItem.innerText = i + 1;
+                paletteItem.addEventListener('click', () => {
+                    currentQuestionIndex = i;
+                    if (questionStatus[i] === 0) {
+                        questionStatus[i] = 2; // Not Answered
+                    }
+                    displayQuestion();
+                    updatePalette();
+                });
+                questionPalette.appendChild(paletteItem);
+            }
+        }
+        
+        // Handle 'Next Question' button click
+        nextBtn.addEventListener('click', () => {
+            const radios = document.querySelectorAll(`input[name="q${currentQuestionIndex}-en"]:checked`);
+            if (radios.length === 0 && questionStatus[currentQuestionIndex] !== 3) {
+                 questionStatus[currentQuestionIndex] = 2; // Not Answered
+            } else if (radios.length > 0 && questionStatus[currentQuestionIndex] !== 3) {
+                questionStatus[currentQuestionIndex] = 1; // Answered
+            }
+            
+            if (currentQuestionIndex < totalQuestions - 1) {
+                currentQuestionIndex++;
+                if (questionStatus[currentQuestionIndex] === 0) {
+                    questionStatus[currentQuestionIndex] = 2;
+                }
+                displayQuestion();
+                updatePalette();
+            } else {
+                submitTest();
+            }
+        });
+        
+        // Handle 'Mark for Review' button click
+        reviewBtn.addEventListener('click', () => {
+            questionStatus[currentQuestionIndex] = 3;
+            updatePalette();
+            if (currentQuestionIndex < totalQuestions - 1) {
+                currentQuestionIndex++;
+                if (questionStatus[currentQuestionIndex] === 0) {
+                    questionStatus[currentQuestionIndex] = 2;
+                }
+                displayQuestion();
+            } else {
+                // If on the last question, just mark for review and stay
+            }
+        });
+        
+        // Handle 'Submit' button click
+        submitBtn.addEventListener('click', () => {
+             submitTest();
+        });
+
+        // Submit the test and display results
+        function submitTest() {
+            let correctCount = 0;
+            const resultQuestionsList = document.getElementById('result-questions-list');
+            resultQuestionsList.innerHTML = '';
+            
+            questions.forEach((q, index) => {
+                const userAnswer = userAnswers[index];
+                let isCorrect = false;
+                if (userAnswer === q.correctAnswer) {
+                    correctCount++;
+                    isCorrect = true;
+                }
+                
+                const questionResultDiv = document.createElement('div');
+                questionResultDiv.classList.add('question-result');
+                questionResultDiv.innerHTML = `
+                    <h4>Question ${index + 1}: ${q.english.question}</h4>
+                    <p class="correct">Correct Answer: ${q.correctAnswer}</p>
+                    ${userAnswer ? `<p class="${isCorrect ? 'correct' : 'incorrect'}">Your Answer: ${userAnswer}</p>` : `<p class="incorrect">You did not answer this question.</p>`}
+                `;
+                resultQuestionsList.appendChild(questionResultDiv);
+            });
+            
+            const answeredCount = Object.keys(userAnswers).length;
+            const totalScore = correctCount * 2; // Assuming 2 marks per question
+            
+            document.getElementById('total-questions-count').innerText = totalQuestions;
+            document.getElementById('answered-count').innerText = answeredCount;
+            document.getElementById('correct-count').innerText = correctCount;
+            document.getElementById('total-score').innerText = `${totalScore} / ${totalQuestions * 2}`;
+            
+            questionArea.style.display = 'none';
+            actionButtons.style.display = 'none';
+            document.querySelector('.question-navigation').style.display = 'none';
+            resultArea.style.display = 'block';
+        }
+        
+        // Handle 'Restart Test' button click
+        restartBtn.addEventListener('click', () => {
+            document.querySelector('.question-navigation').style.display = 'block';
+            initTest();
+        });
+        
+        // Initial setup
+        initTest();
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Quiz - Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <style>
+    /* General & Typography */
+    :root {
+      --primary-font: 'Inter', sans-serif;
+      --primary-color: #333;
+      --secondary-color: #555;
+      --background-color: #f8f9fa;
+      --light-gray: #e9ecef;
+      --accent-color: #007bff;
+      --button-color: #007bff; /* A single color for all buttons */
+      --button-text-color: #ffffff; /* White text for the buttons */
+      --button-hover-color: #0056b3; /* A darker shade for hover effect */
+    }
+
+    body {
+      font-family: var(--primary-font);
+      color: var(--primary-color);
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      /* New Gradient with 58 colors */
+      background: linear-gradient(135deg,
+        #DC143C, #B22222, #CD5C5C, #F08080, #FA8072, #E9967A, #FF6347, #FF0000, #FF1493, #FF69B4,
+        #FF7F50, #FF4500, #FF8C00, #FFA500, #FFDAB9,
+        #FFD700, #FAFAD2, #FFFACD, #FFFFE0, #F0E68C,
+        #ADFF2F, #7FFF00, #7CFC00, #00FF00, #32CD32, #3CB371, #2E8B57, #228B22, #6B8E23, #006400,
+        #87CEFA, #87CEEB, #00BFFF, #1E90FF, #6495ED, #4682B4, #4169E1, #0000CD, #000080, #191970,
+        #E6E6FA, #D8BFD8, #DDA0DD, #EE82EE, #DA70D6, #BA55D3, #9370DB, #6A5ACD, #9400D3, #4B0082,
+        #8B4513, #A0522D, #CD853F, #DEB887, #D2B48C, #BC8F8F,
+        #D3D3D3, #DCDCDC, #F5F5F5, #000000
+      );
+      background-size: 8000% 8000%;
+      animation: gradient-animation 240s ease infinite;
+    }
+
+    @keyframes gradient-animation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1, h2, h3 {
+      font-weight: 600;
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--primary-color);
+    }
+
+    a:hover {
+      color: var(--accent-color);
+    }
+
+    /* Header & Navbar */
+    .navbar {
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .navbar .logo-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .navbar .logo {
+      font-size: 1.5rem;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+    
+    .navbar .tagline {
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: var(--secondary-color);
+      margin-top: 0.2rem;
+    }
+
+    .nav-links {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      padding: 0.5rem 1rem;
+      transition: color 0.3s ease, background-color 0.3s ease;
+      border-radius: 4px;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      background-color: var(--light-gray);
+      color: var(--accent-color);
+    }
+
+    /* Main Content */
+    .main-content {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 2rem;
+      text-align: center;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    .main-content h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Filters */
+    .filter-controls {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .filter-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .filter-btn select {
+      padding: 0.5rem 0.75rem;
+      border: 1px solid var(--light-gray);
+      border-radius: 4px;
+      background-color: #fff;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    /* Date Grid */
+    .date-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .date-container {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--light-gray);
+      border-radius: 8px;
+      text-align: center;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background-color: #fff; /* Set background to white */
+      color: #000; /* Set all date container text to black */
+    }
+
+    .date-container:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    /* All date-link text will now be black */
+    .date-link {
+      display: block;
+      padding: 1.5rem 0;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #000; /* Set to black */
+      transition: color 0.3s ease;
+    }
+
+    /* The hover effect for the date-link can still change the color for a visual cue */
+    .date-container:hover .date-link {
+      color: var(--accent-color);
+    }
+    
+    .quiz-button {
+      padding: 0.75rem 1rem;
+      background-color: var(--button-color); /* Set to the single button color */
+      color: var(--button-text-color); /* Set to the single button text color */
+      font-weight: 600;
+      border: none;
+      border-top: 1px solid var(--light-gray);
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .quiz-button:hover {
+      background-color: var(--button-hover-color); /* Hover color */
+    }
+
+    /* Footer */
+    .footer {
+      background-color: var(--primary-color);
+      color: #fff;
+      padding: 2rem 2rem 1rem;
+      text-align: center;
+      margin-top: 4rem;
+    }
+
+    .footer h3 {
+      margin-top: 0;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .social-icons a {
+      color: #fff;
+      font-size: 1.8rem;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: var(--accent-color);
+      transform: scale(1.1);
+    }
+
+    .footer p {
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: var(--light-gray);
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <nav>
+      <div class="logo-container">
+        <div class="logo">Daily Quiz</div>
+        <p class="tagline">Practice makes you perfect.</p>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <h1>Choose a Date</h1>
+
+    <div class="filter-controls">
+      <div class="filter-btn">
+        <label for="month-filter">Month:</label>
+        <select id="month-filter">
+          <option value="August">August</option>
+          <option value="September">September</option>
+        </select>
+      </div>
+      <div class="filter-btn">
+        <label for="year-filter">Year:</label>
+        <select id="year-filter">
+          <option value="2025">2025</option>
+          <option value="2026">2026</option>
+        </select>
+      </div>
+    </div>
+    
+    <div class="date-grid" id="date-grid">
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="social-connect">
+      <h3>Connect with us</h3>
+      <div class="social-icons">
+        <a href="https://www.youtube.com/@essaymasterji" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="https://wa.me/918168305050" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://t.me/newspapersontelegram" target="_blank" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+      </div>
+    </div>
+    <p>© 2025 Daily Quiz. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const dateGrid = document.getElementById('date-grid');
+      const monthFilter = document.getElementById('month-filter');
+      const yearFilter = document.getElementById('year-filter');
+
+      const dates = [
+        { day: 1, month: 'August', year: 2025, link: 'quiz_5.html' },
+        { day: 2, month: 'August', year: 2025 },
+        { day: 3, month: 'August', year: 2025 },
+        { day: 4, month: 'August', year: 2025 },
+        { day: 5, month: 'August', year: 2025 },
+        { day: 6, month: 'August', year: 2025 },
+        { day: 7, month: 'August', year: 2025 },
+        { day: 8, month: 'August', year: 2025 },
+        { day: 9, month: 'August', year: 2025 },
+        { day: 10, month: 'August', year: 2025 },
+        { day: 11, month: 'August', year: 2025 },
+        { day: 12, month: 'August', year: 2025 },
+        { day: 13, month: 'August', year: 2025 },
+        { day: 14, month: 'August', year: 2025 },
+        { day: 15, month: 'August', year: 2025 },
+        { day: 16, month: 'August', year: 2025 },
+        { day: 17, month: 'August', year: 2025 },
+        { day: 18, month: 'August', year: 2025 },
+        { day: 19, month: 'August', year: 2025 },
+        { day: 20, month: 'August', year: 2025 },
+        { day: 21, month: 'August', year: 2025 },
+        { day: 22, month: 'August', year: 2025 },
+        { day: 23, month: 'August', year: 2025 },
+        { day: 24, month: 'August', year: 2025 },
+        { day: 25, month: 'August', year: 2025 },
+        { day: 26, month: 'August', year: 2025 },
+        { day: 27, month: 'August', year: 2025 },
+        { day: 28, month: 'August', year: 2025 },
+        { day: 29, month: 'August', year: 2025 },
+        { day: 30, month: 'August', year: 2025 },
+        { day: 31, month: 'August', year: 2025 },
+        { day: 1, month: 'September', year: 2025 },
+        { day: 2, month: 'September', year: 2025 },
+        { day: 3, month: 'September', year: 2025 },
+        { day: 4, month: 'September', year: 2025 },
+        { day: 5, month: 'September', year: 2025 },
+        { day: 6, month: 'September', year: 2025 },
+        { day: 7, month: 'September', year: 2025 },
+        { day: 8, month: 'September', year: 2025 },
+        { day: 9, month: 'September', year: 2025 },
+        { day: 10, month: 'September', year: 2025 },
+        { day: 11, month: 'September', year: 2025 },
+        { day: 12, month: 'September', year: 2025 },
+        { day: 13, month: 'September', year: 2025 },
+        { day: 14, month: 'September', year: 2025 },
+        { day: 15, month: 'September', year: 2025 },
+        { day: 16, month: 'September', year: 2025 },
+        { day: 17, month: 'September', year: 2025 },
+        { day: 18, month: 'September', year: 2025 },
+        { day: 19, month: 'September', year: 2025 },
+        { day: 20, month: 'September', year: 2025 },
+        { day: 21, month: 'September', year: 2025 },
+        { day: 22, month: 'September', year: 2025 },
+        { day: 23, month: 'September', year: 2025 },
+        { day: 24, month: 'September', year: 2025 },
+        { day: 25, month: 'September', year: 2025 },
+        { day: 26, month: 'September', year: 2025 },
+        { day: 27, month: 'September', year: 2025 },
+        { day: 28, month: 'September', year: 2025 },
+        { day: 29, month: 'September', year: 2025 },
+        { day: 30, month: 'September', year: 2025 }
+      ];
+
+      function renderDates(selectedMonth, selectedYear) {
+        dateGrid.innerHTML = '';
+        
+        const filteredDates = dates.filter(date => {
+          return date.month === selectedMonth && date.year.toString() === selectedYear;
+        });
+
+        filteredDates.forEach((date, index) => {
+          const dateContainer = document.createElement('div');
+          dateContainer.classList.add('date-container');
+          
+          const dateLink = document.createElement('a');
+          dateLink.href = date.link || '#';
+          dateLink.classList.add('date-link');
+          dateLink.textContent = `${date.day} ${date.month} ${date.year}`;
+          
+          const quizButton = document.createElement('button');
+          quizButton.classList.add('quiz-button');
+          quizButton.textContent = 'Take Quiz';
+          quizButton.onclick = () => {
+            if (date.link) {
+              window.location.href = date.link;
+            } else {
+              alert(`Quiz button clicked for ${date.day} ${date.month} ${date.year}`);
+            }
+          };
+
+          dateContainer.appendChild(dateLink);
+          dateContainer.appendChild(quizButton);
+          dateGrid.appendChild(dateContainer);
+        });
+      }
+
+      monthFilter.addEventListener('change', () => {
+        renderDates(monthFilter.value, yearFilter.value);
+      });
+
+      yearFilter.addEventListener('change', () => {
+        renderDates(monthFilter.value, yearFilter.value);
+      });
+
+      renderDates(monthFilter.value, yearFilter.value);
+    });
+  </script>
+
+</body>
+</html>

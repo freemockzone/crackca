@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IE - 04-Aug-25</title>
+<link rel="preconnect" href="https://www.google.com/search?q=https://fonts.googleapis.com">
+<link rel="preconnect" href="https://www.google.com/search?q=https://fonts.gstatic.com" crossorigin>
+<link href="https://www.google.com/search?q=https://fonts.googleapis.com/css2%3Ffamily%3DNoto%2BSans:wght%40400%3B700%26display%3Dswap" rel="stylesheet">
+<style>
+:root {
+--primary-color: #007bff;
+--secondary-color: #6c757d;
+--text-color: #212529;
+--background-color: #f8f9fa;
+--hover-bg: #e2e6ea;
+--light-blue: #cfe2ff;
+}
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'Noto Sans', sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        background-color: var(--background-color);
+        padding-bottom: 80px; /* Space for the "Back to Home" button */
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 1rem;
+    }
+
+    header {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 1rem 0;
+        text-align: center;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+        margin: 0;
+    }
+
+    nav {
+        background-color: #343a40;
+        padding: 0.5rem 0;
+    }
+
+    nav ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: 700;
+        padding: 0.5rem 1rem;
+        transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+        background-color: var(--secondary-color);
+        border-radius: 5px;
+    }
+
+    .article-meta {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .article-meta h1 {
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+    }
+
+    .article-meta p {
+        color: var(--secondary-color);
+        margin: 0.25rem 0;
+    }
+
+    .read-time {
+        font-style: italic;
+        color: var(--secondary-color);
+        font-weight: bold;
+    }
+
+    .article-content {
+        background-color: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .line {
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        margin-bottom: 0.5rem;
+        transition: background-color 0.3s ease;
+    }
+
+    .line:hover {
+        background-color: var(--hover-bg);
+    }
+
+    h2, h3, h4 {
+        color: var(--primary-color);
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        margin-bottom: 1rem;
+    }
+
+    ul {
+        margin-bottom: 1rem;
+        padding-left: 2rem;
+    }
+
+    li {
+        margin-bottom: 0.5rem;
+    }
+
+    strong {
+        font-weight: 700;
+    }
+
+    em {
+        font-style: italic;
+    }
+
+    .contact-link {
+        display: block;
+        margin-top: 2rem;
+        text-align: center;
+    }
+    .contact-link a {
+        color: var(--primary-color);
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.1rem;
+    }
+
+    .contact-link a:hover {
+        text-decoration: underline;
+    }
+
+    footer {
+        text-align: center;
+        padding: 1rem;
+        background-color: #343a40;
+        color: white;
+        margin-top: 2rem;
+    }
+
+    .scroll-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        display: none;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s ease;
+    }
+
+    .scroll-to-top:hover {
+        background-color: #0056b3;
+    }
+
+    .bottom-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+
+    .bottom-buttons .button {
+        padding: 0.75rem 1.5rem;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 700;
+        transition: transform 0.2s, background-color 0.3s;
+    }
+
+    .bottom-buttons .button.home-button {
+        background-color: var(--primary-color);
+        color: white;
+    }
+
+    .bottom-buttons .button.home-button:hover {
+        background-color: #0056b3;
+        transform: scale(1.05);
+    }
+    
+    .language-switch {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    .language-switch button {
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 700;
+        transition: background-color 0.3s ease;
+    }
+    
+    .language-switch button:hover {
+        background-color: #0056b3;
+    }
+    
+    .lang-hi {
+        display: none;
+    }
+
+
+    @media (max-width: 768px) {
+        .container {
+            padding: 0.5rem;
+        }
+
+        .article-meta h1 {
+            font-size: 1.8rem;
+        }
+
+        nav ul {
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .article-content {
+            padding: 1rem;
+        }
+
+        .scroll-to-top {
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>04-August-2025</h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="quiz.html">Quiz</a></li>
+        <li><a href="donation.html">Donation</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+    <article>
+        <div class="article-meta">
+            <h1 class="article-title">Maharashtra Government's Policy Rollbacks</h1>
+            <p><strong>Source:</strong> Indian Express</p>
+            <p><strong>Publication Date:</strong> 03-August-2025</p>
+            <p class="read-time">Read Time: <span id="read-time"></span> min</p>
+        </div>
+        
+        <div class="language-switch">
+            <button id="lang-switch-btn">Switch to Hindi</button>
+        </div>
+        
+        <section class="article-content">
+            <div class="lang-en">
+                <h3 class="line">Maharashtra Government's Policy Rollbacks</h3>
+                <h4 class="line"><strong>Why in the News?</strong></h4>
+                <p class="line">The Maharashtra government, led by the BJP, has rolled back seven key decisions in the education sector within the last six months. These reversals have been criticized by experts and the opposition for being implemented without proper thought or consultation. The rollbacks were largely a response to backlash from stakeholders, including parents, and in one case, an interim stay by the Bombay High Court. The decisions, ranging from language and reservation policies to school bag weight and midday meals, highlight challenges in educational governance and policy implementation in the state.</p>
+                <hr>
+                <h4 class="line"><strong>Key Decisions and Their Rollbacks</strong></h4>
+                <p class="line">Here are the details of the seven key decisions and the reasons for their subsequent reversal:</p>
+                <ol>
+                    <li class="line"><strong>Hindi as a Mandatory Third Language:</strong>
+                        <ul>
+                            <li class="line"><em><strong>Initial Decision (April 16, 2025):</strong></em> A government order made Hindi a mandatory third language for students in Classes 1-5 in state board schools, in line with the National Education Policy (NEP) 2020.</li>
+                            <li class="line"><em><strong>Reason for Backlash:</strong></em> The decision sparked widespread criticism and political backlash, with opposition parties alleging a "forced imposition" of Hindi.</li>
+                            <li class="line"><em><strong>Rollback:</strong></em> The government first made it optional on June 17, and then, due to continued protests, revoked both orders on June 29. A new panel, headed by educationist Narendra Jadhav, was set up to provide fresh recommendations.</li>
+                        </ul>
+                    </li>
+                    <li class="line"><strong>Quotas in Minority Trust-Run Junior Colleges:</strong>
+                        <ul>
+                            <li class="line"><em><strong>Initial Decision (Late May 2025):</strong></em> The state's centralized online FYJC admissions included social reservations for SC, ST, and OBC in minority trust-run institutions, which are traditionally exempt.</li>
+                            <li class="line"><em><strong>Reason for Backlash:</strong></em> Minority institutions filed a petition in the Bombay High Court, arguing that the policy infringed upon their constitutional rights under Article 30. They traditionally reserve 50% of seats for their community and the rest for the open category on merit, without social reservation.</li>
+                            <li class="line"><em><strong>Rollback:</strong></em> The Bombay High Court granted an interim relief on June 12, halting the policy. The government formally reversed its decision on June 23.</li>
+                        </ul>
+                    </li>
+                    <li class="line"><strong>"One State, One Uniform" Policy:</strong>
+                        <ul>
+                            <li class="line"><em><strong>Initial Decision (May 2023):</strong></em> The government decided to standardize uniforms for students from Classes 1-8 across all government schools and implement a centralized system for their manufacturing and distribution.</li>
+                            <li class="line"><em><strong>Reason for Backlash:</strong></em> The implementation, which began in the 2024-25 academic year, was riddled with logistical issues, including delayed delivery (uniforms reached students as late as October 2024), poor quality, and ill-fitting sizes.</li>
+                            <li class="line"><em><strong>Rollback:</strong></em> On April 2, 2025, the government scrapped the centralized policy and returned the responsibility of uniform procurement to school management committees (SMCs), as was the practice before.</li>
+                        </ul>
+                    </li>
+                    <li class="line"><strong>Sweet Dish in Midday Meals:</strong>
+                        <ul>
+                            <li class="line"><em><strong>Initial Decision (June 11, 2024):</strong></em> The government announced a new three-course midday meal plan, including a sweet dish.</li>
+                            <li class="line"><em><strong>Reason for Backlash:</strong></em> The decision was modified, and on January 28, 2025, it was announced that the sweet dish would only be provided if school management committees could raise funds from the public to purchase the required sugar. This essentially made the provision conditional and difficult to implement.</li>
+                            <li class="line"><em><strong>Rollback:</strong></em> The decision was effectively rolled back by tying the provision to external funding, which was seen as an impractical modification.</li>
+                        </ul>
+                    </li>
+                    <li class="line"><strong>Blank Pages in Textbooks:</strong>
+                        <ul>
+                            <li class="line"><em><strong>Initial Decision (March 8, 2023):</strong></em> The government announced the inclusion of blank pages after every chapter in textbooks for Classes 2-8 to reduce the weight of school bags by serving as an alternative to separate notebooks.</li>
+                            <li class="line"><em><strong>Reason for Backlash:</strong></em> The move triggered a backlash as students continued to carry both textbooks and separate notebooks, defeating the purpose.</li>
+                            <li class="line"><em><strong>Rollback:</strong></em> On January 28, 2025, the government rolled back the decision after just one academic year (2024-25), with the new textbooks being printed without the blank pages.</li>
+                        </ul>
+                    </li>
+                    <li class="line"><strong>Caste on HSC Exam Hall Ticket:</strong>
+                        <ul>
+                            <li class="line"><em><strong>Initial Decision (January 11, 2025):</strong></em> The state board printed caste categories on the hall tickets for the Higher Secondary Certificate (HSC) exam.</li>
+                            <li class="line"><em><strong>Reason for Backlash:</strong></em> The move led to sharp criticism from social groups who raised concerns about potential discrimination and the public display of a student's caste.</li>
+                            <li class="line"><em><strong>Rollback:</strong></em> The board expressed regret and, on January 18, withdrew the hall tickets. New ones without the caste information were issued on January 23.</li>
+                        </ul>
+                    </li>
+                    <li class="line"><strong>10% EWS Quota in Private Medical Colleges:</strong>
+                        <ul>
+                            <li class="line"><em><strong>Initial Decision (July 23, 2025):</strong></em> The information brochure for state medical admissions listed a 10% reservation for Economically Weaker Sections (EWS).</li>
+                            <li class="line"><em><strong>Reason for Backlash:</strong></em> Parents and aspirants objected, arguing that implementing the quota without increasing the total number of seats would reduce the slots available for the general pool.</li>
+                            <li class="line"><em><strong>Rollback:</strong></em> Following a meeting with a delegation of parents, the government withdrew the policy on July 30, stating that the quota would be implemented only if additional intake is approved.</li>
+                        </ul>
+                    </li>
+                </ol>
+                <hr>
+                <h4 class="line"><strong>Analysis for UPSC CSE</strong></h4>
+                <ul>
+                    <li class="line"><strong>Educational Governance:</strong> The series of rollbacks highlights a "top-down approach" in policy-making, characterized by a lack of dialogue and inadequate consultation with key stakeholders like parents, teachers, and experts. This approach often results in policies that are ill-suited for the diverse realities of a state like Maharashtra.</li>
+                    <li class="line"><strong>Policy Implementation Challenges:</strong> Many of the rollbacks were due to logistical and implementation failures. The "One State, One Uniform" policy is a prime example of a well-intentioned idea failing due to poor execution, supply chain issues, and quality control problems. This points to the need for piloting initiatives and due diligence before scaling them up.</li>
+                    <li class="line"><strong>Political Implications:</strong> The opposition has alleged that some of these decisions, particularly those related to reservations, were made with an eye on local body polls. The quick announcement and subsequent withdrawal of these policies suggest a political motive rather than a focus on long-term educational reform.</li>
+                    <li class="line"><strong>Constitutional and Legal Aspects:</strong> The rollback of social reservation in minority junior colleges is a significant point. It reinforces the constitutional protection granted to minority institutions under Article 30 to establish and administer educational institutions of their choice, which includes their right to define their own admission policies.</li>
+                </ul>
+            </div>
+            
+            <div class="lang-hi">
+                <h3 class="line" lang="hi">महाराष्ट्र सरकार की नीतियाँ वापस</h3>
+                <h4 class="line" lang="hi"><strong>खबरों में क्यों?</strong></h4>
+                <p class="line" lang="hi">भाजपा के नेतृत्व वाली महाराष्ट्र सरकार ने पिछले छह महीनों में शिक्षा क्षेत्र से जुड़े सात अहम फ़ैसलों को वापस ले लिया है। विशेषज्ञों और विपक्ष ने इन फ़ैसलों की आलोचना की है कि इन्हें बिना सोचे-समझे या बिना किसी परामर्श के लागू किया गया। ये फ़ैसले मुख्यतः अभिभावकों सहित हितधारकों की तीखी प्रतिक्रिया और एक मामले में बॉम्बे उच्च न्यायालय द्वारा अंतरिम रोक के बाद वापस लिए गए। भाषा और आरक्षण नीतियों से लेकर स्कूल बैग के वज़न और मध्याह्न भोजन तक, ये फ़ैसले राज्य में शैक्षिक प्रशासन और नीति कार्यान्वयन की चुनौतियों को उजागर करते हैं।</p>
+                <hr>
+                <h4 class="line" lang="hi"><strong>प्रमुख निर्णय और उनके वापस लिए गए</strong></h4>
+                <p class="line" lang="hi">यहाँ सात प्रमुख निर्णयों और उनके बाद के रद्द किए गए कारणों का विवरण दिया गया है:</p>
+                <ol>
+                    <li class="line" lang="hi"><strong>अनिवार्य तीसरी भाषा के रूप में हिंदी:</strong>
+                        <ul>
+                            <li class="line" lang="hi"><em><strong>प्रारंभिक निर्णय (16 अप्रैल, 2025):</strong></em> राष्ट्रीय शिक्षा नीति (एनईपी) 2020 के अनुरूप, एक सरकारी आदेश ने राज्य बोर्ड के स्कूलों में कक्षा 1-5 तक के छात्रों के लिए हिंदी को अनिवार्य तीसरी भाषा बना दिया।</li>
+                            <li class="line" lang="hi"><em><strong>प्रतिक्रिया का कारण:</strong></em> इस निर्णय की व्यापक आलोचना और राजनीतिक प्रतिक्रिया हुई, विपक्षी दलों ने हिंदी को "जबरन थोपने" का आरोप लगाया।</li>
+                            <li class="line" lang="hi"><em><strong>वापसी:</strong></em> सरकार ने पहले 17 जून को इसे वैकल्पिक बनाया, और फिर, लगातार विरोध के कारण, 29 जून को दोनों आदेशों को रद्द कर दिया। नई सिफारिशें देने के लिए शिक्षाविद् नरेंद्र जाधव की अध्यक्षता में एक नया पैनल गठित किया गया।</li>
+                        </ul>
+                    </li>
+                    <li class="line" lang="hi"><strong>अल्पसंख्यक ट्रस्ट द्वारा संचालित जूनियर कॉलेजों में कोटा:</strong>
+                        <ul>
+                            <li class="line" lang="hi"><em><strong>प्रारंभिक निर्णय (मई 2025 के अंत में):</strong></em> राज्य के केंद्रीकृत ऑनलाइन FYJC प्रवेशों में अल्पसंख्यक ट्रस्ट द्वारा संचालित संस्थानों में अनुसूचित जाति, अनुसूचित जनजाति और अन्य पिछड़ा वर्ग के लिए सामाजिक आरक्षण शामिल था, जिन्हें पारंपरिक रूप से छूट प्राप्त है।</li>
+                            <li class="line" lang="hi"><em><strong>प्रतिक्रिया का कारण:</strong></em> अल्पसंख्यक संस्थानों ने बॉम्बे उच्च न्यायालय में एक याचिका दायर की, जिसमें तर्क दिया गया कि यह नीति अनुच्छेद 30 के तहत उनके संवैधानिक अधिकारों का उल्लंघन करती है। वे पारंपरिक रूप से अपने समुदाय के लिए 50% सीटें और बाकी सीटें बिना किसी सामाजिक आरक्षण के योग्यता के आधार पर खुले वर्ग के लिए आरक्षित करते हैं।</li>
+                            <li class="line" lang="hi"><em><strong>वापसी:</strong></em> बॉम्बे उच्च न्यायालय ने 12 जून को इस नीति पर रोक लगाते हुए अंतरिम राहत प्रदान की। सरकार ने 23 जून को औपचारिक रूप से अपना निर्णय वापस ले लिया।</li>
+                        </ul>
+                    </li>
+                    <li class="line" lang="hi"><strong>"एक राज्य, एक वर्दी" नीति:</strong>
+                        <ul>
+                            <li class="line" lang="hi"><em><strong>प्रारंभिक निर्णय (मई 2023):</strong></em> सरकार ने सभी सरकारी स्कूलों में कक्षा 1-8 तक के छात्रों के लिए यूनिफॉर्म का मानकीकरण करने और उनके निर्माण एवं वितरण के लिए एक केंद्रीकृत प्रणाली लागू करने का निर्णय लिया।</li>
+                            <li class="line" lang="hi"><em><strong>प्रतिक्रिया का कारण:</strong></em> शैक्षणिक वर्ष 2024-25 में शुरू होने वाला यह कार्यान्वयन, कई रसद संबंधी समस्याओं से भरा हुआ था, जिसमें देरी से वितरण (यूनिफॉर्म अक्टूबर 2024 तक छात्रों तक पहुँची), खराब गुणवत्ता और सही साइज़ का न होना शामिल था।</li>
+                            <li class="line" lang="hi"><em><strong>वापसी:</strong></em> 2 अप्रैल, 2025 को, सरकार ने केंद्रीकृत नीति को रद्द कर दिया और यूनिफॉर्म खरीद की ज़िम्मेदारी स्कूल प्रबंधन समितियों (एसएमसी) को वापस कर दी, जैसा कि पहले होता था।</li>
+                        </ul>
+                    </li>
+                    <li class="line" lang="hi"><strong>मध्याह्न भोजन में मीठा व्यंजन:</strong>
+                        <ul>
+                            <li class="line" lang="hi"><em><strong>प्रारंभिक निर्णय (11 जून, 2024):</strong></em> सरकार ने एक नए तीन-कोर्स वाले मध्याह्न भोजन योजना की घोषणा की, जिसमें एक मीठा व्यंजन भी शामिल है।</li>
+                            <li class="line" lang="hi"><em><strong>प्रतिक्रिया का कारण:</strong></em> इस निर्णय को संशोधित किया गया और 28 जनवरी, 2025 को यह घोषणा की गई कि मीठा व्यंजन केवल तभी उपलब्ध कराया जाएगा जब स्कूल प्रबंधन समितियाँ आवश्यक चीनी खरीदने के लिए जनता से धन जुटा सकें। इससे यह प्रावधान अनिवार्य रूप से सशर्त हो गया और इसे लागू करना मुश्किल हो गया।</li>
+                            <li class="line" lang="hi"><em><strong>वापसी:</strong></em> इस प्रावधान को बाहरी वित्तपोषण से जोड़कर निर्णय को प्रभावी रूप से वापस ले लिया गया, जिसे एक अव्यावहारिक संशोधन माना गया।</li>
+                        </ul>
+                    </li>
+                    <li class="line" lang="hi"><strong>पाठ्यपुस्तकों में खाली पृष्ठ:</strong>
+                        <ul>
+                            <li class="line" lang="hi"><em><strong>प्रारंभिक निर्णय (8 मार्च, 2023):</strong></em> सरकार ने कक्षा 2-8 की पाठ्यपुस्तकों में प्रत्येक अध्याय के बाद खाली पृष्ठ शामिल करने की घोषणा की ताकि अलग-अलग नोटबुक के विकल्प के रूप में स्कूल बैग का वजन कम किया जा सके।</li>
+                            <li class="line" lang="hi"><em><strong>प्रतिक्रिया का कारण:</strong></em> इस कदम की तीखी आलोचना हुई क्योंकि छात्र पाठ्यपुस्तकें और अलग-अलग नोटबुक दोनों ले जाना जारी रखते थे, जिससे उद्देश्य विफल हो गया।</li>
+                            <li class="line" lang="hi"><em><strong>वापसी:</strong></em> 28 जनवरी, 2025 को, सरकार ने केवल एक शैक्षणिक वर्ष (2024-25) के बाद ही इस निर्णय को वापस ले लिया, और नई पाठ्यपुस्तकें खाली पृष्ठों के बिना छापी गईं।</li>
+                        </ul>
+                    </li>
+                    <li class="line" lang="hi"><strong>एचएससी परीक्षा हॉल टिकट पर जाति:</strong>
+                        <ul>
+                            <li class="line" lang="hi"><em><strong>प्रारंभिक निर्णय (11 जनवरी, 2025):</strong></em> राज्य बोर्ड ने हायर सेकेंडरी सर्टिफिकेट (एचएससी) परीक्षा के हॉल टिकट पर जाति श्रेणियां छापीं।</li>
+                            <li class="line" lang="hi"><em><strong>प्रतिक्रिया का कारण:</strong></em> इस कदम की सामाजिक समूहों ने तीखी आलोचना की, जिन्होंने संभावित भेदभाव और छात्र की जाति के सार्वजनिक प्रदर्शन के बारे में चिंता जताई।</li>
+                            <li class="line" lang="hi"><em><strong>वापसी:</strong></em> बोर्ड ने खेद व्यक्त किया और 18 जनवरी को हॉल टिकट वापस ले लिए। 23 जनवरी को जाति की जानकारी के बिना नए हॉल टिकट जारी किए गए।</li>
+                        </ul>
+                    </li>
+                    <li class="line" lang="hi"><strong>निजी मेडिकल कॉलेजों में 10% EWS कोटा:</strong>
+                        <ul>
+                            <li class="line" lang="hi"><em><strong>प्रारंभिक निर्णय (23 जुलाई, 2025):</strong></em> राज्य मेडिकल प्रवेश के लिए सूचना विवरणिका में आर्थिक रूप से कमजोर वर्गों (EWS) के लिए 10% आरक्षण सूचीबद्ध था।</li>
+                            <li class="line" lang="hi"><em><strong>प्रतिक्रिया का कारण:</strong></em> अभिभावकों और उम्मीदवारों ने यह तर्क देते हुए विरोध किया कि कुल सीटों की संख्या बढ़ाए बिना कोटा लागू करने से सामान्य पूल के लिए उपलब्ध स्थान कम हो जाएँगे।</li>
+                            <li class="line" lang="hi"><em><strong>वापसी:</strong></em> अभिभावकों के एक प्रतिनिधिमंडल के साथ बैठक के बाद, सरकार ने 30 जुलाई को नीति वापस ले ली, यह कहते हुए कि कोटा तभी लागू किया जाएगा जब अतिरिक्त प्रवेश को मंजूरी मिल जाएगी।</li>
+                        </ul>
+                    </li>
+                </ol>
+                <hr>
+                <h4 class="line" lang="hi"><strong>यूपीएससी सिविल सेवा परीक्षा के लिए विश्लेषण</strong></h4>
+                <ul>
+                    <li class="line" lang="hi"><strong>शैक्षिक प्रशासन:</strong> नीति-निर्माण में "ऊपर से नीचे तक के दृष्टिकोण" को वापस लेने की यह श्रृंखला उजागर करती है, जिसमें संवाद की कमी और अभिभावकों, शिक्षकों और विशेषज्ञों जैसे प्रमुख हितधारकों के साथ अपर्याप्त परामर्श शामिल है। इस दृष्टिकोण के परिणामस्वरूप अक्सर ऐसी नीतियाँ बनती हैं जो महाराष्ट्र जैसे राज्य की विविध वास्तविकताओं के लिए अनुपयुक्त होती हैं।</li>
+                    <li class="line" lang="hi"><strong>नीति कार्यान्वयन चुनौतियाँ:</strong> कई नीतियाँ रसद और कार्यान्वयन संबंधी विफलताओं के कारण वापस ली गईं। "एक राज्य, एक समान" नीति एक नेक इरादे वाले विचार का एक प्रमुख उदाहरण है जो खराब क्रियान्वयन, आपूर्ति श्रृंखला की समस्याओं और गुणवत्ता नियंत्रण की समस्याओं के कारण विफल हो गया। यह पहलों को आगे बढ़ाने से पहले पायलट प्रोजेक्ट और उचित परिश्रम की आवश्यकता की ओर इशारा करता है।</li>
+                    <li class="line" lang="hi"><strong>राजनीतिक निहितार्थ:</strong> विपक्ष ने आरोप लगाया है कि इनमें से कुछ निर्णय, विशेष रूप से आरक्षण से संबंधित, स्थानीय निकाय चुनावों को ध्यान में रखकर लिए गए थे। इन नीतियों की त्वरित घोषणा और बाद में उन्हें वापस लेना दीर्घकालिक शैक्षिक सुधार पर ध्यान केंद्रित करने के बजाय एक राजनीतिक मकसद का संकेत देता है।</li>
+                    <li class="line" lang="hi"><strong>संवैधानिक और कानूनी पहलू:</strong> अल्पसंख्यक जूनियर कॉलेजों में सामाजिक आरक्षण को वापस लेना एक महत्वपूर्ण बिंदु है। यह अनुच्छेद 30 के तहत अल्पसंख्यक संस्थानों को अपनी पसंद के शैक्षणिक संस्थान स्थापित करने और उनका प्रबंधन करने के लिए दिए गए संवैधानिक संरक्षण को मजबूत करता है, जिसमें उनकी अपनी प्रवेश नीतियाँ निर्धारित करने का अधिकार भी शामिल है।</li>
+                </ul>
+            </div>
+        
+        </section>
+        
+        <p class="contact-link"><a href="https://wa.me/918168305050" target="_blank">Contact us on WhatsApp: +91-8168305050</a></p>
+
+        <div class="bottom-buttons">
+            <a href="index.html" class="button home-button">Back to Home</a>
+        </div>
+        
+    </article>
+</div>
+
+<button id="scroll-to-top" class="scroll-to-top">▲</button>
+
+<footer>
+    <div class="container">
+        <p>© 2025 Crack Current Affairs (CrackCA). All rights reserved.</p>
+    </div>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const articleContent = document.querySelector('.article-content');
+        const englishContent = document.querySelector('.lang-en');
+        const hindiContent = document.querySelector('.lang-hi');
+        const langSwitchBtn = document.getElementById('lang-switch-btn');
+        const scrollToTopBtn = document.getElementById('scroll-to-top');
+        
+        let isHindi = false;
+        
+        // Initial state
+        englishContent.style.display = 'block';
+        hindiContent.style.display = 'none';
+
+        // Language switch functionality
+        langSwitchBtn.addEventListener('click', () => {
+            isHindi = !isHindi;
+            if (isHindi) {
+                englishContent.style.display = 'none';
+                hindiContent.style.display = 'block';
+                langSwitchBtn.textContent = 'Switch to English';
+            } else {
+                englishContent.style.display = 'block';
+                hindiContent.style.display = 'none';
+                langSwitchBtn.textContent = 'Switch to Hindi';
+            }
+        });
+
+        // Read Time Calculation
+        const wordsPerMinute = 200;
+        const englishText = englishContent.textContent;
+        const wordCount = englishText.split(/\s+/).length;
+        const readTime = Math.ceil(wordCount / wordsPerMinute);
+        document.getElementById('read-time').textContent = readTime;
+
+        // Scroll to Top Button
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.style.display = 'block';
+            } else {
+                scrollToTopBtn.style.display = 'none';
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+</body>
+
+</html>

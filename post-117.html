@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IE - 04-Aug-25</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+--primary-color: #007bff;
+--secondary-color: #6c757d;
+--text-color: #212529;
+--background-color: #f8f9fa;
+--hover-bg: #e2e6ea;
+--light-blue: #cfe2ff;
+}
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'Noto Sans', sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        background-color: var(--background-color);
+        padding-bottom: 80px;
+        /* Space for the "Back to Home" button */
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 1rem;
+    }
+
+    header {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 1rem 0;
+        text-align: center;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+        margin: 0;
+    }
+
+    nav {
+        background-color: #343a40;
+        padding: 0.5rem 0;
+    }
+
+    nav ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: 700;
+        padding: 0.5rem 1rem;
+        transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+        background-color: var(--secondary-color);
+        border-radius: 5px;
+    }
+
+    .article-meta {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .article-meta h1 {
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+    }
+
+    .article-meta p {
+        color: var(--secondary-color);
+        margin: 0.25rem 0;
+    }
+
+    .read-time {
+        font-style: italic;
+        color: var(--secondary-color);
+        font-weight: bold;
+    }
+
+    .article-content {
+        background-color: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .line {
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        margin-bottom: 0.5rem;
+        transition: background-color 0.3s ease;
+    }
+
+    .line:hover {
+        background-color: var(--hover-bg);
+    }
+
+    h2, h3, h4 {
+        color: var(--primary-color);
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        margin-bottom: 1rem;
+    }
+
+    ul {
+        margin-bottom: 1rem;
+        padding-left: 2rem;
+    }
+
+    li {
+        margin-bottom: 0.5rem;
+    }
+
+    strong {
+        font-weight: 700;
+    }
+
+    em {
+        font-style: italic;
+    }
+
+    .contact-link {
+        display: block;
+        margin-top: 2rem;
+        text-align: center;
+    }
+    .contact-link a {
+        color: var(--primary-color);
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.1rem;
+    }
+
+    .contact-link a:hover {
+        text-decoration: underline;
+    }
+
+    footer {
+        text-align: center;
+        padding: 1rem;
+        background-color: #343a40;
+        color: white;
+        margin-top: 2rem;
+    }
+
+    .scroll-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        display: none;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s ease;
+    }
+
+    .scroll-to-top:hover {
+        background-color: #0056b3;
+    }
+
+    .bottom-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+
+    .bottom-buttons .button {
+        padding: 0.75rem 1.5rem;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 700;
+        transition: transform 0.2s, background-color 0.3s;
+    }
+
+    .bottom-buttons .button.home-button {
+        background-color: var(--primary-color);
+        color: white;
+    }
+
+    .bottom-buttons .button.home-button:hover {
+        background-color: #0056b3;
+        transform: scale(1.05);
+    }
+    
+    .language-switch {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    .language-switch button {
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 700;
+        transition: background-color 0.3s ease;
+    }
+    
+    .language-switch button:hover {
+        background-color: #0056b3;
+    }
+    
+    .lang-hi {
+        display: none;
+    }
+
+
+    @media (max-width: 768px) {
+        .container {
+            padding: 0.5rem;
+        }
+
+        .article-meta h1 {
+            font-size: 1.8rem;
+        }
+
+        nav ul {
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .article-content {
+            padding: 1rem;
+        }
+
+        .scroll-to-top {
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>04-August-2025</h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="quiz.html">Quiz</a></li>
+        <li><a href="donation.html">Donation</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+    <article>
+        <div class="article-meta">
+            <h1 class="article-title">Malegaon 2008 Bomb Blast Verdict</h1>
+            <p><strong>Source:</strong> Indian Express</p>
+            <p><strong>Publication Date:</strong> 04-August-2025</p>
+            <p class="read-time">Read Time: <span id="read-time"></span> min</p>
+        </div>
+        
+        <div class="language-switch">
+            <button id="lang-switch-btn">Switch to Hindi</button>
+        </div>
+        
+        <section class="article-content">
+            <div class="lang-en">
+                <h3 class="line">Malegaon 2008 Bomb Blast Verdict</h3>
+                <h4 class="line"><strong>Why in the News?</strong></h4>
+                <p class="line">A special trial court in Mumbai has acquitted all seven accused in the 2008 Malegaon bomb blast case. This verdict, delivered just ten days after a similar acquittal in the 2006 Mumbai train blasts case, has brought into sharp focus the significant shortcomings in the investigation and prosecution by premier anti-terror agencies like the Maharashtra ATS and the National Investigation Agency (NIA). The judgment has raised critical questions about the due process of justice, the impact of political narratives on investigations, and the need for accountability of law enforcement agencies in sensitive cases.</p>
+                <hr>
+                <h4 class="line"><strong>Key Details of the Case</strong></h4>
+                <ul class="line">
+                    <li class="line"><em><strong>Incident:</strong></em> A bomb blast occurred outside a mosque in Malegaon, Maharashtra, on September 29, 2008, on the last day of Ramzan. The explosion killed six people and injured nearly a hundred others.</li>
+                    <li class="line"><em><strong>Initial Probe:</strong></em> The investigation was initiated by the Maharashtra Anti-Terrorism Squad (ATS), led by its then-chief, Hemant Karkare. The ATS filed a chargesheet based on evidence including phone taps, witness statements, and electronic data from a laptop.</li>
+                    <li class="line"><em><strong>NIA Takeover:</strong></em> The National Investigation Agency (NIA) took over the case in 2011. The NIA criticized the ATS probe but largely continued in the same direction, eventually dropping charges under the stringent MCOCA (Maharashtra Control of Organised Crime Act) in 2016, citing procedural lapses by the ATS.</li>
+                    <li class="line"><em><strong>Court's Observation:</strong></em> The Special NIA Judge A.K. Lahoti noted that while the evidence created "grave suspicion" against the accused, there was not enough admissible evidence to secure a conviction.</li>
+                </ul>
+                <hr>
+                <h4 class="line"><strong>Major Shortcomings in Investigation and Prosecution</strong></h4>
+                <p class="line">The court's verdict highlighted several critical lapses:</p>
+                <ul>
+                    <li class="line"><em><strong>Inadmissible Electronic Evidence:</strong></em> Key evidence collected by the ATS, such as phone taps and video recordings from a laptop, was deemed inadmissible. The agency failed to fulfill the statutory requirement to prove the authenticity and reliability of the electronic evidence in court.</li>
+                    <li class="line"><em><strong>Procedural Gaps:</strong></em> Permissions for intercepted conversations were obtained belatedly, rendering the data legally unusable as evidence.</li>
+                    <li class="line"><em><strong>Missing Witness Statements:</strong></em> A significant lapse was the disappearance of 13 statements of witnesses from the court records, which compromised the prosecution's case.</li>
+                    <li class="line"><em><strong>Flawed Application of Law:</strong></em> The NIA's decision to drop MCOCA charges was a direct result of the ATS's failure to follow proper procedure while invoking the stringent anti-terror law.</li>
+                    <li class="line"><em><strong>Political Pressure:</strong></em> The investigation was mired in political controversy from the beginning, with allegations of a "Hindu terror" angle. The article suggests that such political pressure and "surround sound" can lead to slipshod investigations and systemic delays.</li>
+                </ul>
+                <hr>
+                <h4 class="line"><strong>Broader Implications for Governance and Judiciary</strong></h4>
+                <ul>
+                    <li class="line"><em><strong>Accountability of Investigating Agencies:</strong></em> The verdict puts the conduct of both the ATS and the NIA under the scanner, raising serious questions about the professionalism, procedural integrity, and accountability of India's premier investigative agencies.</li>
+                    <li class="line"><em><strong>Due Process of Justice:</strong></em> The case underscores the principle that conviction requires proof beyond a reasonable doubt, not just "grave suspicion." It highlights the vital role of meticulous evidence gathering and adherence to legal procedures.</li>
+                    <li class="line"><em><strong>Impact of Political Polarization:</strong></em> The Malegaon case exemplifies how political narratives and labels like "Hindu terror" can compromise the neutrality of investigations and undermine the justice system.</li>
+                    <li class="line"><em><strong>Systemic Delays:</strong></em> The trial began a decade after the blast, and the final verdict came after years of legal proceedings. Such inordinate delays often make justice "too little, too late."</li>
+                    <li class="line"><em><strong>Way Forward:</strong></em> The editorial calls on the NIA to appeal the verdict and build a stronger, more procedurally sound case, which is crucial for upholding public faith in the justice system and ensuring that the perpetrators of a terror attack are brought to justice. The acquittals should serve as a wake-up call for systemic reforms in the investigation and prosecution of sensitive cases.</li>
+                </ul>
+            </div>
+            
+            <div class="lang-hi">
+                <h3 class="line" lang="hi">मालेगांव 2008 बम विस्फोट का फैसला</h3>
+                <h4 class="line" lang="hi"><strong>खबरों में क्यों?</strong></h4>
+                <p class="line" lang="hi">मुंबई की एक विशेष निचली अदालत ने 2008 के मालेगांव बम विस्फोट मामले में सभी सात आरोपियों को बरी कर दिया है। 2006 के मुंबई ट्रेन विस्फोट मामले में इसी तरह के बरी होने के ठीक दस दिन बाद आए इस फैसले ने महाराष्ट्र एटीएस और राष्ट्रीय जाँच एजेंसी (एनआईए) जैसी प्रमुख आतंकवाद-रोधी एजेंसियों की जाँच और अभियोजन में महत्वपूर्ण कमियों को उजागर किया है। इस फैसले ने न्याय की उचित प्रक्रिया, जाँच पर राजनीतिक आख्यानों के प्रभाव और संवेदनशील मामलों में कानून प्रवर्तन एजेंसियों की जवाबदेही की आवश्यकता पर गंभीर सवाल उठाए हैं।</p>
+                <hr>
+                <h4 class="line" lang="hi"><strong>मामले के मुख्य विवरण</strong></h4>
+                <ul class="line">
+                    <li class="line" lang="hi"><em><strong>घटना:</strong></em> 29 सितंबर, 2008 को रमज़ान के आखिरी दिन, महाराष्ट्र के मालेगांव में एक मस्जिद के बाहर एक बम विस्फोट हुआ। इस विस्फोट में छह लोगों की मौत हो गई और लगभग सौ अन्य घायल हो गए।</li>
+                    <li class="line" lang="hi"><em><strong>प्रारंभिक जाँच:</strong></em> यह जाँच महाराष्ट्र आतंकवाद निरोधी दस्ते (एटीएस) द्वारा शुरू की गई थी, जिसका नेतृत्व इसके तत्कालीन प्रमुख हेमंत करकरे कर रहे थे। एटीएस ने फ़ोन टैप, गवाहों के बयान और एक लैपटॉप से प्राप्त इलेक्ट्रॉनिक डेटा सहित साक्ष्यों के आधार पर आरोपपत्र दायर किया।</li>
+                    <li class="line" lang="hi"><em><strong>एनआईए का अधिग्रहण:</strong></em> राष्ट्रीय जाँच एजेंसी (एनआईए) ने 2011 में इस मामले को अपने हाथ में ले लिया। एनआईए ने एटीएस की जाँच की आलोचना की, लेकिन मोटे तौर पर उसी दिशा में आगे बढ़ती रही, अंततः 2016 में एटीएस द्वारा प्रक्रियात्मक खामियों का हवाला देते हुए, कड़े मकोका (महाराष्ट्र संगठित अपराध नियंत्रण अधिनियम) के तहत आरोपों को हटा दिया।</li>
+                    <li class="line" lang="hi"><em><strong>अदालत की टिप्पणी:</strong></em> विशेष एनआईए न्यायाधीश ए.के. लाहोटी ने कहा कि हालाँकि सबूतों ने अभियुक्तों के खिलाफ "गंभीर संदेह" पैदा किया, लेकिन दोषसिद्धि सुनिश्चित करने के लिए पर्याप्त स्वीकार्य सबूत नहीं थे।</li>
+                </ul>
+                <hr>
+                <h4 class="line" lang="hi"><strong>जांच और अभियोजन में प्रमुख कमियाँ</strong></h4>
+                <p class="line" lang="hi">अदालत के फैसले में कई गंभीर खामियाँ उजागर हुईं:</p>
+                <ul class="line">
+                    <li class="line" lang="hi"><em><strong>अस्वीकार्य इलेक्ट्रॉनिक साक्ष्य:</strong></em> एटीएस द्वारा एकत्र किए गए प्रमुख साक्ष्य, जैसे फ़ोन टैप और लैपटॉप से वीडियो रिकॉर्डिंग, को अस्वीकार्य माना गया। एजेंसी अदालत में इलेक्ट्रॉनिक साक्ष्य की प्रामाणिकता और विश्वसनीयता साबित करने की वैधानिक आवश्यकता को पूरा करने में विफल रही।</li>
+                    <li class="line" lang="hi"><em><strong>प्रक्रियात्मक खामियाँ:</strong></em> इंटरसेप्ट की गई बातचीत के लिए अनुमतियाँ देर से प्राप्त की गईं, जिससे डेटा कानूनी रूप से साक्ष्य के रूप में अनुपयोगी हो गया।</li>
+                    <li class="line" lang="hi"><em><strong>गवाहों के बयानों का गायब होना:</strong></em> एक महत्वपूर्ण चूक अदालती रिकॉर्ड से गवाहों के 13 बयानों का गायब होना था, जिससे अभियोजन पक्ष का मामला कमज़ोर हो गया।</li>
+                    <li class="line" lang="hi"><em><strong>कानून का दोषपूर्ण प्रयोग:</strong></em> एनआईए द्वारा मकोका के आरोपों को वापस लेने का निर्णय, आतंकवाद विरोधी कठोर कानून को लागू करते समय एटीएस द्वारा उचित प्रक्रिया का पालन न करने का प्रत्यक्ष परिणाम था।</li>
+                    <li class="line" lang="hi"><em><strong>राजनीतिक दबाव:</strong></em> यह जाँच शुरू से ही राजनीतिक विवादों में घिरी रही, जिसमें "हिंदू आतंकवाद" के आरोप भी शामिल थे। लेख में सुझाव दिया गया है कि इस तरह के राजनीतिक दबाव और "आतंकवाद" के कारण लापरवाह जाँच और व्यवस्थागत देरी हो सकती है।</li>
+                </ul>
+                <hr>
+                <h4 class="line" lang="hi"><strong>शासन और न्यायपालिका पर व्यापक प्रभाव</strong></h4>
+                <ul class="line">
+                    <li class="line" lang="hi"><em><strong>जाँच एजेंसियों की जवाबदेही:</strong></em> यह फैसला एटीएस और एनआईए दोनों के आचरण को सवालों के घेरे में लाता है, जिससे भारत की प्रमुख जाँच एजेंसियों की व्यावसायिकता, प्रक्रियात्मक अखंडता और जवाबदेही पर गंभीर सवाल उठते हैं।</li>
+                    <li class="line" lang="hi"><em><strong>न्याय की उचित प्रक्रिया:</strong></em> यह मामला इस सिद्धांत पर ज़ोर देता है कि दोषसिद्धि के लिए केवल "गंभीर संदेह" की नहीं, बल्कि उचित संदेह से परे सबूत की आवश्यकता होती है। यह सावधानीपूर्वक साक्ष्य संकलन और कानूनी प्रक्रियाओं के पालन की महत्वपूर्ण भूमिका पर प्रकाश डालता है।</li>
+                    <li class="line" lang="hi"><em><strong>राजनीतिक ध्रुवीकरण का प्रभाव:</strong></em> मालेगांव मामला इस बात का उदाहरण है कि कैसे राजनीतिक आख्यान और "हिंदू आतंकवाद" जैसे लेबल जाँच की निष्पक्षता से समझौता कर सकते हैं और न्याय प्रणाली को कमज़ोर कर सकते हैं।</li>
+                    <li class="line" lang="hi"><em><strong>व्यवस्थागत विलंब:</strong></em> विस्फोट के एक दशक बाद मुक़दमा शुरू हुआ और अंतिम फ़ैसला वर्षों की क़ानूनी कार्यवाही के बाद आया। इस तरह की अत्यधिक देरी अक्सर न्याय को "बहुत कम, बहुत देर से" बना देती है।</li>
+                    <li class="line" lang="hi"><em><strong>आगे की राह:</strong></em> संपादकीय एनआईए से फ़ैसले के ख़िलाफ़ अपील करने और एक मज़बूत, प्रक्रियात्मक रूप से अधिक सुदृढ़ मामला बनाने का आह्वान करता है, जो न्याय प्रणाली में जनता के विश्वास को बनाए रखने और यह सुनिश्चित करने के लिए महत्वपूर्ण है कि आतंकवादी हमले के अपराधियों को न्याय के कटघरे में लाया जाए। बरी होने का यह फ़ैसला संवेदनशील मामलों की जाँच और अभियोजन में व्यवस्थागत सुधारों के लिए एक चेतावनी के रूप में काम करना चाहिए।</li>
+                </ul>
+            </div>
+        
+        </section>
+        
+        <p class="contact-link"><a href="[https://wa.me/918168305050](https://wa.me/918168305050)" target="_blank">Contact us on WhatsApp: +91-8168305050</a></p>
+
+        <div class="bottom-buttons">
+            <a href="index.html" class="button home-button">Back to Home</a>
+        </div>
+        
+    </article>
+</div>
+
+<button id="scroll-to-top" class="scroll-to-top">▲</button>
+
+<footer>
+    <div class="container">
+        <p>© 2025 Crack Current Affairs (CrackCA). All rights reserved.</p>
+    </div>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const articleContent = document.querySelector('.article-content');
+        const englishContent = document.querySelector('.lang-en');
+        const hindiContent = document.querySelector('.lang-hi');
+        const langSwitchBtn = document.getElementById('lang-switch-btn');
+        const scrollToTopBtn = document.getElementById('scroll-to-top');
+        
+        let isHindi = false;
+        
+        // Initial state
+        englishContent.style.display = 'block';
+        hindiContent.style.display = 'none';
+
+        // Language switch functionality
+        langSwitchBtn.addEventListener('click', () => {
+            isHindi = !isHindi;
+            if (isHindi) {
+                englishContent.style.display = 'none';
+                hindiContent.style.display = 'block';
+                langSwitchBtn.textContent = 'Switch to English';
+            } else {
+                englishContent.style.display = 'block';
+                hindiContent.style.display = 'none';
+                langSwitchBtn.textContent = 'Switch to Hindi';
+            }
+        });
+
+        // Read Time Calculation
+        const wordsPerMinute = 200;
+        const englishText = englishContent.textContent;
+        const wordCount = englishText.split(/\s+/).length;
+        const readTime = Math.ceil(wordCount / wordsPerMinute);
+        document.getElementById('read-time').textContent = readTime;
+
+        // Scroll to Top Button
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.style.display = 'block';
+            } else {
+                scrollToTopBtn.style.display = 'none';
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+</body>
+
+</html>
