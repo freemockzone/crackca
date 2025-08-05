@@ -1,5 +1,35 @@
 [
     {
+    "id": "122",
+    "title": "IAF's Fighter Fleet Modernization and Challenges",
+    "date": "2025-08-05",
+    "subject": "GS-III, Security, Defence, Indigenization of Technology",
+    "source": "The Hindu",
+    "summary": "This article examines the Indian Air Force's decision to retire its last MiG-21 fighter jets, highlighting the resulting challenges. It discusses the declining number of fighter squadrons against the sanctioned strength, delays in the induction of indigenous aircraft like the LCA-Mk1A, and the broader strategic need to modernize the fleet. The article provides a detailed overview of current and future programs like the LCA-Mk2, AMCA, and SU-30MKI, outlining the strategic solutions required to fill the capability gap and ensure India's aerial defense readiness.",
+    "link": "post-122.html",
+    "resource_link": "105.png"
+},
+    {
+    "id": "121",
+    "title": "Battery Waste Management & EPR Floor Price Issue",
+    "date": "2025-08-05",
+    "subject": "GS Paper 3, Environment & Ecology, Indian Economy (Circular Economy)",
+    "source": "The Hindu",
+    "summary": "This article highlights a critical problem in India's battery waste management: a proposed low EPR (Extended Producer Responsibility) floor price that risks undermining the government's 2022 Battery Waste Management Rules (BWMR). It discusses the growth of lithium battery demand, environmental concerns, and the role of EPR. The article explains how an economically unviable floor price could incentivize fraudulent recyclers, leading to environmental degradation and significant economic loss. It provides a way forward by recommending a globally comparable EPR price, strengthening enforcement, and integrating the informal sector to ensure a sustainable circular economy for India.",
+    "link": "post-121.html",
+    "resource_link": "104.png"
+},
+    {
+    "id": "120",
+    "title": "A Tribute to Shibu Soren: The Architect of Jharkhand",
+    "date": "2025-08-05",
+    "subject": "Governance, Social Justice, Constitution",
+    "source": "The Hindu",
+    "summary": "This article examines the life and legacy of Shibu Soren, a veteran politician and key figure in the Jharkhand statehood movement. It delves into his role in the formation of the Jharkhand Mukti Morcha (JMM), his fight against tribal exploitation, and his political career. The analysis is framed to help UPSC aspirants understand the critical issues surrounding tribal rights, grassroots movements, and the formation of Indian states.",
+    "link": "post-120.html",
+    "resource_link": "103.png"
+},
+    {
     "id": "119",
     "title": "Harassment of Minorities and Erosion of Rights",
     "date": "2025-08-04",

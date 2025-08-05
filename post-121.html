@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Hindu - 05-Aug-25</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --background-color: #ecf0f1;
+            --text-color: #34495e;
+            --hover-bg-color: #f1c40f;
+            --font-family-title: 'Merriweather', serif;
+            --font-family-body: 'Noto Sans', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-family-body);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        nav {
+            background-color: var(--secondary-color);
+            padding: 0.5rem 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #2980b9;
+        }
+
+        article {
+            background: white;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        article h1 {
+            font-family: var(--font-family-title);
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+        
+        article h2 {
+            font-family: var(--font-family-title);
+            color: var(--primary-color);
+            margin-top: 2rem;
+            border-left: 4px solid var(--hover-bg-color);
+            padding-left: 10px;
+        }
+
+        article h3 {
+            font-size: 1.1rem;
+            color: var(--secondary-color);
+            margin-top: 1.5rem;
+        }
+
+        .article-meta {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+        }
+
+        .read-time {
+            background-color: #f39c12;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .line-container {
+            margin-bottom: 15px;
+            transition: background-color 0.3s ease;
+            padding: 5px;
+            border-radius: 4px;
+        }
+
+        .line-container:hover {
+            background-color: #ecf0f1;
+        }
+
+        .line-container .hindi-line {
+            display: none;
+            color: #555;
+            font-style: italic;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        .lang-switch-btn {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            display: block;
+            text-align: center;
+        }
+
+        .lang-switch-btn:hover {
+            background-color: #2980b9;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            margin-top: 20px;
+        }
+
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            font-size: 1.5rem;
+            z-index: 1000;
+        }
+
+        .back-to-home {
+            display: block;
+            margin: 20px auto;
+            width: 200px;
+            text-align: center;
+            padding: 10px;
+            background-color: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-to-home:hover {
+            background-color: #2980b9;
+        }
+        
+        p.contact-us {
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        p.contact-us a {
+            color: #25D366;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>05-August-2025</h1>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="quiz.html">Quiz</a>
+        <a href="donation.html">Donation</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    <div class="container">
+        <article>
+            <h1 id="article-title">Battery Waste Management & EPR Floor Price Issue</h1>
+            <div class="article-meta">
+                Source: The Hindu | Publication Date: 2025-08-05
+                <span id="read-time" class="read-time"></span>
+            </div>
+            <button id="lang-switch-btn" class="lang-switch-btn">Switch to Hindi</button>
+            <section id="article-content">
+                <div class="line-container">
+                    <h2>Why in the News?</h2>
+                    <p class="english-line">The Hindu newspaper article highlights a critical problem in India's battery waste management: the <strong>EPR (Extended Producer Responsibility) floor price</strong> is too low. This issue risks undermining the government's 2022 Battery Waste Management Rules (BWMR) and India's broader decarbonization and circular economy goals. The article points out that without a fair price, legitimate recyclers are unable to operate sustainably, leading to the proliferation of informal and fraudulent players who dump hazardous waste.</p>
+                    <p class="hindi-line" lang="hi">द हिंदू अखबार के लेख में भारत के बैटरी अपशिष्ट प्रबंधन की एक गंभीर समस्या पर प्रकाश डाला गया है: <strong>ईपीआर (विस्तारित उत्पादक उत्तरदायित्व) का न्यूनतम मूल्य</strong> बहुत कम है। यह मुद्दा सरकार के 2022 बैटरी अपशिष्ट प्रबंधन नियमों (बीडब्ल्यूएमआर) और भारत के व्यापक डीकार्बोनाइजेशन तथा सर्कुलर अर्थव्यवस्था के लक्ष्यों को कमजोर करने का जोखिम उठाता है। लेख में बताया गया है कि उचित मूल्य के बिना, वैध पुनर्चक्रणकर्ता स्थायी रूप से काम नहीं कर पाते हैं, जिससे खतरनाक कचरे को डंप करने वाले अनौपचारिक और धोखेबाज़ खिलाड़ियों का प्रसार होता है।</p>
+                </div>
+                <br>
+                <div class="line-container">
+                    <h2>📝 Structured Notes for a UPSC CSE Aspirant</h2>
+                    <h3><strong>GS-III: Environment & Ecology, Indian Economy (Circular Economy)</strong></h3>
+                    <h3><strong>Title: Battery Waste Management & EPR Floor Price Issue</strong></h3>
+                </div>
+
+                <h2>1. Context & Background</h2>
+                <div class="line-container">
+                    <p class="english-line"><strong>Growing Battery Demand:</strong> India's push for <strong>decarbonization</strong> and <strong>Net Zero by 2070</strong> is driving a rapid increase in demand for lithium batteries.</p>
+                    <p class="hindi-line" lang="hi"><strong>बढ़ती बैटरी की माँग:</strong> भारत द्वारा कार्बन उत्सर्जन कम करने और <strong>2070 तक नेट ज़ीरो उत्सर्जन</strong> के लिए किए जा रहे प्रयासों से लिथियम बैटरियों की माँग में तेज़ी से वृद्धि हो रही है।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line"><i>EVs:</i> Lithium battery demand for electric vehicles is projected to grow from 4 GWh in 2023 to <strong>139 GWh by 2035</strong>.</p>
+                    <p class="hindi-line" lang="hi"><i>ईवी:</i> इलेक्ट्रिक वाहनों के लिए लिथियम बैटरी की माँग 2023 में 4 गीगावाट घंटा से बढ़कर 2035 तक <strong>139 गीगावाट घंटा</strong> होने का अनुमान है।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line"><i>BESS:</i> Rapid adoption of Battery Energy Storage Systems in the renewable energy sector.</p>
+                    <p class="hindi-line" lang="hi"><i>बीईएसएस:</i> नवीकरणीय ऊर्जा क्षेत्र में बैटरी ऊर्जा भंडारण प्रणालियों को तेज़ी से अपनाया जा रहा है।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line"><strong>Environmental Concerns:</strong> This growth poses a significant environmental risk if not managed properly.</p>
+                    <p class="hindi-line" lang="hi"><strong>पर्यावरण संबंधी चिंताएँ:</strong> यदि इसका उचित प्रबंधन नहीं किया गया तो यह वृद्धि एक बड़ा पर्यावरणीय जोखिम पैदा करती है।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line"><i>Improper disposal</i> can lead to hazardous materials leaking into soil and water.</p>
+                    <p class="hindi-line" lang="hi"><i>अनुचित निपटान</i> से खतरनाक पदार्थ मिट्टी और पानी में रिस सकते हैं।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line">Lithium batteries alone accounted for <strong>7 lakh metric tonnes</strong> of the <strong>1.6 million metric tonnes</strong> of e-waste in 2022.</p>
+                    <p class="hindi-line" lang="hi">2022 में कुल 16 लाख मीट्रिक टन ई-कचरे में से अकेले लिथियम बैटरियों का हिस्सा <strong>7 लाख मीट्रिक टन</strong> था।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line"><strong>BWMR 2022:</strong> The government notified the <strong>Battery Waste Management Rules (BWMR) in 2022</strong> to ensure sustainable management and recycling of waste batteries.</p>
+                    <p class="hindi-line" lang="hi"><strong>BWMR 2022:</strong> सरकार ने अपशिष्ट बैटरियों के सतत प्रबंधन और पुनर्चक्रण को सुनिश्चित करने के लिए 2022 में <strong>बैटरी अपशिष्ट प्रबंधन नियम (BWMR)</strong> अधिसूचित किए।</p>
+                </div>
+
+                <h2>2. Core Concept: Extended Producer Responsibility (EPR)</h2>
+                <div class="line-container">
+                    <p class="english-line"><strong>Definition:</strong> EPR is a policy principle where <strong>producers</strong> are held responsible for the entire lifecycle of their products, from design to end-of-life disposal.</p>
+                    <p class="hindi-line" lang="hi"><strong>परिभाषा:</strong> EPR एक नीतिगत सिद्धांत है जिसके तहत <strong>उत्पादकों</strong> को अपने उत्पादों के पूरे जीवनचक्र, डिज़ाइन से लेकर जीवन-पर्यंत निपटान तक, के लिए ज़िम्मेदार ठहराया जाता है।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line"><strong>Mechanism:</strong></p>
+                    <p class="hindi-line" lang="hi"><strong>तंत्र:</strong></p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line">Producers are mandated to fund the collection and recycling of battery waste.</p>
+                    <p class="hindi-line" lang="hi">उत्पादकों को बैटरी अपशिष्ट के संग्रहण और पुनर्चक्रण के लिए धन उपलब्ध कराना अनिवार्य है।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line">They rely on authorized recyclers to meet these targets.</p>
+                    <p class="hindi-line" lang="hi">वे इन लक्ष्यों को पूरा करने के लिए अधिकृत पुनर्चक्रकों पर निर्भर करते हैं।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line">Producers get <strong>EPR certificates</strong> from recyclers as proof of fulfilling their obligation.</p>
+                    <p class="hindi-line" lang="hi">उत्पादकों को अपने दायित्व को पूरा करने के प्रमाण के रूप में पुनर्चक्रकों से <strong>EPR प्रमाणपत्र</strong> मिलते हैं।</p>
+                </div>
+
+                <h2>3. The "Missing Link": Issues with EPR Floor Price</h2>
+                <div class="line-container">
+                    <p class="english-line"><strong>What is it?:</strong> The <strong>EPR floor price</strong> is the minimum price a recycler receives from a producer for each EPR certificate. It's intended to compensate recyclers for their investment in infrastructure, technology, and safe processes.</p>
+                    <p class="hindi-line" lang="hi"><strong>यह क्या है?:</strong> <strong>ईपीआर फ़्लोर प्राइस</strong> वह न्यूनतम मूल्य है जो एक रीसाइक्लर को प्रत्येक ईपीआर प्रमाणपत्र के लिए उत्पादक से मिलता है। इसका उद्देश्य रीसाइक्लर्स को बुनियादी ढाँचे, तकनीक और सुरक्षित प्रक्रियाओं में उनके निवेश की भरपाई करना है।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line"><strong>The Problem:</strong> The article highlights that the proposed EPR floor price is <strong>too low</strong>.</p>
+                    <p class="hindi-line" lang="hi"><strong>समस्या:</strong> लेख में इस बात पर ज़ोर दिया गया है कि प्रस्तावित ईपीआर फ़्लोर प्राइस <strong>बहुत कम</strong> है।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line"><i>Economic Unviability:</i> Proper recycling is expensive, requiring advanced technology and skilled labor to safely recover valuable minerals like <strong>lithium, cobalt, and nickel</strong>. A low floor price makes it economically unviable for legitimate recyclers to operate sustainably.</p>
+                    <p class="hindi-line" lang="hi"><i>आर्थिक अव्यवहार्यता:</i> उचित रीसाइक्लिंग महंगी है, जिसमें लिथियम, कोबाल्ट और निकल जैसे मूल्यवान खनिजों को सुरक्षित रूप से प्राप्त करने के लिए उन्नत तकनीक और कुशल श्रम की आवश्यकता होती है। कम फ़्लोर प्राइस के कारण वैध रीसाइक्लर्स के लिए स्थायी रूप से काम करना आर्थिक रूप से अव्यवहारिक हो जाता है।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line"><i>Perverse Incentives:</i> A low price creates an environment where <strong>informal and fraudulent recyclers</strong> thrive.</p>
+                    <p class="hindi-line" lang="hi"><i>विकृत प्रोत्साहन:</i> कम कीमत एक ऐसा माहौल बनाती है जहाँ <strong>अनौपचारिक और धोखेबाज़ रीसाइक्लर्स</strong> फलते-फूलते हैं।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line">They can offer cheaper "recycling" services by issuing false certificates.</p>
+                    <p class="hindi-line" lang="hi">वे झूठे प्रमाणपत्र जारी करके सस्ती "रीसाइक्लिंग" सेवाएँ प्रदान कर सकते हैं।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line">They often engage in illegal dumping of hazardous waste.</p>
+                    <p class="hindi-line" lang="hi">वे अक्सर खतरनाक कचरे का अवैध रूप से निपटान करते हैं।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line"><strong>Consequences of Low EPR Floor Price:</strong></p>
+                    <p class="hindi-line" lang="hi"><strong>कम ईपीआर फ़्लोर प्राइस के परिणाम:</strong></p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line"><i>Environmental Degradation:</i> Improper dumping of hazardous battery waste.</p>
+                    <p class="hindi-line" lang="hi"><i>पर्यावरणीय क्षरण:</i> खतरनाक बैटरी कचरे का अनुचित निपटान।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line"><i>Economic Loss:</i> Experts estimate a potential <strong>$1 billion loss in foreign exchange by 2030</strong> due to continued import dependence on critical minerals that could have been recovered through recycling.</p>
+                    <p class="hindi-line" lang="hi"><i>आर्थिक नुकसान:</i> विशेषज्ञों का अनुमान है कि 2030 तक विदेशी मुद्रा में <strong>1 बिलियन डॉलर का नुकसान</strong> हो सकता है, क्योंकि महत्वपूर्ण खनिजों पर आयात पर निर्भरता बनी रहेगी, जिन्हें पुनर्चक्रण के माध्यम से प्राप्त किया जा सकता था।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line"><i>Ecosystem Failure:</i> Undermines India's <strong>circular economy ambitions</strong> and the goals of the BWMR.</p>
+                    <p class="hindi-line" lang="hi"><i>पारिस्थितिकी तंत्र की विफलता:</i> भारत की <strong>परिपत्र अर्थव्यवस्था की महत्वाकांक्षाओं</strong> और BWMR के लक्ष्यों को कमजोर करती है।</p>
+                </div>
+
+                <h2>4. Other Hurdles & Complications</h2>
+                <div class="line-container">
+                    <p class="english-line"><strong>Non-Compliance by Producers:</strong> Large manufacturers, particularly multinational corporations, are showing <strong>resistance to compliance</strong>, sometimes leveraging different environmental policies for developed vs. developing nations to shirk their responsibilities in markets like India.</p>
+                    <p class="hindi-line" lang="hi"><strong>उत्पादकों द्वारा गैर-अनुपालन:</strong> बड़े निर्माता, विशेष रूप से बहुराष्ट्रीय निगम, <strong>अनुपालन के प्रति प्रतिरोध</strong> दिखा रहे हैं, कभी-कभी भारत जैसे बाज़ारों में अपनी ज़िम्मेदारियों से बचने के लिए विकसित बनाम विकासशील देशों के लिए अलग-अलग पर्यावरणीय नीतियों का लाभ उठाते हैं।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line"><strong>Consumer Costs:</strong> The article argues that a fair EPR floor price <strong>should not burden consumers</strong>.</p>
+                    <p class="hindi-line" lang="hi"><strong>उपभोक्ता लागत:</strong> लेख में तर्क दिया गया है कि उचित ईपीआर न्यूनतम मूल्य <strong>उपभोक्ताओं पर बोझ नहीं डालना चाहिए</strong>।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line">Manufacturers have not passed on the savings from declining global metal prices to consumers.</p>
+                    <p class="hindi-line" lang="hi">निर्माताओं ने वैश्विक धातु कीमतों में गिरावट से होने वाली बचत का लाभ उपभोक्ताओं तक नहीं पहुँचाया है।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line">This suggests that Original Equipment Manufacturers (OEMs) can absorb the higher recycling costs.</p>
+                    <p class="hindi-line" lang="hi">इससे पता चलता है कि मूल उपकरण निर्माता (ओईएम) उच्च पुनर्चक्रण लागत को वहन कर सकते हैं।</p>
+                </div>
+                
+                <h2>5. Way Forward & Recommendations</h2>
+                <div class="line-container">
+                    <p class="english-line"><strong>Fair EPR Floor Price:</strong></p>
+                    <p class="hindi-line" lang="hi"><strong>उचित ईपीआर न्यूनतम मूल्य:</strong></p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line">Adopt a <strong>globally comparable</strong> and fair EPR floor price that reflects the <strong>real costs of recycling</strong>.</p>
+                    <p class="hindi-line" lang="hi">एक <strong>वैश्विक स्तर पर तुलनीय</strong> और उचित ईपीआर न्यूनतम मूल्य अपनाएँ जो <strong>रीसाइक्लिंग की वास्तविक लागत</strong> को दर्शाता हो।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line">A good benchmark is the <strong>UK's model</strong>, where producers pay around ₹600 per kg for EV battery recycling, which is significantly higher than what is being considered in India.</p>
+                    <p class="hindi-line" lang="hi">एक अच्छा मानक <strong>यूके का मॉडल</strong> है, जहाँ उत्पादक ईवी बैटरी रीसाइक्लिंग के लिए लगभग ₹600 प्रति किलोग्राम का भुगतान करते हैं, जो भारत में विचाराधीन मूल्य से काफी अधिक है।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line">The price should cover all recycling expenses, from collection to material recovery.</p>
+                    <p class="hindi-line" lang="hi">मूल्य में संग्रहण से लेकर सामग्री पुनर्प्राप्ति तक सभी रीसाइक्लिंग खर्च शामिल होने चाहिए।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line"><strong>Strengthen Enforcement:</strong></p>
+                    <p class="hindi-line" lang="hi"><strong>प्रवर्तन को मज़बूत करें:</strong></p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line">Implement <strong>robust audit systems</strong>.</p>
+                    <p class="hindi-line" lang="hi"><strong>मज़बूत ऑडिट सिस्टम</strong> लागू करें।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line"><strong>Digitize</strong> the issuance and tracking of EPR certificates to prevent fraud.</p>
+                    <p class="hindi-line" lang="hi"><strong>धोखाधड़ी रोकने के लिए ईपीआर प्रमाणपत्रों के जारी करने और उनकी ट्रैकिंग को डिजिटल करें</strong>।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line">Impose <strong>stringent penalties</strong> for non-compliance.</p>
+                    <p class="hindi-line" lang="hi">गैर-अनुपालन के लिए <strong>कड़े दंड</strong> लगाएँ।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line"><strong>Integrate the Informal Sector:</strong></p>
+                    <p class="hindi-line" lang="hi"><strong>अनौपचारिक क्षेत्र को एकीकृत करें:</strong></p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line">Provide <strong>training and regulatory support</strong> to informal recyclers.</p>
+                    <p class="hindi-line" lang="hi">अनौपचारिक रीसाइक्लर्स को <strong>प्रशिक्षण और नियामक सहायता</strong> प्रदान करें।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line">Formalizing this sector can help eliminate hazardous practices and expand India's overall recycling capacity.</p>
+                    <p class="hindi-line" lang="hi">इस क्षेत्र को औपचारिक रूप देने से खतरनाक प्रथाओं को खत्म करने और भारत की समग्र पुनर्चक्रण क्षमता का विस्तार करने में मदद मिल सकती है।</p>
+                </div>
+
+                <h2>6. Conclusion</h2>
+                <div class="line-container">
+                    <p class="english-line">Effectively managing battery waste is not just an environmental issue; it is a <strong>strategic and economic imperative</strong> for India. By recalibrating the EPR floor price and strengthening the overall regulatory framework, India can transform battery waste from a potential crisis into a <strong>catalyst for green growth</strong> and a truly circular economy.</p>
+                    <p class="hindi-line" lang="hi">बैटरी अपशिष्ट का प्रभावी प्रबंधन केवल एक पर्यावरणीय मुद्दा नहीं है; यह भारत के लिए एक <strong>रणनीतिक और आर्थिक अनिवार्यता</strong> है। ईपीआर न्यूनतम मूल्य को पुनर्संयोजित करके और समग्र नियामक ढांचे को मजबूत करके, भारत बैटरी अपशिष्ट को एक संभावित संकट से <strong>हरित विकास के उत्प्रेरक</strong> और एक वास्तविक चक्रीय अर्थव्यवस्था में बदल सकता है।</p>
+                </div>
+                <p class="contact-us">For more information, feel free to <a href="https://wa.me/918168305050" target="_blank">Contact Us</a> on WhatsApp.</p>
+            </section>
+        </article>
+        <a href="index.html" class="back-to-home">Back to Home</a>
+    </div>
+
+    <button id="scroll-to-top-btn" class="scroll-to-top">&#9650;</button>
+
+    <footer>
+        <p>&copy; 2025 Crack Current Affairs (CrackCA). All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const content = document.getElementById('article-content');
+            const englishLines = content.querySelectorAll('.english-line');
+            const totalWords = Array.from(englishLines).reduce((count, p) => count + p.textContent.split(/\s+/).length, 0);
+            const readTime = Math.ceil(totalWords / 200);
+            document.getElementById('read-time').textContent = `Est. Read: ${readTime} min`;
+            const scrollToTopBtn = document.getElementById('scroll-to-top-btn');
+            const langSwitchBtn = document.getElementById('lang-switch-btn');
+            let isEnglish = true;
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    scrollToTopBtn.style.display = 'block';
+                } else {
+                    scrollToTopBtn.style.display = 'none';
+                }
+            });
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            langSwitchBtn.addEventListener('click', () => {
+                const hindiLines = document.querySelectorAll('.hindi-line');
+                hindiLines.forEach(line => {
+                    line.style.display = isEnglish ? 'block' : 'none';
+                });
+                englishLines.forEach(line => {
+                    line.style.display = isEnglish ? 'none' : 'block';
+                });
+                isEnglish = !isEnglish;
+                langSwitchBtn.textContent = isEnglish ? 'Switch to Hindi' : 'Switch to English';
+            });
+            // Initial state: hide Hindi lines
+            document.querySelectorAll('.hindi-line').forEach(line => {
+                line.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>

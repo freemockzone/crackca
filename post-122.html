@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Hindu - 05-Aug-25</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --background-color: #ecf0f1;
+            --text-color: #34495e;
+            --hover-bg-color: #f1c40f;
+            --font-family-title: 'Merriweather', serif;
+            --font-family-body: 'Noto Sans', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-family-body);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        nav {
+            background-color: var(--secondary-color);
+            padding: 0.5rem 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #2980b9;
+        }
+
+        article {
+            background: white;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        article h1 {
+            font-family: var(--font-family-title);
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+
+        article h2 {
+            font-family: var(--font-family-title);
+            color: var(--primary-color);
+            margin-top: 2rem;
+            border-left: 4px solid var(--hover-bg-color);
+            padding-left: 10px;
+        }
+
+        article h3 {
+            font-size: 1.1rem;
+            color: var(--secondary-color);
+            margin-top: 1.5rem;
+        }
+
+        .article-meta {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+        }
+
+        .read-time {
+            background-color: #f39c12;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .line-container {
+            margin-bottom: 15px;
+            transition: background-color 0.3s ease;
+            padding: 5px;
+            border-radius: 4px;
+        }
+
+        .line-container:hover {
+            background-color: #ecf0f1;
+        }
+
+        .line-container .hindi-line {
+            display: none;
+            color: #555;
+            font-style: italic;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        .lang-switch-btn {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            display: block;
+            text-align: center;
+        }
+
+        .lang-switch-btn:hover {
+            background-color: #2980b9;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            margin-top: 20px;
+        }
+
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            font-size: 1.5rem;
+            z-index: 1000;
+        }
+
+        .back-to-home {
+            display: block;
+            margin: 20px auto;
+            width: 200px;
+            text-align: center;
+            padding: 10px;
+            background-color: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-to-home:hover {
+            background-color: #2980b9;
+        }
+
+        p.contact-us {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        p.contact-us a {
+            color: #25D366;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>05-August-2025</h1>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="quiz.html">Quiz</a>
+        <a href="donation.html">Donation</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    <div class="container">
+        <article>
+            <h1 id="article-title">IAF's Fighter Fleet Modernization and Challenges</h1>
+            <div class="article-meta">
+                Source: The Hindu | Publication Date: 2025-08-05
+                <span id="read-time" class="read-time"></span>
+            </div>
+            <button id="lang-switch-btn" class="lang-switch-btn">Switch to Hindi</button>
+            <section id="article-content">
+                <div class="line-container">
+                    <h2>Why in the News?</h2>
+                    <p class="english-line">The Indian Air Force (IAF) is set to retire its last remaining <strong>MiG-21</strong> fighter jets in September, marking the end of a six-decade-long service period. This event has brought to the forefront the challenges facing the IAF, including the declining number of fighter squadrons, delays in the induction of indigenously developed aircraft like the <strong>LCA-Mk1A</strong>, and the broader strategic imperative to modernize the fleet in the face of evolving geopolitical threats. The article highlights the "unending fighter conundrum" of the IAF, focusing on the need to fill the gap created by retiring jets and the slow pace of new inductions.</p>
+                    <p class="hindi-line" lang="hi">भारतीय वायु सेना (IAF) सितंबर में अपने आखिरी बचे हुए <strong>मिग-21</strong> लड़ाकू विमानों को सेवानिवृत्त करने वाली है, जो छह दशक लंबी सेवा अवधि का अंत होगा। इस घटना ने भारतीय वायु सेना के सामने आने वाली चुनौतियों को सामने ला दिया है, जिनमें लड़ाकू स्क्वाड्रनों की घटती संख्या, <strong>LCA-Mk1A</strong> जैसे स्वदेशी रूप से विकसित विमानों को शामिल करने में देरी, और उभरते भू-राजनीतिक खतरों के मद्देनजर बेड़े के आधुनिकीकरण की व्यापक रणनीतिक अनिवार्यता शामिल है। यह लेख भारतीय वायु सेना की "अंतहीन लड़ाकू दुविधा" पर प्रकाश डालता है, जिसमें सेवानिवृत्त हो रहे विमानों और नए विमानों के शामिल होने की धीमी गति से पैदा हुए अंतर को भरने की आवश्यकता पर ध्यान केंद्रित किया गया है।</p>
+                </div>
+                <br>
+                <div class="line-container">
+                    <h2>📝 Structured Notes for a UPSC CSE Aspirant</h2>
+                    <h3><strong>GS-III: Security, Defence, Indigenization of Technology</strong></h3>
+                    <h3><strong>Title: IAF's Fighter Fleet Modernization and Challenges</strong></h3>
+                </div>
+
+                <h2>1. The Retirement of MiG-21s</h2>
+                <div class="line-container">
+                    <p class="english-line"><i>Service History:</i> Inducted in <strong>1963</strong>, the MiG-21s were the IAF's first supersonic and non-Western fighter jets, serving for over six decades. A total of <strong>872</strong> aircraft were inducted, many of them license-manufactured by Hindustan Aeronautics Limited (HAL).</p>
+                    <p class="hindi-line" lang="hi"><i>सेवा इतिहास:</i> <strong>1963</strong> में शामिल किए गए, मिग-21, भारतीय वायुसेना के पहले सुपरसोनिक और गैर-पश्चिमी लड़ाकू विमान थे, जिन्होंने छह दशकों से भी अधिक समय तक सेवा की। कुल <strong>872</strong> विमान शामिल किए गए, जिनमें से कई हिंदुस्तान एयरोनॉटिक्स लिमिटेड (HAL) द्वारा लाइसेंस-निर्मित थे।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line"><i>Key Role:</i> Played a crucial role in the <strong>1965 and 1971 wars</strong>, the <strong>1999 Kargil conflict</strong>, and the aerial skirmish with Pakistan in <strong>2019</strong>, where Group Captain Abhinandan Varthaman shot down a Pakistani F-16.</p>
+                    <p class="hindi-line" lang="hi"><i>मुख्य भूमिका:</i> <strong>1965 और 1971 के युद्धों</strong>, <strong>1999 के कारगिल संघर्ष</strong> और <strong>2019</strong> में पाकिस्तान के साथ हवाई झड़प में महत्वपूर्ण भूमिका निभाई, जहाँ ग्रुप कैप्टन अभिनंदन वर्तमान ने एक पाकिस्तानी F-16 को मार गिराया।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line"><i>Safety Concerns:</i> The jets gained the nickname 'flying coffins' due to a high number of accidents, with over <strong>450</strong> crashes over six decades.</p>
+                    <p class="hindi-line" lang="hi"><i>सुरक्षा संबंधी चिंताएँ:</i> छह दशकों में 450 से अधिक दुर्घटनाओं के साथ, बड़ी संख्या में दुर्घटनाओं के कारण, इन जेट विमानों को 'उड़ते ताबूत' का उपनाम मिला।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line"><i>Current Status:</i> The last two squadrons, No. 23 'Panthers' and No. 3 'Cobras', are being retired.</p>
+                    <p class="hindi-line" lang="hi"><i>वर्तमान स्थिति:</i> अंतिम दो स्क्वाड्रन, नंबर 23 'पैंथर्स' और नंबर 3 'कोबरा', सेवानिवृत्त हो रहे हैं।</p>
+                </div>
+                <br>
+                <h2>2. Current Status of IAF's Fighter Strength</h2>
+                <div class="line-container">
+                    <p class="english-line"><i>Squadron Strength:</i> With the retirement of MiG-21s, the fighter squadron strength will drop from 31 to <strong>29</strong>, against a sanctioned strength of <strong>42</strong> squadrons. A squadron typically has 16-18 jets.</p>
+                    <p class="hindi-line" lang="hi"><i>स्क्वाड्रन क्षमता:</i> मिग-21 विमानों के सेवानिवृत्त होने के साथ, लड़ाकू विमानों की स्क्वाड्रन संख्या 31 से घटकर <strong>29</strong> रह जाएगी, जबकि स्वीकृत क्षमता <strong>42</strong> स्क्वाड्रन की है। एक स्क्वाड्रन में आमतौर पर 16-18 जेट होते हैं।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line"><i>Inventory Concerns:</i> Besides the MiG-21s, the early variants of Jaguars, Mirage-2000s, and MiG-29s are also nearing retirement by the end of the decade.</p>
+                    <p class="hindi-line" lang="hi"><i>इन्वेंट्री संबंधी चिंताएँ:</i> मिग-21 के अलावा, जगुआर, मिराज-2000 और मिग-29 के शुरुआती संस्करण भी इस दशक के अंत तक सेवानिवृत्त होने वाले हैं।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line"><i>Modernization Gap:</i> This creates a significant gap in capability, especially when compared to rivals like China, which has a fleet of around <strong>1,900</strong> fighters, including more than 1,300 fourth-generation aircraft, and has also deployed fifth-generation fighters.</p>
+                    <p class="hindi-line" lang="hi"><i>आधुनिकीकरण का अंतर:</i> इससे क्षमता में एक बड़ा अंतर पैदा होता है, खासकर चीन जैसे प्रतिद्वंद्वियों से तुलना करने पर, जिसके पास लगभग <strong>1,900</strong> लड़ाकू विमानों का बेड़ा है, जिसमें 1,300 से ज़्यादा चौथी पीढ़ी के विमान शामिल हैं, और उसने पाँचवीं पीढ़ी के लड़ाकू विमान भी तैनात किए हैं।</p>
+                </div>
+                <br>
+                <h2>3. The Indigenization Push: LCA Tejas Program</h2>
+                <div class="line-container">
+                    <p class="english-line"><i>LCA-Mk1:</i> The IAF currently operates two squadrons of the LCA-Mk1, which was inducted in 2016.</p>
+                    <p class="hindi-line" lang="hi"><i>एलसीए-एमके1:</i> भारतीय वायुसेना वर्तमान में एलसीए-एमके1 के दो स्क्वाड्रन संचालित करती है, जिसे 2016 में शामिल किया गया था।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line"><i>LCA-Mk1A:</i></p>
+                    <p class="hindi-line" lang="hi"><i>एलसीए-एमके1ए:</i></p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line"><strong>Need:</strong> A more capable variant intended to fill the numbers gap.</p>
+                    <p class="hindi-line" lang="hi"><strong>ज़रूरत:</strong> संख्या के अंतर को पूरा करने के लिए एक अधिक सक्षम संस्करण।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line"><strong>Contract:</strong> A ₹48,000 crore contract was signed with HAL for <strong>83</strong> Mk1A jets.</p>
+                    <p class="hindi-line" lang="hi"><strong>अनुबंध:</strong> एचएएल के साथ <strong>83</strong> एमके1ए जेट विमानों के लिए ₹48,000 करोड़ का अनुबंध किया गया।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line"><strong>Delays:</strong> Deliveries, which were supposed to begin in March 2024, have been delayed due to development issues and the late delivery of F-404 engines from GE Aerospace.</p>
+                    <p class="hindi-line" lang="hi"><strong>विलंब:</strong> मार्च 2024 में शुरू होने वाली डिलीवरी, विकास संबंधी समस्याओं और जीई एयरोस्पेस से एफ-404 इंजनों की देरी से डिलीवरी के कारण विलंबित हो गई है।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line"><strong>Progress:</strong> The first few engines have now been delivered, and HAL expects to ramp up production to 24 jets per year. A deal for an additional <strong>97</strong> jets is also expected.</p>
+                    <p class="hindi-line" lang="hi"><strong>प्रगति:</strong> पहले कुछ इंजन अब वितरित हो चुके हैं, और एचएएल को प्रति वर्ष 24 जेट विमानों का उत्पादन बढ़ाने की उम्मीद है। अतिरिक्त <strong>97</strong> जेट विमानों के लिए भी सौदे की उम्मीद है।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line"><i>LCA-Mk2:</i></p>
+                    <p class="hindi-line" lang="hi"><i>एलसीए-एमके2:</i></p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line"><strong>Future Role:</strong> A larger and more capable variant designed to replace the Mirage 2000, MiG-29, and Jaguars.</p>
+                    <p class="hindi-line" lang="hi"><strong>भविष्य की भूमिका:</strong> मिराज 2000, मिग-29 और जगुआर की जगह लेने के लिए डिज़ाइन किया गया एक बड़ा और अधिक सक्षम संस्करण।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line"><strong>Timeline:</strong> Expected to have its first flight in <strong>2026</strong>.</p>
+                    <p class="hindi-line" lang="hi"><strong>समयरेखा:</strong> इसकी पहली उड़ान <strong>2026</strong> में होने की उम्मीद है।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line"><strong>Engine:</strong> Will be powered by the F414 engine, to be license-manufactured by HAL under an agreement with GE Aerospace.</p>
+                    <p class="hindi-line" lang="hi"><strong>इंजन:</strong> इसमें F414 इंजन लगा होगा, जिसका निर्माण GE एयरोस्पेस के साथ एक समझौते के तहत HAL द्वारा लाइसेंस-निर्मित किया जाएगा।</p>
+                </div>
+                <br>
+                <h2>4. Other Key Programs</h2>
+                <div class="line-container">
+                    <p class="english-line"><i>SU-30MKI:</i> The IAF's most potent Russian-origin fighter, with around 260 jets in service. A major upgrade program for 84 jets has been approved, and a deal for 12 new Sukhois has been signed to replace those lost in crashes.</p>
+                    <p class="hindi-line" lang="hi"><i>SU-30MKI:</i> भारतीय वायुसेना का सबसे शक्तिशाली रूसी मूल का लड़ाकू विमान, जिसके लगभग 260 जेट सेवा में हैं। 84 जेट के लिए एक बड़े अपग्रेड कार्यक्रम को मंजूरी दी गई है, और दुर्घटनाओं में खोए सुखोई विमानों की जगह लेने के लिए 12 नए सुखोई विमानों के लिए एक समझौते पर हस्ताक्षर किए गए हैं।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line"><i>AMCA (Advanced Medium Combat Aircraft):</i></p>
+                    <p class="hindi-line" lang="hi"><i>एएमसीए (उन्नत मध्यम लड़ाकू विमान):</i></p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line"><strong>Way Forward:</strong> India's indigenous <strong>Fifth-Generation Fighter Aircraft (FGFA)</strong> project.</p>
+                    <p class="hindi-line" lang="hi"><strong>आगे की राह:</strong> भारत का स्वदेशी <strong>पाँचवीं पीढ़ी का लड़ाकू विमान (एफजीएफए)</strong> परियोजना।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line"><strong>Timeline:</strong> Development is a long-term project, with a prototype expected to fly in about <strong>10 years</strong>.</p>
+                    <p class="hindi-line" lang="hi"><strong>समयरेखा:</strong> विकास एक दीर्घकालिक परियोजना है, जिसके प्रोटोटाइप के लगभग <strong>10 वर्षों</strong> में उड़ान भरने की उम्मीद है।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line"><strong>Engine:</strong> AMCA-Mk1 will use the GE-414 engine, while the more advanced AMCA-Mk2 will feature a more powerful <strong>110 KN engine</strong> to be co-developed with a foreign partner.</p>
+                    <p class="hindi-line" lang="hi"><strong>इंजन:</strong> एएमसीए-एमके1 में जीई-414 इंजन का उपयोग किया जाएगा, जबकि अधिक उन्नत एएमसीए-एमके2 में अधिक शक्तिशाली <strong>110 केएन इंजन</strong> होगा, जिसे एक विदेशी साझेदार के साथ मिलकर विकसित किया जाएगा।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line"><i>MRFA (Medium Role Fighter Aircraft):</i></p>
+                    <p class="hindi-line" lang="hi"><i>एमआरएफए (मध्यम भूमिका वाला लड़ाकू विमान):</i></p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line"><strong>Status:</strong> A program to induct <strong>114</strong> jets from a foreign manufacturer. The Request for Information (RFI) was issued in 2019, but there has been no progress due to high costs and competing programs.</p>
+                    <p class="hindi-line" lang="hi"><strong>स्थिति:</strong> एक विदेशी निर्माता से <strong>114</strong> जेट विमानों को शामिल करने का कार्यक्रम। सूचना के लिए अनुरोध (आरएफआई) 2019 में जारी किया गया था, लेकिन उच्च लागत और प्रतिस्पर्धी कार्यक्रमों के कारण कोई प्रगति नहीं हुई है।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line"><i>Twin-Engine Deck Based Fighter:</i> A project for the Navy’s aircraft carriers, currently in the design phase.</p>
+                    <p class="hindi-line" lang="hi"><i>दो इंजन वाला डेक आधारित लड़ाकू विमान:</i> नौसेना के विमानवाहक पोतों के लिए एक परियोजना, जो वर्तमान में डिज़ाइन चरण में है।</p>
+                </div>
+                <br>
+                <h2>5. Strategic Challenges and Solutions</h2>
+                <div class="line-container">
+                    <p class="english-line"><i>Filling the Gap:</i> The IAF needs to induct <strong>35-40 jets every year</strong> to make up for the shortfall in numbers.</p>
+                    <p class="hindi-line" lang="hi"><i>अंतर की पूर्ति:</i> संख्या में कमी की भरपाई के लिए भारतीय वायुसेना को हर साल <strong>35-40 जेट विमान</strong> शामिल करने की आवश्यकता है।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line"><i>Interim Measures:</i> The IAF is exploring the possibility of importing a small number of fifth-generation fighters (e.g., Russian <strong>SU-57</strong> or American <strong>F-35</strong>) as an interim solution while the AMCA is under development.</p>
+                    <p class="hindi-line" lang="hi"><i>अंतरिम उपाय:</i> भारतीय वायुसेना, AMCA के विकास के दौरान, अंतरिम समाधान के रूप में पाँचवीं पीढ़ी के लड़ाकू विमानों (जैसे, रूसी <strong>SU-57</strong> या अमेरिकी <strong>F-35</strong>) की एक छोटी संख्या के आयात की संभावना तलाश रही है।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line"><i>Future Strategy:</i> The long-term plan is to induct over <strong>600 jets</strong> in the next two decades, with a focus on indigenous platforms like the LCA variants and the AMCA, which are central to the IAF's future operational readiness and technological self-reliance.</p>
+                    <p class="hindi-line" lang="hi"><i>भविष्य की रणनीति:</i> दीर्घकालिक योजना अगले दो दशकों में <strong>600 से अधिक जेट विमान</strong> शामिल करने की है, जिसमें LCA वेरिएंट और AMCA जैसे स्वदेशी प्लेटफार्मों पर ध्यान केंद्रित किया जाएगा, जो भारतीय वायुसेना की भविष्य की परिचालन तत्परता और तकनीकी आत्मनिर्भरता के लिए महत्वपूर्ण है।</p>
+                </div>
+                <p class="contact-us">For more information, feel free to <a href="https://wa.me/918168305050" target="_blank">Contact Us</a> on WhatsApp.</p>
+            </section>
+        </article>
+        <a href="index.html" class="back-to-home">Back to Home</a>
+    </div>
+
+    <button id="scroll-to-top-btn" class="scroll-to-top">&#9650;</button>
+
+    <footer>
+        <p>&copy; 2025 Crack Current Affairs (CrackCA). All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const content = document.getElementById('article-content');
+            const englishLines = content.querySelectorAll('.english-line');
+            const totalWords = Array.from(englishLines).reduce((count, p) => count + p.textContent.split(/\s+/).length, 0);
+            const readTime = Math.ceil(totalWords / 200);
+            document.getElementById('read-time').textContent = `Est. Read: ${readTime} min`;
+            const scrollToTopBtn = document.getElementById('scroll-to-top-btn');
+            const langSwitchBtn = document.getElementById('lang-switch-btn');
+            let isEnglish = true;
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    scrollToTopBtn.style.display = 'block';
+                } else {
+                    scrollToTopBtn.style.display = 'none';
+                }
+            });
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            langSwitchBtn.addEventListener('click', () => {
+                const hindiLines = document.querySelectorAll('.hindi-line');
+                hindiLines.forEach(line => {
+                    line.style.display = isEnglish ? 'block' : 'none';
+                });
+                englishLines.forEach(line => {
+                    line.style.display = isEnglish ? 'none' : 'block';
+                });
+                isEnglish = !isEnglish;
+                langSwitchBtn.textContent = isEnglish ? 'Switch to Hindi' : 'Switch to English';
+            });
+            // Initial state: hide Hindi lines
+            document.querySelectorAll('.hindi-line').forEach(line => {
+                line.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+
+</html>

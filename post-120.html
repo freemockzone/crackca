@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IE - 05-Aug-25</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --background-color: #ecf0f1;
+            --text-color: #34495e;
+            --hover-bg-color: #f1c40f;
+            --font-family-title: 'Merriweather', serif;
+            --font-family-body: 'Noto Sans', sans-serif;
+        }
+        
+        body {
+            font-family: var(--font-family-body);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        
+        header h1 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        
+        nav {
+            background-color: var(--secondary-color);
+            padding: 0.5rem 0;
+            text-align: center;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+        
+        nav a:hover {
+            background-color: #2980b9;
+        }
+        
+        article {
+            background: white;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        article h1 {
+            font-family: var(--font-family-title);
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+        
+        article h2 {
+            font-family: var(--font-family-title);
+            color: var(--primary-color);
+            margin-top: 2rem;
+            border-left: 4px solid var(--hover-bg-color);
+            padding-left: 10px;
+        }
+        
+        article h3 {
+            font-size: 1.1rem;
+            color: var(--secondary-color);
+            margin-top: 1.5rem;
+        }
+        
+        .article-meta {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+        }
+        
+        .read-time {
+            background-color: #f39c12;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        
+        .line-container {
+            margin-bottom: 15px;
+            transition: background-color 0.3s ease;
+            padding: 5px;
+            border-radius: 4px;
+        }
+        
+        .line-container:hover {
+            background-color: #ecf0f1;
+        }
+        
+        .line-container .hindi-line {
+            display: none;
+            color: #555;
+            font-style: italic;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+        
+        .lang-switch-btn {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            display: block;
+            text-align: center;
+        }
+        
+        .lang-switch-btn:hover {
+            background-color: #2980b9;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            margin-top: 20px;
+        }
+        
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            font-size: 1.5rem;
+            z-index: 1000;
+        }
+        
+        .back-to-home {
+            display: block;
+            margin: 20px auto;
+            width: 200px;
+            text-align: center;
+            padding: 10px;
+            background-color: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .back-to-home:hover {
+            background-color: #2980b9;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            nav a {
+                display: block;
+                border-bottom: 1px solid #2980b9;
+            }
+        }
+        
+        p.contact-us {
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        p.contact-us a {
+            color: #25D366;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>05-August-2025</h1>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="quiz.html">Quiz</a>
+        <a href="donation.html">Donation</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    <div class="container">
+        <article>
+            <h1 id="article-title">A Tribute to Shibu Soren: The Architect of Jharkhand</h1>
+            <div class="article-meta">
+                Source: The Hindu | Publication Date: 2025-08-05
+                <span id="read-time" class="read-time"></span>
+            </div>
+            <button id="lang-switch-btn" class="lang-switch-btn">Switch to Hindi</button>
+
+            <section id="article-content">
+                <div class="line-container">
+                    <p class="english-line">Why in the News?</p>
+                    <p class="hindi-line" lang="hi">खबरों में क्यों?</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line">Shibu Soren, a veteran politician and key figure in the Jharkhand statehood movement, passed away on August 4, 2025, at the age of 81. He was the co-founder of the Jharkhand Mukti Morcha (JMM) and served as the Chief Minister of Jharkhand three times. His death marks the end of an era for tribal politics in the region.</p>
+                    <p class="hindi-line" lang="hi">झारखंड राज्य आंदोलन के एक प्रमुख नेता और वरिष्ठ राजनेता शिबू सोरेन का 4 अगस्त, 2025 को 81 वर्ष की आयु में निधन हो गया। वे झारखंड मुक्ति मोर्चा (JMM) के सह-संस्थापक थे और तीन बार झारखंड के मुख्यमंत्री रहे। उनके निधन से इस क्षेत्र में आदिवासी राजनीति के एक युग का अंत हो गया।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line">***</p>
+                    <p class="hindi-line" lang="hi">***</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line">Notes for UPSC Civil Services Examination</p>
+                    <p class="hindi-line" lang="hi">यूपीएससी सिविल सेवा परीक्षा के लिए नोट्स</p>
+                </div>
+
+                <h2>1. Personal and Political Life</h2>
+                <div class="line-container">
+                    <p class="english-line"><strong>Birth:</strong> Born on January 11, 1944, in Nemra village, then part of undivided Bihar, now in Jharkhand's Ramgarh district.</p>
+                    <p class="hindi-line" lang="hi"><strong>जन्म:</strong> 11 जनवरी, 1944 को नेमरा गाँव में जन्मे, जो उस समय अविभाजित बिहार का हिस्सा था और अब झारखंड के रामगढ़ जिले में है।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line"><strong>Early Life:</strong> He belonged to the <strong>Santhal</strong> tribal community. His father's murder by moneylenders deeply influenced him and fueled his lifelong fight against the exploitation of tribal communities.</p>
+                    <p class="hindi-line" lang="hi"><strong>प्रारंभिक जीवन:</strong> वे <strong>संथाल</strong> आदिवासी समुदाय से थे। साहूकारों द्वारा उनके पिता की हत्या ने उन्हें गहराई से प्रभावित किया और आदिवासी समुदायों के शोषण के खिलाफ उनके आजीवन संघर्ष को प्रेरित किया।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line"><strong>Nicknames:</strong> He was affectionately known as "<strong>Dishom Guruji</strong>" or simply "<strong>Guruji</strong>," which means 'leader of the land' or 'great teacher'—a title given by the Santhal community for his role in their empowerment.</p>
+                    <p class="hindi-line" lang="hi"><strong>उपनाम:</strong> उन्हें प्यार से "दिशोम गुरुजी" या केवल "गुरुजी" कहा जाता था, जिसका अर्थ है 'भूमि का नेता' या 'महान शिक्षक' - यह उपाधि संथाल समुदाय द्वारा उनके सशक्तिकरण में उनकी भूमिका के लिए दी गई थी।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line"><strong>Death:</strong> Passed away on August 4, 2025, at the age of 81, due to a month-long illness related to kidney problems.</p>
+                    <p class="hindi-line" lang="hi"><strong>मृत्यु:</strong> गुर्दे की समस्या से संबंधित एक महीने की बीमारी के कारण 4 अगस्त, 2025 को 81 वर्ष की आयु में उनका निधन हो गया।</p>
+                </div>
+
+                <h2>2. Role in the Jharkhand Movement</h2>
+                <div class="line-container">
+                    <p class="english-line"><strong>Formation of JMM:</strong> In 1973, he co-founded the <strong>Jharkhand Mukti Morcha (JMM)</strong> along with <strong>A.K. Roy</strong> and <strong>Binod Bihari Mahto</strong>.</p>
+                    <p class="hindi-line" lang="hi"><strong>झामुमो का गठन:</strong> 1973 में, उन्होंने <strong>ए.के. रॉय</strong> और <strong>बिनोद बिहारी महतो</strong> के साथ मिलकर <strong>झारखंड मुक्ति मोर्चा (झामुमो)</strong> की सह-स्थापना की।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line"><strong>Advocacy:</strong> The JMM became the primary political voice advocating for a separate tribal state. He organized grassroots movements, including the "Dhan Kato" (reap paddy) agitation, to reclaim tribal lands from moneylenders.</p>
+                    <p class="hindi-line" lang="hi"><strong>वकालत:</strong> झामुमो एक अलग आदिवासी राज्य की वकालत करने वाली प्रमुख राजनीतिक आवाज़ बन गई। उन्होंने साहूकारों से आदिवासियों की ज़मीन वापस लेने के लिए "धान काटो" (धान की कटाई) आंदोलन सहित कई ज़मीनी आंदोलन चलाए।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line"><strong>Statehood:</strong> After decades of struggle and agitation, his efforts, along with others, led to the formation of Jharkhand as a separate state from Bihar on November 15, 2000. He is widely considered a key architect of the state.</p>
+                    <p class="hindi-line" lang="hi"><strong>राज्य का दर्जा:</strong> दशकों के संघर्ष और आंदोलन के बाद, उनके और अन्य प्रयासों से 15 नवंबर, 2000 को बिहार से अलग झारखंड राज्य का गठन हुआ। उन्हें व्यापक रूप से राज्य के निर्माण में एक प्रमुख निर्माता माना जाता है।</p>
+                </div>
+
+                <h2>3. Political Career</h2>
+                <div class="line-container">
+                    <p class="english-line"><strong>Member of Parliament:</strong> He was elected to the <strong>Lok Sabha from Dumka</strong> a total of eight times and was a member of the <strong>Rajya Sabha</strong> at the time of his death.</p>
+                    <p class="hindi-line" lang="hi"><strong>संसद सदस्य:</strong> वे दुमका से कुल आठ बार लोकसभा के लिए चुने गए और अपनी मृत्यु के समय राज्यसभा के सदस्य थे।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line"><strong>Chief Minister:</strong> He served as the <strong>Chief Minister of Jharkhand three times</strong>, though none of his terms were for a full tenure due to the complexities of coalition politics.</p>
+                    <p class="hindi-line" lang="hi"><strong>मुख्यमंत्री:</strong> उन्होंने तीन बार झारखंड के मुख्यमंत्री के रूप में कार्य किया, हालाँकि गठबंधन राजनीति की जटिलताओं के कारण उनका कोई भी कार्यकाल पूर्ण कार्यकाल के लिए नहीं था।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line"><strong>Union Minister:</strong> He also served as the <strong>Union Coal Minister</strong> in the UPA government.</p>
+                    <p class="hindi-line" lang="hi"><strong>केंद्रीय मंत्री:</strong> उन्होंने यूपीए सरकार में केंद्रीय कोयला मंत्री के रूप में भी कार्य किया।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line"><strong>Legacy:</strong> His political career was marked by both significant contributions and controversies. Despite legal challenges, his unwavering dedication to tribal rights and empowerment cemented his position as a towering figure in the state's politics.</p>
+                    <p class="hindi-line" lang="hi"><strong>विरासत:</strong> उनका राजनीतिक जीवन महत्वपूर्ण योगदानों और विवादों, दोनों से भरा रहा। कानूनी चुनौतियों के बावजूद, आदिवासी अधिकारों और सशक्तिकरण के प्रति उनके अटूट समर्पण ने राज्य की राजनीति में एक प्रमुख व्यक्ति के रूप में उनकी स्थिति को मज़बूत किया।</p>
+                </div>
+
+                <h2>4. Key Contributions and Legacy</h2>
+                <div class="line-container">
+                    <p class="english-line"><strong>Tribal Rights:</strong> He dedicated his life to championing the cause of tribal identity and rights, fighting against social and economic exploitation.</p>
+                    <p class="hindi-line" lang="hi"><strong>आदिवासी अधिकार:</strong> उन्होंने अपना जीवन आदिवासी पहचान और अधिकारों के लिए, सामाजिक और आर्थिक शोषण के विरुद्ध संघर्ष में समर्पित कर दिया।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line"><strong>Political Identity:</strong> His leadership gave the tribal population of the Chotanagpur and Santhal Pargana regions a strong political voice, ultimately leading to the creation of their own state.</p>
+                    <p class="hindi-line" lang="hi"><strong>राजनीतिक पहचान:</strong> उनके नेतृत्व ने छोटानागपुर और संथाल परगना क्षेत्रों की आदिवासी आबादी को एक मज़बूत राजनीतिक आवाज़ दी, जिसके परिणामस्वरूप अंततः उनके अपने राज्य का निर्माण हुआ।</p>
+                </div>
+                <div class="line-container">
+                    <p class="english-line"><strong>Succession:</strong> He is survived by his son, <strong>Hemant Soren</strong>, who is the current Chief Minister of Jharkhand and the President of the JMM.</p>
+                    <p class="hindi-line" lang="hi"><strong>उत्तराधिकार:</strong> उनके परिवार में उनके पुत्र, <strong>हेमंत सोरेन</strong> हैं, जो झारखंड के वर्तमान मुख्यमंत्री और झामुमो के अध्यक्ष हैं।</p>
+                </div>
+
+                <p class="contact-us">For more information, feel free to <a href="https://wa.me/918168305050" target="_blank">Contact Us</a> on WhatsApp.</p>
+            </section>
+
+        </article>
+        <a href="index.html" class="back-to-home">Back to Home</a>
+    </div>
+
+    <button id="scroll-to-top-btn" class="scroll-to-top">&#9650;</button>
+
+    <footer>
+        <p>&copy; 2025 Crack Current Affairs (CrackCA). All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const content = document.getElementById('article-content');
+            const englishLines = content.querySelectorAll('.english-line');
+            const totalWords = Array.from(englishLines).reduce((count, p) => count + p.textContent.split(/\s+/).length, 0);
+            const readTime = Math.ceil(totalWords / 200);
+            document.getElementById('read-time').textContent = `Est. Read: ${readTime} min`;
+            const scrollToTopBtn = document.getElementById('scroll-to-top-btn');
+            const langSwitchBtn = document.getElementById('lang-switch-btn');
+            let isEnglish = true;
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    scrollToTopBtn.style.display = 'block';
+                } else {
+                    scrollToTopBtn.style.display = 'none';
+                }
+            });
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            langSwitchBtn.addEventListener('click', () => {
+                const hindiLines = document.querySelectorAll('.hindi-line');
+                hindiLines.forEach(line => {
+                    line.style.display = isEnglish ? 'block' : 'none';
+                });
+                englishLines.forEach(line => {
+                    line.style.display = isEnglish ? 'none' : 'block';
+                });
+                isEnglish = !isEnglish;
+                langSwitchBtn.textContent = isEnglish ? 'Switch to Hindi' : 'Switch to English';
+            });
+            // Initial state: hide Hindi lines
+            document.querySelectorAll('.hindi-line').forEach(line => {
+                line.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
