@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Hindu - 07-Aug-25</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #004d40;
+            --secondary-color: #e0f2f1;
+            --accent-color: #ff6f00;
+            --text-color: #333;
+            --text-light: #555;
+            --border-color: #bdbdbd;
+            --hover-bg: #e8f5e9;
+            --background-color: #f4f7f6;
+            --article-bg: white;
+            --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .dark-mode {
+            --primary-color: #80cbc4;
+            --secondary-color: #00695c;
+            --accent-color: #ffb74d;
+            --text-color: #e0f2f1;
+            --text-light: #b2dfdb;
+            --border-color: #555;
+            --hover-bg: #004d40;
+            --background-color: #212121;
+            --article-bg: #424242;
+            --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            line-height: 1.6;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 5%;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+        }
+
+        nav {
+            background-color: var(--primary-color);
+            padding: 0.5rem 5%;
+            border-bottom: 2px solid var(--accent-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.5rem 0.8rem;
+            display: block;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: var(--accent-color);
+            border-radius: 5px;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 5%;
+        }
+
+        article {
+            background-color: var(--article-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .article-meta {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1rem;
+        }
+
+        .article-title {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+            font-family: 'Merriweather', serif;
+        }
+
+        .read-time {
+            font-style: italic;
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            font-family: 'Noto Sans', sans-serif;
+            margin-bottom: 1rem;
+        }
+
+        section {
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        h2, h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 10px;
+        }
+        
+        .line-container {
+            margin-bottom: 1rem;
+        }
+
+        p, ul {
+            margin-bottom: 0;
+            padding-left: 1.5rem;
+        }
+        
+        .line {
+            display: inline-block;
+            padding: 0.5rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        .line:hover {
+            background-color: var(--hover-bg);
+            cursor: default;
+        }
+
+        .lang-en {
+            display: block;
+        }
+        
+        .lang-hi {
+            display: none;
+        }
+
+        strong {
+            color: var(--accent-color);
+        }
+        
+        .italic-bold-underline {
+            font-style: italic;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: var(--primary-color);
+            color: white;
+            margin-top: 2rem;
+        }
+
+        #scroll-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: none;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            transition: background-color 0.3s;
+        }
+
+        #scroll-top:hover {
+            background-color: #e65100;
+        }
+        
+        .contact-us {
+            margin-top: 2rem;
+            padding: 1rem;
+            background-color: var(--secondary-color);
+            border-radius: 8px;
+            text-align: center;
+            font-style: italic;
+        }
+        .contact-us a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-us a:hover {
+            text-decoration: underline;
+        }
+        
+        .button-container {
+            text-align: center;
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .back-to-home, .lang-switch, #toggle-dark-mode {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: white;
+            background-color: var(--primary-color);
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .back-to-home:hover, .lang-switch:hover, #toggle-dark-mode:hover {
+            background-color: var(--accent-color);
+        }
+
+        .prelims-list, .mains-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .prelims-list li, .mains-list li {
+            margin-bottom: 0.5rem;
+            background-color: var(--secondary-color);
+            padding: 10px;
+            border-radius: 5px;
+            border-left: 3px solid var(--accent-color);
+        }
+
+        .prelims-list li:hover, .mains-list li:hover {
+            background-color: var(--hover-bg);
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.2rem;
+            }
+
+            .article-title {
+                font-size: 2rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav a {
+                padding: 0.5rem;
+            }
+
+            article {
+                padding: 1rem;
+            }
+
+            p, ul {
+                padding-left: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>07-August-2025</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+            <li><a href="donation.html">Donation</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="button-container">
+            <button class="lang-switch" onclick="toggleLanguage()">Switch to Hindi</button>
+            <button id="toggle-dark-mode">Dark Mode</button>
+        </div>
+        <article>
+            <div class="article-meta">
+                <h1 class="article-title">Mumbai Train Blasts Acquittal: A Critical Look at India's Criminal Justice System</h1>
+                <p>Source: The Hindu | Publication Date: 07-August-2025</p>
+                <p class="read-time">Estimated Read Time: <span id="read-time"></span> minutes</p>
+            </div>
+            
+            <section id="content">
+                <h2 class="line-container">
+                    <span class="line"><span class="lang-en">Why in News?</span> <span class="lang-hi" lang="hi">चर्चा में क्यों?</span></span>
+                </h2>
+                <p class="line-container">
+                    <span class="line">
+                        <span class="lang-en">The Bombay High Court recently <strong>exonerated all 12 individuals</strong> who were convicted in the <strong>July 2006 Mumbai train blast case</strong>, a decision that came nearly two decades after the event. The court's judgment, which overturned a 2015 trial court verdict that had sentenced five accused to death and seven to life imprisonment, has sparked a major debate about the integrity of the criminal justice system, particularly in high-profile terrorism cases.</span>
+                        <span class="lang-hi" lang="hi">बॉम्बे उच्च न्यायालय ने हाल ही में <strong>जुलाई 2006 के मुंबई ट्रेन विस्फोट मामले</strong> में दोषी ठहराए गए सभी 12 व्यक्तियों को दोषमुक्त कर दिया। यह फैसला घटना के लगभग दो दशक बाद आया है। इस अदालत के फैसले ने, जिसने 2015 के एक निचली अदालत के फैसले को पलट दिया था, जिसमें पाँच आरोपियों को मौत की सज़ा और सात को आजीवन कारावास की सज़ा सुनाई गई थी, आपराधिक न्याय प्रणाली की निष्पक्षता, खासकर हाई-प्रोफाइल आतंकवाद के मामलों में, पर एक बड़ी बहस छेड़ दी है।</span>
+                    </span>
+                </p>
+
+                <hr>
+
+                <section>
+                    <h2 class="line-container">
+                        <span class="line"><span class="lang-en">1. The Verdict and its Implications</span> <span class="lang-hi" lang="hi">1. फैसला और उसके निहितार्थ</span></span>
+                    </h2>
+                    <ul>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><span class="italic-bold-underline">Exoneration of Convicts:</span> The Bombay High Court found significant and fundamental flaws in the prosecution's case. It acquitted all the accused, some of whom had spent 19 years in jail. The court's ruling highlighted a "systemic failure" in the investigation and trial process.</span>
+                                <span class="lang-hi" lang="hi"><span class="italic-bold-underline">दोषियों को दोषमुक्त करना:</span> बॉम्बे उच्च न्यायालय ने अभियोजन पक्ष के मामले में महत्वपूर्ण और बुनियादी खामियाँ पाईं। इसने सभी आरोपियों को बरी कर दिया, जिनमें से कुछ ने 19 साल जेल में बिताए थे। अदालत के फैसले ने जाँच और मुकदमे की प्रक्रिया में एक "व्यवस्थागत विफलता" को उजागर किया।</span>
+                            </span>
+                        </li>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><span class="italic-bold-underline">A "Shocker" for Victims' Families:</span> The verdict has been a rude shock for the families of the 189 people killed and around 800 injured, who have been waiting for closure for nearly two decades. The exoneration, based on the same evidence that led to convictions, raises troubling questions about the fairness and reliability of the justice system.</span>
+                                <span class="lang-hi" lang="hi"><span class="italic-bold-underline">पीड़ितों के परिवारों के लिए एक "झटका":</span> यह फैसला उन 189 लोगों के परिवारों के लिए एक गहरा सदमा है, जिनकी मौत हो गई और लगभग 800 घायल हुए, जो लगभग दो दशकों से इस मामले के निपटारे का इंतज़ार कर रहे हैं। उन्हीं सबूतों के आधार पर दोषमुक्ति, जिनके आधार पर दोषसिद्धि हुई, न्याय प्रणाली की निष्पक्षता और विश्वसनीयता पर चिंताजनक प्रश्न खड़े करती है।</span>
+                            </span>
+                        </li>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><span class="italic-bold-underline">Supreme Court's Interim Stay:</span> The Maharashtra government has challenged the Bombay High Court's decision in the Supreme Court. The Supreme Court has issued an interim stay on the acquittal, but it has allowed the accused to remain free from arrest until further proceedings.</span>
+                                <span class="lang-hi" lang="hi"><span class="italic-bold-underline">सुप्रीम कोर्ट की अंतरिम रोक:</span> महाराष्ट्र सरकार ने बॉम्बे हाई कोर्ट के फैसले को सुप्रीम कोर्ट में चुनौती दी है। सुप्रीम कोर्ट ने बरी करने पर अंतरिम रोक लगा दी है, लेकिन आरोपियों को आगे की कार्यवाही तक गिरफ्तारी से मुक्त रहने की अनुमति दी है।</span>
+                            </span>
+                        </li>
+                    </ul>
+                </section>
+
+                <hr>
+
+                <section>
+                    <h2 class="line-container">
+                        <span class="line"><span class="lang-en">2. Flaws in the Investigation and Trial</span> <span class="lang-hi" lang="hi">2. जाँच और मुकदमे में खामियाँ</span></span>
+                    </h2>
+                    <p class="line-container">
+                        <span class="line">
+                            <span class="lang-en">The High Court's judgment systematically dismantled the prosecution's case, pointing out multiple lapses:</span>
+                            <span class="lang-hi" lang="hi">हाई कोर्ट के फैसले ने अभियोजन पक्ष के मामले को व्यवस्थित रूप से खंडित कर दिया और कई खामियों की ओर इशारा किया:</span>
+                        </span>
+                    </p>
+                    <ul>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><span class="italic-bold-underline">Unreliable Witnesses:</span> The court found key witnesses to be untrustworthy. Their statements were not consistent over the long period of the trial, and in some cases, their testimonies were found to be contradictory or based on vague recollections.</span>
+                                <span class="lang-hi" lang="hi"><span class="italic-bold-underline">अविश्वसनीय गवाह:</span> अदालत ने प्रमुख गवाहों को अविश्वसनीय पाया। मुकदमे की लंबी अवधि के दौरान उनके बयानों में एकरूपता नहीं थी, और कुछ मामलों में, उनकी गवाही विरोधाभासी या अस्पष्ट यादों पर आधारित पाई गई।</span>
+                            </span>
+                        </li>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><span class="italic-bold-underline">Coerced Confessions:</span> The court deemed the confessional statements, which were a cornerstone of the prosecution's case, as unreliable. The confessions were found to be virtually identical, with even matching punctuation, suggesting they were not voluntarily made but were instead "extracted under duress."</span>
+                                <span class="lang-hi" lang="hi"><span class="italic-bold-underline">जबरन स्वीकारोक्ति:</span> अदालत ने अभियोजन पक्ष के मामले की आधारशिला रहे स्वीकारोक्ति बयानों को अविश्वसनीय माना। स्वीकारोक्ति लगभग एक जैसी पाई गईं, यहाँ तक कि विराम चिह्न भी मिलते-जुलते थे, जिससे पता चलता है कि वे स्वेच्छा से नहीं लिए गए थे, बल्कि "दबाव में लिए गए" थे।</span>
+                            </span>
+                        </li>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><span class="italic-bold-underline">Faulty Test Identification Parades (TIP):</span> The High Court pointed out that the TIPs, used to identify the accused, were not conducted by an authorized magistrate. This procedural lapse rendered the entire identification process suspect and inadmissible as evidence.</span>
+                                <span class="lang-hi" lang="hi"><span class="italic-bold-underline">त्रुटिपूर्ण पहचान परेड (टीआईपी):</span> उच्च न्यायालय ने बताया कि अभियुक्तों की पहचान के लिए इस्तेमाल की जाने वाली पहचान परेड (टीआईपी) किसी अधिकृत मजिस्ट्रेट द्वारा नहीं की गई थी। इस प्रक्रियात्मक चूक ने पूरी पहचान प्रक्रिया को संदिग्ध और साक्ष्य के रूप में अस्वीकार्य बना दिया।</span>
+                            </span>
+                        </li>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><span class="italic-bold-underline">Breach in Forensic Evidence Custody:</span> The integrity of the forensic evidence was compromised due to an unproven chain of custody. The court noted that the purity of evidence, especially in a terror case, must be beyond doubt. Lapses on this front raised significant concerns about the handling of critical evidence.</span>
+                                <span class="lang-hi" lang="hi"><span class="italic-bold-underline">फोरेंसिक साक्ष्य अभिरक्षा में उल्लंघन:</span> अप्रमाणित अभिरक्षा श्रृंखला के कारण फोरेंसिक साक्ष्य की अखंडता से समझौता किया गया था। अदालत ने कहा कि साक्ष्य की शुद्धता, विशेष रूप से आतंकवाद के मामले में, संदेह से परे होनी चाहिए। इस मोर्चे पर हुई चूक ने महत्वपूर्ण साक्ष्यों के प्रबंधन को लेकर गंभीर चिंताएँ पैदा कीं।</span>
+                            </span>
+                        </li>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><span class="italic-bold-underline">Ineffective Investigation:</span> The investigation, led by the Anti-Terrorist Squad (ATS), was criticized for its haste and for allegedly overlooking other potential culprits. A separate Indian Mujahideen (IM) module, busted in 2008, had claimed responsibility for the blasts, but the ATS had already filed a charge sheet blaming the Students Islamic Movement of India (SIMI).</span>
+                                <span class="lang-hi" lang="hi"><span class="italic-bold-underline">अप्रभावी जाँच:</span> आतंकवाद निरोधी दस्ते (एटीएस) द्वारा की गई जाँच की आलोचना उसकी जल्दबाज़ी और अन्य संभावित दोषियों की कथित अनदेखी के लिए की गई। 2008 में पकड़े गए इंडियन मुजाहिदीन (आईएम) के एक अलग मॉड्यूल ने विस्फोटों की ज़िम्मेदारी ली थी, लेकिन एटीएस ने पहले ही स्टूडेंट्स इस्लामिक मूवमेंट ऑफ़ इंडिया (सिमी) को दोषी ठहराते हुए एक आरोप पत्र दायर कर दिया था।</span>
+                            </span>
+                        </li>
+                    </ul>
+                </section>
+
+                <hr>
+
+                <section>
+                    <h2 class="line-container">
+                        <span class="line"><span class="lang-en">3. Role of the Criminal Justice System and RTI</span> <span class="lang-hi" lang="hi">3. आपराधिक न्याय प्रणाली और आरटीआई की भूमिका</span></span>
+                    </h2>
+                    <ul>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><span class="italic-bold-underline">Inordinate Delays:</span> The case took nine years in the special trial court and ten years in the High Court. This inordinate delay is a form of punishment in itself, regardless of the final verdict. It highlights the systemic issues plaguing the Indian judicial system.</span>
+                                <span class="lang-hi" lang="hi"><span class="italic-bold-underline">अत्यधिक विलंब:</span> इस मामले में विशेष सुनवाई अदालत में नौ साल और उच्च न्यायालय में दस साल लग गए। अंतिम फैसला चाहे जो भी हो, यह अत्यधिक विलंब अपने आप में एक प्रकार की सज़ा है। यह भारतीय न्यायिक प्रणाली को प्रभावित करने वाले व्यवस्थागत मुद्दों को उजागर करता है।</span>
+                            </span>
+                        </li>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><span class="italic-bold-underline">The Power of the RTI Act:</span> The Right to Information (RTI) Act, 2005, played a crucial role in the defense's case. Defense lawyers and the accused filed hundreds of RTI applications to gather information from various government departments (police, hospitals, telecom companies). This information was used to cross-examine prosecution witnesses and expose inconsistencies in their statements, thereby reinforcing the principles of transparency and accountability.</span>
+                                <span class="lang-hi" lang="hi"><span class="italic-bold-underline">आरटीआई अधिनियम की शक्ति:</span> सूचना का अधिकार (आरटीआई) अधिनियम, 2005 ने बचाव पक्ष के मामले में महत्वपूर्ण भूमिका निभाई। बचाव पक्ष के वकीलों और अभियुक्तों ने विभिन्न सरकारी विभागों (पुलिस, अस्पताल, दूरसंचार कंपनियाँ) से जानकारी जुटाने के लिए सैकड़ों आरटीआई आवेदन दायर किए। इस जानकारी का उपयोग अभियोजन पक्ष के गवाहों से जिरह करने और उनके बयानों में विसंगतियों को उजागर करने के लिए किया गया, जिससे पारदर्शिता और जवाबदेही के सिद्धांतों को बल मिला।</span>
+                            </span>
+                        </li>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><span class="italic-bold-underline">The Right to a Fair Trial (Article 20(3)):</span> The defense's use of RTI to challenge coerced confessions and unreliable testimonies is a powerful demonstration of a citizen's right against self-incrimination, as enshrined in <strong>Article 20(3)</strong> of the Constitution. This article protects a person accused of an offense from being compelled to be a witness against himself.</span>
+                                <span class="lang-hi" lang="hi"><span class="italic-bold-underline">निष्पक्ष सुनवाई का अधिकार (अनुच्छेद 20(3)):</span> जबरन स्वीकारोक्ति और अविश्वसनीय गवाही को चुनौती देने के लिए बचाव पक्ष द्वारा आरटीआई का उपयोग, संविधान के <strong>अनुच्छेद 20(3)</strong> में निहित आत्म-दोषसिद्धि के विरुद्ध नागरिक के अधिकार का एक सशक्त प्रदर्शन है। यह अनुच्छेद किसी अपराध के आरोपी व्यक्ति को स्वयं के विरुद्ध गवाही देने के लिए बाध्य किए जाने से बचाता है।</span>
+                            </span>
+                        </li>
+                    </ul>
+                </section>
+
+                <hr>
+
+                <section>
+                    <h2 class="line-container">
+                        <span class="line"><span class="lang-en">4. Need for Reforms</span> <span class="lang-hi" lang="hi">4. सुधारों की आवश्यकता</span></span>
+                    </h2>
+                    <p class="line-container">
+                        <span class="line">
+                            <span class="lang-en">The Mumbai train blast case verdict is a stark reminder of the urgent need for comprehensive reforms in India's criminal justice system.</span>
+                            <span class="lang-hi" lang="hi">मुंबई ट्रेन विस्फोट मामले का फैसला भारत की आपराधिक न्याय प्रणाली में व्यापक सुधारों की तत्काल आवश्यकता की याद दिलाता है।</span>
+                        </span>
+                    </p>
+                    <ul>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><span class="italic-bold-underline">Police Reforms:</span> There is a pressing need to reform the police force to ensure that investigations are conducted professionally, adhere to due process, and are not influenced by political pressure. Training in scientific and forensic investigation, as well as maintaining the integrity of evidence, is paramount.</span>
+                                <span class="lang-hi" lang="hi"><span class="italic-bold-underline">पुलिस सुधार:</span> यह सुनिश्चित करने के लिए पुलिस बल में सुधार की सख़्त ज़रूरत है कि जाँच पेशेवर तरीके से की जाए, उचित प्रक्रिया का पालन किया जाए और राजनीतिक दबाव से प्रभावित न हो। वैज्ञानिक और फोरेंसिक जाँच में प्रशिक्षण के साथ-साथ साक्ष्यों की विश्वसनीयता बनाए रखना भी अत्यंत महत्वपूर्ण है।</span>
+                            </span>
+                        </li>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><span class="italic-bold-underline">Judicial Reforms:</span> The lengthy trial period must be addressed. Reforms are needed to streamline court procedures, fill judicial vacancies, and ensure that justice is not delayed to the point of being "denied."</span>
+                                <span class="lang-hi" lang="hi"><span class="italic-bold-underline">न्यायिक सुधार:</span> लंबी सुनवाई अवधि का समाधान किया जाना चाहिए। अदालती प्रक्रियाओं को सुव्यवस्थित करने, न्यायिक रिक्तियों को भरने और यह सुनिश्चित करने के लिए सुधारों की आवश्यकता है कि न्याय में इतनी देरी न हो कि उसे "अस्वीकार" किया जा सके।</span>
+                            </span>
+                        </li>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><span class="italic-bold-underline">Prosecution and Legal Aid:</span> The prosecution's role must be strengthened to ensure that only solid, evidence-based cases are pursued. The quality of legal aid for the accused, particularly in serious cases, needs to be improved to ensure a fair trial for all.</span>
+                                <span class="lang-hi" lang="hi"><span class="italic-bold-underline">अभियोजन और कानूनी सहायता:</span> अभियोजन पक्ष की भूमिका को मज़बूत किया जाना चाहिए ताकि यह सुनिश्चित हो सके कि केवल ठोस, साक्ष्य-आधारित मामलों पर ही कार्रवाई की जाए। अभियुक्तों के लिए, विशेष रूप से गंभीर मामलों में, कानूनी सहायता की गुणवत्ता में सुधार की आवश्यकता है ताकि सभी के लिए निष्पक्ष सुनवाई सुनिश्चित हो सके।</span>
+                            </span>
+                        </li>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><span class="italic-bold-underline">RTI and Citizen Empowerment:</span> The case highlights how citizens can use the RTI Act to hold the state accountable and ensure that their fundamental rights are protected.</span>
+                                <span class="lang-hi" lang="hi"><span class="italic-bold-underline">आरटीआई और नागरिक सशक्तिकरण:</span> यह मामला इस बात पर प्रकाश डालता है कि नागरिक आरटीआई अधिनियम का उपयोग राज्य को जवाबदेह बनाने और अपने मौलिक अधिकारों की सुरक्षा सुनिश्चित करने के लिए कैसे कर सकते हैं।</span>
+                            </span>
+                        </li>
+                    </ul>
+                </section>
+
+                <hr>
+
+                <section>
+                    <h2 class="line-container">
+                        <span class="line"><span class="lang-en">5. Potential UPSC Questions</span> <span class="lang-hi" lang="hi">5. संभावित यूपीएससी प्रश्न</span></span>
+                    </h2>
+                    
+                    <h3>
+                        <span class="line"><span class="lang-en">Prelims:</span> <span class="lang-hi" lang="hi">प्रारंभिक परीक्षा:</span></span>
+                    </h3>
+                    <ul class="prelims-list">
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en">1. Which of the following fundamental rights is most closely related to the right against self-incrimination, which was a key point in the Mumbai train blasts case?<br>a) Article 19<br>b) <strong>Article 20(3)</strong><br>c) Article 21<br>d) Article 22</span>
+                                <span class="lang-hi" lang="hi">1. निम्नलिखित में से कौन सा मौलिक अधिकार आत्म-दोषसिद्धि के विरुद्ध अधिकार से सबसे अधिक निकटता से संबंधित है, जो मुंबई ट्रेन विस्फोट मामले में एक प्रमुख बिंदु था?<br>क) अनुच्छेद 19<br>ख) <strong>अनुच्छेद 20(3)</strong><br>ग) अनुच्छेद 21<br>घ) अनुच्छेद 22</span>
+                            </span>
+                        </li>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en">2. The Right to Information (RTI) Act, 2005, is an important tool for:<br>a) National Security<br>b) Economic liberalization<br>c) <strong>Transparency and Accountability in governance</strong><br>d) International diplomacy</span>
+                                <span class="lang-hi" lang="hi">2. सूचना का अधिकार (आरटीआई) अधिनियम, 2005, निम्नलिखित के लिए एक महत्वपूर्ण उपकरण है:<br>क) राष्ट्रीय सुरक्षा<br>ख) आर्थिक उदारीकरण<br>ग) <strong>शासन में पारदर्शिता और जवाबदेही</strong><br>घ) अंतर्राष्ट्रीय कूटनीति</span>
+                            </span>
+                        </li>
+                    </ul>
+
+                    <h3>
+                        <span class="line"><span class="lang-en">Mains:</span> <span class="lang-hi" lang="hi">मुख्य परीक्षा:</span></span>
+                    </h3>
+                    <ul class="mains-list">
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en">1. "The exoneration of the accused in the 2006 Mumbai train blasts case exposes the critical fault lines in India's criminal justice system." Critically analyze the key reasons behind the Bombay High Court's verdict and suggest comprehensive reforms needed to prevent such lapses in the future.</span>
+                                <span class="lang-hi" lang="hi">1. "2006 के मुंबई ट्रेन विस्फोट मामले में अभियुक्तों को दोषमुक्त करना भारत की आपराधिक न्याय प्रणाली की गंभीर खामियों को उजागर करता है।" बॉम्बे उच्च न्यायालय के फैसले के पीछे प्रमुख कारणों का आलोचनात्मक विश्लेषण कीजिए और भविष्य में ऐसी चूकों को रोकने के लिए आवश्यक व्यापक सुधारों का सुझाव दीजिए।</span>
+                            </span>
+                        </li>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en">2. Examine the role of the judiciary and civil society in ensuring a fair trial, particularly in high-profile terrorism cases. How can the Right to Information (RTI) Act be leveraged to strengthen the principles of justice and accountability?</span>
+                                <span class="lang-hi" lang="hi">2. निष्पक्ष सुनवाई सुनिश्चित करने में, विशेष रूप से हाई-प्रोफाइल आतंकवाद के मामलों में, न्यायपालिका और नागरिक समाज की भूमिका का परीक्षण कीजिए। न्याय और जवाबदेही के सिद्धांतों को मज़बूत करने के लिए सूचना का अधिकार (आरटीआई) अधिनियम का लाभ कैसे उठाया जा सकता है?</span>
+                            </span>
+                        </li>
+                    </ul>
+                </section>
+            </section>
+            
+            <div class="contact-us">
+                <p>For any queries, contact us on <a href="https://wa.me/+918168305050" target="_blank" rel="noopener noreferrer">+91-8168305050</a></p>
+            </div>
+            
+        </article>
+        <div class="button-container">
+            <a href="index.html" class="back-to-home">Back to Home</a>
+        </div>
+    </main>
+    <button id="scroll-top" title="Go to top">&#9650;</button>
+
+    <footer>
+        <p>© 2025 Crack Current Affairs (CrackCA). All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Read Time Calculation
+        function calculateReadTime() {
+            const englishContent = document.querySelectorAll('.lang-en');
+            let wordCount = 0;
+            englishContent.forEach(el => {
+                wordCount += el.textContent.split(/\s+/).length;
+            });
+            const readTime = Math.ceil(wordCount / 200);
+            document.getElementById('read-time').textContent = readTime;
+        }
+
+        // Language Switch
+        function toggleLanguage() {
+            const isEnglish = document.querySelector('.lang-en').style.display !== 'none';
+            const langEn = document.querySelectorAll('.lang-en');
+            const langHi = document.querySelectorAll('.lang-hi');
+            const button = document.querySelector('.lang-switch');
+
+            if (isEnglish) {
+                langEn.forEach(el => el.style.display = 'none');
+                langHi.forEach(el => el.style.display = 'block');
+                button.textContent = 'Switch to English';
+            } else {
+                langEn.forEach(el => el.style.display = 'block');
+                langHi.forEach(el => el.style.display = 'none');
+                button.textContent = 'Switch to Hindi';
+            }
+        }
+
+        // Scroll to Top Button
+        const scrollTopBtn = document.getElementById('scroll-top');
+        window.onscroll = function() {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                scrollTopBtn.style.display = 'block';
+            } else {
+                scrollTopBtn.style.display = 'none';
+            }
+        };
+
+        scrollTopBtn.addEventListener('click', function() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        });
+
+        // Dark Mode Toggle
+        const darkModeBtn = document.getElementById('toggle-dark-mode');
+        darkModeBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            if (document.body.classList.contains('dark-mode')) {
+                darkModeBtn.textContent = 'Light Mode';
+            } else {
+                darkModeBtn.textContent = 'Dark Mode';
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            calculateReadTime();
+            // Initially, show English and hide Hindi
+            const langHi = document.querySelectorAll('.lang-hi');
+            langHi.forEach(el => el.style.display = 'none');
+        });
+    </script>
+</body>
+</html>

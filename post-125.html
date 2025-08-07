@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Hindu - 07-Aug-25</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #004d40;
+            --secondary-color: #e0f2f1;
+            --accent-color: #ff6f00;
+            --text-color: #333;
+            --text-light: #555;
+            --border-color: #bdbdbd;
+            --hover-bg: #e8f5e9;
+            --background-color: #f4f7f6;
+            --article-bg: white;
+            --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .dark-mode {
+            --primary-color: #80cbc4;
+            --secondary-color: #00695c;
+            --accent-color: #ffb74d;
+            --text-color: #e0f2f1;
+            --text-light: #b2dfdb;
+            --border-color: #555;
+            --hover-bg: #004d40;
+            --background-color: #212121;
+            --article-bg: #424242;
+            --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            line-height: 1.6;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 5%;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+        }
+
+        nav {
+            background-color: var(--primary-color);
+            padding: 0.5rem 5%;
+            border-bottom: 2px solid var(--accent-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.5rem 0.8rem;
+            display: block;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: var(--accent-color);
+            border-radius: 5px;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 5%;
+        }
+
+        article {
+            background-color: var(--article-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .article-meta {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1rem;
+        }
+
+        .article-title {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+            font-family: 'Merriweather', serif;
+        }
+
+        .read-time {
+            font-style: italic;
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            font-family: 'Noto Sans', sans-serif;
+            margin-bottom: 1rem;
+        }
+
+        section {
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        h2, h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 10px;
+        }
+        
+        .line-container {
+            margin-bottom: 1rem;
+        }
+
+        p, ul {
+            margin-bottom: 0;
+            padding-left: 1.5rem;
+        }
+        
+        .line {
+            display: inline-block;
+            padding: 0.5rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        .line:hover {
+            background-color: var(--hover-bg);
+            cursor: default;
+        }
+
+        .lang-en {
+            display: block;
+        }
+        
+        .lang-hi {
+            display: none;
+        }
+
+        strong {
+            color: var(--accent-color);
+        }
+        
+        .italic-bold-underline {
+            font-style: italic;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: var(--primary-color);
+            color: white;
+            margin-top: 2rem;
+        }
+
+        #scroll-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: none;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            transition: background-color 0.3s;
+        }
+
+        #scroll-top:hover {
+            background-color: #e65100;
+        }
+        
+        .contact-us {
+            margin-top: 2rem;
+            padding: 1rem;
+            background-color: var(--secondary-color);
+            border-radius: 8px;
+            text-align: center;
+            font-style: italic;
+        }
+        .contact-us a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-us a:hover {
+            text-decoration: underline;
+        }
+        
+        .button-container {
+            text-align: center;
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .back-to-home, .lang-switch, #toggle-dark-mode {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: white;
+            background-color: var(--primary-color);
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .back-to-home:hover, .lang-switch:hover, #toggle-dark-mode:hover {
+            background-color: var(--accent-color);
+        }
+
+        .prelims-list, .mains-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .prelims-list li, .mains-list li {
+            margin-bottom: 0.5rem;
+            background-color: var(--secondary-color);
+            padding: 10px;
+            border-radius: 5px;
+            border-left: 3px solid var(--accent-color);
+        }
+
+        .prelims-list li:hover, .mains-list li:hover {
+            background-color: var(--hover-bg);
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.2rem;
+            }
+
+            .article-title {
+                font-size: 2rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav a {
+                padding: 0.5rem;
+            }
+
+            article {
+                padding: 1rem;
+            }
+
+            p, ul {
+                padding-left: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>07-August-2025</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+            <li><a href="donation.html">Donation</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="button-container">
+            <button class="lang-switch" onclick="toggleLanguage()">Switch to Hindi</button>
+            <button id="toggle-dark-mode">Dark Mode</button>
+        </div>
+        <article>
+            <div class="article-meta">
+                <h1 class="article-title">Chinese Engineers' Departure: A Geo-economic Manoeuvre Against India's Manufacturing</h1>
+                <p>Source: The Hindu | Publication Date: 07-August-2025</p>
+                <p class="read-time">Estimated Read Time: <span id="read-time"></span> minutes</p>
+            </div>
+            
+            <section id="content">
+                <h2 class="line-container">
+                    <span class="line"><span class="lang-en">Why in News?</span> <span class="lang-hi" lang="hi">चर्चा में क्यों?</span></span>
+                </h2>
+                <p class="line-container">
+                    <span class="line">
+                        <span class="lang-en">The recent departure of over 300 Chinese engineers from Foxconn's iPhone manufacturing facilities in India has highlighted the intricate and often adversarial nature of the economic relationship between India and China. This event, viewed as a deliberate geopolitical and economic move by Beijing, brings to the forefront China's strategy to impede India's manufacturing growth.</span>
+                        <span class="lang-hi" lang="hi">भारत में फॉक्सकॉन के आईफोन निर्माण संयंत्रों से 300 से ज़्यादा चीनी इंजीनियरों के हाल ही में जाने से भारत और चीन के बीच आर्थिक संबंधों की जटिल और अक्सर प्रतिकूल प्रकृति उजागर हुई है। बीजिंग द्वारा जानबूझकर की गई भू-राजनीतिक और आर्थिक चाल के रूप में देखी जा रही यह घटना, भारत के विनिर्माण विकास में बाधा डालने की चीन की रणनीति को सामने लाती है।</span>
+                    </span>
+                </p>
+
+                <hr>
+
+                <section>
+                    <h2 class="line-container">
+                        <span class="line"><span class="lang-en">1. The Geo-economic Manoeuvre</span> <span class="lang-hi" lang="hi">1. भू-आर्थिक पैंतरेबाज़ी</span></span>
+                    </h2>
+                    <ul>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><span class="italic-bold-underline">Subtle but Potent Strategy:</span> The recall of highly skilled Chinese engineers from India's burgeoning electronics manufacturing sector is a calculated stratagem. It is not just a logistical move but a <strong>geo-economic manoeuvre</strong> aimed at hindering India's manufacturing ambitions.</span>
+                                <span class="lang-hi" lang="hi"><span class="italic-bold-underline">सूक्ष्म लेकिन प्रभावी रणनीति:</span> भारत के उभरते इलेक्ट्रॉनिक्स विनिर्माण क्षेत्र से अत्यधिक कुशल चीनी इंजीनियरों को वापस बुलाना एक सोची-समझी रणनीति है। यह सिर्फ़ एक लॉजिस्टिक कदम नहीं है, बल्कि एक <strong>भू-आर्थिक पैंतरेबाज़ी</strong> है जिसका उद्देश्य भारत की विनिर्माण महत्वाकांक्षाओं में बाधा डालना है।</span>
+                            </span>
+                        </li>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><span class="italic-bold-underline">Impeding Technology Transfer:</span> These engineers possess critical expertise in establishing production lines, optimizing efficiency, and troubleshooting complex manufacturing processes. Their sudden withdrawal represents a deliberate impediment to the crucial <strong>transfer of technology and know-how</strong>, which is essential for India to build a self-reliant high-value manufacturing base.</span>
+                                <span class="lang-hi" lang="hi"><span class="italic-bold-underline">प्रौद्योगिकी हस्तांतरण में बाधा:</span> इन इंजीनियरों के पास उत्पादन लाइनें स्थापित करने, दक्षता को अनुकूलित करने और जटिल विनिर्माण प्रक्रियाओं के समस्या निवारण में महत्वपूर्ण विशेषज्ञता है। उनका अचानक पीछे हटना उस महत्वपूर्ण <strong>प्रौद्योगिकी और तकनीकी जानकारी के हस्तांतरण</strong> में एक जानबूझकर बाधा उत्पन्न करता है, जो भारत के लिए एक आत्मनिर्भर उच्च-मूल्य विनिर्माण आधार बनाने हेतु आवश्यक है।</span>
+                            </span>
+                        </li>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><span class="italic-bold-underline">Weaponizing Economic Dominance:</span> China has a multi-pronged strategy to maintain its "unipolar Asia" economic hegemony:</span>
+                                <span class="lang-hi" lang="hi"><span class="italic-bold-underline">आर्थिक प्रभुत्व का शस्त्रीकरण:</span> चीन के पास अपने "एकध्रुवीय एशिया" आर्थिक आधिपत्य को बनाए रखने के लिए एक बहुआयामी रणनीति है:</span>
+                            </span>
+                            <ul>
+                                <li class="line-container">
+                                    <span class="line">
+                                        <span class="lang-en"><strong>Rare Earths and Critical Minerals:</strong> Restricting the export of rare earths (e.g., gallium, germanium), rare earth magnets, and other critical minerals essential for high-tech industries like electric vehicles and electronics.</span>
+                                        <span class="lang-hi" lang="hi"><strong>दुर्लभ मृदा और महत्वपूर्ण खनिज:</strong> दुर्लभ मृदा (जैसे, गैलियम, जर्मेनियम), दुर्लभ मृदा चुम्बक, और इलेक्ट्रिक वाहनों और इलेक्ट्रॉनिक्स जैसे उच्च-तकनीकी उद्योगों के लिए आवश्यक अन्य महत्वपूर्ण खनिजों के निर्यात पर प्रतिबंध लगाना।</span>
+                                    </span>
+                                </li>
+                                <li class="line-container">
+                                    <span class="line">
+                                        <span class="lang-en"><strong>Capital Equipment:</strong> Imposing informal trade restrictions and administrative delays on the export of high-end manufacturing equipment, such as heavy-duty boring machines and solar equipment, to India.</span>
+                                        <span class="lang-hi" lang="hi"><strong>पूंजीगत उपकरण:</strong> भारत को उच्च-स्तरीय विनिर्माण उपकरणों, जैसे कि भारी-भरकम बोरिंग मशीनों और सौर उपकरणों, के निर्यात पर अनौपचारिक व्यापार प्रतिबंध और प्रशासनिक विलंब लगाना।</span>
+                                    </span>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><span class="italic-bold-underline">Maintaining Dependency:</span> These actions are designed to keep India dependent on Chinese inputs and prevent it from becoming a formidable manufacturing competitor, especially in the high-stakes electronics and emerging technology sectors.</span>
+                                <span class="lang-hi" lang="hi"><span class="italic-bold-underline">निर्भरता बनाए रखना:</span> ये कदम भारत को चीनी इनपुट पर निर्भर बनाए रखने और उसे एक मज़बूत विनिर्माण प्रतिस्पर्धी बनने से रोकने के लिए डिज़ाइन किए गए हैं, विशेष रूप से उच्च-दांव वाले इलेक्ट्रॉनिक्स और उभरते प्रौद्योगिकी क्षेत्रों में।</span>
+                            </span>
+                        </li>
+                    </ul>
+                </section>
+
+                <hr>
+
+                <section>
+                    <h2 class="line-container">
+                        <span class="line"><span class="lang-en">2. China's Domestic Compulsions</span> <span class="lang-hi" lang="hi">2. चीन की घरेलू मजबूरियाँ</span></span>
+                    </h2>
+                    <ul>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><span class="italic-bold-underline">Structural Economic Challenges:</span> China faces significant domestic pressures that compel its aggressive export-oriented strategy.</span>
+                                <span class="lang-hi" lang="hi"><span class="italic-bold-underline">संरचनात्मक आर्थिक चुनौतियाँ:</span> चीन को गंभीर घरेलू दबावों का सामना करना पड़ रहा है जो उसे आक्रामक निर्यात-उन्मुख रणनीति अपनाने के लिए मजबूर कर रहे हैं।</span>
+                            </span>
+                            <ul>
+                                <li class="line-container">
+                                    <span class="line">
+                                        <span class="lang-en"><strong>Demographic Issues:</strong> An <strong>aging and shrinking population</strong>, a result of the one-child policy, is increasing social welfare and pension liabilities, putting immense pressure on the state's finances.</span>
+                                        <span class="lang-hi" lang="hi"><strong>जनसांख्यिकीय मुद्दे:</strong> एक-संतान नीति के परिणामस्वरूप <strong>वृद्ध और घटती जनसंख्या</strong>, सामाजिक कल्याण और पेंशन देनदारियों को बढ़ा रही है, जिससे राज्य की वित्तीय स्थिति पर भारी दबाव पड़ रहा है।</span>
+                                    </span>
+                                </li>
+                                <li class="line-container">
+                                    <span class="line">
+                                        <span class="lang-en"><strong>Economic Stagnation:</strong> A prolonged property crisis has eroded wealth, and weak domestic consumption has resulted in <strong>industrial overcapacity</strong>.</span>
+                                        <span class="lang-hi" lang="hi"><strong>आर्थिक स्थिरता:</strong> लंबे समय से चले आ रहे संपत्ति संकट ने धन का क्षरण किया है, और कमजोर घरेलू खपत के परिणामस्वरूप <strong>औद्योगिक अति-क्षमता</strong> हुई है।</span>
+                                    </span>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><span class="italic-bold-underline">Overcapacity and Export Dependency:</span> China's large trade surplus is a symptom of this imbalance. With insufficient internal demand, Chinese enterprises are forced to aggressively depress prices and flood international markets to remain solvent.</span>
+                                <span class="lang-hi" lang="hi"><span class="italic-bold-underline">अति-क्षमता और निर्यात पर निर्भरता:</span> चीन का विशाल व्यापार अधिशेष इस असंतुलन का एक लक्षण है। अपर्याप्त आंतरिक माँग के कारण, चीनी उद्यमों को वित्तीय रूप से स्थिर बने रहने के लिए कीमतों को आक्रामक रूप से कम करने और अंतर्राष्ट्रीय बाजारों में बाढ़ लाने के लिए मजबूर होना पड़ता है।</span>
+                            </span>
+                        </li>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><span class="italic-bold-underline">Safeguarding Internal Stability:</span> Any reduction in export revenues would directly impact Beijing's ability to fund domestic security and military expenditure, potentially leading to social instability. Therefore, stymieing competition from emerging players like India is not just a geopolitical rivalry but a necessity for China's internal stability.</span>
+                                <span class="lang-hi" lang="hi"><span class="italic-bold-underline">आंतरिक स्थिरता की रक्षा:</span> निर्यात राजस्व में किसी भी तरह की कमी का सीधा असर बीजिंग की घरेलू सुरक्षा और सैन्य व्यय को वित्तपोषित करने की क्षमता पर पड़ेगा, जिससे सामाजिक अस्थिरता पैदा हो सकती है। इसलिए, भारत जैसे उभरते हुए खिलाड़ियों से प्रतिस्पर्धा को रोकना सिर्फ़ भू-राजनीतिक प्रतिद्वंद्विता ही नहीं, बल्कि चीन की आंतरिक स्थिरता के लिए भी ज़रूरी है।</span>
+                            </span>
+                        </li>
+                    </ul>
+                </section>
+
+                <hr>
+
+                <section>
+                    <h2 class="line-container">
+                        <span class="line"><span class="lang-en">3. India's Strengths and Challenges</span> <span class="lang-hi" lang="hi">3. भारत की ताकतें और चुनौतियाँ</span></span>
+                    </h2>
+                    <ul>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><span class="italic-bold-underline">China's Systemic Dominance:</span> China's manufacturing pre-eminence is systemic, covering critical and emerging sectors like AI, quantum computing, 6G, and electric vehicles. China doesn't just export goods; it controls the global supply chains for these technologies.</span>
+                                <span class="lang-hi" lang="hi"><span class="italic-bold-underline">चीन का व्यवस्थित प्रभुत्व:</span> चीन का विनिर्माण क्षेत्र में प्रभुत्व व्यवस्थित है, जिसमें एआई, क्वांटम कंप्यूटिंग, 6जी और इलेक्ट्रिक वाहन जैसे महत्वपूर्ण और उभरते क्षेत्र शामिल हैं। चीन सिर्फ़ वस्तुओं का निर्यात ही नहीं करता; बल्कि इन तकनीकों की वैश्विक आपूर्ति श्रृंखलाओं को भी नियंत्रित करता है।</span>
+                            </span>
+                        </li>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><span class="italic-bold-underline">Weaponizing Overcapacity:</span> China uses its overcapacity as a strategic tool for <strong>price suppression and market capture</strong>, exemplified by companies like BYD aggressively pricing electric vehicles to stifle nascent competition.</span>
+                                <span class="lang-hi" lang="hi"><span class="italic-bold-underline">अतिक्षमता का हथियार बनाना:</span> चीन अपनी अतिक्षमता का इस्तेमाल <strong>कीमतों को दबाने और बाज़ार पर कब्ज़ा करने</strong> के लिए एक रणनीतिक हथियार के रूप में करता है, जिसका उदाहरण BYD जैसी कंपनियाँ उभरती प्रतिस्पर्धा को दबाने के लिए इलेक्ट्रिक वाहनों की आक्रामक कीमतें तय करती हैं।</span>
+                            </span>
+                        </li>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><span class="italic-bold-underline">India's Nascent Ecosystem:</span> Despite its aspirations, India's manufacturing ecosystem is still underdeveloped.</span>
+                                <span class="lang-hi" lang="hi"><span class="italic-bold-underline">भारत का उभरता हुआ पारिस्थितिकी तंत्र:</span> अपनी आकांक्षाओं के बावजूद, भारत का विनिर्माण पारिस्थितिकी तंत्र अभी भी अविकसित है।</span>
+                                <ul>
+                                    <li class="line-container">
+                                        <span class="line">
+                                            <span class="lang-en"><strong>Infrastructure Deficiencies:</strong> Persistent issues with infrastructure, bureaucratic red tape, and a lack of skilled labor are major hurdles.</span>
+                                            <span class="lang-hi" lang="hi"><strong>बुनियादी ढाँचे की कमियाँ:</strong> बुनियादी ढाँचे से जुड़ी लगातार समस्याएँ, नौकरशाही की लालफीताशाही और कुशल श्रम की कमी प्रमुख बाधाएँ हैं।</span>
+                                        </span>
+                                    </li>
+                                    <li class="line-container">
+                                        <span class="line">
+                                            <span class="lang-en"><strong>Component Dependency:</strong> India remains heavily reliant on imports for crucial components like chips, semiconductors, and engines, even for basic "screwdriver technology" or assembly. This reliance makes the "Make in India" initiative vulnerable to external shocks.</span>
+                                            <span class="lang-hi" lang="hi"><strong>घटकों पर निर्भरता:</strong> भारत चिप्स, सेमीकंडक्टर और इंजन जैसे महत्वपूर्ण घटकों के लिए, यहाँ तक कि बुनियादी "स्क्रूड्राइवर तकनीक" या असेंबली के लिए भी, आयात पर बहुत अधिक निर्भर है। यह निर्भरता "मेक इन इंडिया" पहल को बाहरी झटकों के प्रति संवेदनशील बनाती है।</span>
+                                        </span>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><span class="italic-bold-underline">The US Tariff Factor:</span> The recent imposition of US tariffs on Indian goods, while China enjoys an exemption, undermines the "friend-shoring" narrative and highlights the need for India to build genuine <strong>strategic autonomy</strong> rather than relying on partnerships that can be fragile.</span>
+                                <span class="lang-hi" lang="hi"><span class="italic-bold-underline">अमेरिकी टैरिफ कारक:</span> हाल ही में भारतीय वस्तुओं पर अमेरिकी टैरिफ लगाए जाने से, जबकि चीन को छूट प्राप्त है, "मित्र-तटस्थता" की अवधारणा कमजोर होती है और भारत के लिए वास्तविक <strong>रणनीतिक स्वायत्तता</strong> बनाने की आवश्यकता पर प्रकाश डाला गया है, बजाय इसके कि वह ऐसी साझेदारियों पर निर्भर रहे जो नाजुक हो सकती हैं।</span>
+                            </span>
+                        </li>
+                    </ul>
+                </section>
+
+                <hr>
+
+                <section>
+                    <h2 class="line-container">
+                        <span class="line"><span class="lang-en">4. Way Forward / UPSC Mains Perspective</span> <span class="lang-hi" lang="hi">4. आगे की राह / यूपीएससी मुख्य परीक्षा का परिप्रेक्ष्य</span></span>
+                    </h2>
+                    <ul>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><span class="italic-bold-underline">Self-Reliance and Technology Transfer:</span> India must prioritize creating an environment that fosters <strong>indigenous technology development</strong> and reduces dependence on foreign know-how. This requires significant investment in Research and Development (R&D) and a focus on building a robust ecosystem for high-tech manufacturing.</span>
+                                <span class="lang-hi" lang="hi"><span class="italic-bold-underline">आत्मनिर्भरता और प्रौद्योगिकी हस्तांतरण:</span> भारत को एक ऐसा वातावरण बनाने को प्राथमिकता देनी चाहिए जो <strong>स्वदेशी प्रौद्योगिकी विकास</strong> को बढ़ावा दे और विदेशी तकनीकी ज्ञान पर निर्भरता कम करे। इसके लिए अनुसंधान एवं विकास (आरएंडडी) में महत्वपूर्ण निवेश और उच्च तकनीक निर्माण के लिए एक मजबूत पारिस्थितिकी तंत्र के निर्माण पर ध्यान केंद्रित करने की आवश्यकता है।</span>
+                            </span>
+                        </li>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><span class="italic-bold-underline">Diplomatic and Economic Strategy:</span> India needs to develop a nuanced and assertive strategy to counter China's geo-economic moves. This involves:</span>
+                                <span class="lang-hi" lang="hi"><span class="italic-bold-underline">कूटनीतिक और आर्थिक रणनीति:</span> भारत को चीन के भू-आर्थिक कदमों का मुकाबला करने के लिए एक सूक्ष्म और दृढ़ रणनीति विकसित करने की आवश्यकता है। इसमें शामिल हैं:</span>
+                                <ul>
+                                    <li class="line-container">
+                                        <span class="line">
+                                            <span class="lang-en">Proactive engagement in international forums to address China's informal trade restrictions.</span>
+                                            <span class="lang-hi" lang="hi">चीन के अनौपचारिक व्यापार प्रतिबंधों का समाधान करने के लिए अंतर्राष्ट्रीय मंचों पर सक्रिय भागीदारी।</span>
+                                        </span>
+                                    </li>
+                                    <li class="line-container">
+                                        <span class="line">
+                                            <span class="lang-en">Strengthening trade relations with a diverse range of countries to reduce dependency on any single nation.</span>
+                                            <span class="lang-hi" lang="hi">किसी एक देश पर निर्भरता कम करने के लिए विविध देशों के साथ व्यापार संबंधों को मजबूत करना।</span>
+                                        </span>
+                                    </li>
+                                    <li class="line-container">
+                                        <span class="line">
+                                            <span class="lang-en">Leveraging its position as a major consumer market to attract foreign investment and technology transfer.</span>
+                                            <span class="lang-hi" lang="hi">विदेशी निवेश और प्रौद्योगिकी हस्तांतरण को आकर्षित करने के लिए एक प्रमुख उपभोक्ता बाजार के रूप में अपनी स्थिति का लाभ उठाना।</span>
+                                        </span>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><span class="italic-bold-underline">Domestic Reforms:</span> To be a credible competitor, India needs to address its internal weaknesses. This includes:</span>
+                                <span class="lang-hi" lang="hi"><span class="italic-bold-underline">घरेलू सुधार:</span> एक विश्वसनीय प्रतियोगी बनने के लिए, भारत को अपनी आंतरिक कमजोरियों को दूर करने की आवश्यकता है। इसमें शामिल हैं:</span>
+                                <ul>
+                                    <li class="line-container">
+                                        <span class="line">
+                                            <span class="lang-en">Expediting infrastructure projects and simplifying bureaucratic processes.</span>
+                                            <span class="lang-hi" lang="hi">बुनियादी ढांचा परियोजनाओं में तेजी लाना और नौकरशाही प्रक्रियाओं को सरल बनाना।</span>
+                                        </span>
+                                    </li>
+                                    <li class="line-container">
+                                        <span class="line">
+                                            <span class="lang-en">Investing heavily in <strong>skill development</strong> and vocational training to create a workforce capable of handling advanced manufacturing.</span>
+                                            <span class="lang-hi" lang="hi">उन्नत विनिर्माण को संभालने में सक्षम कार्यबल तैयार करने के लिए <strong>कौशल विकास</strong> और व्यावसायिक प्रशिक्षण में भारी निवेश।</span>
+                                        </span>
+                                    </li>
+                                    <li class="line-container">
+                                        <span class="line">
+                                            <span class="lang-en">Formulating long-term policies that promote innovation and private sector participation in high-tech manufacturing.</span>
+                                            <span class="lang-hi" lang="hi">उच्च तकनीक विनिर्माण में नवाचार और निजी क्षेत्र की भागीदारी को बढ़ावा देने वाली दीर्घकालिक नीतियाँ तैयार करना।</span>
+                                        </span>
+                                    </li>
+                                </ul>
+                        </li>
+                    </ul>
+                </section>
+
+                <hr>
+
+                <section>
+                    <h2 class="line-container">
+                        <span class="line"><span class="lang-en">5. Potential UPSC Questions</span> <span class="lang-hi" lang="hi">5. संभावित यूपीएससी प्रश्न</span></span>
+                    </h2>
+                    
+                    <h3>
+                        <span class="line"><span class="lang-en">Prelims:</span> <span class="lang-hi" lang="hi">प्रारंभिक परीक्षा:</span></span>
+                    </h3>
+                    <ul class="prelims-list">
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en">1. Which of the following is a critical mineral whose export from China is being informally restricted to India?<br>a) <strong>Gallium</strong><br>b) Iron ore<br>c) Bauxite<br>d) Coal</span>
+                                <span class="lang-hi" lang="hi">1. निम्नलिखित में से कौन सा एक महत्वपूर्ण खनिज है जिसका चीन से निर्यात अनौपचारिक रूप से भारत तक सीमित है?<br>क) <strong>गैलियम</strong><br>ख) लौह अयस्क<br>ग) बॉक्साइट<br>घ) कोयला</span>
+                            </span>
+                        </li>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en">2. What is "friend-shoring"?<br>a) A trade policy where a country increases imports from its allies.<br>b) <strong>A strategy to relocate supply chains to politically friendly countries.</strong><br>c) A military alliance focused on maritime security.<br>d) A form of cultural exchange between allied nations.</span>
+                                <span class="lang-hi" lang="hi">2. "फ्रेंड-शोरिंग" क्या है?<br>क) एक व्यापार नीति जिसमें कोई देश अपने सहयोगियों से आयात बढ़ाता है।<br>ख) <strong>आपूर्ति श्रृंखलाओं को राजनीतिक रूप से मित्र देशों में स्थानांतरित करने की रणनीति।</strong><br>ग) समुद्री सुरक्षा पर केंद्रित एक सैन्य गठबंधन।<br>घ) सहयोगी देशों के बीच सांस्कृतिक आदान-प्रदान का एक रूप।</span>
+                            </span>
+                        </li>
+                    </ul>
+
+                    <h3>
+                        <span class="line"><span class="lang-en">Mains:</span> <span class="lang-hi" lang="hi">मुख्य परीक्षा:</span></span>
+                    </h3>
+                    <ul class="mains-list">
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en">1. "China's multi-pronged geo-economic strategy is a direct challenge to India's manufacturing ambitions." In light of the recent withdrawal of Chinese engineers from Foxconn, analyze the key components of China's strategy and the vulnerabilities of India's manufacturing sector.</span>
+                                <span class="lang-hi" lang="hi">1. "चीन की बहुआयामी भू-आर्थिक रणनीति भारत की विनिर्माण महत्वाकांक्षाओं के लिए एक सीधी चुनौती है।" फॉक्सकॉन से चीनी इंजीनियरों की हालिया वापसी के आलोक में, चीन की रणनीति के प्रमुख घटकों और भारत के विनिर्माण क्षेत्र की कमज़ोरियों का विश्लेषण कीजिए।</span>
+                            </span>
+                        </li>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en">2. Critically examine the statement: "For India, China's economic behavior is not just a geopolitical rivalry but a reflection of its profound domestic compulsions." What lessons can India learn from this and how should it shape its response?</span>
+                                <span class="lang-hi" lang="hi">2. इस कथन का आलोचनात्मक परीक्षण कीजिए: "भारत के लिए, चीन का आर्थिक व्यवहार केवल एक भू-राजनीतिक प्रतिद्वंद्विता नहीं है, बल्कि उसकी गहन घरेलू मजबूरियों का प्रतिबिंब है।" भारत इससे क्या सबक सीख सकता है और उसे अपनी प्रतिक्रिया कैसे तैयार करनी चाहिए?</span>
+                            </span>
+                        </li>
+                    </ul>
+                </section>
+            </section>
+            
+            <div class="contact-us">
+                <p>For any queries, contact us on <a href="https://wa.me/+918168305050" target="_blank" rel="noopener noreferrer">+91-8168305050</a></p>
+            </div>
+            
+        </article>
+        <div class="button-container">
+            <a href="index.html" class="back-to-home">Back to Home</a>
+        </div>
+    </main>
+    <button id="scroll-top" title="Go to top">&#9650;</button>
+
+    <footer>
+        <p>© 2025 Crack Current Affairs (CrackCA). All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Read Time Calculation
+        function calculateReadTime() {
+            const englishContent = document.querySelectorAll('.lang-en');
+            let wordCount = 0;
+            englishContent.forEach(el => {
+                wordCount += el.textContent.split(/\s+/).length;
+            });
+            const readTime = Math.ceil(wordCount / 200);
+            document.getElementById('read-time').textContent = readTime;
+        }
+
+        // Language Switch
+        function toggleLanguage() {
+            const isEnglish = document.querySelector('.lang-en').style.display !== 'none';
+            const langEn = document.querySelectorAll('.lang-en');
+            const langHi = document.querySelectorAll('.lang-hi');
+            const button = document.querySelector('.lang-switch');
+
+            if (isEnglish) {
+                langEn.forEach(el => el.style.display = 'none');
+                langHi.forEach(el => el.style.display = 'block');
+                button.textContent = 'Switch to English';
+            } else {
+                langEn.forEach(el => el.style.display = 'block');
+                langHi.forEach(el => el.style.display = 'none');
+                button.textContent = 'Switch to Hindi';
+            }
+        }
+
+        // Scroll to Top Button
+        const scrollTopBtn = document.getElementById('scroll-top');
+        window.onscroll = function() {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                scrollTopBtn.style.display = 'block';
+            } else {
+                scrollTopBtn.style.display = 'none';
+            }
+        };
+
+        scrollTopBtn.addEventListener('click', function() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        });
+
+        // Dark Mode Toggle
+        const darkModeBtn = document.getElementById('toggle-dark-mode');
+        darkModeBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            if (document.body.classList.contains('dark-mode')) {
+                darkModeBtn.textContent = 'Light Mode';
+            } else {
+                darkModeBtn.textContent = 'Dark Mode';
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            calculateReadTime();
+            // Initially, show English and hide Hindi
+            const langHi = document.querySelectorAll('.lang-hi');
+            langHi.forEach(el => el.style.display = 'none');
+        });
+    </script>
+</body>
+</html>

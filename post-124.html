@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Hindu - 07-Aug-25</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #004d40;
+            --secondary-color: #e0f2f1;
+            --accent-color: #ff6f00;
+            --text-color: #333;
+            --text-light: #555;
+            --border-color: #bdbdbd;
+            --hover-bg: #e8f5e9;
+            --background-color: #f4f7f6;
+            --article-bg: white;
+            --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .dark-mode {
+            --primary-color: #80cbc4;
+            --secondary-color: #004d40;
+            --accent-color: #ffb74d;
+            --text-color: #e0f2f1;
+            --text-light: #b2dfdb;
+            --border-color: #555;
+            --hover-bg: #00695c;
+            --background-color: #212121;
+            --article-bg: #424242;
+            --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            line-height: 1.6;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 5%;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+        }
+
+        nav {
+            background-color: var(--primary-color);
+            padding: 0.5rem 5%;
+            border-bottom: 2px solid var(--accent-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.5rem 0.8rem;
+            display: block;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: var(--accent-color);
+            border-radius: 5px;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 5%;
+        }
+
+        article {
+            background-color: var(--article-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .article-meta {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1rem;
+        }
+
+        .article-title {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+            font-family: 'Merriweather', serif;
+        }
+
+        .read-time {
+            font-style: italic;
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            font-family: 'Noto Sans', sans-serif;
+            margin-bottom: 1rem;
+        }
+
+        section {
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        h2, h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 10px;
+        }
+        
+        .line-container {
+            margin-bottom: 1rem;
+        }
+
+        p, ul {
+            margin-bottom: 0;
+        }
+        
+        .line {
+            display: inline-block;
+            padding: 0.5rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        .line:hover {
+            background-color: var(--hover-bg);
+            cursor: default;
+        }
+
+        .lang-en {
+            display: block;
+        }
+        
+        .lang-hi {
+            display: none;
+        }
+
+        strong {
+            color: var(--accent-color);
+        }
+        
+        .italic-bold-underline {
+            font-style: italic;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: var(--primary-color);
+            color: white;
+            margin-top: 2rem;
+        }
+
+        #scroll-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: none;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            transition: background-color 0.3s;
+        }
+
+        #scroll-top:hover {
+            background-color: #e65100;
+        }
+        
+        .contact-us {
+            margin-top: 2rem;
+            padding: 1rem;
+            background-color: var(--secondary-color);
+            border-radius: 8px;
+            text-align: center;
+            font-style: italic;
+        }
+        .contact-us a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-us a:hover {
+            text-decoration: underline;
+        }
+        
+        .button-container {
+            text-align: center;
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .back-to-home, .lang-switch, #toggle-dark-mode {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: white;
+            background-color: var(--primary-color);
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .back-to-home:hover, .lang-switch:hover, #toggle-dark-mode:hover {
+            background-color: var(--accent-color);
+        }
+
+        .prelims-list, .mains-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .prelims-list li, .mains-list li {
+            margin-bottom: 0.5rem;
+            background-color: var(--secondary-color);
+            padding: 10px;
+            border-radius: 5px;
+            border-left: 3px solid var(--accent-color);
+        }
+
+        .prelims-list li:hover, .mains-list li:hover {
+            background-color: var(--hover-bg);
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.2rem;
+            }
+
+            .article-title {
+                font-size: 2rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav a {
+                padding: 0.5rem;
+            }
+
+            article {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>07-August-2025</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+            <li><a href="donation.html">Donation</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="button-container">
+            <button class="lang-switch" onclick="toggleLanguage()">Switch to Hindi</button>
+            <button id="toggle-dark-mode">Dark Mode</button>
+        </div>
+        <article>
+            <div class="article-meta">
+                <h1 class="article-title">Supreme Court Seeks ECI Response on Bihar Voter Deletions</h1>
+                <p>Source: The Hindu | Publication Date: 07-August-2025</p>
+                <p class="read-time">Estimated Read Time: <span id="read-time"></span> minutes</p>
+            </div>
+            
+            <section id="content">
+                <h2 class="line-container">
+                    <span class="line"><span class="lang-en">1. Why in News?</span> <span class="lang-hi" lang="hi">1. चर्चा में क्यों?</span></span>
+                </h2>
+                <p class="line-container">
+                    <span class="line">
+                        <span class="lang-en">The Supreme Court has asked the Election Commission of India (ECI) to provide a detailed response regarding the deletion of approximately <strong>65 lakh voters</strong> from the draft electoral rolls for Bihar. The draft roll, a part of a special intensive revision (SIR) exercise, was published on August 1. An application filed by the NGO, Association for Democratic Reforms (ADR), alleges that the ECI has not provided specific reasons for each deletion, raising concerns about potential disenfranchisement.</span>
+                        <span class="lang-hi" lang="hi">सुप्रीम कोर्ट ने भारत के चुनाव आयोग (ECI) से बिहार की मतदाता सूची के मसौदे से लगभग <strong>65 लाख मतदाताओं</strong> के नाम हटाए जाने के संबंध में विस्तृत जवाब मांगा है। यह मसौदा सूची, विशेष गहन पुनरीक्षण (SIR) प्रक्रिया का एक हिस्सा है और 1 अगस्त को प्रकाशित की गई थी। गैर-सरकारी संगठन, एसोसिएशन फॉर डेमोक्रेटिक रिफॉर्म्स (ADR) द्वारा दायर एक आवेदन में आरोप लगाया गया है कि चुनाव आयोग ने प्रत्येक नाम हटाने के लिए विशिष्ट कारण नहीं बताए हैं, जिससे संभावित रूप से मताधिकार से वंचित होने की चिंताएँ पैदा हो रही हैं।</span>
+                    </span>
+                </p>
+
+                <hr>
+
+                <section>
+                    <h2 class="line-container">
+                        <span class="line"><span class="lang-en">2. Background</span> <span class="lang-hi" lang="hi">2. पृष्ठभूमि</span></span>
+                    </h2>
+                    <p class="line-container">
+                        <span class="line">
+                            <span class="lang-en"><span class="italic-bold-underline">Special Intensive Revision (SIR):</span> Ahead of the upcoming assembly elections, the ECI initiated a special intensive revision of electoral rolls in Bihar. This exercise aimed to create a more accurate and updated voter list by verifying details and removing names of deceased, permanently migrated, or duplicate voters.</span>
+                            <span class="lang-hi" lang="hi"><span class="italic-bold-underline">विशेष गहन पुनरीक्षण (SIR):</span> आगामी विधानसभा चुनावों से पहले, चुनाव आयोग ने बिहार में मतदाता सूची का एक विशेष गहन पुनरीक्षण शुरू किया। इस प्रक्रिया का उद्देश्य विवरणों का सत्यापन करके और मृत, स्थायी रूप से विस्थापित, या डुप्लिकेट मतदाताओं के नाम हटाकर एक अधिक सटीक और अद्यतन मतदाता सूची तैयार करना था।</span>
+                        </span>
+                    </p>
+                    <p class="line-container">
+                        <span class="line">
+                            <span class="lang-en"><span class="italic-bold-underline">Draft Electoral Roll:</span> As a result of this exercise, a draft electoral roll was published on August 1. It included about 7.24 crore voters, a significant decrease from the previous total. The ECI stated that approximately 65 lakh names were omitted from the draft roll.</span>
+                            <span class="lang-hi" lang="hi"><span class="italic-bold-underline">ड्राफ्ट मतदाता सूची:</span> इस प्रक्रिया के परिणामस्वरूप, 1 अगस्त को एक ड्राफ्ट मतदाता सूची प्रकाशित की गई। इसमें लगभग 7.24 करोड़ मतदाता शामिल थे, जो पिछली कुल संख्या से काफ़ी कम है। चुनाव आयोग ने कहा कि ड्राफ्ट सूची से लगभग 65 लाख नाम हटा दिए गए थे।</span>
+                        </span>
+                    </p>
+                    <p class="line-container">
+                        <span class="line">
+                            <span class="lang-en"><span class="italic-bold-underline">Petitioner's Grievance:</span> The Association for Democratic Reforms (ADR), represented by advocate Prashant Bhushan, filed an application with the Supreme Court. ADR argued that while the ECI provided general reasons for the deletions (such as death, migration, or duplication), it failed to disclose the specific reason for each individual deletion. This lack of transparency, they claimed, makes it impossible for the public, political parties, and the affected individuals to verify the omissions and exercise their right to legal recourse.</span>
+                            <span class="lang-hi" lang="hi"><span class="italic-bold-underline">याचिकाकर्ता की शिकायत:</span> एसोसिएशन फॉर डेमोक्रेटिक रिफॉर्म्स (एडीआर), जिसका प्रतिनिधित्व अधिवक्ता प्रशांत भूषण कर रहे हैं, ने सर्वोच्च न्यायालय में एक आवेदन दायर किया। एडीआर ने तर्क दिया कि चुनाव आयोग ने नाम हटाने के सामान्य कारण (जैसे मृत्यु, प्रवास, या दोहराव) तो बताए, लेकिन प्रत्येक व्यक्तिगत नाम हटाने का विशिष्ट कारण बताने में विफल रहा। उन्होंने दावा किया कि पारदर्शिता की इस कमी के कारण जनता, राजनीतिक दलों और प्रभावित व्यक्तियों के लिए इन चूकों की पुष्टि करना और कानूनी सहायता के अपने अधिकार का प्रयोग करना असंभव हो जाता है।</span>
+                        </span>
+                    </p>
+                </section>
+
+                <hr>
+
+                <section>
+                    <h2 class="line-container">
+                        <span class="line"><span class="lang-en">3. Supreme Court's Verdict and Key Observations</span> <span class="lang-hi" lang="hi">3. सर्वोच्च न्यायालय का फैसला और मुख्य टिप्पणियाँ</span></span>
+                    </h2>
+                    <p class="line-container">
+                        <span class="line">
+                            <span class="lang-en">The Supreme Court, while hearing the application, directed the ECI to file a comprehensive response by Saturday, providing specific details. The matter is scheduled for a more detailed hearing on August 12.</span>
+                            <span class="lang-hi" lang="hi">आवेदन पर सुनवाई करते हुए, सर्वोच्च न्यायालय ने चुनाव आयोग को शनिवार तक एक विस्तृत जवाब दाखिल करने का निर्देश दिया, जिसमें विशिष्ट विवरण शामिल हों। इस मामले की विस्तृत सुनवाई 12 अगस्त को निर्धारित है।</span>
+                        </span>
+                    </p>
+                    
+                    <h3>
+                        <span class="line"><span class="lang-en">Key Observations:</span> <span class="lang-hi" lang="hi">मुख्य टिप्पणियाँ:</span></span>
+                    </h3>
+                    <ul>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><strong>Need for Specifics:</strong> The court acknowledged the petitioner's argument that the sheer number of omissions, without individual reasons, raised serious concerns about transparency and due process. The bench stated that the ECI should provide constituency-wise and booth-wise particulars for each of the 65 lakh deleted names.</span>
+                                <span class="lang-hi" lang="hi"><strong>विवरण की आवश्यकता:</strong> न्यायालय ने याचिकाकर्ता के इस तर्क को स्वीकार किया कि बिना किसी व्यक्तिगत कारण के इतनी बड़ी संख्या में नाम हटाए जाने से पारदर्शिता और उचित प्रक्रिया पर गंभीर चिंताएँ पैदा हुई हैं। पीठ ने कहा कि चुनाव आयोग को हटाए गए 65 लाख नामों में से प्रत्येक के लिए निर्वाचन क्षेत्रवार और बूथवार विवरण उपलब्ध कराना चाहिए।</span>
+                            </span>
+                        </li>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><strong>Voter's Right to Information:</strong> The court's directive is rooted in the principle that every voter has the right to know why their name has been removed from the electoral roll. This information is crucial for them to file claims and objections and seek reinstatement.</span>
+                                <span class="lang-hi" lang="hi"><strong>मतदाता का सूचना का अधिकार:</strong> न्यायालय का निर्देश इस सिद्धांत पर आधारित है कि प्रत्येक मतदाता को यह जानने का अधिकार है कि उसका नाम मतदाता सूची से क्यों हटाया गया है। यह जानकारी उनके लिए दावे और आपत्तियाँ दर्ज करने और पुनः नाम दर्ज कराने के लिए महत्वपूर्ण है।</span>
+                            </span>
+                        </li>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><strong>Political Parties' Role:</strong> The court also inquired about whether the ECI had provided the deletion lists to political parties at the block level, as per its own Standard Operating Procedures (SOPs). This suggests the court views political parties as a crucial mechanism for ground-level verification of the electoral rolls.</span>
+                                <span class="lang-hi" lang="hi"><strong>राजनीतिक दलों की भूमिका:</strong> न्यायालय ने यह भी पूछा कि क्या चुनाव आयोग ने अपनी मानक संचालन प्रक्रियाओं (एसओपी) के अनुसार, ब्लॉक स्तर पर राजनीतिक दलों को नाम हटाए जाने की सूचियाँ उपलब्ध कराई हैं। इससे पता चलता है कि न्यायालय राजनीतिक दलों को मतदाता सूची के जमीनी स्तर पर सत्यापन के लिए एक महत्वपूर्ण तंत्र मानता है।</span>
+                            </span>
+                        </li>
+                    </ul>
+                </section>
+
+                <hr>
+
+                <section>
+                    <h2 class="line-container">
+                        <span class="line"><span class="lang-en">4. Legal & Constitutional Aspects</span> <span class="lang-hi" lang="hi">4. कानूनी एवं संवैधानिक पहलू</span></span>
+                    </h2>
+                    <ul>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><strong>Article 324:</strong> The Supreme Court's action reinforces the constitutional mandate of the ECI under Article 324, which grants it the power of superintendence, direction, and control over the preparation of electoral rolls and the conduct of elections. However, this power must be exercised in a fair, just, and transparent manner.</span>
+                                <span class="lang-hi" lang="hi"><strong>अनुच्छेद 324:</strong> सर्वोच्च न्यायालय की यह कार्रवाई अनुच्छेद 324 के तहत चुनाव आयोग के संवैधानिक अधिकार को पुष्ट करती है, जो उसे मतदाता सूची तैयार करने और चुनाव संचालन पर अधीक्षण, निर्देशन और नियंत्रण की शक्ति प्रदान करता है। हालाँकि, इस शक्ति का प्रयोग निष्पक्ष, न्यायसंगत और पारदर्शी तरीके से किया जाना चाहिए।</span>
+                            </span>
+                        </li>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><strong>Representation of the People Act, 1950:</strong> This Act governs the preparation and revision of electoral rolls. The petition references Section 21A of the Registration of Voters Rules, which outlines the legal remedies available to a voter whose name is deleted. The petitioners argue that without a specific reason for deletion, these remedies become practically unavailable.</span>
+                                <span class="lang-hi" lang="hi"><strong>जन प्रतिनिधित्व अधिनियम, 1950:</strong> यह अधिनियम मतदाता सूची तैयार करने और संशोधन को नियंत्रित करता है। याचिका में मतदाता पंजीकरण नियमों की धारा 21ए का उल्लेख किया गया है, जो उस मतदाता के लिए उपलब्ध कानूनी उपायों की रूपरेखा प्रस्तुत करती है जिसका नाम हटा दिया जाता है। याचिकाकर्ताओं का तर्क है कि नाम हटाने का कोई विशिष्ट कारण बताए बिना, ये उपाय व्यावहारिक रूप से अनुपलब्ध हो जाते हैं।</span>
+                            </span>
+                        </li>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><strong>Right to Vote:</strong> The core of the matter revolves around the fundamental right to vote, which is a constitutional and legal right. Any process that could lead to mass disenfranchisement, even if unintentional, is a matter of grave concern for the judiciary. The court's intervention seeks to protect this fundamental right.</span>
+                                <span class="lang-hi" lang="hi"><strong>मतदान का अधिकार:</strong> इस मामले का मूल मुद्दा मतदान के मौलिक अधिकार के इर्द-गिर्द घूमता है, जो एक संवैधानिक और कानूनी अधिकार है। कोई भी प्रक्रिया जो बड़े पैमाने पर मताधिकार से वंचित कर सकती है, भले ही अनजाने में ही क्यों न हो, न्यायपालिका के लिए गंभीर चिंता का विषय है। न्यायालय का हस्तक्षेप इस मौलिक अधिकार की रक्षा के लिए है।</span>
+                            </span>
+                        </li>
+                    </ul>
+                </section>
+
+                <hr>
+
+                <section>
+                    <h2 class="line-container">
+                        <span class="line"><span class="lang-en">5. Ethical & Governance Implications</span> <span class="lang-hi" lang="hi">5. नैतिक और प्रशासनिक निहितार्थ</span></span>
+                    </h2>
+                    <ul>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><strong>Transparency and Accountability:</strong> The case highlights the importance of transparency in the functioning of a crucial constitutional body like the ECI. The withholding of specific data, even if for administrative reasons, can erode public trust and invite allegations of political bias.</span>
+                                <span class="lang-hi" lang="hi"><strong>पारदर्शिता और जवाबदेही:</strong> यह मामला चुनाव आयोग जैसी महत्वपूर्ण संवैधानिक संस्था के कामकाज में पारदर्शिता के महत्व को उजागर करता है। विशिष्ट डेटा को रोकना, भले ही प्रशासनिक कारणों से ही क्यों न हो, जनता के विश्वास को कम कर सकता है और राजनीतिक पूर्वाग्रह के आरोपों को जन्म दे सकता है।</span>
+                            </span>
+                        </li>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><strong>Protecting Vulnerable Voters:</strong> The petition also points out that the absence of a clear and accessible process for verification could disproportionately affect vulnerable groups, such as the poor, elderly, migrant workers, and those with limited access to information.</span>
+                                <span class="lang-hi" lang="hi"><strong>कमजोर मतदाताओं की सुरक्षा:</strong> याचिका में यह भी बताया गया है कि सत्यापन के लिए एक स्पष्ट और सुलभ प्रक्रिया का अभाव कमजोर समूहों, जैसे गरीब, बुजुर्ग, प्रवासी श्रमिक, और सूचना तक सीमित पहुँच वाले लोगों को असमान रूप से प्रभावित कर सकता है।</span>
+                            </span>
+                        </li>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><strong>Fair Elections:</strong> An accurate and inclusive electoral roll is the foundation of free and fair elections. Any perceived irregularity in the revision process can cast a shadow on the legitimacy of the entire election. The Supreme Court's intervention aims to safeguard the integrity of the electoral process.</span>
+                                <span class="lang-hi" lang="hi"><strong>निष्पक्ष चुनाव:</strong> एक सटीक और समावेशी मतदाता सूची स्वतंत्र और निष्पक्ष चुनावों की नींव है। संशोधन प्रक्रिया में किसी भी कथित अनियमितता से पूरे चुनाव की वैधता पर संदेह हो सकता है। सर्वोच्च न्यायालय के हस्तक्षेप का उद्देश्य चुनावी प्रक्रिया की अखंडता की रक्षा करना है।</span>
+                            </span>
+                        </li>
+                    </ul>
+                </section>
+
+                <hr>
+
+                <section>
+                    <h2 class="line-container">
+                        <span class="line"><span class="lang-en">6. Precedents and Related Issues</span> <span class="lang-hi" lang="hi">6. पूर्व उदाहरण और संबंधित मुद्दे</span></span>
+                    </h2>
+                    <ul>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><strong>Previous Supreme Court Directives:</strong> The Supreme Court has previously issued directives to the ECI to ensure that electoral rolls are inclusive and that due process is followed for all deletions. The court had earlier warned the ECI against <span class="italic-bold-underline">"mass exclusion"</span> and urged <span class="italic-bold-underline">"mass inclusion"</span> as the guiding principle for the revision exercise.</span>
+                                <span class="lang-hi" lang="hi"><strong>सुप्रीम कोर्ट के पूर्व निर्देश:</strong> सुप्रीम कोर्ट ने पहले भी चुनाव आयोग को निर्देश जारी किए हैं कि मतदाता सूचियाँ समावेशी हों और सभी विलोपनों के लिए उचित प्रक्रिया का पालन किया जाए। अदालत ने पहले चुनाव आयोग को <span class="italic-bold-underline">"बड़े पैमाने पर बहिष्करण"</span> के खिलाफ चेतावनी दी थी और संशोधन प्रक्रिया के लिए मार्गदर्शक सिद्धांत के रूप में <span class="italic-bold-underline">"बड़े पैमाने पर समावेश"</span> का आग्रह किया था।</span>
+                            </span>
+                        </li>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><strong>Linking Aadhaar with Voter ID:</strong> The debate around electoral roll revisions is often linked to the ECI's push to link Aadhaar with voter IDs to weed out duplicate entries. While the ECI argues this improves the accuracy of the roll, critics express concerns about privacy and potential misuse, as well as the possibility of genuine voters being struck off due to data mismatches.</span>
+                                <span class="lang-hi" lang="hi"><strong>आधार को मतदाता पहचान पत्र से जोड़ना:</strong> मतदाता सूची संशोधनों को लेकर बहस अक्सर चुनाव आयोग द्वारा आधार को मतदाता पहचान पत्र से जोड़ने के प्रयास से जुड़ी होती है ताकि डुप्लिकेट प्रविष्टियों को हटाया जा सके। चुनाव आयोग का तर्क है कि इससे सूची की सटीकता में सुधार होता है, लेकिन आलोचक गोपनीयता और संभावित दुरुपयोग के साथ-साथ डेटा बेमेल के कारण वास्तविक मतदाताओं के नाम कटने की संभावना को लेकर चिंता व्यक्त करते हैं।</span>
+                            </span>
+                        </li>
+                    </ul>
+                </section>
+
+                <hr>
+
+                <section>
+                    <h2 class="line-container">
+                        <span class="line"><span class="lang-en">7. Way Forward / UPSC Mains Perspective</span> <span class="lang-hi" lang="hi">7. आगे की राह / यूपीएससी मुख्य परीक्षा का परिप्रेक्ष्य</span></span>
+                    </h2>
+                    <ul>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><strong>Strengthening ECI's Administrative Machinery:</strong> The case underscores the need for the ECI to have a robust and transparent system for electoral roll management. This includes providing detailed, individualized reasons for any deletion and ensuring easy access to this information for citizens.</span>
+                                <span class="lang-hi" lang="hi"><strong>चुनाव आयोग की प्रशासनिक व्यवस्था को मज़बूत बनाना:</strong> यह मामला चुनाव आयोग के लिए मतदाता सूची प्रबंधन के लिए एक मज़बूत और पारदर्शी प्रणाली की आवश्यकता पर ज़ोर देता है। इसमें किसी भी नाम को हटाने के लिए विस्तृत, व्यक्तिगत कारण बताना और नागरिकों के लिए इस जानकारी तक आसान पहुँच सुनिश्चित करना शामिल है।</span>
+                            </span>
+                        </li>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><strong>Role of Civil Society and Political Parties:</strong> The role of NGOs like ADR and political parties in scrutinizing the electoral process is vital for democratic accountability. Their petitions and ground-level work act as a check on potential administrative lapses.</span>
+                                <span class="lang-hi" lang="hi"><strong>नागरिक समाज और राजनीतिक दलों की भूमिका:</strong> चुनावी प्रक्रिया की जाँच में एडीआर जैसे गैर-सरकारी संगठनों और राजनीतिक दलों की भूमिका लोकतांत्रिक जवाबदेही के लिए महत्वपूर्ण है। उनकी याचिकाएँ और ज़मीनी स्तर पर किया गया कार्य संभावित प्रशासनिक चूकों पर अंकुश लगाने का काम करता है।</span>
+                            </span>
+                        </li>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><strong>Legislative Reforms:</strong> The issue may necessitate legislative reforms to make the process of electoral roll revision more foolproof and transparent. It could involve specifying the documentation required, the process for verification, and the remedies available to citizens in a more explicit manner.</span>
+                                <span class="lang-hi" lang="hi"><strong>विधायी सुधार:</strong> मतदाता सूची संशोधन की प्रक्रिया को और अधिक विश्वसनीय और पारदर्शी बनाने के लिए इस मुद्दे पर विधायी सुधारों की आवश्यकता हो सकती है। इसमें आवश्यक दस्तावेज़ों, सत्यापन की प्रक्रिया और नागरिकों के लिए उपलब्ध उपायों को अधिक स्पष्ट रूप से निर्दिष्ट करना शामिल हो सकता है।</span>
+                            </span>
+                        </li>
+                    </ul>
+                </section>
+                
+                <hr>
+                
+                <section>
+                    <h2 class="line-container">
+                        <span class="line"><span class="lang-en">8. Potential UPSC Questions</span> <span class="lang-hi" lang="hi">8. संभावित यूपीएससी प्रश्न</span></span>
+                    </h2>
+                    
+                    <h3>
+                        <span class="line"><span class="lang-en">Prelims:</span> <span class="lang-hi" lang="hi">प्रारंभिक परीक्षा:</span></span>
+                    </h3>
+                    <ul class="prelims-list">
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en">1. Which article of the Indian Constitution gives the Election Commission of India the power of superintendence, direction, and control of the preparation of electoral rolls?
+                                    <br> a) Article 320 <br> b) <strong>Article 324</strong> <br> c) Article 326 <br> d) Article 329
+                                </span>
+                                <span class="lang-hi" lang="hi">1. भारतीय संविधान का कौन सा अनुच्छेद भारत के चुनाव आयोग को मतदाता सूची तैयार करने के अधीक्षण, निर्देशन और नियंत्रण की शक्ति प्रदान करता है?
+                                    <br> क) अनुच्छेद 320 <br> ख) <strong>अनुच्छेद 324</strong> <br> ग) अनुच्छेद 326 <br> घ) अनुच्छेद 329
+                                </span>
+                            </span>
+                        </li>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en">2. The Association for Democratic Reforms (ADR) is an NGO known for its work in:
+                                    <br> a) Environmental protection <br> b) <strong>Electoral reforms and political transparency</strong> <br> c) Human rights advocacy <br> d) Consumer protection
+                                </span>
+                                <span class="lang-hi" lang="hi">2. एसोसिएशन फॉर डेमोक्रेटिक रिफॉर्म्स (ADR) एक गैर-सरकारी संगठन है जो निम्नलिखित क्षेत्रों में अपने कार्यों के लिए जाना जाता है:
+                                    <br> क) पर्यावरण संरक्षण <br> ख) <strong>चुनावी सुधार और राजनीतिक पारदर्शिता</strong> <br> ग) मानवाधिकार वकालत <br> घ) उपभोक्ता संरक्षण
+                                </span>
+                            </span>
+                        </li>
+                    </ul>
+
+                    <h3>
+                        <span class="line"><span class="lang-en">Mains:</span> <span class="lang-hi" lang="hi">मुख्य परीक्षा:</span></span>
+                    </h3>
+                    <ul class="mains-list">
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en">1. "A transparent and inclusive electoral roll is the bedrock of a healthy democracy." In light of the recent Supreme Court intervention regarding the Bihar draft electoral rolls, discuss the challenges in maintaining an accurate voter list and suggest measures to ensure the integrity of the process.</span>
+                                <span class="lang-hi" lang="hi">1. "एक पारदर्शी और समावेशी मतदाता सूची एक स्वस्थ लोकतंत्र की आधारशिला है।" बिहार मसौदा मतदाता सूची के संबंध में हाल ही में सर्वोच्च न्यायालय के हस्तक्षेप के आलोक में, एक सटीक मतदाता सूची बनाए रखने में आने वाली चुनौतियों पर चर्चा कीजिए और प्रक्रिया की अखंडता सुनिश्चित करने के उपाय सुझाइए।</span>
+                            </span>
+                        </li>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en">2. Analyze the role of the Election Commission of India and the judiciary in safeguarding the right to vote. How can a balance be struck between the ECI's administrative autonomy and the judiciary's role as a protector of fundamental rights?</span>
+                                <span class="lang-hi" lang="hi">2. मतदान के अधिकार की रक्षा में भारत के चुनाव आयोग और न्यायपालिका की भूमिका का विश्लेषण कीजिए। भारत निर्वाचन आयोग की प्रशासनिक स्वायत्तता और मौलिक अधिकारों के रक्षक के रूप में न्यायपालिका की भूमिका के बीच संतुलन कैसे बनाया जा सकता है?</span>
+                            </span>
+                        </li>
+                    </ul>
+                </section>
+            </section>
+            
+            <div class="contact-us">
+                <p>For any queries, contact us on <a href="https://wa.me/+918168305050" target="_blank" rel="noopener noreferrer">+91-8168305050</a></p>
+            </div>
+            
+        </article>
+        <div class="button-container">
+            <a href="index.html" class="back-to-home">Back to Home</a>
+        </div>
+    </main>
+    <button id="scroll-top" title="Go to top">&#9650;</button>
+
+    <footer>
+        <p>© 2025 Crack Current Affairs (CrackCA). All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Read Time Calculation
+        function calculateReadTime() {
+            const englishContent = document.querySelectorAll('.lang-en');
+            let wordCount = 0;
+            englishContent.forEach(el => {
+                wordCount += el.textContent.split(/\s+/).length;
+            });
+            const readTime = Math.ceil(wordCount / 200);
+            document.getElementById('read-time').textContent = readTime;
+        }
+
+        // Language Switch
+        function toggleLanguage() {
+            const isEnglish = document.querySelector('.lang-en').style.display === 'block';
+            const langEn = document.querySelectorAll('.lang-en');
+            const langHi = document.querySelectorAll('.lang-hi');
+            const button = document.querySelector('.lang-switch');
+
+            if (isEnglish) {
+                langEn.forEach(el => el.style.display = 'none');
+                langHi.forEach(el => el.style.display = 'block');
+                button.textContent = 'Switch to English';
+            } else {
+                langEn.forEach(el => el.style.display = 'block');
+                langHi.forEach(el => el.style.display = 'none');
+                button.textContent = 'Switch to Hindi';
+            }
+        }
+
+        // Scroll to Top Button
+        const scrollTopBtn = document.getElementById('scroll-top');
+        window.onscroll = function() {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                scrollTopBtn.style.display = 'block';
+            } else {
+                scrollTopBtn.style.display = 'none';
+            }
+        };
+
+        scrollTopBtn.addEventListener('click', function() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        });
+
+        // Dark Mode Toggle
+        const darkModeBtn = document.getElementById('toggle-dark-mode');
+        darkModeBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            if (document.body.classList.contains('dark-mode')) {
+                darkModeBtn.textContent = 'Light Mode';
+            } else {
+                darkModeBtn.textContent = 'Dark Mode';
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            calculateReadTime();
+        });
+    </script>
+</body>
+</html>

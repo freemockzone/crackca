@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Hindu - 07-Aug-25</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #004d40;
+            --secondary-color: #e0f2f1;
+            --accent-color: #ff6f00;
+            --text-color: #333;
+            --text-light: #555;
+            --border-color: #bdbdbd;
+            --hover-bg: #e8f5e9;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body.dark-mode {
+            --primary-color: #80cbc4;
+            --secondary-color: #263238;
+            --accent-color: #ffa726;
+            --text-color: #e0e0e0;
+            --text-light: #bdbdbd;
+            --border-color: #455a64;
+            --hover-bg: #4db6ac;
+            background-color: #1e1e1e;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 5%;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+        }
+
+        nav {
+            background-color: var(--primary-color);
+            padding: 0.5rem 5%;
+            border-bottom: 2px solid var(--accent-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.5rem 0.8rem;
+            display: block;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: var(--accent-color);
+            border-radius: 5px;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 5%;
+        }
+
+        article {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-family: 'Merriweather', serif;
+            transition: background-color 0.3s;
+        }
+
+        body.dark-mode article {
+            background-color: var(--secondary-color);
+        }
+        
+        .article-meta {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1rem;
+        }
+
+        .article-title {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+            font-family: 'Merriweather', serif;
+        }
+
+        .read-time {
+            font-style: italic;
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            font-family: 'Noto Sans', sans-serif;
+            margin-bottom: 1rem;
+        }
+
+        section {
+            margin-bottom: 2rem;
+        }
+
+        section h2, section h3, section h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 10px;
+        }
+        
+        .line-container {
+            margin-bottom: 1rem;
+        }
+
+        p, ul {
+            margin-bottom: 0;
+        }
+        
+        .line {
+            display: inline-block;
+            padding: 0.5rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        .line:hover {
+            background-color: var(--hover-bg);
+            cursor: default;
+        }
+
+        .lang-en {
+            display: block;
+        }
+        
+        .lang-hi {
+            display: none;
+        }
+
+        strong {
+            color: var(--accent-color);
+        }
+        
+        .italic-bold-underline {
+            font-style: italic;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        .prelims-list, .mains-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .prelims-list li, .mains-list li {
+            margin-bottom: 0.5rem;
+            background-color: var(--secondary-color);
+            padding: 10px;
+            border-radius: 5px;
+            border-left: 3px solid var(--accent-color);
+        }
+
+        .prelims-list li:hover, .mains-list li:hover {
+            background-color: var(--hover-bg);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: var(--primary-color);
+            color: white;
+            margin-top: 2rem;
+        }
+
+        #scroll-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: none;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            transition: background-color 0.3s;
+        }
+
+        #scroll-top:hover {
+            background-color: #e65100;
+        }
+        
+        .contact-us {
+            margin-top: 2rem;
+            padding: 1rem;
+            background-color: var(--secondary-color);
+            border-radius: 8px;
+            text-align: center;
+            font-style: italic;
+        }
+        .contact-us a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-us a:hover {
+            text-decoration: underline;
+        }
+        
+        .button-container {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .back-to-home, .lang-switch {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: white;
+            background-color: var(--primary-color);
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            margin: 0 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .back-to-home:hover, .lang-switch:hover {
+            background-color: var(--accent-color);
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.2rem;
+            }
+
+            .article-title {
+                font-size: 2rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav a {
+                padding: 0.5rem;
+            }
+
+            article {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>07-August-2025</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+            <li><a href="donation.html">Donation</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <button class="lang-switch" onclick="toggleLanguage()">Switch to Hindi</button>
+        <article>
+            <div class="article-meta">
+                <h1 class="article-title">Supreme Court on Naming Schemes after Living Personalities</h1>
+                <p>Source: The Hindu | Publication Date: 07-August-2025</p>
+                <p class="read-time">Estimated Read Time: <span id="read-time"></span> minutes</p>
+            </div>
+            
+            <section id="content">
+                <p class="line-container">
+                    <span class="line"><span class="lang-en">Why in News?</span> <span class="lang-hi">ख़बरों में क्यों?</span></span>
+                </p>
+                <p class="line-container">
+                    <span class="line">
+                        <span class="lang-en">The Supreme Court recently <strong>set aside</strong> a Madras High Court order that had placed "sweeping restrictions" on the Tamil Nadu government, barring it from naming state welfare schemes after "any living personality." This ruling came in the context of a legal challenge to the state government's outreach program, <strong>'Ungaludan Stalin'</strong> (With You, Stalin), and its decision has significant implications for how governments brand and publicize their initiatives. 🏛️</span>
+                        <span class="lang-hi">सुप्रीम कोर्ट ने हाल ही में मद्रास हाई कोर्ट के उस आदेश को <strong>खारिज</strong> कर दिया, जिसने तमिलनाडु सरकार पर "व्यापक प्रतिबंध" लगा दिए थे और उसे "किसी भी जीवित व्यक्तित्व" के नाम पर राज्य की कल्याणकारी योजनाओं का नाम रखने से रोक दिया था। यह फैसला राज्य सरकार के जनसंपर्क कार्यक्रम, <strong>'उंगलुदन स्टालिन'</strong> (आपके साथ, स्टालिन) को दी गई कानूनी चुनौती के संदर्भ में आया था और इसके निर्णय का इस बात पर महत्वपूर्ण प्रभाव पड़ता है कि सरकारें अपनी पहल को कैसे ब्रांड और प्रचारित करती हैं। 🏛️</span>
+                    </span>
+                </p>
+
+                <hr>
+
+                <section>
+                    <h2 class="line-container">
+                        <span class="line"><span class="lang-en">Background</span> <span class="lang-hi">पृष्ठभूमि</span></span>
+                    </h2>
+                    <p class="line-container">
+                        <span class="line">
+                            <span class="lang-en"><span class="italic-bold-underline">Madras High Court's Order:</span> The Madras High Court, acting on a Public Interest Litigation (PIL) filed by AIADMK MP C.Ve. Shanmugam, had passed an interim order on July 31. This order prohibited the Tamil Nadu government from naming any new or rebranded welfare scheme after a living person and also barred the use of portraits of former Chief Ministers, ideological leaders, or party insignia in advertisements for these schemes.</span>
+                            <span class="lang-hi"><span class="italic-bold-underline">मद्रास हाई कोर्ट का आदेश:</span> एआईएडीएमके सांसद सी. वे. शनमुगम द्वारा दायर एक जनहित याचिका (पीआईएल) पर कार्रवाई करते हुए, मद्रास हाई कोर्ट ने 31 जुलाई को एक अंतरिम आदेश पारित किया था। इस आदेश ने तमिलनाडु सरकार को किसी भी नई या फिर से ब्रांडेड कल्याणकारी योजना का नाम किसी जीवित व्यक्ति के नाम पर रखने से रोक दिया था और इन योजनाओं के विज्ञापनों में पूर्व मुख्यमंत्रियों, वैचारिक नेताओं या पार्टी के प्रतीकों के चित्रों के उपयोग पर भी रोक लगा दी थी।</span>
+                        </span>
+                    </p>
+                    <p class="line-container">
+                        <span class="line">
+                            <span class="lang-en"><span class="italic-bold-underline">Petitioner's Contention:</span> The AIADMK MP argued that naming a government program after a living Chief Minister was a misuse of public funds for personal glorification and political mileage, violating previous Supreme Court directives and government advertisement guidelines.</span>
+                            <span class="lang-hi"><span class="italic-bold-underline">याचिकाकर्ता का तर्क:</span> एआईएडीएमके सांसद ने तर्क दिया कि किसी जीवित मुख्यमंत्री के नाम पर किसी सरकारी कार्यक्रम का नाम रखना व्यक्तिगत महिमामंडन और राजनीतिक लाभ के लिए सार्वजनिक धन का दुरुपयोग था, जो पिछले सुप्रीम कोर्ट के निर्देशों और सरकारी विज्ञापन दिशानिर्देशों का उल्लंघन था।</span>
+                        </span>
+                    </p>
+                    <p class="line-container">
+                        <span class="line">
+                            <span class="lang-en"><span class="italic-bold-underline">Government's Appeal:</span> The DMK, the ruling party in Tamil Nadu, and the state government appealed the High Court's decision to the Supreme Court. They contended that the order was an example of judicial overreach that impeded the functioning of an elected government and that similar practices were common across the country.</span>
+                            <span class="lang-hi"><span class="italic-bold-underline">सरकार की अपील:</span> तमिलनाडु में सत्तारूढ़ पार्टी, डीएमके, और राज्य सरकार ने हाई कोर्ट के फैसले के खिलाफ सुप्रीम कोर्ट में अपील की। उन्होंने तर्क दिया कि यह आदेश न्यायिक अतिरेक का एक उदाहरण था जिसने एक निर्वाचित सरकार के कामकाज में बाधा डाली और इसी तरह की प्रथाएं पूरे देश में आम थीं।</span>
+                        </span>
+                    </p>
+                </section>
+
+                <hr>
+
+                <section>
+                    <h2 class="line-container">
+                        <span class="line"><span class="lang-en">Supreme Court Verdict with Key Observations</span> <span class="lang-hi">सुप्रीम कोर्ट का फैसला और महत्वपूर्ण अवलोकन</span></span>
+                    </h2>
+                    <p class="line-container">
+                        <span class="line">
+                            <span class="lang-en">A three-Judge Bench headed by Chief Justice of India B.R. Gavai delivered the verdict, dismissing the original petition as "misconceived" and an "abuse of law." The court <strong>imposed a cost of ₹10 lakh</strong> on the petitioner, C.Ve. Shanmugam, to be paid to the state government for use in welfare programs.</span>
+                            <span class="lang-hi">भारत के मुख्य न्यायाधीश बी.आर. गवई की अध्यक्षता वाली तीन-न्यायाधीशों की पीठ ने फैसला सुनाया, जिसमें मूल याचिका को "भ्रमित" और "कानून का दुरुपयोग" कहकर खारिज कर दिया गया। अदालत ने याचिकाकर्ता, सी. वे. शनमुगम, पर <strong>₹10 लाख का जुर्माना</strong> लगाया, जिसे कल्याणकारी कार्यक्रमों में उपयोग के लिए राज्य सरकार को भुगतान किया जाना था।</span>
+                        </span>
+                    </p>
+                    
+                    <h4 class="line-container">
+                        <span class="line"><span class="lang-en">Key Observations:</span> <span class="lang-hi">मुख्य अवलोकन:</span></span>
+                    </h4>
+                    <ul>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><strong>Political Battles:</strong> The court reiterated the principle that "political battles should be settled before the electoral roll and courts should not be used for this."</span>
+                                <span class="lang-hi"><strong>राजनीतिक लड़ाई:</strong> अदालत ने इस सिद्धांत को दोहराया कि "राजनीतिक लड़ाई चुनावी मैदान में तय की जानी चाहिए और अदालतों का इस्तेमाल इसके लिए नहीं किया जाना चाहिए।"</span>
+                            </span>
+                        </li>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><strong>Selective Challenge:</strong> The bench noted that naming schemes after political leaders is a nationwide phenomenon. It criticized the petitioner for singling out a program by one political party (DMK) while not challenging similar schemes implemented by others, including the Union government and other state governments. This, the court said, showed the petitioner's true political intentions.</span>
+                                <span class="lang-hi"><strong>चुनिंदा चुनौती:</strong> पीठ ने कहा कि राजनीतिक नेताओं के नाम पर योजनाओं का नाम रखना एक राष्ट्रव्यापी घटना है। इसने याचिकाकर्ता की आलोचना की कि उसने एक राजनीतिक दल (डीएमके) के एक कार्यक्रम को अलग से चुनौती दी जबकि केंद्र सरकार और अन्य राज्य सरकारों सहित दूसरों द्वारा लागू की गई समान योजनाओं को चुनौती नहीं दी। अदालत ने कहा कि इससे याचिकाकर्ता के असली राजनीतिक इरादे सामने आते हैं।</span>
+                            </span>
+                        </li>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><strong>No Violation of Law:</strong> The Supreme Court found no specific violation of previous judicial pronouncements or guidelines regarding government advertisements. It distinguished between using a leader's name for a scheme's nomenclature and the use of their photographs in advertisements.</span>
+                                <span class="lang-hi"><strong>कानून का कोई उल्लंघन नहीं:</strong> सुप्रीम कोर्ट ने सरकारी विज्ञापनों से संबंधित पिछले न्यायिक निर्णयों या दिशानिर्देशों का कोई विशेष उल्लंघन नहीं पाया। इसने किसी योजना के नामकरण के लिए एक नेता के नाम का उपयोग करने और विज्ञापनों में उनके चित्रों के उपयोग के बीच अंतर किया।</span>
+                            </span>
+                        </li>
+                    </ul>
+                </section>
+
+                <hr>
+
+                <section>
+                    <h2 class="line-container">
+                        <span class="line"><span class="lang-en">Legal & Constitutional Aspects</span> <span class="lang-hi">कानूनी और संवैधानिक पहलू</span></span>
+                    </h2>
+                    <ul>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><strong>Separation of Powers:</strong> The judgment upholds the doctrine of <strong>separation of powers</strong>, emphasizing that the judiciary's role is not to intervene in the policy-making and administrative decisions of the executive unless there is a clear violation of constitutional or legal principles. The court's observation that political battles should be fought in the electoral arena reinforces the autonomy of the executive and the legislature.</span>
+                                <span class="lang-hi"><strong>शक्तियों का पृथक्करण:</strong> यह फैसला <strong>शक्तियों के पृथक्करण</strong> के सिद्धांत को बरकरार रखता है, इस बात पर जोर देता है कि न्यायपालिका की भूमिका कार्यपालिका के नीति-निर्माण और प्रशासनिक निर्णयों में हस्तक्षेप करना नहीं है, जब तक कि संवैधानिक या कानूनी सिद्धांतों का स्पष्ट उल्लंघन न हो। अदालत का यह अवलोकन कि राजनीतिक लड़ाई चुनावी मैदान में लड़ी जानी चाहिए, कार्यपालिका और विधायिका की स्वायत्तता को मजबूत करता है।</span>
+                            </span>
+                        </li>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><strong>Judicial Review:</strong> While the judiciary has the power of judicial review to check the legality and constitutionality of government actions, the court signaled its reluctance to entertain politically motivated petitions that lack a strong legal basis.</span>
+                                <span class="lang-hi"><strong>न्यायिक समीक्षा:</strong> जबकि न्यायपालिका के पास सरकारी कार्यों की वैधता और संवैधानिकता की जांच करने के लिए न्यायिक समीक्षा की शक्ति है, अदालत ने राजनीतिक रूप से प्रेरित याचिकाओं को स्वीकार करने में अपनी अनिच्छा का संकेत दिया, जिनमें मजबूत कानूनी आधार की कमी थी।</span>
+                            </span>
+                        </li>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><strong>Article 50 of the Constitution:</strong> This Directive Principle of State Policy mandates the separation of the judiciary from the executive. The ruling, by emphasizing a clear boundary between political and judicial matters, aligns with the spirit of this article.</span>
+                                <span class="lang-hi"><strong>संविधान का अनुच्छेद 50:</strong> राज्य नीति का यह निर्देशक सिद्धांत न्यायपालिका को कार्यपालिका से अलग करने काT निर्देश देता है। यह फैसला, राजनीतिक और न्यायिक मामलों के बीच एक स्पष्ट सीमा पर जोर देकर, इस अनुच्छेद की भावना के अनुरूप है।</span>
+                            </span>
+                        </li>
+                    </ul>
+                </section>
+
+                <hr>
+
+                <section>
+                    <h2 class="line-container">
+                        <span class="line"><span class="lang-en">Ethical & Governance Implications</span> <span class="lang-hi">नैतिक और शासन निहितार्थ</span></span>
+                    </h2>
+                    <ul>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><strong>Political Glorification:</strong> The practice of naming schemes after political leaders, while legally permissible as per this verdict, raises ethical concerns. It can be seen as an attempt to create a personality cult, blurring the lines between the government and the ruling party. This can potentially undermine a <strong>citizen-centric approach</strong> to governance.</span>
+                                <span class="lang-hi"><strong>राजनीतिक महिमामंडन:</strong> इस फैसले के अनुसार राजनीतिक नेताओं के नाम पर योजनाओं का नाम रखने की प्रथा, हालांकि कानूनी रूप से स्वीकार्य है, नैतिक चिंताएं बढ़ाती है। इसे एक व्यक्तित्व-पूजा बनाने का प्रयास माना जा सकता है, जो सरकार और सत्तारूढ़ दल के बीच की रेखाओं को धुंधला करता है। यह शासन के प्रति एक <strong>नागरिक-केंद्रित दृष्टिकोण</strong> को कमजोर कर सकता है।</span>
+                            </span>
+                        </li>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><strong>Misuse of Public Funds:</strong> Critics argue that such naming conventions can be a form of soft propaganda, using public resources to gain political mileage rather than focusing purely on public good.</span>
+                                <span class="lang-hi"><strong>सार्वजनिक धन का दुरुपयोग:</strong> आलोचकों का तर्क है कि इस तरह के नामकरण सार्वजनिक संसाधनों का उपयोग करके राजनीतिक लाभ प्राप्त करने के लिए एक प्रकार का नरम प्रचार हो सकते हैं, बजाय इसके कि पूरी तरह से सार्वजनिक भलाई पर ध्यान केंद्रित किया जाए।</span>
+                            </span>
+                        </li>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><strong>Accountability and Neutrality:</strong> A government, regardless of the party in power, is an institution of the state. Naming schemes after political figures can compromise the neutrality of public administration and make it difficult to hold the administration accountable for scheme implementation, as the focus may shift to the individual leader.</span>
+                                <span class="lang-hi"><strong>जवाबदेही और तटस्थता:</strong> सत्ता में किसी भी पार्टी के बावजूद, सरकार राज्य की एक संस्था है। राजनीतिक हस्तियों के नाम पर योजनाओं का नामकरण सार्वजनिक प्रशासन की तटस्थता से समझौता कर सकता है और योजना के कार्यान्वयन के लिए प्रशासन को जवाबदेह ठहराना मुश्किल बना सकता है, क्योंकि ध्यान व्यक्तिगत नेता पर स्थानांतरित हो सकता है।</span>
+                            </span>
+                        </li>
+                    </ul>
+                </section>
+
+                <hr>
+
+                <section>
+                    <h2 class="line-container">
+                        <span class="line"><span class="lang-en">Precedents and Related Issues</span> <span class="lang-hi">मिसालें और संबंधित मुद्दे</span></span>
+                    </h2>
+                    <ul>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><strong>Common Cause Judgment (2015):</strong> The Supreme Court, in the case of <span class="italic-bold-underline">Common Cause v. Union of India</span>, had issued guidelines on government advertisements. It had initially restricted the use of photographs in government advertisements to only the President, Prime Minister, and Chief Justice of India.</span>
+                                <span class="lang-hi"><strong>कॉमन कॉज फैसला (2015):</strong> सुप्रीम कोर्ट ने, <span class="italic-bold-underline">कॉमन कॉज बनाम भारत संघ</span> के मामले में, सरकारी विज्ञापनों पर दिशानिर्देश जारी किए थे। इसने शुरू में सरकारी विज्ञापनों में केवल राष्ट्रपति, प्रधानमंत्री और भारत के मुख्य न्यायाधीश के चित्रों के उपयोग को प्रतिबंधित किया था।</span>
+                            </span>
+                        </li>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><strong>Modification (2016):</strong> The court later modified its 2015 order, allowing the inclusion of photographs of the <strong>incumbent Chief Minister</strong> and concerned cabinet ministers in advertisements. The current judgment further clarifies that the nomenclature of a scheme is a separate matter from the use of photographs in advertisements.</span>
+                                <span class="lang-hi"><strong>संशोधन (2016):</strong> अदालत ने बाद में 2015 के अपने आदेश को संशोधित किया, जिसमें विज्ञापनों में <strong>पदस्थ मुख्यमंत्री</strong> और संबंधित कैबिनेट मंत्रियों के चित्रों को शामिल करने की अनुमति दी गई। वर्तमान फैसला यह स्पष्ट करता है कि किसी योजना का नामकरण विज्ञापनों में चित्रों के उपयोग से एक अलग मामला है।</span>
+                            </span>
+                        </li>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><strong>Amma Canteens and NaMo App:</strong> The court's observation about similar practices being widespread across the country is significant. It implicitly acknowledged schemes like 'Amma Canteens' in Tamil Nadu and initiatives branded with the 'NaMo' moniker at the central level, which have used political monikers for government projects.</span>
+                                <span class="lang-hi"><strong>अम्मा कैंटीन और नमो ऐप:</strong> अदालत का यह अवलोकन कि देश भर में इसी तरह की प्रथाएं व्यापक हैं, महत्वपूर्ण है। इसने तमिलनाडु में 'अम्मा कैंटीन' जैसी योजनाओं और केंद्रीय स्तर पर 'नमो' नाम से ब्रांडेड पहलों को परोक्ष रूप से स्वीकार किया, जिन्होंने सरकारी परियोजनाओं के लिए राजनीतिक नामों का उपयोग किया है।</span>
+                            </span>
+                        </li>
+                    </ul>
+                </section>
+
+                <hr>
+
+                <section>
+                    <h2 class="line-container">
+                        <span class="line"><span class="lang-en">Way Forward / UPSC Mains Perspective</span> <span class="lang-hi">आगे का रास्ता / यूपीएससी मेन्स परिप्रेक्ष्य</span></span>
+                    </h2>
+                    <ul>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><strong>Strengthening Electoral Processes:</strong> The Supreme Court's emphasis on fighting "political battles" in the electoral arena highlights the need for stronger and more effective electoral mechanisms to curb political excesses and misuse of power. This includes robust regulations from the Election Commission of India.</span>
+                                <span class="lang-hi"><strong>चुनावी प्रक्रियाओं को मजबूत करना:</strong> सुप्रीम कोर्ट द्वारा "राजनीतिक लड़ाई" को चुनावी मैदान में लड़ने पर जोर देने से राजनीतिक अतिरेक और सत्ता के दुरुपयोग को रोकने के लिए मजबूत और अधिक प्रभावी चुनावी तंत्र की आवश्यकता पर प्रकाश पड़ता है। इसमें भारत के चुनाव आयोग से मजबूत नियम शामिल हैं।</span>
+                            </span>
+                        </li>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><strong>Legislation and Guidelines:</strong> While the Supreme Court has clarified the legal position, the ethical concerns remain. A potential way forward could be to establish clear legislative guidelines or a code of conduct for naming government schemes to ensure they are focused on public service and not individual glorification.</span>
+                                <span class="lang-hi"><strong>विधान और दिशानिर्देश:</strong> जबकि सुप्रीम कोर्ट ने कानूनी स्थिति को स्पष्ट कर दिया है, नैतिक चिंताएं बनी हुई हैं। एक संभावित आगे का रास्ता सरकारी योजनाओं के नामकरण के लिए स्पष्ट विधायी दिशानिर्देश या आचार संहिता स्थापित करना हो सकता है ताकि यह सुनिश्चित हो सके कि वे सार्वजनिक सेवा पर केंद्रित हैं न कि व्यक्तिगत महिमामंडन पर।</span>
+                            </span>
+                        </li>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en"><strong>Public Awareness:</strong> Educating the public about the source of funding for government schemes (i.e., public exchequer) and the purpose of these schemes can help in holding governments accountable and reducing the impact of personality-based branding.</span>
+                                <span class="lang-hi"><strong>जन जागरूकता:</strong> सरकारी योजनाओं के वित्तपोषण के स्रोत (यानी, सार्वजनिक खजाना) और इन योजनाओं के उद्देश्य के बारे में जनता को शिक्षित करने से सरकारों को जवाबदेह ठहराने और व्यक्तित्व-आधारित ब्रांडिंग के प्रभाव को कम करने में मदद मिल सकती है।</span>
+                            </span>
+                        </li>
+                    </ul>
+                </section>
+                
+                <hr>
+                
+                <section>
+                    <h2 class="line-container">
+                        <span class="line"><span class="lang-en">Potential UPSC Questions</span> <span class="lang-hi">संभावित यूपीएससी प्रश्न</span></span>
+                    </h2>
+                    
+                    <h4 class="line-container">
+                        <span class="line"><span class="lang-en">Prelims:</span> <span class="lang-hi">प्रीलिम्स:</span></span>
+                    </h4>
+                    <ul class="prelims-list">
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en">1. Which of the following is a Directive Principle of State Policy related to the separation of powers?
+                                    <br> a) Article 49 <br> b) <strong>Article 50</strong> <br> c) Article 51 <br> d) Article 52
+                                </span>
+                                <span class="lang-hi">1. शक्तियों के पृथक्करण से संबंधित राज्य नीति का एक निर्देशक सिद्धांत निम्नलिखित में से कौन सा है?
+                                    <br> a) अनुच्छेद 49 <br> b) <strong>अनुच्छेद 50</strong> <br> c) अनुच्छेद 51 <br> d) अनुच्छेद 52
+                                </span>
+                            </span>
+                        </li>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en">2. In the context of government advertisements, the Supreme Court's judgment in <span class="italic-bold-underline">Common Cause v. Union of India</span> initially restricted the use of photographs of which of the following?
+                                    <br> a) All political leaders <br> b) Only the Prime Minister and Chief Ministers <br> c) <strong>President, Prime Minister, and Chief Justice of India</strong> <br> d) All constitutional functionaries
+                                </span>
+                                <span class="lang-hi">2. सरकारी विज्ञापनों के संदर्भ में, <span class="italic-bold-underline">कॉमन कॉज बनाम भारत संघ</span> के मामले में सुप्रीम कोर्ट के फैसले ने शुरू में निम्नलिखित में से किसके चित्रों के उपयोग को प्रतिबंधित कर दिया था?
+                                    <br> a) सभी राजनीतिक नेता <br> b) केवल प्रधानमंत्री और मुख्यमंत्री <br> c) <strong>राष्ट्रपति, प्रधानमंत्री और भारत के मुख्य न्यायाधीश</strong> <br> d) सभी संवैधानिक पदाधिकारी
+                                </span>
+                            </span>
+                        </li>
+                    </ul>
+
+                    <h4 class="line-container">
+                        <span class="line"><span class="lang-en">Mains:</span> <span class="lang-hi">मेन्स:</span></span>
+                    </h4>
+                    <ul class="mains-list">
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en">1. "The judiciary's role is to ensure constitutional fidelity, not to settle political scores." Critically analyze this statement in the light of the recent Supreme Court verdict on naming government schemes in Tamil Nadu.</span>
+                                <span class="lang-hi">1. "न्यायपालिका की भूमिका संवैधानिक निष्ठा सुनिश्चित करना है, न कि राजनीतिक हिसाब-किताब निपटाना।" तमिलनाडु में सरकारी योजनाओं के नामकरण पर हाल के सुप्रीम कोर्ट के फैसले के आलोक में इस कथन का समालोचनात्मक विश्लेषण करें।</span>
+                            </span>
+                        </li>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en">2. Discuss the ethical implications of naming government schemes after political leaders. How does this practice challenge the principles of transparent and accountable governance?</span>
+                                <span class="lang-hi">2. सरकारी योजनाओं का नाम राजनीतिक नेताओं के नाम पर रखने के नैतिक निहितार्थों पर चर्चा करें। यह प्रथा पारदर्शी और जवाबदेह शासन के सिद्धांतों को कैसे चुनौती देती है?</span>
+                            </span>
+                        </li>
+                    </ul>
+                    
+                    <h4 class="line-container">
+                        <span class="line"><span class="lang-en">Essay Paper:</span> <span class="lang-hi">निबंध पेपर:</span></span>
+                    </h4>
+                    <ul class="mains-list">
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en">1. The fine line between public welfare and political propaganda: A critique of government branding.</span>
+                                <span class="lang-hi">1. जन कल्याण और राजनीतिक प्रचार के बीच की महीन रेखा: सरकारी ब्रांडिंग की एक आलोचना।</span>
+                            </span>
+                        </li>
+                        <li class="line-container">
+                            <span class="line">
+                                <span class="lang-en">2. Separation of Powers in the Indian Context: A dynamic interplay of checks and balances.</span>
+                                <span class="lang-hi">2. भारतीय संदर्भ में शक्तियों का पृथक्करण: जाँच और संतुलन का एक गतिशील परस्पर क्रिया।</span>
+                            </span>
+                        </li>
+                    </ul>
+                </section>
+            </section>
+            
+            <div class="contact-us">
+                <p>For any queries, contact us on <a href="https://wa.me/+918168305050" target="_blank" rel="noopener noreferrer">+91-8168305050</a></p>
+            </div>
+            <div class="button-container">
+                <a href="index.html" class="back-to-home">Back to Home</a>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>© 2025 Crack Current Affairs (CrackCA). All rights reserved.</p>
+    </footer>
+
+    <button id="scroll-top">↑</button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const englishContent = document.getElementById('content').innerText;
+            const wordCount = englishContent.split(/\s+/).filter(word => word.length > 0).length;
+            const readTime = Math.ceil(wordCount / 200);
+            document.getElementById('read-time').innerText = readTime;
+
+            const scrollTopButton = document.getElementById('scroll-top');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    scrollTopButton.style.display = 'block';
+                } else {
+                    scrollTopButton.style.display = 'none';
+                }
+            });
+
+            scrollTopButton.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+            
+            const langSwitchButton = document.querySelector('.lang-switch');
+            let isHindiVisible = false;
+
+            function toggleLanguage() {
+                const englishSpans = document.querySelectorAll('.lang-en');
+                const hindiSpans = document.querySelectorAll('.lang-hi');
+
+                if (isHindiVisible) {
+                    englishSpans.forEach(span => span.style.display = 'block');
+                    hindiSpans.forEach(span => span.style.display = 'none');
+                    langSwitchButton.textContent = 'Switch to Hindi';
+                } else {
+                    englishSpans.forEach(span => span.style.display = 'none');
+                    hindiSpans.forEach(span => span.style.display = 'block');
+                    langSwitchButton.textContent = 'Switch to English';
+                }
+                isHindiVisible = !isHindiVisible;
+            }
+
+            // Initial state: hide Hindi content
+            toggleLanguage();
+
+            langSwitchButton.addEventListener('click', toggleLanguage);
+        });
+    </script>
+</body>
+</html>
