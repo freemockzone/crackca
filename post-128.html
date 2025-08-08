@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Hindu - 08-Aug-25</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+--primary-color: #3f51b5; /* Indigo /
+--secondary-color: #c5cae9; / Light Indigo /
+--accent-color: #ff9800; / Orange /
+--background-color: #e8eaf6; / Lighter Indigo /
+--text-color: #212121; / Dark Grey /
+--nav-link-color: #fff;
+--footer-bg-color: #303f9f; / Dark Indigo */
+--hover-line-bg: #e1e2f7;
+--container-bg: #fff;
+}
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'Noto Sans', sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        background-color: var(--background-color);
+        padding-top: 100px;
+    }
+
+    .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+
+    header {
+        background-color: var(--primary-color);
+        color: var(--nav-link-color);
+        text-align: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+        font-family: 'Merriweather', serif;
+        font-size: 2rem;
+        padding: 1rem;
+        margin: 0;
+    }
+
+    nav ul {
+        list-style-type: none;
+        display: flex;
+        justify-content: center;
+        background-color: var(--footer-bg-color);
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        display: block;
+        padding: 0.8rem 1.5rem;
+        color: var(--nav-link-color);
+        text-decoration: none;
+        font-weight: 700;
+        transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+        background-color: var(--accent-color);
+    }
+
+    article {
+        background-color: var(--container-bg);
+        padding: 2.5rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+    }
+    
+    .language-button-container {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 1.5rem;
+    }
+
+    #language-switch-btn {
+        background-color: var(--secondary-color);
+        color: var(--primary-color);
+        border: none;
+        padding: 0.7rem 1.2rem;
+        border-radius: 50px;
+        cursor: pointer;
+        font-weight: 700;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    #language-switch-btn:hover {
+        background-color: var(--primary-color);
+        color: var(--nav-link-color);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .article-meta {
+        font-size: 1rem;
+        color: #757575;
+        border-bottom: 1px solid #e0e0e0;
+        padding-bottom: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .article-title {
+        font-family: 'Merriweather', serif;
+        font-size: 2.8rem;
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+        line-height: 1.2;
+    }
+
+    .read-time {
+        font-weight: 700;
+        color: var(--accent-color);
+    }
+
+    h2, h3 {
+        font-family: 'Merriweather', serif;
+        color: var(--primary-color);
+        margin-top: 2rem;
+        margin-bottom: 0.8rem;
+        line-height: 1.3;
+    }
+
+    h2 {
+        font-size: 2.2rem;
+    }
+
+    h3 {
+        font-size: 1.8rem;
+    }
+
+    p {
+        margin-bottom: 1.2rem;
+        text-align: justify;
+        color: var(--text-color);
+    }
+
+    .line {
+        padding: 0.3rem 0;
+        transition: background-color 0.3s ease;
+        cursor: pointer;
+    }
+
+    .line:hover {
+        background-color: var(--hover-line-bg);
+    }
+
+    strong {
+        font-weight: 700;
+        color: var(--text-color);
+    }
+
+    .bold-italic-underline {
+        font-style: italic;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    footer {
+        background-color: var(--footer-bg-color);
+        color: var(--nav-link-color);
+        text-align: center;
+        padding: 2rem 0;
+        margin-top: 3rem;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .scroll-top-btn {
+        display: none;
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background-color: var(--accent-color);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 55px;
+        height: 55px;
+        font-size: 1.8rem;
+        cursor: pointer;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        z-index: 999;
+        transition: background-color 0.3s ease;
+    }
+
+    .scroll-top-btn:hover {
+        background-color: var(--primary-color);
+    }
+
+    .button-group {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-top: 3rem;
+    }
+
+    .action-button {
+        display: inline-block;
+        padding: 1rem 2rem;
+        background-color: var(--primary-color);
+        color: white;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 700;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+        font-size: 1rem;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .action-button:hover {
+        background-color: var(--accent-color);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .hidden-content {
+        display: none;
+    }
+
+    .contact-link {
+        display: block;
+        margin-top: 2rem;
+        font-size: 1rem;
+        text-align: center;
+        color: var(--primary-color);
+    }
+
+    .contact-link a {
+        color: var(--primary-color);
+        font-weight: 700;
+        text-decoration: none;
+    }
+
+    .contact-link a:hover {
+        text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+        body {
+            padding-top: 80px;
+        }
+        header h1 {
+            font-size: 1.5rem;
+            padding: 0.8rem;
+        }
+        nav ul {
+            flex-direction: column;
+        }
+        nav a {
+            padding: 0.6rem;
+        }
+        .article-title {
+            font-size: 2rem;
+        }
+        h2 {
+            font-size: 1.8rem;
+        }
+        h3 {
+            font-size: 1.5rem;
+        }
+        .container {
+            padding: 1rem;
+        }
+        article {
+            padding: 1.5rem;
+        }
+        .button-group {
+            flex-direction: column;
+        }
+        .action-button, #language-switch-btn {
+            width: 100%;
+            text-align: center;
+        }
+    }
+</style>
+</head>
+
+<body>
+<header>
+<h1>08-August-2025</h1>
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="quiz.html">Quiz</a></li>
+<li><a href="donation.html">Donation</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+</header>
+
+<div class="container">
+    <div class="language-button-container">
+        <button id="language-switch-btn">Switch to Hindi</button>
+    </div>
+    <article>
+        <div class="article-meta">
+            <h1 class="article-title">The Bihar migrant worker, a Scylla-Charybdis moment</h1>
+            <p>Source: The Hindu | Publication Date: 08-August-2025</p>
+            <p class="read-time">Estimated Read Time: <span id="read-time"></span> minutes</p>
+        </div>
+        <div id="content">
+            <section>
+                <h2 class="english-heading">Why in News?</h2>
+                <h2 class="hindi-heading hidden-content" lang="hi">चर्चा में क्यों?</h2>
+                <p class="line">
+                    The Election Commission of India (ECI) has initiated a Special Intensive Revision (SIR) of electoral rolls in Bihar, which has led to the names of many migrant workers being dropped from the draft rolls. These workers, who are often temporarily absent from their native constituencies for employment, are facing a dilemma. They risk being disenfranchised from their home constituency but may also face legal, social, and political hurdles if they try to register in their new place of residence, creating a **"Scylla-Charybdis moment"** for them.
+                </p>
+                <p class="line hidden-content" lang="hi">
+                    भारत निर्वाचन आयोग (ECI) ने बिहार में मतदाता सूचियों का विशेष गहन पुनरीक्षण (SIR) शुरू किया है, जिसके कारण कई प्रवासी श्रमिकों के नाम मसौदा सूची से हटा दिए गए हैं। ये श्रमिक, जो अक्सर रोज़गार के लिए अपने मूल निर्वाचन क्षेत्रों से अस्थायी रूप से अनुपस्थित रहते हैं, एक दुविधा का सामना कर रहे हैं। उन्हें अपने गृह निर्वाचन क्षेत्र से वंचित होने का जोखिम है, लेकिन अगर वे अपने नए निवास स्थान पर पंजीकरण कराने का प्रयास करते हैं, तो उन्हें कानूनी, सामाजिक और राजनीतिक बाधाओं का भी सामना करना पड़ सकता है, जिससे उनके लिए **"स्काइला-चारीबडीस क्षण"** पैदा हो सकता है।
+                </p>
+            </section>
+            <section>
+                <h2 class="english-heading">Key Concepts and Issues Related to Migrant Workers and Voting Rights</h2>
+                <h2 class="hindi-heading hidden-content" lang="hi">प्रवासी श्रमिकों और मताधिकार से संबंधित प्रमुख अवधारणाएँ और मुद्दे</h2>
+                <h3 class="english-heading">The Term "Ordinarily Resident"</h3>
+                <h3 class="hindi-heading hidden-content" lang="hi">"सामान्य निवासी" शब्द</h3>
+                <p class="line">
+                    Legal Basis: The term is defined under **Section 19 and 20 of the Representation of the People (RP) Act, 1950**.
+                </p>
+                <p class="line hidden-content" lang="hi">
+                    कानूनी आधार: इस शब्द को **जनप्रतिनिधित्व अधिनियम, 1950 की धारा 19 और 20** के तहत परिभाषित किया गया है।
+                </p>
+                <p class="line">
+                    Purpose: The provision ensures that a voter has a genuine connection to their constituency, which is crucial for maintaining representative accountability and preventing fraudulent registrations.
+                </p>
+                <p class="line hidden-content" lang="hi">
+                    उद्देश्य: यह प्रावधान सुनिश्चित करता है कि मतदाता का अपने निर्वाचन क्षेत्र से वास्तविक संबंध हो, जो प्रतिनिधि जवाबदेही बनाए रखने और धोखाधड़ी वाले पंजीकरण को रोकने के लिए महत्वपूर्ण है।
+                </p>
+                <p class="line">
+                    Interpretation: The Gauhati High Court, in a 1999 case, defined "ordinarily resident" as a "habitual resident" with a permanent, not temporary or casual, character. The person must have the intention of dwelling there permanently.
+                </p>
+                <p class="line hidden-content" lang="hi">
+                    व्याख्या: गुवाहाटी उच्च न्यायालय ने 1999 के एक मामले में "सामान्य निवासी" की परिभाषा "अस्थायी निवासी" के रूप में दी थी, जिसका चरित्र अस्थायी या आकस्मिक नहीं, बल्कि स्थायी हो। व्यक्ति का वहाँ स्थायी रूप से रहने का इरादा होना चाहिए।
+                </p>
+                <p class="line">
+                    Migrant Worker's Predicament: While migrant laborers are often temporarily away for work, they generally maintain their "habitual residence" and "real ties" with their native place where their families and properties are located. The ECI's classification of those not found during the SIR process as "permanently shifted/not found" contradicts this understanding.
+                </p>
+                <p class="line hidden-content" lang="hi">
+                    प्रवासी मज़दूरों की समस्या: हालाँकि प्रवासी मज़दूर अक्सर काम के लिए अस्थायी रूप से बाहर रहते हैं, फिर भी वे आमतौर पर अपने "अभ्यस्त निवास" और अपने मूल स्थान, जहाँ उनके परिवार और संपत्तियाँ स्थित हैं, के साथ "वास्तविक संबंध" बनाए रखते हैं। एसआईआर प्रक्रिया के दौरान न पाए गए लोगों को "स्थायी रूप से स्थानांतरित/नहीं मिले" के रूप में चुनाव आयोग द्वारा वर्गीकृत करना इस समझ का खंडन करता है।
+                </p>
+                <h3 class="english-heading">The Right to Vote vs. The Right to Reside</h3>
+                <h3 class="hindi-heading hidden-content" lang="hi">मतदान का अधिकार बनाम निवास का अधिकार</h3>
+                <p class="line">
+                    Fundamental Right: *Article 19(1)(e) of the Indian Constitution* guarantees every citizen the fundamental right to reside and settle in any part of the country. This implies the right to shift one's vote to a new place of residence.
+                </p>
+                <p class="line hidden-content" lang="hi">
+                    मौलिक अधिकार: *भारतीय संविधान का अनुच्छेद 19(1)(ई)* प्रत्येक नागरिक को देश के किसी भी हिस्से में निवास करने और बसने का मौलिक अधिकार देता है। इसका तात्पर्य है अपने वोट को किसी नए निवास स्थान पर स्थानांतरित करने का अधिकार।
+                </p>
+                <p class="line">
+                    Migrant's Choice: Many migrant workers are unwilling to shift their vote away from their native constituency due to their strong ties to their home. Furthermore, they may lack the necessary documents, other than an Aadhaar card, to register in their new, often temporary, location.
+                </p>
+                <p class="line hidden-content" lang="hi">
+                    प्रवासी की पसंद: कई प्रवासी कामगार अपने घर से गहरे जुड़ाव के कारण अपने मूल निर्वाचन क्षेत्र से बाहर अपना वोट डालने के लिए तैयार नहीं होते हैं। इसके अलावा, उनके पास अपने नए, अक्सर अस्थायी, स्थान पर पंजीकरण के लिए आधार कार्ड के अलावा अन्य आवश्यक दस्तावेज़ों का अभाव हो सकता है।
+                </p>
+                <h3 class="english-heading">Challenges to Electoral Inclusion</h3>
+                <h3 class="hindi-heading hidden-content" lang="hi">चुनावी समावेशन की चुनौतियाँ</h3>
+                <p class="line">
+                    Legal Challenges: Migrants may not meet the legal criteria of being "ordinarily resident" in their temporary workplace, as defined by the courts, making their new registration vulnerable to challenge.
+                </p>
+                <p class="line hidden-content" lang="hi">
+                    कानूनी चुनौतियाँ: प्रवासी अपने अस्थायी कार्यस्थल में "सामान्य निवासी" होने के कानूनी मानदंडों को पूरा नहीं कर सकते हैं, जैसा कि अदालतों द्वारा परिभाषित किया गया है, जिससे उनके नए पंजीकरण को चुनौती दी जा सकती है।
+                </p>
+                <p class="line">
+                    Political and Social Hurdles: Regional political parties in states with high in-migration often oppose the inclusion of migrant workers in their electoral rolls. Their arguments are that migrants are not permanent settlers and do not understand local political issues. This could lead to a de facto disenfranchisement of migrants despite the legal possibility of them being included.
+                </p>
+                <p class="line hidden-content" lang="hi">
+                    राजनीतिक और सामाजिक बाधाएँ: उच्च प्रवासन वाले राज्यों में क्षेत्रीय राजनीतिक दल अक्सर प्रवासी कामगारों को अपनी मतदाता सूची में शामिल करने का विरोध करते हैं। उनका तर्क है कि प्रवासी स्थायी निवासी नहीं हैं और स्थानीय राजनीतिक मुद्दों को नहीं समझते हैं। इससे प्रवासियों को शामिल किए जाने की कानूनी संभावना के बावजूद, वास्तव में मताधिकार से वंचित किया जा सकता है।
+                </p>
+                <h3 class="english-heading">Solutions and Way Forward</h3>
+                <h3 class="hindi-heading hidden-content" lang="hi">समाधान और आगे का रास्ता</h3>
+                <p class="line">
+                    Technological Solutions: The ECI's pilot project of a **Multi Constituency Remote Electronic Voting Machine (RVM)** is a promising initiative. This technology could enable inter-state migrant workers to vote remotely from their place of work. While the pilot was short-lived due to concerns raised by political parties, further development and stakeholder consensus are needed.
+                </p>
+                <p class="line hidden-content" lang="hi">
+                    तकनीकी समाधान: बहु-निर्वाचन क्षेत्र **रिमोट इलेक्ट्रॉनिक वोटिंग मशीन (आरवीएम)** की ईसीआई की पायलट परियोजना एक आशाजनक पहल है। यह तकनीक अंतर-राज्यीय प्रवासी श्रमिकों को अपने कार्यस्थल से ही दूरस्थ रूप से मतदान करने में सक्षम बना सकती है। हालाँकि राजनीतिक दलों द्वारा उठाई गई चिंताओं के कारण यह प्रायोगिक परियोजना अल्पकालिक थी, फिर भी आगे के विकास और हितधारकों की सहमति की आवश्यकता है।
+                </p>
+                <p class="line">
+                    Legislative Amendments: Parliament should consider making suitable amendments to the **Representation of the People Act, 1950**, to protect the choice of migrant laborers regarding their place of voting.
+                </p>
+                <p class="line hidden-content" lang="hi">
+                    विधायी संशोधन: संसद को प्रवासी श्रमिकों के मतदान स्थल के संबंध में उनके चयन की सुरक्षा के लिए **जनप्रतिनिधित्व अधिनियम, 1950** में उपयुक्त संशोधन करने पर विचार करना चाहिए।
+                </p>
+                <p class="line">
+                    Administrative Measures: The article suggests several administrative steps to increase voter participation among migrants:
+                </p>
+                <p class="line hidden-content" lang="hi">
+                    प्रशासनिक उपाय: लेख में प्रवासियों के बीच मतदान में भागीदारी बढ़ाने के लिए कई प्रशासनिक कदम सुझाए गए हैं:
+                </p>
+                <p class="line">
+                    Strict enforcement of a statutory holiday on polling day.
+                </p>
+                <p class="line hidden-content" lang="hi">
+                    मतदान के दिन वैधानिक अवकाश का कड़ाई से पालन।
+                </p>
+                <p class="line">
+                    Running special trains and buses to facilitate travel back home for voting.
+                </p>
+                <p class="line hidden-content" lang="hi">
+                    मतदान के लिए घर वापसी की सुविधा के लिए विशेष रेलगाड़ियाँ और बसें चलाना।
+                </p>
+                <p class="line">
+                    Providing incentives such as a few additional days of paid leave for travel.
+                </p>
+                <p class="line hidden-content" lang="hi">
+                    यात्रा के लिए कुछ अतिरिक्त दिनों की सवेतन छुट्टी जैसे प्रोत्साहन प्रदान करना।
+                </p>
+            </section>
+        </div>
+        <div class="contact-link">
+            Contact us on WhatsApp: <a href="[https://wa.me/918168305050](https://wa.me/918168305050)" target="_blank">+91-8168305050</a>
+        </div>
+        <div class="button-group">
+            <a href="index.html" class="action-button">Back to Home</a>
+        </div>
+    </article>
+</div>
+
+<footer>
+    <div class="container">
+        <p>© 2025 Crack Current Affairs (CrackCA). All rights reserved.</p>
+    </div>
+</footer>
+
+<button id="scroll-top-btn" class="scroll-top-btn" title="Go to top">▲</button>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const articleContent = document.getElementById("content");
+        const englishContent = articleContent.querySelectorAll(".line:not([lang='hi'])");
+        const readTimeSpan = document.getElementById("read-time");
+        
+        function calculateReadTime() {
+            const wordsPerMinute = 200;
+            let wordCount = 0;
+            englishContent.forEach(p => {
+                wordCount += p.textContent.split(/\s+/).length;
+            });
+            const readTime = Math.ceil(wordCount / wordsPerMinute);
+            readTimeSpan.textContent = readTime;
+        }
+
+        const scrollTopBtn = document.getElementById("scroll-top-btn");
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 300) {
+                scrollTopBtn.style.display = "block";
+            } else {
+                scrollTopBtn.style.display = "none";
+            }
+        });
+
+        scrollTopBtn.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+
+        const langSwitchBtn = document.getElementById("language-switch-btn");
+        let isEnglish = true;
+
+        langSwitchBtn.addEventListener("click", () => {
+            const englishLines = document.querySelectorAll(".line:not([lang='hi'])");
+            const hindiLines = document.querySelectorAll(".line[lang='hi']");
+            const englishHeadings = document.querySelectorAll(".english-heading");
+            const hindiHeadings = document.querySelectorAll(".hindi-heading");
+
+
+            if (isEnglish) {
+                englishLines.forEach(line => line.classList.add("hidden-content"));
+                hindiLines.forEach(line => line.classList.remove("hidden-content"));
+                englishHeadings.forEach(heading => heading.classList.add("hidden-content"));
+                hindiHeadings.forEach(heading => heading.classList.remove("hidden-content"));
+                langSwitchBtn.textContent = "Switch to English";
+            } else {
+                englishLines.forEach(line => line.classList.remove("hidden-content"));
+                hindiLines.forEach(line => line.classList.add("hidden-content"));
+                englishHeadings.forEach(heading => heading.classList.remove("hidden-content"));
+                hindiHeadings.forEach(heading => heading.classList.add("hidden-content"));
+                langSwitchBtn.textContent = "Switch to Hindi";
+            }
+            isEnglish = !isEnglish;
+        });
+
+        document.querySelectorAll('p').forEach(p => {
+            p.innerHTML = p.innerHTML.replace(/\*(.*?)\*/g, '<span class="bold-italic-underline">$1</span>');
+        });
+        
+        calculateReadTime();
+    });
+</script>
+</body>
+
+</html>

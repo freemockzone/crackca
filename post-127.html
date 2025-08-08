@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Hindu - 08-Aug-25</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3f51b5; /* Indigo */
+            --secondary-color: #c5cae9; /* Light Indigo */
+            --accent-color: #ff9800; /* Orange */
+            --background-color: #e8eaf6; /* Lighter Indigo */
+            --text-color: #212121; /* Dark Grey */
+            --nav-link-color: #fff;
+            --footer-bg-color: #303f9f; /* Dark Indigo */
+            --hover-line-bg: #e1e2f7;
+            --container-bg: #fff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            padding-top: 100px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: var(--nav-link-color);
+            text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-family: 'Merriweather', serif;
+            font-size: 2rem;
+            padding: 1rem;
+            margin: 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+            background-color: var(--footer-bg-color);
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            display: block;
+            padding: 0.8rem 1.5rem;
+            color: var(--nav-link-color);
+            text-decoration: none;
+            font-weight: 700;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: var(--accent-color);
+        }
+
+        article {
+            background-color: var(--container-bg);
+            padding: 2.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        
+        .language-button-container {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 1.5rem;
+        }
+
+        #language-switch-btn {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            border: none;
+            padding: 0.7rem 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        #language-switch-btn:hover {
+            background-color: var(--primary-color);
+            color: var(--nav-link-color);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .article-meta {
+            font-size: 1rem;
+            color: #757575;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .article-title {
+            font-family: 'Merriweather', serif;
+            font-size: 2.8rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+
+        .read-time {
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        h2, h3 {
+            font-family: 'Merriweather', serif;
+            color: var(--primary-color);
+            margin-top: 2rem;
+            margin-bottom: 0.8rem;
+            line-height: 1.3;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            text-align: justify;
+            color: var(--text-color);
+        }
+
+        .line {
+            padding: 0.3rem 0;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .line:hover {
+            background-color: var(--hover-line-bg);
+        }
+
+        strong {
+            font-weight: 700;
+            color: var(--text-color);
+        }
+
+        .bold-italic-underline {
+            font-style: italic;
+            font-weight: 700;
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: var(--footer-bg-color);
+            color: var(--nav-link-color);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .scroll-top-btn {
+            display: none;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 55px;
+            height: 55px;
+            font-size: 1.8rem;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            transition: background-color 0.3s ease;
+        }
+
+        .scroll-top-btn:hover {
+            background-color: var(--primary-color);
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .action-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .action-button:hover {
+            background-color: var(--accent-color);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .hidden-content {
+            display: none;
+        }
+
+        .contact-link {
+            display: block;
+            margin-top: 2rem;
+            font-size: 1rem;
+            text-align: center;
+            color: var(--primary-color);
+        }
+
+        .contact-link a {
+            color: var(--primary-color);
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .contact-link a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 80px;
+            }
+            header h1 {
+                font-size: 1.5rem;
+                padding: 0.8rem;
+            }
+            nav ul {
+                flex-direction: column;
+            }
+            nav a {
+                padding: 0.6rem;
+            }
+            .article-title {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.8rem;
+            }
+            h3 {
+                font-size: 1.5rem;
+            }
+            .container {
+                padding: 1rem;
+            }
+            article {
+                padding: 1.5rem;
+            }
+            .button-group {
+                flex-direction: column;
+            }
+            .action-button, #language-switch-btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>08-August-2025</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="donation.html">Donation</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="language-button-container">
+            <button id="language-switch-btn">Switch to Hindi</button>
+        </div>
+        <article>
+            <div class="article-meta">
+                <h1 class="article-title">The Uttar Pradesh School Merger Controversy</h1>
+                <p>Source: The Hindu | Publication Date: 08-August-2025</p>
+                <p class="read-time">Estimated Read Time: <span id="read-time"></span> minutes</p>
+            </div>
+            <div id="content">
+                <section>
+                    <h2 class="english-heading">Why in News?</h2>
+                    <h2 class="hindi-heading hidden-content">चर्चा में क्यों?</h2>
+                    <p class="line">
+                        The Uttar Pradesh government's recent initiative to "pair" or merge over 10,000 government primary and upper primary schools with low student enrollment has sparked widespread protests and debate.
+                    </p>
+                    <p class="line hidden-content" lang="hi">
+                        उत्तर प्रदेश सरकार द्वारा कम छात्र नामांकन वाले 10,000 से ज़्यादा सरकारी प्राथमिक और उच्च प्राथमिक विद्यालयों को "युग्मित" या विलय करने की हालिया पहल ने व्यापक विरोध और बहस को जन्म दिया है।
+                    </p>
+                    <p class="line">
+                        The move, intended to improve educational quality and infrastructure, has been met with opposition from parents, students, teachers, and political groups who fear it will lead to increased travel distances for children, higher dropout rates, and a negative impact on marginalized communities.
+                    </p>
+                    <p class="line hidden-content" lang="hi">
+                        शैक्षिक गुणवत्ता और बुनियादी ढाँचे में सुधार के उद्देश्य से किए गए इस कदम का अभिभावकों, छात्रों, शिक्षकों और राजनीतिक समूहों ने विरोध किया है। इन समूहों को डर है कि इससे बच्चों की यात्रा की दूरी बढ़ जाएगी, स्कूल छोड़ने की दर बढ़ जाएगी और हाशिए पर पड़े समुदायों पर नकारात्मक प्रभाव पड़ेगा।
+                    </p>
+                    <p class="line">
+                        The Lucknow Bench of the Allahabad High Court has also ordered a status quo on the merger in one district, highlighting the controversy and legal challenges surrounding the decision.
+                    </p>
+                    <p class="line hidden-content" lang="hi">
+                        इलाहाबाद उच्च न्यायालय की लखनऊ पीठ ने भी एक ज़िले में विलय पर यथास्थिति बनाए रखने का आदेश दिया है, जिससे इस निर्णय से जुड़े विवाद और कानूनी चुनौतियों पर प्रकाश डाला गया है।
+                    </p>
+                </section>
+                <section>
+                    <h2 class="english-heading">Key Issues and Stakeholders in the School Merger Controversy</h2>
+                    <h2 class="hindi-heading hidden-content">स्कूल विलय विवाद में प्रमुख मुद्दे और हितधारक</h2>
+                    <h3 class="english-heading">Government's Rationale and Policies</h3>
+                    <h3 class="hindi-heading hidden-content">सरकार का तर्क और नीतियाँ</h3>
+                    <p class="line">
+                        The Uttar Pradesh government's school pairing initiative is based on the **National Education Policy-2020 (NEP)**, which recommends integrating small schools with better-equipped institutions.
+                    </p>
+                    <p class="line hidden-content" lang="hi">
+                        उत्तर प्रदेश सरकार की स्कूल युग्मन पहल राष्ट्रीय शिक्षा नीति-2020 (एनईपी) पर आधारित है, जो छोटे स्कूलों को बेहतर सुविधाओं वाले संस्थानों के साथ एकीकृत करने की सिफ़ारिश करती है।
+                    </p>
+                    <p class="line">
+                        This move is supported by the **Sustainable Action for Transforming Human Capital in Education (SATH-E)** project launched by NITI Aayog in 2017.
+                    </p>
+                    <p class="line hidden-content" lang="hi">
+                        इस कदम को नीति आयोग द्वारा 2017 में शुरू की गई शिक्षा में मानव पूंजी परिवर्तन हेतु सतत कार्रवाई (SATH-E) परियोजना का समर्थन प्राप्त है।
+                    </p>
+                    <p class="line">
+                        The government's stated goals are to:
+                    </p>
+                    <p class="line hidden-content" lang="hi">
+                        सरकार के घोषित लक्ष्य हैं:
+                    </p>
+                    <p class="line">
+                        *Improve educational quality*: By consolidating "sub-scale schools" (with fewer than 50 students) into larger ones, the government aims to enhance the learning environment.
+                    </p>
+                    <p class="line hidden-content" lang="hi">
+                        शैक्षणिक गुणवत्ता में सुधार: "उप-स्तरीय स्कूलों" (50 से कम छात्रों वाले) को बड़े स्कूलों में समेकित करके, सरकार का लक्ष्य शिक्षण वातावरण को बेहतर बनाना है।
+                    </p>
+                    <p class="line">
+                        *Facilitate peer learning and group activities*: The merger is intended to give students a "complete educational atmosphere" by integrating them into schools with adequate enrollment.
+                    </p>
+                    <p class="line hidden-content" lang="hi">
+                        सहपाठी शिक्षण और समूह गतिविधियों को सुगम बनाना: इस विलय का उद्देश्य छात्रों को पर्याप्त नामांकन वाले स्कूलों में एकीकृत करके उन्हें "पूर्ण शैक्षिक वातावरण" प्रदान करना है।
+                    </p>
+                    <p class="line">
+                        *Efficiently utilize resources*: The government plans to invest more in the merged schools with facilities like smart classes, ICT labs, and sports equipment.
+                    </p>
+                    <p class="line hidden-content" lang="hi">
+                        संसाधनों का कुशलतापूर्वक उपयोग: सरकार विलय किए गए स्कूलों में स्मार्ट कक्षाओं, आईसीटी प्रयोगशालाओं और खेल उपकरणों जैसी सुविधाओं के साथ अधिक निवेश करने की योजना बना रही है।
+                    </p>
+                    <p class="line">
+                        *Strengthen pre-primary education*: Vacant school buildings will be repurposed as Balvatikas (play schools) and Anganwadi centers.
+                    </p>
+                    <p class="line hidden-content" lang="hi">
+                        पूर्व-प्राथमिक शिक्षा को सुदृढ़ बनाना: खाली स्कूल भवनों को बालवाटिका (प्ले स्कूल) और आंगनवाड़ी केंद्रों के रूप में पुनर्निर्मित किया जाएगा।
+                    </p>
+                    <h3 class="english-heading">Opposition's Concerns and Arguments</h3>
+                    <h3 class="hindi-heading hidden-content">विपक्ष की चिंताएँ और तर्क</h3>
+                    <p class="line">
+                        Protesters, including parents, students, and political leaders, argue that the school merger will have several negative consequences:
+                    </p>
+                    <p class="line hidden-content" lang="hi">
+                        अभिभावकों, छात्रों और राजनीतिक नेताओं सहित प्रदर्शनकारियों का तर्क है कि स्कूलों के विलय के कई नकारात्मक परिणाम होंगे:
+                    </p>
+                    <p class="line">
+                        *Increased travel distance*: Students will be forced to travel longer distances, often through difficult or unsafe terrain. This is a significant concern, especially for farm laborers who can't afford to drop off their children daily.
+                    </p>
+                    <p class="line hidden-content" lang="hi">
+                        यात्रा की बढ़ी हुई दूरी: छात्रों को अक्सर दुर्गम या असुरक्षित इलाकों से होकर लंबी दूरी तय करनी पड़ेगी। यह एक गंभीर चिंता का विषय है, खासकर उन खेतिहर मजदूरों के लिए जो अपने बच्चों को रोज़ाना स्कूल छोड़ने का खर्च नहीं उठा सकते।
+                    </p>
+                    <p class="line">
+                        *Safety risks*: The increased distance is a major safety issue, particularly for girl children, for whom safety is a primary concern. The article mentions an instance where attendance dipped in a school after a merger due to safety concerns over a busy road.
+                    </p>
+                    <p class="line hidden-content" lang="hi">
+                        सुरक्षा जोखिम: बढ़ी हुई दूरी एक बड़ा सुरक्षा मुद्दा है, खासकर लड़कियों के लिए, जिनके लिए सुरक्षा एक प्राथमिक चिंता का विषय है। लेख में एक ऐसे उदाहरण का उल्लेख किया गया है जहाँ एक व्यस्त सड़क पर सुरक्षा संबंधी चिंताओं के कारण विलय के बाद एक स्कूल में उपस्थिति कम हो गई।
+                    </p>
+                    <p class="line">
+                        *Higher dropout rates*: Increased travel time and safety concerns are expected to lead to higher dropout rates, especially among children from Scheduled Caste (SC), Scheduled Tribe (ST), and other marginalized communities, who predominantly attend government schools.
+                    </p>
+                    <p class="line hidden-content" lang="hi">
+                        स्कूल छोड़ने की दर में वृद्धि: यात्रा के समय में वृद्धि और सुरक्षा संबंधी चिंताओं के कारण स्कूल छोड़ने की दर में वृद्धि होने की उम्मीद है, खासकर अनुसूचित जाति (एससी), अनुसूचित जनजाति (एसटी) और अन्य हाशिए के समुदायों के बच्चों में, जो मुख्य रूप से सरकारी स्कूलों में पढ़ते हैं।
+                    </p>
+                    <p class="line">
+                        "Privatization agenda": Critics from organizations like the **Students’ Federation of India (SFI)** allege that the mergers are a step toward privatization of education and that the government is neglecting the needs of marginalized communities.
+                    </p>
+                    <p class="line hidden-content" lang="hi">
+                        "निजीकरण का एजेंडा": स्टूडेंट्स फेडरेशन ऑफ इंडिया (एसएफआई) जैसे संगठनों के आलोचकों का आरोप है कि यह विलय शिक्षा के निजीकरण की ओर एक कदम है और सरकार हाशिए पर पड़े समुदायों की ज़रूरतों की उपेक्षा कर रही है।
+                    </p>
+                    <p class="line">
+                        *Setback to education*: The merger is seen as a potential setback to the overall education system in Uttar Pradesh, a state that already faces challenges like a lack of quality teachers and learning gaps among students, as highlighted by the **Annual Status of Education Report (ASER) 2024**.
+                    </p>
+                    <p class="line hidden-content" lang="hi">
+                        शिक्षा को झटका: इस विलय को उत्तर प्रदेश की समग्र शिक्षा प्रणाली के लिए एक संभावित झटका माना जा रहा है, जो पहले से ही गुणवत्तापूर्ण शिक्षकों की कमी और छात्रों के बीच सीखने के अंतराल जैसी चुनौतियों का सामना कर रहा है, जैसा कि वार्षिक शिक्षा स्थिति रिपोर्ट (एएसईआर) 2024 में उजागर किया गया है।
+                    </p>
+                    <h3 class="english-heading">Impact on Teachers and Job Aspirants</h3>
+                    <h3 class="hindi-heading hidden-content">शिक्षकों और नौकरी के इच्छुक उम्मीदवारों पर प्रभाव</h3>
+                    <p class="line">
+                        The merger has also raised concerns among the teaching community:
+                    </p>
+                    <p class="line hidden-content" lang="hi">
+                        इस विलय ने शिक्षक समुदाय में भी चिंताएँ पैदा की हैं:
+                    </p>
+                    <p class="line">
+                        *Job cuts*: Teachers' unions fear potential post cuts, although the government has provided assurances that no jobs will be lost.
+                    </p>
+                    <p class="line hidden-content" lang="hi">
+                        नौकरियों में कटौती: शिक्षक संघों को संभावित छंटनी का डर है, हालाँकि सरकार ने आश्वासन दिया है कि कोई भी नौकरी नहीं जाएगी।
+                    </p>
+                    <p class="line">
+                        *Non-teaching duties*: Teachers already spend a significant amount of their time on non-teaching duties, such as election duties and administrative work, leaving only a fraction of their time for actual teaching.
+                    </p>
+                    <p class="line hidden-content" lang="hi">
+                        गैर-शिक्षण कार्य: शिक्षक पहले से ही अपना काफी समय गैर-शिक्षण कार्यों, जैसे चुनाव और प्रशासनिक कार्यों में बिताते हैं, जिससे उनके पास वास्तविक शिक्षण के लिए बहुत कम समय बचता है।
+                    </p>
+                    <p class="line">
+                        *Unemployment*: The merger has highlighted the government's failure to create new teaching jobs. Prospective teachers with **BTC/DEIEd qualifications** are agitated, as no new primary teacher vacancies have been advertised in Uttar Pradesh since 2018.
+                    </p>
+                    <p class="line hidden-content" lang="hi">
+                        बेरोजगारी: इस विलय ने नई शिक्षण नौकरियाँ सृजित करने में सरकार की विफलता को उजागर किया है। बीटीसी/डीईआईईडी योग्यता वाले भावी शिक्षक 2018 से उत्तर प्रदेश में प्राथमिक शिक्षकों के किसी भी नए पद के लिए विज्ञापन जारी न होने से आक्रोशित हैं।
+                    </p>
+                    <h3 class="english-heading">Judicial Intervention</h3>
+                    <h3 class="hindi-heading hidden-content">न्यायिक हस्तक्षेप</h3>
+                    <p class="line">
+                        The Lucknow Bench of the **Allahabad High Court** has intervened, ordering a status quo on the merger of primary schools in Sitapur district after noting discrepancies in official documents.
+                    </p>
+                    <p class="line hidden-content" lang="hi">
+                        इलाहाबाद उच्च न्यायालय की लखनऊ पीठ ने सरकारी दस्तावेजों में विसंगतियों का हवाला देते हुए सीतापुर जिले के प्राथमिक विद्यालयों के विलय पर यथास्थिति बनाए रखने का आदेश देते हुए हस्तक्षेप किया है।
+                    </p>
+                    <p class="line">
+                        This judicial action underscores the legal complexities and potential irregularities in the implementation of the merger policy.
+                    </p>
+                    <p class="line hidden-content" lang="hi">
+                        यह न्यायिक कार्रवाई विलय नीति के कार्यान्वयन में कानूनी जटिलताओं और संभावित अनियमितताओं को रेखांकित करती है।
+                    </p>
+                </section>
+            </div>
+            <div class="contact-link">
+                Contact us on WhatsApp: <a href="https://wa.me/918168305050" target="_blank">+91-8168305050</a>
+            </div>
+            <div class="button-group">
+                <a href="index.html" class="action-button">Back to Home</a>
+            </div>
+        </article>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Crack Current Affairs (CrackCA). All rights reserved.</p>
+        </div>
+    </footer>
+
+    <button id="scroll-top-btn" class="scroll-top-btn" title="Go to top">▲</button>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const articleContent = document.getElementById("content");
+            const englishContent = articleContent.querySelectorAll(".line:not([lang='hi'])");
+            const readTimeSpan = document.getElementById("read-time");
+            
+            // 3. Read Time Feature
+            function calculateReadTime() {
+                const wordsPerMinute = 200;
+                let wordCount = 0;
+                englishContent.forEach(p => {
+                    wordCount += p.textContent.split(/\s+/).length;
+                });
+                const readTime = Math.ceil(wordCount / wordsPerMinute);
+                readTimeSpan.textContent = readTime;
+            }
+
+            // 4.1 Scroll to Top Button
+            const scrollTopBtn = document.getElementById("scroll-top-btn");
+            window.addEventListener("scroll", () => {
+                if (window.scrollY > 300) {
+                    scrollTopBtn.style.display = "block";
+                } else {
+                    scrollTopBtn.style.display = "none";
+                }
+            });
+
+            scrollTopBtn.addEventListener("click", () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            });
+
+            // 4.3 Language Switcher
+            const langSwitchBtn = document.getElementById("language-switch-btn");
+            let isEnglish = true;
+
+            langSwitchBtn.addEventListener("click", () => {
+                const englishLines = document.querySelectorAll(".line:not([lang='hi'])");
+                const hindiLines = document.querySelectorAll(".line[lang='hi']");
+                const englishHeadings = document.querySelectorAll(".english-heading");
+                const hindiHeadings = document.querySelectorAll(".hindi-heading");
+
+
+                if (isEnglish) {
+                    englishLines.forEach(line => line.classList.add("hidden-content"));
+                    hindiLines.forEach(line => line.classList.remove("hidden-content"));
+                    englishHeadings.forEach(heading => heading.classList.add("hidden-content"));
+                    hindiHeadings.forEach(heading => heading.classList.remove("hidden-content"));
+                    langSwitchBtn.textContent = "Switch to English";
+                } else {
+                    englishLines.forEach(line => line.classList.remove("hidden-content"));
+                    hindiLines.forEach(line => line.classList.add("hidden-content"));
+                    englishHeadings.forEach(heading => heading.classList.remove("hidden-content"));
+                    hindiHeadings.forEach(heading => heading.classList.add("hidden-content"));
+                    langSwitchBtn.textContent = "Switch to Hindi";
+                }
+                isEnglish = !isEnglish;
+            });
+
+            // 2.5 Replace '*' with italic and bold with underline effect
+            document.querySelectorAll('p').forEach(p => {
+                p.innerHTML = p.innerHTML.replace(/\*(.*?)\*/g, '<span class="bold-italic-underline">$1</span>');
+            });
+            
+            calculateReadTime();
+        });
+    </script>
+</body>
+
+</html>
