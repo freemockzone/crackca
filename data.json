@@ -1,5 +1,75 @@
 [
    {
+    "id": "135",
+    "title": "Welfare of Senior Citizens: Kerala's Draft Policy for Elder Persons, 2025",
+    "date": "2025-08-10",
+    "subject": "GS Paper 2, Social Justice, Governance",
+    "source": "The Hindu",
+    "summary": "This article discusses the Kerala State Policy for Elder Persons, 2025, which aims to replace the 2013 policy with a rights-based approach. The policy addresses a rapidly aging population, with key provisions on combating elder abuse, promoting active and productive aging through skill registries and intergenerational engagement, and ensuring social and financial security. It is seen as a progressive model that could be replicated by other states and aligns with the constitutional mandate under Article 41. The article also highlights implementation challenges and the broader shift from a welfare to a rights-based framework.",
+    "link": "post-135.html",
+    "resource_link": "118.png"
+},
+    {
+    "id": "134",
+    "title": "'Untouchability Wall' Demolished in Karur, Tamil Nadu",
+    "date": "2025-08-10",
+    "subject": "GS Paper 1, Indian Society, GS Paper 2, Governance, GS Paper 4, Ethics",
+    "source": "Indian Express",
+    "summary": "This article reports on the demolition of an 'untouchability wall' in Muthuladampatti, Karur, Tamil Nadu. The wall was allegedly built by the Thottia Naicker community to restrict access for the Arunthathiyar (SC) community. The piece details the background of the caste-based dispute, the timely intervention of the Revenue Department and police, and the voluntary demolition of the wall by the intermediate caste community. It highlights the social significance of the event as a symbolic act against discrimination and discusses the legal aspects, including the violation of public land rights and the applicability of constitutional provisions like Article 17.",
+    "link": "post-134.html",
+    "resource_link": "117.png"
+},
+    {
+    "id": "133",
+    "title": "India-US Trade Relations and Global Protectionism",
+    "date": "2025-08-10",
+    "subject": "GS Paper 2, International Relations, GS Paper 3, Indian Economy",
+    "source": "Indian Express",
+    "summary": "This article provides a historical and contemporary analysis of India-US trade relations amidst a new wave of global protectionism. It traces India's shift from a pre-1991 protectionist economy to its post-1991 liberalization and global integration. The piece highlights the paradox of traditional free trade proponents like the US adopting protectionist policies under President Trump and weaponizing tariffs. It details specific trade tensions, including the US imposing a 50% base tariff on certain Indian goods. The article concludes with India's strategic response and a way forward, emphasizing negotiation, market diversification, and domestic reforms to counter these challenges.",
+    "link": "post-133.html",
+    "resource_link": "116.png"
+},
+    {
+    "id": "132",
+    "title": "Operation Sindoor's 300-km Kill: Indian Air Force's Rare Long-Range Engagement",
+    "date": "2025-08-10",
+    "subject": "GS Paper 2, International Relations, GS Paper 3, Security & Defence Technology",
+    "source": "Indian Express",
+    "summary": "This article discusses Operation Sindoor, where the Indian Air Force (IAF) reportedly achieved a 300-km long-range kill of a Pakistani airborne platform. The piece highlights the significance of this event as a potential record for modern air warfare and details the weapon system involved, likely the S-400 Triumf missile. It explores the strategic importance of such a capability, including its role in extending India's air defense shield and preventing the use of long-range glide bombs. The article also touches on the technical background, comparisons with other conflicts, and the diplomatic context, particularly concerning the US's CAATSA sanctions.",
+    "link": "post-132.html",
+    "resource_link": "115.png"
+},
+    {
+    "id": "131",
+    "title": "India's Ethanol Blending Programme (EBP) for Sustainable Development",
+    "date": "2025-08-10",
+    "subject": "Environment, Science & Technology, Economy",
+    "source": "Indian Express",
+    "summary": "This article provides an in-depth analysis of India's Ethanol Blending Programme (EBP), highlighting its role in achieving energy security and sustainable development. It covers the country's success in meeting the E20 blending target ahead of schedule and its future goals. The piece delves into the key objectives, such as reducing crude oil import dependency and improving air quality, and discusses the socio-economic impact on farmers. It also outlines the policy framework, including the National Policy on Biofuels and various support measures, while addressing challenges like the 'food vs. fuel' debate and infrastructure gaps. Recommendations for the way forward, including the adoption of second-generation (2G) ethanol and flex-fuel vehicles, are also included.",
+    "link": "post-131.html",
+    "resource_link": "114.png"
+},
+    {
+    "id": "130",
+    "title": "Consumer Protection and Dispute Redressal in India",
+    "date": "2025-08-10",
+    "subject": "GS Paper 2, Governance, Policies & Interventions",
+    "source": "Indian Express",
+    "summary": "This article explores the challenges plaguing India's consumer grievance redressal system. It highlights a significant backlog of cases, stagnant disposal rates, and a deviation from the timelines set by the Consumer Protection Act. Key issues discussed include widespread vacancies in consumer commissions, procedural delays, low public trust, and a lack of proper infrastructure. The article concludes with a set of recommendations, including filling vacant posts, streamlining procedures, promoting mediation, and increasing consumer awareness to improve the system's efficiency.",
+    "link": "post-130.html",
+    "resource_link": "113.png"
+},
+    {
+    "id": "129",
+    "title": "Tamil Nadu's Textile Belt and US's 50% Tariff Impact",
+    "date": "2025-08-10",
+    "subject": "Indian Economy, International Relations",
+    "source": "Indian Express",
+    "summary": "This article discusses the significant impact of the US's new 50% tariff on certain Indian textile exports, which is much higher than tariffs on regional competitors. It focuses on the economic repercussions for Tamil Nadu's textile hubs (Tiruppur, Coimbatore, Karur), including export order losses, job risks, and a competitive disadvantage. The piece also outlines the industry’s concerns regarding low margins and existing domestic cost pressures, along with their demands for policy relief, tax reforms, and diplomatic action to mitigate the crisis.",
+    "link": "post-129.html",
+    "resource_link": "112.png"
+},
+    {
     "id": "128",
     "title": "The Bihar migrant worker, a Scylla-Charybdis moment",
     "date": "2025-08-08",
@@ -153,7 +223,7 @@
     "id": "113",
     "title": "Discovery of Portuguese-era Arsenal in Goa",
     "date": "2025-08-03",
-    "subject": "GS Paper I - Indian History, Art & Culture; GS Paper II - Governance, Heritage; GS Paper III - Science & Technology, Archaeological Discoveries",
+    "subject": "GS Paper I - Indian History, Art & Culture, GS Paper II - Governance, Heritage, GS Paper III - Science & Technology, Archaeological Discoveries",
     "source": "Indian Express",
     "summary": "This article reports on the discovery of Portuguese-era cannonballs in Old Goa, which has confirmed the location of a major arsenal, mint, and naval dockyard. It delves into the historical significance of this complex, detailing its origins during the Adil Shahi period and its development under Afonso de Albuquerque. The article outlines the multiple functions of the arsenal, from manufacturing cannons and coining money to building warships, and discusses its eventual decline. It also provides insights from the discovery, such as the use of stone cannonballs, and its corroboration of historical accounts from figures like Francois Pyrard de Laval and Frederick Charles Danvers, making it a valuable resource for UPSC aspirants studying colonial history and archaeology.",
     "link": "post-113.html",
@@ -163,7 +233,7 @@
     "id": "112",
     "title": "Assam's Eviction Drives and Inter-State Tensions in the North-East",
     "date": "2025-08-03",
-    "subject": "GS Paper II - Polity, Governance, Federalism, Internal Security; GS Paper III - Land Reforms, Border Management",
+    "subject": "GS Paper II - Polity, Governance, Federalism, Internal Security, GS Paper III - Land Reforms, Border Management",
     "source": "Indian Express",
     "summary": "This article examines the Assam government's eviction drives, triggered by a Gauhati High Court order to clear encroached forest and 'satra' lands. It explores the political context behind the drive, which is framed as a fight against 'demographic invasion,' and details the specific statistics on encroachment. The piece highlights the significant concern of neighboring states like Nagaland and Mizoram, which fear a spillover of displaced populations and see the drive as linked to historical border disputes. It also discusses the legal frameworks involved, such as the Forest Rights Act, and the ongoing efforts for resolution, providing a comprehensive analysis for UPSC aspirants on a complex issue of internal security and federal relations.",
     "link": "post-112.html",
@@ -173,7 +243,7 @@
     "id": "111",
     "title": "US Tariffs on India and their Impact",
     "date": "2025-08-03",
-    "subject": "GS Paper II - International Relations, Governance, Indian Economy; GS Paper III - Indian Economy, Trade & Commerce, Bilateral Relations",
+    "subject": "GS Paper II - International Relations, Governance, Indian Economy, GS Paper III - Indian Economy, Trade & Commerce, Bilateral Relations",
     "source": "The Hindu",
     "summary": "This article details the imposition of a 25% tariff on Indian imports by the US, announced by President Donald Trump. It outlines the reasons cited by the US—India's high trade barriers and its ties with Russia—and analyzes the potential economic impact on India’s GDP and key sectors like textiles, gems, and auto parts. The article also explores the key points of friction in India-US relations, the status of ongoing trade negotiations, and India's diplomatic options. The piece highlights the complex interplay between economic policy, geopolitical strategy, and domestic priorities, providing a comprehensive overview for UPSC aspirants.",
     "link": "post-111.html",
@@ -885,7 +955,7 @@
         "date": "2025-07-27",
         "subject": "Economy, Health, International Relations",
         "source": "The Hindu",
-        "summary": "UK-India FTA patent clauses may favor owners, impacting affordable medicine access; concerns over evergreening, transparency, despite export benefits.",
+        "summary": "UK-India FTA patent clauses may favor owners, impacting affordable medicine access, concerns over evergreening, transparency, despite export benefits.",
         "link": "post-40.html",
         "resource_link": "23.png"
     },
@@ -895,7 +965,7 @@
         "date": "2025-07-27",
         "subject": "Health, Science & Technology",
         "source": "The Hindu",
-        "summary": "Indian study in Nature Medicine finds dual hypertension drug combos effective, safe; recommends half-doses, avoiding polypharmacy for better compliance.",
+        "summary": "Indian study in Nature Medicine finds dual hypertension drug combos effective, safe, recommends half-doses, avoiding polypharmacy for better compliance.",
         "link": "post-39.html",
         "resource_link": "22.png"
     },
@@ -925,7 +995,7 @@
         "date": "2025-07-27",
         "subject": "National Security, Governance",
         "source": "The Hindu",
-        "summary": "Amit Shah warns rising India faces dynamic security challenges; calls for coordinated Central-State action, focus on narcotics, LWE.",
+        "summary": "Amit Shah warns rising India faces dynamic security challenges, calls for coordinated Central-State action, focus on narcotics, LWE.",
         "link": "post-36.html",
         "resource_link": "19.png"
     },

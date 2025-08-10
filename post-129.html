@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Indian Express - 10-Aug-25</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+--primary-bg: #f0f4f8;
+--secondary-bg: #ffffff;
+--text-color: #333;
+--heading-color: #004d99;
+--accent-color: #ff6347;
+--hover-color: #e0f0ff;
+--border-color: #ddd;
+}
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: 'Noto Sans', sans-serif;
+        background-color: var(--primary-bg);
+        color: var(--text-color);
+        line-height: 1.6;
+        margin: 0;
+    }
+
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 1rem;
+    }
+
+    header {
+        text-align: center;
+        padding: 1.5rem 0;
+        background-color: var(--secondary-bg);
+        border-bottom: 2px solid var(--border-color);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    header h1 {
+        color: var(--heading-color);
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    nav {
+        background-color: var(--heading-color);
+        padding: 0.75rem 0;
+    }
+
+    nav ul {
+        list-style-type: none;
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+    }
+
+    nav a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 700;
+        transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+        color: var(--accent-color);
+    }
+
+    article {
+        background-color: var(--secondary-bg);
+        padding: 2rem;
+        margin-top: 1rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .article-meta {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        border-bottom: 1px dashed var(--border-color);
+        padding-bottom: 1rem;
+    }
+
+    .article-meta h1 {
+        color: var(--heading-color);
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .article-meta .source-date {
+        font-size: 0.9rem;
+        color: #777;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .read-time {
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: var(--accent-color);
+    }
+
+    section {
+        margin-bottom: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.75rem;
+        color: var(--heading-color);
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+        border-left: 4px solid var(--accent-color);
+        padding-left: 0.75rem;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+        color: #555;
+        margin-top: 1.25rem;
+        margin-bottom: 0.75rem;
+    }
+
+    p.line {
+        padding: 0.5rem 0.75rem;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+        margin-bottom: 0.5rem;
+    }
+
+    p.line:hover {
+        background-color: var(--hover-color);
+    }
+
+    p.line.hindi {
+        color: #5a5a5a;
+    }
+
+    .content strong {
+        color: var(--accent-color);
+    }
+    
+    .content b u i {
+        color: #c90076;
+        font-style: italic;
+        font-weight: bold;
+        text-decoration: underline;
+    }
+
+    .contact-us {
+        margin-top: 2rem;
+        text-align: center;
+        font-size: 1.1rem;
+    }
+    
+    .contact-us a {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 700;
+    }
+
+    footer {
+        text-align: center;
+        padding: 1rem;
+        background-color: var(--heading-color);
+        color: #fff;
+        margin-top: 2rem;
+    }
+
+    .scroll-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: none;
+        background-color: var(--accent-color);
+        color: #fff;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 50%;
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        z-index: 999;
+        font-size: 1.5rem;
+        line-height: 1;
+    }
+    
+    .scroll-to-top:hover {
+        background-color: #ff472e;
+    }
+    
+    .back-to-home {
+        display: block;
+        width: fit-content;
+        margin: 2rem auto 0;
+        padding: 0.75rem 1.5rem;
+        background-color: var(--heading-color);
+        color: #fff;
+        text-decoration: none;
+        text-align: center;
+        border-radius: 5px;
+        font-weight: 700;
+        transition: background-color 0.3s ease;
+    }
+
+    .back-to-home:hover {
+        background-color: #003366;
+    }
+
+    .lang-switch {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 8px 12px;
+        background-color: var(--accent-color);
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        z-index: 1001;
+        font-weight: 700;
+        transition: background-color 0.3s ease;
+    }
+
+    .lang-switch:hover {
+        background-color: #ff472e;
+    }
+
+    @media (max-width: 600px) {
+        nav ul {
+            flex-direction: column;
+            gap: 0.5rem;
+            padding: 0.5rem 0;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+        }
+        
+        .article-meta h1 {
+            font-size: 1.75rem;
+        }
+        
+        .container {
+            padding: 0.5rem;
+        }
+    }
+</style>
+</head>
+<body>
+<button class="lang-switch" onclick="toggleLanguage()">हिन्दी / English</button>
+<header>
+<h1>10-August-2025</h1>
+</header>
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="quiz.html">Quiz</a></li>
+<li><a href="donation.html">Donation</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+<main class="container">
+<article>
+<div class="article-meta">
+<h1 class="english-content">Tamil Nadu’s Textile Belt and US’s 50% Tariff Impact</h1>
+<h1 class="hindi-content" style="display:none;">तमिलनाडु का कपड़ा क्षेत्र और अमेरिका का 50% टैरिफ प्रभाव</h1>
+<div class="source-date">
+<span class="source">Source: Indian Express</span>
+<span class="date">Publication Date: 10-August-2025</span>
+</div>
+<div class="read-time">
+<p>Read Time: <span id="read-time"></span></p>
+</div>
+</div>
+
+        <div class="content">
+            <section>
+                <h2 class="english-content">Context</h2>
+                <h2 class="hindi-content" style="display:none;">संदर्भ</h2>
+                <p class="line english-content">The US has imposed a <strong>50% tariff</strong> on certain Indian textile exports.</p>
+                <p class="line hindi-content" lang="hi" style="display:none;">अमेरिका ने कुछ भारतीय कपड़ा निर्यातों पर <strong>50% टैरिफ</strong> लगाया है।</p>
+
+                <p class="line english-content">This is significantly higher than tariffs on competitors like Bangladesh, Pakistan, Vietnam, and Cambodia (19–36% range).</p>
+                <p class="line hindi-content" lang="hi" style="display:none;">यह बांग्लादेश, पाकिस्तान, वियतनाम और कंबोडिया जैसे प्रतिस्पर्धियों पर लगाए गए टैरिफ (19-36% की सीमा) से काफ़ी ज़्यादा है।</p>
+
+                <p class="line english-content">Major impact on <strong>Tamil Nadu’s textile hubs</strong>— Tiruppur, Coimbatore, Karur.</p>
+                <p class="line hindi-content" lang="hi" style="display:none;"><strong>तमिलनाडु के कपड़ा केंद्रों</strong>—तिरुप्पुर, कोयम्बटूर, करूर पर बड़ा प्रभाव।</p>
+            </section>
+
+            <hr>
+
+            <section>
+                <h2 class="english-content">Background</h2>
+                <h2 class="hindi-content" style="display:none;">पृष्ठभूमि</h2>
+                <p class="line english-content"><strong>Tiruppur</strong>: India’s knitwear capital; contributes ₹40,000 crore to knitwear exports and 55% of the country’s knitwear exports.</p>
+                <p class="line hindi-content" lang="hi" style="display:none;"><strong>तिरुप्पुर</strong>: भारत की निटवियर राजधानी; निटवियर निर्यात में ₹40,000 करोड़ का योगदान देता है और देश के निटवियर निर्यात का 55% हिस्सा है।</p>
+
+                <p class="line english-content">Collectively, <strong>Tiruppur, Coimbatore, Karur</strong> employ over <strong>1.25 million workers</strong> and export ₹45,000 crore worth of garments annually.</p>
+                <p class="line hindi-content" lang="hi" style="display:none;">कुल मिलाकर, <strong>तिरुप्पुर, कोयम्बटूर, करूर</strong> <strong>1.25 मिलियन से ज़्यादा श्रमिकों</strong> को रोज़गार देते हैं और सालाना ₹45,000 करोड़ मूल्य के परिधान निर्यात करते हैं।</p>
+                
+                <p class="line english-content">Previously optimistic due to:</p>
+                <p class="line hindi-content" lang="hi" style="display:none;">पहले आशावादी होने के कारण:</p>
+
+                <p class="line english-content">India–UK Free Trade Agreement (FTA) progress.</p>
+                <p class="line hindi-content" lang="hi" style="display:none;">भारत-यूके मुक्त व्यापार समझौते (एफटीए) की प्रगति।</p>
+
+                <p class="line english-content">Rising US interest in Indian goods due to <b><u><i>high tariffs on China (125–145%)</i></u></b> and Myanmar (40%).</p>
+                <p class="line hindi-content" lang="hi" style="display:none;"><strong>चीन (125-145%)</strong> और म्यांमार (40%) पर उच्च टैरिफ के कारण भारतीय वस्तुओं में अमेरिका की बढ़ती रुचि।</p>
+
+                <p class="line english-content">Investments in new machinery for anticipated export growth.</p>
+                <p class="line hindi-content" lang="hi" style="display:none;">अनुमानित निर्यात वृद्धि के लिए नई मशीनरी में निवेश।</p>
+            </section>
+
+            <hr>
+            
+            <section>
+                <h2 class="english-content">Current Issue</h2>
+                <h2 class="hindi-content" style="display:none;">वर्तमान मुद्दा</h2>
+                <p class="line english-content">New US tariff rates (baseline + remedy-linked) push duties for some knitted garments to <strong>as high as 64%</strong>.</p>
+                <p class="line hindi-content" lang="hi" style="display:none;">नई अमेरिकी टैरिफ दरें (बेसलाइन + उपाय-संबंधी) कुछ बुने हुए कपड़ों पर शुल्क को <strong>64%</strong> तक बढ़ा देती हैं।</p>
+
+                <p class="line english-content">Products now up to <strong>35% more expensive</strong> than regional competitors.</p>
+                <p class="line hindi-content" lang="hi" style="display:none;">उत्पाद अब क्षेत्रीय प्रतिस्पर्धियों की तुलना में <strong>35% अधिक महंगे</strong> हैं।</p>
+
+                <p class="line english-content">Seen by exporters as a <strong>de facto trade embargo</strong>.</p>
+                <p class="line hindi-content" lang="hi" style="display:none;">निर्यातकों द्वारा इसे <strong>वास्तविक व्यापार प्रतिबंध</strong> के रूप में देखा जा रहा है।</p>
+            </section>
+
+            <hr>
+
+            <section>
+                <h2 class="english-content">Impact on Tamil Nadu</h2>
+                <h2 class="hindi-content" style="display:none;">तमिलनाडु पर प्रभाव</h2>
+                <h3>1. Export Orders</h3>
+                <p class="line english-content">Orders paused, redirected, or lost to cheaper rivals.</p>
+                <p class="line hindi-content" lang="hi" style="display:none;">ऑर्डर रुके, पुनर्निर्देशित, या सस्ते प्रतिद्वंद्वियों के पास चले गए।</p>
+
+                <p class="line english-content">Example: US shipment diverted to Pakistan; buyers delaying confirmations.</p>
+                <p class="line hindi-content" lang="hi" style="display:none;">उदाहरण: अमेरिकी शिपमेंट पाकिस्तान भेजा गया; खरीदार पुष्टि में देरी कर रहे हैं।</p>
+
+                <p class="line english-content">Non-branded buyers shifting immediately; branded buyers staying temporarily but demanding cost absorption.</p>
+                <p class="line hindi-content" lang="hi" style="display:none;">गैर-ब्रांडेड खरीदार तुरंत स्थानांतरित हो रहे हैं; ब्रांडेड खरीदार अस्थायी रूप से रुक रहे हैं लेकिन लागत वहन करने की मांग कर रहे हैं।</p>
+
+                <h3>2. Economic & Employment Losses</h3>
+                <p class="line english-content">Expected contraction: <strong>10–20% drop</strong> in exports → risk to <strong>1–2 lakh jobs</strong> in three hubs.</p>
+                <p class="line hindi-content" lang="hi" style="display:none;">अपेक्षित संकुचन: निर्यात में <strong>10-20% की गिरावट</strong> → तीन केंद्रों में <strong>1-2 लाख नौकरियों</strong> का जोखिम।</p>
+
+                <p class="line english-content">US-bound orders forecast to fall <strong>40–50%</strong> in cotton and knitted apparel.</p>
+                <p class="line hindi-content" lang="hi" style="display:none;">अमेरिका जाने वाले ऑर्डरों में सूती और बुने हुए परिधानों में <strong>40-50%</strong> की गिरावट का अनुमान।</p>
+
+                <p class="line english-content">Idle capacity in home textiles (bed linens, towels) already visible in Coimbatore and Karur.</p>
+                <p class="line hindi-content" lang="hi" style="display:none;">घरेलू वस्त्रों (बिस्तर की चादरें, तौलिए) में खाली क्षमता कोयंबटूर और करूर में पहले से ही दिखाई दे रही है।</p>
+
+                <h3>3. Competitive Disadvantage</h3>
+                <p class="line english-content">Bangladesh: ~35–36% duty.</p>
+                <p class="line hindi-content" lang="hi" style="display:none;">बांग्लादेश: ~35-36% शुल्क।</p>
+
+                <p class="line english-content">Pakistan: 19% duty.</p>
+                <p class="line hindi-content" lang="hi" style="display:none;">पाकिस्तान: 19% शुल्क।</p>
+
+                <p class="line english-content">Vietnam: 20–21% duty.</p>
+                <p class="line hindi-content" lang="hi" style="display:none;">वियतनाम: 20-21% शुल्क।</p>
+
+                <p class="line english-content">Cambodia: 19% after August 1 revision.</p>
+                <p class="line hindi-content" lang="hi" style="display:none;">कंबोडिया: 1 अगस्त के संशोधन के बाद 19%।</p>
+
+                <p class="line english-content">India: 50% (effective up to 64%).</p>
+                <p class="line hindi-content" lang="hi" style="display:none;">भारत: 50% (64% तक प्रभावी)।</p>
+
+                <h3>4. Existing Domestic Cost Pressures</h3>
+                <p class="line english-content"><strong>11% import duty on cotton</strong>.</p>
+                <p class="line hindi-content" lang="hi" style="display:none;"><strong>कपास पर 11% आयात शुल्क</strong>।</p>
+
+                <p class="line english-content"><strong>GST duty inversion</strong>:</p>
+                <p class="line hindi-content" lang="hi" style="display:none;"><strong>जीएसटी शुल्क उलटा</strong>:</p>
+
+                <p class="line english-content">Polyester raw material: 18%</p>
+                <p class="line hindi-content" lang="hi" style="display:none;">पॉलिएस्टर कच्चा माल: 18%</p>
+
+                <p class="line english-content">Yarn: 12%</p>
+                <p class="line hindi-content" lang="hi" style="display:none;">धागा: 12%</p>
+
+                <p class="line english-content">Finished garment: 5%</p>
+                <p class="line hindi-content" lang="hi" style="display:none;">तैयार परिधान: 5%</p>
+
+                <p class="line english-content">Adds 6–7% to export costs vs. competitors.</p>
+                <p class="line hindi-content" lang="hi" style="display:none;">प्रतिस्पर्धियों की तुलना में निर्यात लागत में 6-7% की वृद्धि।</p>
+            </section>
+
+            <hr>
+
+            <section>
+                <h2 class="english-content">Industry Concerns</h2>
+                <h2 class="hindi-content" style="display:none;">उद्योग की चिंताएँ</h2>
+                <p class="line english-content"><strong>Margins</strong>: Only 5–7%, making cost absorption impossible.</p>
+                <p class="line hindi-content" lang="hi" style="display:none;"><strong>मार्जिन</strong>: केवल 5-7%, जिससे लागत वहन करना असंभव हो जाता है।</p>
+
+                <p class="line english-content"><strong>Seasonal Risk</strong>: Delay in finalising summer bookings means missing the sales window.</p>
+                <p class="line hindi-content" lang="hi" style="display:none;"><strong>मौसमी जोखिम</strong>: गर्मियों की बुकिंग को अंतिम रूप देने में देरी का मतलब है बिक्री का मौका चूकना।</p>
+
+                <p class="line english-content"><strong>Raw Material Issues</strong>:</p>
+                <p class="line hindi-content" lang="hi" style="display:none;"><strong>कच्चे माल की समस्याएँ</strong>:</p>
+
+                <p class="line english-content">45% of imported cotton from Brazil; quality sometimes fails US standards.</p>
+                <p class="line hindi-content" lang="hi" style="display:none;">45% आयातित कपास ब्राज़ील से आता है; गुणवत्ता कभी-कभी अमेरिकी मानकों से कम होती है।</p>
+
+                <p class="line english-content">Call for <b><u><i>cotton-forward deal</i></u></b>— duty-free access to US cotton in exchange for apparel exports.</p>
+                <p class="line hindi-content" lang="hi" style="display:none;"><strong>कॉटन-फ़ॉरवर्ड डील</strong> की माँग—परिधान निर्यात के बदले अमेरिकी कपास तक शुल्क-मुक्त पहुँच।</p>
+            </section>
+
+            <hr>
+
+            <section>
+                <h2 class="english-content">Demands from Industry</h2>
+                <h2 class="hindi-content" style="display:none;">उद्योग की माँगें</h2>
+                <h3>1. Policy Relief</h3>
+                <p class="line english-content">Reintroduce <b><u><i>pandemic-era extended credit guarantee-linked scheme</i></u></b>.</p>
+                <p class="line hindi-content" lang="hi" style="display:none;"><strong>महामारी-काल की विस्तारित ऋण गारंटी-लिंक्ड योजना</strong> को फिर से लागू करें।</p>
+
+                <h3>2. Tax Reforms</h3>
+                <p class="line english-content">Remove 11% cotton import duty.</p>
+                <p class="line hindi-content" lang="hi" style="display:none;">11% कपास आयात शुल्क हटाएँ।</p>
+
+                <p class="line english-content">Rationalise GST on manmade fibres — tax all raw materials below 5%.</p>
+                <p class="line hindi-content" lang="hi" style="display:none;">मानव निर्मित रेशों पर GST को युक्तिसंगत बनाएँ - सभी कच्चे माल पर 5% से कम कर लगाएँ।</p>
+
+                <h3>3. Diplomatic Action</h3>
+                <p class="line english-content">Negotiate with the US for tariff rollback.</p>
+                <p class="line hindi-content" lang="hi" style="display:none;">टैरिफ वापसी के लिए अमेरिका के साथ बातचीत करें।</p>
+
+                <p class="line english-content">Secure trade agreements to reduce competitive disadvantage.</p>
+                <p class="line hindi-content" lang="hi" style="display:none;">प्रतिस्पर्धात्मक नुकसान को कम करने के लिए व्यापार समझौते सुनिश्चित करें।</p>
+            </section>
+
+            <hr>
+
+            <section>
+                <h2 class="english-content">Way Forward</h2>
+                <h2 class="hindi-content" style="display:none;">आगे की राह</h2>
+                <h3>Short-term</h3>
+                <p class="line english-content">Engage in urgent trade negotiations.</p>
+                <p class="line hindi-content" lang="hi" style="display:none;">तत्काल व्यापार वार्ता में शामिल हों।</p>
+
+                <p class="line english-content">Provide financial relief to exporters.</p>
+                <p class="line hindi-content" lang="hi" style="display:none;">निर्यातकों को वित्तीय राहत प्रदान करें।</p>
+
+                <h3>Medium-term</h3>
+                <p class="line english-content">Diversify export markets beyond the US.</p>
+                <p class="line hindi-content" lang="hi" style="display:none;">अमेरिका से परे निर्यात बाजारों में विविधता लाएँ।</p>
+
+                <p class="line english-content">Improve cost competitiveness by reforming tax structure.</p>
+                <p class="line hindi-content" lang="hi" style="display:none;">कर संरचना में सुधार करके लागत प्रतिस्पर्धात्मकता में सुधार करें।</p>
+
+                <h3>Long-term</h3>
+                <p class="line english-content">Invest in high-value products and branding.</p>
+                <p class="line hindi-content" lang="hi" style="display:none;">उच्च मूल्य वाले उत्पादों और ब्रांडिंग में निवेश करें।</p>
+
+                <p class="line english-content">Strengthen bilateral trade pacts.</p>
+                <p class="line hindi-content" lang="hi" style="display:none;">द्विपक्षीय व्यापार समझौतों को मज़बूत करें।</p>
+            </section>
+            
+            <hr>
+
+            <section>
+                <h2 class="english-content">UPSC Relevance</h2>
+                <h2 class="hindi-content" style="display:none;">UPSC प्रासंगिकता</h2>
+                <h3>GS Paper 3</h3>
+                <p class="line english-content"><b><u><i>Indian Economy</i></u></b>: Export competitiveness, trade barriers.</p>
+                <p class="line hindi-content" lang="hi" style="display:none;"><strong>भारतीय अर्थव्यवस्था</strong>: निर्यात प्रतिस्पर्धात्मकता, व्यापार बाधाएँ।</p>
+
+                <p class="line english-content"><b><u><i>Inclusive Growth</i></u></b>: Labour-intensive sector impact.</p>
+                <p class="line hindi-content" lang="hi" style="display:none;"><strong>समावेशी विकास</strong>: श्रम-प्रधान क्षेत्र पर प्रभाव।</p>
+
+                <h3>GS Paper 2</h3>
+                <p class="line english-content"><b><u><i>International Relations</i></u></b>: India–US trade negotiations, tariff disputes.</p>
+                <p class="line hindi-content" lang="hi" style="display:none;"><strong>अंतर्राष्ट्रीय संबंध</strong>: भारत-अमेरिका व्यापार वार्ता, टैरिफ विवाद।</p>
+            </section>
+
+            <div class="contact-us">
+                <p class="line english-content">
+                    For any queries or feedback, feel free to 
+                    <a href="[https://wa.me/918168305050](https://wa.me/918168305050)" target="_blank">Contact us on WhatsApp</a>.
+                </p>
+                <p class="line hindi-content" lang="hi" style="display:none;">
+                    किसी भी प्रश्न या प्रतिक्रिया के लिए, बेझिझक 
+                    <a href="[https://wa.me/918168305050](https://wa.me/918168305050)" target="_blank">हमें व्हाट्सएप पर संपर्क करें</a>।
+                </p>
+            </div>
+        </div>
+
+        <a href="index.html" class="back-to-home">Back to Home</a>
+    </article>
+</main>
+<button class="scroll-to-top" id="scrollToTopBtn">↑</button>
+<footer>
+    © 2025 Crack Current Affairs (CrackCA). All rights reserved.
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Read Time Calculation
+        const englishContent = document.querySelectorAll('.content .english-content:not(h2):not(h3)');
+        let wordCount = 0;
+        englishContent.forEach(p => {
+            wordCount += p.textContent.split(/\s+/).filter(word => word.length > 0).length;
+        });
+        const readTimeMinutes = Math.ceil(wordCount / 200);
+        document.getElementById('read-time').textContent = `${readTimeMinutes} min read`;
+
+        // Scroll to Top Button
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.style.display = 'block';
+            } else {
+                scrollToTopBtn.style.display = 'none';
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Language Switcher
+        let isEnglish = true;
+        function toggleLanguage() {
+            isEnglish = !isEnglish;
+            const englishElements = document.querySelectorAll('.english-content');
+            const hindiElements = document.querySelectorAll('.hindi-content');
+            
+            englishElements.forEach(el => {
+                el.style.display = isEnglish ? '' : 'none';
+            });
+            hindiElements.forEach(el => {
+                el.style.display = isEnglish ? 'none' : '';
+            });
+        }
+
+        // Expose toggleLanguage to global scope for the button
+        window.toggleLanguage = toggleLanguage;
+    });
+</script>
+</body>
+</html>

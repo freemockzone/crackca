@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Indian Express - 10-Aug-25</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+--primary-bg: #f0f4f8;
+--secondary-bg: #ffffff;
+--text-color: #333;
+--heading-color: #004d99;
+--accent-color: #ff6347;
+--hover-color: #e0f0ff;
+--border-color: #ddd;
+}
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: 'Noto Sans', sans-serif;
+        background-color: var(--primary-bg);
+        color: var(--text-color);
+        line-height: 1.6;
+        margin: 0;
+    }
+
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 1rem;
+    }
+
+    .header-nav-container {
+        background-color: var(--secondary-bg);
+        border-bottom: 2px solid var(--border-color);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 1rem;
+    }
+
+    header {
+        text-align: left;
+    }
+
+    header h1 {
+        color: var(--heading-color);
+        font-size: 1.5rem;
+        margin: 0;
+    }
+
+    nav ul {
+        list-style-type: none;
+        display: flex;
+        gap: 1.5rem;
+    }
+
+    nav a {
+        color: var(--heading-color);
+        text-decoration: none;
+        font-weight: 700;
+        transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+        color: var(--accent-color);
+    }
+
+    .lang-switch {
+        padding: 8px 12px;
+        background-color: var(--accent-color);
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 700;
+        transition: background-color 0.3s ease;
+    }
+
+    .lang-switch:hover {
+        background-color: #ff472e;
+    }
+
+    article {
+        background-color: var(--secondary-bg);
+        padding: 2rem;
+        margin-top: 1rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .article-meta {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        border-bottom: 1px dashed var(--border-color);
+        padding-bottom: 1rem;
+    }
+
+    .article-meta h1 {
+        color: var(--heading-color);
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .article-meta .source-date {
+        font-size: 0.9rem;
+        color: #777;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .read-time {
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: var(--accent-color);
+    }
+
+    section {
+        margin-bottom: 2rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+        color: var(--heading-color);
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+        border-left: 4px solid var(--accent-color);
+        padding-left: 0.75rem;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+        color: #555;
+        margin-top: 1.25rem;
+        margin-bottom: 0.75rem;
+    }
+    hr {
+        border: none;
+        border-top: 1px dashed var(--border-color);
+        margin: 2rem 0;
+    }
+
+    p.line, ul li.line {
+        padding: 0.5rem 0.75rem;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+        margin-bottom: 0.5rem;
+    }
+
+    p.line:hover, ul li.line:hover {
+        background-color: var(--hover-color);
+    }
+
+    ul {
+        list-style-type: none;
+        padding-left: 1.5rem;
+    }
+
+    ul li {
+        position: relative;
+        margin-bottom: 0.5rem;
+    }
+
+    ul li::before {
+        content: "•";
+        color: var(--accent-color);
+        font-weight: bold;
+        display: inline-block;
+        width: 1em;
+        margin-left: -1em;
+    }
+
+    .content strong {
+        color: var(--accent-color);
+    }
+
+    .content b u i {
+        color: #c90076;
+        font-style: italic;
+        font-weight: bold;
+        text-decoration: underline;
+    }
+
+    .contact-us {
+        margin-top: 2rem;
+        text-align: center;
+        font-size: 1.1rem;
+    }
+
+    .contact-us a {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 700;
+    }
+    .contact-us a:hover {
+        text-decoration: underline;
+    }
+    
+    .back-to-home {
+        display: block;
+        width: fit-content;
+        margin: 2rem auto 0;
+        padding: 0.75rem 1.5rem;
+        background-color: var(--heading-color);
+        color: #fff;
+        text-decoration: none;
+        text-align: center;
+        border-radius: 5px;
+        font-weight: 700;
+        transition: background-color 0.3s ease;
+    }
+
+    .back-to-home:hover {
+        background-color: #003366;
+    }
+    
+    footer {
+        text-align: center;
+        padding: 1rem;
+        background-color: var(--heading-color);
+        color: #fff;
+        margin-top: 2rem;
+    }
+
+    .scroll-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: none;
+        background-color: var(--accent-color);
+        color: #fff;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 50%;
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        z-index: 999;
+        font-size: 1.5rem;
+        line-height: 1;
+    }
+
+    .scroll-to-top:hover {
+        background-color: #ff472e;
+    }
+
+    @media (max-width: 600px) {
+        .header-nav-container {
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 0.5rem;
+        }
+        nav ul {
+            flex-direction: column;
+            gap: 0.5rem;
+            padding: 0.5rem 0;
+            align-items: flex-start;
+        }
+        header h1 {
+            font-size: 1.5rem;
+        }
+        .article-meta h1 {
+            font-size: 1.75rem;
+        }
+        .container {
+            padding: 0.5rem;
+        }
+    }
+</style>
+</head>
+<body>
+<div class="header-nav-container">
+<header>
+<h1>10-August-2025</h1>
+</header>
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="quiz.html">Quiz</a></li>
+<li><a href="donation.html">Donation</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+<button class="lang-switch" onclick="toggleLanguage()">हिन्दी / English</button>
+</div>
+
+<main class="container">
+    <article>
+        <div class="article-meta">
+            <h1 class="english-content">Operation Sindoor’s 300-km Kill: Indian Air Force’s Rare Long-Range Engagement</h1>
+            <h1 class="hindi-content" lang="hi" style="display:none;">ऑपरेशन सिंदूर की 300 किलोमीटर मारक क्षमता: भारतीय वायु सेना की दुर्लभ लंबी दूरी की मुठभेड़</h1>
+            <div class="source-date">
+                <span class="source">Source: Indian Express</span>
+                <span class="date">Publication Date: 10-August-2025</span>
+            </div>
+            <div class="read-time">
+                <p>Read Time: <span id="read-time"></span></p>
+            </div>
+        </div>
+
+        <div class="content">
+            <section>
+                <h3 class="english-content">Context</h3>
+                <h3 class="hindi-content" lang="hi" style="display:none;">संदर्भ</h3>
+                <p class="line english-content">
+                    <b><u><i>Date & Event:</i></u></b> On May 7, 2025, during <strong>Operation Sindoor</strong>, the Indian Air Force (IAF) reportedly destroyed a large Pakistani airborne platform (possibly an ELINT or AEW&C aircraft) at <strong>~300 km range</strong>.
+                </p>
+                <p class="line hindi-content" lang="hi" style="display:none;">
+                    <b><u><i>दिनांक और घटना:</i></u></b> 7 मई, 2025 को, <strong>ऑपरेशन सिंदूर</strong> के दौरान, भारतीय वायु सेना (IAF) ने कथित तौर पर <strong>लगभग 300 किलोमीटर की दूरी</strong> पर एक बड़े पाकिस्तानी हवाई प्लेटफ़ॉर्म (संभवतः एक ELINT या AEW&C विमान) को नष्ट कर दिया।
+                </p>
+                <p class="line english-content">
+                    <b><u><i>Significance:</i></u></b> Possibly the <strong>longest-ever recorded surface-to-air kill</strong> in modern air warfare that can be publicly confirmed.
+                </p>
+                <p class="line hindi-content" lang="hi" style="display:none;">
+                    <b><u><i>महत्व:</i></u></b> आधुनिक वायु युद्ध में संभवतः <strong>अब तक का सबसे लंबा सतह से हवा में मार करने वाला रिकॉर्ड</strong> है जिसकी सार्वजनिक रूप से पुष्टि की जा सकती है।
+                </p>
+            </section>
+
+            <hr>
+
+            <section>
+                <h3 class="english-content">Key Facts</h3>
+                <h3 class="hindi-content" lang="hi" style="display:none;">मुख्य तथ्य</h3>
+                <p class="line english-content">
+                    <b><u><i>Announcement:</i></u></b> Made by Air Chief Marshal A P Singh during a lecture in Bengaluru.
+                </p>
+                <p class="line hindi-content" lang="hi" style="display:none;">
+                    <b><u><i>घोषणा:</i></u></b> बेंगलुरु में एक व्याख्यान के दौरान एयर चीफ मार्शल ए पी सिंह द्वारा की गई।
+                </p>
+                <p class="line english-content">
+                    <b><u><i>Target:</i></u></b> Likely a <strong>Pakistani ELINT/AEW&C</strong> aircraft.
+                </p>
+                <p class="line hindi-content" lang="hi" style="display:none;">
+                    <b><u><i>लक्ष्य:</i></u></b> संभवतः एक <strong>पाकिस्तानी ELINT/AEW&C</strong> विमान।
+                </p>
+                <p class="line english-content">
+                    <b><u><i>Verification:</i></u></b> Kill confirmed through <strong>electronic tracking</strong> — radar blip disappearance.
+                </p>
+                <p class="line hindi-content" lang="hi" style="display:none;">
+                    <b><u><i>सत्यापन:</i></u></b> इलेक्ट्रॉनिक ट्रैकिंग के ज़रिए मार गिराने की पुष्टि हुई — रडार ब्लिप गायब हो गया।
+                </p>
+                <p class="line english-content">
+                    <b><u><i>Weapon System:</i></u></b> Likely <strong>S-400 Triumf</strong> long-range surface-to-air missile (SAM).
+                </p>
+                <p class="line hindi-content" lang="hi" style="display:none;">
+                    <b><u><i>हथियार प्रणाली:</i></u></b> संभवतः <strong>S-400 ट्रायम्फ</strong> लंबी दूरी की सतह से हवा में मार करने वाली मिसाइल (SAM)।
+                </p>
+            </section>
+
+            <hr>
+
+            <section>
+                <h3 class="english-content">Why This Matters</h3>
+                <h3 class="hindi-content" lang="hi" style="display:none;">यह क्यों मायने रखता है</h3>
+                <p class="line english-content">
+                    <b><u><i>Rarity of Long-Range Kills:</i></u></b>
+                </p>
+                <p class="line hindi-content" lang="hi" style="display:none;">
+                    <b><u><i>लंबी दूरी से मार गिराने की दुर्लभता:</i></u></b>
+                </p>
+                <ul>
+                    <li class="line english-content">
+                        Demands advanced <strong>long-range interceptor missile</strong>.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        उन्नत <strong>लंबी दूरी की इंटरसेप्टर मिसाइल</strong> की आवश्यकता है।
+                    </li>
+                    <li class="line english-content">
+                        Requires <strong>precision tracking</strong> over extended ranges.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        लंबी दूरी पर <strong>सटीक ट्रैकिंग</strong> की आवश्यकता है।
+                    </li>
+                    <li class="line english-content">
+                        Needs ability to <strong>maintain firing solution</strong> until impact.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        प्रभाव पड़ने तक <strong>फायरिंग सॉल्यूशन</strong> बनाए रखने की क्षमता की आवश्यकता है।
+                    </li>
+                </ul>
+                <p class="line english-content">
+                    <b><u><i>Operational Advantage:</i></u></b>
+                </p>
+                <p class="line hindi-content" lang="hi" style="display:none;">
+                    <b><u><i>संचालन लाभ:</i></u></b>
+                </p>
+                <ul>
+                    <li class="line english-content">
+                        Prevented Pakistani aircraft from using <strong>long-range glide bombs</strong>.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        पाकिस्तानी विमानों को <strong>लंबी दूरी के ग्लाइड बम</strong> इस्तेमाल करने से रोका।
+                    </li>
+                    <li class="line english-content">
+                        Extended <strong>air defence shield</strong> deep into enemy territory.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        दुश्मन के इलाके में गहराई तक <strong>वायु रक्षा कवच</strong> का विस्तार किया।
+                    </li>
+                </ul>
+            </section>
+
+            <hr>
+
+            <section>
+                <h2 class="english-content">Technical Background</h2>
+                <h2 class="hindi-content" lang="hi" style="display:none;">तकनीकी पृष्ठभूमि</h2>
+                <h3 class="english-content">S-400 Triumf System</h3>
+                <h3 class="hindi-content" lang="hi" style="display:none;">एस-400 ट्रायम्फ सिस्टम</h3>
+                <ul>
+                    <li class="line english-content">
+                        <b><u><i>Origin:</i></u></b> Russia.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        <b><u><i>उत्पत्ति:</i></u></b> रूस।
+                    </li>
+                    <li class="line english-content">
+                        <b><u><i>Advertised Range:</i></u></b> Up to <strong>400 km</strong>.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        <b><u><i>विज्ञापित रेंज:</i></u></b> 400 किमी तक।
+                    </li>
+                    <li class="line english-content">
+                        <b><u><i>Deployment:</i></u></b> India has received 3 of 5 contracted units; remaining 2 expected by 2025–26.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        <b><u><i>तैनाती:</i></u></b> भारत को अनुबंधित 5 में से 3 इकाइयाँ प्राप्त हो चुकी हैं; शेष 2 2025-26 तक मिलने की उम्मीद है।
+                    </li>
+                    <li class="line english-content">
+                        <b><u><i>Strategic Use:</i></u></b> Covers Pakistan and China borders.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        <b><u><i>रणनीतिक उपयोग:</i></u></b> पाकिस्तान और चीन की सीमाओं को कवर करता है।
+                    </li>
+                    <li class="line english-content">
+                        <b><u><i>Comparison:</i></u></b>
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        <b><u><i>तुलना:</i></u></b>
+                    </li>
+                    <li class="line english-content">
+                        Feb 2024: Ukraine claimed downing Russian A-50 at >200 km.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        फरवरी 2024: यूक्रेन ने 200 किमी से अधिक की दूरी पर रूसी A-50 को मार गिराने का दावा किया।
+                    </li>
+                    <li class="line english-content">
+                        Feb 2022: Ukrainian Su-27 downed by Russian S-400 at ~150 km.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        फरवरी 2022: रूसी S-400 ने यूक्रेनी Su-27 को लगभग 150 किमी की दूरी पर मार गिराया।
+                    </li>
+                </ul>
+                <h3 class="english-content">Other Systems in Operation Sindoor</h3>
+                <h3 class="hindi-content" lang="hi" style="display:none;">ऑपरेशन सिंदूर में अन्य प्रणालियाँ</h3>
+                <ul>
+                    <li class="line english-content">
+                        <b><u><i>Barak 8 MRSAM</i></u></b> – Medium range.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        <b><u><i>बराक 8 MRSAM</i></u></b> - मध्यम दूरी।
+                    </li>
+                    <li class="line english-content">
+                        <b><u><i>Indigenous Akash Missile</i></u></b> – Short to medium range.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        <b><u><i>स्वदेशी आकाश मिसाइल</i></u></b> - कम से मध्यम दूरी तक।
+                    </li>
+                </ul>
+            </section>
+
+            <hr>
+
+            <section>
+                <h3 class="english-content">Strategic & Diplomatic Angle</h3>
+                <h3 class="hindi-content" lang="hi" style="display:none;">रणनीतिक और कूटनीतिक पहलू</h3>
+                <p class="line english-content">
+                    <b><u><i>CAATSA Context:</i></u></b>
+                </p>
+                <p class="line hindi-content" lang="hi" style="display:none;">
+                    <b><u><i>सीएएटीएसए संदर्भ:</i></u></b>
+                </p>
+                <ul>
+                    <li class="line english-content">
+                        India signed S-400 deal with Russia in 2018, a year after US passed <strong>Countering America’s Adversaries Through Sanctions Act (CAATSA)</strong>.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        भारत ने 2018 में रूस के साथ एस-400 सौदे पर हस्ताक्षर किए थे, जो अमेरिका द्वारा <strong>प्रतिबंधों के माध्यम से अमेरिका के विरोधियों का मुकाबला करने संबंधी अधिनियम (सीएएटीएसए)</strong> पारित करने के एक साल बाद था।
+                    </li>
+                    <li class="line english-content">
+                        CAATSA allows US to sanction countries making major defence purchases from Russia, Iran, or North Korea.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        सीएएटीएसए अमेरिका को रूस, ईरान या उत्तर कोरिया से बड़ी रक्षा खरीद करने वाले देशों पर प्रतिबंध लगाने की अनुमति देता है।
+                    </li>
+                </ul>
+                <p class="line english-content">
+                    <b><u><i>Defence Maintenance:</i></u></b>
+                </p>
+                <p class="line hindi-content" lang="hi" style="display:none;">
+                    <b><u><i>रक्षा रखरखाव:</i></u></b>
+                </p>
+                <ul>
+                    <li class="line english-content">
+                        Defence Acquisition Council approved <strong>annual maintenance contract</strong> for S-400 earlier this month.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        रक्षा अधिग्रहण परिषद ने इस महीने की शुरुआत में एस-400 के लिए <strong>वार्षिक रखरखाव अनुबंध</strong> को मंजूरी दी थी।
+                    </li>
+                </ul>
+            </section>
+
+            <hr>
+
+            <section>
+                <h3 class="english-content">UPSC Relevance</h3>
+                <h3 class="hindi-content" lang="hi" style="display:none;">यूपीएससी प्रासंगिकता</h3>
+                <ul>
+                    <li class="line english-content">
+                        <strong>GS Paper 2:</strong> International Relations (India-Russia defence ties, CAATSA implications).
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        <strong>जीएस पेपर 2:</strong> अंतर्राष्ट्रीय संबंध (भारत-रूस रक्षा संबंध, सीएएटीएसए के निहितार्थ)।
+                    </li>
+                    <li class="line english-content">
+                        <strong>GS Paper 3:</strong> Security & Defence Technology (Air defence systems, SAM capabilities).
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        <strong>जीएस पेपर 3:</strong> सुरक्षा और रक्षा प्रौद्योगिकी (वायु रक्षा प्रणालियाँ, एसएएम क्षमताएँ)।
+                    </li>
+                    <li class="line english-content">
+                        <strong>Prelims:</strong> S-400 Triumf features, range, origin; CAATSA provisions.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        <strong>प्रारंभिक:</strong> एस-400 ट्रायम्फ की विशेषताएँ, रेंज, उत्पत्ति; CAATSA प्रावधान।
+                    </li>
+                </ul>
+            </section>
+
+            <hr>
+
+            <p class="line english-content">
+                ✅ <strong>Key Takeaway:</strong>
+                Operation Sindoor’s 300-km kill highlights India’s growing long-range air defence capability, operationalised through the S-400 system, enhancing deterrence and strategic depth against hostile airborne threats.
+            </p>
+            <p class="line hindi-content" lang="hi" style="display:none;">
+                ✅ <strong>मुख्य बातें:</strong>
+                ऑपरेशन सिंदूर की 300 किलोमीटर की मारक क्षमता भारत की बढ़ती लंबी दूरी की वायु रक्षा क्षमता को दर्शाती है, जो एस-400 प्रणाली के माध्यम से संचालित होती है, और शत्रुतापूर्ण हवाई खतरों के विरुद्ध प्रतिरोधक क्षमता और रणनीतिक गहराई को बढ़ाती है।
+            </p>
+
+            <hr>
+
+            <div class="contact-us">
+                <p class="line english-content">
+                    For any queries or feedback, feel free to 
+                    <a href="[https://wa.me/918168305050](https://wa.me/918168305050)" target="_blank">Contact us on WhatsApp</a>.
+                </p>
+                <p class="line hindi-content" lang="hi" style="display:none;">
+                    किसी भी प्रश्न या प्रतिक्रिया के लिए, बेझिझक 
+                    <a href="[https://wa.me/918168305050](https://wa.me/918168305050)" target="_blank">हमें व्हाट्सएप पर संपर्क करें</a>।
+                </p>
+            </div>
+        </div>
+
+        <a href="index.html" class="back-to-home">Back to Home</a>
+    </article>
+</main>
+<button class="scroll-to-top" id="scrollToTopBtn">↑</button>
+<footer>
+    © 2025 Crack Current Affairs (CrackCA). All rights reserved.
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Read Time Calculation
+        const englishContent = document.querySelectorAll('.content .english-content:not(h2):not(h3)');
+        let wordCount = 0;
+        englishContent.forEach(p => {
+            wordCount += p.textContent.split(/\s+/).filter(word => word.length > 0).length;
+        });
+        const readTimeMinutes = Math.ceil(wordCount / 200);
+        document.getElementById('read-time').textContent = `${readTimeMinutes} min read`;
+
+        // Scroll to Top Button
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.style.display = 'block';
+            } else {
+                scrollToTopBtn.style.display = 'none';
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Language Switcher
+        let isEnglish = true;
+        function toggleLanguage() {
+            isEnglish = !isEnglish;
+            const englishElements = document.querySelectorAll('.english-content');
+            const hindiElements = document.querySelectorAll('.hindi-content');
+            
+            englishElements.forEach(el => {
+                el.style.display = isEnglish ? '' : 'none';
+            });
+            hindiElements.forEach(el => {
+                el.style.display = isEnglish ? 'none' : '';
+            });
+        }
+
+        // Expose toggleLanguage to global scope for the button
+        window.toggleLanguage = toggleLanguage;
+    });
+</script>
+</body>
+</html>

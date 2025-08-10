@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Indian Express - 10-Aug-25</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+--primary-bg: #f0f4f8;
+--secondary-bg: #ffffff;
+--text-color: #333;
+--heading-color: #004d99;
+--accent-color: #ff6347;
+--hover-color: #e0f0ff;
+--border-color: #ddd;
+}
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: 'Noto Sans', sans-serif;
+        background-color: var(--primary-bg);
+        color: var(--text-color);
+        line-height: 1.6;
+        margin: 0;
+    }
+
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 1rem;
+    }
+    
+    .header-nav-container {
+        background-color: var(--secondary-bg);
+        border-bottom: 2px solid var(--border-color);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 1rem;
+    }
+
+    header {
+        text-align: left;
+    }
+
+    header h1 {
+        color: var(--heading-color);
+        font-size: 1.5rem;
+        margin: 0;
+    }
+
+    nav ul {
+        list-style-type: none;
+        display: flex;
+        gap: 1.5rem;
+    }
+
+    nav a {
+        color: var(--heading-color);
+        text-decoration: none;
+        font-weight: 700;
+        transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+        color: var(--accent-color);
+    }
+
+    article {
+        background-color: var(--secondary-bg);
+        padding: 2rem;
+        margin-top: 1rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .article-meta {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        border-bottom: 1px dashed var(--border-color);
+        padding-bottom: 1rem;
+    }
+
+    .article-meta h1 {
+        color: var(--heading-color);
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .article-meta .source-date {
+        font-size: 0.9rem;
+        color: #777;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .read-time {
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: var(--accent-color);
+    }
+
+    section {
+        margin-bottom: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.75rem;
+        color: var(--heading-color);
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+        border-left: 4px solid var(--accent-color);
+        padding-left: 0.75rem;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+        color: #555;
+        margin-top: 1.25rem;
+        margin-bottom: 0.75rem;
+    }
+
+    p.line {
+        padding: 0.5rem 0.75rem;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+        margin-bottom: 0.5rem;
+    }
+
+    p.line:hover {
+        background-color: var(--hover-color);
+    }
+
+    p.line.hindi {
+        color: #5a5a5a;
+    }
+
+    .content strong {
+        color: var(--accent-color);
+    }
+    
+    .content b u i {
+        color: #c90076;
+        font-style: italic;
+        font-weight: bold;
+        text-decoration: underline;
+    }
+
+    .contact-us {
+        margin-top: 2rem;
+        text-align: center;
+        font-size: 1.1rem;
+    }
+    
+    .contact-us a {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 700;
+    }
+
+    footer {
+        text-align: center;
+        padding: 1rem;
+        background-color: var(--heading-color);
+        color: #fff;
+        margin-top: 2rem;
+    }
+
+    .scroll-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: none;
+        background-color: var(--accent-color);
+        color: #fff;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 50%;
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        z-index: 999;
+        font-size: 1.5rem;
+        line-height: 1;
+    }
+    
+    .scroll-to-top:hover {
+        background-color: #ff472e;
+    }
+    
+    .back-to-home {
+        display: block;
+        width: fit-content;
+        margin: 2rem auto 0;
+        padding: 0.75rem 1.5rem;
+        background-color: var(--heading-color);
+        color: #fff;
+        text-decoration: none;
+        text-align: center;
+        border-radius: 5px;
+        font-weight: 700;
+        transition: background-color 0.3s ease;
+    }
+
+    .back-to-home:hover {
+        background-color: #003366;
+    }
+
+    .lang-switch {
+        padding: 8px 12px;
+        background-color: var(--accent-color);
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 700;
+        transition: background-color 0.3s ease;
+    }
+
+    .lang-switch:hover {
+        background-color: #ff472e;
+    }
+
+    @media (max-width: 600px) {
+        .header-nav-container {
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 0.5rem;
+        }
+        nav ul {
+            flex-direction: column;
+            gap: 0.5rem;
+            padding: 0.5rem 0;
+            align-items: flex-start;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+        }
+        
+        .article-meta h1 {
+            font-size: 1.75rem;
+        }
+        
+        .container {
+            padding: 0.5rem;
+        }
+        
+        .lang-switch {
+            position: static;
+            margin-top: 0.5rem;
+        }
+    }
+</style>
+</head>
+<body>
+<div class="header-nav-container">
+<header>
+<h1>10-August-2025</h1>
+</header>
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="quiz.html">Quiz</a></li>
+<li><a href="donation.html">Donation</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+<button class="lang-switch" onclick="toggleLanguage()">हिन्दी / English</button>
+</div>
+
+<main class="container">
+    <article>
+        <div class="article-meta">
+            <h1 class="english-content">Consumer Protection and Dispute Redressal in India</h1>
+            <h1 class="hindi-content" style="display:none;">भारत में उपभोक्ता संरक्षण और विवाद निवारण</h1>
+            <div class="source-date">
+                <span class="source">Source: Indian Express</span>
+                <span class="date">Publication Date: 10-August-2025</span>
+            </div>
+            <div class="read-time">
+                <p>Read Time: <span id="read-time"></span></p>
+            </div>
+        </div>
+
+        <div class="content">
+            <section>
+                <h2 class="english-content">1. Status of Consumer Grievance Redressal in India</h2>
+                <h2 class="hindi-content" style="display:none;">1. भारत में उपभोक्ता शिकायत निवारण की स्थिति</h2>
+                <p class="line english-content">
+                    <strong>High Pendency:</strong> Government data from 2020-2024 reveals a significant backlog of consumer cases. As of early 2025, there are <strong>5.8 lakh pending cases</strong> in consumer commissions across India.
+                </p>
+                <p class="line hindi-content" lang="hi" style="display:none;">
+                    <strong>उच्च लंबित मामले:</strong> 2020-2024 के सरकारी आंकड़ों से उपभोक्ता मामलों के लंबित मामलों की संख्या का पता चलता है। 2025 की शुरुआत तक, पूरे भारत में उपभोक्ता आयोगों में <strong>5.8 लाख लंबित मामले</strong> हैं।
+                </p>
+                <p class="line english-content">
+                    <strong>Stagnant Disposal:</strong> In Delhi, for example, the number of pending cases has remained stagnant for nearly five years, with the number of disposed cases barely matching the new ones filed. This indicates a major systemic issue.
+                </p>
+                <p class="line hindi-content" lang="hi" style="display:none;">
+                    <strong>निपटान में स्थिरता:</strong> उदाहरण के लिए, दिल्ली में लंबित मामलों की संख्या लगभग पाँच वर्षों से स्थिर बनी हुई है, निपटाए गए मामलों की संख्या नए दायर मामलों से बमुश्किल ही मेल खाती है। यह एक बड़ी प्रणालीगत समस्या का संकेत है।
+                </p>
+                <p class="line english-content">
+                    <strong>Deteriorating Trend:</strong> While the disposal of cases exceeded new filings in 2022 and 2023, this trend reversed in 2024, when new cases surpassed disposed ones by over <strong>15,000</strong>. This suggests the problem is worsening.
+                </p>
+                <p class="line hindi-content" lang="hi" style="display:none;">
+                    <strong>बिगड़ता रुझान:</strong> जहाँ 2022 और 2023 में मामलों के निपटारे की संख्या नए दायर मामलों से अधिक रही, वहीं 2024 में यह रुझान उलट गया, जब नए मामलों की संख्या निपटाए गए मामलों से <strong>15,000</strong> से अधिक हो गई। इससे पता चलता है कि समस्या और भी बदतर होती जा रही है।
+                </p>
+                <p class="line english-content">
+                    <strong>Deviation from Law:</strong> The <b><u><i>Consumer Protection Act</i></u></b> mandates the disposal of complaints within 3 months (or 5 months if testing is required). However, cases are often taking an average of two years to be resolved.
+                </p>
+                <p class="line hindi-content" lang="hi" style="display:none;">
+                    <strong>कानून से विचलन:</strong> <strong>उपभोक्ता संरक्षण अधिनियम</strong> के अनुसार शिकायतों का निपटारा 3 महीने के भीतर (या जाँच की आवश्यकता होने पर 5 महीने) करना अनिवार्य है। हालाँकि, मामलों के निपटारे में अक्सर औसतन दो साल लग जाते हैं।
+                </p>
+            </section>
+
+            <hr>
+
+            <section>
+                <h2 class="english-content">2. Key Challenges Leading to Pendency</h2>
+                <h2 class="hindi-content" style="display:none;">2. लंबित मामलों की प्रमुख चुनौतियाँ</h2>
+                <h3>Vacancies in Commissions:</h3>
+                <p class="line english-content">
+                    A significant number of posts remain vacant across the country.
+                </p>
+                <p class="line hindi-content" lang="hi" style="display:none;">
+                    देश भर में बड़ी संख्या में पद रिक्त हैं।
+                </p>
+                <p class="line english-content">
+                    <strong>18 out of 36</strong> State Consumer Disputes Redressal Commissions lack presidents.
+                </p>
+                <p class="line hindi-content" lang="hi" style="display:none;">
+                    <strong>36 में से 18</strong> राज्य उपभोक्ता विवाद निवारण आयोगों में अध्यक्षों का अभाव है।
+                </p>
+                <p class="line english-content">
+                    There are <strong>62 member vacancies</strong> in state commissions and <strong>518 vacancies</strong> for members in district commissions.
+                </p>
+                <p class="line hindi-content" lang="hi" style="display:none;">
+                    राज्य आयोगों में <strong>62 सदस्यों के पद रिक्त हैं</strong> और जिला आयोगों में सदस्यों के <strong>518 पद रिक्त हैं</strong>।
+                </p>
+                <p class="line english-content">
+                    <strong>218 out of 685</strong> district commissions do not have sitting presidents.
+                </p>
+                <p class="line hindi-content" lang="hi" style="display:none;">
+                    <strong>685 में से 218</strong> जिला आयोगों में वर्तमान अध्यक्ष नहीं हैं।
+                </p>
+                <h3>Procedural Delays:</h3>
+                <p class="line english-content">
+                    Consumer courts often adopt lengthy procedures, such as demanding affidavits-in-evidence and written submissions in every case, which contravenes the legislative intent of speedy, summary justice.
+                </p>
+                <p class="line hindi-content" lang="hi" style="display:none;">
+                    उपभोक्ता अदालतें अक्सर लंबी प्रक्रियाएँ अपनाती हैं, जैसे हर मामले में साक्ष्य-पत्र और लिखित प्रस्तुतियाँ माँगना, जो त्वरित और संक्षिप्त न्याय की विधायी मंशा का उल्लंघन करता है।
+                </p>
+                <p class="line english-content">
+                    Adjournments are frequently granted, further prolonging the resolution process.
+                </p>
+                <p class="line hindi-content" lang="hi" style="display:none;">
+                    अक्सर स्थगन दिए जाते हैं, जिससे समाधान प्रक्रिया और लंबी हो जाती है।
+                </p>
+                <h3>Low Public Trust and Awareness:</h3>
+                <p class="line english-content">
+                    A small number of consumers approach these commissions. In a city of nearly 3 crore people, Delhi sees fewer than <strong>5,000 new cases annually</strong>, indicating a lack of trust in the system.
+                </p>
+                <p class="line hindi-content" lang="hi" style="display:none;">
+                    बहुत कम उपभोक्ता इन आयोगों से संपर्क करते हैं। लगभग 3 करोड़ की आबादी वाले शहर दिल्ली में हर साल <strong>5,000 से भी कम नए मामले</strong> आते हैं, जो व्यवस्था में विश्वास की कमी को दर्शाता है।
+                </p>
+                <p class="line english-content">
+                    Consumers are often unaware of their rights or find the legal process cumbersome and costly, especially for disputes involving small sums of money.
+                </p>
+                <p class="line hindi-content" lang="hi" style="display:none;">
+                    उपभोक्ता अक्सर अपने अधिकारों से अनजान होते हैं या कानूनी प्रक्रिया को बोझिल और महंगा पाते हैं, खासकर छोटी राशि से जुड़े विवादों के लिए।
+                </p>
+                <p class="line english-content">
+                    The legal fees for hiring a lawyer can often be much higher than the compensation sought, which discourages people from filing complaints.
+                </p>
+                <p class="line hindi-content" lang="hi" style="display:none;">
+                    वकील को नियुक्त करने की कानूनी फीस अक्सर माँगे गए मुआवजे से बहुत अधिक हो सकती है, जिससे लोग शिकायत दर्ज कराने से हतोत्साहित होते हैं।
+                </p>
+                <h3>Infrastructure Issues:</h3>
+                <p class="line english-content">
+                    Some commissions lack adequate physical infrastructure, staff, and technical support, which further hinders their ability to function effectively and dispose of cases in a timely manner.
+                </p>
+                <p class="line hindi-content" lang="hi" style="display:none;">
+                    कुछ आयोगों में पर्याप्त भौतिक बुनियादी ढाँचे, कर्मचारियों और तकनीकी सहायता का अभाव होता है, जिससे उनके प्रभावी ढंग से काम करने और मामलों का समय पर निपटारा करने की क्षमता और भी कम हो जाती है।
+                </p>
+            </section>
+
+            <hr>
+
+            <section>
+                <h2 class="english-content">3. Recommendations & Way Forward</h2>
+                <h2 class="hindi-content" style="display:none;">3. सिफ़ारिशें और आगे की राह</h2>
+                <p class="line english-content">
+                    <strong>Fill Vacancies:</strong> Urgent action is needed to fill the vacant posts of presidents and members at all levels of the consumer commissions. The selection process should prioritize individuals with a strong background in consumer rights.
+                </p>
+                <p class="line hindi-content" lang="hi" style="display:none;">
+                    <strong>रिक्तियों को भरें:</strong> उपभोक्ता आयोगों के सभी स्तरों पर अध्यक्षों और सदस्यों के रिक्त पदों को भरने के लिए तत्काल कार्रवाई की आवश्यकता है। चयन प्रक्रिया में उपभोक्ता अधिकारों के क्षेत्र में मज़बूत पृष्ठभूमि वाले व्यक्तियों को प्राथमिकता दी जानी चाहिए।
+                </p>
+                <p class="line english-content">
+                    <strong>Streamline Procedures:</strong> Commissions should adhere to the summary nature of consumer dispute resolution as per the <b><u><i>Consumer Protection Act, 2019</i></u></b>. They should avoid unnecessary procedural formalities like affidavits in cases where they are not required, and strictly limit the granting of adjournments.
+                </p>
+                <p class="line hindi-content" lang="hi" style="display:none;">
+                    <strong>प्रक्रियाओं को सुव्यवस्थित करें:</strong> आयोगों को <strong>उपभोक्ता संरक्षण अधिनियम, 2019</strong> के अनुसार उपभोक्ता विवाद समाधान की संक्षिप्त प्रकृति का पालन करना चाहिए। उन्हें उन मामलों में हलफनामे जैसी अनावश्यक प्रक्रियात्मक औपचारिकताओं से बचना चाहिए जहाँ उनकी आवश्यकता नहीं है, और स्थगन देने को सख्ती से सीमित करना चाहिए।
+                </p>
+                <p class="line english-content">
+                    <strong>Promote Mediation:</strong> The Consumer Protection Act, 2019, introduced mediation as an Alternative Dispute Resolution (ADR) mechanism. Promoting and strengthening mediation centers can provide a faster and more amicable way to settle disputes.
+                </p>
+                <p class="line hindi-content" lang="hi" style="display:none;">
+                    <strong>मध्यस्थता को बढ़ावा दें:</strong> उपभोक्ता संरक्षण अधिनियम, 2019 ने मध्यस्थता को एक वैकल्पिक विवाद समाधान (एडीआर) तंत्र के रूप में पेश किया। मध्यस्थता केंद्रों को बढ़ावा देना और उन्हें मज़बूत बनाना विवादों को निपटाने का एक तेज़ और अधिक सौहार्दपूर्ण तरीका प्रदान कर सकता है।
+                </p>
+                <p class="line english-content">
+                    <strong>Increase Consumer Awareness:</strong> The government must launch campaigns to educate consumers about their rights, the process of filing a complaint, and the low-cost nature of consumer commissions.
+                </p>
+                <p class="line hindi-content" lang="hi" style="display:none;">
+                    <strong>उपभोक्ता जागरूकता बढ़ाएँ:</strong> सरकार को उपभोक्ताओं को उनके अधिकारों, शिकायत दर्ज करने की प्रक्रिया और उपभोक्ता आयोगों की कम लागत वाली प्रकृति के बारे में शिक्षित करने के लिए अभियान शुरू करने चाहिए।
+                </p>
+                <p class="line english-content">
+                    <strong>Strengthen Digital Infrastructure:</strong> The push for e-filing and online case management should be continued and strengthened to make the process more accessible and efficient for consumers, regardless of their location.
+                </p>
+                <p class="line hindi-content" lang="hi" style="display:none;">
+                    <strong>डिजिटल बुनियादी ढाँचे को मज़बूत करें:</strong> ई-फाइलिंग और ऑनलाइन केस प्रबंधन को बढ़ावा देना जारी रखा जाना चाहिए और इसे मज़बूत बनाया जाना चाहिए ताकि उपभोक्ताओं के लिए, चाहे वे कहीं भी हों, यह प्रक्रिया अधिक सुलभ और कुशल हो सके।
+                </p>
+            </section>
+
+            <hr>
+
+            <div class="contact-us">
+                <p class="line english-content">
+                    For any queries or feedback, feel free to 
+                    <a href="[https://wa.me/918168305050](https://wa.me/918168305050)" target="_blank">Contact us on WhatsApp</a>.
+                </p>
+                <p class="line hindi-content" lang="hi" style="display:none;">
+                    किसी भी प्रश्न या प्रतिक्रिया के लिए, बेझिझक 
+                    <a href="[https://wa.me/918168305050](https://wa.me/918168305050)" target="_blank">हमें व्हाट्सएप पर संपर्क करें</a>।
+                </p>
+            </div>
+        </div>
+
+        <a href="index.html" class="back-to-home">Back to Home</a>
+    </article>
+</main>
+<button class="scroll-to-top" id="scrollToTopBtn">↑</button>
+<footer>
+    © 2025 Crack Current Affairs (CrackCA). All rights reserved.
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Read Time Calculation
+        const englishContent = document.querySelectorAll('.content .english-content:not(h2):not(h3)');
+        let wordCount = 0;
+        englishContent.forEach(p => {
+            wordCount += p.textContent.split(/\s+/).filter(word => word.length > 0).length;
+        });
+        const readTimeMinutes = Math.ceil(wordCount / 200);
+        document.getElementById('read-time').textContent = `${readTimeMinutes} min read`;
+
+        // Scroll to Top Button
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.style.display = 'block';
+            } else {
+                scrollToTopBtn.style.display = 'none';
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Language Switcher
+        let isEnglish = true;
+        function toggleLanguage() {
+            isEnglish = !isEnglish;
+            const englishElements = document.querySelectorAll('.english-content');
+            const hindiElements = document.querySelectorAll('.hindi-content');
+            
+            englishElements.forEach(el => {
+                el.style.display = isEnglish ? '' : 'none';
+            });
+            hindiElements.forEach(el => {
+                el.style.display = isEnglish ? 'none' : '';
+            });
+        }
+
+        // Expose toggleLanguage to global scope for the button
+        window.toggleLanguage = toggleLanguage;
+    });
+</script>
+</body>
+</html>

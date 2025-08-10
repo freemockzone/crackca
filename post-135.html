@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Hindu - 10-Aug-25</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+--primary-bg: #f0f4f8;
+--secondary-bg: #ffffff;
+--text-color: #333;
+--heading-color: #004d99;
+--accent-color: #ff6347;
+--hover-color: #e0f0ff;
+--border-color: #ddd;
+}
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: 'Noto Sans', sans-serif;
+        background-color: var(--primary-bg);
+        color: var(--text-color);
+        line-height: 1.6;
+        margin: 0;
+    }
+
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 1rem;
+    }
+
+    .header-nav-container {
+        background-color: var(--secondary-bg);
+        border-bottom: 2px solid var(--border-color);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 1rem;
+    }
+
+    header {
+        text-align: left;
+    }
+
+    header h1 {
+        color: var(--heading-color);
+        font-size: 1.5rem;
+        margin: 0;
+    }
+
+    nav ul {
+        list-style-type: none;
+        display: flex;
+        gap: 1.5rem;
+    }
+
+    nav a {
+        color: var(--heading-color);
+        text-decoration: none;
+        font-weight: 700;
+        transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+        color: var(--accent-color);
+    }
+
+    .lang-switch {
+        padding: 8px 12px;
+        background-color: var(--accent-color);
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 700;
+        transition: background-color 0.3s ease;
+    }
+
+    .lang-switch:hover {
+        background-color: #ff472e;
+    }
+
+    article {
+        background-color: var(--secondary-bg);
+        padding: 2rem;
+        margin-top: 1rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .article-meta {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        border-bottom: 1px dashed var(--border-color);
+        padding-bottom: 1rem;
+    }
+
+    .article-meta h1 {
+        color: var(--heading-color);
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .article-meta .source-date {
+        font-size: 0.9rem;
+        color: #777;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .read-time {
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: var(--accent-color);
+    }
+
+    section {
+        margin-bottom: 2rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+        color: var(--heading-color);
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+        border-left: 4px solid var(--accent-color);
+        padding-left: 0.75rem;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+        color: #555;
+        margin-top: 1.25rem;
+        margin-bottom: 0.75rem;
+    }
+    hr {
+        border: none;
+        border-top: 1px dashed var(--border-color);
+        margin: 2rem 0;
+    }
+
+    p.line, ul li.line {
+        padding: 0.5rem 0.75rem;
+        border-radius: 4px;
+        transition: background-color 0.3s ease, font-weight 0.3s ease;
+        margin-bottom: 0.5rem;
+    }
+
+    p.line:hover, ul li.line:hover {
+        background-color: var(--hover-color);
+        font-weight: 700;
+    }
+
+    ul {
+        list-style-type: none;
+        padding-left: 1.5rem;
+    }
+    ul.nested-list {
+        padding-left: 2.5rem;
+    }
+
+    ul li {
+        position: relative;
+        margin-bottom: 0.5rem;
+    }
+    ul li::before {
+        content: "•";
+        color: var(--accent-color);
+        font-weight: bold;
+        display: inline-block;
+        width: 1em;
+        margin-left: -1em;
+    }
+    ul.nested-list li::before {
+        content: "–";
+        color: #555;
+    }
+
+    .content strong {
+        color: var(--accent-color);
+    }
+
+    .content b u i {
+        color: #c90076;
+        font-style: italic;
+        font-weight: bold;
+        text-decoration: underline;
+    }
+
+    .contact-us {
+        margin-top: 2rem;
+        text-align: center;
+        font-size: 1.1rem;
+    }
+
+    .contact-us a {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 700;
+    }
+    .contact-us a:hover {
+        text-decoration: underline;
+    }
+    
+    .back-to-home {
+        display: block;
+        width: fit-content;
+        margin: 2rem auto 0;
+        padding: 0.75rem 1.5rem;
+        background-color: var(--heading-color);
+        color: #fff;
+        text-decoration: none;
+        text-align: center;
+        border-radius: 5px;
+        font-weight: 700;
+        transition: background-color 0.3s ease;
+    }
+
+    .back-to-home:hover {
+        background-color: #003366;
+    }
+    
+    footer {
+        text-align: center;
+        padding: 1rem;
+        background-color: var(--heading-color);
+        color: #fff;
+        margin-top: 2rem;
+    }
+
+    .scroll-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: none;
+        background-color: var(--accent-color);
+        color: #fff;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 50%;
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        z-index: 999;
+        font-size: 1.5rem;
+        line-height: 1;
+        transition: opacity 0.3s ease;
+    }
+
+    .scroll-to-top:hover {
+        background-color: #ff472e;
+        opacity: 0.8;
+    }
+
+    @media (max-width: 600px) {
+        .header-nav-container {
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 0.5rem;
+        }
+        nav ul {
+            flex-direction: column;
+            gap: 0.5rem;
+            padding: 0.5rem 0;
+            align-items: flex-start;
+        }
+        header h1 {
+            font-size: 1.2rem;
+        }
+        .lang-switch {
+            margin-top: 0.5rem;
+        }
+        .article-meta h1 {
+            font-size: 1.75rem;
+        }
+        .container {
+            padding: 0.5rem;
+        }
+    }
+</style>
+</head>
+<body>
+<div class="header-nav-container">
+<header>
+<h1>10-August-2025</h1>
+</header>
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="quiz.html">Quiz</a></li>
+<li><a href="donation.html">Donation</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+<button class="lang-switch" id="langSwitchBtn" aria-label="Toggle between English and Hindi content" onclick="toggleLanguage()">हिन्दी / English</button>
+</div>
+
+<main class="container">
+    <article>
+        <div class="article-meta">
+            <h1 class="english-content">Welfare of Senior Citizens: Kerala's Draft Policy for Elder Persons, 2025</h1>
+            <h1 class="hindi-content" lang="hi" style="display:none;">वरिष्ठ नागरिकों का कल्याण: केरल की वृद्धजनों के लिए मसौदा नीति, 2025</h1>
+            <div class="source-date">
+                <span class="source">Source: The Hindu</span>
+                <span class="date">Publication Date: 10-August-2025</span>
+            </div>
+            <div class="read-time">
+                <p>Read Time: <span id="read-time"></span></p>
+            </div>
+        </div>
+
+        <div class="content">
+            <section>
+                <h3 class="english-content">1. Context & Significance</h3>
+                <h3 class="hindi-content" lang="hi" style="display:none;">1. संदर्भ और महत्व</h3>
+                <p class="line english-content">
+                    Kerala is a state with a rapidly aging population, a demographic shift that requires proactive policy intervention. By <strong>2051</strong>, the proportion of the elderly in the state is projected to reach <strong>30%</strong>, creating a high old-age dependency ratio. In response, the Kerala government has drafted the <strong>Kerala State Policy for Elder Persons, 2025</strong>, which aims to replace the previous 2013 policy. This new policy is designed to be a comprehensive, rights-based approach to senior citizen welfare.
+                </p>
+                <p class="line hindi-content" lang="hi" style="display:none;">
+                    केरल एक ऐसा राज्य है जहाँ वृद्धजनों की आबादी तेज़ी से बढ़ रही है, यह एक जनसांख्यिकीय बदलाव है जिसके लिए सक्रिय नीतिगत हस्तक्षेप की आवश्यकता है। <strong>2051</strong> तक, राज्य में वृद्धजनों का अनुपात <strong>30%</strong> तक पहुँचने का अनुमान है, जिससे वृद्धावस्था निर्भरता अनुपात ऊँचा हो जाएगा। इसके जवाब में, केरल सरकार ने <strong>केरल राज्य वृद्धजन नीति, 2025</strong> का मसौदा तैयार किया है, जिसका उद्देश्य पिछली 2013 की नीति को प्रतिस्थापित करना है। यह नई नीति वरिष्ठ नागरिक कल्याण के लिए एक व्यापक, अधिकार-आधारित दृष्टिकोण के रूप में तैयार की गई है।
+                </p>
+            </section>
+
+            <hr>
+
+            <section>
+                <h3 class="english-content">2. Key Provisions of the Draft Policy</h3>
+                <h3 class="hindi-content" lang="hi" style="display:none;">2. मसौदा नीति के प्रमुख प्रावधान</h3>
+                <ul>
+                    <li class="line english-content">
+                        <strong>Addressing Abuse and Neglect:</strong>
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        <strong>दुर्व्यवहार और उपेक्षा से निपटना:</strong>
+                    </li>
+                    <ul class="nested-list">
+                        <li class="line english-content">
+                            <strong>Zero-Tolerance Policy:</strong> The draft policy mandates a zero-tolerance approach to elder abuse, neglect, and exploitation.
+                        </li>
+                        <li class="line hindi-content" lang="hi" style="display:none;">
+                            <strong>शून्य-सहिष्णुता नीति:</strong> मसौदा नीति वृद्धों के साथ दुर्व्यवहार, उपेक्षा और शोषण के प्रति शून्य-सहिष्णुता दृष्टिकोण को अनिवार्य बनाती है।
+                        </li>
+                        <li class="line english-content">
+                            <strong>New Legislation:</strong> It proposes enacting new laws and strengthening existing ones to protect the elderly.
+                        </li>
+                        <li class="line hindi-content" lang="hi" style="display:none;">
+                            <strong>नया कानून:</strong> इसमें वृद्धों की सुरक्षा के लिए नए कानून बनाने और मौजूदा कानूनों को मजबूत करने का प्रस्ताव है।
+                        </li>
+                        <li class="line english-content">
+                            <strong>Institutional Mechanisms:</strong> A system similar to the 'Jagratha Samithi' will be established to monitor and address abuse.
+                        </li>
+                        <li class="line hindi-content" lang="hi" style="display:none;">
+                            <strong>संस्थागत तंत्र:</strong> दुर्व्यवहार की निगरानी और उससे निपटने के लिए 'जागृति समिति' जैसी एक प्रणाली स्थापित की जाएगी।
+                        </li>
+                        <li class="line english-content">
+                            <strong>Grievance Redressal:</strong> Plans include one-stop centers, temporary shelters, counselling services, fast-track justice systems, and mediation services.
+                        </li>
+                        <li class="line hindi-content" lang="hi" style="display:none;">
+                            <strong>शिकायत निवारण:</strong> योजनाओं में वन-स्टॉप सेंटर, अस्थायी आश्रय, परामर्श सेवाएँ, त्वरित न्याय प्रणाली और मध्यस्थता सेवाएँ शामिल हैं।
+                        </li>
+                    </ul>
+                    <li class="line english-content">
+                        <strong>Promoting Active and Productive Aging:</strong>
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        <strong>सक्रिय और उत्पादक वृद्धावस्था को बढ़ावा देना:</strong>
+                    </li>
+                    <ul class="nested-list">
+                        <li class="line english-content">
+                            <strong>Life-Cycle Approach:</strong> The policy adopts a "life-cycle approach," with early interventions in areas like financial literacy and skill development to help individuals plan for their later years.
+                        </li>
+                        <li class="line hindi-content" lang="hi" style="display:none;">
+                            <strong>जीवन-चक्र दृष्टिकोण:</strong> यह नीति "जीवन-चक्र दृष्टिकोण" अपनाती है, जिसमें वित्तीय साक्षरता और कौशल विकास जैसे क्षेत्रों में प्रारंभिक हस्तक्षेप शामिल हैं ताकि व्यक्तियों को अपने बुढ़ापे की योजना बनाने में मदद मिल सके।
+                        </li>
+                        <li class="line english-content">
+                            <strong>Employment & Skilling:</strong>
+                        </li>
+                        <li class="line hindi-content" lang="hi" style="display:none;">
+                            <strong>रोज़गार एवं कौशल विकास:</strong>
+                        </li>
+                        <ul class="nested-list">
+                            <li class="line english-content">
+                                A <strong>State-level skill registry</strong> will be created to connect the elderly with suitable job opportunities.
+                            </li>
+                            <li class="line hindi-content" lang="hi" style="display:none;">
+                                वृद्धजनों को उपयुक्त रोज़गार के अवसरों से जोड़ने के लिए एक <strong>राज्य-स्तरीय कौशल रजिस्ट्री</strong> बनाई जाएगी।
+                            </li>
+                            <li class="line english-content">
+                                It promotes elder-inclusive recruitment and flexible work arrangements.
+                            </li>
+                            <li class="line hindi-content" lang="hi" style="display:none;">
+                                यह वृद्धजनों को शामिल करते हुए भर्ती और लचीली कार्य व्यवस्था को बढ़ावा देती है।
+                            </li>
+                        </ul>
+                        <li class="line english-content">
+                            <strong>Intergenerational Engagement:</strong> The policy encourages the elderly to share their knowledge and mentor younger generations, fostering social solidarity and participation.
+                        </li>
+                        <li class="line hindi-content" lang="hi" style="display:none;">
+                            <strong>अंतर-पीढ़ीगत जुड़ाव:</strong> यह नीति वृद्धजनों को अपना ज्ञान साझा करने और युवा पीढ़ी का मार्गदर्शन करने के लिए प्रोत्साहित करती है, जिससे सामाजिक एकजुटता और भागीदारी को बढ़ावा मिलता है।
+                        </li>
+                    </ul>
+                    <li class="line english-content">
+                        <strong>Social and Financial Security:</strong>
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        <strong>सामाजिक और वित्तीय सुरक्षा:</strong>
+                    </li>
+                    <ul class="nested-list">
+                        <li class="line english-content">
+                            <strong>Pro-Poor Focus:</strong> The policy prioritizes the needs of economically and socially vulnerable elderly persons.
+                        </li>
+                        <li class="line hindi-content" lang="hi" style="display:none;">
+                            <strong>गरीब-हितैषी फोकस:</strong> यह नीति आर्थिक और सामाजिक रूप से कमज़ोर वृद्धजनों की ज़रूरतों को प्राथमिकता देती है।
+                        </li>
+                        <li class="line english-content">
+                            <strong>Equitable Access:</strong> It aims to ensure equitable access to resources, including healthcare and financial services.
+                        </li>
+                        <li class="line hindi-content" lang="hi" style="display:none;">
+                            <strong>समान पहुँच:</strong> इसका उद्देश्य स्वास्थ्य सेवा और वित्तीय सेवाओं सहित संसाधनों तक समान पहुँच सुनिश्चित करना है।
+                        </li>
+                        <li class="line english-content">
+                            <strong>Financial Planning:</strong> It emphasizes the importance of financial literacy to help seniors secure their financial independence.
+                        </li>
+                        <li class="line hindi-content" lang="hi" style="display:none;">
+                            <strong>वित्तीय नियोजन:</strong> यह वरिष्ठ नागरिकों को उनकी वित्तीय स्वतंत्रता सुनिश्चित करने में मदद करने के लिए वित्तीय साक्षरता के महत्व पर ज़ोर देती है।
+                        </li>
+                    </ul>
+                </ul>
+            </section>
+
+            <hr>
+
+            <section>
+                <h3 class="english-content">3. Broader Implications & Way Forward</h3>
+                <h3 class="hindi-content" lang="hi" style="display:none;">3. व्यापक निहितार्थ और आगे की राह</h3>
+                <ul>
+                    <li class="line english-content">
+                        <strong>Shift from Welfare to Rights:</strong> The policy marks a shift from a limited, scheme-based welfare approach to a rights-based, comprehensive framework.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        <strong>कल्याण से अधिकारों की ओर बदलाव:</strong> यह नीति सीमित, योजना-आधारित कल्याणकारी दृष्टिकोण से अधिकार-आधारित, व्यापक ढाँचे की ओर बदलाव का प्रतीक है।
+                    </li>
+                    <li class="line english-content">
+                        <strong>Model for Other States:</strong> Given its progressive approach and Kerala's unique demographic profile, this policy could serve as a template for other Indian states that are also facing a rapidly aging population.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        <strong>अन्य राज्यों के लिए आदर्श:</strong> अपने प्रगतिशील दृष्टिकोण और केरल की विशिष्ट जनसांख्यिकी स्थिति को देखते हुए, यह नीति उन अन्य भारतीय राज्यों के लिए एक आदर्श बन सकती है जो तेज़ी से बढ़ती वृद्ध आबादी का सामना कर रहे हैं।
+                    </li>
+                    <li class="line english-content">
+                        <strong>Implementation Challenges:</strong> The success of the policy will depend on its effective implementation, including filling vacancies in commissions and ensuring the proper allocation of resources.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        <strong>कार्यान्वयन चुनौतियाँ:</strong> नीति की सफलता इसके प्रभावी कार्यान्वयन पर निर्भर करेगी, जिसमें आयोगों में रिक्तियों को भरना और संसाधनों का उचित आवंटन सुनिश्चित करना शामिल है।
+                    </li>
+                    <li class="line english-content">
+                        <strong>Constitutional Mandate:</strong> The policy is a reflection of the state's commitment to social justice and the constitutional mandate under <strong>Article 41</strong> (Right to public assistance in old age).
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        <strong>संवैधानिक अधिदेश:</strong> यह नीति सामाजिक न्याय के प्रति राज्य की प्रतिबद्धता और <strong>अनुच्छेद 41</strong> (वृद्धावस्था में सार्वजनिक सहायता का अधिकार) के तहत संवैधानिक अधिदेश का प्रतिबिंब है।
+                    </li>
+                </ul>
+            </section>
+
+            <hr>
+
+            <div class="contact-us">
+                <p class="line english-content">
+                    For any queries or feedback, feel free to 
+                    <a href="[https://wa.me/918168305050](https://wa.me/918168305050)" target="_blank" rel="noopener noreferrer">Contact us on WhatsApp</a>.
+                </p>
+                <p class="line hindi-content" lang="hi" style="display:none;">
+                    किसी भी प्रश्न या प्रतिक्रिया के लिए, बेझिझक 
+                    <a href="[https://wa.me/918168305050](https://wa.me/918168305050)" target="_blank" rel="noopener noreferrer">हमें व्हाट्सएप पर संपर्क करें</a>।
+                </p>
+            </div>
+        </div>
+
+        <a href="index.html" class="back-to-home">Back to Home</a>
+    </article>
+</main>
+<button class="scroll-to-top" id="scrollToTopBtn" aria-label="Scroll to top">↑</button>
+<footer>
+    © 2025 Crack Current Affairs (CrackCA). All rights reserved.
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Read Time Calculation
+        const englishContent = document.querySelectorAll('.content .english-content:not(h2):not(h3)');
+        let wordCount = 0;
+        englishContent.forEach(p => {
+            wordCount += p.textContent.split(/\s+/).filter(word => word.length > 0).length;
+        });
+        const readTimeMinutes = Math.ceil(wordCount / 200);
+        document.getElementById('read-time').textContent = `${readTimeMinutes} min read`;
+
+        // Scroll to Top Button
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.style.display = 'block';
+            } else {
+                scrollToTopBtn.style.display = 'none';
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Language Switcher
+        let isEnglish = true;
+        const langSwitchBtn = document.getElementById('langSwitchBtn');
+
+        function toggleLanguage() {
+            isEnglish = !isEnglish;
+            const englishElements = document.querySelectorAll('.english-content');
+            const hindiElements = document.querySelectorAll('.hindi-content');
+            
+            englishElements.forEach(el => {
+                el.style.display = isEnglish ? '' : 'none';
+            });
+            hindiElements.forEach(el => {
+                el.style.display = isEnglish ? 'none' : '';
+            });
+
+            // Update button text
+            langSwitchBtn.textContent = isEnglish ? 'हिन्दी / English' : 'English / हिन्दी';
+        }
+
+        // Expose toggleLanguage to global scope for the button
+        window.toggleLanguage = toggleLanguage;
+    });
+</script>
+</body>
+</html>

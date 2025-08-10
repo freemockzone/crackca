@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Indian Express - 10-Aug-25</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+--primary-bg: #f0f4f8;
+--secondary-bg: #ffffff;
+--text-color: #333;
+--heading-color: #004d99;
+--accent-color: #ff6347;
+--hover-color: #e0f0ff;
+--border-color: #ddd;
+}
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: 'Noto Sans', sans-serif;
+        background-color: var(--primary-bg);
+        color: var(--text-color);
+        line-height: 1.6;
+        margin: 0;
+    }
+
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 1rem;
+    }
+
+    .header-nav-container {
+        background-color: var(--secondary-bg);
+        border-bottom: 2px solid var(--border-color);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 1rem;
+    }
+
+    header {
+        text-align: left;
+    }
+
+    header h1 {
+        color: var(--heading-color);
+        font-size: 1.5rem;
+        margin: 0;
+    }
+
+    nav ul {
+        list-style-type: none;
+        display: flex;
+        gap: 1.5rem;
+    }
+
+    nav a {
+        color: var(--heading-color);
+        text-decoration: none;
+        font-weight: 700;
+        transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+        color: var(--accent-color);
+    }
+
+    .lang-switch {
+        padding: 8px 12px;
+        background-color: var(--accent-color);
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 700;
+        transition: background-color 0.3s ease;
+    }
+
+    .lang-switch:hover {
+        background-color: #ff472e;
+    }
+
+    article {
+        background-color: var(--secondary-bg);
+        padding: 2rem;
+        margin-top: 1rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .article-meta {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        border-bottom: 1px dashed var(--border-color);
+        padding-bottom: 1rem;
+    }
+
+    .article-meta h1 {
+        color: var(--heading-color);
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .article-meta .source-date {
+        font-size: 0.9rem;
+        color: #777;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .read-time {
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: var(--accent-color);
+    }
+
+    section {
+        margin-bottom: 2rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+        color: var(--heading-color);
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+        border-left: 4px solid var(--accent-color);
+        padding-left: 0.75rem;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+        color: #555;
+        margin-top: 1.25rem;
+        margin-bottom: 0.75rem;
+    }
+    hr {
+        border: none;
+        border-top: 1px dashed var(--border-color);
+        margin: 2rem 0;
+    }
+
+    p.line, ul li.line {
+        padding: 0.5rem 0.75rem;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+        margin-bottom: 0.5rem;
+    }
+
+    p.line:hover, ul li.line:hover {
+        background-color: var(--hover-color);
+    }
+
+    ul {
+        list-style-type: none;
+        padding-left: 1.5rem;
+    }
+
+    ul li {
+        position: relative;
+        margin-bottom: 0.5rem;
+    }
+
+    ul li::before {
+        content: "•";
+        color: var(--accent-color);
+        font-weight: bold;
+        display: inline-block;
+        width: 1em;
+        margin-left: -1em;
+    }
+
+    .content strong {
+        color: var(--accent-color);
+    }
+
+    .content b u i {
+        color: #c90076;
+        font-style: italic;
+        font-weight: bold;
+        text-decoration: underline;
+    }
+
+    .contact-us {
+        margin-top: 2rem;
+        text-align: center;
+        font-size: 1.1rem;
+    }
+
+    .contact-us a {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 700;
+    }
+    .contact-us a:hover {
+        text-decoration: underline;
+    }
+    
+    .back-to-home {
+        display: block;
+        width: fit-content;
+        margin: 2rem auto 0;
+        padding: 0.75rem 1.5rem;
+        background-color: var(--heading-color);
+        color: #fff;
+        text-decoration: none;
+        text-align: center;
+        border-radius: 5px;
+        font-weight: 700;
+        transition: background-color 0.3s ease;
+    }
+
+    .back-to-home:hover {
+        background-color: #003366;
+    }
+    
+    footer {
+        text-align: center;
+        padding: 1rem;
+        background-color: var(--heading-color);
+        color: #fff;
+        margin-top: 2rem;
+    }
+
+    .scroll-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: none;
+        background-color: var(--accent-color);
+        color: #fff;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 50%;
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        z-index: 999;
+        font-size: 1.5rem;
+        line-height: 1;
+    }
+
+    .scroll-to-top:hover {
+        background-color: #ff472e;
+    }
+
+    @media (max-width: 600px) {
+        .header-nav-container {
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 0.5rem;
+        }
+        nav ul {
+            flex-direction: column;
+            gap: 0.5rem;
+            padding: 0.5rem 0;
+            align-items: flex-start;
+        }
+        header h1 {
+            font-size: 1.5rem;
+        }
+        .article-meta h1 {
+            font-size: 1.75rem;
+        }
+        .container {
+            padding: 0.5rem;
+        }
+    }
+</style>
+</head>
+<body>
+<div class="header-nav-container">
+<header>
+<h1>10-August-2025</h1>
+</header>
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="quiz.html">Quiz</a></li>
+<li><a href="donation.html">Donation</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+<button class="lang-switch" onclick="toggleLanguage()">हिन्दी / English</button>
+</div>
+
+<main class="container">
+    <article>
+        <div class="article-meta">
+            <h1 class="english-content">India-US Trade Relations and Global Protectionism</h1>
+            <h1 class="hindi-content" lang="hi" style="display:none;">भारत-अमेरिका व्यापार संबंध और वैश्विक संरक्षणवाद</h1>
+            <div class="source-date">
+                <span class="source">Source: Indian Express</span>
+                <span class="date">Publication Date: 10-August-2025</span>
+            </div>
+            <div class="read-time">
+                <p>Read Time: <span id="read-time"></span></p>
+            </div>
+        </div>
+
+        <div class="content">
+            <section>
+                <h3 class="english-content">1. India’s Historical Stance on Foreign Trade</h3>
+                <h3 class="hindi-content" lang="hi" style="display:none;">1. विदेशी व्यापार पर भारत का ऐतिहासिक रुख</h3>
+                <ul>
+                    <li class="line english-content">
+                        <strong>Pre-1991:</strong> India maintained a highly protectionist and inward-looking economic policy for four decades.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        <strong>1991 से पहले:</strong> भारत ने चार दशकों तक अत्यधिक संरक्षणवादी और अंतर्मुखी आर्थिक नीति अपनाई।
+                    </li>
+                    <li class="line english-content">
+                        <b><u><i>Key Features:</i></u></b>
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        <b><u><i>मुख्य विशेषताएँ:</i></u></b>
+                    </li>
+                    <li class="line english-content">
+                        - <strong>Luddite Attitude:</strong> A general wariness of foreign trade and investment.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        - <strong>लुडाइट रवैया:</strong> विदेशी व्यापार और निवेश के प्रति सामान्य सतर्कता।
+                    </li>
+                    <li class="line english-content">
+                        - <strong>Licenses and Permits:</strong> A complex system of licenses and permits controlled imports and exports.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        - <strong>लाइसेंस और परमिट:</strong> लाइसेंस और परमिट की एक जटिल प्रणाली आयात और निर्यात को नियंत्रित करती थी।
+                    </li>
+                    <li class="line english-content">
+                        - <strong>Canalization:</strong> Most foreign trade was "canalised" through state-owned corporations, limiting private sector involvement.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        - <strong>नहरीकरण:</strong> अधिकांश विदेशी व्यापार राज्य के स्वामित्व वाले निगमों के माध्यम से "नहरीकृत" था, जिससे निजी क्षेत्र की भागीदारी सीमित हो गई।
+                    </li>
+                    <li class="line english-content">
+                        <strong>Impact:</strong> This approach failed to boost exports, build a competitive manufacturing sector, or augment foreign exchange reserves, while other similarly-placed economies grew rich through an open-economy model.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        <strong>प्रभाव:</strong> यह दृष्टिकोण निर्यात को बढ़ावा देने, प्रतिस्पर्धी विनिर्माण क्षेत्र का निर्माण करने या विदेशी मुद्रा भंडार बढ़ाने में विफल रहा, जबकि अन्य समान अर्थव्यवस्थाएँ एक खुली अर्थव्यवस्था मॉडल के माध्यम से समृद्ध हुईं।
+                    </li>
+                </ul>
+            </section>
+
+            <hr>
+
+            <section>
+                <h3 class="english-content">2. The Shift to an Open Economy (Post-1991)</h3>
+                <h3 class="hindi-content" lang="hi" style="display:none;">2. खुली अर्थव्यवस्था की ओर बदलाव (1991 के बाद)</h3>
+                <ul>
+                    <li class="line english-content">
+                        <strong>Catalyst:</strong> The 1991 financial crisis forced India to undertake sweeping economic reforms.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        <strong>उत्प्रेरक:</strong> 1991 के वित्तीय संकट ने भारत को व्यापक आर्थिक सुधार करने के लिए मजबूर किया।
+                    </li>
+                    <li class="line english-content">
+                        <strong>Reforms:</strong> The government liberalized trade and industrial policies, focusing on fiscal discipline.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        <strong>सुधार:</strong> सरकार ने राजकोषीय अनुशासन पर ध्यान केंद्रित करते हुए व्यापार और औद्योगिक नीतियों को उदार बनाया।
+                    </li>
+                    <li class="line english-content">
+                        <b><u><i>Outcomes:</i></u></b>
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        <b><u><i>परिणाम:</i></u></b>
+                    </li>
+                    <li class="line english-content">
+                        - <strong>Lower Tariffs:</strong> Average tariffs were significantly reduced.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        - <strong>कम टैरिफ:</strong> औसत टैरिफ में उल्लेखनीय कमी आई।
+                    </li>
+                    <li class="line english-content">
+                        - <strong>Global Integration:</strong> India joined the World Trade Organization (WTO) and signed various Free Trade Agreements (FTAs).
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        - <strong>वैश्विक एकीकरण:</strong> भारत विश्व व्यापार संगठन (WTO) में शामिल हुआ और विभिन्न मुक्त व्यापार समझौतों (FTAs) पर हस्ताक्षर किए।
+                    </li>
+                    <li class="line english-content">
+                        - <strong>Public Acceptance:</strong> Indians broadly accepted the need for an open-economy model.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        - <strong>सार्वजनिक स्वीकृति:</strong> भारतीयों ने एक खुली अर्थव्यवस्था मॉडल की आवश्यकता को व्यापक रूप से स्वीकार किया।
+                    </li>
+                </ul>
+            </section>
+
+            <hr>
+
+            <section>
+                <h3 class="english-content">3. The New Wave of Global Protectionism</h3>
+                <h3 class="hindi-content" lang="hi" style="display:none;">3. वैश्विक संरक्षणवाद की नई लहर</h3>
+                <ul>
+                    <li class="line english-content">
+                        <strong>Paradox:</strong> While developing countries like India embraced open economies, traditional proponents of free trade, particularly the United States under President Donald Trump, adopted a protectionist stance.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        <strong>विरोधाभास:</strong> जहाँ भारत जैसे विकासशील देशों ने खुली अर्थव्यवस्थाओं को अपनाया, वहीं मुक्त व्यापार के पारंपरिक समर्थकों, विशेष रूप से राष्ट्रपति डोनाल्ड ट्रम्प के नेतृत्व वाले संयुक्त राज्य अमेरिका ने संरक्षणवादी रुख अपनाया।
+                    </li>
+                    <li class="line english-content">
+                        <b><u><i>Trump's Policies:</i></u></b>
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        <b><u><i>ट्रम्प की नीतियाँ:</i></u></b>
+                    </li>
+                    <li class="line english-content">
+                        - <strong>High Tariffs:</strong> Unapologetic use of high tariffs to discourage imports.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        - <strong>उच्च टैरिफ:</strong> आयात को हतोत्साहित करने के लिए उच्च टैरिफ का बेबाक इस्तेमाल।
+                    </li>
+                    <li class="line english-content">
+                        - <strong>"Re-shoring":</strong> A strong push for American companies to bring manufacturing back to the US. This policy is fraught with challenges due to the complexities of modern supply chains, which are globally distributed and specialized.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        - <strong>"री-शोरिंग":</strong> अमेरिकी कंपनियों पर विनिर्माण को वापस अमेरिका लाने का ज़ोरदार दबाव। यह नीति आधुनिक आपूर्ति श्रृंखलाओं की जटिलताओं के कारण चुनौतियों से भरी है, जो वैश्विक स्तर पर वितरित और विशिष्ट हैं।
+                    </li>
+                    <li class="line english-content">
+                        - <strong>Weaponized Tariffs:</strong> Tariffs are used as a tool to "punish" countries that don't comply with US demands and "reward" those that do.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        - <strong>हथियारबंद टैरिफ:</strong> टैरिफ का इस्तेमाल उन देशों को "दंडित" करने और उन देशों को "पुरस्कृत" करने के लिए किया जाता है जो अमेरिकी माँगों का पालन नहीं करते।
+                    </li>
+                    <li class="line english-content">
+                        <b><u><i>India-US Trade Tensions:</i></u></b>
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        <b><u><i>भारत-अमेरिका व्यापार तनाव:</i></u></b>
+                    </li>
+                    <li class="line english-content">
+                        - The US imposed a base tariff of <strong>50%</strong> on certain Indian goods, in addition to other duties on steel, aluminum, and copper.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        - अमेरिका ने स्टील, एल्युमीनियम और तांबे पर अन्य शुल्कों के अलावा, कुछ भारतीय वस्तुओं पर <strong>50%</strong> का आधार टैरिफ लगाया।
+                    </li>
+                    <li class="line english-content">
+                        - The tariffs were also linked to India's decision to continue buying Russian oil, a move that the US viewed as counter to its geopolitical interests.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        - ये टैरिफ भारत द्वारा रूसी तेल खरीदना जारी रखने के फैसले से भी जुड़े थे, जिसे अमेरिका अपने भू-राजनीतिक हितों के विपरीत मानता था।
+                    </li>
+                </ul>
+            </section>
+
+            <hr>
+
+            <section>
+                <h3 class="english-content">4. India’s Response and Way Forward</h3>
+                <h3 class="hindi-content" lang="hi" style="display:none;">4. भारत की प्रतिक्रिया और आगे की राह</h3>
+                <ul>
+                    <li class="line english-content">
+                        <strong>Current Stand:</strong> India has resisted bending to US pressure and has stated its readiness to take "necessary measures" to protect its interests.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        <strong>वर्तमान रुख:</strong> भारत ने अमेरिकी दबाव के आगे झुकने का विरोध किया है और अपने हितों की रक्षा के लिए "आवश्यक कदम" उठाने की अपनी तत्परता व्यक्त की है।
+                    </li>
+                    <li class="line english-content">
+                        <b><u><i>Strategic Approach:</i></u></b>
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        <b><u><i>रणनीतिक दृष्टिकोण:</i></u></b>
+                    </li>
+                    <li class="line english-content">
+                        - <strong>Negotiation:</strong> India should express its willingness to engage in long-term negotiations with the US on trade issues.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        - <strong>बातचीत:</strong> भारत को व्यापार संबंधी मुद्दों पर अमेरिका के साथ दीर्घकालिक बातचीत करने की इच्छा व्यक्त करनी चाहिए।
+                    </li>
+                    <li class="line english-content">
+                        - <strong>Market Diversification:</strong> India must reduce its dependency on the US market by actively seeking new export markets and enlarging its basket of export products.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        - <strong>बाजार विविधीकरण:</strong> भारत को नए निर्यात बाजारों की सक्रिय रूप से तलाश करके और अपने निर्यात उत्पादों का दायरा बढ़ाकर अमेरिकी बाजार पर अपनी निर्भरता कम करनी चाहिए।
+                    </li>
+                    <li class="line english-content">
+                        <b><u><i>Domestic Reforms:</i></u></b>
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        <b><u><i>घरेलू सुधार:</i></u></b>
+                    </li>
+                    <li class="line english-content">
+                        - <strong>Scrap Controls:</strong> Eliminate "creeping controls" and bureaucratic hurdles for exporters.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        - <strong>नियंत्रण समाप्त करें:</strong> निर्यातकों के लिए "धीरे-धीरे बढ़ते नियंत्रण" और नौकरशाही बाधाओं को समाप्त करें।
+                    </li>
+                    <li class="line english-content">
+                        - <strong>Liberalize FDI:</strong> Further liberalize rules for Foreign Direct Investments to attract more capital.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        - <strong>एफडीआई का उदारीकरण:</strong> अधिक पूंजी आकर्षित करने के लिए प्रत्यक्ष विदेशी निवेश के नियमों को और उदार बनाएं।
+                    </li>
+                    <li class="line english-content">
+                        - <strong>Incentives for Exporters:</strong> Offer short-term incentives to help exporters cope with the tariff shock.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        - <strong>निर्यातकों के लिए प्रोत्साहन:</strong> निर्यातकों को टैरिफ के झटके से निपटने में मदद करने के लिए अल्पकालिक प्रोत्साहन प्रदान करें।
+                    </li>
+                    <li class="line english-content">
+                        <strong>Economic Reality:</strong> The high tariffs imposed by the US are likely to lead to increased prices and inflation for American consumers, which may eventually force a policy rethink in Washington.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        <strong>आर्थिक वास्तविकता:</strong> अमेरिका द्वारा लगाए गए उच्च टैरिफ से अमेरिकी उपभोक्ताओं के लिए कीमतें और मुद्रास्फीति बढ़ने की संभावना है, जिससे अंततः वाशिंगटन को नीति पर पुनर्विचार करने के लिए मजबूर होना पड़ सकता है।
+                    </li>
+                </ul>
+            </section>
+
+            <hr>
+
+            <div class="contact-us">
+                <p class="line english-content">
+                    For any queries or feedback, feel free to 
+                    <a href="[https://wa.me/918168305050](https://wa.me/918168305050)" target="_blank">Contact us on WhatsApp</a>.
+                </p>
+                <p class="line hindi-content" lang="hi" style="display:none;">
+                    किसी भी प्रश्न या प्रतिक्रिया के लिए, बेझिझक 
+                    <a href="[https://wa.me/918168305050](https://wa.me/918168305050)" target="_blank">हमें व्हाट्सएप पर संपर्क करें</a>।
+                </p>
+            </div>
+        </div>
+
+        <a href="index.html" class="back-to-home">Back to Home</a>
+    </article>
+</main>
+<button class="scroll-to-top" id="scrollToTopBtn">↑</button>
+<footer>
+    © 2025 Crack Current Affairs (CrackCA). All rights reserved.
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Read Time Calculation
+        const englishContent = document.querySelectorAll('.content .english-content:not(h2):not(h3)');
+        let wordCount = 0;
+        englishContent.forEach(p => {
+            wordCount += p.textContent.split(/\s+/).filter(word => word.length > 0).length;
+        });
+        const readTimeMinutes = Math.ceil(wordCount / 200);
+        document.getElementById('read-time').textContent = `${readTimeMinutes} min read`;
+
+        // Scroll to Top Button
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.style.display = 'block';
+            } else {
+                scrollToTopBtn.style.display = 'none';
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Language Switcher
+        let isEnglish = true;
+        function toggleLanguage() {
+            isEnglish = !isEnglish;
+            const englishElements = document.querySelectorAll('.english-content');
+            const hindiElements = document.querySelectorAll('.hindi-content');
+            
+            englishElements.forEach(el => {
+                el.style.display = isEnglish ? '' : 'none';
+            });
+            hindiElements.forEach(el => {
+                el.style.display = isEnglish ? 'none' : '';
+            });
+        }
+
+        // Expose toggleLanguage to global scope for the button
+        window.toggleLanguage = toggleLanguage;
+    });
+</script>
+</body>
+</html>

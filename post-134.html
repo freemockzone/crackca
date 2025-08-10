@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TH - 10-Aug-25</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+--primary-bg: #f0f4f8;
+--secondary-bg: #ffffff;
+--text-color: #333;
+--heading-color: #004d99;
+--accent-color: #ff6347;
+--hover-color: #e0f0ff;
+--border-color: #ddd;
+}
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: 'Noto Sans', sans-serif;
+        background-color: var(--primary-bg);
+        color: var(--text-color);
+        line-height: 1.6;
+        margin: 0;
+    }
+
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 1rem;
+    }
+
+    .header-nav-container {
+        background-color: var(--secondary-bg);
+        border-bottom: 2px solid var(--border-color);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 1rem;
+    }
+
+    header {
+        text-align: left;
+    }
+
+    header h1 {
+        color: var(--heading-color);
+        font-size: 1.5rem;
+        margin: 0;
+    }
+
+    nav ul {
+        list-style-type: none;
+        display: flex;
+        gap: 1.5rem;
+    }
+
+    nav a {
+        color: var(--heading-color);
+        text-decoration: none;
+        font-weight: 700;
+        transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+        color: var(--accent-color);
+    }
+
+    .lang-switch {
+        padding: 8px 12px;
+        background-color: var(--accent-color);
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 700;
+        transition: background-color 0.3s ease;
+    }
+
+    .lang-switch:hover {
+        background-color: #ff472e;
+    }
+
+    article {
+        background-color: var(--secondary-bg);
+        padding: 2rem;
+        margin-top: 1rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .article-meta {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        border-bottom: 1px dashed var(--border-color);
+        padding-bottom: 1rem;
+    }
+
+    .article-meta h1 {
+        color: var(--heading-color);
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .article-meta .source-date {
+        font-size: 0.9rem;
+        color: #777;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .read-time {
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: var(--accent-color);
+    }
+
+    section {
+        margin-bottom: 2rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+        color: var(--heading-color);
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+        border-left: 4px solid var(--accent-color);
+        padding-left: 0.75rem;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+        color: #555;
+        margin-top: 1.25rem;
+        margin-bottom: 0.75rem;
+    }
+    hr {
+        border: none;
+        border-top: 1px dashed var(--border-color);
+        margin: 2rem 0;
+    }
+
+    p.line, ul li.line {
+        padding: 0.5rem 0.75rem;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+        margin-bottom: 0.5rem;
+    }
+
+    p.line:hover, ul li.line:hover {
+        background-color: var(--hover-color);
+    }
+
+    ul {
+        list-style-type: none;
+        padding-left: 1.5rem;
+    }
+
+    ul li {
+        position: relative;
+        margin-bottom: 0.5rem;
+    }
+
+    ul li::before {
+        content: "•";
+        color: var(--accent-color);
+        font-weight: bold;
+        display: inline-block;
+        width: 1em;
+        margin-left: -1em;
+    }
+
+    .content strong {
+        color: var(--accent-color);
+    }
+
+    .content b u i {
+        color: #c90076;
+        font-style: italic;
+        font-weight: bold;
+        text-decoration: underline;
+    }
+
+    .contact-us {
+        margin-top: 2rem;
+        text-align: center;
+        font-size: 1.1rem;
+    }
+
+    .contact-us a {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 700;
+    }
+    .contact-us a:hover {
+        text-decoration: underline;
+    }
+    
+    .back-to-home {
+        display: block;
+        width: fit-content;
+        margin: 2rem auto 0;
+        padding: 0.75rem 1.5rem;
+        background-color: var(--heading-color);
+        color: #fff;
+        text-decoration: none;
+        text-align: center;
+        border-radius: 5px;
+        font-weight: 700;
+        transition: background-color 0.3s ease;
+    }
+
+    .back-to-home:hover {
+        background-color: #003366;
+    }
+    
+    footer {
+        text-align: center;
+        padding: 1rem;
+        background-color: var(--heading-color);
+        color: #fff;
+        margin-top: 2rem;
+    }
+
+    .scroll-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: none;
+        background-color: var(--accent-color);
+        color: #fff;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 50%;
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        z-index: 999;
+        font-size: 1.5rem;
+        line-height: 1;
+    }
+
+    .scroll-to-top:hover {
+        background-color: #ff472e;
+    }
+
+    @media (max-width: 600px) {
+        .header-nav-container {
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 0.5rem;
+        }
+        nav ul {
+            flex-direction: column;
+            gap: 0.5rem;
+            padding: 0.5rem 0;
+            align-items: flex-start;
+        }
+        header h1 {
+            font-size: 1.5rem;
+        }
+        .article-meta h1 {
+            font-size: 1.75rem;
+        }
+        .container {
+            padding: 0.5rem;
+        }
+    }
+</style>
+</head>
+<body>
+<div class="header-nav-container">
+<header>
+<h1>10-August-2025</h1>
+</header>
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="quiz.html">Quiz</a></li>
+<li><a href="donation.html">Donation</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+<button class="lang-switch" onclick="toggleLanguage()">हिन्दी / English</button>
+</div>
+
+<main class="container">
+    <article>
+        <div class="article-meta">
+            <h1 class="english-content">‘Untouchability Wall’ Demolished in Karur, Tamil Nadu</h1>
+            <h1 class="hindi-content" lang="hi" style="display:none;">तमिलनाडु के करूर में 'अस्पृश्यता की दीवार' गिराई गई</h1>
+            <div class="source-date">
+                <span class="source">Source: The Hindu</span>
+                <span class="date">Publication Date: 10-August-2025</span>
+            </div>
+            <div class="read-time">
+                <p>Read Time: <span id="read-time"></span></p>
+            </div>
+        </div>
+
+        <div class="content">
+            <section>
+                <h3 class="english-content">Context</h3>
+                <h3 class="hindi-content" lang="hi" style="display:none;">संदर्भ</h3>
+                <ul>
+                    <li class="line english-content">
+                        In <strong>Muthuladampatti, Karur district (Tamil Nadu)</strong>, a wall allegedly erected to prevent access for Scheduled Caste (SC) Arunthathiyar community was demolished by members of the <strong>Thottia Naicker</strong> intermediate caste community on 9 August 2025.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        <strong>मुथुलादमपट्टी, करूर ज़िला (तमिलनाडु)</strong> में, अनुसूचित जाति (एससी) अरुणथथियार समुदाय के प्रवेश को रोकने के लिए कथित तौर पर बनाई गई एक दीवार को 9 अगस्त 2025 को <strong>थोट्टिया नायकर</strong> मध्यवर्ती जाति समुदाय के सदस्यों द्वारा गिरा दिया गया।
+                    </li>
+                    <li class="line english-content">
+                        The wall was widely criticised as a <strong>symbol of caste-based discrimination</strong>.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        इस दीवार की व्यापक रूप से <strong>जाति-आधारित भेदभाव के प्रतीक</strong> के रूप में आलोचना की गई थी।
+                    </li>
+                </ul>
+            </section>
+
+            <hr>
+
+            <section>
+                <h2 class="english-content">Background</h2>
+                <h2 class="hindi-content" lang="hi" style="display:none;">पृष्ठभूमि</h2>
+                <h3 class="english-content">Parties Involved</h3>
+                <h3 class="hindi-content" lang="hi" style="display:none;">संबंधित पक्ष</h3>
+                <ul>
+                    <li class="line english-content">
+                        <strong>Thottia Naicker community</strong> – Intermediate caste group.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        <strong>थोट्टिया नायकर समुदाय</strong> - मध्यवर्ती जाति समूह।
+                    </li>
+                    <li class="line english-content">
+                        <strong>Arunthathiyar community</strong> – Scheduled Caste group.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        <strong>अरुंथथियार समुदाय</strong> - अनुसूचित जाति समूह।
+                    </li>
+                </ul>
+                <h3 class="english-content">Nature of Dispute</h3>
+                <h3 class="hindi-content" lang="hi" style="display:none;">विवाद की प्रकृति</h3>
+                <ul>
+                    <li class="line english-content">
+                        <strong>Wall Dimensions:</strong> ~200 ft long, 10 ft high.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        <strong>दीवार का आकार:</strong> ~200 फीट लंबा, 10 फीट ऊँचा।
+                    </li>
+                    <li class="line english-content">
+                        <strong>Location:</strong> Government <em>poramboke</em> land (public land).
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        <strong>स्थान:</strong> सरकारी <em>पोरम्बोके</em> भूमि (सार्वजनिक भूमि)।
+                    </li>
+                    <li class="line english-content">
+                        <strong>Erected:</strong> ~3 weeks prior to demolition.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        <strong>निर्माण:</strong> विध्वंस से लगभग 3 सप्ताह पहले।
+                    </li>
+                    <li class="line english-content">
+                        <strong>SC Allegation:</strong> Wall intended to deny access to areas inhabited by caste Hindus.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        <strong>सुप्रीम कोर्ट का आरोप:</strong> दीवार का उद्देश्य सवर्ण हिंदुओं के निवास वाले क्षेत्रों में प्रवेश को रोकना था।
+                    </li>
+                    <li class="line english-content">
+                        <strong>Intermediate Caste Claim:</strong> Wall aimed at preventing entry of “outsiders” engaging in anti-social activities.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        <strong>मध्यम जाति का दावा:</strong> दीवार का उद्देश्य असामाजिक गतिविधियों में लिप्त "बाहरी लोगों" के प्रवेश को रोकना था।
+                    </li>
+                </ul>
+            </section>
+
+            <hr>
+
+            <section>
+                <h3 class="english-content">Sequence of Events</h3>
+                <h3 class="hindi-content" lang="hi" style="display:none;">घटनाक्रम</h3>
+                <ul>
+                    <li class="line english-content">
+                        <b><u><i>Prior Tensions:</i></u></b>
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        <b><u><i>पूर्व तनाव:</i></u></b>
+                    </li>
+                    <li class="line english-content">
+                        - Intermediate caste members allegedly blocked Arunthathiyars from:
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        - मध्यम जाति के सदस्यों ने कथित तौर पर अरुणथथियारों को निम्नलिखित कार्यों से रोका:
+                    </li>
+                    <li class="line english-content">
+                        -- Building a stage for annual <strong>Sri Muthumariamman Temple festival</strong> programmes.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        -- वार्षिक <strong>श्री मुथुमारीअम्मन मंदिर उत्सव</strong> कार्यक्रमों के लिए एक मंच का निर्माण।
+                    </li>
+                    <li class="line english-content">
+                        -- Constructing a public toilet on poramboke land.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        -- पोरम्बोके भूमि पर एक सार्वजनिक शौचालय का निर्माण।
+                    </li>
+                    <li class="line english-content">
+                        <b><u><i>Official Intervention:</i></u></b>
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        <b><u><i>आधिकारिक हस्तक्षेप:</i></u></b>
+                    </li>
+                    <li class="line english-content">
+                        - <strong>Revenue Department Notices:</strong>
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        - <strong>राजस्व विभाग के नोटिस:</strong>
+                    </li>
+                    <li class="line english-content">
+                        -- First notice: 15 days to remove wall (no permission taken, public land).
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        -- पहला नोटिस: दीवार हटाने के लिए 15 दिन (अनुमति नहीं ली गई, सार्वजनिक भूमि)।
+                    </li>
+                    <li class="line english-content">
+                        -- Second notice (Friday night): Wall to be removed by <strong>11 a.m., Saturday</strong>.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        -- दूसरा नोटिस (शुक्रवार रात): दीवार <strong>शनिवार सुबह 11 बजे</strong> तक हटा दी जानी है।
+                    </li>
+                    <li class="line english-content">
+                        - <strong>Police Involvement:</strong> Led by Karur SP <strong>K. Josh Thangaiah</strong>.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        - <strong>पुलिस की भागीदारी:</strong> करूर के एसपी <strong>के. जोश थंगैया</strong> के नेतृत्व में।
+                    </li>
+                    <li class="line english-content">
+                        <b><u><i>Community Response:</i></u></b>
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        <b><u><i>सामुदायिक प्रतिक्रिया:</i></u></b>
+                    </li>
+                    <li class="line english-content">
+                        - Caste Hindus staged a <strong>sit-in protest</strong> at Collector’s office on Friday night.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        - सवर्ण हिंदुओं ने शुक्रवार रात कलेक्टर कार्यालय पर <strong>धरना</strong> दिया।
+                    </li>
+                    <li class="line english-content">
+                        - Returned home after being informed wall would be demolished Saturday.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        - शनिवार को दीवार गिराए जाने की सूचना मिलने के बाद घर लौट आए।
+                    </li>
+                    <li class="line english-content">
+                        <b><u><i>Demolition:</i></u></b>
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        <b><u><i>विध्वंस:</i></u></b>
+                    </li>
+                    <li class="line english-content">
+                        - Leaders of Thottia Naicker group voluntarily began dismantling the wall on Saturday afternoon.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        - थोट्टिया नायकर समूह के नेताओं ने शनिवार दोपहर स्वेच्छा से दीवार गिराना शुरू कर दिया।
+                    </li>
+                    <li class="line english-content">
+                        - Press/media barred from photographing the demolition.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        - प्रेस/मीडिया को तोड़फोड़ की तस्वीरें लेने से रोक दिया गया।
+                    </li>
+                    <li class="line english-content">
+                        - RDO <strong>M. Mohamed Bysal</strong> confirmed full demolition; foundation to be cleared by Sunday.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        - आरडीओ <strong>एम. मोहम्मद ब्यासल</strong> ने पूरी तरह से तोड़फोड़ की पुष्टि की; रविवार तक नींव साफ़ कर दी जाएगी।
+                    </li>
+                </ul>
+            </section>
+
+            <hr>
+
+            <section>
+                <h3 class="english-content">Legal & Administrative Aspects</h3>
+                <h3 class="hindi-content" lang="hi" style="display:none;">कानूनी और प्रशासनिक पहलू</h3>
+                <ul>
+                    <li class="line english-content">
+                        <strong>Land Ownership:</strong> Government poramboke land — no private claim.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        <strong>भूमि स्वामित्व:</strong> सरकारी पोरामबोके भूमि - कोई निजी दावा नहीं।
+                    </li>
+                    <li class="line english-content">
+                        <strong>Violation:</strong> No legal permission for construction.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        <strong>उल्लंघन:</strong> निर्माण के लिए कोई कानूनी अनुमति नहीं।
+                    </li>
+                    <li class="line english-content">
+                        <strong>Authority Action:</strong> Revenue Department exercised powers to remove illegal encroachment.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        <strong>प्राधिकरण कार्रवाई:</strong> राजस्व विभाग ने अवैध अतिक्रमण हटाने के लिए शक्तियों का प्रयोग किया।
+                    </li>
+                </ul>
+            </section>
+
+            <hr>
+
+            <section>
+                <h2 class="english-content">Significance</h2>
+                <h2 class="hindi-content" lang="hi" style="display:none;">महत्व</h2>
+                <h3 class="english-content">Social</h3>
+                <h3 class="hindi-content" lang="hi" style="display:none;">सामाजिक</h3>
+                <ul>
+                    <li class="line english-content">
+                        Highlights <strong>caste-based tensions</strong> and discriminatory practices in rural Tamil Nadu.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        ग्रामीण तमिलनाडु में <strong>जाति-आधारित तनाव</strong> और भेदभावपूर्ण प्रथाओं पर प्रकाश डाला गया।
+                    </li>
+                    <li class="line english-content">
+                        Symbolic dismantling of physical barriers representing <strong>untouchability</strong>.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        <strong>अस्पृश्यता</strong> का प्रतिनिधित्व करने वाली भौतिक बाधाओं का प्रतीकात्मक निराकरण।
+                    </li>
+                </ul>
+                <h3 class="english-content">Legal/Policy</h3>
+                <h3 class="hindi-content" lang="hi" style="display:none;">कानूनी/नीति</h3>
+                <ul>
+                    <li class="line english-content">
+                        Enforcement of public land rights.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        सार्वजनिक भूमि अधिकारों का प्रवर्तन।
+                    </li>
+                    <li class="line english-content">
+                        Upholding provisions of:
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        निम्नलिखित के प्रावधानों को कायम रखना:
+                    </li>
+                    <li class="line english-content">
+                        - <strong>Article 17</strong> of the Constitution – Abolition of Untouchability.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        - <strong>संविधान का अनुच्छेद 17</strong> - अस्पृश्यता का उन्मूलन।
+                    </li>
+                    <li class="line english-content">
+                        - <strong>SC/ST (Prevention of Atrocities) Act, 1989</strong> (possible applicability in similar contexts).
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        - <strong>अनुसूचित जाति/अनुसूचित जनजाति (अत्याचार निवारण) अधिनियम, 1989</strong> (समान संदर्भों में संभावित प्रयोज्यता)।
+                    </li>
+                </ul>
+            </section>
+
+            <hr>
+
+            <section>
+                <h3 class="english-content">UPSC Relevance</h3>
+                <h3 class="hindi-content" lang="hi" style="display:none;">यूपीएससी प्रासंगिकता</h3>
+                <ul>
+                    <li class="line english-content">
+                        <strong>GS Paper 1:</strong> Indian Society – Caste system, social empowerment, communal harmony.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        <strong>सामान्य अध्ययन प्रश्नपत्र 1:</strong> भारतीय समाज - जाति व्यवस्था, सामाजिक सशक्तिकरण, सांप्रदायिक सद्भाव।
+                    </li>
+                    <li class="line english-content">
+                        <strong>GS Paper 2:</strong> Governance – Role of local administration in handling social conflicts.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        <strong>सामान्य अध्ययन प्रश्नपत्र 2:</strong> शासन - सामाजिक संघर्षों से निपटने में स्थानीय प्रशासन की भूमिका।
+                    </li>
+                    <li class="line english-content">
+                        <strong>GS Paper 4 (Ethics):</strong> Social justice, empathy, impartiality in public service.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        <strong>सामान्य अध्ययन प्रश्नपत्र 4 (नैतिकता):</strong> सामाजिक न्याय, सहानुभूति, लोक सेवा में निष्पक्षता।
+                    </li>
+                    <li class="line english-content">
+                        <strong>Prelims:</strong>
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        <strong>प्रारंभिक परीक्षा:</strong>
+                    </li>
+                    <li class="line english-content">
+                        - Definition and significance of <em>poramboke</em> land.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        - <em>पोरम्बोके</em> भूमि की परिभाषा और महत्व।
+                    </li>
+                    <li class="line english-content">
+                        - Article 17 provisions.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        - अनुच्छेद 17 के प्रावधान।
+                    </li>
+                    <li class="line english-content">
+                        - Role of Revenue Department in encroachment removal.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        - अतिक्रमण हटाने में राजस्व विभाग की भूमिका।
+                    </li>
+                </ul>
+            </section>
+
+            <hr>
+
+            <p class="line english-content">
+                ✅ <strong>Key Takeaway:</strong> The Karur “untouchability wall” case underscores the persistence of caste barriers in rural India, the role of state intervention in protecting constitutional rights, and the importance of proactive administration in conflict resolution.
+            </p>
+            <p class="line hindi-content" lang="hi" style="display:none;">
+                ✅ <strong>मुख्य बातें:</strong> करूर "अस्पृश्यता दीवार" मामला ग्रामीण भारत में जातिगत बाधाओं की निरंतरता, संवैधानिक अधिकारों की रक्षा में राज्य के हस्तक्षेप की भूमिका और संघर्ष समाधान में सक्रिय प्रशासन के महत्व को रेखांकित करता है।
+            </p>
+
+            <hr>
+
+            <div class="contact-us">
+                <p class="line english-content">
+                    For any queries or feedback, feel free to 
+                    <a href="[https://wa.me/918168305050](https://wa.me/918168305050)" target="_blank">Contact us on WhatsApp</a>.
+                </p>
+                <p class="line hindi-content" lang="hi" style="display:none;">
+                    किसी भी प्रश्न या प्रतिक्रिया के लिए, बेझिझक 
+                    <a href="[https://wa.me/918168305050](https://wa.me/918168305050)" target="_blank">हमें व्हाट्सएप पर संपर्क करें</a>।
+                </p>
+            </div>
+        </div>
+
+        <a href="index.html" class="back-to-home">Back to Home</a>
+    </article>
+</main>
+<button class="scroll-to-top" id="scrollToTopBtn">↑</button>
+<footer>
+    © 2025 Crack Current Affairs (CrackCA). All rights reserved.
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Read Time Calculation
+        const englishContent = document.querySelectorAll('.content .english-content:not(h2):not(h3)');
+        let wordCount = 0;
+        englishContent.forEach(p => {
+            wordCount += p.textContent.split(/\s+/).filter(word => word.length > 0).length;
+        });
+        const readTimeMinutes = Math.ceil(wordCount / 200);
+        document.getElementById('read-time').textContent = `${readTimeMinutes} min read`;
+
+        // Scroll to Top Button
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.style.display = 'block';
+            } else {
+                scrollToTopBtn.style.display = 'none';
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Language Switcher
+        let isEnglish = true;
+        function toggleLanguage() {
+            isEnglish = !isEnglish;
+            const englishElements = document.querySelectorAll('.english-content');
+            const hindiElements = document.querySelectorAll('.hindi-content');
+            
+            englishElements.forEach(el => {
+                el.style.display = isEnglish ? '' : 'none';
+            });
+            hindiElements.forEach(el => {
+                el.style.display = isEnglish ? 'none' : '';
+            });
+        }
+
+        // Expose toggleLanguage to global scope for the button
+        window.toggleLanguage = toggleLanguage;
+    });
+</script>
+</body>
+</html>

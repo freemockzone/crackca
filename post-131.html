@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Indian Express - 10-Aug-25</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+--primary-bg: #f0f4f8;
+--secondary-bg: #ffffff;
+--text-color: #333;
+--heading-color: #004d99;
+--accent-color: #ff6347;
+--hover-color: #e0f0ff;
+--border-color: #ddd;
+}
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: 'Noto Sans', sans-serif;
+        background-color: var(--primary-bg);
+        color: var(--text-color);
+        line-height: 1.6;
+        margin: 0;
+    }
+
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 1rem;
+    }
+    
+    .header-nav-container {
+        background-color: var(--secondary-bg);
+        border-bottom: 2px solid var(--border-color);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 1rem;
+    }
+
+    header {
+        text-align: left;
+    }
+
+    header h1 {
+        color: var(--heading-color);
+        font-size: 1.5rem;
+        margin: 0;
+    }
+
+    nav ul {
+        list-style-type: none;
+        display: flex;
+        gap: 1.5rem;
+    }
+
+    nav a {
+        color: var(--heading-color);
+        text-decoration: none;
+        font-weight: 700;
+        transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+        color: var(--accent-color);
+    }
+
+    article {
+        background-color: var(--secondary-bg);
+        padding: 2rem;
+        margin-top: 1rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .article-meta {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        border-bottom: 1px dashed var(--border-color);
+        padding-bottom: 1rem;
+    }
+
+    .article-meta h1 {
+        color: var(--heading-color);
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .article-meta .source-date {
+        font-size: 0.9rem;
+        color: #777;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .read-time {
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: var(--accent-color);
+    }
+
+    section {
+        margin-bottom: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.75rem;
+        color: var(--heading-color);
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+        border-left: 4px solid var(--accent-color);
+        padding-left: 0.75rem;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+        color: #555;
+        margin-top: 1.25rem;
+        margin-bottom: 0.75rem;
+    }
+
+    p.line {
+        padding: 0.5rem 0.75rem;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+        margin-bottom: 0.5rem;
+    }
+
+    p.line:hover {
+        background-color: var(--hover-color);
+    }
+
+    p.line.hindi {
+        color: #5a5a5a;
+    }
+
+    .content strong {
+        color: var(--accent-color);
+    }
+    
+    .content b u i {
+        color: #c90076;
+        font-style: italic;
+        font-weight: bold;
+        text-decoration: underline;
+    }
+
+    .contact-us {
+        margin-top: 2rem;
+        text-align: center;
+        font-size: 1.1rem;
+    }
+    
+    .contact-us a {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 700;
+    }
+
+    footer {
+        text-align: center;
+        padding: 1rem;
+        background-color: var(--heading-color);
+        color: #fff;
+        margin-top: 2rem;
+    }
+
+    .scroll-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: none;
+        background-color: var(--accent-color);
+        color: #fff;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 50%;
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        z-index: 999;
+        font-size: 1.5rem;
+        line-height: 1;
+    }
+    
+    .scroll-to-top:hover {
+        background-color: #ff472e;
+    }
+    
+    .back-to-home {
+        display: block;
+        width: fit-content;
+        margin: 2rem auto 0;
+        padding: 0.75rem 1.5rem;
+        background-color: var(--heading-color);
+        color: #fff;
+        text-decoration: none;
+        text-align: center;
+        border-radius: 5px;
+        font-weight: 700;
+        transition: background-color 0.3s ease;
+    }
+
+    .back-to-home:hover {
+        background-color: #003366;
+    }
+
+    .lang-switch {
+        padding: 8px 12px;
+        background-color: var(--accent-color);
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 700;
+        transition: background-color 0.3s ease;
+    }
+
+    .lang-switch:hover {
+        background-color: #ff472e;
+    }
+
+    @media (max-width: 600px) {
+        .header-nav-container {
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 0.5rem;
+        }
+        nav ul {
+            flex-direction: column;
+            gap: 0.5rem;
+            padding: 0.5rem 0;
+            align-items: flex-start;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+        }
+        
+        .article-meta h1 {
+            font-size: 1.75rem;
+        }
+        
+        .container {
+            padding: 0.5rem;
+        }
+    }
+</style>
+</head>
+<body>
+<div class="header-nav-container">
+<header>
+<h1>10-August-2025</h1>
+</header>
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="quiz.html">Quiz</a></li>
+<li><a href="donation.html">Donation</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+<button class="lang-switch" onclick="toggleLanguage()">हिन्दी / English</button>
+</div>
+<main class="container">
+<article>
+<div class="article-meta">
+<h1 class="english-content">India's Ethanol Blending Programme (EBP) for Sustainable Development</h1>
+<h1 class="hindi-content" style="display:none;">सतत विकास के लिए भारत का इथेनॉल मिश्रण कार्यक्रम (ईबीपी)</h1>
+<div class="source-date">
+<span class="source">Source: Indian Express</span>
+<span class="date">Publication Date: 10-August-2025</span>
+</div>
+<div class="read-time">
+<p>Read Time: <span id="read-time"></span></p>
+</div>
+</div>
+
+        <div class="content">
+            <section>
+                <h3 class="english-content">1. Context</h3>
+                <h3 class="hindi-content" style="display:none;">1. संदर्भ</h3>
+                <p class="line english-content">
+                    India's Ethanol Blended Petrol (EBP) Programme has been a cornerstone of its strategy for energy security and sustainable development. The country has successfully achieved its <strong>E20 target</strong> (20% ethanol blending in petrol) five years ahead of the initial 2030 schedule, and is now looking at further increasing the blend ratio to <strong>E27 and E30</strong>. This program is crucial for reducing India's dependence on crude oil imports, improving air quality, and boosting the rural economy.
+                </p>
+                <p class="line hindi-content" lang="hi" style="display:none;">
+                    भारत का इथेनॉल मिश्रित पेट्रोल (ईबीपी) कार्यक्रम ऊर्जा सुरक्षा और सतत विकास की उसकी रणनीति का आधार रहा है। देश ने 2030 के शुरुआती लक्ष्य से पाँच साल पहले ही अपना <strong>ई20 लक्ष्य</strong> (पेट्रोल में 20% इथेनॉल मिश्रण) सफलतापूर्वक हासिल कर लिया है, और अब वह मिश्रण अनुपात को बढ़ाकर <strong>ई27 और ई30</strong> करने पर विचार कर रहा है। यह कार्यक्रम कच्चे तेल के आयात पर भारत की निर्भरता कम करने, वायु गुणवत्ता में सुधार लाने और ग्रामीण अर्थव्यवस्था को बढ़ावा देने के लिए महत्वपूर्ण है।
+                </p>
+            </section>
+
+            <hr>
+
+            <section>
+                <h3 class="english-content">2. Key Objectives & Achievements</h3>
+                <h3 class="hindi-content" style="display:none;">2. प्रमुख उद्देश्य और उपलब्धियाँ</h3>
+                <p class="line english-content">
+                    <strong>Energy Security:</strong> India, being a major importer of crude oil, aims to reduce its import dependency. The EBP has already resulted in significant <strong>foreign exchange savings</strong> of over ₹1.4 lakh crore since 2014-15.
+                </p>
+                <p class="line hindi-content" lang="hi" style="display:none;">
+                    <strong>ऊर्जा सुरक्षा:</strong> कच्चे तेल का एक प्रमुख आयातक होने के नाते, भारत का लक्ष्य अपनी आयात निर्भरता कम करना है। ईबीपी के परिणामस्वरूप 2014-15 से अब तक ₹1.4 लाख करोड़ से अधिक की महत्वपूर्ण <strong>विदेशी मुद्रा बचत</strong> हुई है।
+                </p>
+                <p class="line english-content">
+                    <strong>Environmental Benefits:</strong> Ethanol is a cleaner-burning fuel, and its blending with petrol reduces vehicular emissions like carbon monoxide and hydrocarbons. A NITI Aayog study showed that ethanol from sugarcane and maize can reduce greenhouse gas (GHG) emissions by 65% and 50% respectively, compared to petrol. The program has already helped avoid over 700 lakh tonnes of CO₂ emissions.
+                </p>
+                <p class="line hindi-content" lang="hi" style="display:none;">
+                    <strong>पर्यावरणीय लाभ:</strong> इथेनॉल एक स्वच्छ ईंधन है और पेट्रोल में इसके मिश्रण से कार्बन मोनोऑक्साइड और हाइड्रोकार्बन जैसे वाहनों से होने वाले उत्सर्जन में कमी आती है। नीति आयोग के एक अध्ययन से पता चला है कि गन्ने और मक्के से प्राप्त इथेनॉल, पेट्रोल की तुलना में ग्रीनहाउस गैस (जीएचजी) उत्सर्जन को क्रमशः 65% और 50% तक कम कर सकता है। इस कार्यक्रम से पहले ही 700 लाख टन से अधिक CO₂ उत्सर्जन को कम करने में मदद मिली है।
+                </p>
+                <p class="line english-content">
+                    <strong>Socio-Economic Impact:</strong> The program provides a stable market for agricultural produce, ensuring a new revenue stream for farmers. Over <strong>₹1.2 lakh crore</strong> has been paid to farmers through ethanol procurement since 2014, thereby improving their income and supporting the rural economy. It also helps manage surplus food grains and sugar stocks.
+                </p>
+                <p class="line hindi-content" lang="hi" style="display:none;">
+                    <strong>सामाजिक-आर्थिक प्रभाव:</strong> यह कार्यक्रम कृषि उपज के लिए एक स्थिर बाजार प्रदान करता है, जिससे किसानों के लिए आय का एक नया स्रोत सुनिश्चित होता है। 2014 से अब तक इथेनॉल खरीद के माध्यम से किसानों को <strong>₹1.2 लाख करोड़</strong> से अधिक का भुगतान किया गया है, जिससे उनकी आय में सुधार हुआ है और ग्रामीण अर्थव्यवस्था को समर्थन मिला है। यह अतिरिक्त खाद्यान्न और चीनी भंडार के प्रबंधन में भी मदद करता है।
+                </p>
+            </section>
+
+            <hr>
+
+            <section>
+                <h3 class="english-content">3. Policy & Regulatory Framework</h3>
+                <h3 class="hindi-content" style="display:none;">3. नीति एवं नियामक ढाँचा</h3>
+                <p class="line english-content">
+                    <strong>National Policy on Biofuels (2018):</strong> This policy, amended in 2022, advanced the E20 blending target from 2030 to 2025-26. It also diversified the feedstock for ethanol production, allowing the use of sugarcane juice, molasses, maize, damaged food grains, and agricultural residues.
+                </p>
+                <p class="line hindi-content" lang="hi" style="display:none;">
+                    <strong>जैव ईंधन पर राष्ट्रीय नीति (2018):</strong> 2022 में संशोधित इस नीति ने E20 मिश्रण लक्ष्य को 2030 से बढ़ाकर 2025-26 कर दिया। इसने इथेनॉल उत्पादन के लिए फीडस्टॉक में विविधता लाकर गन्ने के रस, गुड़, मक्का, क्षतिग्रस्त खाद्यान्न और कृषि अवशेषों के उपयोग की अनुमति दी।
+                </p>
+                <p class="line english-content">
+                    <strong>Support Measures:</strong> The government has implemented several initiatives to promote ethanol production:
+                </p>
+                <p class="line hindi-content" lang="hi" style="display:none;">
+                    <strong>सहायता उपाय:</strong> सरकार ने इथेनॉल उत्पादन को बढ़ावा देने के लिए कई पहल लागू की हैं:
+                </p>
+                <ul>
+                    <li class="line english-content">
+                        <b><u><i>Interest Subvention Scheme</i></u></b>: Provides financial support for setting up new ethanol plants.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        <strong>ब्याज अनुदान योजना</strong>: नए इथेनॉल संयंत्रों की स्थापना के लिए वित्तीय सहायता प्रदान करती है।
+                    </li>
+                    <li class="line english-content">
+                        <b><u><i>GST Reduction</i></u></b>: The GST on ethanol for the EBP program was reduced from 18% to <strong>5%</strong>.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        <strong>जीएसटी में कमी</strong>: ईबीपी कार्यक्रम के लिए इथेनॉल पर जीएसटी 18% से घटाकर <strong>5%</strong> कर दिया गया।
+                    </li>
+                    <li class="line english-content">
+                        <b><u><i>Administered Pricing Mechanism</i></u></b>: Ensures remunerative prices for ethanol producers.
+                    </li>
+                    <li class="line hindi-content" lang="hi" style="display:none;">
+                        <strong>प्रशासित मूल्य निर्धारण तंत्र</strong>: इथेनॉल उत्पादकों के लिए लाभकारी मूल्य सुनिश्चित करता है।
+                    </li>
+                </ul>
+            </section>
+
+            <hr>
+
+            <section>
+                <h3 class="english-content">4. Challenges & Concerns</h3>
+                <h3 class="hindi-content" style="display:none;">4. चुनौतियाँ और चिंताएँ</h3>
+                <p class="line english-content">
+                    <strong>Food vs. Fuel Debate:</strong> Using food crops like sugarcane and maize for ethanol production can raise concerns about <strong>food security</strong>, especially during periods of low crop yield.
+                </p>
+                <p class="line hindi-content" lang="hi" style="display:none;">
+                    <strong>खाद्य बनाम ईंधन बहस:</strong> इथेनॉल उत्पादन के लिए गन्ना और मक्का जैसी खाद्य फसलों का उपयोग <strong>खाद्य सुरक्षा</strong> को लेकर चिंताएँ पैदा कर सकता है, खासकर कम उपज के समय में।
+                </p>
+                <p class="line english-content">
+                    <strong>Water Intensity:</strong> Sugarcane, the primary feedstock, is a water-intensive crop. Increased demand for sugarcane-based ethanol could exacerbate <strong>water stress</strong> in already water-scarce regions.
+                </p>
+                <p class="line hindi-content" lang="hi" style="display:none;">
+                    <strong>जल की अधिकता:</strong> गन्ना, जो मुख्य खाद्य सामग्री है, एक जल-प्रधान फसल है। गन्ना-आधारित इथेनॉल की बढ़ती माँग पहले से ही जल की कमी वाले क्षेत्रों में <strong>जल संकट</strong> को और बढ़ा सकती है।
+                </p>
+                <p class="line english-content">
+                    <strong>Technical Issues:</strong> While the government and industry bodies have clarified that E20 is safe for new vehicles, there are some concerns about its impact on older vehicles, which may experience a marginal <strong>drop in mileage</strong> and require minor part replacements.
+                </p>
+                <p class="line hindi-content" lang="hi" style="display:none;">
+                    <strong>तकनीकी समस्याएँ:</strong> हालाँकि सरकार और उद्योग निकायों ने स्पष्ट किया है कि E20 नए वाहनों के लिए सुरक्षित है, पुराने वाहनों पर इसके प्रभाव को लेकर कुछ चिंताएँ हैं, जिनके माइलेज में मामूली गिरावट आ सकती है और उन्हें छोटे-मोटे पुर्जे बदलने पड़ सकते हैं।
+                </p>
+                <p class="line english-content">
+                    <strong>Infrastructure Gaps:</strong> Inadequate infrastructure for storage, transport (pipelines), and dispensing of ethanol in rural areas can hinder the program's full potential.
+                </p>
+                <p class="line hindi-content" lang="hi" style="display:none;">
+                    <strong>बुनियादी ढाँचे की कमियाँ:</strong> ग्रामीण क्षेत्रों में इथेनॉल के भंडारण, परिवहन (पाइपलाइन) और वितरण के लिए अपर्याप्त बुनियादी ढाँचा इस कार्यक्रम की पूरी क्षमता को बाधित कर सकता है।
+                </p>
+            </section>
+
+            <hr>
+
+            <section>
+                <h3 class="english-content">5. Way Forward</h3>
+                <h3 class="hindi-content" style="display:none;">5. आगे की राह</h3>
+                <p class="line english-content">
+                    <strong>Diversification of Feedstock:</strong> Shifting towards <strong>Second-Generation (2G) ethanol</strong>, which uses agricultural waste like crop residue, can address the food security and water-intensity concerns associated with First-Generation (1G) ethanol.
+                </p>
+                <p class="line hindi-content" lang="hi" style="display:none;">
+                    <strong>फ़ीडस्टॉक का विविधीकरण:</strong> <strong>दूसरी पीढ़ी (2G) इथेनॉल</strong> की ओर रुख़, जिसमें फ़सल अवशेषों जैसे कृषि अपशिष्टों का उपयोग किया जाता है, पहली पीढ़ी (1G) इथेनॉल से जुड़ी खाद्य सुरक्षा और जल-तीव्रता संबंधी चिंताओं का समाधान कर सकता है।
+                </p>
+                <p class="line english-content">
+                    <strong>Promoting Flex-Fuel Vehicles (FFVs):</strong> The government is encouraging the auto industry to manufacture FFVs that can run on higher ethanol blends.
+                </p>
+                <p class="line hindi-content" lang="hi" style="display:none;">
+                    <strong>फ्लेक्स-फ्यूल वाहनों (FFV) को बढ़ावा देना:</strong> सरकार ऑटो उद्योग को ऐसे FFV बनाने के लिए प्रोत्साहित कर रही है जो उच्च इथेनॉल मिश्रणों पर चल सकें।
+                </p>
+                <p class="line english-content">
+                    <strong>Continuous Monitoring & Research:</strong> Ongoing research and development are needed to improve engine compatibility, enhance the efficiency of the production process, and address environmental concerns related to distillery waste.
+                </p>
+                <p class="line hindi-content" lang="hi" style="display:none;">
+                    <strong>निरंतर निगरानी और अनुसंधान:</strong> इंजन की अनुकूलता में सुधार, उत्पादन प्रक्रिया की दक्षता बढ़ाने और डिस्टिलरी अपशिष्ट से संबंधित पर्यावरणीय चिंताओं को दूर करने के लिए निरंतर अनुसंधान और विकास की आवश्यकता है।
+                </p>
+                <p class="line english-content">
+                    <strong>Public Awareness:</strong> Dispelling misinformation about the program's impact on vehicle performance is essential for wider public acceptance.
+                </p>
+                <p class="line hindi-content" lang="hi" style="display:none;">
+                    <strong>जन जागरूकता:</strong> वाहन के प्रदर्शन पर कार्यक्रम के प्रभाव के बारे में गलत सूचनाओं को दूर करना व्यापक सार्वजनिक स्वीकृति के लिए आवश्यक है।
+                </p>
+            </section>
+
+            <hr>
+
+            <div class="contact-us">
+                <p class="line english-content">
+                    For any queries or feedback, feel free to 
+                    <a href="[https://wa.me/918168305050](https://wa.me/918168305050)" target="_blank">Contact us on WhatsApp</a>.
+                </p>
+                <p class="line hindi-content" lang="hi" style="display:none;">
+                    किसी भी प्रश्न या प्रतिक्रिया के लिए, बेझिझक 
+                    <a href="[https://wa.me/918168305050](https://wa.me/918168305050)" target="_blank">हमें व्हाट्सएप पर संपर्क करें</a>।
+                </p>
+            </div>
+        </div>
+
+        <a href="index.html" class="back-to-home">Back to Home</a>
+    </article>
+</main>
+<button class="scroll-to-top" id="scrollToTopBtn">↑</button>
+<footer>
+    © 2025 Crack Current Affairs (CrackCA). All rights reserved.
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Read Time Calculation
+        const englishContent = document.querySelectorAll('.content .english-content:not(h2):not(h3)');
+        let wordCount = 0;
+        englishContent.forEach(p => {
+            wordCount += p.textContent.split(/\s+/).filter(word => word.length > 0).length;
+        });
+        const readTimeMinutes = Math.ceil(wordCount / 200);
+        document.getElementById('read-time').textContent = `${readTimeMinutes} min read`;
+
+        // Scroll to Top Button
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.style.display = 'block';
+            } else {
+                scrollToTopBtn.style.display = 'none';
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Language Switcher
+        let isEnglish = true;
+        function toggleLanguage() {
+            isEnglish = !isEnglish;
+            const englishElements = document.querySelectorAll('.english-content');
+            const hindiElements = document.querySelectorAll('.hindi-content');
+            
+            englishElements.forEach(el => {
+                el.style.display = isEnglish ? '' : 'none';
+            });
+            hindiElements.forEach(el => {
+                el.style.display = isEnglish ? 'none' : '';
+            });
+        }
+
+        // Expose toggleLanguage to global scope for the button
+        window.toggleLanguage = toggleLanguage;
+    });
+</script>
+</body>
+</html>
