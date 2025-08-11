@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IE - 11-Aug-25</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;0,400;1,700;1,900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+<style>
+:root {
+--primary-bg-color: #ffffff;
+--secondary-bg-color: #f0f4f8;
+--primary-text-color: #1a1a1a;
+--link-color: #0077c9;
+--link-hover-color: #005a9c;
+--header-bg-color: #ff6b6b;
+--header-text-color: #ffffff;
+--nav-link-color: #ffffff;
+--hover-line-color: #fff0f0;
+--button-bg-color: #ff6b6b;
+--button-hover-bg-color: #e05e5e;
+--button-text-color: #ffffff;
+--footer-bg-color: #34495e;
+--footer-text-color: #ecf0f1;
+}
+
+    body {
+        font-family: 'Noto Sans', sans-serif;
+        margin: 0;
+        padding-top: 60px;
+        background-color: var(--secondary-bg-color);
+        color: var(--primary-text-color);
+        line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+        font-family: 'Merriweather', serif;
+        color: var(--primary-text-color);
+        font-weight: bold;
+        line-height: 1.2;
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        margin: 0;
+    }
+
+    h2 {
+        font-size: 2rem;
+        color: #2c3e50;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+        color: #34495e;
+    }
+    
+    strong {
+        font-weight: 700;
+    }
+    
+    u strong, u b {
+        font-style: italic;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+    
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: linear-gradient(to right, var(--header-bg-color), #ff8e6e);
+        color: var(--header-text-color);
+        padding: 0.5rem 2rem;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-sizing: border-box;
+    }
+
+    nav a {
+        color: var(--nav-link-color);
+        text-decoration: none;
+        margin-left: 1rem;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+        color: #ffeaa7;
+    }
+
+    main {
+        padding: 2rem;
+        max-width: 900px;
+        margin: auto;
+        background-color: var(--primary-bg-color);
+        box-sizing: border-box;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    footer {
+        background-color: var(--footer-bg-color);
+        color: var(--footer-text-color);
+        text-align: center;
+        padding: 1.5rem;
+        margin-top: 3rem;
+    }
+    
+    hr {
+        border: 0;
+        border-top: 1px solid var(--secondary-bg-color);
+        margin: 1.5rem 0;
+    }
+
+    ul {
+        padding-left: 1.5rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    li {
+        margin-bottom: 0.3rem;
+    }
+
+    .line {
+        padding: 0.2rem 0.5rem; /* Further reduced padding */
+        margin: 0;
+        transition: background-color 0.3s ease;
+    }
+    
+    .line > h3 {
+        margin-top: 0.5rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .line > ul {
+        margin-top: 0.2rem;
+        margin-bottom: 0.2rem;
+    }
+
+    .line:hover {
+        background-color: var(--hover-line-color);
+    }
+
+    .article-meta {
+        font-size: 0.9rem;
+        color: #7f8c8d;
+        margin-bottom: 1.5rem;
+        border-bottom: 1px solid var(--secondary-bg-color);
+        padding-bottom: 0.8rem;
+    }
+    
+    .article-meta p {
+        margin: 0.3rem 0;
+    }
+    
+    #read-time {
+        font-weight: bold;
+        color: #27ae60;
+        font-style: italic;
+    }
+
+    .scroll-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: var(--button-bg-color);
+        color: var(--button-text-color);
+        border: none;
+        padding: 1rem 1rem;
+        border-radius: 50%;
+        font-size: 1.5rem;
+        cursor: pointer;
+        display: none;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transition: background-color 0.3s, opacity 0.3s;
+        z-index: 999;
+    }
+    
+    .scroll-top:hover {
+        background-color: var(--button-hover-bg-color);
+    }
+
+    .back-to-home {
+        display: block;
+        width: fit-content;
+        margin: 2rem auto 0;
+        padding: 1rem 2rem;
+        background-color: var(--button-bg-color);
+        color: var(--button-text-color);
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+    }
+
+    .back-to-home:hover {
+        background-color: var(--button-hover-bg-color);
+    }
+    
+    .contact-link {
+        display: block;
+        margin-top: 1.5rem;
+        font-weight: bold;
+        color: var(--link-color);
+        text-decoration: none;
+        text-align: center;
+    }
+
+    .contact-link:hover {
+        text-decoration: underline;
+    }
+    
+    .language-switch {
+        background-color: var(--nav-link-color);
+        color: var(--header-bg-color);
+        border: none;
+        padding: 0.4rem 0.8rem;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background-color 0.3s;
+    }
+    
+    .language-switch:hover {
+        background-color: #ffebcd;
+        color: var(--header-bg-color);
+    }
+
+    @media (max-width: 768px) {
+        body {
+            padding-top: 70px;
+        }
+        
+        header {
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 0.5rem 1rem;
+        }
+
+        nav {
+            margin-top: 0.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            justify-content: center;
+        }
+
+        nav a {
+            margin: 0.3rem 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        main {
+            padding: 1rem;
+        }
+        
+        .language-switch {
+            position: absolute;
+            top: 0.5rem;
+            right: 1rem;
+        }
+    }
+</style>
+</head>
+<body>
+<header>
+<h1>11-August-2025</h1>
+<nav>
+<a href="index.html">Home</a>
+<a href="quiz.html">Quiz</a>
+<a href="donation.html">Donation</a>
+<a href="contact.html">Contact</a>
+</nav>
+<button class="language-switch">Switch to Hindi</button>
+</header>
+
+<main>
+    <article>
+        <section class="article-meta">
+            <h2>Reviving the Yamuna Floodplains – Parks & Recreation</h2>
+            <p><strong>Source:</strong> Indian Express</p>
+            <p><strong>Publication Date:</strong> 11-August-2025</p>
+            <p><span id="read-time"></span></p>
+        </section>
+        
+        <section id="content-english">
+            <div class="line"><h3>1. Context & Background</h3></div>
+            <div class="line"><ul><li><strong>River:</strong> Yamuna — heavily polluted and ecologically degraded due to <strong>sewage, encroachments, and urban sprawl</strong>.</li></ul></div>
+            <div class="line"><ul><li><strong>Geographic Focus:</strong> 22-km stretch between <strong>Wazirabad and Okhla</strong> in Delhi.</li></ul></div>
+            <div class="line"><ul><li><strong>Restoration Timeline:</strong> Initiated in early 2000s; major legal push after the <strong>National Green Tribunal’s “Maili se Nirmal Yamuna” verdict</strong>.</li></ul></div>
+            <div class="line"><ul><li><strong>Objective:</strong> Combine <strong>ecological restoration</strong> with <strong>public access</strong> while adhering to NGT’s no-permanent-construction norms.</li></ul></div>
+            <div class="line"><ul><li><strong>Executing Agency:</strong> Delhi Development Authority (DDA) with scientific input from CEMDE and others.</li></ul></div>
+            <div class="line"><ul><li><strong>Funding:</strong> 80% Union Ministry of Urban Development; 20% DDA.</li></ul></div>
+            <hr>
+            <div class="line"><h3>2. Key Projects & Features</h3></div>
+            <div class="line"><h4>A. Yamuna Biodiversity Park (Wazirabad)</h4></div>
+            <div class="line"><ul><li><strong>Area:</strong> 457 acres, est. 2002.</li></ul></div>
+            <div class="line"><ul><li><strong>Model:</strong> Full biodiversity park — degraded land converted into <strong>self-sustaining native ecosystems</strong> (wetlands, grasslands, forest mounds).</li></ul></div>
+            <div class="line"><ul><li><strong>Highlights:</strong></li></ul></div>
+            <div class="line"><ul><li><u><strong>Plant species</strong></u> simulating Shivalik foothills to Yamuna-Ganga confluence.</li></ul></div>
+            <div class="line"><ul><li><u><strong>Rich bird life</strong></u> (pheasant-tailed jacanas, peacocks, jungle babblers).</li></ul></div>
+            <div class="line"><ul><li><u><strong>Leopard sightings</strong></u> since 2016.</li></ul></div>
+            <div class="line"><ul><li><strong>Focus:</strong> Ecological goods & services (pollination, seed dispersal) over aesthetics.</li></ul></div>
+            <div class="line"><h4>B. Kalindi Biodiversity Park (Sarai Kale Khan)</h4></div>
+            <div class="line"><ul><li><strong>Area:</strong> 115 hectares; work started 2019.</li></ul></div>
+            <div class="line"><ul><li><strong>Type:</strong> Constructed wetland filtering sewage via plant-based filtration.</li></ul></div>
+            <div class="line"><ul><li><strong>Species:</strong> Over 125 bird species (migratory) and 10,000 plant varieties.</li></ul></div>
+            <div class="line"><ul><li><strong>Challenges:</strong> Invasive water hyacinth choking wetlands.</li></ul></div>
+            <div class="line"><ul><li><strong>Potential:</strong> Could rival Bharatpur Bird Sanctuary in bird attraction.</li></ul></div>
+            <div class="line"><h4>C. Baansera Park (Near NH-24)</h4></div>
+            <div class="line"><ul><li><strong>Theme:</strong> Bamboo-based recreational park.</li></ul></div>
+            <div class="line"><ul><li><strong>Area:</strong> 2.2 hectares; opened 2023.</li></ul></div>
+            <div class="line"><ul><li><strong>Features:</strong> Bamboo huts, kiosks, watchtower, musical fountain, AC café.</li></ul></div>
+            <div class="line"><ul><li><strong>Criticism:</strong> More <strong>recreational & aesthetic focus</strong> than ecological restoration.</li></ul></div>
+            <div class="line"><h4>D. Asita (Eastern Bank – Old Railway Bridge to ITO)</h4></div>
+            <div class="line"><ul><li><strong>Transformation:</strong> Encroached agricultural/nursery land cleared for wetlands, lotus ponds, grasslands.</li></ul></div>
+            <div class="line"><ul><li><strong>Approach:</strong> Mixed use — partial visitor access, large undisturbed habitats.</li></ul></div>
+            <div class="line"><ul><li><strong>Species:</strong> Native flood-tolerant plants like <em>Vetiver</em>, <em>Saccharum spontaneum</em>, <em>Largerstroemia speciosa</em>.</li></ul></div>
+            <div class="line"><ul><li><strong>Success Rate:</strong> ~80% native species survival despite seasonal floods.</li></ul></div>
+            <div class="line"><h4>E. Amrut Biodiversity Park (Near Commonwealth Games Village)</h4></div>
+            <div class="line"><ul><li><strong>Area:</strong> 115 hectares; opened 2024.</li></ul></div>
+            <div class="line"><ul><li><strong>Theme:</strong> Tribute to India’s freedom struggle with symbolic trails (Dandi March, Azad Hind Fauj Path).</li></ul></div>
+            <div class="line"><ul><li><strong>Status:</strong> Transition phase — overgrowth, poorly maintained initial plantations.</li></ul></div>
+            <div class="line"><ul><li><strong>Ecological Goal:</strong> Increase green cover, restore floodplain vegetation.</li></ul></div>
+            <hr>
+            <div class="line"><h3>3. Legal & Policy Framework</h3></div>
+            <div class="line"><ul><li><strong>NGT Guidelines:</strong></li></ul></div>
+            <div class="line"><ul><li><u><strong>No permanent structures</strong></u> or concretisation (except rare cases).</li></ul></div>
+            <div class="line"><ul><li><u><strong>Deconcretisation</strong></u> of floodplain projects.</li></ul></div>
+            <div class="line"><ul><li><strong>Riverfront Development Constraints:</strong></li></ul></div>
+            <div class="line"><ul><li><u><strong>Must allow natural flooding</strong></u> and percolation.</li></ul></div>
+            <div class="line"><ul><li><u><strong>Material choice</strong></u> to avoid impermeable surfaces and heat retention.</li></ul></div>
+            <hr>
+            <div class="line"><h3>4. Issues & Challenges</h3></div>
+            <div class="line"><ul><li><strong>Encroachments:</strong> Dense urban settlements, agriculture, religious structures.</li></ul></div>
+            <div class="line"><ul><li><strong>Ecological vs Recreational Tension:</strong></li></ul></div>
+            <div class="line"><ul><li>Biodiversity parks prioritise native ecosystems.</li></ul></div>
+            <div class="line"><ul><li>Recreational parks prioritise public amenities.</li></ul></div>
+            <div class="line"><ul><li><strong>Invasive Species:</strong> Water hyacinth in wetlands.</li></ul></div>
+            <div class="line"><ul><li><strong>Maintenance Gaps:</strong> Transition phases see neglect (e.g., Amrut Park).</li></ul></div>
+            <div class="line"><ul><li><strong>Hydrology Dependence:</strong> Requires adequate water flow for sustainability.</li></ul></div>
+            <div class="line"><ul><li><strong>Community Sensitisation:</strong> Need behavioural change to protect wildlife (e.g., restricting feeding of stray dogs/fish).</li></ul></div>
+            <hr>
+            <div class="line"><h3>5. Expert Opinions</h3></div>
+            <div class="line"><ul><li><strong>Dr. Faiyaz Khudsar:</strong> Floodplains are essential for river health; biodiversity parks crucial.</li></ul></div>
+            <div class="line"><ul><li><strong>Preeti Vohra:</strong> Balanced approach — ecological conservation + public recreation.</li></ul></div>
+            <div class="line"><ul><li><strong>Yasir Arafat:</strong> Restoration must pair biodiversity parks with <strong>multi-stage sewage treatment</strong>.</li></ul></div>
+            <div class="line"><ul><li><strong>Prof. Deepak Pental:</strong> Avoid over-landscaping; maintain wilderness; ensure adequate water flow.</li></ul></div>
+            <hr>
+            <div class="line"><h3>6. Significance</h3></div>
+            <div class="line"><ul><li><strong>Ecological:</strong></li></ul></div>
+            <div class="line"><ul><li><u><strong>Improves biodiversity</strong></u>, pollination, carbon sequestration.</li></ul></div>
+            <div class="line"><ul><li><u><strong>Acts as flood buffer zone</strong></u>.</li></ul></div>
+            <div class="line"><ul><li><strong>Social:</strong></li></ul></div>
+            <div class="line"><ul><li><u><strong>Provides green spaces</strong></u> in dense urban areas.</li></ul></div>
+            <div class="line"><ul><li><u><strong>Enhances environmental awareness</strong></u>.</li></ul></div>
+            <div class="line"><ul><li><strong>Economic:</strong></li></ul></div>
+            <div class="line"><ul><li><u><strong>Potential ecotourism boost</strong></u>.</li></ul></div>
+            <div class="line"><ul><li><u><strong>Reduces long-term flood damage costs</strong></u>.</li></ul></div>
+            <hr>
+            <div class="line"><h3>7. Way Forward</h3></div>
+            <div class="line"><ul><li><strong>Expand Biodiversity Parks:</strong> Especially in ecologically viable stretches.</li></ul></div>
+            <div class="line"><ul><li><strong>Integrated Sewage Treatment:</strong> Primary to tertiary treatment before discharge.</li></ul></div>
+            <div class="line"><ul><li><strong>Control Invasive Species:</strong> Continuous manual/mechanical removal.</li></ul></div>
+            <div class="line"><ul><li><strong>Water Flow Management:</strong> Ensure environmental flows in Yamuna.</li></ul></div>
+            <div class="line"><ul><li><strong>Community Engagement:</strong> Education & local stewardship programs.</li></ul></div>
+            <div class="line"><ul><li><strong>Sustainable Recreation:</strong> Low-impact, floodplain-friendly infrastructure.</li></ul></div>
+            <hr>
+            <div class="line"><h3>8. UPSC Relevance</h3></div>
+            <div class="line"><ul><li><strong>GS Paper I:</strong></li></ul></div>
+            <div class="line"><ul><li><u><strong>Geography</strong></u> – River systems, floodplain ecology.</li></ul></div>
+            <div class="line"><ul><li><strong>GS Paper II:</strong></li></ul></div>
+            <div class="line"><ul><li><u><strong>Governance</strong></u> – NGT directives, urban planning, environmental law.</li></ul></div>
+            <div class="line"><ul><li><strong>GS Paper III:</strong></li></ul></div>
+            <div class="line"><ul><li><u><strong>Environment</strong></u> – Biodiversity conservation, wetland restoration, invasive species management.</li></ul></div>
+            <div class="line"><ul><li><strong>Essay Topics:</strong></li></ul></div>
+            <div class="line"><ul><li><u><strong>“Balancing Ecology and Urban Recreation”</strong></u> / “Reviving Urban Rivers”.</li></ul></div>
+            <hr>
+            <p class="contact-line">For more information or to contribute, <a href="[https://wa.me/918168305050](https://wa.me/918168305050)" target="_blank">Contact us on WhatsApp: +91-8168305050</a></p>
+        </section>
+        
+        <section id="content-hindi" style="display: none;">
+            <div class="line" lang="hi"><h2>यमुना बाढ़ क्षेत्र का पुनरुद्धार - पार्क और मनोरंजन</h2></div>
+            <div class="line" lang="hi"><h3>1. संदर्भ और पृष्ठभूमि</h3></div>
+            <div class="line" lang="hi"><ul><li><strong>नदी:</strong> यमुना - <strong>सीवेज, अतिक्रमण और शहरी फैलाव</strong> के कारण अत्यधिक प्रदूषित और पारिस्थितिक रूप से क्षतिग्रस्त।</li></ul></div>
+            <div class="line" lang="hi"><ul><li><strong>भौगोलिक केंद्र:</strong> दिल्ली में <strong>वज़ीराबाद और ओखला</strong> के बीच 22 किलोमीटर का क्षेत्र।</li></ul></div>
+            <div class="line" lang="hi"><ul><li><strong>पुनर्स्थापन समयरेखा:</strong> 2000 के दशक की शुरुआत में शुरू किया गया; <strong>राष्ट्रीय हरित अधिकरण के "मैली से निर्मल यमुना" फैसले</strong> के बाद प्रमुख कानूनी प्रयास।</li></ul></div>
+            <div class="line" lang="hi"><ul><li><strong>उद्देश्य:</strong> एनजीटी के स्थायी निर्माण निषेध मानदंडों का पालन करते हुए <strong>पारिस्थितिक पुनर्स्थापन</strong> को <strong>सार्वजनिक पहुँच</strong> के साथ जोड़ना।</li></ul></div>
+            <div class="line" lang="hi"><ul><li><strong>कार्यकारी एजेंसी:</strong> दिल्ली विकास प्राधिकरण (डीडीए), सीईएमडीई और अन्य से वैज्ञानिक इनपुट के साथ।</li></ul></div>
+            <div class="line" lang="hi"><ul><li><strong>वित्त पोषण:</strong> 80% केंद्रीय शहरी विकास मंत्रालय; 20% डीडीए।</li></ul></div>
+            <hr>
+            <div class="line" lang="hi"><h3>2. प्रमुख परियोजनाएँ और विशेषताएँ</h3></div>
+            <div class="line" lang="hi"><h4>क. यमुना जैव विविधता पार्क (वज़ीराबाद)</h4></div>
+            <div class="line" lang="hi"><ul><li><strong>क्षेत्रफल:</strong> 457 एकड़, स्थापना 2002।</li></ul></div>
+            <div class="line" lang="hi"><ul><li><strong>मॉडल:</strong> पूर्ण जैव विविधता पार्क - बंजर भूमि को <strong>स्व-निर्भर देशी पारिस्थितिक तंत्रों</strong> (आर्द्रभूमि, घास के मैदान, वन टीले) में परिवर्तित किया गया।</li></ul></div>
+            <div class="line" lang="hi"><ul><li><strong>मुख्य विशेषताएँ:</strong></li></ul></div>
+            <div class="line" lang="hi"><ul><li><u><strong>शिवालिक तलहटी से यमुना-गंगा संगम तक की वनस्पति प्रजातियाँ</strong></u>।</li></ul></div>
+            <div class="line" lang="hi"><ul><li><u><strong>समृद्ध पक्षी जीवन</strong></u> (तीतर-पूंछ वाले जकाना, मोर, जंगली बब्बलर)।</li></ul></div>
+            <div class="line" lang="hi"><ul><li><u><strong>2016 से तेंदुए देखे गए हैं</strong></u>।</li></ul></div>
+            <div class="line" lang="hi"><ul><li><strong>ध्यान:</strong> सौंदर्यबोध की बजाय पारिस्थितिक वस्तुएँ और सेवाएँ (परागण, बीज प्रकीर्णन)।</li></ul></div>
+            <div class="line" lang="hi"><h4>बी. कालिंदी जैव विविधता पार्क (सराय काले खां)</h4></div>
+            <div class="line" lang="hi"><ul><li><strong>क्षेत्रफल:</strong> 115 हेक्टेयर; कार्य 2019 में शुरू हुआ।</li></ul></div>
+            <div class="line" lang="hi"><ul><li><strong>प्रकार:</strong> निर्मित आर्द्रभूमि जो पादप-आधारित निस्पंदन के माध्यम से सीवेज को निस्पंदित करती है।</li></ul></div>
+            <div class="line" lang="hi"><ul><li><strong>प्रजातियाँ:</strong> 125 से अधिक पक्षी प्रजातियाँ (प्रवासी) और 10,000 पादप किस्में।</li></ul></div>
+            <div class="line" lang="hi"><ul><li><strong>चुनौतियाँ:</strong> आक्रामक जलकुंभी आर्द्रभूमि को अवरुद्ध कर रही है।</li></ul></div>
+            <div class="line" lang="hi"><ul><li><strong>संभावना:</strong> पक्षियों के आकर्षण में भरतपुर पक्षी अभयारण्य को टक्कर दे सकता है।</li></ul></div>
+            <div class="line" lang="hi"><h4>सी. बांसेरा पार्क (राष्ट्रीय राजमार्ग-24 के पास)</h4></div>
+            <div class="line" lang="hi"><ul><li><strong>विषय:</strong> बाँस-आधारित मनोरंजन पार्क।</li></ul></div>
+            <div class="line" lang="hi"><ul><li><strong>क्षेत्रफल:</strong> 2.2 हेक्टेयर; 2023 में उद्घाटन।</li></ul></div>
+            <div class="line" lang="hi"><ul><li><strong>विशेषताएँ:</strong> बाँस की झोपड़ियाँ, कियोस्क, वॉचटावर, संगीतमय फव्वारा, एसी कैफ़े।</li></ul></div>
+            <div class="line" lang="hi"><ul><li><strong>आलोचना:</strong> पारिस्थितिक पुनर्स्थापन की तुलना में <strong>मनोरंजन और सौंदर्य पर अधिक ध्यान</strong>।</li></ul></div>
+            <div class="line" lang="hi"><h4>डी. असिता (पूर्वी तट - पुराना रेलवे पुल से आईटीओ तक)</h4></div>
+            <div class="line" lang="hi"><ul><li><strong>रूपांतरण:</strong> अतिक्रमित कृषि/नर्सरी भूमि को आर्द्रभूमि, कमल के तालाब, घास के मैदानों के लिए साफ़ किया गया।</li></ul></div>
+            <div class="line" lang="hi"><ul><li><strong>दृष्टिकोण:</strong> मिश्रित उपयोग - आंशिक आगंतुक पहुँच, बड़े अछूते आवास।</li></ul></div>
+            <div class="line" lang="hi"><ul><li><strong>प्रजातियाँ:</strong> देशी बाढ़-सहिष्णु पौधे जैसे <em>वेटिवर</em>, <em>सैकरम स्पोंटेनियम</em>, <em>लार्जरस्ट्रोमिया स्पेशोसा</em>।</li></ul></div>
+            <div class="line" lang="hi"><ul><li><strong>सफलता दर:</strong> मौसमी बाढ़ के बावजूद ~80% देशी प्रजातियाँ जीवित रहीं।</li></ul></div>
+            <div class="line" lang="hi"><h4>ई. अमृत जैव विविधता पार्क (राष्ट्रमंडल खेल गाँव के पास)</h4></div>
+            <div class="line" lang="hi"><ul><li><strong>क्षेत्रफल:</strong> 115 हेक्टेयर; 2024 में उद्घाटन।</li></ul></div>
+            <div class="line" lang="hi"><ul><li><strong>विषय:</strong> प्रतीकात्मक पथों (दांडी मार्च, आज़ाद हिंद फौज पथ) के साथ भारत के स्वतंत्रता संग्राम को श्रद्धांजलि।</li></ul></div>
+            <div class="line" lang="hi"><ul><li><strong>स्थिति:</strong> संक्रमण चरण - अतिवृद्धि, खराब रखरखाव वाले प्रारंभिक वृक्षारोपण।</li></ul></div>
+            <div class="line" lang="hi"><ul><li><strong>पारिस्थितिक लक्ष्य:</strong> हरित आवरण बढ़ाएँ, बाढ़ के मैदान की वनस्पति को पुनर्स्थापित करें।</li></ul></div>
+            <hr>
+            <div class="line" lang="hi"><h3>3. कानूनी और नीतिगत ढाँचा</h3></div>
+            <div class="line" lang="hi"><ul><li><strong>एनजीटी दिशानिर्देश:</strong></li></ul></div>
+            <div class="line" lang="hi"><ul><li><u><strong>कोई स्थायी संरचना या कंक्रीटीकरण नहीं</strong></u> (दुर्लभ मामलों को छोड़कर)।</li></ul></div>
+            <div class="line" lang="hi"><ul><li><u><strong>बाढ़ के मैदान की परियोजनाओं का कंक्रीटीकरण</strong></u>।</li></ul></div>
+            <div class="line" lang="hi"><ul><li><strong>नदी तट विकास बाधाएँ:</strong></li></ul></div>
+            <div class="line" lang="hi"><ul><li><u><strong>प्राकृतिक बाढ़ और रिसाव की अनुमति होनी चाहिए</strong></u>।</li></ul></div>
+            <div class="line" lang="hi"><ul><li><u><strong>अभेद्य सतहों और गर्मी प्रतिधारण से बचने के लिए सामग्री का चयन</strong></u>।</li></ul></div>
+            <hr>
+            <div class="line" lang="hi"><h3>4. मुद्दे और चुनौतियाँ</h3></div>
+            <div class="line" lang="hi"><ul><li><strong>अतिक्रमण:</strong> घनी शहरी बस्तियाँ, कृषि, धार्मिक संरचनाएँ।</li></ul></div>
+            <div class="line" lang="hi"><ul><li><strong>पारिस्थितिकी बनाम मनोरंजनात्मक तनाव:</strong></li></ul></div>
+            <div class="line" lang="hi"><ul><li>जैव विविधता पार्क स्थानीय पारिस्थितिक तंत्रों को प्राथमिकता देते हैं।</li></ul></div>
+            <div class="line" lang="hi"><ul><li>मनोरंजनात्मक पार्क सार्वजनिक सुविधाओं को प्राथमिकता देते हैं।</li></ul></div>
+            <div class="line" lang="hi"><ul><li><strong>आक्रामक प्रजातियाँ:</strong> आर्द्रभूमि में जलकुंभी।</li></ul></div>
+            <div class="line" lang="hi"><ul><li><strong>रखरखाव में कमी:</strong> संक्रमणकालीन चरणों में उपेक्षा देखी जाती है (उदाहरण के लिए, अमृत पार्क)।</li></ul></div>
+            <div class="line" lang="hi"><ul><li><strong>जल विज्ञान पर निर्भरता:</strong> स्थिरता के लिए पर्याप्त जल प्रवाह की आवश्यकता होती है।</li></ul></div>
+            <div class="line" lang="hi"><ul><li><strong>सामुदायिक संवेदनशीलता:</strong> वन्यजीवों की सुरक्षा के लिए व्यवहार में बदलाव की आवश्यकता है (उदाहरण के लिए, आवारा कुत्तों/मछलियों को भोजन देने पर प्रतिबंध लगाना)।</li></ul></div>
+            <hr>
+            <div class="line" lang="hi"><h3>5. विशेषज्ञ राय</h3></div>
+            <div class="line" lang="hi"><ul><li><strong>डॉ. फैयाज खुदसर:</strong> बाढ़ के मैदान नदियों के स्वास्थ्य के लिए आवश्यक हैं; जैव विविधता पार्क महत्वपूर्ण हैं।</li></ul></div>
+            <div class="line" lang="hi"><ul><li><strong>प्रीति वोहरा:</strong> संतुलित दृष्टिकोण - पारिस्थितिक संरक्षण + सार्वजनिक मनोरंजन।</li></ul></div>
+            <div class="line" lang="hi"><ul><li><strong>यासिर अराफात:</strong> पुनर्स्थापन में जैव विविधता पार्कों को <strong>बहु-स्तरीय सीवेज उपचार</strong> के साथ जोड़ा जाना चाहिए।</li></ul></div>
+            <div class="line" lang="hi"><ul><li><strong>प्रो. दीपक पेंटल:</strong> अति-भूदृश्यीकरण से बचें; वन्य जीवन को बनाए रखें; पर्याप्त जल प्रवाह सुनिश्चित करें।</li></ul></div>
+            <hr>
+            <div class="line" lang="hi"><h3>6. महत्व</h3></div>
+            <div class="line" lang="hi"><ul><li><strong>पारिस्थितिक:</strong></li></ul></div>
+            <div class="line" lang="hi"><ul><li><u><strong>जैव विविधता, परागण, कार्बन पृथक्करण में सुधार करता है</strong></u>।</li></ul></div>
+            <div class="line" lang="hi"><ul><li><u><strong>बाढ़ बफर ज़ोन के रूप में कार्य करता है</strong></u>।</li></ul></div>
+            <div class="line" lang="hi"><ul><li><strong>सामाजिक:</strong></li></ul></div>
+            <div class="line" lang="hi"><ul><li><u><strong>घने शहरी क्षेत्रों में हरित स्थान प्रदान करता है</strong></u>।</li></ul></div>
+            <div class="line" lang="hi"><ul><li><u><strong>पर्यावरण जागरूकता बढ़ाता है</strong></u>।</li></ul></div>
+            <div class="line" lang="hi"><ul><li><strong>आर्थिक:</strong></li></ul></div>
+            <div class="line" lang="hi"><ul><li><u><strong>संभावित पारिस्थितिक पर्यटन को बढ़ावा देता है</strong></u>।</li></ul></div>
+            <div class="line" lang="hi"><ul><li><u><strong>दीर्घकालिक बाढ़ क्षति लागत को कम करता है</strong></u>।</li></ul></div>
+            <hr>
+            <div class="line" lang="hi"><h3>7. आगे की राह</h3></div>
+            <div class="line" lang="hi"><ul><li><strong>जैव विविधता पार्कों का विस्तार:</strong> विशेष रूप से पारिस्थितिक रूप से व्यवहार्य क्षेत्रों में।</li></ul></div>
+            <div class="line" lang="hi"><ul><li><strong>एकीकृत सीवेज उपचार:</strong> निर्वहन से पहले प्राथमिक से तृतीयक उपचार।</li></ul></div>
+            <div class="line" lang="hi"><ul><li><strong>आक्रामक प्रजातियों पर नियंत्रण:</strong> निरंतर मैनुअल/यांत्रिक निष्कासन।</li></ul></div>
+            <div class="line" lang="hi"><ul><li><strong>जल प्रवाह प्रबंधन:</strong> यमुना में पर्यावरणीय प्रवाह सुनिश्चित करना।</li></ul></div>
+            <div class="line" lang="hi"><ul><li><strong>सामुदायिक सहभागिता:</strong> शिक्षा और स्थानीय प्रबंधन कार्यक्रम।</li></ul></div>
+            <div class="line" lang="hi"><ul><li><strong>सतत मनोरंजन:</strong> कम प्रभाव वाला, बाढ़ के मैदानों के अनुकूल बुनियादी ढाँचा।</li></ul></div>
+            <hr>
+            <div class="line" lang="hi"><h3>8. यूपीएससी प्रासंगिकता</h3></div>
+            <div class="line" lang="hi"><ul><li><strong>सामान्य अध्ययन प्रश्नपत्र I:</strong></li></ul></div>
+            <div class="line" lang="hi"><ul><li><u><strong>भूगोल</strong></u> – नदी प्रणालियाँ, बाढ़ के मैदानों की पारिस्थितिकी।</li></ul></div>
+            <div class="line" lang="hi"><ul><li><strong>सामान्य अध्ययन प्रश्नपत्र II:</strong></li></ul></div>
+            <div class="line" lang="hi"><ul><li><u><strong>शासन</strong></u> – एनजीटी के निर्देश, शहरी नियोजन, पर्यावरण कानून।</li></ul></div>
+            <div class="line" lang="hi"><ul><li><strong>सामान्य अध्ययन प्रश्नपत्र III:</strong></li></ul></div>
+            <div class="line" lang="hi"><ul><li><u><strong>पर्यावरण</strong></u> – जैव विविधता संरक्षण, आर्द्रभूमि पुनर्स्थापन, आक्रामक प्रजातियों का प्रबंधन।</li></ul></div>
+            <div class="line" lang="hi"><ul><li><strong>निबंध विषय:</strong></li></ul></div>
+            <div class="line" lang="hi"><ul><li><u><strong>“पारिस्थितिकी और शहरी मनोरंजन में संतुलन”</strong></u> / “शहरी नदियों का पुनरुद्धार”।</li></ul></div>
+            <hr>
+            <p class="contact-line" lang="hi">अधिक जानकारी या योगदान के लिए, <a href="[https://wa.me/918168305050](https://wa.me/918168305050)" target="_blank">WhatsApp पर हमसे संपर्क करें: +91-8168305050</a></p>
+        </section>
+        
+        <a href="index.html" class="back-to-home">Back to Home</a>
+    </article>
+</main>
+
+<footer>
+    <p>© 2025 Crack Current Affairs (CrackCA). All rights reserved.</p>
+</footer>
+
+<button class="scroll-top" title="Go to top">↑</button>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const contentEnglish = document.getElementById('content-english');
+        const contentHindi = document.getElementById('content-hindi');
+        const langSwitchBtn = document.querySelector('.language-switch');
+
+        langSwitchBtn.addEventListener('click', function() {
+            const isEnglishVisible = contentEnglish.style.display !== 'none';
+            contentEnglish.style.display = isEnglishVisible ? 'none' : 'block';
+            contentHindi.style.display = isEnglishVisible ? 'block' : 'none';
+            langSwitchBtn.textContent = isEnglishVisible ? 'Switch to English' : 'Switch to Hindi';
+        });
+    
+        const scrollTopBtn = document.querySelector('.scroll-top');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                scrollTopBtn.style.display = 'block';
+            } else {
+                scrollTopBtn.style.display = 'none';
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        const englishContent = contentEnglish.innerText;
+        const wordsPerMinute = 200;
+        const wordCount = englishContent.split(/\s+/).filter(Boolean).length;
+        const readTimeMinutes = Math.ceil(wordCount / wordsPerMinute);
+        document.getElementById('read-time').textContent = `Estimated Read Time: ~${readTimeMinutes} min`;
+    });
+</script>
+</body>
+</html>

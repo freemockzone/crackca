@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IE - 11-Aug-25</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-bg-color: #ffffff; 
+            --secondary-bg-color: #f0f4f8; 
+            --primary-text-color: #1a1a1a;
+            --link-color: #0077c9; 
+            --link-hover-color: #005a9c;
+            --header-bg-color: #ff6b6b; 
+            --header-text-color: #ffffff;
+            --nav-link-color: #ffffff;
+            --hover-line-color: #fff0f0; 
+            --button-bg-color: #ff6b6b;
+            --button-hover-bg-color: #e05e5e;
+            --button-text-color: #ffffff;
+            --footer-bg-color: #34495e; 
+            --footer-text-color: #ecf0f1;
+        }
+
+        /* Base styles */
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            margin: 0;
+            padding-top: 60px; /* Space for fixed header */
+            background-color: var(--secondary-bg-color); 
+            color: var(--primary-text-color);
+            line-height: 1.6;
+        }
+        
+        /* Typography */
+        h1, h2, h3 {
+            font-family: 'Merriweather', serif;
+            color: var(--primary-text-color);
+            font-weight: bold;
+            line-height: 1.2;
+        }
+
+        /* Smaller header h1 for a more compact design */
+        h1 {
+            font-size: 1.5rem; /* Reduced font size */
+            margin-bottom: 0;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #2c3e50; 
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: #34495e; 
+        }
+        
+        strong {
+            font-weight: 700;
+        }
+        
+        .line u strong {
+            font-style: italic;
+            font-weight: 700;
+        }
+        
+        .line u strong, .line u b {
+            font-style: italic;
+            font-weight: 700;
+            text-decoration: underline;
+        }
+        
+        /* Layout & Structure */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to right, var(--header-bg-color), #ff8e6e); 
+            color: var(--header-text-color);
+            padding: 0.5rem 2rem; /* Reduced vertical padding */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box; 
+        }
+
+        nav a {
+            color: var(--nav-link-color);
+            text-decoration: none;
+            margin-left: 1rem; /* Slightly reduced margin */
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ffeaa7; 
+        }
+
+        main {
+            padding: 2rem;
+            max-width: 900px;
+            margin: auto;
+            background-color: var(--primary-bg-color); 
+            box-sizing: border-box; 
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05); 
+        }
+
+        footer {
+            background-color: var(--footer-bg-color);
+            color: var(--footer-text-color);
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        hr {
+            border: 0;
+            border-top: 1px solid var(--secondary-bg-color);
+            margin: 2rem 0;
+        }
+
+        .line {
+            padding: 0.5rem 0.5rem;
+            margin: 0;
+            transition: background-color 0.3s ease;
+        }
+
+        .line:hover {
+            background-color: var(--hover-line-color);
+        }
+
+        .article-meta {
+            font-size: 0.9rem;
+            color: #7f8c8d; 
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--secondary-bg-color);
+            padding-bottom: 1rem;
+        }
+        
+        .article-meta p {
+            margin: 0.5rem 0;
+        }
+        
+        #read-time {
+            font-weight: bold;
+            color: #27ae60; 
+            font-style: italic;
+        }
+
+        /* Buttons */
+        .scroll-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--button-bg-color);
+            color: var(--button-text-color);
+            border: none;
+            padding: 1rem 1rem;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: background-color 0.3s, opacity 0.3s;
+            z-index: 999;
+        }
+        
+        .scroll-top:hover {
+            background-color: var(--button-hover-bg-color);
+        }
+
+        .back-to-home {
+            display: block;
+            width: fit-content;
+            margin: 2rem auto 0;
+            padding: 1rem 2rem;
+            background-color: var(--button-bg-color);
+            color: var(--button-text-color);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-to-home:hover {
+            background-color: var(--button-hover-bg-color);
+        }
+        
+        .contact-link {
+            display: block;
+            margin-top: 1.5rem;
+            font-weight: bold;
+            color: var(--link-color);
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .contact-link:hover {
+            text-decoration: underline;
+        }
+        
+        .language-switch {
+            background-color: var(--nav-link-color);
+            color: var(--header-bg-color);
+            border: none;
+            padding: 0.4rem 0.8rem; /* Reduced padding for a smaller button */
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .language-switch:hover {
+            background-color: #ffebcd;
+            color: var(--header-bg-color);
+        }
+
+        /* Mobile-first responsiveness */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 70px; /* Adjusted padding to match smaller header */
+            }
+            
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0.5rem 1rem;
+            }
+
+            nav {
+                margin-top: 0.5rem; /* Reduced margin */
+                display: flex;
+                flex-wrap: wrap;
+                width: 100%;
+                justify-content: center;
+            }
+
+            nav a {
+                margin: 0.3rem 0.5rem; /* Reduced margin for links */
+                font-size: 0.9rem; /* Smaller font size for mobile links */
+            }
+
+            main {
+                padding: 1rem;
+            }
+            
+            .language-switch {
+                position: absolute;
+                top: 0.5rem; /* Adjusted top position */
+                right: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>11-August-2025</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="quiz.html">Quiz</a>
+            <a href="donation.html">Donation</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <button class="language-switch">Switch to Hindi</button>
+    </header>
+
+    <main>
+        <article>
+            <section class="article-meta">
+                <h2>Uttarkashi Flash Floods – Dharali Tragedy</h2>
+                <p><strong>Source:</strong> Indian Express</p>
+                <p><strong>Publication Date:</strong> 11-August-2025</p>
+                <p><span id="read-time"></span></p>
+            </section>
+            
+            <section id="content-english">
+                <div class="line"><h3>1. Context & Background</h3></div>
+                <div class="line"><ul><li><strong>Date of Incident:</strong> 5 August 2025</li></ul></div>
+                <div class="line"><ul><li><strong>Location:</strong> Dharali village, Uttarkashi district, Uttarakhand.</li></ul></div>
+                <div class="line"><ul><li><strong>Nature of Disaster:</strong> Flash flood triggered by sudden surge of water, debris, and sediment.</li></ul></div>
+                <div class="line"><ul><li><strong>Impact Area:</strong> Dharali village and surrounding regions near Bhagirathi river; connectivity to Gangotri, Harsil affected.</li></ul></div>
+                <hr>
+                <div class="line"><h3>2. Human Impact</h3></div>
+                <div class="line"><ul><li><strong>Casualties & Missing Persons:</strong></li></ul></div>
+                <div class="line"><ul><li>Official estimate: ~60 people missing.</li></ul></div>
+                <div class="line"><ul><li>Only <strong>2 bodies recovered</strong> in 6 days of rescue operations.</li></ul></div>
+                <div class="line"><ul><li><strong>Victim Stories:</strong></li></ul></div>
+                <div class="line"><ul><li><u><strong>Laxman</strong></u> (mason) last spoke to son Govind, uttering “bachao bachao” and “Hari Om” before the call went dead.</li></ul></div>
+                <div class="line"><ul><li><u><strong>Furkan</strong></u> and <u><strong>Salman</strong></u> (welders) from Uttar Pradesh — missing after going to Dharali for supplies.</li></ul></div>
+                <div class="line"><ul><li><u><strong>Yogesh Kumar</strong></u> (construction worker) from Bijnor, UP — missing; initial false hope after confusion over names.</li></ul></div>
+                <div class="line"><ul><li><u><strong>Karan Singh</strong></u> from Surkhet, Nepal — feared dead after hotel collapse.</li></ul></div>
+                <div class="line"><ul><li><strong>Affected Groups:</strong> Workers from Nepal, Uttar Pradesh, and Uttarakhand; local residents; stranded Char Dham pilgrims.</li></ul></div>
+                <hr>
+                <div class="line"><h3>3. Rescue & Relief Operations</h3></div>
+                <div class="line"><ul><li><strong>Lead Agencies:</strong></li></ul></div>
+                <div class="line"><ul><li>Indo-Tibetan Border Police (ITBP)</li></ul></div>
+                <div class="line"><ul><li>State disaster response units</li></ul></div>
+                <div class="line"><ul><li>Indian Army (chopper support)</li></ul></div>
+                <div class="line"><ul><li><strong>Base Camp:</strong> Matli helipad — hub for evacuation, relief supply dispatch, and family gathering.</li></ul></div>
+                <div class="line"><ul><li><strong>Challenges in Operations:</strong></li></ul></div>
+                <div class="line"><ul><li>Blocked routes at multiple points between Uttarkashi and Dharali due to landslides.</li></ul></div>
+                <div class="line"><ul><li>Limited helicopter capacity; priority given to evacuating tourists from Gangotri and Harsil.</li></ul></div>
+                <div class="line"><ul><li>Harsh terrain and debris depth (~50 feet in some areas).</li></ul></div>
+                <div class="line"><ul><li><strong>Relief Supplies Sent:</strong> Vegetables, milk, grains.</li></ul></div>
+                <hr>
+                <div class="line"><h3>4. Issues Highlighted</h3></div>
+                <div class="line"><ul><li><strong>Perceived Neglect of Locals:</strong></li></ul></div>
+                <div class="line"><ul><li>Evacuation prioritised for tourists; families of missing workers felt sidelined.</li></ul></div>
+                <div class="line"><ul><li>Delays in transporting relatives to the disaster site.</li></ul></div>
+                <div class="line"><ul><li><strong>Communication Gaps:</strong></li></ul></div>
+                <div class="line"><ul><li>No direct updates to families on missing persons.</li></ul></div>
+                <div class="line"><ul><li>Confusion over names in rescue lists.</li></ul></div>
+                <div class="line"><ul><li><strong>Survivability Concerns:</strong></li></ul></div>
+                <div class="line"><ul><li>Locals believe chances of survival under debris diminish sharply after 48–72 hours.</li></ul></div>
+                <hr>
+                <div class="line"><h3>5. Broader Significance</h3></div>
+                <div class="line"><ul><li><strong>Vulnerability of Himalayan Settlements:</strong></li></ul></div>
+                <div class="line"><ul><li>Flash floods increasingly frequent due to climate change, glacial melt, and intense rainfall.</li></ul></div>
+                <div class="line"><ul><li>Settlements along riverbanks at higher risk.</li></ul></div>
+                <div class="line"><ul><li><strong>Impact on Migrant Workers:</strong></li></ul></div>
+                <div class="line"><ul><li>Many labourers from other states and Nepal work in remote Himalayan construction projects, often without robust safety nets.</li></ul></div>
+                <div class="line"><ul><li><strong>Disaster Management Lessons:</strong></li></ul></div>
+                <div class="line"><ul><li>Need for faster mobilisation of search & rescue.</li></ul></div>
+                <div class="line"><ul><li>Inclusion of families in official updates and transport.</li></ul></div>
+                <div class="line"><ul><li>Strengthening of early warning systems and evacuation plans.</li></ul></div>
+                <hr>
+                <div class="line"><h3>6. Way Forward</h3></div>
+                <div class="line"><ul><li><strong>Policy Measures:</strong></li></ul></div>
+                <div class="line"><ul><li>Comprehensive disaster preparedness in hill districts.</li></ul></div>
+                <div class="line"><ul><li>Prioritised rescue of locals and workers alongside tourists.</li></ul></div>
+                <div class="line"><ul><li>Better coordination between state and central disaster agencies.</li></ul></div>
+                <div class="line"><ul><li><strong>Infrastructure Upgrades:</strong></li></ul></div>
+                <div class="line"><ul><li>All-weather approach roads to high-altitude villages.</li></ul></div>
+                <div class="line"><ul><li>Helicopter landing facilities at multiple points for rapid deployment.</li></ul></div>
+                <div class="line"><ul><li><strong>Community-Based Measures:</strong></li></ul></div>
+                <div class="line"><ul><li>Local volunteer training for immediate response.</li></ul></div>
+                <div class="line"><ul><li>Insurance and compensation mechanisms for migrant workers.</li></ul></div>
+                <hr>
+                <div class="line"><h3>7. UPSC Relevance</h3></div>
+                <div class="line"><ul><li><strong>GS Paper I:</strong></li></ul></div>
+                <div class="line"><ul><li><u><strong>Geography</strong></u> – Physical geography of Himalayas, flood and landslide-prone zones.</li></ul></div>
+                <div class="line"><ul><li><strong>GS Paper II:</strong></li></ul></div>
+                <div class="line"><ul><li><u><strong>Governance & Disaster Management</strong></u> – Role of NDRF, SDRF, ITBP, and inter-agency coordination.</li></ul></div>
+                <div class="line"><ul><li><strong>GS Paper III:</strong></li></ul></div>
+                <div class="line"><ul><li><u><strong>Environment</strong></u> – Climate change impacts on glacial and river systems.</li></ul></div>
+                <div class="line"><ul><li><u><strong>Disaster Management</strong></u> – Mitigation, preparedness, and rescue strategies.</li></ul></div>
+                <div class="line"><ul><li><strong>Essay Paper:</strong></li></ul></div>
+                <div class="line"><ul><li>Themes on resilience, human suffering, and state responsibility in disasters.</li></ul></div>
+                <hr>
+                <p class="contact-line">For more information or to contribute, <a href="https://wa.me/918168305050" target="_blank">Contact us on WhatsApp: +91-8168305050</a></p>
+            </section>
+            
+            <section id="content-hindi" style="display: none;">
+                <h2 lang="hi">उत्तरकाशी में अचानक आई बाढ़ - धराली त्रासदी</h2>
+                <div class="line" lang="hi"><h3>1. संदर्भ और पृष्ठभूमि</h3></div>
+                <div class="line" lang="hi"><ul><li><strong>घटना की तिथि:</strong> 5 अगस्त 2025</li></ul></div>
+                <div class="line" lang="hi"><ul><li><strong>स्थान:</strong> धराली गाँव, उत्तरकाशी ज़िला, उत्तराखंड।</li></ul></div>
+                <div class="line" lang="hi"><ul><li><strong>आपदा की प्रकृति:</strong> पानी, मलबे और तलछट के अचानक बढ़ने से अचानक आई बाढ़।</li></ul></div>
+                <div class="line" lang="hi"><ul><li><strong>प्रभाव क्षेत्र:</strong> भागीरथी नदी के पास धराली गाँव और आसपास के क्षेत्र; गंगोत्री, हर्षिल से संपर्क प्रभावित।</li></ul></div>
+                <hr>
+                <div class="line" lang="hi"><h3>2. मानवीय प्रभाव</h3></div>
+                <div class="line" lang="hi"><ul><li><strong>हताहतों और लापता व्यक्तियों की संख्या:</strong></li></ul></div>
+                <div class="line" lang="hi"><ul><li>आधिकारिक अनुमान: लगभग 60 लोग लापता।</li></ul></div>
+                <div class="line" lang="hi"><ul><li>6 दिनों के बचाव अभियान में केवल <strong>2 शव बरामद</strong> हुए।</li></ul></div>
+                <div class="line" lang="hi"><ul><li><strong>पीड़ितों की कहानियाँ:</strong></li></ul></div>
+                <div class="line" lang="hi"><ul><li><u><strong>लक्ष्मण</strong></u> (राजमिस्त्री) ने अपने बेटे गोविंद से आखिरी बार बात की थी और कॉल कटने से पहले “बचाओ बचाओ” और “हरि ओम” कहते रहे थे।</li></ul></div>
+                <div class="line" lang="hi"><ul><li><u><strong>फुरकान</strong></u> और <u><strong>सलमान</strong></u> (वेल्डर) उत्तर प्रदेश से — आपूर्ति के लिए धराली गए थे, जिसके बाद से वे लापता हैं।</li></ul></div>
+                <div class="line" lang="hi"><ul><li><u><strong>योगेश कुमार</strong></u> (निर्माण मज़दूर) बिजनौर, उत्तर प्रदेश से — लापता; नामों को लेकर भ्रम के बाद शुरुआती उम्मीदें झूठी साबित हुईं।</li></ul></div>
+                <div class="line" lang="hi"><ul><li><u><strong>करण सिंह</strong></u>, सुर्खेत, नेपाल से — होटल ढहने के बाद मारे जाने की आशंका।</li></ul></div>
+                <div class="line" lang="hi"><ul><li><strong>प्रभावित समूह:</strong> नेपाल, उत्तर प्रदेश और उत्तराखंड के मज़दूर; स्थानीय निवासी; फँसे हुए चार धाम तीर्थयात्री।</li></ul></div>
+                <hr>
+                <div class="line" lang="hi"><h3>3. बचाव एवं राहत अभियान</h3></div>
+                <div class="line" lang="hi"><ul><li><strong>प्रमुख एजेंसियाँ:</strong></li></ul></div>
+                <div class="line" lang="hi"><ul><li>भारत-तिब्बत सीमा पुलिस (आईटीबीपी)</li></ul></div>
+                <div class="line" lang="hi"><ul><li>राज्य आपदा प्रतिक्रिया इकाइयाँ</li></ul></div>
+                <div class="line" lang="hi"><ul><li>भारतीय सेना (हेलीकॉप्टर सहायता)</li></ul></div>
+                <div class="line" lang="hi"><ul><li><strong>आधार शिविर:</strong> मातली हेलीपैड - निकासी, राहत सामग्री भेजने और पारिवारिक समारोहों का केंद्र।</li></ul></div>
+                <div class="line" lang="hi"><ul><li><strong>संचालन में चुनौतियाँ:</strong></li></ul></div>
+                <div class="line" lang="hi"><ul><li>भूस्खलन के कारण उत्तरकाशी और धराली के बीच कई स्थानों पर मार्ग अवरुद्ध।</li></ul></div>
+                <div class="line" lang="hi"><ul><li>सीमित हेलीकॉप्टर क्षमता; गंगोत्री और हरसिल से पर्यटकों को निकालने को प्राथमिकता दी गई।</li></ul></div>
+                <div class="line" lang="hi"><ul><li>दुर्गम भूभाग और मलबे की गहराई (कुछ क्षेत्रों में ~50 फीट)।</li></ul></div>
+                <div class="line" lang="hi"><ul><li><strong>भेजी गई राहत सामग्री:</strong> सब्जियाँ, दूध, अनाज।</li></ul></div>
+                <hr>
+                <div class="line" lang="hi"><h3>4. उजागर किए गए मुद्दे</h3></div>
+                <div class="line" lang="hi"><ul><li><strong>स्थानीय लोगों की कथित उपेक्षा:</strong></li></ul></div>
+                <div class="line" lang="hi"><ul><li>पर्यटकों के लिए निकासी को प्राथमिकता दी गई; लापता श्रमिकों के परिवारों ने खुद को उपेक्षित महसूस किया।</li></ul></div>
+                <div class="line" lang="hi"><ul><li>आपदा स्थल पर रिश्तेदारों को पहुँचाने में देरी।</li></ul></div>
+                <div class="line" lang="hi"><ul><li><strong>संचार की कमी:</strong></li></ul></div>
+                <div class="line" lang="hi"><ul><li>लापता लोगों के बारे में परिवारों को कोई सीधी जानकारी नहीं।</li></ul></div>
+                <div class="line" lang="hi"><ul><li>बचाव सूची में नामों को लेकर भ्रम।</li></ul></div>
+                <div class="line" lang="hi"><ul><li><strong>जीवित रहने की चिंताएँ:</strong></li></ul></div>
+                <div class="line" lang="hi"><ul><li>स्थानीय लोगों का मानना है कि मलबे के नीचे जीवित रहने की संभावना 48-72 घंटों के बाद तेज़ी से कम हो जाती है।</li></ul></div>
+                <hr>
+                <div class="line" lang="hi"><h3>5. व्यापक महत्व</h3></div>
+                <div class="line" lang="hi"><ul><li><strong>हिमालयी बस्तियों की भेद्यता:</strong></li></ul></div>
+                <div class="line" lang="hi"><ul><li>जलवायु परिवर्तन, हिमनदों के पिघलने और भारी वर्षा के कारण अचानक बाढ़ की घटनाएँ लगातार बढ़ रही हैं।</li></ul></div>
+                <div class="line" lang="hi"><ul><li>नदी किनारे बसी बस्तियाँ ज़्यादा जोखिम में हैं।</li></ul></div>
+                <div class="line" lang="hi"><ul><li><strong>प्रवासी मज़दूरों पर प्रभाव:</strong></li></ul></div>
+                <div class="line" lang="hi"><ul><li>अन्य राज्यों और नेपाल के कई मज़दूर दूरदराज के हिमालयी निर्माण परियोजनाओं में काम करते हैं, अक्सर बिना किसी मज़बूत सुरक्षा व्यवस्था के।</li></ul></div>
+                <div class="line" lang="hi"><ul><li><strong>आपदा प्रबंधन सबक:</strong></li></ul></div>
+                <div class="line" lang="hi"><ul><li>खोज और बचाव कार्यों में तेज़ी से जुटने की ज़रूरत।</li></ul></div>
+                <div class="line" lang="hi"><ul><li>आधिकारिक अपडेट और परिवहन में परिवारों को शामिल करना।</li></ul></div>
+                <div class="line" lang="hi"><ul><li>पूर्व चेतावनी प्रणालियों और निकासी योजनाओं को सुदृढ़ बनाना।</li></ul></div>
+                <hr>
+                <div class="line" lang="hi"><h3>6. आगे की राह</h3></div>
+                <div class="line" lang="hi"><ul><li><strong>नीतिगत उपाय:</strong></li></ul></div>
+                <div class="line" lang="hi"><ul><li>पहाड़ी जिलों में व्यापक आपदा तैयारी।</li></ul></div>
+                <div class="line" lang="hi"><ul><li>पर्यटकों के साथ-साथ स्थानीय लोगों और श्रमिकों के बचाव को प्राथमिकता देना।</li></ul></div>
+                <div class="line" lang="hi"><ul><li>राज्य और केंद्रीय आपदा एजेंसियों के बीच बेहतर समन्वय।</li></ul></div>
+                <div class="line" lang="hi"><h3>बुनियादी ढाँचे का उन्नयन:</h3></div>
+                <div class="line" lang="hi"><ul><li>ऊँचाई वाले गाँवों तक सभी मौसम में पहुँचने योग्य पहुँच मार्ग।</li></ul></div>
+                <div class="line" lang="hi"><ul><li>त्वरित तैनाती के लिए कई स्थानों पर हेलीकॉप्टर लैंडिंग सुविधाएँ।</li></ul></div>
+                <div class="line" lang="hi"><h3>समुदाय-आधारित उपाय:</h3></div>
+                <div class="line" lang="hi"><ul><li>तत्काल प्रतिक्रिया के लिए स्थानीय स्वयंसेवकों का प्रशिक्षण।</li></ul></div>
+                <div class="line" lang="hi"><ul><li>प्रवासी श्रमिकों के लिए बीमा और मुआवज़ा व्यवस्था।</li></ul></div>
+                <hr>
+                <div class="line" lang="hi"><h3>7. यूपीएससी प्रासंगिकता</h3></div>
+                <div class="line" lang="hi"><ul><li><strong>सामान्य अध्ययन प्रश्नपत्र I:</strong></li></ul></div>
+                <div class="line" lang="hi"><ul><li><u><strong>भूगोल</strong></u> - हिमालय का भौतिक भूगोल, बाढ़ और भूस्खलन-प्रवण क्षेत्र।</li></ul></div>
+                <div class="line" lang="hi"><ul><li><strong>सामान्य अध्ययन प्रश्नपत्र II:</strong></li></ul></div>
+                <div class="line" lang="hi"><ul><li><u><strong>शासन एवं आपदा प्रबंधन</strong></u> – एनडीआरएफ, SDRF, आईटीबीपी की भूमिका और अंतर-एजेंसी समन्वय।</li></ul></div>
+                <div class="line" lang="hi"><ul><li><strong>सामान्य अध्ययन प्रश्नपत्र III:</strong></li></ul></div>
+                <div class="line" lang="hi"><ul><li><u><strong>पर्यावरण</strong></u> - हिमनदों और नदी प्रणालियों पर जलवायु परिवर्तन का प्रभाव।</li></ul></div>
+                <div class="line" lang="hi"><ul><li><u><strong>आपदा प्रबंधन</strong></u> - शमन, तैयारी और बचाव रणनीतियाँ।</li></ul></div>
+                <div class="line" lang="hi"><ul><li><strong>निबंध पत्र:</strong></li></ul></div>
+                <div class="line" lang="hi"><ul><li>आपदाओं में लचीलापन, मानवीय पीड़ा और राज्य की ज़िम्मेदारी पर विषय।</li></ul></div>
+                <hr>
+                <p class="contact-line">अधिक जानकारी या योगदान के लिए, <a href="https://wa.me/918168305050" target="_blank">WhatsApp पर हमसे संपर्क करें: +91-8168305050</a></p>
+            </section>
+            
+            <a href="index.html" class="back-to-home">Back to Home</a>
+        </article>
+    </main>
+
+    <footer>
+        <p>© 2025 Crack Current Affairs (CrackCA). All rights reserved.</p>
+    </footer>
+
+    <button class="scroll-top" title="Go to top">↑</button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const contentEnglish = document.getElementById('content-english');
+            const contentHindi = document.getElementById('content-hindi');
+            const langSwitchBtn = document.querySelector('.language-switch');
+
+            langSwitchBtn.addEventListener('click', function() {
+                const isEnglishVisible = contentEnglish.style.display !== 'none';
+                contentEnglish.style.display = isEnglishVisible ? 'none' : 'block';
+                contentHindi.style.display = isEnglishVisible ? 'block' : 'none';
+                langSwitchBtn.textContent = isEnglishVisible ? 'Switch to English' : 'Switch to Hindi';
+            });
+        
+            // Smooth scroll to top button functionality
+            const scrollTopBtn = document.querySelector('.scroll-top');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 300) {
+                    scrollTopBtn.style.display = 'block';
+                } else {
+                    scrollTopBtn.style.display = 'none';
+                }
+            });
+
+            scrollTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Calculate read time
+            const englishContent = contentEnglish.innerText;
+            const wordsPerMinute = 200;
+            const wordCount = englishContent.split(/\s+/).filter(Boolean).length;
+            const readTimeMinutes = Math.ceil(wordCount / wordsPerMinute);
+            document.getElementById('read-time').textContent = `Estimated Read Time: ~${readTimeMinutes} min`;
+        });
+    </script>
+</body>
+</html>

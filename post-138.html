@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IE - 11-Aug-25</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;0,400;1,700;1,900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-bg-color: #ffffff;
+            --secondary-bg-color: #f0f4f8;
+            --primary-text-color: #1a1a1a;
+            --link-color: #0077c9;
+            --link-hover-color: #005a9c;
+            --header-bg-color: #ff6b6b;
+            --header-text-color: #ffffff;
+            --nav-link-color: #ffffff;
+            --hover-line-color: #fff0f0;
+            --button-bg-color: #ff6b6b;
+            --button-hover-bg-color: #e05e5e;
+            --button-text-color: #ffffff;
+            --footer-bg-color: #34495e;
+            --footer-text-color: #ecf0f1;
+        }
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            margin: 0;
+            padding-top: 60px;
+            background-color: var(--secondary-bg-color);
+            color: var(--primary-text-color);
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            font-family: 'Merriweather', serif;
+            color: var(--primary-text-color);
+            font-weight: bold;
+            line-height: 1.2;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        h1 {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+        h2 {
+            font-size: 2rem;
+            color: #2c3e50;
+        }
+        h3 {
+            font-size: 1.5rem;
+            color: #34495e;
+        }
+        strong {
+            font-weight: 700;
+        }
+        em {
+            font-style: italic;
+        }
+        u strong, u b {
+            font-style: italic;
+            font-weight: 700;
+            text-decoration: underline;
+        }
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to right, var(--header-bg-color), #ff8e6e);
+            color: var(--header-text-color);
+            padding: 0.5rem 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+        }
+        nav a {
+            color: var(--nav-link-color);
+            text-decoration: none;
+            margin-left: 1rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #ffeaa7;
+        }
+        main {
+            padding: 2rem;
+            max-width: 900px;
+            margin: auto;
+            background-color: var(--primary-bg-color);
+            box-sizing: border-box;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        footer {
+            background-color: var(--footer-bg-color);
+            color: var(--footer-text-color);
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+        }
+        hr {
+            border: 0;
+            border-top: 1px solid var(--secondary-bg-color);
+            margin: 1.5rem 0;
+        }
+        ul {
+            padding-left: 1.5rem;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        li {
+            margin-bottom: 0.3rem;
+        }
+        .line {
+            padding: 0.2rem 0.5rem;
+            margin: 0;
+            transition: background-color 0.3s ease;
+        }
+        .line > h3 {
+            margin-top: 0.5rem;
+            margin-bottom: 0.3rem;
+        }
+        .line > ul {
+            margin-top: 0.2rem;
+            margin-bottom: 0.2rem;
+        }
+        .line:hover {
+            background-color: var(--hover-line-color);
+        }
+        .article-meta {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--secondary-bg-color);
+            padding-bottom: 0.8rem;
+        }
+        .article-meta p {
+            margin: 0.3rem 0;
+        }
+        #read-time {
+            font-weight: bold;
+            color: #27ae60;
+            font-style: italic;
+        }
+        .scroll-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--button-bg-color);
+            color: var(--button-text-color);
+            border: none;
+            padding: 1rem 1rem;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: background-color 0.3s, opacity 0.3s;
+            z-index: 999;
+        }
+        .scroll-top:hover {
+            background-color: var(--button-hover-bg-color);
+        }
+        .back-to-home {
+            display: block;
+            width: fit-content;
+            margin: 2rem auto 0;
+            padding: 1rem 2rem;
+            background-color: var(--button-bg-color);
+            color: var(--button-text-color);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .back-to-home:hover {
+            background-color: var(--button-hover-bg-color);
+        }
+        .contact-link {
+            display: block;
+            margin-top: 1.5rem;
+            font-weight: bold;
+            color: var(--link-color);
+            text-decoration: none;
+            text-align: center;
+        }
+        .contact-link:hover {
+            text-decoration: underline;
+        }
+        .language-switch {
+            background-color: var(--nav-link-color);
+            color: var(--header-bg-color);
+            border: none;
+            padding: 0.4rem 0.8rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .language-switch:hover {
+            background-color: #ffebcd;
+            color: var(--header-bg-color);
+        }
+        @media (max-width: 768px) {
+            body {
+                padding-top: 70px;
+            }
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0.5rem 1rem;
+            }
+            nav {
+                margin-top: 0.5rem;
+                display: flex;
+                flex-wrap: wrap;
+                width: 100%;
+                justify-content: center;
+            }
+            nav a {
+                margin: 0.3rem 0.5rem;
+                font-size: 0.9rem;
+            }
+            main {
+                padding: 1rem;
+            }
+            .language-switch {
+                position: absolute;
+                top: 0.5rem;
+                right: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>11-August-2025</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="quiz.html">Quiz</a>
+            <a href="donation.html">Donation</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <button class="language-switch">Switch to Hindi</button>
+    </header>
+    <main>
+        <article>
+            <section class="article-meta">
+                <h2>Message from Eastern States in President’s ‘At Home’ Invite – Independence Day 2025</h2>
+                <p><strong>Source:</strong> Indian Express</p>
+                <p><strong>Publication Date:</strong> 11-August-2025</p>
+                <p><span id="read-time"></span></p>
+            </section>
+            
+            <section id="content-english">
+                <div class="line"><h3>Context</h3></div>
+                <div class="line"><ul><li>Rashtrapati Bhavan is sending ~450 specially curated invitations for the ‘At Home’ event on 15 August 2025, marking the <strong>79th Independence Day</strong>.</li></ul></div>
+                <div class="line"><ul><li>Focus this year: Four Eastern States – <strong>Bihar, West Bengal, Odisha, Jharkhand</strong>.</li></ul></div>
+                <hr>
+                <div class="line"><h3>Key Highlights of the Invitation Kit</h3></div>
+                <div class="line"><h4>Packaging & Presentation</h4></div>
+                <div class="line"><ul><li>Cloth bag with hand-painted <strong>Madhubani tag</strong>.</li></ul></div>
+                <div class="line"><ul><li>Box woven from <strong>sikki grass</strong> (Bihar’s traditional craft).</li></ul></div>
+                <div class="line"><ul><li>Inside: Bamboo frame with invite + 4 paintings from the 4 states.</li></ul></div>
+                <div class="line"><ul><li>Designed for reusability as souvenirs.</li></ul></div>
+                <div class="line"><h4>Art & Craft Representation</h4></div>
+                <div class="line"><ul><li>Bihar – <strong>Madhubani motifs</strong>, <u><strong><em>Tikuli art</em></strong></u> (800-year-old style from Patna), <strong>sikki grass weaving</strong>.</li></ul></div>
+                <div class="line"><ul><li>West Bengal – <u><strong><em>Pattachitra</em></strong></u> (Patua community, Medinipur).</li></ul></div>
+                <div class="line"><ul><li>Odisha – <u><strong><em>Talapatra Chitra</em></strong></u> (palm leaf scrolls).</li></ul></div>
+                <div class="line"><ul><li>Jharkhand – <u><strong><em>Paitkar painting</em></strong></u> (tribal scrolls from Amadubi), <strong>bamboo weaving</strong>.</li></ul></div>
+                <div class="line"><h4>Symbolism</h4></div>
+                <div class="line"><ul><li>Invite frame as openable ‘door’ → representing welcoming spirit of Rashtrapati Bhavan.</li></ul></div>
+                <div class="line"><ul><li>Golden-hued <strong>sikki grass</strong> – artistry of rural craftswomen.</li></ul></div>
+                <div class="line"><ul><li>Reusable bamboo photo frame – merging tradition with utility.</li></ul></div>
+                <div class="line"><ul><li><strong>Tussar silk stole</strong> – block-printed, tri-colour theme, motifs like <u><strong><em>matsya, kamal, basant</em></strong></u>.</li></ul></div>
+                <div class="line"><h4>Curation Process</h4></div>
+                <div class="line"><ul><li>Designed by <strong>National Institute of Design (NID)</strong>, Ahmedabad.</li></ul></div>
+                <div class="line"><ul><li>Collaboration with <strong>100+ artisans</strong> (mostly women) from the 4 states.</li></ul></div>
+                <div class="line"><ul><li>Work done at NID Bengaluru + artisans’ own villages.</li></ul></div>
+                <div class="line"><h4>Menu with Eastern Flavour</h4></div>
+                <div class="line"><ul><li>Main dishes – <strong>Litti-chokha</strong>, <u><strong><em>mochar chop</em></strong></u>, <u><strong><em>aloo-matar chop</em></strong></u>, <u><strong><em>dahi-bada</em></strong></u>, <u><strong><em>aloo dum</em></strong></u>, <u><strong><em>ghoogni</em></strong></u>.</li></ul></div>
+                <div class="line"><ul><li>Desserts – <u><strong><em>Chhena poda</em></strong></u> (Odisha), <u><strong><em>gur sandesh</em></strong></u> (West Bengal), <u><strong><em>anarsa</em></strong></u> (Jharkhand).</li></ul></div>
+                <hr>
+                <div class="line"><h3>Event Details</h3></div>
+                <div class="line"><ul><li>Guests (~500): PM, Cabinet members, diplomats, senior officials, eminent personalities.</li></ul></div>
+                <div class="line"><ul><li>Cultural showcase: Aligns with President <strong>Droupadi Murmu’s</strong> initiative to promote regional diversity.</li></ul></div>
+                <div class="line"><ul><li>Past precedent: Republic Day ‘At Home’ (Southern states’ art & cuisine).</li></ul></div>
+                <hr>
+                <div class="line"><h3>UPSC Relevance</h3></div>
+                <div class="line"><h4>Prelims Pointers:</h4></div>
+                <div class="line"><ul><li><strong>Sikki grass craft</strong> – Bihar.</li></ul></div>
+                <div class="line"><ul><li><strong>Pattachitra</strong> – West Bengal (Medinipur Patua community).</li></ul></div>
+                <div class="line"><ul><li><strong>Talapatra Chitra</strong> – Odisha.</li></ul></div>
+                <div class="line"><ul><li><strong>Paitkar painting</strong> – Jharkhand (Amadubi).</li></ul></div>
+                <div class="line"><ul><li><strong>Tikuli art</strong> – Bihar (Patna).</li></ul></div>
+                <div class="line"><h4>Mains Linkages:</h4></div>
+                <div class="line"><ul><li><strong>GS-1 (Art & Culture)</strong> – Folk arts, crafts, textiles of Eastern India.</li></ul></div>
+                <div class="line"><ul><li><strong>GS-2 (Governance)</strong> – Cultural diplomacy & soft power via state events.</li></ul></div>
+                <div class="line"><ul><li><strong>GS-3 (Economy)</strong> – Role of handicrafts in women’s empowerment & rural livelihoods.</li></ul></div>
+                <hr>
+                <p class="contact-line">For more information or to contribute, <a href="https://wa.me/918168305050" target="_blank">Contact us on WhatsApp: +91-8168305050</a></p>
+            </section>
+            
+            <section id="content-hindi" style="display: none;">
+                <div class="line" lang="hi"><h2>राष्ट्रपति के 'एट होम' आमंत्रण में पूर्वी राज्यों का संदेश - स्वतंत्रता दिवस 2025</h2></div>
+                <div class="line" lang="hi"><h3>संदर्भ</h3></div>
+                <div class="line" lang="hi"><ul><li>राष्ट्रपति भवन 15 अगस्त 2025 को 79वें स्वतंत्रता दिवस के उपलक्ष्य में आयोजित होने वाले ‘एट होम’ कार्यक्रम के लिए लगभग 450 विशेष रूप से तैयार किए गए आमंत्रण भेज रहा है।</li></ul></div>
+                <div class="line" lang="hi"><ul><li>इस वर्ष का मुख्य आकर्षण: चार पूर्वी राज्य - **बिहार, पश्चिम बंगाल, ओडिशा, झारखंड**।</li></ul></div>
+                <hr>
+                <div class="line" lang="hi"><h3>आमंत्रण किट की मुख्य विशेषताएँ</h3></div>
+                <div class="line" lang="hi"><h4>पैकेजिंग और प्रस्तुति</h4></div>
+                <div class="line" lang="hi"><ul><li>हाथ से पेंट किए गए **मधुबनी टैग** वाला कपड़े का थैला।</li></ul></div>
+                <div class="line" lang="hi"><ul><li>**सिक्की घास** (बिहार का पारंपरिक शिल्प) से बुना बक्सा।</li></ul></div>
+                <div class="line" lang="hi"><ul><li>अंदर: बाँस का फ्रेम जिसमें आमंत्रण + 4 राज्यों की 4 पेंटिंग हैं।</li></ul></div>
+                <div class="line" lang="hi"><ul><li>स्मृति चिन्ह के रूप में पुन: उपयोग के लिए डिज़ाइन किया गया।</li></ul></div>
+                <div class="line" lang="hi"><h4>कला और शिल्प प्रस्तुति</h4></div>
+                <div class="line" lang="hi"><ul><li>बिहार - **मधुबनी रूपांकन**, <u><strong><em>टिकुली कला</em></strong></u> (पटना की 800 साल पुरानी शैली), **सिक्की घास की बुनाई**।</li></ul></div>
+                <div class="line" lang="hi"><ul><li>पश्चिम बंगाल - <u><strong><em>पट्टचित्र</em></strong></u> (पटुआ समुदाय, मेदिनीपुर)।</li></ul></div>
+                <div class="line" lang="hi"><ul><li>ओडिशा - <u><strong><em>तालपत्र चित्र</em></strong></u> (ताड़ के पत्तों से बने स्क्रॉल)।</li></ul></div>
+                <div class="line" lang="hi"><ul><li>झारखंड - <u><strong><em>पैतकर चित्रकला</em></strong></u> (अमादुबी के आदिवासी स्क्रॉल), **बाँस की बुनाई**।</li></ul></div>
+                <div class="line" lang="hi"><h4>प्रतीकात्मकता</h4></div>
+                <div class="line" lang="hi"><ul><li>आमंत्रण फ़्रेम को खुलने योग्य ‘द्वार’ के रूप में → राष्ट्रपति भवन की स्वागत भावना का प्रतीक।</li></ul></div>
+                <div class="line" lang="hi"><ul><li>सुनहरे रंग की **सिक्की घास** - ग्रामीण शिल्पियों की कलात्मकता।</li></ul></div>
+                <div class="line" lang="hi"><ul><li>पुन: प्रयोज्य बाँस का फोटो फ्रेम - परंपरा और उपयोगिता का संगम।</li></ul></div>
+                <div class="line" lang="hi"><ul><li>**टसर सिल्क स्टोल** - ब्लॉक-प्रिंटेड, तिरंगा थीम, मत्स्य, कमल, बसंत जैसे रूपांकन।</li></ul></div>
+                <div class="line" lang="hi"><h4>संकलन प्रक्रिया</h4></div>
+                <div class="line" lang="hi"><ul><li>राष्ट्रीय डिज़ाइन संस्थान (**एनआईडी**), अहमदाबाद द्वारा डिज़ाइन किया गया।</li></ul></div>
+                <div class="line" lang="hi"><ul><li>चार राज्यों के **100 से अधिक कारीगरों** (अधिकांश महिलाएँ) के साथ सहयोग।</li></ul></div>
+                <div class="line" lang="hi"><ul><li>एनआईडी, बेंगलुरु में किया गया कार्य + कारीगरों के अपने गाँव।</li></ul></div>
+                <div class="line" lang="hi"><h4>पूर्वी स्वाद के साथ मेनू</h4></div>
+                <div class="line" lang="hi"><ul><li>मुख्य व्यंजन - **लिट्टी-चोखा**, <u><strong><em>मोचर चॉप</em></strong></u>, <u><strong><em>आलू-मटर चॉप</em></strong></u>, <u><strong><em>दही-बड़ा</em></strong></u>, <u><strong><em>आलू दम</em></strong></u>, <u><strong><em>घूघनी</em></strong></u>।</li></ul></div>
+                <div class="line" lang="hi"><ul><li>मिठाइयाँ - <u><strong><em>छेना पोड़ा</em></strong></u> (ओडिशा), <u><strong><em>गुड़ संदेश</em></strong></u> (पश्चिम बंगाल), <u><strong><em>अनरसा</em></strong></u> (झारखंड)।</li></ul></div>
+                <hr>
+                <div class="line" lang="hi"><h3>घटना विवरण</h3></div>
+                <div class="line" lang="hi"><ul><li>अतिथि (~500): प्रधानमंत्री, कैबिनेट सदस्य, राजनयिक, वरिष्ठ अधिकारी, प्रतिष्ठित हस्तियाँ।</li></ul></div>
+                <div class="line" lang="hi"><ul><li>सांस्कृतिक प्रदर्शन: क्षेत्रीय विविधता को बढ़ावा देने के लिए राष्ट्रपति **द्रौपदी मुर्मू** की पहल के अनुरूप।</li></ul></div>
+                <div class="line" lang="hi"><ul><li>पिछली मिसाल: गणतंत्र दिवस ‘एट होम’ (दक्षिणी राज्यों की कला और व्यंजन)।</li></ul></div>
+                <hr>
+                <div class="line" lang="hi"><h3>यूपीएससी प्रासंगिकता</h3></div>
+                <div class="line" lang="hi"><h4>प्रारंभिक सूचक:</h4></div>
+                <div class="line" lang="hi"><ul><li><strong>सिक्की घास शिल्प</strong> - बिहार।</li></ul></div>
+                <div class="line" lang="hi"><ul><li><strong>पट्टचित्रा</strong> - पश्चिम बंगाल (मेदिनीपुर पटुआ समुदाय)।</li></ul></div>
+                <div class="line" lang="hi"><ul><li><strong>तलपत्र चित्रा</strong> - ओडिशा।</li></ul></div>
+                <div class="line" lang="hi"><ul><li><strong>पैटकर पेंटिंग</strong> - झारखंड (अमादुबी)।</li></ul></div>
+                <div class="line" lang="hi"><ul><li><strong>टिकुली कला</strong> - बिहार (पटना)।</li></ul></div>
+                <div class="line" lang="hi"><h4>मुख्य परीक्षा के लिंकेज:</h4></div>
+                <div class="line" lang="hi"><ul><li>**जीएस-1 (कला एवं संस्कृति)** - पूर्वी भारत की लोक कलाएँ, शिल्प, वस्त्र।</li></ul></div>
+                <div class="line" lang="hi"><ul><li>**जीएस-2 (शासन)** - राज्य कार्यक्रमों के माध्यम से सांस्कृतिक कूटनीति एवं सॉफ्ट पावर।</li></ul></div>
+                <div class="line" lang="hi"><ul><li>**जीएस-3 (अर्थव्यवस्था)** - महिला सशक्तिकरण एवं ग्रामीण आजीविका में हस्तशिल्प की भूमिका।</li></ul></div>
+                <hr>
+                <p class="contact-line" lang="hi">अधिक जानकारी या योगदान के लिए, <a href="https://wa.me/918168305050" target="_blank">WhatsApp पर हमसे संपर्क करें: +91-8168305050</a></p>
+            </section>
+            
+            <a href="index.html" class="back-to-home">Back to Home</a>
+        </article>
+    </main>
+    <footer>
+        <p>© 2025 Crack Current Affairs (CrackCA). All rights reserved.</p>
+    </footer>
+    
+    <button class="scroll-top" title="Go to top">↑</button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const contentEnglish = document.getElementById('content-english');
+            const contentHindi = document.getElementById('content-hindi');
+            const langSwitchBtn = document.querySelector('.language-switch');
+
+            langSwitchBtn.addEventListener('click', function() {
+                const isEnglishVisible = contentEnglish.style.display !== 'none';
+                contentEnglish.style.display = isEnglishVisible ? 'none' : 'block';
+                contentHindi.style.display = isEnglishVisible ? 'block' : 'none';
+                langSwitchBtn.textContent = isEnglishVisible ? 'Switch to English' : 'Switch to Hindi';
+            });
+        
+            const scrollTopBtn = document.querySelector('.scroll-top');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 300) {
+                    scrollTopBtn.style.display = 'block';
+                } else {
+                    scrollTopBtn.style.display = 'none';
+                }
+            });
+
+            scrollTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            const englishContent = contentEnglish.innerText;
+            const wordsPerMinute = 200;
+            const wordCount = englishContent.split(/\s+/).filter(Boolean).length;
+            const readTimeMinutes = Math.ceil(wordCount / wordsPerMinute);
+            document.getElementById('read-time').textContent = `Estimated Read Time: ~${readTimeMinutes} min`;
+        });
+    </script>
+</body>
+</html>
