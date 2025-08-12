@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TH - 12-Aug-25</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Noto+Sans+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #007BFF;
+            --secondary-color: #28a745;
+            --background-color: #f8f9fa;
+            --text-color: #212529;
+            --light-hover: #e9ecef;
+            --border-color: #dee2e6;
+            --header-bg: #fff;
+        }
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding-top: 60px;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 1rem;
+        }
+        header.fixed-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--header-bg);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 0.5rem 1rem;
+            z-index: 1000;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        nav li a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        nav li a:hover {
+            background-color: var(--light-hover);
+            border-radius: 5px;
+        }
+        .article-meta {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .article-meta h1 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 2.5rem;
+            margin-top: 0;
+        }
+        .article-meta p {
+            margin: 0;
+            color: #6c757d;
+        }
+        h1, h2, h3 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+            font-weight: bold;
+        }
+        h2 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+        h3 {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-bottom: none;
+        }
+        .line {
+            padding: 0.25rem 0.5rem;
+            margin: 0;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            border-left: 3px solid transparent;
+        }
+        .line:hover {
+            background-color: var(--light-hover);
+            border-left: 3px solid var(--primary-color);
+        }
+        .line .english-text, .line .hindi-text {
+            display: block;
+            margin: 0;
+        }
+        .line .english-text {
+            font-size: 1rem;
+        }
+        .line .hindi-text {
+            font-size: 0.9rem;
+            color: #555;
+        }
+        .line .hindi-text[lang="hi"] {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+        }
+        .hidden-lang {
+            display: none;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        .btn-secondary {
+            background-color: var(--secondary-color);
+            color: #fff;
+            border: none;
+        }
+        .btn-secondary:hover {
+            background-color: #218838;
+        }
+        .floating-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            line-height: 50px;
+            font-size: 24px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            cursor: pointer;
+            display: none;
+        }
+        .footer {
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            color: #6c757d;
+        }
+        .language-switch-btn {
+            margin-top: 1rem;
+            padding: 8px 12px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            border-radius: 5px;
+            background-color: #6c757d;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            .article-meta h1 {
+                font-size: 2rem;
+            }
+            nav ul {
+                flex-direction: column;
+            }
+            nav li {
+                text-align: center;
+            }
+        }
+        em {
+            font-style: italic;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header class="fixed-header">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="donation.html">Donation</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <header class="article-header">
+            <h1 data-lang="en">12-August-2025</h1>
+            <h1 data-lang="hi" style="display:none;">12-अगस्त-2025</h1>
+        </header>
+
+        <article>
+            <div class="article-meta">
+                <div id="article-title-container">
+                    <h1 data-lang="en" id="article-title">Google Antitrust Case – India</h1>
+                    <h1 data-lang="hi" style="display:none;">गूगल एंटीट्रस्ट केस - भारत</h1>
+                </div>
+                <p>Source: User Provided Content | Publication Date: August 12, 2025</p>
+                <p><strong>Estimated Read Time: ~6 minutes</strong></p>
+                <button class="language-switch-btn" onclick="toggleLanguage()">Switch to Hindi</button>
+            </div>
+
+            <section>
+                <h1 data-lang="en"><strong>Google Antitrust Case – India</strong></h1>
+                <h1 data-lang="hi" style="display: none;"><strong>गूगल एंटीट्रस्ट केस - भारत</strong></h1>
+                
+                <h2 data-lang="en">Background</h2>
+                <h2 data-lang="hi" style="display:none;">पृष्ठभूमि</h2>
+
+                <div class="line" data-lang="en">
+                    <p class="english-text"><em><strong><u>Date</u></strong></em>: August 8, 2025 – Supreme Court admits appeals by:</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><em><strong><u>दिनांक</u></strong></em>: 8 अगस्त, 2025 - सुप्रीम कोर्ट ने निम्नलिखित की अपीलें स्वीकार कीं:</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><em><strong><u>Alphabet Inc. (Google)</u></strong></em> – against NCLAT judgment</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><em><strong><u>अल्फाबेट इंक. (गूगल)</u></strong></em> - एनसीएलएटी के फैसले के खिलाफ</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><em><strong><u>Competition Commission of India (CCI)</u></strong></em> – seeking restoration of full penalty & remedies</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><em><strong><u>भारतीय प्रतिस्पर्धा आयोग (सीसीआई)</u></strong></em> - पूर्ण दंड और उपचार की बहाली की मांग</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><em><strong><u>Alliance Digital India Foundation (ADIF)</u></strong></em> – representing Indian startups against Big Tech</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><em><strong><u>एलायंस डिजिटल इंडिया फाउंडेशन (एडीआईएफ)</u></strong></em> - बिग टेक के खिलाफ भारतीय स्टार्टअप्स का प्रतिनिधित्व</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>NCLAT</strong> upheld parts of CCI’s 2022 order finding Google guilty of <strong>abuse of dominance</strong> in the Android ecosystem.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><strong>एनसीएलएटी</strong> ने सीसीआई के 2022 के आदेश के कुछ हिस्सों को बरकरार रखा, जिसमें गूगल को एंड्रॉइड इकोसिस्टम में <strong>प्रभुत्व के दुरुपयोग</strong> का दोषी पाया गया था।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Detailed hearing scheduled for <strong>November 2025</strong>.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">विस्तृत सुनवाई <strong>नवंबर 2025</strong> के लिए निर्धारित है।</p>
+                </div>
+            </section>
+            
+            <section>
+                <h2 data-lang="en">CCI’s Allegations against Google</h2>
+                <h2 data-lang="hi" style="display:none;">गूगल के खिलाफ सीसीआई के आरोप</h2>
+                
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>Investigation Start</strong>: 2020 – triggered by complaints from app developers & industry groups.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><strong>जांच शुरू</strong>: 2020 - ऐप डेवलपर्स और उद्योग समूहों की शिकायतों के बाद शुरू हुई।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>Key Findings (2022)</strong>:</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><strong>मुख्य निष्कर्ष (2022)</strong>:</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">1. <strong>Mandatory Google Play Billing System (GPBS)</strong></p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">1. <strong>अनिवार्य Google Play बिलिंग सिस्टम (GPBS)</strong></p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Developers forced to use GPBS for in-app purchases.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">डेवलपर्स को इन-ऐप खरीदारी के लिए GPBS का उपयोग करने के लिए बाध्य किया जाएगा।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Commission: <strong>15%–30%</strong>.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">कमीशन: <strong>15%–30%</strong>।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">No integration of own payment systems allowed.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">अपनी भुगतान प्रणालियों के एकीकरण की अनुमति नहीं।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">2. <strong>Self-preferencing</strong></p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">2. <strong>स्व-वरीयता</strong></p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">YouTube exempt from GPBS fees → unfair cost advantage.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">YouTube को GPBS शुल्क से छूट → अनुचित लागत लाभ।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">3. <strong>App Bundling</strong></p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">3. <strong>ऐप बंडलिंग</strong></p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Pre-installation of Google apps (Search, Chrome, YouTube) mandatory for Play Store access.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">Play Store एक्सेस के लिए Google ऐप्स (सर्च, क्रोम, YouTube) का प्री-इंस्टॉलेशन अनिवार्य।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">4. <strong>Market Impact</strong></p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">4. <strong>बाजार प्रभाव</strong></p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Restricts consumer choice, stifles competition & innovation.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">उपभोक्ता की पसंद को सीमित करता है, प्रतिस्पर्धा और नवाचार को रोकता है।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>Penalty & Remedies by CCI</strong>:</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><strong>CCI द्वारा जुर्माना और उपाय</strong>:</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Fine: <strong>₹936.44 crore</strong>.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">जुर्माना: <strong>₹936.44 करोड़</strong>।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Behavioural directions:</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">व्यवहार संबंधी निर्देश:</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Decouple GPBS from Play Store access.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">GPBS को Play Store एक्सेस से अलग करें।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Ensure billing data transparency.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">बिलिंग डेटा पारदर्शिता सुनिश्चित करें।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Prohibit use of billing data to favour own apps.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">अपने ऐप्स को लाभ पहुँचाने के लिए बिलिंग डेटा के इस्तेमाल पर रोक लगाएँ।</p>
+                </div>
+            </section>
+            
+            <section>
+                <h2 data-lang="en">Google’s Defence</h2>
+                <h2 data-lang="hi" style="display:none;">गूगल का बचाव</h2>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>Open-source nature</strong> of Android – OEMs not forced to use Google apps if they skip Play Store.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><strong>एंड्रॉइड का ओपन-सोर्स स्वरूप</strong> - अगर OEM प्ले स्टोर को छोड़ देते हैं, तो उन्हें गूगल ऐप्स का इस्तेमाल करने के लिए बाध्य नहीं किया जाएगा।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>Pre-installation = convenience</strong>, not restriction.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><strong>प्री-इंस्टॉलेशन = सुविधा</strong>, प्रतिबंध नहीं।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>GPBS ensures security</strong> & reliability, prevents fraud, supports developers with infrastructure.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><strong>GPBS सुरक्षा</strong> और विश्वसनीयता सुनिश्चित करता है, धोखाधड़ी को रोकता है, और डेवलपर्स को बुनियादी ढाँचे के साथ सहयोग प्रदान करता है।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>Commission rates</strong> consistent with industry norms.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><strong>कमीशन दरें</strong> उद्योग मानदंडों के अनुरूप हैं।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Exemptions for in-house apps justified by different business models.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">विभिन्न व्यावसायिक मॉडलों द्वारा इन-हाउस ऐप्स के लिए छूट को उचित ठहराया गया है।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>Indian app growth</strong> (PhonePe, Paytm, Hotstar) shows market competitiveness.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><strong>भारतीय ऐप विकास</strong> (फोनपे, पेटीएम, हॉटस्टार) बाजार में प्रतिस्पर्धात्मकता को दर्शाता है।</p>
+                </div>
+            </section>
+            
+            <section>
+                <h2 data-lang="en">NCLAT Judgment (March 2025)</h2>
+                <h2 data-lang="hi" style="display:none;">एनसीएलएटी का फैसला (मार्च 2025)</h2>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>Upholds</strong>: Abuse of dominance in GPBS & app bundling.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><strong>सही ठहराता है</strong>: GPBS और ऐप बंडलिंग में प्रभुत्व का दुरुपयोग।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>Penalty reduced</strong>: ₹936.44 crore → ₹216.69 crore (proportionality).</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><strong>जुर्माना कम किया गया</strong>: ₹936.44 करोड़ → ₹216.69 करोड़ (आनुपातिक)।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>Struck down</strong> some CCI directions (over-broad/lacking evidence).</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><strong>CCI के कुछ निर्देशों को रद्द किया गया</strong> (अति-व्यापक/साक्ष्यों का अभाव)।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>Review (May 2025)</strong>: Reinstated directions on:</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><strong>समीक्षा (मई 2025)</strong>: इन पर निर्देश बहाल किए गए:</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Billing data transparency.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">बिलिंग डेटा पारदर्शिता।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">No misuse of billing data for own competitive advantage.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">अपने प्रतिस्पर्धी लाभ के लिए बिलिंग डेटा का दुरुपयोग न करें।</p>
+                </div>
+            </section>
+            
+            <section>
+                <h2 data-lang="en">What’s at Stake</h2>
+                <h2 data-lang="hi" style="display:none;">क्या दांव पर है</h2>
+                <h3 data-lang="en">For Consumers:</h3>
+                <h3 data-lang="hi" style="display:none;">उपभोक्ताओं के लिए:</h3>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>Pro-CCI ruling</strong> → More payment options, lower prices, better privacy.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><strong>CCI समर्थक फैसला</strong> → ज़्यादा भुगतान विकल्प, कम कीमतें, बेहतर गोपनीयता।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Risk of <strong>Android fragmentation</strong> & inconsistent experiences.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><strong>एंड्रॉइड विखंडन</strong> और असंगत अनुभवों का जोखिम।</p>
+                </div>
+                <h3 data-lang="en">For Smartphone Makers (OEMs):</h3>
+                <h3 data-lang="hi" style="display: none;">स्मार्टफ़ोन निर्माताओं (OEM) के लिए:</h3>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Greater flexibility in pre-installing alternatives.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">पहले से इंस्टॉल करने के विकल्पों में ज़्यादा लचीलापन।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Easier adoption of non-Google Android versions.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">गैर-Google Android संस्करणों को आसानी से अपनाना।</p>
+                </div>
+                <h3 data-lang="en">For Indian Startups:</h3>
+                <h3 data-lang="hi" style="display: none;">भारतीय स्टार्टअप्स के लिए:</h3>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Level playing field.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">समान अवसर।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Better bargaining power & distribution access.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">बेहतर सौदेबाजी की क्षमता और वितरण पहुँच।</p>
+                </div>
+                <h3 data-lang="en">For Google:</h3>
+                <h3 data-lang="hi" style="display: none;">गूगल के लिए:</h3>
+                <div class="line" data-lang="en">
+                    <p class="english-text">India = one of largest markets.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">भारत = सबसे बड़े बाज़ारों में से एक।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Adverse ruling may set <strong>global precedent</strong> & affect Android model worldwide.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">प्रतिकूल फ़ैसला <strong>वैश्विक मिसाल</strong> स्थापित कर सकता है और दुनिया भर में एंड्रॉइड मॉडल को प्रभावित कर सकता है।</p>
+                </div>
+            </section>
+            
+            <section>
+                <h2 data-lang="en">Broader Significance</h2>
+                <h2 data-lang="hi" style="display:none;">व्यापक महत्व</h2>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>Competition law</strong> interpretation – “abuse of dominance” in digital platforms.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><strong>प्रतिस्पर्धा कानून</strong> की व्याख्या - डिजिटल प्लेटफ़ॉर्म में "प्रभुत्व का दुरुपयोग"।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Balancing:</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">संतुलन:</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><em><strong><u>Innovation</u></strong></em></p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><em><strong><u>नवाचार</u></strong></em></p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><em><strong><u>Consumer protection</u></strong></em></p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><em><strong><u>उपभोक्ता संरक्षण</u></strong></em></p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><em><strong><u>Market fairness</u></strong></em></p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><em><strong><u>बाज़ार निष्पक्षता</u></strong></em></p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">India could set <strong>global regulatory benchmark</strong> outside the EU.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">भारत यूरोपीय संघ के बाहर <strong>वैश्विक नियामक मानक</strong> स्थापित कर सकता है।</p>
+                </div>
+            </section>
+            
+            <section>
+                <h2 data-lang="en">Road Ahead</h2>
+                <h2 data-lang="hi" style="display:none;">आगे की राह</h2>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>Supreme Court hearing (Nov 2025)</strong> – focus on legal & economic aspects of platform dominance.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><strong>सुप्रीम कोर्ट की सुनवाई (नवंबर 2025)</strong> - प्लेटफ़ॉर्म प्रभुत्व के कानूनी और आर्थिक पहलुओं पर ध्यान केंद्रित।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Two possible outcomes:</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">दो संभावित परिणाम:</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">1. <strong>Strong CCI enforcement</strong> → India as leader in digital regulation.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">1. <strong>मज़बूत सीसीआई प्रवर्तन</strong> → डिजिटल विनियमन में भारत अग्रणी।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">2. <strong>Google’s appeal upheld</strong> → Status quo remains.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">2. <strong>गूगल की अपील बरकरार</strong> → यथास्थिति बनी हुई है।</p>
+                </div>
+            </section>
+            
+            <section>
+                <h2 data-lang="en">UPSC Relevance</h2>
+                <h2 data-lang="hi" style="display:none;">यूपीएससी प्रासंगिकता</h2>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><em><strong><u>GS-II</u></strong></em>: Governance, Regulation of Tech Platforms, Role of Judiciary.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><em><strong><u>जीएस-II</u></strong></em>: शासन, तकनीकी प्लेटफॉर्म का विनियमन, न्यायपालिका की भूमिका।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><em><strong><u>GS-III</u></strong></em>: Indian Economy, Competition policy, Startups.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><em><strong><u>जीएस-III</u></strong></em>: भारतीय अर्थव्यवस्था, प्रतिस्पर्धा नीति, स्टार्टअप।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><em><strong><u>Essay</u></strong></em>: "Regulating Big Tech – Balancing Innovation & Market Fairness".</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><em><strong><u>निबंध</u></strong></em>: "बड़ी तकनीक का विनियमन - नवाचार और बाजार निष्पक्षता में संतुलन"।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><em><strong><u>Prelims</u></strong></em>: CCI functions, NCLAT role, Antitrust concepts.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><em><strong><u>प्रारंभिक परीक्षा</u></strong></em>: सीसीआई के कार्य, एनसीएलएटी की भूमिका, प्रतिस्पर्धा-विरोधी अवधारणाएँ।</p>
+                </div>
+            </section>
+            
+            <section>
+                <h3 data-lang="en">UPSC CSE Prelims Practice MCQ</h3>
+                <h3 data-lang="hi" style="display: none;">UPSC CSE प्रारंभिक परीक्षा अभ्यास MCQ</h3>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>Q. With reference to the Competition Commission of India’s (CCI) case against Google, consider the following statements:</strong></p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><strong>प्रश्न: भारतीय प्रतिस्पर्धा आयोग (CCI) द्वारा गूगल के विरुद्ध दायर मामले के संदर्भ में, निम्नलिखित कथनों पर विचार कीजिए:</strong></p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">1. The CCI found that Google’s mandatory use of its billing system for in-app purchases amounted to an abuse of its dominant position.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">1. CCI ने पाया कि इन-ऐप खरीदारी के लिए गूगल द्वारा अपने बिलिंग सिस्टम का अनिवार्य उपयोग उसकी प्रमुख स्थिति का दुरुपयोग था।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">2. The NCLAT completely overturned the financial penalty and all behavioural remedies imposed by the CCI.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">2. एनसीएलएटी ने सीसीआई द्वारा लगाए गए वित्तीय जुर्माने और सभी व्यवहारिक उपायों को पूरी तरह से रद्द कर दिया।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">3. A ruling in favour of the CCI could enhance consumer choice and reduce costs for app developers.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">3. सीसीआई के पक्ष में फैसला आने से उपभोक्ता के विकल्प बढ़ सकते हैं और ऐप डेवलपर्स की लागत कम हो सकती है।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>Which of the statements given above is/are correct?</strong></p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><strong>उपरोक्त में से कौन सा/से कथन सही है/हैं?</strong></p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">A. 1 and 2 only</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">A. केवल 1 और 2</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">B. 2 and 3 only</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">B. केवल 2 और 3</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">C. <strong>1 and 3 only</strong></p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">C. <strong>केवल 1 और 3</strong></p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">D. 1, 2 and 3</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">D. 1, 2 और 3</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Correct Answer: C ✅</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">सही उत्तर: C ✅</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Explanation:</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">स्पष्टीकरण:</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Statement 1 is correct: The CCI concluded that Google’s mandatory billing policy through GPBS was anti-competitive.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">कथन 1 सही है: सीसीआई ने निष्कर्ष निकाला कि जीपीबीएस के माध्यम से गूगल की अनिवार्य बिलिंग नीति प्रतिस्पर्धा-विरोधी थी।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Statement 2 is incorrect: The NCLAT upheld parts of the CCI's findings, reduced the financial penalty, and reinstated some remedies — it did not completely overturn them.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">कथन 2 गलत है: एनसीएलएटी ने सीसीआई के निष्कर्षों के कुछ हिस्सों को बरकरार रखा, वित्तीय जुर्माने को कम किया और कुछ उपायों को बहाल किया - उसने उन्हें पूरी तरह से रद्द नहीं किया।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Statement 3 is correct: If developers can bypass GPBS and use cheaper systems, it may lead to cost reductions and increased consumer options.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">कथन 3 सही है: यदि डेवलपर्स जीपीबीएस को दरकिनार कर सकते हैं और सस्ती प्रणालियों का उपयोग कर सकते हैं, तो इससे लागत में कमी आ सकती है और उपभोक्ता विकल्प बढ़ सकते हैं।</p>
+                </div>
+            </section>
+            
+            <p style="text-align: center; margin-top: 2rem;">
+                <a href="https://wa.me/918168305050" class="btn btn-secondary">Contact us via WhatsApp</a>
+            </p>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="index.html" class="btn btn-primary">Back to Home</a>
+            </div>
+        </article>
+    </div>
+
+    <button id="scrollToTopBtn" class="floating-btn">↑</button>
+
+    <footer class="footer">
+        <p>© 2025 Crack Current Affairs (CrackCA). All rights reserved.</p>
+    </footer>
+
+    <script>
+        const scrollBtn = document.getElementById('scrollToTopBtn');
+        window.onscroll = function() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                scrollBtn.style.display = "block";
+            } else {
+                scrollBtn.style.display = "none";
+            }
+        };
+        scrollBtn.onclick = function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+        
+        function toggleLanguage() {
+            const allElementsToToggle = document.querySelectorAll('[data-lang]');
+            const button = document.querySelector('.language-switch-btn');
+            
+            let isEnglish = button.textContent === 'Switch to Hindi';
+            
+            allElementsToToggle.forEach(element => {
+                if (isEnglish) {
+                    if (element.getAttribute('data-lang') === 'en') {
+                        element.style.display = 'none';
+                    } else if (element.getAttribute('data-lang') === 'hi') {
+                        element.style.display = 'block';
+                    }
+                } else {
+                    if (element.getAttribute('data-lang') === 'en') {
+                        element.style.display = 'block';
+                    } else if (element.getAttribute('data-lang') === 'hi') {
+                        element.style.display = 'none';
+                    }
+                }
+            });
+            
+            button.textContent = isEnglish ? 'Switch to English' : 'Switch to Hindi';
+        }
+    </script>
+</body>
+</html>

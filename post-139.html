@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TH - 12-Aug-25</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Noto+Sans+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #007BFF;
+            --secondary-color: #28a745;
+            --background-color: #f8f9fa;
+            --text-color: #212529;
+            --light-hover: #e9ecef;
+            --border-color: #dee2e6;
+            --header-bg: #fff;
+        }
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding-top: 60px;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 1rem;
+        }
+        header.fixed-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--header-bg);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 0.5rem 1rem;
+            z-index: 1000;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        nav li a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        nav li a:hover {
+            background-color: var(--light-hover);
+            border-radius: 5px;
+        }
+        .article-meta {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .article-meta h1 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 2.5rem;
+            margin-top: 0;
+        }
+        .article-meta p {
+            margin: 0;
+            color: #6c757d;
+        }
+        h2, h3 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+            font-weight: bold;
+        }
+        h3 {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-bottom: none;
+        }
+        .line {
+            padding: 0.25rem 0.5rem;
+            margin: 0;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            border-left: 3px solid transparent;
+        }
+        .line:hover {
+            background-color: var(--light-hover);
+            border-left: 3px solid var(--primary-color);
+        }
+        .line .english-text, .line .hindi-text {
+            display: block;
+            margin: 0;
+        }
+        .line .english-text {
+            font-size: 1rem;
+        }
+        .line .hindi-text {
+            font-size: 0.9rem;
+            color: #555;
+        }
+        .line .hindi-text[lang="hi"] {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+        }
+        .hidden-lang {
+            display: none;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        .btn-secondary {
+            background-color: var(--secondary-color);
+            color: #fff;
+            border: none;
+        }
+        .btn-secondary:hover {
+            background-color: #218838;
+        }
+        .floating-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            line-height: 50px;
+            font-size: 24px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            cursor: pointer;
+            display: none;
+        }
+        .footer {
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            color: #6c757d;
+        }
+        .language-switch-btn {
+            margin-top: 1rem;
+            padding: 8px 12px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            border-radius: 5px;
+            background-color: #6c757d;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            .article-meta h1 {
+                font-size: 2rem;
+            }
+            nav ul {
+                flex-direction: column;
+            }
+            nav li {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="fixed-header">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="donation.html">Donation</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <header class="article-header">
+            <h1 data-lang="en">12-August-2025</h1>
+            <h1 data-lang="hi" style="display:none;">12-अगस्त-2025</h1>
+        </header>
+
+        <article>
+            <div class="article-meta">
+                <div id="article-title-container">
+                    <h1 data-lang="en" id="article-title">Supreme Court Orders Capture of Stray Dogs in Delhi</h1>
+                    <h1 data-lang="hi" style="display:none;">सर्वोच्च न्यायालय ने दिल्ली में आवारा कुत्तों को पकड़ने का आदेश दिया</h1>
+                </div>
+                <p>Source: The Hindu | Publication Date: August 12, 2025</p>
+                <p><strong>Estimated Read Time: 3 minutes</strong></p>
+                <button class="language-switch-btn" onclick="toggleLanguage()">Switch to Hindi</button>
+            </div>
+
+            <section>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Exam Relevance</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">परीक्षा प्रासंगिकता</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>GS Paper II</strong> – Governance, Welfare Schemes, Issues relating to local bodies</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">सामान्य अध्ययन प्रश्नपत्र <strong>II</strong> - शासन, कल्याणकारी योजनाएँ, स्थानीय निकायों से संबंधित मुद्दे</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>GS Paper III</strong> – Environment, Biodiversity, Conservation, Animal Welfare</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">सामान्य अध्ययन प्रश्नपत्र <strong>III</strong> - पर्यावरण, जैव विविधता, संरक्षण, पशु कल्याण</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>Current Affairs</strong> – Law, Urban Administration, Public Safety</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">समसामयिक मामले - कानून, नगरीय प्रशासन, जन सुरक्षा</p>
+                </div>
+            </section>
+
+            <section>
+                <h2 data-lang="en">Context</h2>
+                <h2 data-lang="hi" style="display:none;">संदर्भ</h2>
+                <div class="line" data-lang="en">
+                    <p class="english-text">The Supreme Court (SC) issued directions to the Delhi government and civic bodies to immediately capture stray dogs in the National Capital Territory (NCT) and never release them back onto public streets.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">सर्वोच्च न्यायालय (SC) ने दिल्ली सरकार और नगर निकायों को राष्ट्रीय राजधानी क्षेत्र (NCT) में आवारा कुत्तों को तुरंत पकड़ने और उन्हें सार्वजनिक सड़कों पर वापस न छोड़ने के निर्देश जारी किए हैं।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">This order comes amid rising incidents of stray dog attacks, especially on children.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">यह आदेश आवारा कुत्तों द्वारा, खासकर बच्चों पर, हमलों की बढ़ती घटनाओं के बीच आया है।</p>
+                </div>
+            </section>
+
+            <section>
+                <h2 data-lang="en">Key Highlights of SC Order</h2>
+                <h2 data-lang="hi" style="display:none;">सर्वोच्च न्यायालय के आदेश की मुख्य विशेषताएँ</h2>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>1. Capture & Detention</strong></p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><strong>1. पकड़ना और हिरासत में लेना</strong></p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">All stray dogs to be picked up from all localities (priority: vulnerable areas & outskirts).</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">सभी आवारा कुत्तों को सभी इलाकों से उठाया जाएगा (प्राथमिकता: संवेदनशील क्षेत्र और बाहरी इलाके)।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Dogs to be housed in pounds/shelters; no release back into public spaces.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">कुत्तों को आश्रय गृहों/बगीचों में रखा जाएगा; उन्हें सार्वजनिक स्थानों पर वापस नहीं छोड़ा जाएगा।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>2. Infrastructure Requirement</strong></p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><strong>2. बुनियादी ढाँचे की आवश्यकता</strong></p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Establish shelters to house at least 5,000 stray dogs within 6–8 weeks.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">6-8 हफ़्तों के भीतर कम से कम 5,000 आवारा कुत्तों के लिए आश्रय गृह स्थापित करें।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Sufficient personnel to manage shelters.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">आश्रयों के प्रबंधन के लिए पर्याप्त कर्मचारी।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Shelters to be under CCTV surveillance.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">आश्रयों पर सीसीटीवी की निगरानी होगी।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>3. Treatment & Records</strong></p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><strong>3. उपचार और रिकॉर्ड</strong></p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Strays to be sterilised and immunised.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">आवारा कुत्तों की नसबंदी और टीकाकरण किया जाएगा।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Maintain detailed records of captured dogs.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">पकड़े गए कुत्तों का विस्तृत रिकॉर्ड रखें।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">No sentiments to interfere in the process.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">इस प्रक्रिया में किसी भी प्रकार की भावना से हस्तक्षेप न करें।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>4. Public Safety Measures</strong></p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><strong>4. जन सुरक्षा उपाय</strong></p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Helpline for reporting dog attacks.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">कुत्तों के हमलों की सूचना देने के लिए हेल्पलाइन।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Immediate treatment assistance to victims.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">पीड़ितों को तत्काल उपचार सहायता।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>5. Enforcement</strong></p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><strong>5. प्रवर्तन</strong></p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Resistance to the order could lead to contempt of court action.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">आदेश का विरोध करने पर न्यायालय की अवमानना का मुकदमा चलाया जा सकता है।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Authorities empowered to create a special force if needed.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">आवश्यकता पड़ने पर अधिकारियों को एक विशेष बल बनाने का अधिकार दिया गया है।</p>
+                </div>
+            </section>
+
+            <section>
+                <h2 data-lang="en">Rationale Behind the Order</h2>
+                <h2 data-lang="hi" style="display:none;">आदेश के पीछे का तर्क</h2>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Increasing cases of stray dog attacks, including fatalities among children.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">आवारा कुत्तों के हमलों के बढ़ते मामले, जिनमें बच्चों की मौतें भी शामिल हैं।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">SC questioned whether animal rights activists could compensate for loss of life caused by rabid dogs.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">सर्वोच्च न्यायालय ने सवाल किया कि क्या पशु अधिकार कार्यकर्ता पागल कुत्तों के कारण हुई जानमाल की हानि की भरपाई कर सकते हैं।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Emphasis on public safety over sentimental considerations.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">भावनात्मक विचारों की बजाय जन सुरक्षा पर ज़ोर।</p>
+                </div>
+            </section>
+
+            <section>
+                <h2 data-lang="en">Stakeholder Responses</h2>
+                <h2 data-lang="hi" style="display:none;">हितधारकों की प्रतिक्रियाएँ</h2>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Delhi Mayor: Commitment to ensure public safety and humane shelter conditions.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">दिल्ली महापौर: जन सुरक्षा और आश्रयों की मानवीय स्थिति सुनिश्चित करने की प्रतिबद्धता।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>MCD Standing Committee:</strong></p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><strong>एमसीडी की स्थायी समिति:</strong></p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Acknowledged infrastructure, manpower, and funding challenges.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">बुनियादी ढाँचे, जनशक्ति और वित्तीय चुनौतियों को स्वीकार किया।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Plan to target aggressive and ill dogs first.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">सबसे पहले आक्रामक और बीमार कुत्तों को लक्षित करने की योजना।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Upcoming Standing Committee meeting to address constraints.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">बाधाओं को दूर करने के लिए आगामी स्थायी समिति की बैठक।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>Residents’ Welfare Associations (URJA):</strong> Welcomed order, pending effective implementation.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">निवासी कल्याण संघ (URJA): प्रभावी कार्यान्वयन के अधीन, आदेश का स्वागत किया।</p>
+                </div>
+            </section>
+
+            <section>
+                <h2 data-lang="en">Current Situation & Challenges</h2>
+                <h2 data-lang="hi" style="display:none;">वर्तमान स्थिति और चुनौतियाँ</h2>
+                <div class="line" data-lang="en">
+                    <p class="english-text">MCD has no dedicated dog shelters currently.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">एमसीडी के पास वर्तमान में कोई समर्पित कुत्ता आश्रय नहीं है।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">20 sterilisation centres exist; only 13 functional due to:</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">20 नसबंदी केंद्र मौजूद हैं; केवल 13 ही कार्यरत हैं, क्योंकि:</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><i><strong><u>Ongoing repairs</u></strong></i></p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><i><strong><u>चल रही मरम्मत</u></strong></i></p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><i><strong><u>Lack of funds</u></strong></i></p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><i><strong><u>धन की कमी</u></strong></i></p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><i><strong><u>Manpower shortages</u></strong></i></p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><i><strong><u>जनशक्ति की कमी</u></strong></i></p>
+                </div>
+            </section>
+
+            <section>
+                <h2 data-lang="en">Implications</h2>
+                <h2 data-lang="hi" style="display:none;">निहितार्थ</h2>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Public Health: Likely reduction in rabies cases and injuries from dog attacks.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">जन स्वास्थ्य: रेबीज के मामलों और कुत्तों के हमलों से होने वाली चोटों में कमी की संभावना।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Urban Management: Requires rapid expansion of shelter infrastructure.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">शहरी प्रबंधन: आश्रय के बुनियादी ढाँचे के तेज़ी से विस्तार की आवश्यकता।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Animal Welfare: Calls for balance between humane treatment and public safety.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">पशु कल्याण: मानवीय व्यवहार और जन सुरक्षा के बीच संतुलन की माँग।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Legal Precedent: Strong SC stance on municipal responsibility.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">कानूनी मिसाल: नगरपालिका की ज़िम्मेदारी पर सुप्रीम कोर्ट का मज़बूत रुख।</p>
+                </div>
+            </section>
+
+            <section>
+                <h2 data-lang="en">Way Forward</h2>
+                <h2 data-lang="hi" style="display:none;">आगे की राह</h2>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Immediate action plan by Delhi government and MCD.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">दिल्ली सरकार और एमसीडी द्वारा तत्काल कार्य योजना।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Budget allocation for shelters, staff, and medical facilities.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">आश्रयों, कर्मचारियों और चिकित्सा सुविधाओं के लिए बजट आवंटन।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Strengthening of sterilisation and vaccination programmes.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">नसबंदी और टीकाकरण कार्यक्रमों को सुदृढ़ बनाना।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Transparent monitoring and reporting system to court.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">पारदर्शी निगरानी और न्यायालय को रिपोर्ट करने की प्रणाली।</p>
+                </div>
+            </section>
+
+            <section>
+                <h2 data-lang="en">Potential UPSC Mains Question</h2>
+                <h2 data-lang="hi" style="display:none;">संभावित यूपीएससी मुख्य परीक्षा प्रश्न</h2>
+                <div class="line" data-lang="en">
+                    <p class="english-text">"Discuss the challenges and ethical considerations in implementing court-mandated measures for stray animal management in urban areas."</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">"शहरी क्षेत्रों में आवारा पशु प्रबंधन के लिए न्यायालय द्वारा निर्धारित उपायों को लागू करने में आने वाली चुनौतियों और नैतिक विचारों पर चर्चा करें।"</p>
+                </div>
+            </section>
+            <p style="text-align: center; margin-top: 2rem;">
+                <a href="https://wa.me/918168305050" class="btn btn-secondary">Contact us via WhatsApp</a>
+            </p>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="index.html" class="btn btn-primary">Back to Home</a>
+            </div>
+        </article>
+    </div>
+
+    <button id="scrollToTopBtn" class="floating-btn">↑</button>
+
+    <footer class="footer">
+        <p>© 2025 Crack Current Affairs (CrackCA). All rights reserved.</p>
+    </footer>
+
+    <script>
+        const scrollBtn = document.getElementById('scrollToTopBtn');
+        window.onscroll = function() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                scrollBtn.style.display = "block";
+            } else {
+                scrollBtn.style.display = "none";
+            }
+        };
+        scrollBtn.onclick = function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+        
+        function toggleLanguage() {
+            const allElementsToToggle = document.querySelectorAll('[data-lang]');
+            const button = document.querySelector('.language-switch-btn');
+            
+            let isEnglish = button.textContent === 'Switch to Hindi';
+            
+            allElementsToToggle.forEach(element => {
+                if (isEnglish) {
+                    if (element.getAttribute('data-lang') === 'en') {
+                        element.style.display = 'none';
+                    } else if (element.getAttribute('data-lang') === 'hi') {
+                        element.style.display = 'block';
+                    }
+                } else {
+                    if (element.getAttribute('data-lang') === 'en') {
+                        element.style.display = 'block';
+                    } else if (element.getAttribute('data-lang') === 'hi') {
+                        element.style.display = 'none';
+                    }
+                }
+            });
+            
+            button.textContent = isEnglish ? 'Switch to English' : 'Switch to Hindi';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TH - 12-Aug-25</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Noto+Sans+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #007BFF;
+            --secondary-color: #28a745;
+            --background-color: #f8f9fa;
+            --text-color: #212529;
+            --light-hover: #e9ecef;
+            --border-color: #dee2e6;
+            --header-bg: #fff;
+        }
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding-top: 60px;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 1rem;
+        }
+        header.fixed-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--header-bg);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 0.5rem 1rem;
+            z-index: 1000;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        nav li a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        nav li a:hover {
+            background-color: var(--light-hover);
+            border-radius: 5px;
+        }
+        .article-meta {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .article-meta h1 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 2.5rem;
+            margin-top: 0;
+        }
+        .article-meta p {
+            margin: 0;
+            color: #6c757d;
+        }
+        h2, h3 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+            font-weight: bold;
+        }
+        h3 {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-bottom: none;
+        }
+        .line {
+            padding: 0.25rem 0.5rem;
+            margin: 0;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            border-left: 3px solid transparent;
+        }
+        .line:hover {
+            background-color: var(--light-hover);
+            border-left: 3px solid var(--primary-color);
+        }
+        .line .english-text, .line .hindi-text {
+            display: block;
+            margin: 0;
+        }
+        .line .english-text {
+            font-size: 1rem;
+        }
+        .line .hindi-text {
+            font-size: 0.9rem;
+            color: #555;
+        }
+        .line .hindi-text[lang="hi"] {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+        }
+        .hidden-lang {
+            display: none;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        .btn-secondary {
+            background-color: var(--secondary-color);
+            color: #fff;
+            border: none;
+        }
+        .btn-secondary:hover {
+            background-color: #218838;
+        }
+        .floating-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            line-height: 50px;
+            font-size: 24px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            cursor: pointer;
+            display: none;
+        }
+        .footer {
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            color: #6c757d;
+        }
+        .language-switch-btn {
+            margin-top: 1rem;
+            padding: 8px 12px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            border-radius: 5px;
+            background-color: #6c757d;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            .article-meta h1 {
+                font-size: 2rem;
+            }
+            nav ul {
+                flex-direction: column;
+            }
+            nav li {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="fixed-header">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="donation.html">Donation</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <header class="article-header">
+            <h1 data-lang="en">12-August-2025</h1>
+            <h1 data-lang="hi" style="display:none;">12-अगस्त-2025</h1>
+        </header>
+
+        <article>
+            <div class="article-meta">
+                <div id="article-title-container">
+                    <h1 data-lang="en" id="article-title">Reviving Civic Engagement in Health Governance</h1>
+                    <h1 data-lang="hi" style="display:none;">स्वास्थ्य प्रशासन में नागरिक सहभागिता को पुनर्जीवित करना</h1>
+                </div>
+                <p>Source: User Provided Content | Publication Date: August 12, 2025</p>
+                <p><strong>Estimated Read Time: ~7 minutes</strong></p>
+                <button class="language-switch-btn" onclick="toggleLanguage()">Switch to Hindi</button>
+            </div>
+
+            <section>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Exam Relevance</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">परीक्षा प्रासंगिकता</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>GS Paper II</strong> – Governance, Health Policy, Role of Civil Society, Government Schemes</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">सामान्य अध्ययन प्रश्नपत्र <strong>II</strong> - शासन, स्वास्थ्य नीति, नागरिक समाज की भूमिका, सरकारी योजनाएँ</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>GS Paper I</strong> – Social Empowerment, Vulnerable Sections</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">सामान्य अध्ययन प्रश्नपत्र <strong>I</strong> - सामाजिक सशक्तिकरण, कमजोर वर्ग</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>GS Paper IV</strong> – Ethics in Public Administration (participation, accountability)</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">सामान्य अध्ययन प्रश्नपत्र <strong>IV</strong> - लोक प्रशासन में नैतिकता (भागीदारी, जवाबदेही)</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>Current Affairs</strong> – Public Health Systems, Citizen Engagement</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">समसामयिक मामले - लोक स्वास्थ्य प्रणालियाँ, नागरिक सहभागिता</p>
+                </div>
+            </section>
+
+            <section>
+                <h2 data-lang="en">Context</h2>
+                <h2 data-lang="hi" style="display:none;">संदर्भ</h2>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Doorstep healthcare initiatives:</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">घर-घर स्वास्थ्य सेवा पहल:</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><i><strong><u>Tamil Nadu</u></strong></i> – Makkalai Thedi Maruthuvam (Aug 2021)</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><i><strong><u>तमिलनाडु</u></strong></i> - मक्कलाई थेडी मारुथुवम (अगस्त 2021)</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><i><strong><u>Karnataka</u></strong></i> – Gruha Arogya (Oct 2024; statewide in June 2025)</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><i><strong><u>कर्नाटक</u></strong></i> - गृह आरोग्य (अक्टूबर 2024; जून 2025 में राज्यव्यापी)</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Similar schemes in other States target non-communicable diseases (NCDs).</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">अन्य राज्यों में भी इसी तरह की योजनाएँ गैर-संचारी रोगों (एनसीडी) को लक्षित करती हैं।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Raises question: Are citizens able to engage with and influence health governance meaningfully?</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">प्रश्न उठता है: क्या नागरिक स्वास्थ्य प्रशासन में सार्थक रूप से शामिल हो सकते हैं और उसे प्रभावित कर सकते हैं?</p>
+                </div>
+            </section>
+
+            <section>
+                <h2 data-lang="en">Importance of Citizen Engagement in Health Governance</h2>
+                <h2 data-lang="hi" style="display:none;">स्वास्थ्य प्रशासन में नागरिक सहभागिता का महत्व</h2>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Enhances self-respect and democratic participation.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">आत्म-सम्मान और लोकतांत्रिक भागीदारी को बढ़ाता है।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Counters epistemic injustice (denial of people’s knowledge/experience).</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">ज्ञान-मीमांसा संबंधी अन्याय (लोगों के ज्ञान/अनुभव से वंचित करना) का प्रतिकार करता है।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Improves accountability and service uptake.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">जवाबदेही और सेवाओं की स्वीकार्यता में सुधार करता है।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Challenges elite capture and reduces corruption.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">अभिजात वर्ग के कब्ज़े को चुनौती देता है और भ्रष्टाचार को कम करता है।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Builds trust between communities and providers.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">समुदायों और प्रदाताओं के बीच विश्वास का निर्माण करता है।</p>
+                </div>
+            </section>
+
+            <section>
+                <h2 data-lang="en">Institutional Mechanisms for Engagement</h2>
+                <h2 data-lang="hi" style="display:none;">सहभागिता के लिए संस्थागत तंत्र</h2>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>Rural:</strong></p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><strong>ग्रामीण:</strong></p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><i><strong><u>Village Health Sanitation and Nutrition Committees (VHSNCs)</u></strong></i></p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><i><strong><u>ग्राम स्वास्थ्य स्वच्छता एवं पोषण समितियाँ (VHSNCs)</u></strong></i></p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><i><strong><u>Rogi Kalyan Samitis</u></strong></i></p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><i><strong><u>रोगी कल्याण समितियाँ</u></strong></i></p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>Urban:</strong></p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><strong>शहरी:</strong></p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><i><strong><u>Mahila Arogya Samitis</u></strong></i>, Ward Committees, NGO-led platforms</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><i><strong><u>महिला आरोग्य समितियाँ</u></strong></i>, वार्ड समितियाँ, गैर-सरकारी संगठन द्वारा संचालित मंच</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Supported by untied funds for local initiatives.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">स्थानीय पहलों के लिए असीमित निधियों द्वारा समर्थित।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>Challenges:</strong></p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><strong>चुनौतियाँ:</strong></p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Non-establishment in some areas.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">कुछ क्षेत्रों में गैर-स्थापना।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Infrequent meetings, unclear roles.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">बैठकें कम होती हैं, भूमिकाएँ अस्पष्ट हैं।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Underutilisation of funds.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">निधियों का कम उपयोग।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Poor intersectoral coordination.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">अंतर-क्षेत्रीय समन्वय का अभाव।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Social hierarchies restricting inclusivity.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">सामाजिक पदानुक्रम समावेशिता को बाधित करते हैं।</p>
+                </div>
+            </section>
+
+            <section>
+                <h2 data-lang="en">Problems in Current Approach</h2>
+                <h2 data-lang="hi" style="display:none;">वर्तमान दृष्टिकोण में समस्याएँ</h2>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>1. Mindset Issue:</strong></p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><strong>1. मानसिकता का मुद्दा:</strong></p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Communities seen as passive beneficiaries.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">समुदायों को निष्क्रिय लाभार्थी के रूप में देखा जाता है।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Performance measured by targets, not quality of engagement.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">प्रदर्शन लक्ष्यों से मापा जाता है, न कि सहभागिता की गुणवत्ता से।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Use of term “beneficiaries” reflects paternalistic framing.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">"लाभार्थी" शब्द का प्रयोग पितृसत्तात्मक ढाँचे को दर्शाता है।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>2. Medicalised Governance:</strong></p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><strong>2. चिकित्साकृत शासन:</strong></p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Health leadership dominated by doctors trained in biomedical models.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">स्वास्थ्य नेतृत्व में बायोमेडिकल मॉडल में प्रशिक्षित डॉक्टरों का दबदबा।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Public health admin learned on the job, promotions based on seniority.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">लोक स्वास्थ्य प्रशासन कार्य के दौरान सीखता है, पदोन्नति वरिष्ठता के आधार पर होती है।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Disconnect from community realities.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">सामुदायिक वास्तविकताओं से अलगाव।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>3. Resistance to Engagement:</strong></p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><strong>3. सहभागिता का प्रतिरोध:</strong></p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Fear of increased workload, accountability pressure.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">कार्यभार बढ़ने का डर, जवाबदेही का दबाव।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Influence of dominant medical/capitalist interests.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">प्रमुख चिकित्सा/पूंजीवादी हितों का प्रभाव।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Unequal power dynamics in governance processes.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">शासन प्रक्रियाओं में असमान शक्ति गतिशीलता।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>4. Citizen Response to Weak Platforms:</strong></p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><strong>4. कमज़ोर मंचों पर नागरिक प्रतिक्रिया:</strong></p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Protests, media campaigns, litigation.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">विरोध प्रदर्शन, मीडिया अभियान, मुकदमेबाजी।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Indicates unmet demand for participation.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">भागीदारी की अपूर्ण माँग को दर्शाता है।</p>
+                </div>
+            </section>
+
+            <section>
+                <h2 data-lang="en">Need for a Mindset Shift</h2>
+                <h2 data-lang="hi" style="display:none;">मानसिकता में बदलाव की आवश्यकता</h2>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Community engagement must be intrinsic, not just instrumental to outcomes.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">सामुदायिक सहभागिता आंतरिक होनी चाहिए, न कि केवल परिणामों के लिए सहायक।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Respect agency and dignity of citizens.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">नागरिकों की एजेंसी और गरिमा का सम्मान करें।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Recognise participatory processes as equally important as health results.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">भागीदारी प्रक्रियाओं को स्वास्थ्य परिणामों के समान ही महत्वपूर्ण मानें।</p>
+                </div>
+            </section>
+
+            <section>
+                <h2 data-lang="en">Two-Pronged Approach for Reform</h2>
+                <h2 data-lang="hi" style="display:none;">सुधार के लिए दो-आयामी दृष्टिकोण</h2>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>1. Empowering Communities:</strong></p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><strong>1. समुदायों को सशक्त बनाना:</strong></p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Disseminate information on health rights & governance structures.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">स्वास्थ्य अधिकारों और शासन संरचनाओं पर जानकारी का प्रसार।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Early civic awareness programs.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">प्रारंभिक नागरिक जागरूकता कार्यक्रम।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Intentional outreach to marginalised groups.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">हाशिए पर पड़े समूहों तक जानबूझकर पहुँच।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Provide tools, training, and resources for active participation.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">सक्रिय भागीदारी के लिए उपकरण, प्रशिक्षण और संसाधन प्रदान करें।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>2. Sensitising Health System Actors:</strong></p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><strong>2. स्वास्थ्य प्रणाली के कर्ताओं को संवेदनशील बनाना:</strong></p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Avoid blaming “poor awareness” alone for low health-seeking behaviour.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">स्वास्थ्य सेवा की कम मांग के लिए केवल "जागरूकता की कमी" को दोष देने से बचें।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Address structural determinants of health inequities.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">स्वास्थ्य असमानताओं के संरचनात्मक निर्धारकों पर ध्यान दें।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">View communities as partners, not recipients.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">समुदायों को भागीदार के रूप में देखें, प्राप्तकर्ता के रूप में नहीं।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Strengthen and activate engagement platforms meaningfully.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">सार्थक रूप से जुड़ाव मंचों को मज़बूत और सक्रिय बनाएँ।</p>
+                </div>
+            </section>
+
+            <section>
+                <h2 data-lang="en">Implications for Policy</h2>
+                <h2 data-lang="hi" style="display:none;">नीति के निहितार्थ</h2>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Strengthening bottom-up planning under National Health Mission.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">राष्ट्रीय स्वास्थ्य मिशन के तहत नीचे से ऊपर की योजना को मज़बूत करना।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Reforming health administration to include public health expertise.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">सार्वजनिक स्वास्थ्य विशेषज्ञता को शामिल करने के लिए स्वास्थ्य प्रशासन में सुधार।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Ensuring continuous, inclusive, and accountable participation channels.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">निरंतर, समावेशी और जवाबदेह भागीदारी चैनल सुनिश्चित करना।</p>
+                </div>
+            </section>
+
+            <section>
+                <h2 data-lang="en">Potential UPSC Mains Question</h2>
+                <h2 data-lang="hi" style="display:none;">संभावित यूपीएससी मुख्य परीक्षा प्रश्न</h2>
+                <div class="line" data-lang="en">
+                    <p class="english-text">"Citizen engagement in health governance is as crucial as health service delivery itself. Discuss in the context of India’s National Health Mission and doorstep healthcare initiatives."</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">"स्वास्थ्य प्रशासन में नागरिकों की भागीदारी उतनी ही महत्वपूर्ण है जितनी कि स्वास्थ्य सेवा वितरण। भारत के राष्ट्रीय स्वास्थ्य मिशन और घर-घर स्वास्थ्य सेवा पहलों के संदर्भ में चर्चा करें।"</p>
+                </div>
+            </section>
+            
+            <section>
+                <h3 data-lang="en">UPSC CSE Prelims Practice MCQ</h3>
+                <h3 data-lang="hi" style="display:none;">UPSC CSE प्रारंभिक परीक्षा अभ्यास MCQ</h3>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Q. With reference to public engagement in health governance in India, consider the following statements:</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">प्रश्न: भारत में स्वास्थ्य प्रशासन में जन सहभागिता के संदर्भ में, निम्नलिखित कथनों पर विचार कीजिए:</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">1. The National Rural Health Mission (NRHM) institutionalised citizen participation through platforms like Village Health Sanitation and Nutrition Committees (VHSNCs).</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">1. राष्ट्रीय ग्रामीण स्वास्थ्य मिशन (NRHM) ने ग्राम स्वास्थ्य स्वच्छता एवं पोषण समितियों (VHSNCs) जैसे मंचों के माध्यम से नागरिक भागीदारी को संस्थागत रूप दिया।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">2. Health governance in India is primarily top-down, with minimal roles for civil society or community-based organisations.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">2. भारत में स्वास्थ्य प्रशासन मुख्यतः ऊपर से नीचे की ओर है, जिसमें नागरिक समाज या समुदाय-आधारित संगठनों की भूमिका न्यूनतम है।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">3. The term “beneficiaries” in public health programmes reflects a rights-based and participatory approach to healthcare delivery.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">3. सार्वजनिक स्वास्थ्य कार्यक्रमों में "लाभार्थी" शब्द स्वास्थ्य सेवा वितरण के लिए अधिकार-आधारित और सहभागी दृष्टिकोण को दर्शाता है।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Which of the statements given above is/are correct?</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">ऊपर दिए गए कथनों में से कौन सा/से सही है/हैं?</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">A. <strong>1 only</strong></p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">A. <strong>केवल 1</strong></p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">B. 1 and 2 only</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">B. केवल 1 और 2</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">C. 2 and 3 only</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">C. केवल 2 और 3</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">D. 1, 2 and 3</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">D. 1, 2 और 3</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Correct Answer: A ✅</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">सही उत्तर: A ✅</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Explanation:</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">स्पष्टीकरण:</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Statement 1 is correct: NRHM introduced participatory platforms like VHSNCs and Rogi Kalyan Samitis to involve communities in health governance.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">कथन 1 सही है: NRHM ने स्वास्थ्य प्रशासन में समुदायों को शामिल करने के लिए VHSNCs और रोगी कल्याण समितियों जैसे सहभागी मंचों की शुरुआत की।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Statement 2 is incorrect: The text acknowledges the presence of civil society, professional bodies, and trade unions, though their roles may be limited or underutilised.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">कथन 2 गलत है: पाठ नागरिक समाज, पेशेवर निकायों और ट्रेड यूनियनों की उपस्थिति को स्वीकार करता है, हालाँकि उनकी भूमिकाएँ सीमित या कम उपयोग की जा सकती हैं।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Statement 3 is incorrect: The use of the term “beneficiaries” is criticised in the text for being paternalistic and not reflective of a participatory or rights-based approach.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">कथन 3 गलत है: पाठ में "लाभार्थी" शब्द के प्रयोग की आलोचना पितृसत्तात्मक होने और सहभागी या अधिकार-आधारित दृष्टिकोण को प्रतिबिंबित न करने के लिए की गई है।</p>
+                </div>
+            </section>
+            <p style="text-align: center; margin-top: 2rem;">
+                <a href="https://wa.me/918168305050" class="btn btn-secondary">Contact us via WhatsApp</a>
+            </p>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="index.html" class="btn btn-primary">Back to Home</a>
+            </div>
+        </article>
+    </div>
+
+    <button id="scrollToTopBtn" class="floating-btn">↑</button>
+
+    <footer class="footer">
+        <p>© 2025 Crack Current Affairs (CrackCA). All rights reserved.</p>
+    </footer>
+
+    <script>
+        const scrollBtn = document.getElementById('scrollToTopBtn');
+        window.onscroll = function() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                scrollBtn.style.display = "block";
+            } else {
+                scrollBtn.style.display = "none";
+            }
+        };
+        scrollBtn.onclick = function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+        
+        function toggleLanguage() {
+            const allElementsToToggle = document.querySelectorAll('[data-lang]');
+            const button = document.querySelector('.language-switch-btn');
+            
+            let isEnglish = button.textContent === 'Switch to Hindi';
+            
+            allElementsToToggle.forEach(element => {
+                if (isEnglish) {
+                    if (element.getAttribute('data-lang') === 'en') {
+                        element.style.display = 'none';
+                    } else if (element.getAttribute('data-lang') === 'hi') {
+                        element.style.display = 'block';
+                    }
+                } else {
+                    if (element.getAttribute('data-lang') === 'en') {
+                        element.style.display = 'block';
+                    } else if (element.getAttribute('data-lang') === 'hi') {
+                        element.style.display = 'none';
+                    }
+                }
+            });
+            
+            button.textContent = isEnglish ? 'Switch to English' : 'Switch to Hindi';
+        }
+    </script>
+</body>
+</html>

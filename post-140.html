@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TH - 12-Aug-25</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Noto+Sans+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #007BFF;
+            --secondary-color: #28a745;
+            --background-color: #f8f9fa;
+            --text-color: #212529;
+            --light-hover: #e9ecef;
+            --border-color: #dee2e6;
+            --header-bg: #fff;
+        }
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding-top: 60px;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 1rem;
+        }
+        header.fixed-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--header-bg);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 0.5rem 1rem;
+            z-index: 1000;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        nav li a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        nav li a:hover {
+            background-color: var(--light-hover);
+            border-radius: 5px;
+        }
+        .article-meta {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .article-meta h1 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 2.5rem;
+            margin-top: 0;
+        }
+        .article-meta p {
+            margin: 0;
+            color: #6c757d;
+        }
+        h2, h3 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+            font-weight: bold;
+        }
+        h3 {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-bottom: none;
+        }
+        .line {
+            padding: 0.25rem 0.5rem;
+            margin: 0;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            border-left: 3px solid transparent;
+        }
+        .line:hover {
+            background-color: var(--light-hover);
+            border-left: 3px solid var(--primary-color);
+        }
+        .line .english-text, .line .hindi-text {
+            display: block;
+            margin: 0;
+        }
+        .line .english-text {
+            font-size: 1rem;
+        }
+        .line .hindi-text {
+            font-size: 0.9rem;
+            color: #555;
+        }
+        .line .hindi-text[lang="hi"] {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+        }
+        .hidden-lang {
+            display: none;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        .btn-secondary {
+            background-color: var(--secondary-color);
+            color: #fff;
+            border: none;
+        }
+        .btn-secondary:hover {
+            background-color: #218838;
+        }
+        .floating-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            line-height: 50px;
+            font-size: 24px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            cursor: pointer;
+            display: none;
+        }
+        .footer {
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            color: #6c757d;
+        }
+        .language-switch-btn {
+            margin-top: 1rem;
+            padding: 8px 12px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            border-radius: 5px;
+            background-color: #6c757d;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            .article-meta h1 {
+                font-size: 2rem;
+            }
+            nav ul {
+                flex-direction: column;
+            }
+            nav li {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="fixed-header">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="donation.html">Donation</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <header class="article-header">
+            <h1 data-lang="en">12-August-2025</h1>
+            <h1 data-lang="hi" style="display:none;">12-अगस्त-2025</h1>
+        </header>
+
+        <article>
+            <div class="article-meta">
+                <div id="article-title-container">
+                    <h1 data-lang="en" id="article-title">A Court Ruling with No Room for Gender Justice</h1>
+                    <h1 data-lang="hi" style="display:none;">लैंगिक न्याय के लिए कोई जगह न रखने वाला एक न्यायालय का फैसला</h1>
+                </div>
+                <p>Source: User Provided Content | Publication Date: July 2025</p>
+                <p><strong>Estimated Read Time: ~6 minutes</strong></p>
+                <button class="language-switch-btn" onclick="toggleLanguage()">Switch to Hindi</button>
+            </div>
+
+            <section>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Exam Relevance</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">परीक्षा प्रासंगिकता</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>GS Paper II</strong> – Polity & Governance, Role of Judiciary, Gender Justice, Vulnerable Sections</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">सामान्य अध्ययन प्रश्नपत्र <strong>II</strong> - राजनीति एवं शासन, न्यायपालिका की भूमिका, लैंगिक न्याय, कमजोर वर्ग</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>GS Paper I</strong> – Society, Social Issues, Women Empowerment</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">सामान्य अध्ययन प्रश्नपत्र <strong>I</strong> - समाज, सामाजिक मुद्दे, महिला सशक्तिकरण</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>Current Affairs</strong> – Criminal Justice System, Women’s Rights</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">समसामयिक मामले - आपराधिक न्याय प्रणाली, महिला अधिकार</p>
+                </div>
+            </section>
+
+            <section>
+                <h2 data-lang="en">Context</h2>
+                <h2 data-lang="hi" style="display:none;">संदर्भ</h2>
+                <div class="line" data-lang="en">
+                    <p class="english-text">In Shivangi Bansal vs Sahib Bansal (July 2025), the Supreme Court endorsed suspension of arrest/coercive action for two months under Section 498-A IPC (now Section 85 of Bharatiya Nyaya Sanhita).</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">शिवांगी बंसल बनाम साहिब बंसल (जुलाई 2025) में, सर्वोच्च न्यायालय ने भारतीय दंड संहिता की धारा 498-ए (अब भारतीय न्याय संहिता की धारा 85) के तहत दो महीने के लिए गिरफ्तारी/दंडात्मक कार्रवाई पर रोक लगाने का समर्थन किया।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">The judgment effectively gives blanket interim protection to accused in cruelty-to-wife cases, raising concerns over gender equality and victims’ safety.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">यह निर्णय पत्नी के साथ क्रूरता के मामलों में अभियुक्तों को प्रभावी रूप से पूर्ण अंतरिम संरक्षण प्रदान करता है, जिससे लैंगिक समानता और पीड़ितों की सुरक्षा पर चिंताएँ उठती हैं।</p>
+                </div>
+            </section>
+
+            <section>
+                <h2 data-lang="en">Section 498-A IPC / Section 85 BNS</h2>
+                <h2 data-lang="hi" style="display:none;">भारतीय दंड संहिता की धारा 498-ए / धारा 85 बीएनएस</h2>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Enacted in 1983 to address cruelty against married women by husband/relatives.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">पति/रिश्तेदारों द्वारा विवाहित महिलाओं के प्रति क्रूरता को दूर करने के लिए 1983 में अधिनियमित।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Punishment: Up to 3 years imprisonment + fine.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">दंड: 3 वर्ष तक का कारावास + जुर्माना।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Cruelty includes:</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">क्रूरता में शामिल हैं:</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><i><strong><u>Dowry harassment</u></strong></i></p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><i><strong><u>दहेज उत्पीड़न</u></strong></i></p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><i><strong><u>Driving woman to suicide</u></strong></i></p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><i><strong><u>महिला को आत्महत्या के लिए प्रेरित करना</u></strong></i></p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><i><strong><u>Causing injury to life/health</u></strong></i></p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><i><strong><u>जीवन/स्वास्थ्य को नुकसान पहुँचाना</u></strong></i></p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Objective: Reduce dowry deaths, domestic violence, and ensure criminal deterrence.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">उद्देश्य: दहेज हत्याओं, घरेलू हिंसा को कम करना और आपराधिक रोकथाम सुनिश्चित करना।</p>
+                </div>
+            </section>
+
+            <section>
+                <h2 data-lang="en">Key Features of SC Order</h2>
+                <h2 data-lang="hi" style="display:none;">उच्चतम न्यायालय के आदेश की मुख्य विशेषताएँ</h2>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>1. Endorsement of Allahabad HC directions:</strong></p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><strong>1. इलाहाबाद उच्च न्यायालय के निर्देशों का समर्थन:</strong></p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">No arrest or coercive action for 2 months ("cool-off period") after complaint.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">शिकायत के बाद 2 महीने ("शांति अवधि") तक कोई गिरफ्तारी या बलपूर्वक कार्रवाई नहीं।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Creation of Family Welfare Committees at district level.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">ज़िला स्तर पर परिवार कल्याण समितियों का गठन।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>2. Applies even if:</strong></p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><strong>2. यह तब भी लागू होता है जब:</strong></p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">There is overwhelming evidence of cruelty.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">क्रूरता के भारी सबूत हों।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Immediate arrest is needed for victim safety.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">पीड़ित की सुरक्षा के लिए तत्काल गिरफ्तारी आवश्यक है।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>3. Binding Nature:</strong></p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><strong>3. बाध्यकारी प्रकृति:</strong></p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Prevents police from acting in that period.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">उस अवधि के दौरान पुलिस को कार्रवाई करने से रोकता है।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Could discourage victims from filing complaints.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">पीड़ितों को शिकायत दर्ज करने से हतोत्साहित कर सकता है।</p>
+                </div>
+            </section>
+
+            <section>
+                <h2 data-lang="en">Concerns & Criticism</h2>
+                <h2 data-lang="hi" style="display:none;">चिंताएँ और आलोचना</h2>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Ignores socio-cultural context of women’s vulnerability in marriage.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">विवाह में महिलाओं की भेद्यता के सामाजिक-सांस्कृतिक संदर्भ की अनदेखी करता है।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Puts complainants at increased risk during the delay.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">देरी के दौरान शिकायतकर्ताओं को अधिक जोखिम में डालता है।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Weakens deterrent effect of anti-cruelty law.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">क्रूरता-विरोधी कानून के निवारक प्रभाव को कमज़ोर करता है।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Legitimises police inaction in domestic violence cases.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">घरेलू हिंसा के मामलों में पुलिस की निष्क्रियता को वैध बनाता है।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">No empirical evidence presented for widespread misuse; based on anecdotal claims.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">व्यापक दुरुपयोग के लिए कोई अनुभवजन्य साक्ष्य प्रस्तुत नहीं किया गया; यह केवल उपाख्यानों पर आधारित है।</p>
+                </div>
+            </section>
+
+            <section>
+                <h2 data-lang="en">Misuse Debate</h2>
+                <h2 data-lang="hi" style="display:none;">दुरुपयोग पर बहस</h2>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>Past SC observations:</strong></p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><strong>सर्वोच्च न्यायालय की पिछली टिप्पणियाँ:</strong></p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><i><strong><u>Preeti Gupta vs State of Jharkhand (2010)</u></strong></i> – noted “non-bona fide” cases.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><i><strong><u>प्रीति गुप्ता बनाम झारखंड राज्य (2010)</u></strong></i> - "असत्य" मामलों का उल्लेख किया गया।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><i><strong><u>Sushil Kumar Sharma (2005)</u></strong></i> – warned of “legal terrorism”.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><i><strong><u>सुशील कुमार शर्मा (2005)</u></strong></i> - "कानूनी आतंकवाद" की चेतावनी दी गई।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><i><strong><u>Arnesh Kumar (2014)</u></strong></i> – issued arrest guidelines, making police action harder.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><i><strong><u>अर्नेश कुमार (2014)</u></strong></i> - गिरफ्तारी के दिशानिर्देश जारी किए गए, जिससे पुलिस कार्रवाई और कठिन हो गई।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>NCRB 2022 data:</strong></p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><strong>एनसीआरबी 2022 के आँकड़े:</strong></p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">1,34,506 cases registered.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">1,34,506 मामले दर्ज किए गए।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Conviction rate ~18% (higher than many other offences).</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">दोषसिद्धि दर ~18% (कई अन्य अपराधों से अधिक)।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">NFHS-5: Widespread under-reporting of domestic violence.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">एनएफएचएस-5: घरेलू हिंसा की व्यापक रूप से कम रिपोर्टिंग।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Humsafar Report: Rise in cases reflects greater awareness, not misuse.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">हमसफ़र रिपोर्ट: मामलों में वृद्धि अधिक जागरूकता को दर्शाती है, दुरुपयोग को नहीं।</p>
+                </div>
+            </section>
+
+            <section>
+                <h2 data-lang="en">Implications of Judgment</h2>
+                <h2 data-lang="hi" style="display:none;">निर्णय के निहितार्थ</h2>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Legal: Selective suspension challenges uniformity in criminal law.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">कानूनी: चयनात्मक निलंबन आपराधिक कानून में एकरूपता को चुनौती देता है।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Social: May embolden perpetrators; discourage victims.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">सामाजिक: अपराधियों को प्रोत्साहित कर सकता है; पीड़ितों को हतोत्साहित कर सकता है।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Policy: Judicial intervention overrides legislative intent.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">नीति: न्यायिक हस्तक्षेप विधायी मंशा पर हावी हो जाता है।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Gender Justice: Weakens protection for women in patriarchal settings.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">लैंगिक न्याय: पितृसत्तात्मक व्यवस्था में महिलाओं की सुरक्षा को कमज़ोर करता है।</p>
+                </div>
+            </section>
+
+            <section>
+                <h2 data-lang="en">Way Forward</h2>
+                <h2 data-lang="hi" style="display:none;">आगे की राह</h2>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Strengthen investigation quality rather than dilute laws.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">कानूनों को कमज़ोर करने के बजाय जाँच की गुणवत्ता को मज़बूत करें।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Use ADR (mediation) in matrimonial disputes without violence allegations.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">हिंसा के आरोपों से मुक्त वैवाहिक विवादों में मध्यस्थता (एडीआर) का उपयोग करें।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Collect empirical misuse data before policy/legal changes.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">नीति/कानूनी बदलावों से पहले दुरुपयोग के अनुभवजन्य आँकड़े एकत्र करें।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Ensure victim protection mechanisms during investigation.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">जाँच के दौरान पीड़ित सुरक्षा तंत्र सुनिश्चित करें।</p>
+                </div>
+            </section>
+
+            <section>
+                <h2 data-lang="en">Potential UPSC Mains Question</h2>
+                <h2 data-lang="hi" style="display:none;">संभावित यूपीएससी मुख्य परीक्षा प्रश्न</h2>
+                <div class="line" data-lang="en">
+                    <p class="english-text">"Critically examine the Supreme Court’s recent endorsement of a two-month arrest suspension under Section 498-A IPC in the context of gender justice and criminal law uniformity."</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">"लैंगिक न्याय और आपराधिक कानून की एकरूपता के संदर्भ में भारतीय दंड संहिता की धारा 498-ए के तहत दो महीने के लिए गिरफ्तारी पर रोक लगाने के सर्वोच्च न्यायालय के हालिया समर्थन की आलोचनात्मक जाँच करें।"</p>
+                </div>
+            </section>
+
+            <section>
+                <h3 data-lang="en">UPSC CSE Prelims Practice MCQ</h3>
+                <h3 data-lang="hi" style="display:none;">UPSC CSE प्रारंभिक परीक्षा अभ्यास MCQ</h3>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Q. Section 498-A of the erstwhile Indian Penal Code, now Section 85 of the Bharatiya Nyaya Sanhita, deals with:</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">प्रश्न: पूर्ववर्ती भारतीय दंड संहिता की धारा 498-A, जो अब भारतीय न्याय संहिता की धारा 85 है, निम्नलिखित से संबंधित है:</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">A. Protection of women from sexual harassment at the workplace</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">A. कार्यस्थल पर यौन उत्पीड़न से महिलाओं की सुरक्षा</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">B. <strong>Cruelty by husband or his relatives towards a woman</strong></p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">B. <strong>पति या उसके रिश्तेदारों द्वारा महिला के प्रति क्रूरता</strong></p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">C. Dowry prohibition and penalties for demanding dowry</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">C. दहेज निषेध और दहेज मांगने पर दंड</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">D. Maintenance rights of a divorced woman</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">D. तलाकशुदा महिला के भरण-पोषण के अधिकार</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Correct Answer: B ✅</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">सही उत्तर: B ✅</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Explanation:</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">स्पष्टीकरण:</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Section 498-A IPC (now Section 85 BNS) penalises cruelty to a married woman by her husband or his relatives, including dowry harassment, physical or mental injury, and abetment to suicide.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">भारतीय दंड संहिता की धारा 498-A (अब धारा 85 BNS) विवाहित महिला के पति या उसके रिश्तेदारों द्वारा की गई क्रूरता के लिए दंड का प्रावधान करती है, जिसमें दहेज उत्पीड़न, शारीरिक या मानसिक क्षति और आत्महत्या के लिए उकसाना शामिल है।</p>
+                </div>
+            </section>
+            <p style="text-align: center; margin-top: 2rem;">
+                <a href="https://wa.me/918168305050" class="btn btn-secondary">Contact us via WhatsApp</a>
+            </p>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="index.html" class="btn btn-primary">Back to Home</a>
+            </div>
+        </article>
+    </div>
+
+    <button id="scrollToTopBtn" class="floating-btn">↑</button>
+
+    <footer class="footer">
+        <p>© 2025 Crack Current Affairs (CrackCA). All rights reserved.</p>
+    </footer>
+
+    <script>
+        const scrollBtn = document.getElementById('scrollToTopBtn');
+        window.onscroll = function() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                scrollBtn.style.display = "block";
+            } else {
+                scrollBtn.style.display = "none";
+            }
+        };
+        scrollBtn.onclick = function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+        
+        function toggleLanguage() {
+            const allElementsToToggle = document.querySelectorAll('[data-lang]');
+            const button = document.querySelector('.language-switch-btn');
+            
+            let isEnglish = button.textContent === 'Switch to Hindi';
+            
+            allElementsToToggle.forEach(element => {
+                if (isEnglish) {
+                    if (element.getAttribute('data-lang') === 'en') {
+                        element.style.display = 'none';
+                    } else if (element.getAttribute('data-lang') === 'hi') {
+                        element.style.display = 'block';
+                    }
+                } else {
+                    if (element.getAttribute('data-lang') === 'en') {
+                        element.style.display = 'block';
+                    } else if (element.getAttribute('data-lang') === 'hi') {
+                        element.style.display = 'none';
+                    }
+                }
+            });
+            
+            button.textContent = isEnglish ? 'Switch to English' : 'Switch to Hindi';
+        }
+    </script>
+</body>
+</html>

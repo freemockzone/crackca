@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TH - 12-Aug-25</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Noto+Sans+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #007BFF;
+            --secondary-color: #28a745;
+            --background-color: #f8f9fa;
+            --text-color: #212529;
+            --light-hover: #e9ecef;
+            --border-color: #dee2e6;
+            --header-bg: #fff;
+        }
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding-top: 60px;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 1rem;
+        }
+        header.fixed-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--header-bg);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 0.5rem 1rem;
+            z-index: 1000;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        nav li a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        nav li a:hover {
+            background-color: var(--light-hover);
+            border-radius: 5px;
+        }
+        .article-meta {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .article-meta h1 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 2.5rem;
+            margin-top: 0;
+        }
+        .article-meta p {
+            margin: 0;
+            color: #6c757d;
+        }
+        h1, h2, h3 {
+            color: var(--primary-color);
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+            font-weight: bold;
+        }
+        h1 {
+            font-size: 2rem;
+        }
+        h2 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+        h3 {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-bottom: none;
+        }
+        .line {
+            padding: 0.25rem 0.5rem;
+            margin: 0;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            border-left: 3px solid transparent;
+        }
+        .line:hover {
+            background-color: var(--light-hover);
+            border-left: 3px solid var(--primary-color);
+        }
+        .line .english-text, .line .hindi-text {
+            display: block;
+            margin: 0;
+        }
+        .line .english-text {
+            font-size: 1rem;
+        }
+        .line .hindi-text {
+            font-size: 0.9rem;
+            color: #555;
+        }
+        .line .hindi-text[lang="hi"] {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+        }
+        .hidden-lang {
+            display: none;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        .btn-secondary {
+            background-color: var(--secondary-color);
+            color: #fff;
+            border: none;
+        }
+        .btn-secondary:hover {
+            background-color: #218838;
+        }
+        .floating-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            line-height: 50px;
+            font-size: 24px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            cursor: pointer;
+            display: none;
+        }
+        .footer {
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            color: #6c757d;
+        }
+        .language-switch-btn {
+            margin-top: 1rem;
+            padding: 8px 12px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            border-radius: 5px;
+            background-color: #6c757d;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            .article-meta h1 {
+                font-size: 2rem;
+            }
+            nav ul {
+                flex-direction: column;
+            }
+            nav li {
+                text-align: center;
+            }
+        }
+        em {
+            font-style: italic;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+        .table-container {
+            overflow-x: auto;
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'Noto Sans', sans-serif;
+        }
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #e2e6ea;
+            color: var(--text-color);
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <header class="fixed-header">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="donation.html">Donation</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <header class="article-header">
+            <h1 data-lang="en">12-August-2025</h1>
+            <h1 data-lang="hi" style="display:none;">12-अगस्त-2025</h1>
+        </header>
+
+        <article>
+            <div class="article-meta">
+                <div id="article-title-container">
+                    <h1 data-lang="en" id="article-title">Lok Sabha Passes Income Tax (No. 2) Bill, 2025</h1>
+                    <h1 data-lang="hi" style="display:none;">लोकसभा ने आयकर (संख्या 2) विधेयक, 2025 पारित किया</h1>
+                </div>
+                <p>Source: User Provided Content | Publication Date: August 12, 2025</p>
+                <p><strong>Estimated Read Time: ~6 minutes</strong></p>
+                <button class="language-switch-btn" onclick="toggleLanguage()">Switch to Hindi</button>
+            </div>
+
+            <section>
+                <h2 data-lang="en">Exam Relevance</h2>
+                <h2 data-lang="hi" style="display:none;">परीक्षा प्रासंगिकता</h2>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><em><strong><u>GS Paper II</u></strong></em> – Governance, Parliament, Law-making process</p>
+                </div>
+                <div class="line" data-lang="hi" style="display:none;">
+                    <p class="hindi-text" lang="hi"><em><strong><u>सामान्य अध्ययन प्रश्नपत्र II</u></strong></em> – शासन, संसद, कानून निर्माण प्रक्रिया</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><em><strong><u>GS Paper III</u></strong></em> – Indian Economy, Resource Mobilisation, Taxation</p>
+                </div>
+                <div class="line" data-lang="hi" style="display:none;">
+                    <p class="hindi-text" lang="hi"><em><strong><u>सामान्य अध्ययन प्रश्नपत्र III</u></strong></em> – भारतीय अर्थव्यवस्था, संसाधन जुटाना, कराधान</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><em><strong><u>Current Affairs</u></strong></em> – Economic reforms, Digital privacy, Legislative developments</p>
+                </div>
+                <div class="line" data-lang="hi" style="display:none;">
+                    <p class="hindi-text" lang="hi"><em><strong><u>समसामयिक घटनाएँ</u></strong></em> – आर्थिक सुधार, डिजिटल गोपनीयता, विधायी विकास</p>
+                </div>
+            </section>
+            
+            <section>
+                <h2 data-lang="en">Context</h2>
+                <h2 data-lang="hi" style="display:none;">संदर्भ</h2>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Lok Sabha passed the <strong>revised Income Tax (No. 2) Bill, 2025</strong> aimed at <strong>simplifying, rationalising, and shortening</strong> the Income Tax Act, 1961.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display:none;">
+                    <p class="hindi-text" lang="hi">लोकसभा ने <strong>संशोधित आयकर (संख्या 2) विधेयक, 2025</strong> पारित किया, जिसका उद्देश्य आयकर अधिनियम, 1961 को <strong>सरल, युक्तिसंगत और संक्षिप्त</strong> बनाना है।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">The Bill introduces significant <strong>structural changes</strong> and <strong>broadens powers of income tax officials</strong>, particularly in accessing personal digital data.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display:none;">
+                    <p class="hindi-text" lang="hi">यह विधेयक महत्वपूर्ण <strong>संरचनात्मक परिवर्तन</strong> प्रस्तुत करता है और <strong>आयकर अधिकारियों की शक्तियों का विस्तार करता है</strong>, विशेष रूप से व्यक्तिगत डिजिटल डेटा तक पहुँचने में।</p>
+                </div>
+            </section>
+            
+            <section>
+                <h2 data-lang="en">Background</h2>
+                <h2 data-lang="hi" style="display:none;">पृष्ठभूमि</h2>
+                <div class="line" data-lang="en">
+                    <p class="english-text">The original Bill introduced in <strong>February 2025</strong> by <strong>Finance Minister Nirmala Sitharaman</strong>.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display:none;">
+                    <p class="hindi-text" lang="hi">मूल विधेयक <strong>फरवरी 2025</strong> में <strong>वित्त मंत्री निर्मला सीतारमण</strong> द्वारा पेश किया गया था।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Sent to a <strong>Select Committee</strong> chaired by Baijayant Panda.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display:none;">
+                    <p class="hindi-text" lang="hi">बैजयंत पांडा की अध्यक्षता वाली <strong>प्रवर समिति</strong> को भेजा गया।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Committee submitted report on <strong>July 21, 2025</strong>.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display:none;">
+                    <p class="hindi-text" lang="hi">समिति ने <strong>21 जुलाई, 2025</strong> को रिपोर्ट प्रस्तुत की।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Government withdrew earlier Bill and reintroduced updated version on <strong>August 11, 2025</strong>.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display:none;">
+                    <p class="hindi-text" lang="hi">सरकार ने पहले वाले विधेयक को वापस ले लिया और <strong>11 अगस्त, 2025</strong> को इसका अद्यतन संस्करण पुनः प्रस्तुत किया।</p>
+                </div>
+            </section>
+            
+            <section>
+                <h2 data-lang="en">Key Changes in the Bill</h2>
+                <h2 data-lang="hi" style="display:none;">विधेयक में प्रमुख परिवर्तन</h2>
+                <div class="table-container">
+                    <table data-lang="en">
+                        <thead>
+                            <tr>
+                                <th>Aspect</th>
+                                <th>Old Act (1961)</th>
+                                <th>New Bill (2025)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Word Count</td>
+                                <td>~5.12 lakh</td>
+                                <td>~2.59 lakh</td>
+                            </tr>
+                            <tr>
+                                <td>Chapters</td>
+                                <td>47</td>
+                                <td>23</td>
+                            </tr>
+                            <tr>
+                                <td>Sections</td>
+                                <td>819</td>
+                                <td>536</td>
+                            </tr>
+                            <tr>
+                                <td>Tables</td>
+                                <td>18</td>
+                                <td>57</td>
+                            </tr>
+                            <tr>
+                                <td>Formulae</td>
+                                <td>6</td>
+                                <td>46</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table data-lang="hi" style="display: none;">
+                        <thead>
+                            <tr>
+                                <th>पहलू</th>
+                                <th>पुराना अधिनियम (1961)</th>
+                                <th>नया विधेयक (2025)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>शब्द संख्या</td>
+                                <td>~5.12 लाख</td>
+                                <td>~2.59 लाख</td>
+                            </tr>
+                            <tr>
+                                <td>अध्याय</td>
+                                <td>47</td>
+                                <td>23</td>
+                            </tr>
+                            <tr>
+                                <td>खंड</td>
+                                <td>819</td>
+                                <td>536</td>
+                            </tr>
+                            <tr>
+                                <td>तालिकाएँ</td>
+                                <td>18</td>
+                                <td>57</td>
+                            </tr>
+                            <tr>
+                                <td>सूत्र</td>
+                                <td>6</td>
+                                <td>46</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>Objective</strong>: More clarity, shorter text, better structure.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display:none;">
+                    <p class="hindi-text" lang="hi"><strong>उद्देश्य</strong>: अधिक स्पष्टता, संक्षिप्त पाठ, बेहतर संरचना।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Emphasis on <strong>tabular and formula-based representation</strong> for simplification.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display:none;">
+                    <p class="hindi-text" lang="hi">सरलीकरण के लिए <strong>सारणीबद्ध और सूत्र-आधारित प्रस्तुति</strong> पर ज़ोर।</p>
+                </div>
+            </section>
+            
+            <section>
+                <h2 data-lang="en">Provisions on Search & Seizure</h2>
+                <h2 data-lang="hi" style="display:none;">तलाशी और ज़ब्ती संबंधी प्रावधान</h2>
+                <div class="line" data-lang="en">
+                    <p class="english-text">1. <strong>Access to Electronic Records</strong></p>
+                </div>
+                <div class="line" data-lang="hi" style="display:none;">
+                    <p class="hindi-text" lang="hi">1. <strong>इलेक्ट्रॉनिक अभिलेखों तक पहुँच</strong></p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Any person possessing <strong>electronic books of account or documents</strong> must provide authorised officers with necessary assistance (including <strong>access codes</strong>).</p>
+                </div>
+                <div class="line" data-lang="hi" style="display:none;">
+                    <p class="hindi-text" lang="hi">इलेक्ट्रॉनिक लेखा पुस्तकों या दस्तावेज़ों को रखने वाले किसी भी व्यक्ति को अधिकृत अधिकारियों को आवश्यक सहायता (<strong>एक्सेस कोड</strong> सहित) प्रदान करनी होगी।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">2. <strong>Override Power</strong></p>
+                </div>
+                <div class="line" data-lang="hi" style="display:none;">
+                    <p class="hindi-text" lang="hi">2. <strong>ओवरराइड पावर</strong></p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Officers can <strong>bypass access codes</strong> to computer systems if not voluntarily provided.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display:none;">
+                    <p class="hindi-text" lang="hi">यदि स्वेच्छा से प्रदान नहीं किया गया है, तो अधिकारी कंप्यूटर सिस्टम तक <strong>एक्सेस कोड</strong> को बायपास कर सकते हैं।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">3. <strong>Justification by Committee</strong></p>
+                </div>
+                <div class="line" data-lang="hi" style="display:none;">
+                    <p class="hindi-text" lang="hi">3. <strong>समिति द्वारा औचित्य</strong></p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Cited cases where <strong>incriminating evidence</strong> (WhatsApp chats, emails) was withheld due to non-disclosure of passwords.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display:none;">
+                    <p class="hindi-text" lang="hi">ऐसे मामलों का हवाला दिया गया जहाँ पासवर्ड का खुलासा न करने के कारण <strong>अपराध सिद्ध करने वाले साक्ष्य</strong> (व्हाट्सएप चैट, ईमेल) रोक दिए गए थे।</p>
+                </div>
+            </section>
+            
+            <section>
+                <h2 data-lang="en">Concerns & Dissent</h2>
+                <h2 data-lang="hi" style="display:none;">चिंताएँ और असहमति</h2>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>Congress MP Amar Singh</strong>:</p>
+                </div>
+                <div class="line" data-lang="hi" style="display:none;">
+                    <p class="hindi-text" lang="hi"><strong>कांग्रेस सांसद अमर सिंह</strong>:</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Provision gives <strong>wide-ranging power</strong> to force disclosure of all personal digital data.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display:none;">
+                    <p class="hindi-text" lang="hi">यह प्रावधान सभी व्यक्तिगत डिजिटल डेटा के प्रकटीकरण को अनिवार्य करने के लिए <strong>व्यापक शक्ति</strong> प्रदान करता है।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Risks misuse and breaches of privacy.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display:none;">
+                    <p class="hindi-text" lang="hi">दुरुपयोग और गोपनीयता भंग होने का जोखिम।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>N.K. Premachandran (RSP)</strong>:</p>
+                </div>
+                <div class="line" data-lang="hi" style="display:none;">
+                    <p class="hindi-text" lang="hi"><strong>एन.के. प्रेमचंद्रन (आरएसपी)</strong>:</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Provisions are <strong>arbitrary</strong> and infringe on <strong>Right to Privacy</strong> (Puttaswamy judgment, 2017).</p>
+                </div>
+                <div class="line" data-lang="hi" style="display:none;">
+                    <p class="hindi-text" lang="hi">प्रावधान मनमाने हैं और <strong>निजता के अधिकार</strong> (पुट्टास्वामी निर्णय, 2017) का उल्लंघन करते हैं।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Suggested retaining provisions from the 1961 Act.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display:none;">
+                    <p class="hindi-text" lang="hi">1961 के अधिनियम के प्रावधानों को बनाए रखने का सुझाव दिया गया।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Fears of <strong>misuse</strong> and <strong>violation of constitutional rights</strong>.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display:none;">
+                    <p class="hindi-text" lang="hi">दुरुपयोग और <strong>संवैधानिक अधिकारों के उल्लंघन</strong> की आशंका।</p>
+                </div>
+            </section>
+            
+            <section>
+                <h2 data-lang="en">Implications</h2>
+                <h2 data-lang="hi" style="display:none;">निहितार्थ</h2>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>Positive</strong>:</p>
+                </div>
+                <div class="line" data-lang="hi" style="display:none;">
+                    <p class="hindi-text" lang="hi"><strong>सकारात्मक</strong>:</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Easier compliance due to simplification.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display:none;">
+                    <p class="hindi-text" lang="hi">सरलीकरण के कारण अनुपालन आसान।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">More effective investigation into tax evasion.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display:none;">
+                    <p class="hindi-text" lang="hi">कर चोरी की अधिक प्रभावी जाँच।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>Concerns</strong>:</p>
+                </div>
+                <div class="line" data-lang="hi" style="display:none;">
+                    <p class="hindi-text" lang="hi"><strong>चिंताएँ</strong>:</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Potential privacy violations.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display:none;">
+                    <p class="hindi-text" lang="hi">संभावित गोपनीयता उल्लंघन।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Risk of misuse of investigative powers.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display:none;">
+                    <p class="hindi-text" lang="hi">जाँच शक्तियों के दुरुपयोग का जोखिम।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Possible legal challenges citing <strong>fundamental rights</strong>.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display:none;">
+                    <p class="hindi-text" lang="hi"><strong>मौलिक अधिकारों</strong> का हवाला देते हुए संभावित कानूनी चुनौतियाँ।</p>
+                </div>
+            </section>
+            
+            <section>
+                <h2 data-lang="en">Way Forward</h2>
+                <h2 data-lang="hi" style="display:none;">आगे की राह</h2>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Ensure <strong>checks and balances</strong> on enhanced powers.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display:none;">
+                    <p class="hindi-text" lang="hi">बढ़ी हुई शक्तियों पर <strong>नियंत्रण और संतुलन</strong> सुनिश्चित करें।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Create <strong>clear operational guidelines</strong> to prevent arbitrary use.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display:none;">
+                    <p class="hindi-text" lang="hi">मनमाने इस्तेमाल को रोकने के लिए <strong>स्पष्ट परिचालन दिशानिर्देश</strong> बनाएँ।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Judicial oversight for sensitive data access.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display:none;">
+                    <p class="hindi-text" lang="hi">संवेदनशील डेटा तक पहुँच के लिए न्यायिक निगरानी।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Strengthen <strong>data protection frameworks</strong> in line with <strong>Digital Personal Data Protection Act, 2023</strong>.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display:none;">
+                    <p class="hindi-text" lang="hi"><strong>डिजिटल व्यक्तिगत डेटा संरक्षण अधिनियम, 2023</strong> के अनुरूप <strong>डेटा सुरक्षा ढाँचे</strong> को मज़बूत करें।</p>
+                </div>
+            </section>
+            
+            <section>
+                <h2 data-lang="en">Potential UPSC Mains Question</h2>
+                <h2 data-lang="hi" style="display:none;">संभावित यूपीएससी मुख्य परीक्षा प्रश्न</h2>
+                <div class="line" data-lang="en">
+                    <p class="english-text">"Discuss the implications of the enhanced powers granted to income tax officials under the Income Tax (No. 2) Bill, 2025, in the context of the Right to Privacy and the need for effective tax enforcement."</p>
+                </div>
+                <div class="line" data-lang="hi" style="display:none;">
+                    <p class="hindi-text" lang="hi">"आयकर (संख्या 2) विधेयक, 2025 के तहत आयकर अधिकारियों को दी गई बढ़ी हुई शक्तियों के निहितार्थों पर, गोपनीयता के अधिकार और प्रभावी कर प्रवर्तन की आवश्यकता के संदर्भ में चर्चा करें।"</p>
+                </div>
+            </section>
+            
+            <section>
+                <h3 data-lang="en">UPSC CSE Prelims Practice MCQ</h3>
+                <h3 data-lang="hi" style="display: none;">UPSC CSE प्रारंभिक परीक्षा अभ्यास बहुविकल्पीय प्रश्न</h3>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>Q. With reference to the Income Tax (No. 2) Bill, 2025, recently passed by the Lok Sabha, consider the following statements:</strong></p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><strong>प्रश्न. हाल ही में लोकसभा द्वारा पारित आयकर (संख्या 2) विधेयक, 2025 के संदर्भ में, निम्नलिखित कथनों पर विचार कीजिए:</strong></p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">1. The Bill reduces the total number of chapters and sections compared to the Income Tax Act, 1961.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">1. यह विधेयक आयकर अधिनियम, 1961 की तुलना में अध्यायों और धाराओं की कुल संख्या को कम करता है।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">2. It grants income tax officials the power to override access codes to digital devices during search operations.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">2. यह आयकर अधिकारियों को तलाशी अभियान के दौरान डिजिटल उपकरणों तक पहुँच कोड को बदलने की शक्ति प्रदान करता है।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">3. The Select Committee reviewing the Bill unanimously supported all provisions related to digital access during searches.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">3. विधेयक की समीक्षा करने वाली प्रवर समिति ने तलाशी के दौरान डिजिटल पहुँच से संबंधित सभी प्रावधानों का सर्वसम्मति से समर्थन किया।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>Which of the statements given above is/are correct?</strong></p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><strong>ऊपर दिए गए कथनों में से कौन सा/से सही है/हैं?</strong></p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">A. <strong>1 and 2 only</strong></p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">A. <strong>केवल 1 और 2</strong></p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">B. 2 and 3 only</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">B. केवल 2 और 3</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">C. 1 and 3 only</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">C. केवल 1 और 3</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">D. 1, 2 and 3</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">D. 1, 2 और 3</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Correct Answer: A ✅</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">सही उत्तर: A ✅</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text">Explanation:</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi">स्पष्टीकरण:</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>Statement 1 is correct:</strong> The new Bill reduces chapters from 47 to 23 and sections from 819 to 536.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><strong>कथन 1 सही है:</strong> नया विधेयक अध्याय 47 से घटाकर 23 और धारा 819 से घटाकर 536 कर देता है।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>Statement 2 is correct:</strong> It empowers officials to override access codes to digital systems during searches.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><strong>कथन 2 सही है:</strong> यह अधिकारियों को तलाशी के दौरान डिजिटल सिस्टम तक पहुँच कोड को ओवरराइड करने का अधिकार देता है।</p>
+                </div>
+                <div class="line" data-lang="en">
+                    <p class="english-text"><strong>Statement 3 is incorrect:</strong> Some members of the Select Committee submitted dissent notes opposing these provisions, citing concerns over privacy and misuse.</p>
+                </div>
+                <div class="line" data-lang="hi" style="display: none;">
+                    <p class="hindi-text" lang="hi"><strong>कथन 3 गलत है:</strong> प्रवर समिति के कुछ सदस्यों ने गोपनीयता और दुरुपयोग पर चिंताओं का हवाला देते हुए इन प्रावधानों का विरोध करते हुए असहमति पत्र प्रस्तुत किए।</p>
+                </div>
+            </section>
+            
+            <p style="text-align: center; margin-top: 2rem;">
+                <a href="https://wa.me/918168305050" class="btn btn-secondary">Contact us via WhatsApp</a>
+            </p>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="index.html" class="btn btn-primary">Back to Home</a>
+            </div>
+        </article>
+    </div>
+
+    <button id="scrollToTopBtn" class="floating-btn">↑</button>
+
+    <footer class="footer">
+        <p>© 2025 Crack Current Affairs (CrackCA). All rights reserved.</p>
+    </footer>
+
+    <script>
+        const scrollBtn = document.getElementById('scrollToTopBtn');
+        window.onscroll = function() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                scrollBtn.style.display = "block";
+            } else {
+                scrollBtn.style.display = "none";
+            }
+        };
+        scrollBtn.onclick = function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+        
+        function toggleLanguage() {
+            const allElementsToToggle = document.querySelectorAll('[data-lang]');
+            const button = document.querySelector('.language-switch-btn');
+            
+            let isEnglish = button.textContent === 'Switch to Hindi';
+            
+            allElementsToToggle.forEach(element => {
+                const lang = element.getAttribute('data-lang');
+                const isTable = element.tagName === 'TABLE';
+                
+                if (isEnglish) {
+                    if (lang === 'en') {
+                        element.style.display = 'none';
+                    } else if (lang === 'hi') {
+                        element.style.display = isTable ? 'table' : 'block';
+                    }
+                } else {
+                    if (lang === 'en') {
+                        element.style.display = isTable ? 'table' : 'block';
+                    } else if (lang === 'hi') {
+                        element.style.display = 'none';
+                    }
+                }
+            });
+            
+            button.textContent = isEnglish ? 'Switch to English' : 'Switch to Hindi';
+        }
+    </script>
+</body>
+</html>
