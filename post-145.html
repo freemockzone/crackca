@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIB - 13-Aug-25</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #e9ecef;
+            --hover-color: #f0f0f0;
+            --text-color: #333;
+            --light-text: #666;
+            --dark-background: #1a1a1a;
+            --light-background: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-background);
+        }
+
+        /* Dark mode styling */
+        body.dark-mode {
+            background-color: var(--dark-background);
+            color: #f8f9fa;
+        }
+
+        body.dark-mode header,
+        body.dark-mode footer,
+        body.dark-mode .nav-bar {
+            background-color: #2c2c2c;
+            color: #fff;
+        }
+        
+        body.dark-mode .nav-bar a {
+            color: #fff;
+        }
+
+        body.dark-mode h1,
+        body.dark-mode h2,
+        body.dark-mode h3 {
+            color: #fff;
+        }
+
+        body.dark-mode .article-info {
+            color: #bbb;
+        }
+
+        body.dark-mode .line:hover {
+            background-color: #444;
+        }
+
+        body.dark-mode button,
+        body.dark-mode .scroll-to-top,
+        body.dark-mode .button {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        body.dark-mode a {
+            color: #8ab4f8;
+        }
+
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-bar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-bar a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: bold;
+            padding: 5px;
+            transition: color 0.3s;
+        }
+
+        .nav-bar a:hover {
+            color: #007bff;
+        }
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+        }
+        .nav-buttons button {
+            margin-left: 10px;
+        }
+
+        header {
+            text-align: center;
+            background-color: var(--secondary-color);
+            padding: 20px 0;
+            margin-top: 60px; /* Added margin to push header below the fixed navbar */
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            font-family: 'Merriweather', serif;
+            margin: 0;
+        }
+
+        article {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .article-header h1 {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .article-info {
+            font-style: italic;
+            color: var(--light-text);
+            margin-top: 10px;
+        }
+
+        .read-time {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-top: 5px;
+        }
+
+        .content-section {
+            margin-bottom: 30px;
+        }
+        .content-section.border-left {
+            border-left: 3px solid var(--primary-color);
+            padding-left: 15px;
+        }
+
+        .line {
+            padding: 5px;
+            margin: 5px 0;
+            transition: background-color 0.3s ease;
+        }
+        .line > *:first-child {
+            margin-top: 0;
+        }
+        .line > *:last-child {
+            margin-bottom: 0;
+        }
+
+        .line:hover {
+            background-color: var(--hover-color);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Merriweather', serif;
+            color: var(--primary-color);
+        }
+        
+        h1 { font-size: 2.2em; }
+        h2 { font-size: 1.8em; }
+        h3 { font-size: 1.4em; }
+
+        strong {
+            font-weight: bold;
+        }
+
+        .italic-bold-underline {
+            font-style: italic;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        .whatsapp-link {
+            color: #25D366;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--secondary-color);
+            font-weight: bold;
+        }
+        body.dark-mode tr:nth-child(even) {
+            background-color: #2c2c2c;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+
+        .scroll-to-top {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: opacity 0.3s;
+        }
+
+        .scroll-to-top:hover {
+            opacity: 0.8;
+        }
+
+        .button-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .button, #lang-switch-button, #mode-switch-button {
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #fff;
+            background-color: var(--primary-color);
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .button:hover, #lang-switch-button:hover, #mode-switch-button:hover {
+            background-color: #007bff;
+        }
+
+        /* Mobile-first responsive design */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                align-items: center;
+                padding: 10px;
+            }
+            .nav-bar ul {
+                flex-direction: column;
+                text-align: center;
+                width: 100%;
+                gap: 10px;
+            }
+            .nav-bar .nav-buttons {
+                margin-top: 10px;
+            }
+            header {
+                margin-top: 150px; /* Adjust for stacked nav on mobile */
+            }
+
+            article {
+                padding: 0 10px; /* Ensures padding on smaller screens */
+                margin-top: 20px; 
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            h1 { font-size: 2em; }
+            h2 { font-size: 1.5em; }
+            h3 { font-size: 1.2em; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="donation.html">Donation</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <button id="lang-switch-button">Switch to Hindi</button>
+                <button id="mode-switch-button"><i class="fas fa-moon"></i></button>
+            </div>
+        </div>
+    </nav>
+    
+    <header>
+        <h1>13-August-2025</h1>
+    </header>
+
+    <article>
+        <section id="article-content">
+            <div class="article-header">
+                <h1 id="article-title">Cabinet Approves 4 New Semiconductor Manufacturing Units – Odisha, Punjab & Andhra Pradesh</h1>
+                <p class="article-info">Source: Financial Express | Publication Date: 13-August-2025</p>
+                <p class="read-time"></p>
+            </div>
+            
+            <div class="content-section" id="english-content">
+                <div class="line">
+                    <h1>Cabinet Approves 4 New Semiconductor Manufacturing Units – Odisha, Punjab & Andhra Pradesh</h1>
+                </div>
+                <div class="line">
+                    <h2>Context</h2>
+                </div>
+                <div class="line border-left">
+                    <p lang="en">The Union Cabinet, chaired by PM Modi, has approved <strong>4 new semiconductor projects</strong> under the **India Semiconductor Mission (ISM)** with an outlay of ₹4,600 crore.</p>
+                    <p lang="en">These initiatives aim to boost domestic manufacturing, reduce import dependence, and strengthen the <strong>Atmanirbhar Bharat</strong> initiative.</p>
+                    <p lang="en">This approval increases the total sanctioned projects under ISM to 10, with a cumulative investment of ₹1.60 lakh crore.</p>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>Key Details</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><strong>New Projects Approved</strong>: 4 </li>
+                        <li><strong>States Covered</strong>: Odisha (2 units), Punjab (1), Andhra Pradesh (1) </li>
+                        <li><strong>Employment Generation</strong>: 2,034 direct skilled professionals.</li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>Key Project Highlight</h2>
+                </div>
+                <div class="line border-left">
+                    <p lang="en">The **SiCSem Pvt. Ltd. (Odisha)** project, in collaboration with UK's Clas-SiC Wafer Fab Ltd., is set to establish India's first commercial compound semiconductor fab. It will produce Silicon Carbide (SiC) devices crucial for Defence, Electric Vehicles (EVs), railways, and solar applications.</p>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>Significance</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><strong>Strategic Autonomy</strong>: Reduces reliance on imported semiconductors, which are vital for critical sectors like defence and telecom.</li>
+                        <li><strong>Technological Advancement</strong>: Marks India's entry into high-end manufacturing, including compound semiconductors and advanced packaging.</li>
+                        <li><strong>Economic Growth</strong>: Fosters a robust domestic electronics manufacturing ecosystem and creates skilled employment.</li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>Government Initiatives Related</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><strong>India Semiconductor Mission (ISM)</strong>: Aims to build a comprehensive semiconductor & display manufacturing ecosystem.</li>
+                        <li><strong>Design Linked Incentive (DLI) Scheme</strong>: Supports domestic chip design capabilities, aiding 278 academic institutions and 72 start-ups.</li>
+                        <li><strong>Talent Development Programme</strong>: Over 60,000 students have been trained in semiconductor-related skills.</li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>UPSC Relevance</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p><strong>Prelims</strong>:</p>
+                            <ul>
+                                <li>ISM objectives, Silicon Carbide (SiC) applications, and states involved.</li>
+                            </ul>
+                        </li>
+                        <li><p><strong>Mains (GS-3)</strong>:</p>
+                            <ul>
+                                <li>Role of semiconductor manufacturing in strategic autonomy.</li>
+                                <li>Employment generation in high-tech sectors.</li>
+                                <li>Boosting the digital economy.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>Key Terms</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><strong>Compound Semiconductor</strong>: A semiconductor made from two or more elements (e.g., Silicon Carbide), which offers higher efficiency in high-voltage and high-frequency applications.</li>
+                        <li><strong>Advanced Packaging</strong>: Next-generation chip packaging methods that enhance performance and energy efficiency by integrating multiple chips.</li>
+                    </ul>
+                </div>
+                <hr>
+                <p class="line" lang="en">Contact us on WhatsApp: <a href="https://wa.me/918168305050" class="whatsapp-link">+91-8168305050</a></p>
+            </div>
+            
+            <div class="content-section" id="hindi-content" style="display: none;">
+                <div class="line">
+                    <h1>कैबिनेट ने ओडिशा, पंजाब और आंध्र प्रदेश में 4 नई सेमीकंडक्टर विनिर्माण इकाइयों को मंज़ूरी दी</h1>
+                </div>
+                <div class="line">
+                    <h2>संदर्भ</h2>
+                </div>
+                <div class="line border-left">
+                    <p lang="hi">प्रधानमंत्री नरेंद्र मोदी की अध्यक्षता में केंद्रीय मंत्रिमंडल ने **भारत सेमीकंडक्टर मिशन (आईएसएम)** के अंतर्गत **4,600 करोड़ रुपये** के परिव्यय के साथ **4 सेमीकंडक्टर परियोजनाओं** को मंज़ूरी दी।</p>
+                    <p lang="hi">इसका उद्देश्य सेमीकंडक्टर विनिर्माण को बढ़ावा देना, आयात पर निर्भरता कम करना और **आत्मनिर्भर भारत** पहल को मज़बूत करना है।</p>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>मुख्य तथ्य</h2>
+                </div>
+                <div class="line border-left">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>पैरामीटर</th>
+                                <th>विवरण</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>**कुल नई परियोजनाएँ स्वीकृत**</td>
+                                <td>4</td>
+                            </tr>
+                            <tr>
+                                <td>**आईएसएम के अंतर्गत कुल स्वीकृत परियोजनाएँ (आज तक)**</td>
+                                <td>10 परियोजनाएँ</td>
+                            </tr>
+                            <tr>
+                                <td>**कुल संचयी निवेश (सभी 10 परियोजनाएँ)**</td>
+                                <td>₹1.60 लाख करोड़</td>
+                            </tr>
+                            <tr>
+                                <td>**नई मंज़ूरी में शामिल राज्य**</td>
+                                <td>ओडिशा (2 इकाइयाँ), पंजाब (1), आंध्र प्रदेश (1)</td>
+                            </tr>
+                            <tr>
+                                <td>**रोज़गार सृजन**</td>
+                                <td>2,034 कुशल पेशेवर (प्रत्यक्ष) + अप्रत्यक्ष नौकरियाँ</td>
+                            </tr>
+                            <tr>
+                                <td>**प्रमुख आवेदक**</td>
+                                <td>SiCSem प्राइवेट लिमिटेड, 3D ग्लास सॉल्यूशंस इंक., एडवांस्ड सिस्टम इन पैकेज (ASIP) टेक्नोलॉजीज़, कॉन्टिनेंटल डिवाइस इंडिया प्राइवेट लिमिटेड (CDIL)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>परियोजना विवरण</h2>
+                </div>
+                <div class="line border-left">
+                    <ol>
+                        <li>
+                            <p><strong>SiCSem प्राइवेट लिमिटेड – ओडिशा</strong></p>
+                            <ul>
+                                <li><strong>सहयोग</strong>: क्लास-SiC वेफर फैब लिमिटेड, यूके।</li>
+                                <li><strong>सुविधा प्रकार</strong>: भारत में पहला **व्यावसायिक कंपाउंड सेमीकंडक्टर फैब**।</li>
+                                <li><strong>उत्पाद</strong>: सिलिकॉन कार्बाइड (SiC) उपकरण।</li>
+                                <li><strong>क्षमता</strong>: 60,000 वेफ़र/वर्ष, 96 मिलियन पैकेज्ड यूनिट/वर्ष।</li>
+                                <li><strong>अनुप्रयोग</strong>: रक्षा, इलेक्ट्रिक वाहन, रेलवे, सौर इन्वर्टर, फ़ास्ट चार्जर, उपभोक्ता उपकरण, डेटा सेंटर।</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <p><strong>3D ग्लास सॉल्यूशंस इंक. - ओडिशा</strong></p>
+                            <ul>
+                                <li><strong>सुविधा प्रकार</strong>: उन्नत पैकेजिंग और एम्बेडेड ग्लास सब्सट्रेट यूनिट।</li>
+                                <li><strong>प्रौद्योगिकियाँ</strong>: पैसिव के साथ ग्लास इंटरपोज़र, सिलिकॉन ब्रिज, 3D हेटेरोजेनस इंटीग्रेशन (3DHI)।</li>
+                                <li><strong>क्षमता</strong>: 69,600 ग्लास पैनल सब्सट्रेट/वर्ष, 50 मिलियन असेंबल्ड यूनिट/वर्ष, 13,200 3DHI मॉड्यूल/वर्ष।</li>
+                                <li><strong>अनुप्रयोग</strong>: रक्षा, AI, RF और ऑटोमोटिव, फ़ोटोनिक्स, उच्च-प्रदर्शन कंप्यूटिंग।</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <p><strong>एएसआईपी टेक्नोलॉजीज - आंध्र प्रदेश</strong></p>
+                            <ul>
+                                <li><strong>सहयोग</strong>: एपीएसीटी कंपनी लिमिटेड, दक्षिण कोरिया।</li>
+                                <li><strong>क्षमता</strong>: 96 मिलियन यूनिट/वर्ष।</li>
+                                <li><strong>अनुप्रयोग</strong>: मोबाइल फोन, सेट-टॉप बॉक्स, ऑटोमोटिव इलेक्ट्रॉनिक्स, सामान्य इलेक्ट्रॉनिक उत्पाद।</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <p><strong>कॉन्टिनेंटल डिवाइस इंडिया प्राइवेट लिमिटेड (सीडीआईएल) - पंजाब</strong></p>
+                            <ul>
+                                <li><strong>प्रकार</strong>: मोहाली में ब्राउनफील्ड विस्तार।</li>
+                                <li><strong>उत्पाद</strong>: उच्च-शक्ति असतत अर्धचालक उपकरण (एमओएसएफईटी, आईजीबीटी, शॉट्की बाईपास डायोड, ट्रांजिस्टर)।</li>
+                                <li><strong>क्षमता</strong>: 158.38 मिलियन यूनिट/वर्ष।</li>
+                                <li><strong>अनुप्रयोग</strong>: ईवी और चार्जिंग इंफ्रास्ट्रक्चर, नवीकरणीय ऊर्जा प्रणालियाँ, औद्योगिक अनुप्रयोग, बिजली रूपांतरण, संचार इंफ्रास्ट्रक्चर।</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>महत्व</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><strong>रणनीतिक</strong>: आयातित सेमीकंडक्टर पर निर्भरता कम करता है; दूरसंचार, ऑटोमोटिव, रक्षा और इलेक्ट्रॉनिक्स के लिए महत्वपूर्ण।</li>
+                        <li><strong>तकनीकी</strong>: भारत में पहला कंपाउंड सेमीकंडक्टर फ़ैब; उन्नत ग्लास-आधारित पैकेजिंग तकनीक।</li>
+                        <li><strong>आर्थिक</strong>: घरेलू इलेक्ट्रॉनिक्स विनिर्माण पारिस्थितिकी तंत्र को बढ़ावा देता है, कुशल रोज़गार उत्पन्न करता है।</li>
+                        <li><strong>वैश्विक प्रतिस्पर्धात्मकता</strong>: उच्च-स्तरीय सेमीकंडक्टर विनिर्माण और पैकेजिंग में भारत के प्रवेश का समर्थन करता है।</li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>संबंधित सरकारी पहल</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p><strong>भारत सेमीकंडक्टर मिशन (ISM)</strong>:</p>
+                            <ul>
+                                <li>सेमीकंडक्टर और डिस्प्ले विनिर्माण पारिस्थितिकी तंत्र विकसित करने के लिए शुरू किया गया।</li>
+                                <li>बुनियादी ढाँचे, अनुसंधान एवं विकास और प्रतिभा विकास का समर्थन करता है।</li>
+                            </ul>
+                        </li>
+                        <li><p><strong>डिज़ाइन लिंक्ड इंसेंटिव (DLI)</strong> योजना:</p>
+                            <ul>
+                                <li>चिप डिज़ाइन क्षमताओं का समर्थन करता है; सरकार ने **278 शैक्षणिक संस्थानों** और **72 स्टार्ट-अप्स** को सहायता प्रदान की है।</li>
+                            </ul>
+                        </li>
+                        <li><p><strong>प्रतिभा विकास कार्यक्रम</strong>:</p>
+                            <ul>
+                                <li>**60,000 से ज़्यादा छात्रों** को सेमीकंडक्टर से संबंधित कौशल में प्रशिक्षित किया गया।</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>यूपीएससी प्रासंगिकता</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p><strong>प्रारंभिक परीक्षा</strong>:</p>
+                            <ul>
+                                <li>आईएसएम के उद्देश्य और योजनाएँ।</li>
+                                <li>सिलिकॉन कार्बाइड सेमीकंडक्टर - लाभ और उपयोग।</li>
+                                <li>सेमीकंडक्टर इकाइयों वाले राज्य।</li>
+                            </ul>
+                        </li>
+                        <li><p><strong>मुख्य परीक्षा (GS-3)</strong>:</p>
+                            <ul>
+                                <li>रणनीतिक स्वायत्तता में सेमीकंडक्टर निर्माण की भूमिका।</li>
+                                <li>उच्च तकनीक निर्माण में रोज़गार की संभावना।</li>
+                                <li>सेमीकंडक्टर की उपलब्धता और डिजिटल अर्थव्यवस्था के विकास के बीच संबंध।</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>मुख्य शब्द</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><strong>यौगिक अर्धचालक</strong>: दो या अधिक तत्वों (जैसे, सिलिकॉन कार्बाइड) से बना अर्धचालक, जो उच्च-वोल्टेज और उच्च-आवृत्ति अनुप्रयोगों में उच्च दक्षता प्रदान करता है।</li>
+                        <li><strong>उन्नत पैकेजिंग</strong>: अगली पीढ़ी की चिप पैकेजिंग विधियाँ जो प्रदर्शन और ऊर्जा दक्षता में सुधार करती हैं।</li>
+                        <li><strong>3D विषमांगी एकीकरण (3DHI)</strong>: उच्च प्रदर्शन के लिए विभिन्न प्रकार के चिप्स को एक ही पैकेज में रखना।</li>
+                    </ul>
+                </div>
+                <hr>
+                <p class="line" lang="hi">व्हाट्सएप पर हमसे संपर्क करें: <a href="https://wa.me/918168305050" class="whatsapp-link">+91-8168305050</a></p>
+            </div>
+        </section>
+
+        <div class="button-container">
+            <a href="index.html" class="button">Back to Home</a>
+        </div>
+    </article>
+
+    <button class="scroll-to-top" id="scrollToTopBtn" title="Go to top">↑</button>
+
+    <footer>
+        <p>© 2025 Crack Current Affairs (CrackCA). All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Function to calculate and display read time
+            function calculateReadTime() {
+                const englishContent = document.getElementById('english-content').innerText;
+                const wordsPerMinute = 200;
+                const wordCount = englishContent.split(/\s+/).length;
+                const readTimeMinutes = Math.ceil(wordCount / wordsPerMinute);
+                document.querySelector('.read-time').innerText = `Estimated Read Time: ${readTimeMinutes} min`;
+            }
+
+            calculateReadTime();
+
+            // Language switch functionality
+            const langSwitchButton = document.getElementById('lang-switch-button');
+            const englishContent = document.getElementById('english-content');
+            const hindiContent = document.getElementById('hindi-content');
+            let isEnglish = true;
+
+            langSwitchButton.addEventListener('click', () => {
+                if (isEnglish) {
+                    englishContent.style.display = 'none';
+                    hindiContent.style.display = 'block';
+                    langSwitchButton.innerText = 'Switch to English';
+                    document.documentElement.lang = 'hi';
+                } else {
+                    englishContent.style.display = 'block';
+                    hindiContent.style.display = 'none';
+                    langSwitchButton.innerText = 'Switch to Hindi';
+                    document.documentElement.lang = 'en';
+                }
+                isEnglish = !isEnglish;
+            });
+
+            // Dark mode switch functionality
+            const modeSwitchButton = document.getElementById('mode-switch-button');
+            modeSwitchButton.addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+                const icon = modeSwitchButton.querySelector('i');
+                if (document.body.classList.contains('dark-mode')) {
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                } else {
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                }
+            });
+
+            // Scroll to top button functionality
+            const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    scrollToTopBtn.style.display = 'block';
+                } else {
+                    scrollToTopBtn.style.display = 'none';
+                }
+            });
+
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Function to handle markdown-like replacements
+            function replaceMarkdown() {
+                const elements = document.querySelectorAll('#english-content, #hindi-content');
+                elements.forEach(element => {
+                    let htmlContent = element.innerHTML;
+                    
+                    // Replace ** with <strong>
+                    htmlContent = htmlContent.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                    
+                    // Replace * with italic, bold and underline effect
+                    htmlContent = htmlContent.replace(/\*(.*?)\*/g, '<span class="italic-bold-underline">$1</span>');
+                    
+                    element.innerHTML = htmlContent;
+                });
+            }
+
+            replaceMarkdown();
+        });
+    </script>
+</body>
+</html>

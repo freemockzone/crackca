@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FE - 13-Aug-25</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #e9ecef;
+            --hover-color: #f0f0f0;
+            --text-color: #333;
+            --light-text: #666;
+            --dark-background: #1a1a1a;
+            --light-background: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-background);
+            padding-top: 60px; /* Added padding to push content below the fixed navbar */
+        }
+
+        /* Dark mode styling */
+        body.dark-mode {
+            background-color: var(--dark-background);
+            color: #f8f9fa;
+        }
+
+        body.dark-mode header,
+        body.dark-mode footer,
+        body.dark-mode .nav-bar {
+            background-color: #2c2c2c;
+            color: #fff;
+        }
+        
+        body.dark-mode .nav-bar a {
+            color: #fff;
+        }
+
+        body.dark-mode h1,
+        body.dark-mode h2,
+        body.dark-mode h3 {
+            color: #fff;
+        }
+
+        body.dark-mode .article-info {
+            color: #bbb;
+        }
+
+        body.dark-mode .line:hover {
+            background-color: #444;
+        }
+
+        body.dark-mode button,
+        body.dark-mode .scroll-to-top,
+        body.dark-mode .button {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        body.dark-mode a {
+            color: #8ab4f8;
+        }
+
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .nav-bar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-bar a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: bold;
+            padding: 5px;
+            transition: color 0.3s;
+        }
+
+        .nav-bar a:hover {
+            color: #007bff;
+        }
+
+        header, footer {
+            text-align: center;
+            background-color: var(--secondary-color);
+            padding: 20px 0;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            font-family: 'Merriweather', serif;
+            margin: 0;
+        }
+
+        article {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .article-header h1 {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .article-info {
+            font-style: italic;
+            color: var(--light-text);
+            margin-top: 10px;
+        }
+
+        .read-time {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-top: 5px;
+        }
+
+        .content-section {
+            margin-bottom: 30px;
+            border-left: 3px solid var(--primary-color);
+            padding-left: 15px;
+        }
+
+        .line {
+            padding: 5px;
+            margin: 5px 0;
+            transition: background-color 0.3s ease;
+        }
+
+        .line:hover {
+            background-color: var(--hover-color);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Merriweather', serif;
+            color: var(--primary-color);
+        }
+        
+        h1 { font-size: 2.2em; }
+        h2 { font-size: 1.8em; }
+        h3 { font-size: 1.4em; }
+
+        strong {
+            font-weight: bold;
+        }
+
+        .italic-bold-underline {
+            font-style: italic;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        .whatsapp-link {
+            color: #25D366;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .scroll-to-top {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: opacity 0.3s;
+        }
+
+        .scroll-to-top:hover {
+            opacity: 0.8;
+        }
+
+        .button-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .button, #lang-switch-button, #mode-switch-button {
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #fff;
+            background-color: var(--primary-color);
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .button:hover, #lang-switch-button:hover, #mode-switch-button:hover {
+            background-color: #007bff;
+        }
+
+        #lang-switch-button, #mode-switch-button {
+            margin-left: 10px;
+        }
+
+        /* Mobile-first responsive design */
+        @media (max-width: 768px) {
+            .nav-bar ul {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+
+            article {
+                padding: 0 10px;
+                margin-top: 20px; /* Reduced margin-top for smaller screens */
+            }
+            body {
+                padding-top: 100px; /* Adjust padding for stacked nav on mobile */
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            h1 { font-size: 2em; }
+            h2 { font-size: 1.5em; }
+            h3 { font-size: 1.2em; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav-bar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+            <li><a href="donation.html">Donation</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <button id="lang-switch-button">Switch to Hindi</button>
+        <button id="mode-switch-button"><i class="fas fa-moon"></i></button>
+    </nav>
+    
+    <header>
+        <h1>13-August-2025</h1>
+    </header>
+
+    <article>
+        <section id="article-content">
+            <div class="article-header">
+                <h1 id="article-title">CPI Inflation Eases to 8-Year Low – July 2025</h1>
+                <p class="article-info">Source: Financial Express | Publication Date: 13-August-2025</p>
+                <p class="read-time"></p>
+            </div>
+            
+            <div class="content-section" id="english-content">
+                <h1 class="line">## <strong>CPI Inflation Eases to 8-Year Low – July 2025</strong></h1>
+                <h2 class="line">### <strong>Context</strong></h2>
+                <p class="line" lang="en">* India’s retail inflation (CPI-based) fell to <strong>1.55%</strong> in July 2025, the lowest since June 2017.</p>
+                <p class="line" lang="en">* Data released by <strong>Ministry of Statistics & Programme Implementation (MoSPI)</strong>.</p>
+                <p class="line" lang="en">---</p>
+                <h2 class="line">### <strong>Key Data</strong></h2>
+                <table class="line">
+                    <thead>
+                        <tr>
+                            <th>Indicator</th>
+                            <th>June 2025</th>
+                            <th>July 2025</th>
+                            <th>Change</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>CPI Inflation (All India)</strong></td>
+                            <td>2.10%</td>
+                            <td>1.55%</td>
+                            <td>↓ 55 bps</td>
+                        </tr>
+                        <tr>
+                            <td><strong>CFPI Inflation (Food)</strong></td>
+                            <td>-1.01%</td>
+                            <td>-1.76%</td>
+                            <td>↓ 75 bps</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Rural CPI Inflation</strong></td>
+                            <td>1.72%</td>
+                            <td>1.18%</td>
+                            <td>↓ 54 bps</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Urban CPI Inflation</strong></td>
+                            <td>2.56%</td>
+                            <td>2.05%</td>
+                            <td>↓ 51 bps</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Rural Food Inflation</strong></td>
+                            <td>-1.17%</td>
+                            <td>-1.74%</td>
+                            <td>Decline</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Urban Food Inflation</strong></td>
+                            <td>-1.17%</td>
+                            <td>-1.90%</td>
+                            <td>Decline</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="line" lang="en">---</p>
+                <h2 class="line">### <strong>Major Drivers of Decline</strong></h2>
+                <p class="line" lang="en">* <strong>Favourable base effect</strong></p>
+                <p class="line" lang="en">* Sharp drop in inflation for:</p>
+                <p class="line" lang="en"> * Pulses & products (→ -13.76% in July from -11.76% in June)</p>
+                <p class="line" lang="en"> * Vegetables (→ -20.69% from -19.00%)</p>
+                <p class="line" lang="en"> * Cereal & products (3.03%)</p>
+                <p class="line" lang="en"> * Education (4.00%)</p>
+                <p class="line" lang="en"> * Eggs, sugar, and confectionery</p>
+                <p class="line" lang="en"> * Transport & communication</p>
+                <p class="line" lang="en">* Milk & products inflation at 2.74%, fuel & light at 2.67%</p>
+                <p class="line" lang="en">* Clothing & footwear inflation: 2.50% (down from 2.55%)</p>
+                <p class="line" lang="en">* Housing inflation: 3.17% (down from 3.24%)</p>
+                <p class="line" lang="en">---</p>
+                <h2 class="line">### <strong>Significance</strong></h2>
+                <p class="line" lang="en">* Lowest CPI inflation in <strong>8 years</strong>.</p>
+                <p class="line" lang="en">* Lowest food inflation since <span class="italic-bold-underline">January 2019</span>.</p>
+                <p class="line" lang="en">* Indicates <strong>softening price pressures</strong> in the economy.</p>
+                <p class="line" lang="en">---</p>
+                <h2 class="line">### <strong>Impact & Outlook</strong></h2>
+                <p class="line" lang="en">* <strong>Monetary Policy</strong>:</p>
+                <p class="line" lang="en"> * RBI’s 12-month inflation forecast may be undershot.</p>
+                <p class="line" lang="en"> * Possibility of <strong>further repo rate cuts</strong>.</p>
+                <p class="line" lang="en">* <strong>Economic Growth</strong>:</p>
+                <p class="line" lang="en"> * US tariffs could reduce GDP growth by 30–40 bps.</p>
+                <p class="line" lang="en"> * Lower rates → supportive for equities & debt market.</p>
+                <p class="line" lang="en">* <strong>Risks</strong>:</p>
+                <p class="line" lang="en"> * Subdued inflation may limit nominal GDP growth, tax revenues, and credit growth.</p>
+                <p class="line" lang="en">---</p>
+                <h2 class="line">### <strong>UPSC Relevance</strong></h2>
+                <p class="line" lang="en">* <strong>Prelims</strong>:</p>
+                <p class="line" lang="en"> * Concepts: CPI, CFPI, base effect, headline inflation, rural vs urban inflation.</p>
+                <p class="line" lang="en"> * Data source: <strong>NSO (under MoSPI)</strong>.</p>
+                <p class="line" lang="en">* <strong>Mains (GS-3)</strong>:</p>
+                <p class="line" lang="en"> * Inflation trends and their implications for monetary policy.</p>
+                <p class="line" lang="en"> * Impact of inflation on fiscal parameters and GDP growth.</p>
+                <p class="line" lang="en"> * Sector-wise analysis of inflation trends (agriculture, housing, transport, fuel).</p>
+                <p class="line" lang="en">---</p>
+                <h2 class="line">### <strong>Key Terms</strong></h2>
+                <p class="line" lang="en">* <strong>CPI (Consumer Price Index)</strong>: Measures change in retail prices of goods & services consumed by households.</p>
+                <p class="line" lang="en">* <strong>CFPI (Consumer Food Price Index)</strong>: Measures change in retail prices of food items only.</p>
+                <p class="line" lang="en">* <strong>Base Effect</strong>: Impact of comparing current prices to unusually high/low prices in the past, affecting inflation rates.</p>
+                <p class="line" lang="en">* <strong>Headline Inflation</strong>: Total inflation in the economy, including all goods and services.</p>
+                <p class="line" lang="en">---</p>
+                <p class="line" lang="en">Contact us on WhatsApp: <a href="https://wa.me/918168305050" class="whatsapp-link">+91-8168305050</a></p>
+            </div>
+
+            <div class="content-section" id="hindi-content" style="display: none;">
+                <h1 class="line">## <strong>सीपीआई मुद्रास्फीति 8 साल के निचले स्तर पर - जुलाई 2025</strong></h1>
+                <h2 class="line">### <strong>संदर्भ</strong></h2>
+                <p class="line" lang="hi">* भारत की खुदरा मुद्रास्फीति (सीपीआई-आधारित) जुलाई 2025 में गिरकर **1.55%** हो गई, जो जून 2017 के बाद सबसे कम है।</p>
+                <p class="line" lang="hi">* **सांख्यिकी एवं कार्यक्रम कार्यान्वयन मंत्रालय (एमओएसपीआई)** द्वारा जारी आंकड़े।</p>
+                <p class="line" lang="hi">---</p>
+                <h2 class="line">### <strong>मुख्य आंकड़े</strong></h2>
+                <table class="line">
+                    <thead>
+                        <tr>
+                            <th>संकेतक</th>
+                            <th>जून 2025</th>
+                            <th>जुलाई 2025</th>
+                            <th>परिवर्तन</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>**सीपीआई मुद्रास्फीति (अखिल भारतीय)**</td>
+                            <td>2.10%</td>
+                            <td>1.55%</td>
+                            <td>↓ 55 आधार अंक</td>
+                        </tr>
+                        <tr>
+                            <td>**सीएफपीआई मुद्रास्फीति (खाद्य)**</td>
+                            <td>-1.01%</td>
+                            <td>-1.76%</td>
+                            <td>↓ 75 बीपीएस</td>
+                        </tr>
+                        <tr>
+                            <td>**ग्रामीण सीपीआई मुद्रास्फीति**</td>
+                            <td>1.72%</td>
+                            <td>1.18%</td>
+                            <td>↓ 54 बीपीएस</td>
+                        </tr>
+                        <tr>
+                            <td>**शहरी सीपीआई मुद्रास्फीति**</td>
+                            <td>2.56%</td>
+                            <td>2.05%</td>
+                            <td>↓ 51 बीपीएस</td>
+                        </tr>
+                        <tr>
+                            <td>**ग्रामीण खाद्य मुद्रास्फीति**</td>
+                            <td>-1.17%</td>
+                            <td>-1.74%</td>
+                            <td>गिरावट</td>
+                        </tr>
+                        <tr>
+                            <td>**शहरी खाद्य मुद्रास्फीति**</td>
+                            <td>-1.17%</td>
+                            <td>-1.90%</td>
+                            <td>गिरावट</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="line" lang="hi">---</p>
+                <h2 class="line">### <strong>गिरावट के प्रमुख कारक</strong></h2>
+                <p class="line" lang="hi">* **अनुकूल आधार प्रभाव**</p>
+                <p class="line" lang="hi">* मुद्रास्फीति में तीव्र गिरावट:</p>
+                <p class="line" lang="hi"> * दालें और उत्पाद (जून में -11.76% से जुलाई में -13.76%)</p>
+                <p class="line" lang="hi"> * सब्ज़ियाँ (-19.00% से -20.69%)</p>
+                <p class="line" lang="hi"> * अनाज और उत्पाद (3.03%)</p>
+                <p class="line" lang="hi"> * शिक्षा (4.00%)</p>
+                <p class="line" lang="hi"> * अंडे, चीनी और मिठाइयाँ</p>
+                <p class="line" lang="hi"> * परिवहन और संचार</p>
+                <p class="line" lang="hi">* दूध और उत्पादों की मुद्रास्फीति 2.74%, ईंधन और प्रकाश की मुद्रास्फीति 2.67%</p>
+                <p class="line" lang="hi">* कपड़े और जूते की मुद्रास्फीति: 2.50% (2.55% से कम)</p>
+                <p class="line" lang="hi">* आवास मुद्रास्फीति: 3.17% (3.24% से कम)</p>
+                <p class="line" lang="hi">---</p>
+                <h2 class="line">### <strong>महत्व</strong></h2>
+                <p class="line" lang="hi">* 8 वर्षों में सबसे कम उपभोक्ता मूल्य सूचकांक (CPI) मुद्रास्फीति।</p>
+                <p class="line" lang="hi">* **जनवरी 2019** के बाद से सबसे कम खाद्य मुद्रास्फीति।</p>
+                <p class="line" lang="hi">* अर्थव्यवस्था में **मूल्य दबाव में कमी** का संकेत देता है।</p>
+                <p class="line" lang="hi">---</p>
+                <h2 class="line">### <strong>प्रभाव और दृष्टिकोण</strong></h2>
+                <p class="line" lang="hi">* **मौद्रिक नीति**: </p>
+                <p class="line" lang="hi"> * RBI का 12 महीने का मुद्रास्फीति पूर्वानुमान कम रह सकता है।</p>
+                <p class="line" lang="hi"> * **रेपो दर में और कटौती** की संभावना।</p>
+                <p class="line" lang="hi">* **आर्थिक विकास**:</p>
+                <p class="line" lang="hi"> * अमेरिकी टैरिफ जीडीपी वृद्धि को 30-40 आधार अंकों तक कम कर सकते हैं।</p>
+                <p class="line" lang="hi"> * कम दरें → इक्विटी और ऋण बाजार के लिए सहायक।</p>
+                <p class="line" lang="hi">* **जोखिम**:</p>
+                <p class="line" lang="hi"> * कम मुद्रास्फीति नाममात्र जीडीपी वृद्धि, कर राजस्व और ऋण वृद्धि को सीमित कर सकती है।</p>
+                <p class="line" lang="hi">---</p>
+                <h2 class="line">### <strong>UPSC प्रासंगिकता</strong></h2>
+                <p class="line" lang="hi">* **प्रारंभिक**:</p>
+                <p class="line" lang="hi"> * अवधारणाएँ: CPI, CFPI, आधार प्रभाव, मुख्य मुद्रास्फीति, ग्रामीण बनाम शहरी मुद्रास्फीति।</p>
+                <p class="line" lang="hi"> * डेटा स्रोत: **एनएसओ (एमओएसपीआई के अंतर्गत)**।</p>
+                <p class="line" lang="hi">* **मुख्य (जीएस-3)**:</p>
+                <p class="line" lang="hi"> * मुद्रास्फीति के रुझान और मौद्रिक नीति पर उनके निहितार्थ।</p>
+                <p class="line" lang="hi"> * राजकोषीय मापदंडों और जीडीपी वृद्धि पर मुद्रास्फीति का प्रभाव।</p>
+                <p class="line" lang="hi"> * मुद्रास्फीति के रुझानों का क्षेत्रवार विश्लेषण (कृषि, आवास, परिवहन, ईंधन)।</p>
+                <p class="line" lang="hi">---</p>
+                <h2 class="line">### <strong>मुख्य शब्द</strong></h2>
+                <p class="line" lang="hi">* **सीपीआई (उपभोक्ता मूल्य सूचकांक)**: घरों द्वारा उपभोग की जाने वाली वस्तुओं और सेवाओं की खुदरा कीमतों में परिवर्तन को मापता है।</p>
+                <p class="line" lang="hi">* **सीएफपीआई (उपभोक्ता खाद्य मूल्य सूचकांक)**: केवल खाद्य पदार्थों की खुदरा कीमतों में परिवर्तन को मापता है।</p>
+                <p class="line" lang="hi">* **आधार प्रभाव**: वर्तमान कीमतों की तुलना अतीत में असामान्य रूप से उच्च/निम्न कीमतों से करने का प्रभाव, जो मुद्रास्फीति दरों को प्रभावित करता है।</p>
+                <p class="line" lang="hi">* **मुख्य मुद्रास्फीति**: अर्थव्यवस्था में कुल मुद्रास्फीति, जिसमें सभी वस्तुएं और सेवाएं शामिल हैं।</p>
+                <p class="line" lang="hi">---</p>
+                <p class="line" lang="hi">व्हाट्सएप पर हमसे संपर्क करें: <a href="https://wa.me/918168305050" class="whatsapp-link">+91-8168305050</a></p>
+            </div>
+        </section>
+
+        <div class="button-container">
+            <a href="index.html" class="button">Back to Home</a>
+        </div>
+    </article>
+
+    <button class="scroll-to-top" id="scrollToTopBtn" title="Go to top">↑</button>
+
+    <footer>
+        <p>© 2025 Crack Current Affairs (CrackCA). All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Function to calculate and display read time
+            function calculateReadTime() {
+                const englishContent = document.getElementById('english-content').innerText;
+                const wordsPerMinute = 200;
+                const wordCount = englishContent.split(/\s+/).length;
+                const readTimeMinutes = Math.ceil(wordCount / wordsPerMinute);
+                document.querySelector('.read-time').innerText = `Estimated Read Time: ${readTimeMinutes} min`;
+            }
+
+            calculateReadTime();
+
+            // Language switch functionality
+            const langSwitchButton = document.getElementById('lang-switch-button');
+            const englishContent = document.getElementById('english-content');
+            const hindiContent = document.getElementById('hindi-content');
+            let isEnglish = true;
+
+            langSwitchButton.addEventListener('click', () => {
+                if (isEnglish) {
+                    englishContent.style.display = 'none';
+                    hindiContent.style.display = 'block';
+                    langSwitchButton.innerText = 'Switch to English';
+                    document.documentElement.lang = 'hi';
+                } else {
+                    englishContent.style.display = 'block';
+                    hindiContent.style.display = 'none';
+                    langSwitchButton.innerText = 'Switch to Hindi';
+                    document.documentElement.lang = 'en';
+                }
+                isEnglish = !isEnglish;
+            });
+
+            // Dark mode switch functionality
+            const modeSwitchButton = document.getElementById('mode-switch-button');
+            modeSwitchButton.addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+                const icon = modeSwitchButton.querySelector('i');
+                if (document.body.classList.contains('dark-mode')) {
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                } else {
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                }
+            });
+
+            // Scroll to top button functionality
+            const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    scrollToTopBtn.style.display = 'block';
+                } else {
+                    scrollToTopBtn.style.display = 'none';
+                }
+            });
+
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Function to replace markdown syntax with HTML tags
+            function replaceMarkdown() {
+                const articleSections = document.querySelectorAll('.content-section');
+                articleSections.forEach(section => {
+                    let htmlContent = section.innerHTML;
+                    
+                    // Replace ##, ###, #### with h1, h2, h3
+                    htmlContent = htmlContent.replace(/<h1 class="line">##\s(.*?)<\/h1>/g, '<h1 class="line">$1</h1>');
+                    htmlContent = htmlContent.replace(/<h2 class="line">###\s(.*?)<\/h2>/g, '<h2 class="line">$1</h2>');
+                    htmlContent = htmlContent.replace(/<h3 class="line">####\s(.*?)<\/h3>/g, '<h3 class="line">$1</h3>');
+
+                    // Replace ** with <strong>
+                    htmlContent = htmlContent.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                    
+                    // Replace * with italic, bold and underline effect
+                    htmlContent = htmlContent.replace(/\*(.*?)\*/g, '<span class="italic-bold-underline">$1</span>');
+
+                    section.innerHTML = htmlContent;
+                });
+            }
+
+            replaceMarkdown();
+        });
+    </script>
+</body>
+</html>

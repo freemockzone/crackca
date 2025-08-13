@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FE - 13-Aug-25</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #e9ecef;
+            --hover-color: #f0f0f0;
+            --text-color: #333;
+            --light-text: #666;
+            --dark-background: #1a1a1a;
+            --light-background: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-background);
+        }
+
+        /* Dark mode styling */
+        body.dark-mode {
+            background-color: var(--dark-background);
+            color: #f8f9fa;
+        }
+
+        body.dark-mode header,
+        body.dark-mode footer,
+        body.dark-mode .nav-bar {
+            background-color: #2c2c2c;
+            color: #fff;
+        }
+        
+        body.dark-mode .nav-bar a {
+            color: #fff;
+        }
+
+        body.dark-mode h1,
+        body.dark-mode h2,
+        body.dark-mode h3 {
+            color: #fff;
+        }
+
+        body.dark-mode .article-info {
+            color: #bbb;
+        }
+
+        body.dark-mode .line:hover {
+            background-color: #444;
+        }
+
+        body.dark-mode button,
+        body.dark-mode .scroll-to-top,
+        body.dark-mode .button {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        body.dark-mode a {
+            color: #8ab4f8;
+        }
+
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-bar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-bar a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: bold;
+            padding: 5px;
+            transition: color 0.3s;
+        }
+
+        .nav-bar a:hover {
+            color: #007bff;
+        }
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+        }
+        .nav-buttons button {
+            margin-left: 10px;
+        }
+
+        header {
+            text-align: center;
+            background-color: var(--secondary-color);
+            padding: 20px 0;
+            margin-top: 60px;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            font-family: 'Merriweather', serif;
+            margin: 0;
+        }
+
+        article {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .article-header h1 {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .article-info {
+            font-style: italic;
+            color: var(--light-text);
+            margin-top: 10px;
+        }
+
+        .read-time {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-top: 5px;
+        }
+
+        .content-section {
+            margin-bottom: 30px;
+        }
+        .content-section.border-left {
+            border-left: 3px solid var(--primary-color);
+            padding-left: 15px;
+        }
+
+        .line {
+            padding: 5px;
+            margin: 5px 0;
+            transition: background-color 0.3s ease;
+        }
+        .line > *:first-child {
+            margin-top: 0;
+        }
+        .line > *:last-child {
+            margin-bottom: 0;
+        }
+
+        .line:hover {
+            background-color: var(--hover-color);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Merriweather', serif;
+            color: var(--primary-color);
+        }
+        
+        h1 { font-size: 2.2em; }
+        h2 { font-size: 1.8em; }
+        h3 { font-size: 1.4em; }
+
+        strong {
+            font-weight: bold;
+        }
+
+        .italic-bold-underline {
+            font-style: italic;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        .whatsapp-link {
+            color: #25D366;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--secondary-color);
+            font-weight: bold;
+        }
+        body.dark-mode tr:nth-child(even) {
+            background-color: #2c2c2c;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+
+        .scroll-to-top {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: opacity 0.3s;
+        }
+
+        .scroll-to-top:hover {
+            opacity: 0.8;
+        }
+
+        .button-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .button, #lang-switch-button, #mode-switch-button {
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #fff;
+            background-color: var(--primary-color);
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .button:hover, #lang-switch-button:hover, #mode-switch-button:hover {
+            background-color: #007bff;
+        }
+
+        /* Mobile-first responsive design */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                align-items: center;
+                padding: 10px;
+            }
+            .nav-bar ul {
+                flex-direction: column;
+                text-align: center;
+                width: 100%;
+                gap: 10px;
+            }
+            .nav-bar .nav-buttons {
+                margin-top: 10px;
+            }
+            header {
+                margin-top: 150px;
+            }
+
+            article {
+                padding: 0 10px;
+                margin-top: 20px; 
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            h1 { font-size: 2em; }
+            h2 { font-size: 1.5em; }
+            h3 { font-size: 1.2em; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="donation.html">Donation</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <button id="lang-switch-button">Switch to Hindi</button>
+                <button id="mode-switch-button"><i class="fas fa-moon"></i></button>
+            </div>
+        </div>
+    </nav>
+    
+    <header>
+        <h1>13-August-2025</h1>
+    </header>
+
+    <article>
+        <section id="article-content">
+            <div class="article-header">
+                <h1 id="article-title"></h1>
+                <p class="article-info">Source: The Daily Guardian | Publication Date: 13-August-2025</p>
+                <p class="read-time"></p>
+            </div>
+            
+            <div class="content-section" id="english-content" style="display: none;">
+                <div class="line">
+                    <h1>How Delhi HC's Recent Crocs Verdict Undermines India’s IP Framework - UPSC Notes</h1>
+                </div>
+                <div class="line">
+                    <h2>Context</h2>
+                </div>
+                <div class="line border-left">
+                    <p lang="en">The Delhi High Court dismissed Crocs Inc. USA's appeal regarding the infringement of its registered designs in the case of M/s Crocs Inc. USA vs. M/s Bata India & Ors. (RFA(OS)(COMM) 2/2019 and connected matters, 11 July 2023). The core issue was the relationship between the Designs Act, 2000, and the Trademarks Act, 1999.</p>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>1. Legal Framework</h2>
+                </div>
+                <div class="line border-left">
+                    <h3>Designs Act, 2000</h3>
+                    <ul>
+                        <li><p lang="en">Section 2(d) defines "design" as the shape, configuration, pattern, ornament, or composition of lines/colors applied to an article.</p></li>
+                        <li><p lang="en">Protects originality; does not include "trademark" or "artistic work."</p></li>
+                        <li><p lang="en">Objective: Protection from copying industrial designs for a limited period (10-15 years).</p></li>
+                    </ul>
+                    <h3>Trademarks Act, 1999</h3>
+                    <ul>
+                        <li><p lang="en">Section 2(m) defines "mark" - device, brand, shape of goods, etc.</p></li>
+                        <li><p lang="en">Section 2(zb) defines "trademark" - a distinctive goods/service identifier.</p></li>
+                        <li><p lang="en">Section 9(3) prohibits registering shapes that result from the nature of the goods, are necessary for technical results, or give substantial value to the goods.</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>2. Case Background</h2>
+                </div>
+                <div class="line border-left">
+                    <p lang="en">Crocs alleged that several companies in India infringed upon its distinctive footwear design. It claimed protection under both the Designs Act and the Trademarks Act. The Delhi High Court dismissed the appeal, stating that a registered design cannot be protected as a trademark after its expiry.</p>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>3. Key Judicial Reasoning</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="en"><strong>Carlsberg Case</strong>: Expiry of a registered design → protection ends; it cannot be converted into a trademark for the same shape.</p></li>
+                        <li><p lang="en">Section 2(d) Exclusion: Designs that act as trademarks are excluded from the Designs Act.</p></li>
+                        <li><p lang="en">Section 9(3) TMA: Shape trademarks are restricted to prevent monopolistic misuse.</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>4. Logical and Legal Issues in the Decision</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="en">The interpretation creates uncertainty in IP law by limiting the transition of protection from design to trademark.</p></li>
+                        <li><p lang="en">Could harm companies that invest heavily in unique product shapes.</p></li>
+                        <li><p lang="en">Could discourage innovation.</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>5. International Precedents</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="en">The UK, EU, and US allow the transition from design to trademark if the shape has acquired distinctiveness.</p></li>
+                        <li><p lang="en">Courts abroad focus on consumer perception and secondary meaning.</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>6. Why Crocs is Right</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="en">Crocs' design was registered in 2004, which later acquired secondary meaning (brand identification).</p></li>
+                        <li><p lang="en">Consumers associate the design with Crocs → guaranteeing protection under trademark law.</p></li>
+                        <li><p lang="en">The ruling disregards practical market realities and years of built-up brand value.</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>7. Conclusion and Call for Reform</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="en">The current framework and ruling can discourage innovation.</p></li>
+                        <li><p lang="en">There is a need for legislative clarity to:</p></li>
+                        <li><p lang="en">Harmonize the Designs and Trademarks Acts.</p></li>
+                        <li><p lang="en">Allow shapes with proven secondary meaning to be trademarked.</p></li>
+                        <li><p lang="en">Protect IP holders from exploitation by copycats.</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h1>Voter List Dispute: Will the Opposition Raise Its Voice?</h1>
+                </div>
+                <div class="line">
+                    <h2>Context</h2>
+                </div>
+                <div class="line border-left">
+                    <p lang="en">Issue: Alleged manipulation of voter lists and fraudulent entries. A political debate erupted after Rahul Gandhi’s comments on multiple identity cards and voter list amendments.</p>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>1. Key Concerns</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="en">Alleged violation of the one-person-one-vote principle.</p></li>
+                        <li><p lang="en">Bihar example: 50 lakh voters affected; reports of fake/duplicate identity cards.</p></li>
+                        <li><p lang="en">Opposition alleges disenfranchisement and rigging.</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>2. Political Implications</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="en">The opposition sees an opportunity to connect with the public.</p></li>
+                        <li><p lang="en">Accusation of the NDA government avoiding scrutiny.</p></li>
+                        <li><p lang="en">Parliamentary debate stalled on unrelated issues.</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>3. Government's Stance</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="en">Minister Kiren Rijiju: The opposition should raise voter list questions during official discussions, not through protests.</p></li>
+                        <li><p lang="en">The government denied rigging; emphasized procedural safeguards.</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>4. Importance for UPSC</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="en">Subject: Electoral integrity, democratic accountability, legislative process.</p></li>
+                        <li><p lang="en">Highlights broader concerns on:</p></li>
+                        <li><p lang="en">Electoral reforms.</p></li>
+                        <li><p lang="en">Strengthening the Election Commission.</p></li>
+                        <li><p lang="en">Protecting voter rights.</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>Exam Relevance</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="en"><strong>General Studies Paper 2</strong>: Politics - electoral reforms, judiciary, separation of powers, IPR.</p></li>
+                        <li><p lang="en"><strong>General Studies Paper 3</strong>: Economic Development and Innovation - role of IP in fostering competitiveness.</p></li>
+                        <li><p lang="en"><strong>Essay Paper</strong>: Topics on democracy, rule of law, intellectual property.</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <p class="line" lang="en">Contact us on WhatsApp: <a href="https://wa.me/918168305050" class="whatsapp-link">+91-8168305050</a></p>
+            </div>
+
+            <div class="content-section" id="hindi-content">
+                <div class="line">
+                    <h1>दिल्ली उच्च न्यायालय का हालिया क्रॉक्स निर्णय भारत के बौद्धिक संपदा ढांचे को कैसे कमजोर करता है</h1>
+                </div>
+                <div class="line">
+                    <h2>संदर्भ</h2>
+                </div>
+                <div class="line border-left">
+                    <p lang="hi">दिल्ली उच्च न्यायालय ने मैसर्स क्रॉक्स इंक. यूएसए बनाम मैसर्स बाटा इंडिया एवं अन्य (आरएफए (ओएस) (कॉम) 2/2019 और संबंधित मामले, 11 जुलाई 2023) में पंजीकृत डिज़ाइनों के उल्लंघन के संबंध में क्रॉक्स की अपील को खारिज कर दिया। मुख्य मुद्दा: डिज़ाइन अधिनियम, 2000 और ट्रेड मार्क्स अधिनियम, 1999 के बीच संबंध।</p>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>1. कानूनी ढांचा</h2>
+                </div>
+                <div class="line border-left">
+                    <h3>डिज़ाइन अधिनियम, 2000</h3>
+                    <ul>
+                        <li><p lang="hi">धारा 2(डी) "डिज़ाइन" को परिभाषित करती है - किसी वस्तु पर लागू आकार, विन्यास, पैटर्न, अलंकरण, या रेखाओं/रंगों की संरचना।</p></li>
+                        <li><p lang="hi">मौलिकता की रक्षा करता है; "ट्रेड मार्क" या "कलात्मक कार्य" को शामिल नहीं करता।</p></li>
+                        <li><p lang="hi">उद्देश्य: सीमित अवधि (10-15 वर्ष) के लिए औद्योगिक डिज़ाइनों की नकल से सुरक्षा।</p></li>
+                    </ul>
+                    <h3>ट्रेड मार्क अधिनियम, 1999</h3>
+                    <ul>
+                        <li><p lang="hi">धारा 2(m) "मार्क" - उपकरण, ब्रांड, वस्तु का आकार, आदि को परिभाषित करती है।</p></li>
+                        <li><p lang="hi">धारा 2(zb) "ट्रेड मार्क" - विशिष्ट वस्तु/सेवा पहचानकर्ता को परिभाषित करती है।</p></li>
+                        <li><p lang="hi">धारा 9(3) वस्तु की प्रकृति से उत्पन्न आकृतियों को पंजीकृत करने पर रोक लगाती है, जो तकनीकी परिणामों के लिए आवश्यक हैं, या वस्तु को पर्याप्त मूल्य प्रदान करती हैं।</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>2. मामले की पृष्ठभूमि</h2>
+                </div>
+                <div class="line border-left">
+                    <p lang="hi">क्रॉक्स ने आरोप लगाया कि भारत में कई कंपनियों ने उसके विशिष्ट जूते के डिज़ाइन का उल्लंघन किया है। डिज़ाइन अधिनियम और ट्रेड मार्क अधिनियम दोनों के तहत सुरक्षा का दावा किया। दिल्ली उच्च न्यायालय ने अपील खारिज कर दी; कहा कि पंजीकृत डिज़ाइन को समाप्ति के बाद ट्रेडमार्क के रूप में संरक्षित नहीं किया जा सकता।</p>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>3. प्रमुख न्यायिक तर्क</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="hi"><strong>कार्ल्सबर्ग मामला</strong>: पंजीकृत डिज़ाइन की समाप्ति → सुरक्षा समाप्त; समान आकार के लिए ट्रेडमार्क में परिवर्तित नहीं किया जा सकता।</p></li>
+                        <li><p lang="hi">धारा 2(डी) बहिष्करण: ट्रेडमार्क के रूप में कार्य करने वाले डिज़ाइन डिज़ाइन अधिनियम से बाहर रखे गए हैं।</p></li>
+                        <li><p lang="hi">धारा 9(3) टीएमए: एकाधिकारवादी दुरुपयोग को रोकने के लिए आकार ट्रेडमार्क प्रतिबंधित हैं।</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>4. निर्णय में तार्किक और कानूनी मुद्दे</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="hi">व्याख्या, डिज़ाइन से ट्रेडमार्क तक सुरक्षा संक्रमण को सीमित करके बौद्धिक संपदा कानून में अनिश्चितता पैदा करती है।</p></li>
+                        <li><p lang="hi">अद्वितीय उत्पाद आकारों में भारी निवेश करने वाली कंपनियों को नुकसान पहुँचा सकती है।</p></li>
+                        <li><p lang="hi">नवाचार को हतोत्साहित कर सकती है।</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>5. अंतर्राष्ट्रीय मिसालें</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="hi">यूके, यूरोपीय संघ, अमेरिका डिज़ाइन से ट्रेडमार्क में संक्रमण की अनुमति देते हैं यदि आकार ने विशिष्टता प्राप्त कर ली है।</p></li>
+                        <li><p lang="hi">विदेशों में न्यायालय उपभोक्ता धारणा और द्वितीयक अर्थ पर ध्यान केंद्रित करते हैं।</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>6. क्रॉक्स क्यों सही है</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="hi">क्रॉक्स का डिज़ाइन 2004 में पंजीकृत हुआ था, जिसे बाद में द्वितीयक अर्थ (ब्रांड पहचान) प्राप्त हुआ।</p></li>
+                        <li><p lang="hi">उपभोक्ता डिज़ाइन को क्रॉक्स से जोड़ते हैं → ट्रेडमार्क कानून के तहत सुरक्षा की गारंटी।</p></li>
+                        <li><p lang="hi">इस फैसले में व्यावहारिक बाज़ार की वास्तविकताओं और वर्षों से बनी ब्रांड वैल्यू को नज़रअंदाज़ किया गया।</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>7. निष्कर्ष और सुधार का आह्वान</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="hi">मौजूदा ढाँचा और फैसला नवाचार को हतोत्साहित कर सकता है।</p></li>
+                        <li><p lang="hi">निम्नलिखित के लिए विधायी स्पष्टता की आवश्यकता है:</p></li>
+                        <li><p lang="hi">डिज़ाइन और ट्रेडमार्क अधिनियमों में सामंजस्य स्थापित करना।</p></li>
+                        <li><p lang="hi">सिद्ध द्वितीयक अर्थ वाले आकृतियों को ट्रेडमार्क करने की अनुमति देना।</p></li>
+                        <li><p lang="hi">आईपी धारकों को नकल करने वालों द्वारा शोषण से बचाना।</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h1>मतदाता सूची विवाद: क्या विपक्ष अपनी आवाज़ उठाएगा?</h1>
+                </div>
+                <div class="line">
+                    <h2>संदर्भ</h2>
+                </div>
+                <div class="line border-left">
+                    <p lang="hi">मुद्दा: मतदाता सूचियों और फर्जी प्रविष्टियों में कथित हेरफेर। राहुल गांधी की कई पहचान पत्रों और मतदाता सूची संशोधन पर टिप्पणी के बाद राजनीतिक बहस छिड़ गई।</p>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>1. मुख्य चिंताएँ</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="hi">एक व्यक्ति एक वोट के सिद्धांत का कथित तौर पर उल्लंघन।</p></li>
+                        <li><p lang="hi">बिहार का उदाहरण: 50 लाख मतदाता प्रभावित; फर्जी/डुप्लिकेट पहचान पत्रों की सूचना।</p></li>
+                        <li><p lang="hi">विपक्ष ने मताधिकार से वंचित करने और हेराफेरी का आरोप लगाया।</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>2. राजनीतिक निहितार्थ</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="hi">विपक्ष को जनता से जुड़ने का अवसर दिख रहा है।</p></li>
+                        <li><p lang="hi">एनडीए सरकार पर जांच से बचने का आरोप।</p></li>
+                        <li><p lang="hi">असंबंधित मुद्दों पर संसदीय बहस ठप।</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>3. सरकार का रुख</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="hi">मंत्री किरेन रिजिजू: विपक्ष को आधिकारिक चर्चा के दौरान मतदाता सूची से जुड़े सवाल उठाने चाहिए, विरोध प्रदर्शनों के माध्यम से नहीं।</p></li>
+                        <li><p lang="hi">सरकार ने हेराफेरी से इनकार किया; प्रक्रियात्मक सुरक्षा उपायों पर ज़ोर दिया।</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>4. यूपीएससी के लिए महत्व</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="hi">विषय: चुनावी अखंडता, लोकतांत्रिक जवाबदेही, विधायी प्रक्रिया।</p></li>
+                        <li><p lang="hi">निम्नलिखित पर व्यापक चिंताओं को दर्शाता है:</p></li>
+                        <li><p lang="hi">चुनाव सुधार।</p></li>
+                        <li><p lang="hi">चुनाव आयोग को मजबूत बनाना।</p></li>
+                        <li><p lang="hi">मतदाता अधिकारों की रक्षा।</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>परीक्षा प्रासंगिकता</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="hi"><strong>सामान्य अध्ययन प्रश्नपत्र 2</strong>: राजनीति - चुनाव सुधार, न्यायपालिका, शक्तियों का पृथक्करण, बौद्धिक संपदा अधिकार।</p></li>
+                        <li><p lang="hi"><strong>सामान्य अध्ययन प्रश्नपत्र 3</strong>: आर्थिक विकास और नवाचार - प्रतिस्पर्धात्मकता को बढ़ावा देने में बौद्धिक संपदा की भूमिका।</p></li>
+                        <li><p lang="hi"><strong>निबंध पत्र</strong>: लोकतंत्र, कानून का शासन, बौद्धिक संपदा पर विषय।</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <p class="line" lang="hi">व्हाट्सएप पर हमसे संपर्क करें: <a href="https://wa.me/918168305050" class="whatsapp-link">+91-8168305050</a></p>
+            </div>
+        </section>
+
+        <div class="button-container">
+            <a href="index.html" class="button">Back to Home</a>
+        </div>
+    </article>
+
+    <button class="scroll-to-top" id="scrollToTopBtn" title="Go to top">↑</button>
+
+    <footer>
+        <p>© 2025 Crack Current Affairs (CrackCA). All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const englishTitle = "How Delhi HC's Recent Crocs Verdict Undermines India’s IP Framework - UPSC Notes";
+            const hindiTitle = "दिल्ली उच्च न्यायालय का हालिया क्रॉक्स निर्णय भारत के बौद्धिक संपदा ढांचे को कैसे कमजोर करता है";
+
+            // Set initial language and title
+            const articleTitleElement = document.getElementById('article-title');
+            const englishContent = document.getElementById('english-content');
+            const hindiContent = document.getElementById('hindi-content');
+            const langSwitchButton = document.getElementById('lang-switch-button');
+            
+            let isEnglish = true;
+            articleTitleElement.innerText = englishTitle;
+            englishContent.style.display = 'block';
+            hindiContent.style.display = 'none';
+            document.documentElement.lang = 'en';
+            langSwitchButton.innerText = 'Switch to Hindi';
+            
+            // Function to calculate and display read time
+            function calculateReadTime() {
+                const wordsPerMinute = 200;
+                const wordCount = englishContent.innerText.split(/\s+/).length;
+                const readTimeMinutes = Math.ceil(wordCount / wordsPerMinute);
+                document.querySelector('.read-time').innerText = `Estimated Read Time: ${readTimeMinutes} min`;
+            }
+
+            calculateReadTime();
+
+            // Language switch functionality
+            langSwitchButton.addEventListener('click', () => {
+                if (isEnglish) {
+                    englishContent.style.display = 'none';
+                    hindiContent.style.display = 'block';
+                    articleTitleElement.innerText = hindiTitle;
+                    langSwitchButton.innerText = 'Switch to English';
+                    document.documentElement.lang = 'hi';
+                } else {
+                    englishContent.style.display = 'block';
+                    hindiContent.style.display = 'none';
+                    articleTitleElement.innerText = englishTitle;
+                    langSwitchButton.innerText = 'Switch to Hindi';
+                    document.documentElement.lang = 'en';
+                }
+                isEnglish = !isEnglish;
+            });
+
+            // Dark mode switch functionality
+            const modeSwitchButton = document.getElementById('mode-switch-button');
+            modeSwitchButton.addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+                const icon = modeSwitchButton.querySelector('i');
+                if (document.body.classList.contains('dark-mode')) {
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                } else {
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                }
+            });
+
+            // Scroll to top button functionality
+            const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    scrollToTopBtn.style.display = 'block';
+                } else {
+                    scrollToTopBtn.style.display = 'none';
+                }
+            });
+
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Function to handle markdown-like replacements
+            function replaceMarkdown() {
+                const elements = document.querySelectorAll('#english-content, #hindi-content');
+                elements.forEach(element => {
+                    let htmlContent = element.innerHTML;
+                    
+                    // Replace ** with <strong>
+                    htmlContent = htmlContent.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                    
+                    // Replace * with italic, bold and underline effect
+                    htmlContent = htmlContent.replace(/\*(.*?)\*/g, '<span class="italic-bold-underline">$1</span>');
+                    
+                    element.innerHTML = htmlContent;
+                });
+            }
+
+            replaceMarkdown();
+        });
+    </script>
+</body>
+</html>

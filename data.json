@@ -1,7 +1,87 @@
 [
-   {
+    {
+    "id": "151",
+    "title": "Rejection of Minorities Commission - A Visible Sign of Insecurity",
+    "date": "2025-08-13",
+    "subject": "Polity, Governance, Social Issues, Ethics, Federalism",
+    "source": "The Goan",
+    "summary": "This article analyzes the Goa government's rejection of a State Minorities Commission, despite constitutional provisions and public demand. It examines the government's reasoning, constitutional and legal backgrounds, and highlights contradictions in its messaging. The notes delve into the broader implications for secularism and social trust, the role of such commissions, and a way forward for inclusive governance. It is designed to be directly useful for UPSC CSE aspirants.",
+    "link": "post-151.html",
+    "resource_link": "https://www.thegoan.net/editorial/%EF%BB%BFrejection-of-minorities-commission-a-visible-sign-of-insecurity/134707.html#:~:text=The%20State%20government%27s%20reluctance%20to,display%20elsewhere%20in%20the%20country."
+}, 
+{
+    "id": "150",
+    "title": "How Delhi HC's Recent Crocs Verdict Undermines India's IP Framework",
+    "date": "2025-08-13",
+    "subject": "Law, Judiciary, Governance, IPR, Economics",
+    "source": "The Daily Guardian",
+    "summary": "This article provides a detailed analysis of the Delhi High Court's Crocs verdict, which rejected the company's appeal for design infringement. It explores the legal framework of the Designs Act and Trademarks Act, the key judicial reasoning in the case, and the logical flaws in the decision. The document also highlights international precedents, why the verdict is seen as detrimental to innovation, and its relevance for UPSC CSE aspirants, including a section on a related voter list dispute for a broader understanding of governance issues.",
+    "link": "post-150.html",
+    "resource_link": "150.png"
+},
+    {
+    "id": "149",
+    "title": "Youth Empowerment through Suffrage and Mandatory Military Service",
+    "date": "2025-08-13",
+    "subject": "Governance, Social Issues, National Security, Politics",
+    "source": "The Statesman",
+    "summary": "This article explores two reforms proposed for youth empowerment in India: lowering the voting age to 16 and implementing a mandatory 6-12 month military service. It outlines the benefits, global examples, legal basis in India, and potential challenges for each proposal. The notes are structured to be directly useful for UPSC CSE aspirants, covering key terms and relevance to various general studies papers.",
+    "link": "post-149.html",
+    "resource_link": "https://www.thestatesman.com/opinion/a-theme-for-youth-1503470753.html"
+},
+    {
+    "id": "148",
+    "title": "Why Narratives Matter More Than Maps",
+    "date": "2025-08-13",
+    "subject": "Geopolitics, International Relations, Media",
+    "source": "The Pioneer",
+    "summary": "This article discusses the growing importance of narratives over traditional geopolitical factors like military power and geography. It explores the evolution of geostrategic communication from the traditional era to the digital age, outlines key instruments used today, and highlights challenges like disinformation and the digital divide. The document also emphasizes the criticality of media literacy and provides strategic recommendations for strengthening a nation's communication capacity.",
+    "link": "post-148.html",
+    "resource_link": "https://www.dailypioneer.com/2025/columnists/why-narratives-matter-more-than-maps.html"
+},
+    {
+    "id": "147",
+    "title": "Major Reforms for Doubling Farmers' Income",
+    "date": "2025-08-13",
+    "subject": "Governance, Economy, Agriculture, Schemes",
+    "source": "Press Information Bureau (PIB)",
+    "summary": "This article details the comprehensive, integrated strategy adopted by the Government of India to double farmers' income. It outlines the six key pillars of this strategy and lists various major schemes and programs focused on income support, risk management, market access, diversification, and innovation. The document also highlights the relevance of these reforms for UPSC CSE aspirants.",
+    "link": "post-147.html",
+    "resource_link": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2155531"
+},
+    {
+    "id": "146",
+    "title": "National Policy Framework on Agriculture and Marketing (NPFAM)",
+    "date": "2025-08-13",
+    "subject": "Governance, Economy, Agriculture",
+    "source": "Press Information Bureau (PIB)",
+    "summary": "This article outlines the National Policy Framework on Agriculture and Marketing (NPFAM) and its key initiatives like e-NAM, MSP, and PM-AASHA. It details how these policies aim to strengthen the agricultural marketing ecosystem, empower farmers, and support the 'One Nation, One Market' concept. The document also highlights the relevance of these topics for UPSC CSE aspirants.",
+    "link": "post-146.html",
+    "resource_link": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2155536"
+},
+    {
+    "id": "145",
+    "title": "Cabinet Approves 4 New Semiconductor Manufacturing Units - Odisha, Punjab & Andhra Pradesh",
+    "date": "2025-08-13",
+    "subject": "Governance, Economy, Taxation, Law",
+    "source": "Press Information Bureau (PIB)",
+    "summary": "The Union Cabinet has approved four new semiconductor manufacturing projects under the India Semiconductor Mission (ISM) with an outlay of ₹4,600 crore. This article details the projects, including the first commercial compound semiconductor fab in India, their applications in sectors like defense and EVs, and their significance for India's strategic autonomy and economic growth. It also highlights related government initiatives and the relevance of this development for UPSC CSE aspirants.",
+    "link": "post-145.html",
+    "resource_link": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2155456"
+},
+    {
+    "id": "144",
+    "title": "CPI Inflation Eases to 8-Year Low - July 2025",
+    "date": "2025-08-13",
+    "subject": "Governance, Economy, Taxation, Law",
+    "source": "Financial Express",
+    "summary": "This article discusses the easing of CPI inflation to an 8-year low in July 2025. It highlights the key data points released by MoSPI, major drivers for the decline, and its significance for the economy. The document also explores the potential impact on monetary policy and economic growth, concluding with an analysis of the article's relevance for UPSC CSE aspirants, including key terms.",
+    "link": "post-144.html",
+    "resource_link": "127.png"
+},
+    {
     "id": "143",
-    "title": "Lok Sabha Passes Income Tax (No. 2) Bill, 2025 - With MCQ",
+    "title": "Lok Sabha Passes Income Tax (No. 2) Bill, 2025",
     "date": "2025-08-12",
     "subject": "Governance, Economy, Taxation, Law",
     "source": "The Hindu",
@@ -11,7 +91,7 @@
 },
     {
     "id": "142",
-    "title": "Google Antitrust Case - India - With MCQ",
+    "title": "Google Antitrust Case - India",
     "date": "2025-08-12",
     "subject": "Governance, Economy, Competition Policy, Technology",
     "source": "User Provided Content",
@@ -1429,5 +1509,4 @@
         "link": "post-1.html",
         "resource_link": "https://economictimes.indiatimes.com/news/economy/policy/india-semiconductor-mission-a-strategic-push/articleshow/100000001.cms"
     }
-
 ]

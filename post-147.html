@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIB - 13-Aug-25</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #e9ecef;
+            --hover-color: #f0f0f0;
+            --text-color: #333;
+            --light-text: #666;
+            --dark-background: #1a1a1a;
+            --light-background: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-background);
+        }
+
+        /* Dark mode styling */
+        body.dark-mode {
+            background-color: var(--dark-background);
+            color: #f8f9fa;
+        }
+
+        body.dark-mode header,
+        body.dark-mode footer,
+        body.dark-mode .nav-bar {
+            background-color: #2c2c2c;
+            color: #fff;
+        }
+        
+        body.dark-mode .nav-bar a {
+            color: #fff;
+        }
+
+        body.dark-mode h1,
+        body.dark-mode h2,
+        body.dark-mode h3 {
+            color: #fff;
+        }
+
+        body.dark-mode .article-info {
+            color: #bbb;
+        }
+
+        body.dark-mode .line:hover {
+            background-color: #444;
+        }
+
+        body.dark-mode button,
+        body.dark-mode .scroll-to-top,
+        body.dark-mode .button {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        body.dark-mode a {
+            color: #8ab4f8;
+        }
+
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-bar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-bar a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: bold;
+            padding: 5px;
+            transition: color 0.3s;
+        }
+
+        .nav-bar a:hover {
+            color: #007bff;
+        }
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+        }
+        .nav-buttons button {
+            margin-left: 10px;
+        }
+
+        header {
+            text-align: center;
+            background-color: var(--secondary-color);
+            padding: 20px 0;
+            margin-top: 60px; /* Added margin to push header below the fixed navbar */
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            font-family: 'Merriweather', serif;
+            margin: 0;
+        }
+
+        article {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .article-header h1 {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .article-info {
+            font-style: italic;
+            color: var(--light-text);
+            margin-top: 10px;
+        }
+
+        .read-time {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-top: 5px;
+        }
+
+        .content-section {
+            margin-bottom: 30px;
+        }
+        .content-section.border-left {
+            border-left: 3px solid var(--primary-color);
+            padding-left: 15px;
+        }
+
+        .line {
+            padding: 5px;
+            margin: 5px 0;
+            transition: background-color 0.3s ease;
+        }
+        .line > *:first-child {
+            margin-top: 0;
+        }
+        .line > *:last-child {
+            margin-bottom: 0;
+        }
+
+        .line:hover {
+            background-color: var(--hover-color);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Merriweather', serif;
+            color: var(--primary-color);
+        }
+        
+        h1 { font-size: 2.2em; }
+        h2 { font-size: 1.8em; }
+        h3 { font-size: 1.4em; }
+
+        strong {
+            font-weight: bold;
+        }
+
+        .italic-bold-underline {
+            font-style: italic;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        .whatsapp-link {
+            color: #25D366;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--secondary-color);
+            font-weight: bold;
+        }
+        body.dark-mode tr:nth-child(even) {
+            background-color: #2c2c2c;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+
+        .scroll-to-top {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: opacity 0.3s;
+        }
+
+        .scroll-to-top:hover {
+            opacity: 0.8;
+        }
+
+        .button-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .button, #lang-switch-button, #mode-switch-button {
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #fff;
+            background-color: var(--primary-color);
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .button:hover, #lang-switch-button:hover, #mode-switch-button:hover {
+            background-color: #007bff;
+        }
+
+        /* Mobile-first responsive design */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                align-items: center;
+                padding: 10px;
+            }
+            .nav-bar ul {
+                flex-direction: column;
+                text-align: center;
+                width: 100%;
+                gap: 10px;
+            }
+            .nav-bar .nav-buttons {
+                margin-top: 10px;
+            }
+            header {
+                margin-top: 150px; /* Adjust for stacked nav on mobile */
+            }
+
+            article {
+                padding: 0 10px; /* Ensures padding on smaller screens */
+                margin-top: 20px; 
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            h1 { font-size: 2em; }
+            h2 { font-size: 1.5em; }
+            h3 { font-size: 1.2em; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="donation.html">Donation</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <button id="lang-switch-button">Switch to Hindi</button>
+                <button id="mode-switch-button"><i class="fas fa-moon"></i></button>
+            </div>
+        </div>
+    </nav>
+    
+    <header>
+        <h1>13-August-2025</h1>
+    </header>
+
+    <article>
+        <section id="article-content">
+            <div class="article-header">
+                <h1 id="article-title">Major Reforms for Doubling Farmers' Income</h1>
+                <p class="article-info">Source: Government of India | Publication Date: 13-August-2025</p>
+                <p class="read-time"></p>
+            </div>
+            
+            <div class="content-section" id="english-content">
+                <div class="line">
+                    <h1>Major Reforms for Doubling Farmers' Income</h1>
+                </div>
+                <div class="line">
+                    <h2>Context</h2>
+                </div>
+                <div class="line border-left">
+                    <p lang="en">The Government of India has adopted an integrated strategy to double farmers' income and ensure comprehensive agricultural growth. Agriculture is a State subject; the Centre supports through policy, budget, and schemes. The budget allocation for DA&FW has significantly increased from ₹21,933.50 crore (2013-14) to ₹1,27,290.16 crore (2025-26 BE).</p>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>Integrated Strategy - Six Key Pillars</h2>
+                </div>
+                <div class="line border-left">
+                    <ol>
+                        <li><p lang="en">Increase Crop Production & Productivity: Maximize yield.</p></li>
+                        <li><p lang="en">Reduce Cost of Production: Make farming more affordable.</p></li>
+                        <li><p lang="en">Ensure Remunerative Returns: Fair prices for produce.</p></li>
+                        <li><p lang="en">Promote Agricultural Diversification: Broaden income sources.</p></li>
+                        <li><p lang="en">Develop Post-Harvest Value Addition: Enhance product worth.</p></li>
+                        <li><p lang="en">Adapt to Climate Change: Promote sustainable agriculture, mitigate losses.</p></li>
+                    </ol>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>Major Schemes & Programmes</h2>
+                </div>
+                <div class="line border-left">
+                    <h3>Income Support & Social Security</h3>
+                    <ul>
+                        <li><p lang="en"><strong>PM-KISAN</strong>: Direct income support.</p></li>
+                        <li><p lang="en"><strong>PM-KMY</strong>: Pension for small & marginal farmers.</p></li>
+                    </ul>
+                    <h3>Risk Management</h3>
+                    <ul>
+                        <li><p lang="en"><strong>PMFBY/RWBCIS</strong>: Crop & weather-based insurance.</p></li>
+                        <li><p lang="en"><strong>Modified Interest Subvention Scheme (MISS)</strong>: Concessional crop loans.</p></li>
+                    </ul>
+                    <h3>Infrastructure & Market Access</h3>
+                    <ul>
+                        <li><p lang="en"><strong>Agriculture Infrastructure Fund (AIF)</strong>: Post-harvest management.</p></li>
+                        <li><p lang="en"><strong>Formation & Promotion of 10,000 FPOs</strong>: Strengthen collective marketing.</p></li>
+                        <li><p lang="en"><strong>Integrated Scheme for Agriculture Marketing (ISAM)</strong>.</p></li>
+                    </ul>
+                    <h3>Diversification & Allied Activities</h3>
+                    <ul>
+                        <li><p lang="en"><strong>National Beekeeping & Honey Mission (NBHM)</strong>.</p></li>
+                        <li><p lang="en"><strong>Namo Drone Didi</strong>: Drone-based agri-services.</p></li>
+                        <li><p lang="en"><strong>National Mission on Natural Farming (NMNF)</strong>.</p></li>
+                        <li><p lang="en"><strong>National Bamboo Mission</strong>.</p></li>
+                        <li><p lang="en"><strong>Agroforestry</strong>.</p></li>
+                        <li><p lang="en"><strong>Crop Diversification Programme (CDP)</strong>.</p></li>
+                    </ul>
+                    <h3>Price Support</h3>
+                    <ul>
+                        <li><p lang="en"><strong>PM-AASHA</strong>: MSP-based procurement & price deficiency payments.</p></li>
+                    </ul>
+                    <h3>Innovation & Start-ups</h3>
+                    <ul>
+                        <li><p lang="en"><strong>AgriSURE</strong>: Fund for start-ups & rural enterprises.</p></li>
+                        <li><p lang="en"><strong>Digital Agriculture Mission</strong>.</p></li>
+                    </ul>
+                    <h3>Water & Irrigation</h3>
+                    <ul>
+                        <li><p lang="en"><strong>Per Drop More Crop (PDMC)</strong>: Micro-irrigation.</p></li>
+                    </ul>
+                    <h3>Mechanisation & Technology</h3>
+                    <ul>
+                        <li><p lang="en"><strong>SMAM</strong>: Farm mechanisation.</p></li>
+                        <li><p lang="en"><strong>Sub-Mission on Agriculture Extension (SMAE)</strong>.</p></li>
+                    </ul>
+                    <h3>Sustainability & Soil Health</h3>
+                    <ul>
+                        <li><p lang="en"><strong>PKVY</strong>: Organic farming.</p></li>
+                        <li><p lang="en"><strong>Soil Health & Fertility (SH&F)</strong>.</p></li>
+                        <li><p lang="en"><strong>Rainfed Area Development (RAD)</strong>.</p></li>
+                    </ul>
+                    <h3>Seeds & Planting</h3>
+                    <ul>
+                        <li><p lang="en"><strong>SMSP</strong>: Quality seeds & planting material.</p></li>
+                    </ul>
+                    <h3>Food Security & Nutrition</h3>
+                    <ul>
+                        <li><p lang="en"><strong>NFSNM</strong>: Enhance food & nutrition security.</p></li>
+                    </ul>
+                    <h3>Horticulture</h3>
+                    <ul>
+                        <li><p lang="en"><strong>MIDH</strong>: Integrated horticulture development.</p></li>
+                    </ul>
+                    <h3>Oilseeds & Edible Oils</h3>
+                    <ul>
+                        <li><p lang="en"><strong>NMEO - Oil Palm</strong>.</p></li>
+                        <li><p lang="en"><strong>NMEO - Oilseeds</strong>.</p></li>
+                    </ul>
+                    <h3>Organic Farming in NE</h3>
+                    <ul>
+                        <li><p lang="en"><strong>MOVCDNER</strong>: Organic value chain development.</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>Significance</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="en">Aligns with Doubling Farmers' Income by 2022-23 target (Dalwai Committee vision).</p></li>
+                        <li><p lang="en">Integrates production, marketing, risk management, and diversification.</p></li>
+                        <li><p lang="en">Addresses climate resilience & sustainability.</p></li>
+                        <li><p lang="en">Encourages technology adoption & entrepreneurship in rural areas.</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>UPSC Relevance</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="en"><strong>Prelims</strong>:</p>
+                            <ul>
+                                <li>Scheme names and purposes.</li>
+                                <li>Budgetary trends in agriculture.</li>
+                            </ul>
+                        </li>
+                        <li><p lang="en"><strong>Mains (GS-3)</strong>:</p>
+                            <ul>
+                                <li>Strategies for increasing income.</li>
+                                <li>The role of diversification, technology, and value addition.</li>
+                                <li>Climate change adaptation in agriculture.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>Key Terms</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="en"><strong>FPO</strong>: Farmer Producer Organization.</p></li>
+                        <li><p lang="en"><strong>Post-Harvest Value Addition</strong>: Processing, packaging, and storage to increase product value.</p></li>
+                        <li><p lang="en"><strong>Climate-Resilient Agriculture</strong>: Practices reducing vulnerability to weather extremes.</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <p class="line" lang="en">Contact us on WhatsApp: <a href="https://wa.me/918168305050" class="whatsapp-link">+91-8168305050</a></p>
+            </div>
+
+            <div class="content-section" id="hindi-content" style="display: none;">
+                <div class="line">
+                    <h1>किसानों की आय दोगुनी करने के लिए प्रमुख सुधार</h1>
+                </div>
+                <div class="line">
+                    <h2>संदर्भ</h2>
+                </div>
+                <div class="line border-left">
+                    <p lang="hi">भारत सरकार ने किसानों की आय दोगुनी करने और कृषि क्षेत्र का समग्र विकास सुनिश्चित करने के लिए एक एकीकृत रणनीति अपनाई है। कृषि एक राज्य का विषय होने के कारण, केंद्र नीतिगत उपायों, बजटीय आवंटन और योजनाओं के माध्यम से राज्यों की सहायता करता है। महंगाई भत्ता और किसान कल्याण के लिए बजट आवंटन ₹21,933.50 करोड़ (बजट अनुमान 2013-14) से बढ़ाकर ₹1,27,290.16 करोड़ (बजट अनुमान 2025-26) कर दिया गया है।</p>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>एकीकृत रणनीति - छह प्रमुख स्तंभ</h2>
+                </div>
+                <div class="line border-left">
+                    <ol>
+                        <li><p lang="hi">फसल उत्पादन और उत्पादकता में वृद्धि।</p></li>
+                        <li><p lang="hi">उत्पादन लागत में कमी।</p></li>
+                        <li><p lang="hi">लाभकारी प्रतिफल सुनिश्चित करना।</p></li>
+                        <li><p lang="hi">कृषि विविधीकरण को बढ़ावा देना।</p></li>
+                        <li><p lang="hi">फसलोत्तर मूल्य संवर्धन विकसित करना।</p></li>
+                        <li><p lang="hi">जलवायु परिवर्तन के अनुकूल होना - टिकाऊ कृषि को बढ़ावा देना और फसल हानि को कम करना।</p></li>
+                    </ol>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>प्रमुख योजनाएँ और कार्यक्रम</h2>
+                </div>
+                <div class="line border-left">
+                    <h3>आय सहायता और सामाजिक सुरक्षा</h3>
+                    <ul>
+                        <li><p lang="hi"><strong>पीएम-किसान</strong> - किसानों को प्रत्यक्ष आय सहायता।</p></li>
+                        <li><p lang="hi"><strong>पीएम-केएमवाई</strong> - छोटे और सीमांत किसानों के लिए पेंशन योजना।</p></li>
+                    </ul>
+                    <h3>जोखिम प्रबंधन</h3>
+                    <ul>
+                        <li><p lang="hi"><strong>पीएमएफबीवाई / आरडब्ल्यूबीसीआईएस</strong> - फसल बीमा और मौसम आधारित बीमा।</p></li>
+                        <li><p lang="hi"><strong>संशोधित ब्याज अनुदान योजना (MISS)</strong> – रियायती फसल ऋण।</p></li>
+                    </ul>
+                    <h3>बुनियादी ढाँचा और बाज़ार पहुँच</h3>
+                    <ul>
+                        <li><p lang="hi"><strong>कृषि बुनियादी ढाँचा कोष (AIF)</strong> – कटाई के बाद प्रबंधन और बुनियादी ढाँचा।</p></li>
+                        <li><p lang="hi"><strong>10,000 FPO का गठन और संवर्धन</strong> – सामूहिक विपणन को मज़बूत करना।</p></li>
+                        <li><p lang="hi"><strong>कृषि विपणन के लिए एकीकृत योजना (ISAM)</strong>।</p></li>
+                    </ul>
+                    <h3>विविधीकरण और संबद्ध गतिविधियाँ</h3>
+                    <ul>
+                        <li><p lang="hi"><strong>राष्ट्रीय मधुमक्खी पालन और शहद मिशन (NBHM)</strong>।</p></li>
+                        <li><p lang="hi"><strong>नमो ड्रोन दीदी</strong> – ड्रोन-आधारित कृषि सेवाएँ।</p></li>
+                        <li><p lang="hi"><strong>राष्ट्रीय प्राकृतिक खेती मिशन (NMNF)</strong>।</p></li>
+                        <li><p lang="hi"><strong>राष्ट्रीय बाँस मिशन</strong>।</p></li>
+                        <li><p lang="hi"><strong>कृषि वानिकी</strong>।</p></li>
+                        <li><p lang="hi"><strong>फसल विविधीकरण कार्यक्रम (CDP)</strong>।</p></li>
+                    </ul>
+                    <h3>मूल्य समर्थन</h3>
+                    <ul>
+                        <li><p lang="hi"><strong>पीएम-आशा</strong> – एमएसपी-आधारित खरीद और मूल्य-अभाव भुगतान।</p></li>
+                    </ul>
+                    <h3>नवाचार और स्टार्ट-अप</h3>
+                    <ul>
+                        <li><p lang="hi"><strong>एग्रीश्योर</strong> – स्टार्ट-अप और ग्रामीण उद्यमों के लिए निधि।</p></li>
+                        <li><p lang="hi"><strong>डिजिटल कृषि मिशन</strong>।</p></li>
+                    </ul>
+                    <h3>जल और सिंचाई</h3>
+                    <ul>
+                        <li><p lang="hi"><strong>प्रति बूंद अधिक फसल (पीडीएमसी)</strong> – सूक्ष्म सिंचाई।</p></li>
+                    </ul>
+                    <h3>मशीनीकरण और प्रौद्योगिकी</h3>
+                    <ul>
+                        <li><p lang="hi"><strong>एसएमएएम</strong> – कृषि मशीनीकरण।</p></li>
+                        <li><p lang="hi"><strong>कृषि विस्तार उप-मिशन (एसएमएई)</strong>।</p></li>
+                    </ul>
+                    <h3>स्थायित्व और मृदा स्वास्थ्य</h3>
+                    <ul>
+                        <li><p lang="hi"><strong>पीकेवीवाई</strong> – जैविक खेती।</p></li>
+                        <li><p lang="hi"><strong>मृदा स्वास्थ्य और उर्वरता (एसएच & एफ)</strong>।</p></li>
+                        <li><p lang="hi"><strong>वर्षा आधारित क्षेत्र विकास (आरएडी)</strong>।</p></li>
+                    </ul>
+                    <h3>बीज एवं रोपण</h3>
+                    <ul>
+                        <li><p lang="hi"><strong>एसएमएसपी</strong> – गुणवत्तापूर्ण बीज एवं रोपण सामग्री।</p></li>
+                    </ul>
+                    <h3>खाद्य सुरक्षा एवं पोषण</h3>
+                    <ul>
+                        <li><p lang="hi"><strong>एनएफएसएनएम</strong> – खाद्य एवं पोषण सुरक्षा में वृद्धि।</p></li>
+                    </ul>
+                    <h3>बागवानी</h3>
+                    <ul>
+                        <li><p lang="hi"><strong>एमआईडीएच</strong> – एकीकृत बागवानी विकास।</p></li>
+                    </ul>
+                    <h3>तिलहन एवं खाद्य तेल</h3>
+                    <ul>
+                        <li><p lang="hi"><strong>एनएमईओ</strong> – पाम ऑयल।</p></li>
+                        <li><p lang="hi"><strong>एनएमईओ</strong> – तिलहन।</p></li>
+                    </ul>
+                    <h3>पूर्वोत्तर में जैविक खेती</h3>
+                    <ul>
+                        <li><p lang="hi"><strong>एमओवीसीडीएनईआर</strong> – जैविक मूल्य श्रृंखला विकास।</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>महत्व</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="hi">2022-23 तक किसानों की आय दोगुनी करने के लक्ष्य (दलवई समिति के दृष्टिकोण) के अनुरूप।</p></li>
+                        <li><p lang="hi">उत्पादन, विपणन, जोखिम प्रबंधन और विविधीकरण को एकीकृत करता है।</p></li>
+                        <li><p lang="hi">जलवायु लचीलापन और स्थिरता पर ध्यान केंद्रित करता है।</p></li>
+                        <li><p lang="hi">ग्रामीण क्षेत्रों में प्रौद्योगिकी अपनाने और उद्यमिता को प्रोत्साहित करता है।</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>यूपीएससी प्रासंगिकता</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="hi"><strong>प्रारंभिक परीक्षा</strong>:</p>
+                            <ul>
+                                <li>योजनाओं के नाम और उद्देश्य।</li>
+                                <li>कृषि में बजटीय रुझान।</li>
+                            </ul>
+                        </li>
+                        <li><p lang="hi"><strong>मुख्य परीक्षा (GS-3)</strong>:</p>
+                            <ul>
+                                <li>किसानों की आय बढ़ाने की रणनीतियाँ।</li>
+                                <li>विविधीकरण, प्रौद्योगिकी और मूल्य संवर्धन की भूमिका।</li>
+                                <li>कृषि में जलवायु परिवर्तन अनुकूलन।</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>मुख्य शब्द</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="hi"><strong>एफपीओ</strong> - किसान उत्पादक संगठन।</p></li>
+                        <li><p lang="hi"><strong>कटाई के बाद मूल्य संवर्धन</strong> – उत्पाद का मूल्य बढ़ाने के लिए प्रसंस्करण, पैकेजिंग, भंडारण।</p></li>
+                        <li><p lang="hi"><strong>जलवायु-अनुकूल कृषि</strong> – मौसम की चरम स्थितियों के प्रति संवेदनशीलता को कम करने वाली प्रथाएँ।</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <p class="line" lang="hi">व्हाट्सएप पर हमसे संपर्क करें: <a href="https://wa.me/918168305050" class="whatsapp-link">+91-8168305050</a></p>
+            </div>
+        </section>
+
+        <div class="button-container">
+            <a href="index.html" class="button">Back to Home</a>
+        </div>
+    </article>
+
+    <button class="scroll-to-top" id="scrollToTopBtn" title="Go to top">↑</button>
+
+    <footer>
+        <p>© 2025 Crack Current Affairs (CrackCA). All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Function to calculate and display read time
+            function calculateReadTime() {
+                const englishContent = document.getElementById('english-content').innerText;
+                const wordsPerMinute = 200;
+                const wordCount = englishContent.split(/\s+/).length;
+                const readTimeMinutes = Math.ceil(wordCount / wordsPerMinute);
+                document.querySelector('.read-time').innerText = `Estimated Read Time: ${readTimeMinutes} min`;
+            }
+
+            calculateReadTime();
+
+            // Language switch functionality
+            const langSwitchButton = document.getElementById('lang-switch-button');
+            const englishContent = document.getElementById('english-content');
+            const hindiContent = document.getElementById('hindi-content');
+            let isEnglish = true;
+
+            langSwitchButton.addEventListener('click', () => {
+                if (isEnglish) {
+                    englishContent.style.display = 'none';
+                    hindiContent.style.display = 'block';
+                    langSwitchButton.innerText = 'Switch to English';
+                    document.documentElement.lang = 'hi';
+                } else {
+                    englishContent.style.display = 'block';
+                    hindiContent.style.display = 'none';
+                    langSwitchButton.innerText = 'Switch to Hindi';
+                    document.documentElement.lang = 'en';
+                }
+                isEnglish = !isEnglish;
+            });
+
+            // Dark mode switch functionality
+            const modeSwitchButton = document.getElementById('mode-switch-button');
+            modeSwitchButton.addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+                const icon = modeSwitchButton.querySelector('i');
+                if (document.body.classList.contains('dark-mode')) {
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                } else {
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                }
+            });
+
+            // Scroll to top button functionality
+            const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    scrollToTopBtn.style.display = 'block';
+                } else {
+                    scrollToTopBtn.style.display = 'none';
+                }
+            });
+
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Function to handle markdown-like replacements
+            function replaceMarkdown() {
+                const elements = document.querySelectorAll('#english-content, #hindi-content');
+                elements.forEach(element => {
+                    let htmlContent = element.innerHTML;
+                    
+                    // Replace ##, ###, #### with h1, h2, h3
+                    htmlContent = htmlContent.replace(/# #\s(.*?)<br>/g, '<h1>$1</h1>');
+                    htmlContent = htmlContent.replace(/###\s(.*?)<br>/g, '<h2>$1</h2>');
+                    htmlContent = htmlContent.replace(/####\s(.*?)<br>/g, '<h3>$1</h3>');
+
+                    // Replace ** with <strong>
+                    htmlContent = htmlContent.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                    
+                    // Replace * with italic, bold and underline effect
+                    htmlContent = htmlContent.replace(/\*(.*?)\*/g, '<span class="italic-bold-underline">$1</span>');
+                    
+                    element.innerHTML = htmlContent;
+                });
+            }
+
+            replaceMarkdown();
+        });
+    </script>
+</body>
+</html>

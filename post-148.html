@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FE - 13-Aug-25</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #e9ecef;
+            --hover-color: #f0f0f0;
+            --text-color: #333;
+            --light-text: #666;
+            --dark-background: #1a1a1a;
+            --light-background: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-background);
+        }
+
+        /* Dark mode styling */
+        body.dark-mode {
+            background-color: var(--dark-background);
+            color: #f8f9fa;
+        }
+
+        body.dark-mode header,
+        body.dark-mode footer,
+        body.dark-mode .nav-bar {
+            background-color: #2c2c2c;
+            color: #fff;
+        }
+        
+        body.dark-mode .nav-bar a {
+            color: #fff;
+        }
+
+        body.dark-mode h1,
+        body.dark-mode h2,
+        body.dark-mode h3 {
+            color: #fff;
+        }
+
+        body.dark-mode .article-info {
+            color: #bbb;
+        }
+
+        body.dark-mode .line:hover {
+            background-color: #444;
+        }
+
+        body.dark-mode button,
+        body.dark-mode .scroll-to-top,
+        body.dark-mode .button {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        body.dark-mode a {
+            color: #8ab4f8;
+        }
+
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-bar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-bar a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: bold;
+            padding: 5px;
+            transition: color 0.3s;
+        }
+
+        .nav-bar a:hover {
+            color: #007bff;
+        }
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+        }
+        .nav-buttons button {
+            margin-left: 10px;
+        }
+
+        header {
+            text-align: center;
+            background-color: var(--secondary-color);
+            padding: 20px 0;
+            margin-top: 60px; /* Added margin to push header below the fixed navbar */
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            font-family: 'Merriweather', serif;
+            margin: 0;
+        }
+
+        article {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .article-header h1 {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .article-info {
+            font-style: italic;
+            color: var(--light-text);
+            margin-top: 10px;
+        }
+
+        .read-time {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-top: 5px;
+        }
+
+        .content-section {
+            margin-bottom: 30px;
+        }
+        .content-section.border-left {
+            border-left: 3px solid var(--primary-color);
+            padding-left: 15px;
+        }
+
+        .line {
+            padding: 5px;
+            margin: 5px 0;
+            transition: background-color 0.3s ease;
+        }
+        .line > *:first-child {
+            margin-top: 0;
+        }
+        .line > *:last-child {
+            margin-bottom: 0;
+        }
+
+        .line:hover {
+            background-color: var(--hover-color);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Merriweather', serif;
+            color: var(--primary-color);
+        }
+        
+        h1 { font-size: 2.2em; }
+        h2 { font-size: 1.8em; }
+        h3 { font-size: 1.4em; }
+
+        strong {
+            font-weight: bold;
+        }
+
+        .italic-bold-underline {
+            font-style: italic;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        .whatsapp-link {
+            color: #25D366;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--secondary-color);
+            font-weight: bold;
+        }
+        body.dark-mode tr:nth-child(even) {
+            background-color: #2c2c2c;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+
+        .scroll-to-top {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: opacity 0.3s;
+        }
+
+        .scroll-to-top:hover {
+            opacity: 0.8;
+        }
+
+        .button-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .button, #lang-switch-button, #mode-switch-button {
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #fff;
+            background-color: var(--primary-color);
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .button:hover, #lang-switch-button:hover, #mode-switch-button:hover {
+            background-color: #007bff;
+        }
+
+        /* Mobile-first responsive design */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                align-items: center;
+                padding: 10px;
+            }
+            .nav-bar ul {
+                flex-direction: column;
+                text-align: center;
+                width: 100%;
+                gap: 10px;
+            }
+            .nav-bar .nav-buttons {
+                margin-top: 10px;
+            }
+            header {
+                margin-top: 150px; /* Adjust for stacked nav on mobile */
+            }
+
+            article {
+                padding: 0 10px; /* Ensures padding on smaller screens */
+                margin-top: 20px; 
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            h1 { font-size: 2em; }
+            h2 { font-size: 1.5em; }
+            h3 { font-size: 1.2em; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="donation.html">Donation</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <button id="lang-switch-button">Switch to Hindi</button>
+                <button id="mode-switch-button"><i class="fas fa-moon"></i></button>
+            </div>
+        </div>
+    </nav>
+    
+    <header>
+        <h1>13-August-2025</h1>
+    </header>
+
+    <article>
+        <section id="article-content">
+            <div class="article-header">
+                <h1 id="article-title">Why Narratives Matter More Than Maps - UPSC Notes</h1>
+                <p class="article-info">Source: Crack Current Affairs | Publication Date: 13-August-2025</p>
+                <p class="read-time"></p>
+            </div>
+            
+            <div class="content-section" id="english-content">
+                <div class="line">
+                    <h1>Why Narratives Matter More Than Maps - UPSC Notes</h1>
+                </div>
+                <div class="line">
+                    <h2>Context</h2>
+                </div>
+                <div class="line border-left">
+                    <p lang="en">In modern geopolitics, narratives, or the ability to shape perceptions, are as crucial as military power or economic size. This is referred to as **Geostrategic Communication**: influencing the global mindspace to fulfill national interests.</p>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>Evolution of Geostrategic Communication</h2>
+                </div>
+                <div class="line border-left">
+                    <h3>1. Traditional Era</h3>
+                    <ul>
+                        <li><p lang="en">Controlled by state media, newspapers, and radio broadcasts.</p></li>
+                        <li><p lang="en">Examples: WWII propaganda, Cold War radio diplomacy (Voice of America, BBC World Service).</p></li>
+                        <li><p lang="en">Advantage: A single narrative with wide reach, even without literacy or the internet.</p></li>
+                    </ul>
+                    <h3>2. Editorial & Academic Influence</h3>
+                    <ul>
+                        <li><p lang="en">Opinion pieces, think-tank reports, policy magazines.</p></li>
+                        <li><p lang="en">Slow but lasting influence; shapes the decision-making of elites.</p></li>
+                    </ul>
+                    <h3>3. Digital Era</h3>
+                    <ul>
+                        <li><p lang="en">Social media, podcasts, YouTube, embassy-operated Twitter handles.</p></li>
+                        <li><p lang="en">Real-time influence; combines old-school credibility with modern immediacy.</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>Key Instruments Today</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="en">**Podcasts**: Depth and the art of storytelling; requires media literacy.</p></li>
+                        <li><p lang="en">**Social Media Blitz**: Timed bursts to dominate narratives before rivals can respond.</p></li>
+                        <li><p lang="en">**Digital Diplomacy**: Cultural outreach, leader-citizen engagement, viral content.</p></li>
+                        <li><p lang="en">**Soft Power Tools**:</p>
+                            <ul>
+                                <li>Cultural exports.</li>
+                                <li>Academic exchanges.</li>
+                                <li>Development partnerships.</li>
+                                <li>Climate commitments framed as part of the national story.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>Challenges</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="en">**Disinformation & Fake News**:</p>
+                            <ul>
+                                <li>Spreads faster than fact-checks.</li>
+                                <li>Damages reputation, alters alliances.</li>
+                                <li>Hard to reverse once it goes viral ("ink in water" effect).</li>
+                            </ul>
+                        </li>
+                        <li><p lang="en">**Digital Divide**: Global South struggles with unequal internet access and digital literacy.</p></li>
+                        <li><p lang="en">**Youth Vulnerability**: The most active online demographic, but susceptible to manipulation and echo chambers.</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>Why Media Literacy is Critical</h2>
+                </div>
+                <div class="line border-left">
+                    <p lang="en">Citizens must ask:</p>
+                    <ol>
+                        <li><p lang="en">Who is saying this?</p></li>
+                        <li><p lang="en">Why?</p></li>
+                        <li><p lang="en">What's missing?</p></li>
+                        <li><p lang="en">What evidence supports this?</p></li>
+                    </ol>
+                    <p lang="en">Encourages critical thinking and resilience against manipulation.</p>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>Strategic Recommendations</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="en">Build national communication capacity: Train diplomats, bureaucrats, and youth in impact-based communication.</p></li>
+                        <li><p lang="en">Integrate media literacy into education.</p></li>
+                        <li><p lang="en">Strengthen fact-based, credible platforms.</p></li>
+                        <li><p lang="en">Support local storytellers to shape global perceptions.</p></li>
+                        <li><p lang="en">Blend credibility and agility in messaging.</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>UPSC Relevance</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="en"><strong>GS Paper 2</strong>: International Relations - Soft Power, Public Diplomacy.</p></li>
+                        <li><p lang="en"><strong>GS Paper 3</strong>: Cybersecurity, Information Warfare.</p></li>
+                        <li><p lang="en"><strong>Essay Paper</strong>: "The power of narratives in shaping global politics."</p></li>
+                        <li><p lang="en"><strong>Ethics (GS Paper 4)</strong>: Truth vs. manipulation in public communication.</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>Key Takeaway</h2>
+                </div>
+                <div class="line border-left">
+                    <p lang="en">In the 21st century, power lies in framing reality - controlling narratives can influence alliances, shape public opinion, and redefine global standing. Tomorrow's battles may be fought not on borders but in browsers.</p>
+                </div>
+                <hr>
+                <p class="line" lang="en">Contact us on WhatsApp: <a href="https://wa.me/918168305050" class="whatsapp-link">+91-8168305050</a></p>
+            </div>
+
+            <div class="content-section" id="hindi-content" style="display: none;">
+                <div class="line">
+                    <h1>आख्यान मानचित्रों से ज़्यादा महत्वपूर्ण क्यों हैं - यूपीएससी नोट्स</h1>
+                </div>
+                <div class="line">
+                    <h2>संदर्भ</h2>
+                </div>
+                <div class="line border-left">
+                    <p lang="hi">आधुनिक भू-राजनीति में, आख्यान - धारणाओं को आकार देने की क्षमता - सैन्य शक्ति या आर्थिक आकार जितनी ही महत्वपूर्ण है। इसे **भू-रणनीतिक संचार** कहा जाता है: राष्ट्रीय हितों की पूर्ति के लिए वैश्विक मानसिकता को प्रभावित करना।</p>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>भू-रणनीतिक संचार का विकास</h2>
+                </div>
+                <div class="line border-left">
+                    <h3>1. पारंपरिक युग</h3>
+                    <ul>
+                        <li><p lang="hi">राज्य मीडिया, समाचार पत्रों और रेडियो प्रसारणों द्वारा नियंत्रित।</p></li>
+                        <li><p lang="hi">उदाहरण: द्वितीय विश्व युद्ध का प्रचार, शीत युद्ध रेडियो कूटनीति (वॉयस ऑफ अमेरिका, बीबीसी वर्ल्ड सर्विस)।</p></li>
+                        <li><p lang="hi">लाभ: एकल आख्यान, साक्षरता या इंटरनेट के बिना व्यापक पहुँच।</p></li>
+                    </ul>
+                    <h3>2. संपादकीय और शैक्षणिक प्रभाव</h3>
+                    <ul>
+                        <li><p lang="hi">राय लेख, थिंक-टैंक रिपोर्ट, नीति पत्रिकाएँ।</p></li>
+                        <li><p lang="hi">धीमा लेकिन स्थायी प्रभाव; अभिजात वर्ग के निर्णय लेने को आकार देता है।</p></li>
+                    </ul>
+                    <h3>3. डिजिटल युग</h3>
+                    <ul>
+                        <li><p lang="hi">सोशल मीडिया, पॉडकास्ट, यूट्यूब, दूतावास द्वारा संचालित ट्विटर हैंडल।</p></li>
+                        <li><p lang="hi">वास्तविक समय का प्रभाव; पुराने ज़माने की विश्वसनीयता को नए ज़माने की तात्कालिकता के साथ जोड़ता है।</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>आज के प्रमुख उपकरण</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="hi">**पॉडकास्ट**: गहराई और कहानी कहने की कला; मीडिया साक्षरता की आवश्यकता है।</p></li>
+                        <li><p lang="hi">**सोशल मीडिया ब्लिट्ज**: प्रतिद्वंद्वियों के जवाब देने से पहले ही कहानियों पर हावी होने के लिए समयबद्ध विस्फोट।</p></li>
+                        <li><p lang="hi">**डिजिटल कूटनीति**: सांस्कृतिक पहुँच, नेता-नागरिक जुड़ाव, वायरल सामग्री।</p></li>
+                        <li><p lang="hi">**सॉफ्ट पावर टूल्स**:</p>
+                            <ul>
+                                <li>सांस्कृतिक निर्यात।</li>
+                                <li>शैक्षणिक आदान-प्रदान।</li>
+                                <li>विकास साझेदारियाँ।</li>
+                                <li>राष्ट्रीय कहानी के हिस्से के रूप में तैयार की गई जलवायु प्रतिबद्धताएँ।</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>चुनौतियाँ</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="hi">**गलत सूचना और फर्जी खबरें**:</p>
+                            <ul>
+                                <li>तथ्य-जांच से भी तेज़ी से फैलती हैं।</li>
+                                <li>प्रतिष्ठा को नुकसान पहुँचाता है, गठबंधनों को बदलता है।</li>
+                                <li>एक बार वायरल हो जाने पर, उलटना मुश्किल ("पानी में स्याही" प्रभाव)।</li>
+                            </ul>
+                        </li>
+                        <li><p lang="hi">**डिजिटल विभाजन**: वैश्विक दक्षिण असमान इंटरनेट पहुँच और डिजिटल साक्षरता से जूझ रहा है।</p></li>
+                        <li><p lang="hi">**युवाओं की भेद्यता**: सबसे सक्रिय ऑनलाइन जनसांख्यिकी, लेकिन हेरफेर और प्रतिध्वनि कक्षों के प्रति संवेदनशील।</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>मीडिया साक्षरता क्यों महत्वपूर्ण है</h2>
+                </div>
+                <div class="line border-left">
+                    <p lang="hi">नागरिकों को पूछना चाहिए:</p>
+                    <ol>
+                        <li><p lang="hi">यह कौन कह रहा है?</p></li>
+                        <li><p lang="hi">क्यों?</p></li>
+                        <li><p lang="hi">क्या कमी है?</p></li>
+                        <li><p lang="hi">कौन से प्रमाण इसका समर्थन करते हैं?</p></li>
+                    </ol>
+                    <p lang="hi">आलोचनात्मक सोच और हेरफेर के विरुद्ध लचीलेपन को प्रोत्साहित करता है।</p>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>रणनीतिक सुझाव</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="hi">राष्ट्रीय संचार क्षमता का निर्माण करें: राजनयिकों, नौकरशाहों और युवाओं को प्रभाव-आधारित संचार में प्रशिक्षित करें।</p></li>
+                        <li><p lang="hi">शिक्षा में मीडिया साक्षरता को एकीकृत करें।</p></li>
+                        <li><p lang="hi">तथ्य-आधारित, विश्वसनीय प्लेटफ़ॉर्म को मज़बूत बनाएँ।</p></li>
+                        <li><p lang="hi">वैश्विक धारणाओं को आकार देने के लिए स्थानीय कहानीकारों का समर्थन करें।</p></li>
+                        <li><p lang="hi">संदेश में विश्वसनीयता और चपलता का मिश्रण करें।</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>यूपीएससी प्रासंगिकता</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="hi"><strong>सामान्य अध्ययन पेपर 2</strong>: अंतर्राष्ट्रीय संबंध - सॉफ्ट पावर, सार्वजनिक कूटनीति।</p></li>
+                        <li><p lang="hi"><strong>सामान्य अध्ययन पेपर 3</strong>: साइबर सुरक्षा, सूचना युद्ध।</p></li>
+                        <li><p lang="hi"><strong>निबंध पत्र</strong>: "वैश्विक राजनीति को आकार देने में आख्यानों की शक्ति।"</p></li>
+                        <li><p lang="hi"><strong>नैतिकता (सामान्य अध्ययन पेपर 4)</strong>: सार्वजनिक संचार में सत्य बनाम हेरफेर।</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>मुख्य बातें</h2>
+                </div>
+                <div class="line border-left">
+                    <p lang="hi">21वीं सदी में, शक्ति वास्तविकता को गढ़ने में निहित है - आख्यानों को नियंत्रित करने से गठबंधन प्रभावित हो सकते हैं, जनमत को आकार मिल सकता है और वैश्विक स्थिति को पुनर्परिभाषित किया जा सकता है। कल की लड़ाइयाँ सीमाओं पर नहीं, बल्कि ब्राउज़रों में लड़ी जा सकती हैं।</p>
+                </div>
+                <hr>
+                <p class="line" lang="hi">व्हाट्सएप पर हमसे संपर्क करें: <a href="https://wa.me/918168305050" class="whatsapp-link">+91-8168305050</a></p>
+            </div>
+        </section>
+
+        <div class="button-container">
+            <a href="index.html" class="button">Back to Home</a>
+        </div>
+    </article>
+
+    <button class="scroll-to-top" id="scrollToTopBtn" title="Go to top">↑</button>
+
+    <footer>
+        <p>© 2025 Crack Current Affairs (CrackCA). All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Function to calculate and display read time
+            function calculateReadTime() {
+                const englishContent = document.getElementById('english-content').innerText;
+                const wordsPerMinute = 200;
+                const wordCount = englishContent.split(/\s+/).length;
+                const readTimeMinutes = Math.ceil(wordCount / wordsPerMinute);
+                document.querySelector('.read-time').innerText = `Estimated Read Time: ${readTimeMinutes} min`;
+            }
+
+            calculateReadTime();
+
+            // Language switch functionality
+            const langSwitchButton = document.getElementById('lang-switch-button');
+            const englishContent = document.getElementById('english-content');
+            const hindiContent = document.getElementById('hindi-content');
+            let isEnglish = true;
+
+            langSwitchButton.addEventListener('click', () => {
+                if (isEnglish) {
+                    englishContent.style.display = 'none';
+                    hindiContent.style.display = 'block';
+                    langSwitchButton.innerText = 'Switch to English';
+                    document.documentElement.lang = 'hi';
+                } else {
+                    englishContent.style.display = 'block';
+                    hindiContent.style.display = 'none';
+                    langSwitchButton.innerText = 'Switch to Hindi';
+                    document.documentElement.lang = 'en';
+                }
+                isEnglish = !isEnglish;
+            });
+
+            // Dark mode switch functionality
+            const modeSwitchButton = document.getElementById('mode-switch-button');
+            modeSwitchButton.addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+                const icon = modeSwitchButton.querySelector('i');
+                if (document.body.classList.contains('dark-mode')) {
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                } else {
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                }
+            });
+
+            // Scroll to top button functionality
+            const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    scrollToTopBtn.style.display = 'block';
+                } else {
+                    scrollToTopBtn.style.display = 'none';
+                }
+            });
+
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Function to handle markdown-like replacements
+            function replaceMarkdown() {
+                const elements = document.querySelectorAll('#english-content, #hindi-content');
+                elements.forEach(element => {
+                    let htmlContent = element.innerHTML;
+                    
+                    // Replace ** with <strong>
+                    htmlContent = htmlContent.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                    
+                    // Replace * with italic, bold and underline effect
+                    htmlContent = htmlContent.replace(/\*(.*?)\*/g, '<span class="italic-bold-underline">$1</span>');
+                    
+                    element.innerHTML = htmlContent;
+                });
+            }
+
+            replaceMarkdown();
+        });
+    </script>
+</body>
+</html>

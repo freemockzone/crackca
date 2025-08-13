@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Statesman - 13-Aug-25</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #e9ecef;
+            --hover-color: #f0f0f0;
+            --text-color: #333;
+            --light-text: #666;
+            --dark-background: #1a1a1a;
+            --light-background: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-background);
+        }
+
+        /* Dark mode styling */
+        body.dark-mode {
+            background-color: var(--dark-background);
+            color: #f8f9fa;
+        }
+
+        body.dark-mode header,
+        body.dark-mode footer,
+        body.dark-mode .nav-bar {
+            background-color: #2c2c2c;
+            color: #fff;
+        }
+        
+        body.dark-mode .nav-bar a {
+            color: #fff;
+        }
+
+        body.dark-mode h1,
+        body.dark-mode h2,
+        body.dark-mode h3 {
+            color: #fff;
+        }
+
+        body.dark-mode .article-info {
+            color: #bbb;
+        }
+
+        body.dark-mode .line:hover {
+            background-color: #444;
+        }
+
+        body.dark-mode button,
+        body.dark-mode .scroll-to-top,
+        body.dark-mode .button {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        body.dark-mode a {
+            color: #8ab4f8;
+        }
+
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-bar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-bar a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: bold;
+            padding: 5px;
+            transition: color 0.3s;
+        }
+
+        .nav-bar a:hover {
+            color: #007bff;
+        }
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+        }
+        .nav-buttons button {
+            margin-left: 10px;
+        }
+
+        header {
+            text-align: center;
+            background-color: var(--secondary-color);
+            padding: 20px 0;
+            margin-top: 60px; /* Added margin to push header below the fixed navbar */
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            font-family: 'Merriweather', serif;
+            margin: 0;
+        }
+
+        article {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .article-header h1 {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .article-info {
+            font-style: italic;
+            color: var(--light-text);
+            margin-top: 10px;
+        }
+
+        .read-time {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-top: 5px;
+        }
+
+        .content-section {
+            margin-bottom: 30px;
+        }
+        .content-section.border-left {
+            border-left: 3px solid var(--primary-color);
+            padding-left: 15px;
+        }
+
+        .line {
+            padding: 5px;
+            margin: 5px 0;
+            transition: background-color 0.3s ease;
+        }
+        .line > *:first-child {
+            margin-top: 0;
+        }
+        .line > *:last-child {
+            margin-bottom: 0;
+        }
+
+        .line:hover {
+            background-color: var(--hover-color);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Merriweather', serif;
+            color: var(--primary-color);
+        }
+        
+        h1 { font-size: 2.2em; }
+        h2 { font-size: 1.8em; }
+        h3 { font-size: 1.4em; }
+
+        strong {
+            font-weight: bold;
+        }
+
+        .italic-bold-underline {
+            font-style: italic;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        .whatsapp-link {
+            color: #25D366;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--secondary-color);
+            font-weight: bold;
+        }
+        body.dark-mode tr:nth-child(even) {
+            background-color: #2c2c2c;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+
+        .scroll-to-top {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: opacity 0.3s;
+        }
+
+        .scroll-to-top:hover {
+            opacity: 0.8;
+        }
+
+        .button-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .button, #lang-switch-button, #mode-switch-button {
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #fff;
+            background-color: var(--primary-color);
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .button:hover, #lang-switch-button:hover, #mode-switch-button:hover {
+            background-color: #007bff;
+        }
+
+        /* Mobile-first responsive design */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                align-items: center;
+                padding: 10px;
+            }
+            .nav-bar ul {
+                flex-direction: column;
+                text-align: center;
+                width: 100%;
+                gap: 10px;
+            }
+            .nav-bar .nav-buttons {
+                margin-top: 10px;
+            }
+            header {
+                margin-top: 150px; /* Adjust for stacked nav on mobile */
+            }
+
+            article {
+                padding: 0 10px; /* Ensures padding on smaller screens */
+                margin-top: 20px; 
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            h1 { font-size: 2em; }
+            h2 { font-size: 1.5em; }
+            h3 { font-size: 1.2em; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="donation.html">Donation</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <button id="lang-switch-button">Switch to Hindi</button>
+                <button id="mode-switch-button"><i class="fas fa-moon"></i></button>
+            </div>
+        </div>
+    </nav>
+    
+    <header>
+        <h1>13-August-2025</h1>
+    </header>
+
+    <article>
+        <section id="article-content">
+            <div class="article-header">
+                <h1 id="article-title">Youth Empowerment through Suffrage and Mandatory Military Service - UPSC Notes</h1>
+                <p class="article-info">Source:  The Statesman | Publication Date: 13-August-2025</p>
+                <p class="read-time"></p>
+            </div>
+            
+            <div class="content-section" id="english-content">
+                <div class="line">
+                    <h1>Youth Empowerment through Suffrage and Mandatory Military Service - UPSC Notes</h1>
+                </div>
+                <div class="line">
+                    <h2>Context</h2>
+                </div>
+                <div class="line border-left">
+                    <p lang="en">Prime Minister Narendra Modi has invited suggestions for the 79th Independence Day speech (in 2025). The author proposes two reforms for youth empowerment: 1) lowering the voting age to 16, and 2) implementing mandatory military service.</p>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>Proposal 1: Lowering the Voting Age to 16</h2>
+                </div>
+                <div class="line border-left">
+                    <h3>Background</h3>
+                    <p lang="en">Voting age was lowered from 21 to 18 via the Constitution (61st Amendment) Act, 1988, citing youth literacy and awareness. Today’s 16-17-year-olds are more aware due to the internet and social media.</p>
+                    <h3>Benefits</h3>
+                    <ul>
+                        <li><p lang="en">Early Political Participation: First vote in a school/family environment leads to lifelong voting habits.</p></li>
+                        <li><p lang="en">Youth Voice: On key issues like climate change, education, employment, and technology.</p></li>
+                        <li><p lang="en">Global Precedents: Austria, Brazil, Argentina are already at 16; the UK is moving towards it.</p></li>
+                        <li><p lang="en">Demographic Dividend: ~5 crore youth in 2025 → significant political representation.</p></li>
+                        <li><p lang="en">Political Impact: Parties take youth issues more seriously.</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>Proposal 2: Mandatory Military Service (6-12 months for all under 25)</h2>
+                </div>
+                <div class="line border-left">
+                    <h3>Objectives</h3>
+                    <ul>
+                        <li><p lang="en">Instill discipline, patriotism, and resilience.</p></li>
+                        <li><p lang="en">Physical and mental empowerment of girls → combating gender bias.</p></li>
+                        <li><p lang="en">National Integration across regions and socio-economic backgrounds.</p></li>
+                        <li><p lang="en">Create an emergency-ready citizen pool for crises.</p></li>
+                    </ul>
+                    <h3>Global Models</h3>
+                    <ul>
+                        <li><p lang="en"><strong>Israel</strong>: Male - 32 months, Female - 24 months; critical for national security.</p></li>
+                        <li><p lang="en">Gender-Neutral: Norway, Sweden.</p></li>
+                        <li><p lang="en">Male-only conscription: Brazil, Finland, Greece, Russia, Switzerland, Taiwan, South Korea.</p></li>
+                    </ul>
+                    <h3>Legal Provisions in India</h3>
+                    <ul>
+                        <li><p lang="en">Article 23(2): Permits compulsory service for public purposes.</p></li>
+                    </ul>
+                    <h3>Potential Benefits</h3>
+                    <ul>
+                        <li><p lang="en">Defense readiness + social cohesion.</p></li>
+                        <li><p lang="en">Teamwork, leadership, and problem-solving skills.</p></li>
+                        <li><p lang="en">Reduction in crimes against women and children through value addition.</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>Strategic Relevance for India</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="en">Strengthens democratic innovation and youth empowerment.</p></li>
+                        <li><p lang="en">Supports the vision of Amrit Kaal (by 2047) and a 'Viksit Bharat' (Developed India).</p></li>
+                        <li><p lang="en">Aligns with Swami Vivekananda’s ideal of empowered, disciplined youth.</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>Potential Challenges</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="en">Implementation Logistics: Training infrastructure, funding.</p></li>
+                        <li><p lang="en">Public Resistance: Perception of compulsion.</p></li>
+                        <li><p lang="en">Balancing between education/career and service period.</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>UPSC Keywords</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="en">Youth political socialization</p></li>
+                        <li><p lang="en">Mandatory military service</p></li>
+                        <li><p lang="en">Democratic innovation</p></li>
+                        <li><p lang="en">Article 23(2) - Compulsory Service</p></li>
+                        <li><p lang="en">National integration</p></li>
+                        <li><p lang="en">Amrit Kaal vision</p></li>
+                    </ul>
+                </div>
+                <hr>
+                
+                <hr>
+                <p class="line" lang="en">Contact us on WhatsApp: <a href="https://wa.me/918168305050" class="whatsapp-link">+91-8168305050</a></p>
+            </div>
+
+            <div class="content-section" id="hindi-content" style="display: none;">
+                <div class="line">
+                    <h1>विषय: मताधिकार और अनिवार्य सैन्य सेवा के माध्यम से युवा सशक्तिकरण</h1>
+                </div>
+                <div class="line">
+                    <h2>संदर्भ</h2>
+                </div>
+                <div class="line border-left">
+                    <p lang="hi">प्रधानमंत्री नरेंद्र मोदी ने स्वतंत्रता दिवस भाषण (2025 में 79वाँ) के लिए नागरिकों से सुझाव आमंत्रित किए हैं। लेखक युवाओं को सशक्त बनाने के लिए दो सुधारों का प्रस्ताव रखते हैं: 1. मतदान की आयु घटाकर 16 वर्ष करना। 2. अनिवार्य सैन्य सेवा लागू करना।</p>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>प्रस्ताव 1: मतदान की आयु घटाकर 16 वर्ष करना</h2>
+                </div>
+                <div class="line border-left">
+                    <h3>पृष्ठभूमि</h3>
+                    <p lang="hi">संविधान (61वें संशोधन), 1988 के माध्यम से युवा साक्षरता और जागरूकता का हवाला देते हुए मतदान की आयु 21 वर्ष से घटाकर 18 वर्ष कर दी गई। आज के 16-17 वर्ष के बच्चे इंटरनेट और सोशल मीडिया के कारण अधिक जागरूक हैं।</p>
+                    <h3>लाभ</h3>
+                    <ul>
+                        <li><p lang="hi">प्रारंभिक राजनीतिक भागीदारी: स्कूल/पारिवारिक माहौल में पहला वोट → आजीवन मतदान की आदत।</p></li>
+                        <li><p lang="hi">युवा आवाज़: जलवायु परिवर्तन, शिक्षा, रोज़गार, तकनीक जैसे प्रमुख मुद्दों पर।</p></li>
+                        <li><p lang="hi">वैश्विक मिसालें: ऑस्ट्रिया, ब्राज़ील, अर्जेंटीना पहले से ही 16 वर्ष की आयु के हैं; ब्रिटेन इस ओर बढ़ रहा है।</p></li>
+                        <li><p lang="hi">जनसांख्यिकीय क्षमता: 2025 में लगभग 5 करोड़ युवा → महत्वपूर्ण राजनीतिक प्रतिनिधित्व।</p></li>
+                        <li><p lang="hi">राजनीतिक प्रभाव: पार्टियाँ युवाओं के मुद्दों को अधिक गंभीरता से लेती हैं।</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>प्रस्ताव 2: अनिवार्य सैन्य सेवा (25 वर्ष से कम आयु के सभी लोगों के लिए 6-12 महीने)</h2>
+                </div>
+                <div class="line border-left">
+                    <h3>उद्देश्य</h3>
+                    <ul>
+                        <li><p lang="hi">अनुशासन, देशभक्ति, लचीलापन पैदा करना।</p></li>
+                        <li><p lang="hi">लड़कियों का शारीरिक और मानसिक सशक्तिकरण → लैंगिक भेदभाव का मुकाबला करना।</p></li>
+                        <li><p lang="hi">विभिन्न क्षेत्रों और सामाजिक-आर्थिक पृष्ठभूमियों में राष्ट्रीय एकीकरण।</p></li>
+                        <li><p lang="hi">संकटों के लिए आपातकाल के लिए तैयार नागरिक समूह बनाएँ।</p></li>
+                    </ul>
+                    <h3>वैश्विक मॉडल</h3>
+                    <ul>
+                        <li><p lang="hi"><strong>इज़राइल</strong>: पुरुष - 32 महीने, महिला - 24 महीने; राष्ट्रीय सुरक्षा के लिए महत्वपूर्ण।</p></li>
+                        <li><p lang="hi">लिंग-तटस्थ: नॉर्वे, स्वीडन।</p></li>
+                        <li><p lang="hi">केवल पुरुषों के लिए अनिवार्य सैन्य सेवा: ब्राज़ील, फ़िनलैंड, ग्रीस, रूस, स्विट्ज़रलैंड, ताइवान, दक्षिण कोरिया।</p></li>
+                    </ul>
+                    <h3>भारत में कानूनी प्रावधान</h3>
+                    <ul>
+                        <li><p lang="hi">अनुच्छेद 23(2): सार्वजनिक उद्देश्यों के लिए अनिवार्य सेवा की अनुमति देता है।</p></li>
+                    </ul>
+                    <h3>संभावित लाभ</h3>
+                    <ul>
+                        <li><p lang="hi">रक्षा तैयारी + सामाजिक सामंजस्य।</p></li>
+                        <li><p lang="hi">टीम वर्क, नेतृत्व, समस्या-समाधान कौशल।</p></li>
+                        <li><p lang="hi">मूल्य संवर्धन के माध्यम से महिलाओं और बच्चों के विरुद्ध अपराधों में कमी।</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>भारत के लिए रणनीतिक प्रासंगिकता</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="hi">लोकतांत्रिक नवाचार और युवा सशक्तिकरण को मज़बूत करता है।</p></li>
+                        <li><p lang="hi">अमृत काल (2047 तक) और विकसित भारत के विजन का समर्थन करता है।</p></li>
+                        <li><p lang="hi">स्वामी विवेकानंद के सशक्त, अनुशासित युवाओं के आदर्श के अनुरूप।</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>संभावित चुनौतियाँ</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="hi">कार्यान्वयन लॉजिस्टिक्स: प्रशिक्षण अवसंरचना, वित्तपोषण।</p></li>
+                        <li><p lang="hi">जन प्रतिरोध: जबरदस्ती की धारणा।</p></li>
+                        <li><p lang="hi">शिक्षा/करियर और सेवाकाल के बीच संतुलन।</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>यूपीएससी कीवर्ड</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="hi">युवा राजनीतिक समाजीकरण</p></li>
+                        <li><p lang="hi">अनिवार्य सैन्य सेवा</p></li>
+                        <li><p lang="hi">लोकतांत्रिक नवाचार</p></li>
+                        <li><p lang="hi">अनुच्छेद 23(2) - अनिवार्य सेवा</p></li>
+                        <li><p lang="hi">राष्ट्रीय एकता</p></li>
+                        <li><p lang="hi">अमृत काल विजन</p></li>
+                    </ul>
+                </div>
+                <hr>
+                
+                <p class="line" lang="hi">व्हाट्सएप पर हमसे संपर्क करें: <a href="https://wa.me/918168305050" class="whatsapp-link">+91-8168305050</a></p>
+            </div>
+        </section>
+
+        <div class="button-container">
+            <a href="index.html" class="button">Back to Home</a>
+        </div>
+    </article>
+
+    <button class="scroll-to-top" id="scrollToTopBtn" title="Go to top">↑</button>
+
+    <footer>
+        <p>© 2025 Crack Current Affairs (CrackCA). All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Function to calculate and display read time
+            function calculateReadTime() {
+                const englishContent = document.getElementById('english-content').innerText;
+                const wordsPerMinute = 200;
+                const wordCount = englishContent.split(/\s+/).length;
+                const readTimeMinutes = Math.ceil(wordCount / wordsPerMinute);
+                document.querySelector('.read-time').innerText = `Estimated Read Time: ${readTimeMinutes} min`;
+            }
+
+            calculateReadTime();
+
+            // Language switch functionality
+            const langSwitchButton = document.getElementById('lang-switch-button');
+            const englishContent = document.getElementById('english-content');
+            const hindiContent = document.getElementById('hindi-content');
+            let isEnglish = true;
+
+            langSwitchButton.addEventListener('click', () => {
+                if (isEnglish) {
+                    englishContent.style.display = 'none';
+                    hindiContent.style.display = 'block';
+                    langSwitchButton.innerText = 'Switch to English';
+                    document.documentElement.lang = 'hi';
+                } else {
+                    englishContent.style.display = 'block';
+                    hindiContent.style.display = 'none';
+                    langSwitchButton.innerText = 'Switch to Hindi';
+                    document.documentElement.lang = 'en';
+                }
+                isEnglish = !isEnglish;
+            });
+
+            // Dark mode switch functionality
+            const modeSwitchButton = document.getElementById('mode-switch-button');
+            modeSwitchButton.addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+                const icon = modeSwitchButton.querySelector('i');
+                if (document.body.classList.contains('dark-mode')) {
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                } else {
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                }
+            });
+
+            // Scroll to top button functionality
+            const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    scrollToTopBtn.style.display = 'block';
+                } else {
+                    scrollToTopBtn.style.display = 'none';
+                }
+            });
+
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Function to handle markdown-like replacements
+            function replaceMarkdown() {
+                const elements = document.querySelectorAll('#english-content, #hindi-content');
+                elements.forEach(element => {
+                    let htmlContent = element.innerHTML;
+                    
+                    // Replace ** with <strong>
+                    htmlContent = htmlContent.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                    
+                    // Replace * with italic, bold and underline effect
+                    htmlContent = htmlContent.replace(/\*(.*?)\*/g, '<span class="italic-bold-underline">$1</span>');
+                    
+                    element.innerHTML = htmlContent;
+                });
+            }
+
+            replaceMarkdown();
+        });
+    </script>
+</body>
+</html>

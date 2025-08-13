@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FE - 13-Aug-25</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #e9ecef;
+            --hover-color: #f0f0f0;
+            --text-color: #333;
+            --light-text: #666;
+            --dark-background: #1a1a1a;
+            --light-background: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-background);
+        }
+
+        /* Dark mode styling */
+        body.dark-mode {
+            background-color: var(--dark-background);
+            color: #f8f9fa;
+        }
+
+        body.dark-mode header,
+        body.dark-mode footer,
+        body.dark-mode .nav-bar {
+            background-color: #2c2c2c;
+            color: #fff;
+        }
+        
+        body.dark-mode .nav-bar a {
+            color: #fff;
+        }
+
+        body.dark-mode h1,
+        body.dark-mode h2,
+        body.dark-mode h3 {
+            color: #fff;
+        }
+
+        body.dark-mode .article-info {
+            color: #bbb;
+        }
+
+        body.dark-mode .line:hover {
+            background-color: #444;
+        }
+
+        body.dark-mode button,
+        body.dark-mode .scroll-to-top,
+        body.dark-mode .button {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        body.dark-mode a {
+            color: #8ab4f8;
+        }
+
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-bar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-bar a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: bold;
+            padding: 5px;
+            transition: color 0.3s;
+        }
+
+        .nav-bar a:hover {
+            color: #007bff;
+        }
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+        }
+        .nav-buttons button {
+            margin-left: 10px;
+        }
+
+        header {
+            text-align: center;
+            background-color: var(--secondary-color);
+            padding: 20px 0;
+            margin-top: 60px;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            font-family: 'Merriweather', serif;
+            margin: 0;
+        }
+
+        article {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .article-header h1 {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .article-info {
+            font-style: italic;
+            color: var(--light-text);
+            margin-top: 10px;
+        }
+
+        .read-time {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-top: 5px;
+        }
+
+        .content-section {
+            margin-bottom: 30px;
+        }
+        .content-section.border-left {
+            border-left: 3px solid var(--primary-color);
+            padding-left: 15px;
+        }
+
+        .line {
+            padding: 5px;
+            margin: 5px 0;
+            transition: background-color 0.3s ease;
+        }
+        .line > *:first-child {
+            margin-top: 0;
+        }
+        .line > *:last-child {
+            margin-bottom: 0;
+        }
+
+        .line:hover {
+            background-color: var(--hover-color);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Merriweather', serif;
+            color: var(--primary-color);
+        }
+        
+        h1 { font-size: 2.2em; }
+        h2 { font-size: 1.8em; }
+        h3 { font-size: 1.4em; }
+
+        strong {
+            font-weight: bold;
+        }
+
+        .italic-bold-underline {
+            font-style: italic;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        .whatsapp-link {
+            color: #25D366;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--secondary-color);
+            font-weight: bold;
+        }
+        body.dark-mode tr:nth-child(even) {
+            background-color: #2c2c2c;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+
+        .scroll-to-top {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: opacity 0.3s;
+        }
+
+        .scroll-to-top:hover {
+            opacity: 0.8;
+        }
+
+        .button-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .button, #lang-switch-button, #mode-switch-button {
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #fff;
+            background-color: var(--primary-color);
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .button:hover, #lang-switch-button:hover, #mode-switch-button:hover {
+            background-color: #007bff;
+        }
+
+        /* Mobile-first responsive design */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                align-items: center;
+                padding: 10px;
+            }
+            .nav-bar ul {
+                flex-direction: column;
+                text-align: center;
+                width: 100%;
+                gap: 10px;
+            }
+            .nav-bar .nav-buttons {
+                margin-top: 10px;
+            }
+            header {
+                margin-top: 150px;
+            }
+
+            article {
+                padding: 0 10px;
+                margin-top: 20px; 
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            h1 { font-size: 2em; }
+            h2 { font-size: 1.5em; }
+            h3 { font-size: 1.2em; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="donation.html">Donation</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <button id="lang-switch-button">Switch to Hindi</button>
+                <button id="mode-switch-button"><i class="fas fa-moon"></i></button>
+            </div>
+        </div>
+    </nav>
+    
+    <header>
+        <h1>13-August-2025</h1>
+    </header>
+
+    <article>
+        <section id="article-content">
+            <div class="article-header">
+                <h1 id="article-title"></h1>
+                <p class="article-info">Source: The Goan | Publication Date: 13-August-2025</p>
+                <p class="read-time"></p>
+            </div>
+            
+            <div class="content-section" id="english-content" style="display: none;">
+                <div class="line">
+                    <h1>**Rejection of Minorities Commission – A Visible Sign of Insecurity**</h1>
+                </div>
+                <div class="line">
+                    <h2>### **Context**</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="en">Goa government has **rejected calls** for setting up a **State Commission for Minorities** despite demands from civil society.</p></li>
+                        <li><p lang="en">Transport Minister Mauvin Godinho claimed existing welfare schemes suffice and no discrimination exists.</p></li>
+                        <li><p lang="en">Raises questions about the State’s commitment to protecting minority rights.</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>### **1. Constitutional & Legal Background**</h2>
+                </div>
+                <div class="line border-left">
+                    <h3>**Constitutional provisions**:</h3>
+                    <ul>
+                        <li><p lang="en">Articles **15 & 16**: Prohibit discrimination on grounds of religion, race, caste, sex, or place of birth.</p></li>
+                        <li><p lang="en">Article **29 & 30**: Cultural and educational rights of minorities.</p></li>
+                        <li><p lang="en">**National Commission for Minorities Act, 1992**: Allows States to form State Commissions for Minorities.</p></li>
+                    </ul>
+                    <h3>**Such Commissions**:</h3>
+                    <ul>
+                        <li><p lang="en">Monitor safeguards for minorities.</p></li>
+                        <li><p lang="en">Investigate complaints of rights deprivation.</p></li>
+                        <li><p lang="en">Recommend policy measures to governments.</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>### **2. Criticism of Government’s Stand**</h2>
+                </div>
+                <div class="line border-left">
+                    <h3>**Minister’s reasoning** (no discrimination, welfare schemes in place) is inadequate:</h3>
+                    <ul>
+                        <li><p lang="en">Welfare schemes often fail due to poor outreach, lack of awareness, and implementation gaps.</p></li>
+                        <li><p lang="en">Commission’s role extends beyond welfare — includes **representation, grievance redressal, rights protection**.</p></li>
+                    </ul>
+                    <h3>**Absence of complaints** ≠ absence of discrimination:</h3>
+                    <ul>
+                        <li><p lang="en">Could reflect fear of reprisal or lack of accessible grievance mechanisms.</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>### **3. Contradictions in Government Messaging**</h2>
+                </div>
+                <div class="line border-left">
+                    <h3>**CM’s assurance in Assembly**: Incidents like unlawful arrest of Catholic nuns in Chhattisgarh won’t happen in Goa.</h3>
+                    <h3>**However**:</h3>
+                    <ul>
+                        <li><p lang="en">Earlier call for **anti-conversion law** despite no credible evidence of forced conversions or “Love Jihad”.</p></li>
+                        <li><p lang="en">Anti-conversion laws in other states have been **weaponised** — false arrests, harassment, suppression of minority rights.</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>### **4. Broader Concerns**</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="en">Goa known for communal harmony — but not a reason to deny protective institutions.</p></li>
+                    </ul>
+                    <h3>**Underlying tensions exist**:</h3>
+                    <ul>
+                        <li><p lang="en">Peaceful protests in Chicalim, Panaji, Old Goa reflect **genuine fears**.</p></li>
+                        <li><p lang="en">Government labels these as political opposition — dismissive approach.</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>### **5. Role of State Minorities Commissions**</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="en">Safeguard **constitutional and legal rights** of minorities.</p></li>
+                        <li><p lang="en">Monitor & evaluate **policy implementation**.</p></li>
+                        <li><p lang="en">Investigate and act on **complaints of rights violations**.</p></li>
+                        <li><p lang="en">Build **trust and inclusivity**.</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>### **6. Implications of Rejection**</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="en">Risks **mistrust**, **social fragmentation**.</p></li>
+                        <li><p lang="en">Signals **insecurity** or political appeasement.</p></li>
+                        <li><p lang="en">Missed opportunity to strengthen **secular ethos** and inclusive governance.</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>### **7. Way Forward**</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="en">Adopt **inclusive governance**: Establish State Minorities Commission in Goa.</p></li>
+                        <li><p lang="en">Avoid **politicising minority rights**.</p></li>
+                        <li><p lang="en">Strengthen grievance redressal mechanisms.</p></li>
+                        <li><p lang="en">Ensure **legal safeguards** are functional, accessible, and proactive.</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>**UPSC Relevance:**</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="en">**GS Paper 2**: Polity & Governance – Rights of Minorities, Role of Constitutional Bodies, Federalism.</p></li>
+                        <li><p lang="en">**GS Paper 4**: Ethics – Secularism, Inclusivity, Public Trust.</p></li>
+                        <li><p lang="en">**Essay**: "Secularism and Inclusivity in Governance", "Balancing Welfare and Representation for Minorities".</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <p class="line" lang="en">Contact us on WhatsApp: <a href="https://wa.me/918168305050" class="whatsapp-link">+91-8168305050</a></p>
+            </div>
+
+            <div class="content-section" id="hindi-content">
+                <div class="line">
+                    <h1>**अल्पसंख्यक आयोग की अस्वीकृति - असुरक्षा का एक स्पष्ट संकेत**</h1>
+                </div>
+                <div class="line">
+                    <h2>### **संदर्भ**</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="hi">गोवा सरकार ने नागरिक समाज की माँगों के बावजूद **राज्य अल्पसंख्यक आयोग** स्थापित करने की माँग को **अस्वीकार** कर दिया है।</p></li>
+                        <li><p lang="hi">परिवहन मंत्री मौविन गोडिन्हो ने दावा किया कि मौजूदा कल्याणकारी योजनाएँ पर्याप्त हैं और कोई भेदभाव नहीं है।</p></li>
+                        <li><p lang="hi">अल्पसंख्यक अधिकारों की रक्षा के लिए राज्य की प्रतिबद्धता पर सवाल उठाता है।</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>### **1. संवैधानिक और कानूनी पृष्ठभूमि**</h2>
+                </div>
+                <div class="line border-left">
+                    <h3>**संवैधानिक प्रावधान**:</h3>
+                    <ul>
+                        <li><p lang="hi">अनुच्छेद **15 और 16**: धर्म, नस्ल, जाति, लिंग या जन्म स्थान के आधार पर भेदभाव का निषेध।</p></li>
+                        <li><p lang="hi">अनुच्छेद **29 और 30**: अल्पसंख्यकों के सांस्कृतिक और शैक्षिक अधिकार।</p></li>
+                        <li><p lang="hi">**राष्ट्रीय अल्पसंख्यक आयोग अधिनियम, 1992**: राज्यों को अल्पसंख्यकों के लिए राज्य आयोग बनाने की अनुमति देता है।</p></li>
+                    </ul>
+                    <h3>**ऐसे आयोग**:</h3>
+                    <ul>
+                        <li><p lang="hi">अल्पसंख्यकों के लिए सुरक्षा उपायों की निगरानी करते हैं।</p></li>
+                        <li><p lang="hi">अधिकारों के हनन की शिकायतों की जाँच करना।</p></li>
+                        <li><p lang="hi">सरकारों को नीतिगत उपायों की सिफ़ारिश करना।</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>### **2. सरकार के रुख की आलोचना**</h2>
+                </div>
+                <div class="line border-left">
+                    <h3>**मंत्री का तर्क** (कोई भेदभाव नहीं, कल्याणकारी योजनाएँ मौजूद हैं) अपर्याप्त है:</h3>
+                    <ul>
+                        <li><p lang="hi">कल्याणकारी योजनाएँ अक्सर कम पहुँच, जागरूकता की कमी और कार्यान्वयन में कमियों के कारण विफल हो जाती हैं।</p></li>
+                        <li><p lang="hi">आयोग की भूमिका कल्याण से आगे तक फैली हुई है - इसमें **प्रतिनिधित्व, शिकायत निवारण, अधिकारों का संरक्षण** शामिल है।</p></li>
+                    </ul>
+                    <h3>**शिकायतों का अभाव** ≠ भेदभाव का अभाव:</h3>
+                    <ul>
+                        <li><p lang="hi">प्रतिशोध के डर या सुलभ शिकायत तंत्र की कमी को दर्शा सकता है।</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>### **3. सरकारी संदेश में विरोधाभास**</h2>
+                </div>
+                <div class="line border-left">
+                    <h3>**विधानसभा में मुख्यमंत्री का आश्वासन**: छत्तीसगढ़ में कैथोलिक ननों की गैरकानूनी गिरफ्तारी जैसी घटनाएँ गोवा में नहीं होंगी।</h3>
+                    <h3>**हालाँकि**:</h3>
+                    <ul>
+                        <li><p lang="hi">जबरन धर्मांतरण या "लव जिहाद" के कोई विश्वसनीय प्रमाण न होने के बावजूद **धर्मांतरण-विरोधी कानून** की माँग पहले भी की जा चुकी है।</p></li>
+                        <li><p lang="hi">अन्य राज्यों में धर्मांतरण-विरोधी कानूनों का **हथियार** बनाया गया है - झूठी गिरफ्तारियाँ, उत्पीड़न, अल्पसंख्यकों के अधिकारों का दमन।</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>### **4. व्यापक चिंताएँ**</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="hi">गोवा सांप्रदायिक सद्भाव के लिए जाना जाता है - लेकिन सुरक्षात्मक संस्थानों को नकारने का कोई कारण नहीं है।</p></li>
+                    </ul>
+                    <h3>**अंतर्निहित तनाव मौजूद हैं**:</h3>
+                    <ul>
+                        <li><p lang="hi">चिकलिम, पणजी, पुराने गोवा में शांतिपूर्ण विरोध प्रदर्शन **वास्तविक आशंकाओं** को दर्शाते हैं।</p></li>
+                        <li><p lang="hi">सरकार इन्हें राजनीतिक विरोध बताती है - एक खारिज करने वाला दृष्टिकोण।</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>### **5. राज्य अल्पसंख्यक आयोगों की भूमिका**</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="hi">अल्पसंख्यकों के **संवैधानिक और कानूनी अधिकारों** की रक्षा करना।</p></li>
+                        <li><p lang="hi">**नीति कार्यान्वयन** की निगरानी और मूल्यांकन करना।</p></li>
+                        <li><p lang="hi">**अधिकारों के उल्लंघन की शिकायतों** की जाँच और कार्रवाई करना।</p></li>
+                        <li><p lang="hi">*विश्वास और समावेशिता** का निर्माण करें।</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>### **6. अस्वीकृति के निहितार्थ**</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="hi">**अविश्वास**, **सामाजिक विखंडन** का जोखिम।</p></li>
+                        <li><p lang="hi">**असुरक्षा** या राजनीतिक तुष्टिकरण का संकेत।</p></li>
+                        <li><p lang="hi">**धर्मनिरपेक्ष लोकाचार** और समावेशी शासन को मज़बूत करने का अवसर गँवाया।</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>### **7. आगे की राह**</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="hi">**समावेशी शासन** अपनाएँ: गोवा में राज्य अल्पसंख्यक आयोग की स्थापना करें।</p></li>
+                        <li><p lang="hi">**अल्पसंख्यक अधिकारों का राजनीतिकरण** न करें।</p></li>
+                        <li><p lang="hi">शिकायत निवारण तंत्र को मज़बूत बनाएँ।</p></li>
+                        <li><p lang="hi">सुनिश्चित करें कि **कानूनी सुरक्षा उपाय** कार्यात्मक, सुलभ और सक्रिय हों।</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>**यूपीएससी प्रासंगिकता:**</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="hi">**जीएस पेपर 2**: राजनीति और शासन - अल्पसंख्यकों के अधिकार, संवैधानिक निकायों की भूमिका, संघवाद।</p></li>
+                        <li><p lang="hi">**सामान्य अध्ययन प्रश्नपत्र 4**: नैतिकता - धर्मनिरपेक्षता, समावेशिता, सार्वजनिक विश्वास।</p></li>
+                        <li><p lang="hi">**निबंध**: "शासन में धर्मनिरपेक्षता और समावेशिता", "अल्पसंख्यकों के कल्याण और प्रतिनिधित्व में संतुलन"।</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <p class="line" lang="hi">व्हाट्सएप पर हमसे संपर्क करें: <a href="https://wa.me/918168305050" class="whatsapp-link">+91-8168305050</a></p>
+            </div>
+        </section>
+
+        <div class="button-container">
+            <a href="index.html" class="button">Back to Home</a>
+        </div>
+    </article>
+
+    <button class="scroll-to-top" id="scrollToTopBtn" title="Go to top">↑</button>
+
+    <footer>
+        <p>© 2025 Crack Current Affairs (CrackCA). All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const englishTitle = "Rejection of Minorities Commission – A Visible Sign of Insecurity";
+            const hindiTitle = "अल्पसंख्यक आयोग की अस्वीकृति - असुरक्षा का एक स्पष्ट संकेत";
+            
+            const articleTitleElement = document.getElementById('article-title');
+            const englishContent = document.getElementById('english-content');
+            const hindiContent = document.getElementById('hindi-content');
+            const langSwitchButton = document.getElementById('lang-switch-button');
+            
+            let isEnglish = true;
+            articleTitleElement.innerText = englishTitle;
+            englishContent.style.display = 'block';
+            hindiContent.style.display = 'none';
+            document.documentElement.lang = 'en';
+            langSwitchButton.innerText = 'Switch to Hindi';
+
+            // Function to calculate and display read time
+            function calculateReadTime() {
+                const wordsPerMinute = 200;
+                const wordCount = englishContent.innerText.split(/\s+/).length;
+                const readTimeMinutes = Math.ceil(wordCount / wordsPerMinute);
+                document.querySelector('.read-time').innerText = `Estimated Read Time: ${readTimeMinutes} min`;
+            }
+
+            calculateReadTime();
+
+            // Language switch functionality
+            langSwitchButton.addEventListener('click', () => {
+                if (isEnglish) {
+                    englishContent.style.display = 'none';
+                    hindiContent.style.display = 'block';
+                    articleTitleElement.innerText = hindiTitle;
+                    langSwitchButton.innerText = 'Switch to English';
+                    document.documentElement.lang = 'hi';
+                } else {
+                    englishContent.style.display = 'block';
+                    hindiContent.style.display = 'none';
+                    articleTitleElement.innerText = englishTitle;
+                    langSwitchButton.innerText = 'Switch to Hindi';
+                    document.documentElement.lang = 'en';
+                }
+                isEnglish = !isEnglish;
+            });
+
+            // Dark mode switch functionality
+            const modeSwitchButton = document.getElementById('mode-switch-button');
+            modeSwitchButton.addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+                const icon = modeSwitchButton.querySelector('i');
+                if (document.body.classList.contains('dark-mode')) {
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                } else {
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                }
+            });
+
+            // Scroll to top button functionality
+            const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    scrollToTopBtn.style.display = 'block';
+                } else {
+                    scrollToTopBtn.style.display = 'none';
+                }
+            });
+
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Function to handle markdown-like replacements
+            function replaceMarkdown() {
+                const elements = document.querySelectorAll('#english-content, #hindi-content');
+                elements.forEach(element => {
+                    let htmlContent = element.innerHTML;
+                    
+                    // Replace ** with <strong>
+                    htmlContent = htmlContent.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                    
+                    // Replace * with italic, bold and underline effect
+                    htmlContent = htmlContent.replace(/\*(.*?)\*/g, '<span class="italic-bold-underline">$1</span>');
+                    
+                    // Replace ## with <h1>, ### with <h2> and #### with <h3>
+                    htmlContent = htmlContent.replace(/####\s(.*?)</g, '<h3>$1<');
+                    htmlContent = htmlContent.replace(/###\s(.*?)</g, '<h2>$1<');
+                    htmlContent = htmlContent.replace(/##\s(.*?)</g, '<h1>$1<');
+                    
+                    element.innerHTML = htmlContent;
+                });
+            }
+
+            replaceMarkdown();
+        });
+    </script>
+</body>
+</html>

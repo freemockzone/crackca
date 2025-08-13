@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIB - 13-Aug-25</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #e9ecef;
+            --hover-color: #f0f0f0;
+            --text-color: #333;
+            --light-text: #666;
+            --dark-background: #1a1a1a;
+            --light-background: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-background);
+        }
+
+        /* Dark mode styling */
+        body.dark-mode {
+            background-color: var(--dark-background);
+            color: #f8f9fa;
+        }
+
+        body.dark-mode header,
+        body.dark-mode footer,
+        body.dark-mode .nav-bar {
+            background-color: #2c2c2c;
+            color: #fff;
+        }
+        
+        body.dark-mode .nav-bar a {
+            color: #fff;
+        }
+
+        body.dark-mode h1,
+        body.dark-mode h2,
+        body.dark-mode h3 {
+            color: #fff;
+        }
+
+        body.dark-mode .article-info {
+            color: #bbb;
+        }
+
+        body.dark-mode .line:hover {
+            background-color: #444;
+        }
+
+        body.dark-mode button,
+        body.dark-mode .scroll-to-top,
+        body.dark-mode .button {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        body.dark-mode a {
+            color: #8ab4f8;
+        }
+
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-bar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-bar a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: bold;
+            padding: 5px;
+            transition: color 0.3s;
+        }
+
+        .nav-bar a:hover {
+            color: #007bff;
+        }
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+        }
+        .nav-buttons button {
+            margin-left: 10px;
+        }
+
+        header {
+            text-align: center;
+            background-color: var(--secondary-color);
+            padding: 20px 0;
+            margin-top: 60px; /* Added margin to push header below the fixed navbar */
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            font-family: 'Merriweather', serif;
+            margin: 0;
+        }
+
+        article {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .article-header h1 {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .article-info {
+            font-style: italic;
+            color: var(--light-text);
+            margin-top: 10px;
+        }
+
+        .read-time {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-top: 5px;
+        }
+
+        .content-section {
+            margin-bottom: 30px;
+        }
+        .content-section.border-left {
+            border-left: 3px solid var(--primary-color);
+            padding-left: 15px;
+        }
+
+        .line {
+            padding: 5px;
+            margin: 5px 0;
+            transition: background-color 0.3s ease;
+        }
+        .line > *:first-child {
+            margin-top: 0;
+        }
+        .line > *:last-child {
+            margin-bottom: 0;
+        }
+
+        .line:hover {
+            background-color: var(--hover-color);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Merriweather', serif;
+            color: var(--primary-color);
+        }
+        
+        h1 { font-size: 2.2em; }
+        h2 { font-size: 1.8em; }
+        h3 { font-size: 1.4em; }
+
+        strong {
+            font-weight: bold;
+        }
+
+        .italic-bold-underline {
+            font-style: italic;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        .whatsapp-link {
+            color: #25D366;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--secondary-color);
+            font-weight: bold;
+        }
+        body.dark-mode tr:nth-child(even) {
+            background-color: #2c2c2c;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+
+        .scroll-to-top {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: opacity 0.3s;
+        }
+
+        .scroll-to-top:hover {
+            opacity: 0.8;
+        }
+
+        .button-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .button, #lang-switch-button, #mode-switch-button {
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #fff;
+            background-color: var(--primary-color);
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .button:hover, #lang-switch-button:hover, #mode-switch-button:hover {
+            background-color: #007bff;
+        }
+
+        /* Mobile-first responsive design */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                align-items: center;
+                padding: 10px;
+            }
+            .nav-bar ul {
+                flex-direction: column;
+                text-align: center;
+                width: 100%;
+                gap: 10px;
+            }
+            .nav-bar .nav-buttons {
+                margin-top: 10px;
+            }
+            header {
+                margin-top: 150px; /* Adjust for stacked nav on mobile */
+            }
+
+            article {
+                padding: 0 10px; /* Ensures padding on smaller screens */
+                margin-top: 20px; 
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            h1 { font-size: 2em; }
+            h2 { font-size: 1.5em; }
+            h3 { font-size: 1.2em; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="donation.html">Donation</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <button id="lang-switch-button">Switch to Hindi</button>
+                <button id="mode-switch-button"><i class="fas fa-moon"></i></button>
+            </div>
+        </div>
+    </nav>
+    
+    <header>
+        <h1>13-August-2025</h1>
+    </header>
+
+    <article>
+        <section id="article-content">
+            <div class="article-header">
+                <h1 id="article-title">National Policy Framework on Agriculture and Marketing (NPFAM)</h1>
+                <p class="article-info">Source: Government of India | Publication Date: 13-August-2025</p>
+                <p class="read-time"></p>
+            </div>
+            
+            <div class="content-section" id="english-content">
+                <div class="line">
+                    <h1>National Policy Framework on Agriculture and Marketing (NPFAM)</h1>
+                </div>
+                <div class="line">
+                    <h2>Context</h2>
+                </div>
+                <div class="line border-left">
+                    <p lang="en">Agriculture marketing is primarily a State subject under the Indian constitutional framework, implying States have the primary legislative and executive power over it. Many States have established Agriculture Produce Market Committees (APMCs), statutory bodies designed to regulate agricultural trade and provide a marketplace for farmers, aiming to protect them from exploitation. Despite the State-centric nature, the Union Government initiatives play a crucial catalytic role. These initiatives predominantly focus on improving market access for farmers, enhancing price discovery mechanisms, and ultimately boosting farmer incomes through policy reforms and digital interventions.</p>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>Key Initiatives</h2>
+                </div>
+                <div class="line border-left">
+                    <h3>1. National Agriculture Market (e-NAM)</h3>
+                    <ul>
+                        <li><p lang="en"><strong>Launched</strong>: April 2016.</p></li>
+                        <li><p lang="en"><strong>Objective</strong>: To create a pan-India electronic trading portal for agricultural commodities, aiming to facilitate farmers in selling their produce at fair and remunerative prices without undue intervention from middlemen.</p></li>
+                        <li><p lang="en"><strong>Benefits</strong>:</p>
+                            <ul>
+                                <li>Increased Market Access: Connects farmers to a vast network of buyers across States, transcending local market limitations.</li>
+                                <li>Better Price Discovery: Facilitates competitive bidding from multiple buyers, ensuring farmers receive optimal prices reflective of national demand and supply dynamics.</li>
+                                <li>Reduced Transaction Costs: By eliminating multiple layers of intermediaries and digitizing payment processes, e-NAM significantly cuts down on various commissions and handling charges for farmers.</li>
+                                <li>Transparency & Efficiency: Standardized quality parameters, online bidding, and immediate payment mechanisms bring transparency and efficiency to agricultural trade, reducing scope for exploitation.</li>
+                                <li>Financial Inclusion: Direct online payments into farmers' bank accounts reduce dependence on cash.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line border-left">
+                    <h3>2. Minimum Support Price (MSP) Policy</h3>
+                    <ul>
+                        <li><p lang="en"><strong>Crops Covered</strong>: MSP is declared for 22 mandated agricultural crops and Fair and Remunerative Price (FRP) for sugarcane. These typically include cereals, pulses, oilseeds, cotton, jute, and copra.</p></li>
+                        <li><p lang="en"><strong>Fixing Authority</strong>: Recommendations for MSP are provided by the Commission for Agricultural Costs & Prices (CACP).</p></li>
+                        <li><p lang="en"><strong>Pricing Rule</strong>: Since 2018-19, the Government committed to setting MSP at least 50% above the All India Weighted Average Cost of Production.</p></li>
+                        <li><p lang="en"><strong>Procurement</strong> (2014-15 to 30 June 2025):</p>
+                            <ul>
+                                <li>Quantity Procured: 315.19 Lakh Metric Tonnes (LMT).</li>
+                                <li>Value of Procurement: ₹1,69,980.90 crore.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line border-left">
+                    <h3>3. Pradhan Mantri Annadata Aay Sanrakshan Abhiyan (PM-AASHA)</h3>
+                    <ul>
+                        <li><p lang="en"><strong>Goal</strong>: To ensure remunerative prices to farmers for their produce, especially for pulses, oilseeds, and copra.</p></li>
+                        <li><p lang="en"><strong>Components</strong>: PM-AASHA encompasses three sub-schemes:</p>
+                            <ul>
+                                <li>Price Support Scheme (PSS): Involves direct procurement by central nodal agencies at MSP.</li>
+                                <li>Price Deficiency Payment Scheme (PDPS): Compensates farmers for the difference between MSP and the average market price.</li>
+                                <li>Private Procurement & Stockist Scheme (PPSS): Allows private players to procure crops at MSP under government supervision on a pilot basis.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>Significance</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="en">Strengthens Agricultural Marketing Infrastructure: Integrates physical mandis with digital platforms like e-NAM.</p></li>
+                        <li><p lang="en">Promotes 'One Nation, One Market' Concept: e-NAM is central to this vision, enabling seamless inter-state trade.</p></li>
+                        <li><p lang="en">Reduces Exploitation by Intermediaries: Direct market access and transparent bidding mechanisms reduce dependency on middlemen.</p></li>
+                        <li><p lang="en">Supports Doubling Farmers' Income Objective: By securing better prices and expanding market opportunities.</p></li>
+                        <li><p lang="en">Enhances Price Assurance and Stability in Farm Incomes: Mechanisms like MSP and PM-AASHA provide a safety net against price volatility.</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>UPSC Relevance</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="en"><strong>Prelims</strong>:</p>
+                            <ul>
+                                <li>Key features and launch year of e-NAM.</li>
+                                <li>Number and types of crops covered under MSP and its calculation formula.</li>
+                                <li>Components and objectives of PM-AASHA.</li>
+                            </ul>
+                        </li>
+                        <li><p lang="en"><strong>Mains (GS-3)</strong>:</p>
+                            <ul>
+                                <li>Critical analysis of the role of market reforms (e.g., e-NAM) in accelerating agricultural growth and farmer welfare.</li>
+                                <li>Challenges and controversies surrounding MSP implementation.</li>
+                                <li>The potential and limitations of digital platforms for agricultural marketing.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>Key Terms</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="en"><strong>APMC</strong>: Agriculture Produce Market Committee - A statutory market committee established by state governments to regulate agricultural trade.</p></li>
+                        <li><p lang="en"><strong>e-NAM</strong>: National Agriculture Market - A pan-India electronic trading portal that networks existing APMC mandis.</p></li>
+                        <li><p lang="en"><strong>MSP</strong>: Minimum Support Price - A guaranteed minimum price fixed by the Government for specified agricultural crops.</p></li>
+                        <li><p lang="en"><strong>PSS</strong>: Price Support Scheme - A component of PM-AASHA under which government agencies directly procure commodities at MSP.</p></li>
+                        <li><p lang="en"><strong>PDPS</strong>: Price Deficiency Payment Scheme - A component of PM-AASHA where farmers are paid the difference between the MSP and the average selling price.</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <p class="line" lang="en">Contact us on WhatsApp: <a href="https://wa.me/918168305050" class="whatsapp-link">+91-8168305050</a></p>
+            </div>
+
+            <div class="content-section" id="hindi-content" style="display: none;">
+                <div class="line">
+                    <h1>कृषि एवं विपणन पर राष्ट्रीय नीति ढाँचा (एनपीएफएएम)</h1>
+                </div>
+                <div class="line">
+                    <h2>संदर्भ</h2>
+                </div>
+                <div class="line border-left">
+                    <p lang="hi">कृषि विपणन एक राज्य विषय है। कई राज्यों में किसानों की सहायता के लिए कृषि उपज मंडी समितियाँ (एपीएमसी) हैं। केंद्र सरकार की पहल बाज़ार पहुँच, मूल्य निर्धारण और किसानों की आय में सुधार पर केंद्रित है |</p>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>प्रमुख पहल</h2>
+                </div>
+                <div class="line border-left">
+                    <h3>1. राष्ट्रीय कृषि बाज़ार (ई-नाम)</h3>
+                    <ul>
+                        <li><p lang="hi">शुरू: 2016 |</p></li>
+                        <li><p lang="hi">उद्देश्य: किसानों को बिचौलियों के बिना उचित मूल्य पर उपज बेचने में सुविधा प्रदान करना |</p></li>
+                        <li><p lang="hi">लाभ:</p>
+                            <ul>
+                                <li>बाज़ार पहुँच में वृद्धि |</li>
+                                <li>बेहतर मूल्य निर्धारण |</li>
+                                <li>कम लेन-देन लागत |</li>
+                                <li>व्यापक बाज़ार पहुँच |</li>
+                                <li>पारदर्शिता और दक्षता |</li>
+                                <li>ऑनलाइन भुगतान के माध्यम से वित्तीय समावेशन (नकदी पर निर्भरता कम करना) |</li>
+                            </ul>
+                        </li>
+                        <li><p lang="hi">कवरेज (30 जून 2025 तक):</p>
+                            <ul>
+                                <li>1,522 मंडियों को एकीकृत किया गया |</li>
+                                <li>23 राज्य + 4 केंद्र शासित प्रदेश |</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line border-left">
+                    <h3>2. न्यूनतम समर्थन मूल्य (MSP) नीति</h3>
+                    <ul>
+                        <li><p lang="hi">कवर की गई फसलें: 22 अनिवार्य कृषि फसलें |</p></li>
+                        <li><p lang="hi">निर्धारण प्राधिकरण: कृषि लागत एवं मूल्य आयोग (CACP) |</p></li>
+                        <li><p lang="hi">मूल्य निर्धारण नियम (2018-19 से): MSP = कम से कम अखिल भारतीय भारित औसत उत्पादन लागत से 50% अधिक |</p></li>
+                        <li><p lang="hi">खरीद (2014-15 से 30 जून 2025 तक):</p>
+                            <ul>
+                                <li>मात्रा: 315.19 लाख मीट्रिक टन |</li>
+                                <li>मूल्य: ₹1,69,980.90 करोड़ |</li>
+                                <li>फसलें: तिलहन, दलहन, खोपरा |</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line border-left">
+                    <h3>3. प्रधानमंत्री अन्नदाता आय संरक्षण अभियान (पीएम-आशा)</h3>
+                    <ul>
+                        <li><p lang="hi">लक्ष्य: किसानों (विशेषकर दलहन, तिलहन, खोपरा) के लिए लाभकारी मूल्य सुनिश्चित करना |</p></li>
+                        <li><p lang="hi">घटक:</p>
+                            <ul>
+                                <li>मूल्य समर्थन योजना (पीएसएस) - एमएसपी पर सीधी खरीद |</li>
+                                <li>मूल्य न्यूनता भुगतान योजना (पीडीपीएस) - एमएसपी से कम पर बेचने पर मुआवजा |</li>
+                                <li>निजी खरीद और स्टॉकलिस्ट योजना (पीपीएसएस) - सरकार की देखरेख में निजी खिलाड़ियों को एमएसपी पर खरीद करने की अनुमति देती है |</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>महत्व</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="hi">कृषि विपणन अवसंरचना को मजबूत करता है |</p></li>
+                        <li><p lang="hi">'एक राष्ट्र, एक बाज़ार' की अवधारणा को बढ़ावा देता है |</p></li>
+                        <li><p lang="hi">बिचौलियों द्वारा शोषण को कम करता है |</p></li>
+                        <li><p lang="hi">किसानों की आय दोगुनी करने के उद्देश्य का समर्थन करता है |</p></li>
+                        <li><p lang="hi">कृषि आय में मूल्य आश्वासन और स्थिरता को बढ़ाता है |</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>यूपीएससी प्रासंगिकता</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="hi"><strong>प्रारंभिक परीक्षा</strong>:</p>
+                            <ul>
+                                <li>ई-नाम की विशेषताएँ, लॉन्च वर्ष |</li>
+                                <li>एमएसपी फसलों की सूची और गणना सूत्र |</li>
+                                <li>पीएम-आशा के घटक |</li>
+                            </ul>
+                        </li>
+                        <li><p lang="hi"><strong>मुख्य परीक्षा (GS-3)</strong>:</p>
+                            <ul>
+                                <li>कृषि विकास में बाज़ार सुधारों की भूमिका |</li>
+                                <li>एमएसपी कार्यान्वयन में चुनौतियाँ |</li>
+                                <li>कृषि विपणन के लिए डिजिटल प्लेटफ़ॉर्म |</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="line">
+                    <h2>मुख्य शब्द</h2>
+                </div>
+                <div class="line border-left">
+                    <ul>
+                        <li><p lang="hi"><strong>एपीएमसी</strong>: कृषि व्यापार को विनियमित करने के लिए वैधानिक बाज़ार समिति |</p></li>
+                        <li><p lang="hi"><strong>ई-नाम</strong>: कृषि वस्तुओं के लिए अखिल भारतीय इलेक्ट्रॉनिक ट्रेडिंग पोर्टल |</p></li>
+                        <li><p lang="hi"><strong>एमएसपी</strong>: किसानों को उचित पारिश्रमिक सुनिश्चित करने के लिए सरकार द्वारा निर्धारित न्यूनतम मूल्य |</p></li>
+                        <li><p lang="hi"><strong>पीएसएस</strong>: सरकारी एजेंसियों द्वारा एमएसपी पर वस्तुओं की खरीद |</p></li>
+                        <li><p lang="hi"><strong>पीडीपीएस</strong>: एमएसपी और विक्रय मूल्य के बीच के अंतर के लिए किसानों को भुगतान |</p></li>
+                    </ul>
+                </div>
+                <hr>
+                <p class="line" lang="hi">व्हाट्सएप पर हमसे संपर्क करें: <a href="https://wa.me/918168305050" class="whatsapp-link">+91-8168305050</a></p>
+            </div>
+        </section>
+
+        <div class="button-container">
+            <a href="index.html" class="button">Back to Home</a>
+        </div>
+    </article>
+
+    <button class="scroll-to-top" id="scrollToTopBtn" title="Go to top">↑</button>
+
+    <footer>
+        <p>© 2025 Crack Current Affairs (CrackCA). All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Function to calculate and display read time
+            function calculateReadTime() {
+                const englishContent = document.getElementById('english-content').innerText;
+                const wordsPerMinute = 200;
+                const wordCount = englishContent.split(/\s+/).length;
+                const readTimeMinutes = Math.ceil(wordCount / wordsPerMinute);
+                document.querySelector('.read-time').innerText = `Estimated Read Time: ${readTimeMinutes} min`;
+            }
+
+            calculateReadTime();
+
+            // Language switch functionality
+            const langSwitchButton = document.getElementById('lang-switch-button');
+            const englishContent = document.getElementById('english-content');
+            const hindiContent = document.getElementById('hindi-content');
+            let isEnglish = true;
+
+            langSwitchButton.addEventListener('click', () => {
+                if (isEnglish) {
+                    englishContent.style.display = 'none';
+                    hindiContent.style.display = 'block';
+                    langSwitchButton.innerText = 'Switch to English';
+                    document.documentElement.lang = 'hi';
+                } else {
+                    englishContent.style.display = 'block';
+                    hindiContent.style.display = 'none';
+                    langSwitchButton.innerText = 'Switch to Hindi';
+                    document.documentElement.lang = 'en';
+                }
+                isEnglish = !isEnglish;
+            });
+
+            // Dark mode switch functionality
+            const modeSwitchButton = document.getElementById('mode-switch-button');
+            modeSwitchButton.addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+                const icon = modeSwitchButton.querySelector('i');
+                if (document.body.classList.contains('dark-mode')) {
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                } else {
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                }
+            });
+
+            // Scroll to top button functionality
+            const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    scrollToTopBtn.style.display = 'block';
+                } else {
+                    scrollToTopBtn.style.display = 'none';
+                }
+            });
+
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Function to handle markdown-like replacements
+            function replaceMarkdown() {
+                const elements = document.querySelectorAll('#english-content, #hindi-content');
+                elements.forEach(element => {
+                    let htmlContent = element.innerHTML;
+                    
+                    // Replace ** with <strong>
+                    htmlContent = htmlContent.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                    
+                    // Replace * with italic, bold and underline effect
+                    htmlContent = htmlContent.replace(/\*(.*?)\*/g, '<span class="italic-bold-underline">$1</span>');
+                    
+                    element.innerHTML = htmlContent;
+                });
+            }
+
+            replaceMarkdown();
+        });
+    </script>
+</body>
+</html>
