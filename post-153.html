@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>16-Aug-25</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="UPSC CSE-focused current affairs note: Proposed Two-Tier GST Regime, its economic benefits, challenges, and UPSC relevance." />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
+    <style>
+        :root{
+            --bg:#ffffff;
+            --text:#202124;
+            --muted:#5f6368;
+            --brand:#2563eb;
+            --accent:#10b981;
+            --soft1:#e0f2fe; /* light blue */
+            --soft2:#fef3c7; /* light amber */
+            --soft3:#dcfce7; /* light green */
+            --soft4:#fae8ff; /* light purple */
+            --line-hover:#fff7ed; /* warm hover */
+            --card:#ffffff;
+            --shadow:0 8px 24px rgba(0,0,0,0.08);
+            --radius:18px;
+            --max:1100px;
+        }
+        *{box-sizing:border-box}
+        html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Roboto, system-ui, -apple-system, Segoe UI, Arial, sans-serif;line-height:1.6}
+        /* Fixed Top Nav */
+        nav{
+            position:fixed; top:0; left:0; right:0; z-index:1000;
+            background:linear-gradient(90deg, var(--soft1), var(--soft2), var(--soft4));
+            border-bottom:1px solid #e5e7eb;
+            backdrop-filter:saturate(140%) blur(6px);
+        }
+        .nav-inner{
+            max-width:var(--max); margin:0 auto; display:flex; align-items:center; gap:16px; padding:12px 16px;
+        }
+        .brand{
+            font-weight:800; letter-spacing:.3px; color:#111827;
+        }
+        .nav-links{display:flex; gap:10px; flex-wrap:wrap; margin-left:auto}
+        .nav-links a{
+            text-decoration:none; color:#111827; font-weight:600; padding:8px 12px; border-radius:12px;
+            transition:transform .15s ease, background-color .2s ease;
+        }
+        .nav-links a:hover{background:#ffffffaa; transform:translateY(-1px)}
+        main{max-width:var(--max); margin:0 auto; padding:96px 16px 48px;} /* top padding for fixed nav */
+        header.page-header{
+            background:linear-gradient(135deg, var(--soft3), var(--soft1));
+            padding:24px; border-radius:var(--radius); box-shadow:var(--shadow); margin-bottom:20px;
+        }
+        header.page-header h1{margin:0; font-family:Merriweather, serif; font-size:clamp(22px, 4vw, 36px)}
+        .meta{
+            display:flex; flex-wrap:wrap; gap:10px; margin-top:8px; color:var(--muted); font-size:.95rem
+        }
+        .badge{background:#fff; border:1px solid #e5e7eb; padding:4px 10px; border-radius:999px}
+        .readtime{background:var(--soft2); border:1px dashed #f59e0b}
+        article{
+            background:var(--card); border:1px solid #eef2f7; border-radius:var(--radius); box-shadow:var(--shadow);
+            overflow:hidden;
+        }
+        .article-head{
+            padding:20px 20px 0 20px; border-bottom:1px solid #f1f5f9;
+        }
+        .article-head h2{
+            margin:0 0 10px 0; font-size:clamp(20px,3.6vw,30px); font-family:Merriweather, serif;
+        }
+        .article-body{ padding: 0 20px 20px 20px;}
+        section{ padding:16px; margin:14px 0; background: #fcfcff; border:1px solid #eef2ff; border-radius:14px}
+        section.alt1{ background:var(--soft4);}
+        section.alt2{ background:var(--soft1);}
+        section.alt3{ background:var(--soft2);}
+        section.alt4{ background:var(--soft3);}
+        .line{
+            display:grid; grid-template-columns: 1fr; gap:6px;
+            padding:12px 14px; margin:8px 0; border-radius:12px; background:#fff; border:1px solid #eef2f7;
+            transition: background-color .2s ease, transform .12s ease;
+        }
+        .line:hover{ background: var(--line-hover); transform: translateY(-1px);}
+        .en{font-weight:500}
+        .hi{opacity:.95}
+        .controls{display:flex; flex-wrap:wrap; gap:10px; margin:14px 0;}
+        .btn{
+            appearance:none; border:1px solid #cbd5e1; background:#fff; padding:10px 14px; border-radius:12px; cursor:pointer; font-weight:600;
+            transition:transform .12s ease, box-shadow .2s ease, background .2s ease;
+            box-shadow: 0 2px 0 rgba(0,0,0,.05);
+        }
+        .btn:hover{transform:translateY(-1px); box-shadow:0 6px 14px rgba(0,0,0,.08);}
+        .btn.primary{background:var(--brand); color:#fff; border-color:transparent}
+        .btn.ghost{background:#f8fafc}
+        .floating-top{
+            position:fixed; bottom:24px; right:24px; z-index:1000; display:none;
+        }
+        footer{
+            margin-top:28px; padding:18px; text-align:center; color:#374151; background:linear-gradient(90deg, var(--soft3), var(--soft2));
+            border-radius:var(--radius);
+        }
+        .contact{
+            margin-top:12px; font-weight:600;
+        }
+        .contact a{ color:#0f766e; text-decoration:underline; }
+        /* Responsive tweaks */
+        @media (min-width:640px){
+            .line{ grid-template-columns: 1fr 1fr; }
+        }
+        @media (prefers-reduced-motion: reduce){
+            *{scroll-behavior:auto !important}
+            .nav-links a:hover, .btn:hover, .line:hover{ transform:none }
+        }
+        /* Accessibility helpers */
+        .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0}
+        /* Clear section separators */
+        .divider{ height:1px; background:#e5e7eb; margin:16px 0; }
+    </style>
+</head>
+<body>
+    <nav aria-label="Primary">
+        <div class="nav-inner">
+            <div class="brand" aria-label="Site Name">Crack Current Affairs • CrackCA</div>
+            <div class="nav-links" role="navigation">
+                <a href="index.html">Home</a>
+                <a href="quiz.html">Quiz</a>
+                <a href="donation.html">Donation</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <header class="page-header">
+            <h1>16-August-2025</h1>
+            <div class="meta" aria-label="Page meta">
+                <span class="badge">UPSC CSE • Current Affairs Notes</span>
+                <span class="badge">GS III / Indian Economy</span>
+            </div>
+        </header>
+
+        <article aria-labelledby="article-title">
+            <div class="article-head">
+                <h2 id="article-title">Diwali Gift for Aam Aadmi: Two-Tier GST Regime by October</h2>
+                <div class="meta">
+                    <span class="badge">Source: Financial Express</span>
+                    <span class="badge">Published: 16 Aug 2025</span>
+                    <span class="badge readtime" id="read-time" aria-live="polite">Read time: calculating…</span>
+                </div>
+                <div class="controls" role="group" aria-label="Article controls">
+                    <button class="btn ghost" id="toggle-lang" aria-pressed="false">Language Switch (Show/Hide Hindi)</button>
+                    <a class="btn primary" href="index.html" id="back-home-top">Back to Home</a>
+                </div>
+            </div>
+
+            <div class="article-body" id="content-root">
+                <section class="alt1" aria-labelledby="ctx">
+                    <h2 id="ctx">Context / संदर्भ</h2>
+                    <div class="line">
+                        <p class="en" data-lang="en"><strong>Current GST Structure (2017-present):</strong> Four slabs — 5%, 12%, 18%, 28% (+ cess), plus special rates for gold and gems.</p>
+                        <p class="hi" lang="hi"> <strong>वर्तमान जीएसटी संरचना (2017-वर्तमान):</strong> चार स्लैब - 5%, 12%, 18%, 28% (+ उपकर), साथ ही सोने और रत्नों के लिए विशेष दरें।</p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en"><strong>Announcement:</strong> PM Modi (I-Day speech 2025) announced a major <strong>GST revamp</strong> as a “Diwali gift” to consumers.</p>
+                        <p class="hi" lang="hi"><strong>घोषणा:</strong> प्रधानमंत्री मोदी (स्वतंत्रता दिवस भाषण 2025) ने उपभोक्ताओं को "दिवाली उपहार" के रूप में एक बड़े <strong>जीएसटी सुधार</strong> की घोषणा की।</p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en"><strong>Objective:</strong> Simplify tax system, reduce rates on mass-use goods, boost consumption, and enhance ease of living.</p>
+                        <p class="hi" lang="hi"><strong>उद्देश्य:</strong> कर प्रणाली को सरल बनाना, व्यापक उपयोग की वस्तुओं पर दरें कम करना, उपभोग को बढ़ावा देना और जीवन को आसान बनाना।</p>
+                    </div>
+                </section>
+
+                <section class="alt2" aria-labelledby="proposed">
+                    <h2 id="proposed">Proposed GST Structure / प्रस्तावित जीएसटी संरचना</h2>
+                    <h3>1. Two-Tier Regime:</h3>
+                    <div class="line">
+                        <p class="en" data-lang="en"><strong>5% (Merit Rate):</strong> For essentials, insurance, agriculture tools, renewable energy, medical devices, handicrafts.</p>
+                        <p class="hi" lang="hi"><strong>5% (योग्यता दर):</strong> आवश्यक वस्तुओं, बीमा, कृषि उपकरण, नवीकरणीय ऊर्जा, चिकित्सा उपकरण, हस्तशिल्प के लिए।</p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en"><strong>18% (Standard Rate):</strong> For most goods/services including cement, ACs, small cars, FMCG (shifted from higher slabs).</p>
+                        <p class="hi" lang="hi"><strong>18% (मानक दर):</strong> सीमेंट, एसी, छोटी कारें, FMCG (उच्च स्लैब से स्थानांतरित) सहित अधिकांश वस्तुओं/सेवाओं के लिए।</p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en"><strong>40% (Special Rate):</strong> Restricted to demerit goods like tobacco, pan masala, online gaming.</p>
+                        <p class="hi" lang="hi"><strong>40% (विशेष दर):</strong> तंबाकू, पान मसाला, ऑनलाइन गेमिंग जैसी अवगुण वस्तुओं तक सीमित।</p>
+                    </div>
+                    <h3>2. Cess Removal:</h3>
+                    <div class="line">
+                        <p class="en" data-lang="en">Compensation cess likely to end by **December 2025** as loans are repaid.</p>
+                        <p class="hi" lang="hi">ऋणों के भुगतान के साथ क्षतिपूर्ति उपकर **दिसंबर 2025** तक समाप्त होने की संभावना है।</p>
+                    </div>
+                    <h3>3. Classification Reforms:</h3>
+                    <div class="line">
+                        <p class="en" data-lang="en">Address inverted duty structure (e.g., textiles, fertilisers).</p>
+                        <p class="hi" lang="hi">उलटे शुल्क ढांचे (जैसे, कपड़ा, उर्वरक) को संबोधित करना।</p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en">Same rate for inputs and outputs → frees up working capital.</p>
+                        <p class="hi" lang="hi">इनपुट और आउटपुट के लिए समान दर → कार्यशील पूंजी मुक्त होती है।</p>
+                    </div>
+                </section>
+
+                <section class="alt3" aria-labelledby="cheaper">
+                    <h2 id="cheaper">Goods/Services Likely to Become Cheaper / वस्तुएँ/सेवाएँ सस्ती होने की संभावना</h2>
+                    <div class="line">
+                        <p class="en" data-lang="en">Cement, small cars, air-conditioners.</p>
+                        <p class="hi" lang="hi">सीमेंट, छोटी कारें, एयर कंडीशनर।</p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en">Health & life insurance (proposed at 5% vs 18%).</p>
+                        <p class="hi" lang="hi">स्वास्थ्य और जीवन बीमा (18% के बजाय 5% पर प्रस्तावित)।</p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en">Renewable energy equipment, handicrafts, pharmaceuticals.</p>
+                        <p class="hi" lang="hi">नवीकरणीय ऊर्जा उपकरण, हस्तशिल्प, फार्मास्यूटिकल्स।</p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en">Tools/machinery for agriculture.</p>
+                        <p class="hi" lang="hi">कृषि के लिए उपकरण/मशीनरी।</p>
+                    </div>
+                </section>
+
+                <section class="alt4" aria-labelledby="benefits">
+                    <h2 id="benefits">Expected Benefits / अपेक्षित लाभ</h2>
+                    <div class="line">
+                        <p class="en" data-lang="en"><strong>Economic Boost:</strong> Increased affordability → higher consumption → growth multiplier.</p>
+                        <p class="hi" lang="hi"><strong>आर्थिक वृद्धि:</strong> बढ़ी हुई सामर्थ्य → अधिक खपत → विकास गुणक।</p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en"><strong>Ease of Living:</strong> Cheaper essential & aspirational goods.</p>
+                        <p class="hi" lang="hi"><strong>जीवन सुगमता:</strong> आवश्यक और आकांक्षात्मक वस्तुओं की सस्ती उपलब्धता।</p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en"><strong>Ease of Doing Business:</strong> Reduced disputes, automated refunds, faster registration (95% within 3 days).</p>
+                        <p class="hi" lang="hi"><strong>व्यापार सुगमता:</strong> विवादों में कमी, स्वचालित धनवापसी, तेज़ पंजीकरण (3 दिनों के भीतर 95%)।</p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en"><strong>Revenue Neutrality:</strong> Despite lower average tax (~11% vs 15.5% at launch), buoyancy in collections sustained.</p>
+                        <p class="hi" lang="hi"><strong>राजस्व तटस्थता:</strong> कम औसत कर (शुरुआत के समय 15.5% की तुलना में ~11%) के बावजूद, संग्रह में उछाल बरकरार रहा।</p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en"><strong>Compliance Improvement:</strong> Simplification may expand tax base.</p>
+                        <p class="hi" lang="hi"><strong>अनुपालन सुधार:</strong> सरलीकरण से कर आधार का विस्तार हो सकता है।</p>
+                    </div>
+                </section>
+
+                <section class="alt1" aria-labelledby="challenges">
+                    <h2 id="challenges">Challenges / चुनौतियाँ</h2>
+                    <div class="line">
+                        <p class="en" data-lang="en"><strong>State Concerns:</strong> Possible short-term revenue losses may cause resistance.</p>
+                        <p class="hi" lang="hi"><strong>राज्य की चिंताएँ:</strong> संभावित अल्पकालिक राजस्व हानि प्रतिरोध का कारण बन सकती है।</p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en"><strong>Revenue Risks:</strong> Over-dependence on buoyancy; uncertain impact on collections.</p>
+                        <p class="hi" lang="hi"><strong>राजस्व जोखिम:</strong> उछाल पर अत्यधिक निर्भरता; संग्रह पर अनिश्चित प्रभाव।</p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en"><strong>Implementation:</strong> Aligning GST Council decisions before October.</p>
+                        <p class="hi" lang="hi"><strong>कार्यान्वयन:</strong> अक्टूबर से पहले जीएसटी परिषद के निर्णयों को एक साथ लाना।</p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en"><strong>Classification of Online Gaming:</strong> Still contentious (gambling treatment debated).</p>
+                        <p class="hi" lang="hi"><strong>ऑनलाइन गेमिंग का वर्गीकरण:</strong> अभी भी विवादास्पद (जुआ उपचार पर बहस चल रही है)।</p>
+                    </div>
+                </section>
+
+                <section class="alt2" aria-labelledby="way-forward">
+                    <h2 id="way-forward">Way Forward / आगे की राह</h2>
+                    <div class="line">
+                        <p class="en" data-lang="en"><strong>1. Consensus Building:</strong> Centre–State cooperation vital for smooth rollout.</p>
+                        <p class="hi" lang="hi"><strong>1. आम सहमति बनाना:</strong> सुचारू क्रियान्वयन के लिए केंद्र-राज्य सहयोग आवश्यक।</p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en"><strong>2. Balanced Design:</strong> Ensure revenue protection while boosting consumption.</p>
+                        <p class="hi" lang="hi"><strong>2. संतुलित डिज़ाइन:</strong> उपभोग को बढ़ावा देते हुए राजस्व संरक्षण सुनिश्चित करना।</p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en"><strong>3. Monitoring:</strong> Regularly review impact on inflation, compliance, and tax base.</p>
+                        <p class="hi" lang="hi"><strong>3. निगरानी:</strong> मुद्रास्फीति, अनुपालन और कर आधार पर प्रभाव की नियमित समीक्षा करना।</p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en"><strong>4. Digital Reforms:</strong> Pre-filled returns, faster refunds, automation to cut compliance burden.</p>
+                        <p class="hi" lang="hi"><strong>4. डिजिटल सुधार:</strong> अनुपालन बोझ को कम करने के लिए पहले से भरे हुए रिटर्न, तेज़ रिफंड, स्वचालन।</p>
+                    </div>
+                </section>
+
+                <section class="alt3" aria-labelledby="upsc">
+                    <h2 id="upsc">UPSC Relevance / यूपीएससी प्रासंगिकता</h2>
+                    <div class="line">
+                        <p class="en" data-lang="en"><strong>GS Paper III:</strong> Indian Economy – taxation, reforms, fiscal policy, consumption boost.</p>
+                        <p class="hi" lang="hi"><strong>सामान्य अध्ययन प्रश्नपत्र III:</strong> भारतीय अर्थव्यवस्था - कराधान, सुधार, राजकोषीय नीति, उपभोग वृद्धि।</p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en"><strong>GS Paper II:</strong> Federalism – Centre–State relations in GST Council.</p>
+                        <p class="hi" lang="hi"><strong>सामान्य अध्ययन प्रश्नपत्र II:</strong> संघवाद - जीएसटी परिषद में केंद्र-राज्य संबंध।</p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en"><strong>Essay/Ethics:</strong> Tax justice, inclusivity, ease of living vs revenue maximisation.</p>
+                        <p class="hi" lang="hi"><strong>निबंध/नैतिकता:</strong> कर न्याय, समावेशिता, जीवनयापन में आसानी बनाम राजस्व अधिकतमीकरण।</p>
+                    </div>
+                </section>
+
+                <section class="alt4" aria-labelledby="crux">
+                    <h2 id="crux">Crux / सारांश</h2>
+                    <div class="line">
+                        <p class="en" data-lang="en">The proposed <strong>two-tier GST regime</strong> aims to simplify the tax system, rationalise rates, and reduce consumer burden while boosting economic activity. However, success hinges on Centre–State consensus and careful balancing of revenue interests with consumption-led growth.</p>
+                        <p class="hi" lang="hi">प्रस्तावित <strong>दो-स्तरीय जीएसटी व्यवस्था</strong> का उद्देश्य कर प्रणाली को सरल बनाना, दरों को युक्तिसंगत बनाना और आर्थिक गतिविधियों को बढ़ावा देते हुए उपभोक्ता बोझ को कम करना है। हालाँकि, इसकी सफलता केंद्र-राज्य सहमति और राजस्व हितों के साथ उपभोग-आधारित विकास के सावधानीपूर्वक संतुलन पर निर्भर करती है।</p>
+                    </div>
+                </section>
+
+                <div class="divider" role="separator" aria-hidden="true"></div>
+
+                <section class="alt3" aria-labelledby="contact">
+                    <h2 id="contact">Contact</h2>
+                    <p class="contact">Contact us on WhatsApp: <a href="https://wa.me/918168305050" target="_blank" rel="noopener">+91-8168305050</a></p>
+                </section>
+
+                <div class="controls" style="justify-content:center; margin-top:18px;">
+                    <a class="btn primary" href="index.html">Back to Home</a>
+                </div>
+            </div>
+        </article>
+
+        <footer role="contentinfo" aria-label="Footer">
+            © 2025 Crack Current Affairs (CrackCA). All rights reserved.
+        </footer>
+    </main>
+
+    <button class="btn primary floating-top" id="to-top" aria-label="Scroll to top">↑ Top</button>
+
+    <script>
+        // Smooth scroll behavior
+        document.documentElement.style.scrollBehavior = 'smooth';
+
+        // Language switch: toggle Hindi visibility
+        const toggleLangBtn = document.getElementById('toggle-lang');
+        const hindiLines = document.querySelectorAll('.hi');
+
+        // Initially hide all Hindi lines
+        hindiLines.forEach(el => el.style.display = 'none');
+        
+        // Add click listener
+        toggleLangBtn.addEventListener('click', () => {
+            const isHindiVisible = toggleLangBtn.getAttribute('aria-pressed') === 'true';
+            const newVisibility = !isHindiVisible;
+            
+            hindiLines.forEach(el => {
+                el.style.display = newVisibility ? 'block' : 'none';
+            });
+            
+            toggleLangBtn.setAttribute('aria-pressed', newVisibility.toString());
+        });
+
+        // Read time: English only (~200 wpm)
+        const computeReadTime = () => {
+            const engText = Array.from(document.querySelectorAll('[data-lang="en"]')).map(el => el.textContent).join(' ');
+            const words = engText.trim().split(/\s+/).filter(Boolean).length;
+            const minutes = Math.max(1, Math.round(words / 200));
+            const rt = document.getElementById('read-time');
+            rt.textContent = `Estimated read time: ${minutes} min`;
+            rt.title = `${words} words (English only)`;
+        };
+        computeReadTime();
+
+        // Scroll-to-top visibility & action
+        const toTopBtn = document.getElementById('to-top');
+        const onScroll = () => {
+            if (window.scrollY > 300) {
+                toTopBtn.style.display = 'inline-block';
+            } else {
+                toTopBtn.style.display = 'none';
+            }
+        };
+        window.addEventListener('scroll', onScroll);
+        toTopBtn.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+        
+    </script>
+</body>
+</html>

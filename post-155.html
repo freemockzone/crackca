@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>16-Aug-25</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap">
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding-top: 110px; /* Adjusted space for fixed header and nav */
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Merriweather', serif;
+            color: #2c3e50;
+        }
+
+        .news-article {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: #2980b9;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        header h1 {
+            color: #fff;
+            font-size: 3rem;
+            margin: 0;
+            line-height: 1;
+        }
+
+        .top-nav {
+            display: flex;
+            justify-content: center;
+            background-color: #3498db;
+            position: fixed;
+            top: 80px; /* Positioned below the h1 */
+            width: 100%;
+            z-index: 999;
+        }
+
+        .top-nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .top-nav a:hover {
+            background-color: #2980b9;
+        }
+
+        /* Article Elements */
+        .article-title {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .article-meta {
+            text-align: center;
+            color: #777;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .article-meta span {
+            margin: 0 5px;
+        }
+        
+        .article-section {
+            margin-bottom: 20px;
+        }
+
+        .line-pair {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+            padding: 10px;
+            transition: background-color 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .line-pair:hover {
+            background-color: #eaf2f8;
+        }
+
+        .line-pair p {
+            margin: 0;
+            line-height: 1.8;
+        }
+
+        .en-line {
+            display: block;
+        }
+
+        .hi-line {
+            display: none;
+        }
+
+        /* Formatting from user rules */
+        h1.article-heading { font-size: 2.5em; }
+        h2.article-heading { font-size: 2em; }
+        h3.article-heading { font-size: 1.5em; }
+        strong { font-weight: 700; }
+        .formatted-list-item {
+            font-style: italic;
+            font-weight: 700;
+            text-decoration: underline;
+        }
+
+        /* Buttons */
+        .article-buttons {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .back-to-home-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .back-to-home-btn:hover {
+            background-color: #2980b9;
+        }
+
+        #scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            display: none; /* Initially hidden */
+            transition: background-color 0.3s;
+        }
+
+        #scroll-to-top:hover {
+            background-color: #2980b9;
+        }
+
+        #language-switch {
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9em;
+            margin-left: 15px;
+            transition: background-color 0.3s;
+        }
+
+        #language-switch:hover {
+            background-color: #219d53;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #34495e;
+            color: #ecf0f1;
+            margin-top: 30px;
+        }
+
+        .contact-line {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 0.9em;
+        }
+
+        .contact-line a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        /* Mobile-first Media Queries */
+        @media (min-width: 768px) {
+            body {
+                font-size: 1.1em;
+            }
+            .line-pair {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-start;
+            }
+            .en-line, .hi-line {
+                flex-basis: 48%;
+                display: block !important; /* Override JS for side-by-side view */
+            }
+            .news-article {
+                padding: 40px;
+            }
+            #language-switch {
+                display: none; /* Hide for desktop view as both are shown */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>16-August-2025</h1>
+    </header>
+
+    <nav class="top-nav">
+        <a href="index.html">Home</a>
+        <a href="quiz.html">Quiz</a>
+        <a href="donation.html">Donation</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <main>
+        <article class="news-article">
+            <h2 class="article-title">Presumed Consent for Organ Donation: A UPSC CSE Analysis</h2>
+            <div class="article-meta">
+                <span class="source">Source: Hindustan Times</span> | 
+                <span class="publication-date">16-August-2025</span> |
+                <span class="read-time">~3 min read</span>
+                <button id="language-switch">Switch to Hindi</button>
+            </div>
+
+            <section class="article-section">
+                <div class="line-pair">
+                    <h3 class="article-heading en-line">1. Introduction: The Current Scenario in India 🇮🇳</h3>
+                    <h3 class="article-heading hi-line" lang="hi">1. परिचय: भारत में वर्तमान परिदृश्य 🇮🇳</h3>
+                </div>
+                <div class="line-pair">
+                    <p class="en-line">Organ transplantation is a critical life-saving procedure. However, India faces a significant gap between the demand and supply of organs. The <strong>deceased organ donation rate in India is extremely low</strong> at around 0.8 per million population, compared to over 45 in countries like Spain. Currently, India follows an <strong>"opt-in"</strong> system, which requires a person to explicitly register to be a donor or for the family to give consent after death.</p>
+                    <p class="hi-line" lang="hi">अंग प्रत्यारोपण एक महत्वपूर्ण जीवन रक्षक प्रक्रिया है। हालाँकि, भारत में अंगों की माँग और आपूर्ति के बीच एक बड़ा अंतर है। भारत में मृतक अंगदान की दर बेहद कम है, जो लगभग 0.8 प्रति दस लाख जनसंख्या है, जबकि स्पेन जैसे देशों में यह दर 45 से अधिक है। वर्तमान में, भारत एक "ऑप्ट-इन" प्रणाली का पालन करता है, जिसके तहत व्यक्ति को अंगदाता बनने के लिए स्पष्ट रूप से पंजीकरण कराना होता है या मृत्यु के बाद परिवार की सहमति आवश्यक होती है।</p>
+                </div>
+            </section>
+
+            <hr>
+
+            <section class="article-section">
+                <div class="line-pair">
+                    <h3 class="article-heading en-line">2. Understanding the Presumed Consent Model</h3>
+                    <h3 class="article-heading hi-line" lang="hi">2. अनुमानित सहमति मॉडल को समझना</h3>
+                </div>
+                <div class="line-pair">
+                    <p class="en-line">Presumed consent, also known as the <strong>"opt-out" system</strong>, is a policy where every adult is considered a potential organ donor upon their death unless they have explicitly registered their objection during their lifetime. This model has been successfully implemented in countries like <strong>Spain and Croatia</strong>, leading to a dramatic increase in organ donation rates.</p>
+                    <p class="hi-line" lang="hi">अनुमानित सहमति, जिसे "ऑप्ट-आउट" प्रणाली भी कहा जाता है, एक ऐसी नीति है जिसके तहत प्रत्येक वयस्क को उसकी मृत्यु के बाद संभावित अंगदाता माना जाता है, जब तक कि उसने अपने जीवनकाल में स्पष्ट रूप से अपनी आपत्ति दर्ज न कराई हो। इस मॉडल को <strong>स्पेन और क्रोशिया</strong> जैसे देशों में सफलतापूर्वक लागू किया गया है, जिससे अंगदान की दरों में नाटकीय वृद्धि हुई है।</p>
+                </div>
+            </section>
+
+            <hr>
+
+            <section class="article-section">
+                <div class="line-pair">
+                    <h3 class="article-heading en-line">3. Arguments for a Presumed Consent Model in India ✅</h3>
+                    <h3 class="article-heading hi-line" lang="hi">3. भारत में अनुमानित सहमति मॉडल के पक्ष में तर्क ✅</h3>
+                </div>
+                <div class="line-pair">
+                    <p class="en-line"><span class="formatted-list-item">Addressing the Organ Shortage:</span> This is the primary benefit. By making donation the default, it can substantially increase the pool of available organs, saving thousands of lives.</p>
+                    <p class="hi-line" lang="hi"><span class="formatted-list-item">अंगों की कमी का समाधान:</span> यह इसका मुख्य लाभ है। दान को डिफ़ॉल्ट बनाकर, उपलब्ध अंगों की संख्या में उल्लेखनीय वृद्धि की जा सकती है, जिससे हज़ारों लोगों की जान बच सकती है।</p>
+                </div>
+                <div class="line-pair">
+                    <p class="en-line"><span class="formatted-list-item">Reduced Burden on Families:</span> In an "opt-in" system, grieving families are often put in a difficult position to make a quick decision about organ donation. Presumed consent removes this emotional burden by making the decision beforehand.</p>
+                    <p class="hi-line" lang="hi"><span class="formatted-list-item">परिवारों पर बोझ कम:</span> "ऑप्ट-इन" प्रणाली में, शोकग्रस्त परिवारों को अक्सर अंगदान के बारे में तुरंत निर्णय लेने में कठिनाई होती है। अनुमानित सहमति पहले से निर्णय लेकर इस भावनात्मक बोझ को कम करती है।</p>
+                </div>
+                <div class="line-pair">
+                    <p class="en-line"><span class="formatted-list-item">Aligns with Altruistic Intent:</span> Most people are in favor of organ donation but do not take the step to register. The presumed consent model aligns with this general altruistic sentiment without requiring active steps.</p>
+                    <p class="hi-line" lang="hi"><span class="formatted-list-item">परोपकारी इरादे के अनुरूप:</span> ज़्यादातर लोग अंगदान के पक्ष में हैं, लेकिन पंजीकरण के लिए कदम नहीं उठाते। अनुमानित सहमति मॉडल सक्रिय कदम उठाए बिना इस सामान्य परोपकारी भावना के अनुरूप है।</p>
+                </div>
+                <div class="line-pair">
+                    <p class="en-line"><span class="formatted-list-item">International Best Practice:</span> The success of this model in other nations provides a strong precedent for its implementation in India.</p>
+                    <p class="hi-line" lang="hi"><span class="formatted-list-item">अंतर्राष्ट्रीय सर्वोत्तम अभ्यास:</span> अन्य देशों में इस मॉडल की सफलता भारत में इसके कार्यान्वयन के लिए एक मज़बूत मिसाल पेश करती है।</p>
+                </div>
+            </section>
+
+            <hr>
+
+            <section class="article-section">
+                <div class="line-pair">
+                    <h3 class="article-heading en-line">4. Arguments Against Presumed Consent in India ❌</h3>
+                    <h3 class="article-heading hi-line" lang="hi">4. भारत में अनुमानित सहमति के विरुद्ध तर्क ❌</h3>
+                </div>
+                <div class="line-pair">
+                    <p class="en-line"><span class="formatted-list-item">Ethical Concerns and Individual Autonomy:</span> Critics argue that it violates an individual's right to bodily autonomy by allowing the state to take organs without explicit consent.</p>
+                    <p class="hi-line" lang="hi"><span class="formatted-list-item">नैतिक चिंताएँ और व्यक्तिगत स्वायत्तता:</span> आलोचकों का तर्क है कि यह राज्य को स्पष्ट सहमति के बिना अंग लेने की अनुमति देकर व्यक्ति के शारीरिक स्वायत्तता के अधिकार का उल्लंघन करता है।</p>
+                </div>
+                <div class="line-pair">
+                    <p class="en-line"><span class="formatted-list-item">Lack of Awareness:</span> For the model to be truly effective and ethical, there must be a robust public education campaign to ensure every citizen is aware of their right to opt out. Without this, it could lead to the exploitation of uninformed individuals.</p>
+                    <p class="hi-line" lang="hi"><span class="formatted-list-item">जागरूकता का अभाव:</span> इस मॉडल के वास्तव में प्रभावी और नैतिक होने के लिए, एक सशक्त जन-शिक्षा अभियान चलाया जाना चाहिए ताकि यह सुनिश्चित किया जा सके कि प्रत्येक नागरिक अपने अधिकार से बाहर निकलने के अधिकार के बारे में जागरूक हो। इसके बिना, इससे अज्ञानी व्यक्तियों का शोषण हो सकता है।</p>
+                </div>
+                <div class="line-pair">
+                    <p class="en-line"><span class="formatted-list-item">Cultural and Religious Sentiments:</span> Deeply rooted cultural and religious beliefs in India could lead to public mistrust and a backlash against such a policy, potentially hindering rather than helping the cause.</p>
+                    <p class="hi-line" lang="hi"><span class="formatted-list-item">सांस्कृतिक और धार्मिक भावनाएँ:</span> भारत में गहरी जड़ें जमाए सांस्कृतिक और धार्मिक मान्यताएँ ऐसी नीति के प्रति जनता में अविश्वास और प्रतिक्रिया पैदा कर सकती हैं, जो इस उद्देश्य में मदद करने के बजाय बाधा उत्पन्न कर सकती है।</p>
+                </div>
+                <div class="line-pair">
+                    <p class="en-line"><span class="formatted-list-item">Risk of Misuse and Trafficking:</span> A more lenient consent system could increase the vulnerability to illegal organ trafficking and commercialization, a major concern that India's current laws, like the <strong>Transplantation of Human Organs and Tissues Act (THOTA), 1994</strong>, aim to prevent.</p>
+                    <p class="hi-line" lang="hi"><span class="formatted-list-item">दुरुपयोग और तस्करी का जोखिम:</span> एक अधिक उदार सहमति प्रणाली अवैध अंग तस्करी और व्यावसायीकरण की संभावना को बढ़ा सकती है, जो एक बड़ी चिंता का विषय है और भारत के मौजूदा कानून, जैसे <strong>मानव अंग और ऊतक प्रत्यारोपण अधिनियम (THOTA), 1994</strong>, इसे रोकने का लक्ष्य रखते हैं।</p>
+                </div>
+            </section>
+
+            <hr>
+
+            <section class="article-section">
+                <div class="line-pair">
+                    <h3 class="article-heading en-line">5. Way Forward and Conclusion 💡</h3>
+                    <h3 class="article-heading hi-line" lang="hi">5. आगे का रास्ता और निष्कर्ष 💡</h3>
+                </div>
+                <div class="line-pair">
+                    <p class="en-line">Instead of a straight transition to a pure "opt-out" model, a phased and ethically safeguarded approach could be the most effective for India. This could include:</p>
+                    <p class="hi-line" lang="hi">एक शुद्ध "ऑप्ट-आउट" मॉडल में सीधे बदलाव के बजाय, एक चरणबद्ध और नैतिक रूप से सुरक्षित दृष्टिकोण भारत के लिए सबसे प्रभावी हो सकता है। इसमें शामिल हो सकते हैं:</p>
+                </div>
+                <div class="line-pair">
+                    <p class="en-line"><span class="formatted-list-item">A massive, sustained <strong>nationwide awareness campaign</strong></span> to bust myths and educate the public about organ donation.</p>
+                    <p class="hi-line" lang="hi"><span class="formatted-list-item">मिथकों को तोड़ने और अंगदान के बारे में जनता को शिक्षित करने के लिए एक विशाल, निरंतर <strong>राष्ट्रव्यापी जागरूकता अभियान</strong>।</span></p>
+                </div>
+                <div class="line-pair">
+                    <p class="en-line"><span class="formatted-list-item">Integrating a presumed consent option with <strong>ethical safeguards</strong></span>, such as requiring family consent even in an "opt-out" system.</p>
+                    <p class="hi-line" lang="hi"><span class="formatted-list-item">एक अनुमानित सहमति विकल्प को <strong>नैतिक सुरक्षा उपायों</strong> के साथ एकीकृत करना</span>, जैसे कि "ऑप्ट-आउट" प्रणाली में भी परिवार की सहमति की आवश्यकता।</p>
+                </div>
+                <div class="line-pair">
+                    <p class="en-line"><span class="formatted-list-item">Strengthening the existing legal and ethical framework</span> to prevent organ trafficking.</p>
+                    <p class="hi-line" lang="hi"><span class="formatted-list-item">अंग तस्करी को रोकने के लिए मौजूदा कानूनी और नैतिक ढांचे को मजबूत करना।</span></p>
+                </div>
+                <div class="line-pair">
+                    <p class="en-line"><span class="formatted-list-item">Leveraging technology to create a transparent national registry of donors</span>, ensuring fair and equitable allocation of organs.</p>
+                    <p class="hi-line" lang="hi"><span class="formatted-list-item">अंगों के निष्पक्ष और न्यायसंगत आवंटन को सुनिश्चित करते हुए, दाताओं की एक पारदर्शी राष्ट्रीय रजिस्ट्री बनाने के लिए प्रौद्योगिकी का लाभ उठाना।</span></p>
+                </div>
+                <div class="line-pair">
+                    <p class="en-line">Ultimately, while presumed consent holds the potential to bridge India's organ shortage, its success hinges on building public trust and ensuring the protection of individual rights and beliefs.</p>
+                    <p class="hi-line" lang="hi">अंततः, यद्यपि अनुमानित सहमति भारत में अंगों की कमी को दूर करने की क्षमता रखती है, इसकी सफलता जनता का विश्वास बनाने और व्यक्तिगत अधिकारों एवं विश्वासों की सुरक्षा सुनिश्चित करने पर निर्भर करती है।</p>
+                </div>
+            </section>
+
+            <div class="article-buttons">
+                <a href="index.html" class="back-to-home-btn">Back to Home</a>
+            </div>
+            
+            <p class="contact-line">Contact us on <a href="https://wa.me/918168305050" target="_blank">WhatsApp</a>: +91-8168305050</p>
+        </article>
+    </main>
+
+    <footer>
+        <p>© 2025 Crack Current Affairs (CrackCA). All rights reserved.</p>
+    </footer>
+
+    <button id="scroll-to-top" title="Go to top">&#x2B06;</button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const languageSwitchBtn = document.getElementById('language-switch');
+            const enLines = document.querySelectorAll('.en-line');
+            const hiLines = document.querySelectorAll('.hi-line');
+            const isMobile = window.matchMedia("(max-width: 767px)").matches;
+            
+            // Language Switch functionality (for mobile view)
+            if (isMobile) {
+                languageSwitchBtn.addEventListener('click', () => {
+                    if (hiLines[0].style.display === 'none' || hiLines[0].style.display === '') {
+                        enLines.forEach(line => line.style.display = 'none');
+                        hiLines.forEach(line => line.style.display = 'block');
+                        languageSwitchBtn.textContent = 'Switch to English';
+                    } else {
+                        enLines.forEach(line => line.style.display = 'block');
+                        hiLines.forEach(line => line.style.display = 'none');
+                        languageSwitchBtn.textContent = 'Switch to Hindi';
+                    }
+                });
+            } else {
+                languageSwitchBtn.style.display = 'none';
+            }
+
+            // Scroll to Top button functionality
+            const scrollToTopBtn = document.getElementById('scroll-to-top');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    scrollToTopBtn.style.display = 'block';
+                } else {
+                    scrollToTopBtn.style.display = 'none';
+                }
+            });
+
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

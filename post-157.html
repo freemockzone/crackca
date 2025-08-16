@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>16-Aug-25</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@700&display=swap');
+
+    :root {
+        --bg-color: #f7f9fc;
+        --text-color: #1a202c;
+        --header-bg: #2d3748;
+        --header-text: #ffffff;
+        --nav-bg: #4a5568;
+        --nav-text: #e2e8f0;
+        --link-color: #3182ce;
+        --hover-bg: #edf2f7;
+        --progress-bar-bg: #e2e8f0;
+        --progress-bar-fill: #48bb78;
+        --accent-color: #48bb78;
+    }
+
+    .dark-mode {
+        --bg-color: #1a202c;
+        --text-color: #e2e8f0;
+        --header-bg: #2d3748;
+        --header-text: #ffffff;
+        --nav-bg: #4a5568;
+        --nav-text: #e2e8f0;
+        --link-color: #63b3ed;
+        --hover-bg: #2d3748;
+        --progress-bar-bg: #4a5568;
+        --progress-bar-fill: #68d391;
+        --accent-color: #68d391;
+    }
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'Roboto', sans-serif;
+        line-height: 1.5;
+        margin: 0;
+        padding-top: 60px;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        transition: background-color 0.4s, color 0.4s;
+    }
+
+    .header-nav-container {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        background-color: var(--header-bg);
+        color: var(--header-text);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.75rem 2rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .header-nav-container h1 {
+        margin: 0;
+        font-size: 1.5rem;
+        color: var(--header-text);
+    }
+
+    .header-nav-container nav a {
+        color: var(--nav-text);
+        padding: 0.75rem 1rem;
+        text-decoration: none;
+        display: inline-block;
+        transition: background-color 0.3s;
+    }
+
+    .header-nav-container nav a:hover {
+        background-color: #575e70;
+    }
+
+    h1, h2, h3 {
+        font-family: 'Playfair Display', serif;
+        color: var(--link-color);
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.6rem; }
+    h3 { font-size: 1.3rem; }
+    
+    .progress-container {
+        position: fixed;
+        top: 56px;
+        left: 0;
+        width: 100%;
+        height: 6px;
+        background: var(--progress-bar-bg);
+        z-index: 99;
+    }
+
+    .progress-bar {
+        height: 6px;
+        background: var(--progress-bar-fill);
+        width: 0%;
+        transition: width 0.1s linear;
+    }
+
+    .container {
+        display: flex;
+        max-width: 1200px;
+        margin: auto;
+        flex-wrap: wrap;
+        padding: 1rem;
+    }
+
+    .main-content {
+        flex: 3;
+        padding: 2rem;
+        min-width: 300px;
+    }
+
+    .sidebar {
+        flex: 1;
+        padding: 2rem;
+        background: var(--hover-bg);
+        border-radius: 12px;
+        margin: 2rem 0 2rem 2rem;
+        min-width: 280px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    @media (max-width: 768px) {
+        .container {
+            flex-direction: column;
+        }
+        .sidebar {
+            margin: 2rem 0;
+        }
+        body {
+            padding-top: 80px;
+        }
+        .progress-container {
+            top: 76px;
+        }
+        .header-nav-container {
+            flex-direction: column;
+            padding: 0.5rem 1rem;
+        }
+        .header-nav-container h1 {
+            margin-bottom: 0.5rem;
+        }
+    }
+
+    article {
+        background: var(--bg-color);
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .article-meta {
+        margin-bottom: 2rem;
+        color: #6b7280;
+    }
+    
+    .line {
+        padding: 1rem;
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+    }
+
+    .line:hover {
+        background-color: var(--hover-bg);
+    }
+
+    strong {
+        font-weight: 700;
+    }
+
+    em, u {
+        font-style: italic;
+    }
+    
+    strong u {
+        text-decoration: underline;
+    }
+
+    .language-switcher {
+        text-align: right;
+        margin-bottom: 1rem;
+    }
+
+    .language-switcher button {
+        background-color: var(--nav-bg);
+        color: var(--nav-text);
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .language-switcher button:hover {
+        background-color: #575e70;
+    }
+
+    .hidden {
+        display: none;
+    }
+    
+    .badge {
+        display: inline-block;
+        background-color: var(--link-color);
+        color: white;
+        padding: 4px 8px;
+        border-radius: 5px;
+        font-size: 0.8em;
+        margin-left: 10px;
+    }
+
+    .difficulty-indicator {
+        padding: 5px 10px;
+        border-radius: 5px;
+        color: white;
+        font-weight: bold;
+    }
+
+    .difficulty-easy { background-color: #48bb78; }
+    .difficulty-moderate { background-color: #f6ad55; }
+    .difficulty-tough { background-color: #e53e3e; }
+
+    .tooltip {
+        position: relative;
+        cursor: help;
+    }
+
+    .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 220px;
+        background-color: #2d3748;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 8px;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%;
+        left: 50%;
+        margin-left: -110px;
+        opacity: 0;
+        transition: opacity 0.3s;
+        font-size: 0.9em;
+    }
+
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+    }
+    
+    .highlight {
+        background-color: #f6e05e;
+        color: #2d3748;
+        padding: 2px 4px;
+        border-radius: 3px;
+    }
+    
+    .mcq-option {
+        background-color: var(--hover-bg);
+        border: 1px solid #e2e8f0;
+        padding: 10px 15px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+        margin-right: 10px;
+        margin-top: 5px;
+    }
+
+    .mcq-option:hover {
+        background-color: #cbd5e0;
+        transform: translateY(-2px);
+    }
+
+    .mcq-option:disabled {
+        cursor: not-allowed;
+        opacity: 0.6;
+    }
+    
+    .flashcard {
+        background: var(--hover-bg);
+        border-radius: 12px;
+        padding: 20px;
+        text-align: center;
+        cursor: pointer;
+        margin: 1rem 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s;
+    }
+
+    .flashcard:hover {
+        transform: translateY(-5px);
+    }
+
+    .flashcard p {
+        margin: 0;
+    }
+
+    .flashcard .question {
+        font-weight: bold;
+        display: block;
+    }
+
+    .flashcard .answer {
+        display: none;
+        margin-top: 10px;
+        font-style: italic;
+    }
+
+    footer {
+        text-align: center;
+        padding: 1.5rem;
+        background-color: var(--header-bg);
+        color: var(--header-text);
+        margin-top: 2rem;
+    }
+
+    .prompt-box {
+        background-color: var(--hover-bg);
+        border-radius: 8px;
+        padding: 1.5rem;
+    }
+
+    textarea {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        margin-top: 10px;
+    }
+</style>
+</head>
+<body>
+
+<div class="header-nav-container">
+    <h1>16-August-2025</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="quiz.html">Quiz</a>
+        <a href="donation.html">Donation</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</div>
+
+<div class="progress-container">
+    <div class="progress-bar"></div>
+</div>
+
+<div class="container">
+    <main class="main-content">
+        <article>
+            <div class="language-switcher">
+                <button onclick="setLanguage('en')">English</button>
+                <button onclick="setLanguage('hi')">हिंदी</button>
+            </div>
+
+            <div id="en-content" class="lang-content">
+                <h1 class="article-title">SC Collegium cannot dictate names to HC Collegiums: CJI</h1>
+                <div class="article-meta">
+                    <p><strong>Source:</strong> Supreme Court Bar Association (SCBA)</p>
+                    <p><strong>Publication Date:</strong> 2025-08-16</p>
+                    <p><strong>Estimated Reading Time:</strong> <span id="reading-time-en" class="badge"></span></p>
+                    <p><strong>Difficulty:</strong> <span class="difficulty-indicator difficulty-moderate">Moderate</span></p>
+                </div>
+                
+                <div id="table-of-contents-en">
+                    <h2>Table of Contents</h2>
+                    <ul></ul>
+                </div>
+                
+                <section class="en-section">
+                    <div class="line">
+                        <h2><u>***Context***</u></h2>
+                        <p>
+                            * Chief Justice of India (CJI) B.R. Gavai clarified that the <strong>Supreme Court Collegium cannot dictate names</strong> to High Court Collegiums for judicial appointments.
+                        </p>
+                    </div>
+                    <div class="line">
+                        <p>
+                            * Statement made during his <u>Independence Day address</u> at the Supreme Court Bar Association (SCBA) function.
+                        </p>
+                    </div>
+                </section>
+                
+                <hr>
+                
+                <section class="en-section">
+                    <h2><u>Background: Judicial Appointments System</u></h2>
+                    <div class="line">
+                        <p><u>***Collegium System***</u>:</p>
+                    </div>
+                    <div class="line">
+                        <p>
+                            * <u>Supreme Court Collegium</u>: CJI + 4 senior-most judges.
+                        </p>
+                    </div>
+                    <div class="line">
+                        <p>
+                            * <u>High Court Collegium</u>: Chief Justice of HC + 2 senior-most judges.
+                        </p>
+                    </div>
+                    <div class="line">
+                        <p>
+                            * <u>Role</u>: Collegiums recommend appointments/transfers of judges.
+                        </p>
+                    </div>
+                    <div class="line">
+                        <p>
+                            * <u>Federal Judiciary Principle</u>: SC and HCs are not superior or inferior, but complementary.
+                        </p>
+                    </div>
+                </section>
+                
+                <hr>
+                
+                <section class="en-section">
+                    <h2><u>Key Highlights from CJI’s Statement</u></h2>
+                    <div class="line">
+                        <h3>1. <strong>Autonomy of High Court Collegium</strong></h3>
+                    </div>
+                    <div class="line">
+                        <p>
+                            * HC Collegium has the <strong>first call</strong> on recommending judges.
+                        </p>
+                    </div>
+                    <div class="line">
+                        <p>
+                            * SC Collegium can only <em>suggest</em> names, not impose them.
+                        </p>
+                    </div>
+                    <div class="line">
+                        <h3>2. <strong>Federal Judicial Structure</strong></h3>
+                    </div>
+                    <div class="line">
+                        <p>
+                            * Reinforces the principle of judicial federalism.
+                        </p>
+                    </div>
+                    <div class="line">
+                        <p>
+                            * SC ≠ Superior to HC; both have distinct but equal roles.
+                        </p>
+                    </div>
+                    <div class="line">
+                        <h3>3. <strong>Vacancies Concern</strong></h3>
+                    </div>
+                    <div class="line">
+                        <p>
+                            * High Courts facing <strong>345 vacancies</strong> (as of Aug 1).
+                        </p>
+                    </div>
+                    <div class="line">
+                        <p>
+                            * Working strength: 777 judges out of sanctioned 1,122.
+                        </p>
+                    </div>
+                    <div class="line">
+                        <h3>4. <strong>Pending Recommendations</strong></h3>
+                    </div>
+                    <div class="line">
+                        <p>
+                            * Since Nov 2022, <strong>29 SC Collegium recommendations pending</strong> with Central Govt.
+                        </p>
+                    </div>
+                </section>
+                
+                <hr>
+                
+                <section class="en-section">
+                    <h2><u>Data Points for Exam</u></h2>
+                    <div class="line">
+                        <p>
+                            * <u>Total HC Judges (sanctioned)</u>: 1,122
+                        </p>
+                    </div>
+                    <div class="line">
+                        <p>
+                            * <u>Working strength</u>: 777
+                        </p>
+                    </div>
+                    <div class="line">
+                        <p>
+                            * <u>Vacancies</u>: 345
+                        </p>
+                    </div>
+                    <div class="line">
+                        <p>
+                            * <u>Pending recommendations with Centre</u>: 29
+                        </p>
+                    </div>
+                </section>
+                
+                <hr>
+                
+                <section class="en-section">
+                    <h2><u>Issues Highlighted</u></h2>
+                    <div class="line">
+                        <p>
+                            * Delay in judicial appointments → backlog of cases.
+                        </p>
+                    </div>
+                    <div class="line">
+                        <p>
+                            * Central Govt often sits on Collegium recommendations.
+                        </p>
+                    </div>
+                    <div class="line">
+                        <p>
+                            * Limited pool of candidates (mostly from Bar & District Judiciary).
+                        </p>
+                    </div>
+                </section>
+                
+                <hr>
+                
+                <section class="en-section">
+                    <h2><u>Constitutional & Legal Angle</u></h2>
+                    <div class="line">
+                        <p>
+                            * <u>Article 217</u>: Appointment of HC judges by President after consultation with CJI, Governor, and HC CJ.
+                        </p>
+                    </div>
+                    <div class="line">
+                        <p>
+                            * <u>Article 124</u>: Appointment of SC judges.
+                        </p>
+                    </div>
+                    <div class="line">
+                        <p>
+                            * <u>NJAC Judgment (2015)</u>: SC struck down 99th Amendment, reaffirmed Collegium system.
+                        </p>
+                    </div>
+                </section>
+                
+                <hr>
+                
+                <section class="en-section">
+                    <h2><u>Significance</u></h2>
+                    <div class="line">
+                        <p>
+                            * Protects <strong>judicial independence</strong> by decentralising appointment powers.
+                        </p>
+                    </div>
+                    <div class="line">
+                        <p>
+                            * Strengthens <strong>federal character</strong> of Indian judiciary.
+                        </p>
+                    </div>
+                    <div class="line">
+                        <p>
+                            * Pushes for <strong>diverse representation</strong> in HC benches.
+                        </p>
+                    </div>
+                </section>
+                
+                <hr>
+                
+                <section class="en-section">
+                    <h2><u>UPSC Mains Relevance</u></h2>
+                    <div class="line">
+                        <p><strong>GS Paper-II: Polity & Governance</strong></p>
+                    </div>
+                    <div class="line">
+                        <p><u>Topic</u>: *Separation of powers, Appointment to higher judiciary, Federal structure of judiciary.*</p>
+                    </div>
+                    <div class="line">
+                        <p><u>Possible Questions</u>:</p>
+                    </div>
+                    <div class="line">
+                        <p>1. *“The Supreme Court Collegium cannot dictate names to High Court Collegiums.” Discuss in the context of judicial federalism in India.*</p>
+                    </div>
+                    <div class="line">
+                        <p>2. *Examine the challenges posed by vacancies in the High Courts and suggest reforms in the appointment process.*</p>
+                    </div>
+                </section>
+            </div>
+
+            <div id="hi-content" class="lang-content hidden">
+                <h1 class="article-title">सुप्रीम कोर्ट कॉलेजियम, हाईकोर्ट कॉलेजियम को नाम नहीं बता सकता: मुख्य न्यायाधीश</h1>
+                <div class="article-meta">
+                    <p><strong>स्रोत:</strong> सुप्रीम कोर्ट बार एसोसिएशन (SCBA)</p>
+                    <p><strong>प्रकाशन तिथि:</strong> 2025-08-16</p>
+                    <p><strong>अनुमानित पठन समय:</strong> <span id="reading-time-hi" class="badge"></span></p>
+                    <p><strong>कठिनाई:</strong> <span class="difficulty-indicator difficulty-moderate">मध्यम</span></p>
+                </div>
+
+                <div id="table-of-contents-hi">
+                    <h2>विषय-सूची</h2>
+                    <ul></ul>
+                </div>
+
+                <section class="hi-section">
+                    <div class="line">
+                        <h2><u>***संदर्भ***</u></h2>
+                        <p>
+                            * भारत के मुख्य न्यायाधीश (सीजेआई) बी.आर. गवई ने स्पष्ट किया कि <strong>सुप्रीम कोर्ट कॉलेजियम, न्यायिक नियुक्तियों के लिए हाईकोर्ट कॉलेजियम को नाम नहीं बता सकता</strong>।
+                        </p>
+                    </div>
+                    <div class="line">
+                        <p>
+                            * सुप्रीम कोर्ट बार एसोसिएशन (एससीबीए) के समारोह में अपने <u>स्वतंत्रता दिवस संबोधन</u> के दौरान दिया गया वक्तव्य।
+                        </p>
+                    </div>
+                </section>
+                
+                <hr>
+
+                <section class="hi-section">
+                    <h2><u>पृष्ठभूमि: न्यायिक नियुक्ति प्रणाली</u></h2>
+                    <div class="line">
+                        <p><u>***कॉलेजियम प्रणाली***</u>:</p>
+                    </div>
+                    <div class="line">
+                        <p>
+                            * <u>सुप्रीम कोर्ट कॉलेजियम</u>: मुख्य न्यायाधीश + 4 वरिष्ठतम न्यायाधीश।
+                        </p>
+                    </div>
+                    <div class="line">
+                        <p>
+                            * <u>हाई कोर्ट कॉलेजियम</u>: हाईकोर्ट के मुख्य न्यायाधीश + 2 वरिष्ठतम न्यायाधीश।
+                        </p>
+                    </div>
+                    <div class="line">
+                        <p>
+                            * <u>भूमिका</u>: कॉलेजियम न्यायाधीशों की नियुक्ति/स्थानांतरण की सिफारिश करते हैं।
+                        </p>
+                    </div>
+                    <div class="line">
+                        <p>
+                            * <u>संघीय न्यायपालिका सिद्धांत</u>: सर्वोच्च न्यायालय और उच्च न्यायालय श्रेष्ठ या निम्न नहीं, बल्कि पूरक हैं।
+                        </p>
+                    </div>
+                </section>
+                
+                <hr>
+                
+                <section class="hi-section">
+                    <h2><u>मुख्य न्यायाधीश के वक्तव्य के मुख्य अंश</u></h2>
+                    <div class="line">
+                        <h3>1. <strong>उच्च न्यायालय कॉलेजियम की स्वायत्तता</strong></h3>
+                    </div>
+                    <div class="line">
+                        <p>
+                            * न्यायाधीशों की सिफारिश करने का <strong>पहला अधिकार</strong> उच्च न्यायालय कॉलेजियम का है।
+                        </p>
+                    </div>
+                    <div class="line">
+                        <p>
+                            * सर्वोच्च न्यायालय कॉलेजियम केवल नाम <em>सुझाव</em> दे सकता है, उन्हें थोप नहीं सकता।
+                        </p>
+                    </div>
+                    <div class="line">
+                        <h3>2. <strong>संघीय न्यायिक संरचना</strong></h3>
+                    </div>
+                    <div class="line">
+                        <p>
+                            * न्यायिक संघवाद के सिद्धांत को सुदृढ़ करता है।
+                        </p>
+                    </div>
+                    <div class="line">
+                        <p>
+                            * सर्वोच्च न्यायालय ≠ उच्च न्यायालय से श्रेष्ठ; दोनों की भूमिकाएँ अलग-अलग लेकिन समान हैं।
+                        </p>
+                    </div>
+                    <div class="line">
+                        <h3>3. <strong>रिक्तियों की चिंता</strong></h3>
+                    </div>
+                    <div class="line">
+                        <p>
+                            * उच्च न्यायालयों में <strong>345 रिक्तियाँ</strong> हैं (1 अगस्त तक)।
+                        </p>
+                    </div>
+                    <div class="line">
+                        <p>
+                            * कार्यरत संख्या: स्वीकृत 1,122 न्यायाधीशों में से 777 न्यायाधीश।
+                        </p>
+                    </div>
+                    <div class="line">
+                        <h3>4. <strong>लंबित सिफ़ारिशें</strong></h3>
+                    </div>
+                    <div class="line">
+                        <p>
+                            * नवंबर 2022 से, <strong>29 सुप्रीम कोर्ट कॉलेजियम सिफ़ारिशें केंद्र सरकार के पास लंबित हैं</strong>।
+                        </p>
+                    </div>
+                </section>
+
+                <hr>
+                
+                <section class="hi-section">
+                    <h2><u>परीक्षा के लिए डेटा पॉइंट</u></h2>
+                    <div class="line">
+                        <p>
+                            * <u>कुल उच्च न्यायालय न्यायाधीश (स्वीकृत)</u>: 1,122
+                        </p>
+                    </div>
+                    <div class="line">
+                        <p>
+                            * <u>कार्यरत संख्या</u>: 777
+                        </p>
+                    </div>
+                    <div class="line">
+                        <p>
+                            * <u>रिक्तियाँ</u>: 345
+                        </p>
+                    </div>
+                    <div class="line">
+                        <p>
+                            * <u>केंद्र के पास लंबित सिफ़ारिशें</u>: 29
+                        </p>
+                    </div>
+                </section>
+                
+                <hr>
+                
+                <section class="hi-section">
+                    <h2><u>उजागर मुद्दे</u></h2>
+                    <div class="line">
+                        <p>
+                            * न्यायिक नियुक्तियों में देरी → लंबित मामलों की संख्या।
+                        </p>
+                    </div>
+                    <div class="line">
+                        <p>
+                            * केंद्र सरकार अक्सर कॉलेजियम की सिफ़ारिशों पर अड़ी रहती है।
+                        </p>
+                    </div>
+                    <div class="line">
+                        <p>
+                            * उम्मीदवारों का सीमित समूह (ज़्यादातर बार और ज़िला न्यायपालिका से)।
+                        </p>
+                    </div>
+                </section>
+                
+                <hr>
+                
+                <section class="hi-section">
+                    <h2><u>संवैधानिक और कानूनी पहलू</u></h2>
+                    <div class="line">
+                        <p>
+                            * <u>अनुच्छेद 217</u>: मुख्य न्यायाधीश, राज्यपाल और उच्च न्यायालय के मुख्य न्यायाधीश के परामर्श के बाद राष्ट्रपति द्वारा उच्च न्यायालय के न्यायाधीशों की नियुक्ति।
+                        </p>
+                    </div>
+                    <div class="line">
+                        <p>
+                            * <u>अनुच्छेद 124</u>: उच्चतम न्यायालय के न्यायाधीशों की नियुक्ति।
+                        </p>
+                    </div>
+                    <div class="line">
+                        <p>
+                            * <u>एनजेएसी निर्णय (2015)</u>: उच्चतम न्यायालय ने 99वें संशोधन को रद्द कर दिया, कॉलेजियम प्रणाली की पुष्टि की।
+                        </p>
+                    </div>
+                </section>
+                
+                <hr>
+                
+                <section class="hi-section">
+                    <h2><u>महत्व</u></h2>
+                    <div class="line">
+                        <p>
+                            * नियुक्ति शक्तियों का विकेंद्रीकरण करके <strong>न्यायिक स्वतंत्रता</strong> की रक्षा करता है।
+                        </p>
+                    </div>
+                    <div class="line">
+                        <p>
+                            * भारतीय न्यायपालिका के <strong>संघीय चरित्र</strong> को मजबूत करता है।
+                        </p>
+                    </div>
+                    <div class="line">
+                        <p>
+                            * उच्च न्यायालयों की पीठों में <strong>विविध प्रतिनिधित्व</strong> पर जोर देता है।
+                        </p>
+                    </div>
+                </section>
+                
+                <hr>
+                
+                <section class="hi-section">
+                    <h2><u>यूपीएससी मुख्य परीक्षा प्रासंगिकता</u></h2>
+                    <div class="line">
+                        <p><strong>सामान्य अध्ययन प्रश्नपत्र-II: राजनीति एवं शासन</strong></p>
+                    </div>
+                    <div class="line">
+                        <p><u>विषय</u>: *शक्तियों का पृथक्करण, उच्च न्यायपालिका में नियुक्ति, न्यायपालिका का संघीय ढाँचा।*</p>
+                    </div>
+                    <div class="line">
+                        <p><u>संभावित प्रश्न</u>:</p>
+                    </div>
+                    <div class="line">
+                        <p>1. *“सर्वोच्च न्यायालय कॉलेजियम, उच्च न्यायालय कॉलेजियम को नाम नहीं बता सकता।” भारत में न्यायिक संघवाद के संदर्भ में चर्चा कीजिए।*</p>
+                    </div>
+                    <div class="line">
+                        <p>2. *उच्च न्यायालयों में रिक्तियों से उत्पन्न चुनौतियों का परीक्षण कीजिए और नियुक्ति प्रक्रिया में सुधार सुझाइए।*</p>
+                    </div>
+                </section>
+            </div>
+            
+            <hr>
+            
+            <section>
+                <h2>MCQs</h2>
+                <div id="mcq-container"></div>
+            </section>
+            
+            <hr>
+
+            <section>
+                <h2>Related PYQ Links</h2>
+                <ul>
+                    <li><a href="[https://www.upsc.gov.in/web/sites/default/files/2021-CSM_GS2_QP.pdf](https://www.upsc.gov.in/web/sites/default/files/2021-CSM_GS2_QP.pdf)" target="_blank">UPSC CSE 2021 GS Paper II</a></li>
+                    <li><a href="[https://www.upsc.gov.in/web/sites/default/files/2020-CSM_GS2_QP.pdf](https://www.upsc.gov.in/web/sites/default/files/2020-CSM_GS2_QP.pdf)" target="_blank">UPSC CSE 2020 GS Paper II</a></li>
+                </ul>
+            </section>
+            
+            <hr>
+
+            <section>
+                <h2>Mains Answer Writing Prompt</h2>
+                <div class="prompt-box">
+                    <p><strong>Prompt:</strong> Critically analyze the challenges posed by the current judicial appointment system in India and suggest a way forward to ensure both independence and accountability.</p>
+                    <textarea id="answer-box" rows="10" cols="50" placeholder="Write your answer here..."></textarea>
+                    <button onclick="submitAnswer()">Submit</button>
+                </div>
+            </section>
+            
+            <hr>
+
+            <section>
+                <h2>Flashcards</h2>
+                <div id="flashcard-container"></div>
+                <button onclick="generateFlashcards()">Generate Flashcards</button>
+            </section>
+
+            <hr>
+            
+            <section>
+                <h2>Related Articles</h2>
+                <div id="related-articles-container"></div>
+            </section>
+        </article>
+    </main>
+
+    <aside class="sidebar">
+        <section>
+            <h2>Article Actions</h2>
+            <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+            <button onclick="window.print()">Save as PDF</button>
+            <button onclick="shareArticle()">Share</button>
+            <button onclick="readArticle()">Text-to-Speech</button>
+        </section>
+        <br>
+        <section>
+            <h2>Contact Us</h2>
+            <p>For any queries, please contact us on <a href="[https://wa.me/918168305050](https://wa.me/918168305050)" target="_blank">WhatsApp</a>.</p>
+        </section>
+    </aside>
+</div>
+
+<footer>
+    <p>© 2025 Crack Current Affairs (CrackCA). All rights reserved.</p>
+</footer>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        loadLanguage();
+        setupProgressbar();
+        setupTOC();
+        setupGlossary();
+        setupMCQs();
+        calculateReadingTime();
+        setupRelatedArticles();
+        highlightKeywords();
+        applyMarkdownStyles();
+    });
+
+    function applyMarkdownStyles() {
+        document.querySelectorAll('.line').forEach(line => {
+            let html = line.innerHTML;
+            html = html.replace(/\*\*\*(.*?)\*\*\*/g, '<u><strong><em>$1</em></strong></u>');
+            html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            html = html.replace(/\*(.*?)\*/g, '<u><strong><em>$1</em></strong></u>');
+            line.innerHTML = html;
+        });
+        document.querySelectorAll('h2').forEach(heading => {
+            if (heading.textContent.startsWith('###')) {
+                heading.outerHTML = `<h3>${heading.innerHTML.substring(3).trim()}</h3>`;
+            }
+        });
+        document.querySelectorAll('h3').forEach(heading => {
+            if (heading.textContent.startsWith('####')) {
+                heading.outerHTML = `<h4>${heading.innerHTML.substring(4).trim()}</h4>`;
+            }
+        });
+    }
+
+    function setupProgressbar() {
+        const progressBar = document.querySelector('.progress-bar');
+        window.addEventListener('scroll', () => {
+            const totalHeight = document.body.scrollHeight - window.innerHeight;
+            if (totalHeight > 0) {
+                const progress = (window.scrollY / totalHeight) * 100;
+                progressBar.style.width = progress + '%';
+            }
+        });
+    }
+
+    function setupTOC() {
+        ['en', 'hi'].forEach(lang => {
+            const toc = document.getElementById(`table-of-contents-${lang}`).querySelector('ul');
+            const headings = document.querySelectorAll(`#${lang}-content h2, #${lang}-content h3`);
+            toc.innerHTML = '';
+            headings.forEach((heading, index) => {
+                const id = `${lang}-section-${index}`;
+                heading.id = id;
+                const listItem = document.createElement('li');
+                const link = document.createElement('a');
+                link.href = `#${id}`;
+                link.textContent = heading.textContent.replace(/^(##|###|####)\s*/, '');
+                listItem.appendChild(link);
+                toc.appendChild(listItem);
+            });
+        });
+    }
+
+    function toggleDarkMode() {
+        document.body.classList.toggle('dark-mode');
+    }
+
+    function shareArticle() {
+        if (navigator.share) {
+            navigator.share({
+                title: document.title,
+                text: 'Check out this article on CrackCA!',
+                url: window.location.href
+            }).catch(console.error);
+        } else {
+            alert('Web Share API is not supported in your browser.');
+        }
+    }
+    
+    function readArticle() {
+        const currentLang = getCurrentLang();
+        const textToRead = document.getElementById(`${currentLang}-content`).innerText;
+        const utterance = new SpeechSynthesisUtterance(textToRead);
+        utterance.lang = currentLang === 'en' ? 'en-US' : 'hi-IN';
+        window.speechSynthesis.speak(utterance);
+    }
+
+    const glossary = {
+        "Collegium System": "A system of appointment and transfer of judges that has evolved through Supreme Court judgments rather than a parliamentary act or constitutional provision.",
+        "Judicial Federalism": "The principle that the judiciary in a federal system is composed of multiple levels (e.g., state and federal) with distinct but not subordinate roles.",
+        "NJAC": "National Judicial Appointments Commission, a body proposed to replace the Collegium System, which was struck down by the Supreme Court.",
+        "CJI": "Chief Justice of India, the head of the judiciary of India and the Supreme Court of India."
+    };
+
+    function setupGlossary() {
+        const articleContent = document.getElementById(getCurrentLang() === 'en' ? 'en-content' : 'hi-content');
+        for (const term in glossary) {
+            const regex = new RegExp(`\\b(${term})\\b`, 'gi');
+            articleContent.innerHTML = articleContent.innerHTML.replace(regex, (match) => {
+                return `<span class="tooltip">${match}<span class="tooltiptext">${glossary[term]}</span></span>`;
+            });
+        }
+    }
+
+    const mcqs = [
+        {
+            question: "As of August 1, what was the sanctioned strength of judges in the High Courts?",
+            options: ["777", "1,122", "345", "1,000"],
+            answer: "1,122"
+        },
+        {
+            question: "What does the Supreme Court Collegium consist of?",
+            options: ["CJI + 2 senior-most judges", "CJI + 4 senior-most judges", "CJI + 3 senior-most judges", "CJI + 5 senior-most judges"],
+            answer: "CJI + 4 senior-most judges"
+        }
+    ];
+
+    function setupMCQs() {
+        const container = document.getElementById('mcq-container');
+        container.innerHTML = '';
+        mcqs.forEach((mcq, index) => {
+            const mcqDiv = document.createElement('div');
+            mcqDiv.classList.add('mcq-item');
+            mcqDiv.innerHTML = `
+                <h3>Question ${index + 1}:</h3>
+                <p>${mcq.question}</p>
+                ${mcq.options.map(option => `<button class="mcq-option" data-answer="${option}">${option}</button>`).join('')}
+                <p class="feedback" style="display:none;"></p>
+            `;
+            container.appendChild(mcqDiv);
+        });
+
+        container.addEventListener('click', (e) => {
+            if (e.target.classList.contains('mcq-option')) {
+                const selectedAnswer = e.target.getAttribute('data-answer');
+                const mcqDiv = e.target.closest('.mcq-item');
+                const feedback = mcqDiv.querySelector('.feedback');
+                const questionIndex = Array.from(mcqDiv.parentNode.children).indexOf(mcqDiv);
+                const correctAnswer = mcqs[questionIndex].answer;
+
+                if (selectedAnswer === correctAnswer) {
+                    feedback.textContent = "Correct! ✅";
+                    feedback.style.color = "var(--accent-color)";
+                } else {
+                    feedback.textContent = `Incorrect. The correct answer is: ${correctAnswer} ❌`;
+                    feedback.style.color = "#e53e3e";
+                }
+                feedback.style.display = "block";
+                mcqDiv.querySelectorAll('.mcq-option').forEach(btn => btn.disabled = true);
+            }
+        });
+    }
+    
+    function calculateReadingTime() {
+        const enText = document.getElementById('en-content').innerText;
+        const hiText = document.getElementById('hi-content').innerText;
+        const wordsPerMinute = 200;
+        const enWordCount = enText.split(/\s+/).length;
+        const hiWordCount = hiText.split(/\s+/).length;
+        const enReadingTime = Math.ceil(enWordCount / wordsPerMinute);
+        const hiReadingTime = Math.ceil(hiWordCount / wordsPerMinute);
+
+        document.getElementById('reading-time-en').textContent = `${enReadingTime} min read`;
+        document.getElementById('reading-time-hi').textContent = `${hiReadingTime} min read`;
+    }
+    
+    const flashcardData = {
+        en: [
+            { question: "What is the composition of the Supreme Court Collegium?", answer: "CJI + 4 senior-most judges" },
+            { question: "How many vacancies are there in High Courts as of August 1?", answer: "345 vacancies out of a sanctioned strength of 1,122 judges." },
+            { question: "Which Article of the Constitution deals with the appointment of HC judges?", answer: "Article 217" },
+            { question: "What was the significance of the 2015 NJAC judgment?", answer: "The Supreme Court struck down the 99th Amendment and reaffirmed the Collegium system." },
+            { question: "What principle states that the SC and HCs are complementary, not superior or inferior?", answer: "Judicial Federalism" }
+        ],
+        hi: [
+            { question: "सुप्रीम कोर्ट कॉलेजियम की संरचना क्या है?", answer: "मुख्य न्यायाधीश + 4 वरिष्ठतम न्यायाधीश" },
+            { question: "1 अगस्त तक उच्च न्यायालयों में कितनी रिक्तियाँ हैं?", answer: "स्वीकृत 1,122 न्यायाधीशों में से 345 रिक्तियाँ।" },
+            { question: "संविधान का कौन सा अनुच्छेद उच्च न्यायालय के न्यायाधीशों की नियुक्ति से संबंधित है?", answer: "अनुच्छेद 217" },
+            { question: "2015 के एनजेएसी (NJAC) निर्णय का क्या महत्व था?", answer: "सुप्रीम कोर्ट ने 99वें संशोधन को रद्द कर दिया और कॉलेजियम प्रणाली की पुष्टि की।" },
+            { question: "कौन सा सिद्धांत कहता है कि सुप्रीम कोर्ट और उच्च न्यायालय श्रेष्ठ या निम्न नहीं, बल्कि पूरक हैं?", answer: "न्यायिक संघवाद" }
+        ]
+    };
+
+    function generateFlashcards() {
+        const currentLang = getCurrentLang();
+        const container = document.getElementById('flashcard-container');
+        container.innerHTML = '';
+        
+        const cardsToGenerate = 3;
+        const selectedCards = [];
+        const data = flashcardData[currentLang];
+
+        while (selectedCards.length < cardsToGenerate && selectedCards.length < data.length) {
+            const randomIndex = Math.floor(Math.random() * data.length);
+            const card = data[randomIndex];
+            if (!selectedCards.includes(card)) {
+                selectedCards.push(card);
+            }
+        }
+
+        selectedCards.forEach(cardData => {
+            const card = document.createElement('div');
+            card.classList.add('flashcard');
+            
+            const front = document.createElement('p');
+            front.classList.add('question');
+            front.textContent = cardData.question;
+            
+            const back = document.createElement('p');
+            back.classList.add('answer');
+            back.textContent = cardData.answer;
+            
+            card.appendChild(front);
+            card.appendChild(back);
+            
+            card.addEventListener('click', () => {
+                back.style.display = back.style.display === "none" ? "block" : "none";
+            });
+            
+            container.appendChild(card);
+        });
+    }
+
+    function highlightKeywords() {
+        const keywords = ["Collegium", "CJI", "Judicial Appointments", "Federalism", "Vacancies", "Article 217", "NJAC", "Supreme Court", "High Court"];
+        const elementsToHighlight = document.querySelectorAll('#en-content p, #hi-content p, #en-content li, #hi-content li');
+        elementsToHighlight.forEach(el => {
+            let html = el.innerHTML;
+            keywords.forEach(keyword => {
+                const regex = new RegExp(`\\b(${keyword})\\b`, 'gi');
+                html = html.replace(regex, `<span class="highlight">${keyword}</span>`);
+            });
+            el.innerHTML = html;
+        });
+    }
+    
+    function setupRelatedArticles() {
+        const container = document.getElementById('related-articles-container');
+        const articles = [
+            { title: "Judicial Accountability vs. Independence: A Tussle for Power", url: "#" },
+            { title: "The Role of the President in Judicial Appointments", url: "#" },
+            { title: "Analyzing the NJAC Judgment and its Aftermath", url: "#" }
+        ];
+        
+        if (articles.length > 0) {
+            container.innerHTML = '<ul>' + articles.map(article => `<li><a href="${article.url}">${article.title}</a></li>`).join('') + '</ul>';
+        } else {
+            container.innerHTML = '<p>No related articles found.</p>';
+        }
+    }
+    
+    function setLanguage(lang) {
+        localStorage.setItem('articleLang', lang);
+        document.querySelectorAll('.lang-content').forEach(el => {
+            el.classList.add('hidden');
+        });
+        document.getElementById(`${lang}-content`).classList.remove('hidden');
+        setupTOC();
+        setupGlossary();
+        highlightKeywords();
+    }
+
+    function loadLanguage() {
+        const storedLang = localStorage.getItem('articleLang') || 'en';
+        setLanguage(storedLang);
+    }
+
+    function getCurrentLang() {
+        return localStorage.getItem('articleLang') || 'en';
+    }
+</script>
+</body>
+</html>

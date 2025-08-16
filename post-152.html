@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <title>16-Aug-25</title>
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <meta name="description" content="UPSC CSE-focused current affairs note: LGBTQI rights, legal recognition, and policy gaps in India with GS mapping and way forward." />
+ <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
+ <style>
+  :root{
+   --bg:#ffffff;
+   --text:#202124;
+   --muted:#5f6368;
+   --brand:#2563eb;
+   --accent:#10b981;
+   --soft1:#e0f2fe; /* light blue */
+   --soft2:#fef3c7; /* light amber */
+   --soft3:#dcfce7; /* light green */
+   --soft4:#fae8ff; /* light purple */
+   --line-hover:#fff7ed; /* warm hover */
+   --card:#ffffff;
+   --shadow:0 8px 24px rgba(0,0,0,0.08);
+   --radius:18px;
+   --max:1100px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Roboto, system-ui, -apple-system, Segoe UI, Arial, sans-serif;line-height:1.6}
+  /* Fixed Top Nav */
+  nav{
+   position:fixed; top:0; left:0; right:0; z-index:1000;
+   background:linear-gradient(90deg, var(--soft1), var(--soft2), var(--soft4));
+   border-bottom:1px solid #e5e7eb;
+   backdrop-filter:saturate(140%) blur(6px);
+  }
+  .nav-inner{
+   max-width:var(--max); margin:0 auto; display:flex; align-items:center; gap:16px; padding:12px 16px;
+  }
+  .brand{
+   font-weight:800; letter-spacing:.3px; color:#111827;
+  }
+  .nav-links{display:flex; gap:10px; flex-wrap:wrap; margin-left:auto}
+  .nav-links a{
+   text-decoration:none; color:#111827; font-weight:600; padding:8px 12px; border-radius:12px;
+   transition:transform .15s ease, background-color .2s ease;
+  }
+  .nav-links a:hover{background:#ffffffaa; transform:translateY(-1px)}
+  main{max-width:var(--max); margin:0 auto; padding:96px 16px 48px;} /* top padding for fixed nav */
+  header.page-header{
+   background:linear-gradient(135deg, var(--soft3), var(--soft1));
+   padding:24px; border-radius:var(--radius); box-shadow:var(--shadow); margin-bottom:20px;
+  }
+  header.page-header h1{margin:0; font-family:Merriweather, serif; font-size:clamp(22px, 4vw, 36px)}
+  .meta{
+   display:flex; flex-wrap:wrap; gap:10px; margin-top:8px; color:var(--muted); font-size:.95rem
+  }
+  .badge{background:#fff; border:1px solid #e5e7eb; padding:4px 10px; border-radius:999px}
+  .readtime{background:var(--soft2); border:1px dashed #f59e0b}
+  article{
+   background:var(--card); border:1px solid #eef2f7; border-radius:var(--radius); box-shadow:var(--shadow);
+   overflow:hidden;
+  }
+  .article-head{
+   padding:20px 20px 0 20px; border-bottom:1px solid #f1f5f9;
+  }
+  .article-head h2{
+   margin:0 0 10px 0; font-size:clamp(20px,3.6vw,30px); font-family:Merriweather, serif;
+  }
+  .article-body{ padding: 0 20px 20px 20px;}
+  section{ padding:16px; margin:14px 0; background: #fcfcff; border:1px solid #eef2ff; border-radius:14px}
+  section.alt1{ background:var(--soft4);}
+  section.alt2{ background:var(--soft1);}
+  section.alt3{ background:var(--soft2);}
+  section.alt4{ background:var(--soft3);}
+  .line{
+   display:grid; grid-template-columns: 1fr; gap:6px;
+   padding:12px 14px; margin:8px 0; border-radius:12px; background:#fff; border:1px solid #eef2f7;
+   transition: background-color .2s ease, transform .12s ease;
+  }
+  .line:hover{ background: var(--line-hover); transform: translateY(-1px);}
+  .en{font-weight:500}
+  .hi{opacity:.95}
+  .controls{display:flex; flex-wrap:wrap; gap:10px; margin:14px 0;}
+  .btn{
+   appearance:none; border:1px solid #cbd5e1; background:#fff; padding:10px 14px; border-radius:12px; cursor:pointer; font-weight:600;
+   transition:transform .12s ease, box-shadow .2s ease, background .2s ease;
+   box-shadow: 0 2px 0 rgba(0,0,0,.05);
+  }
+  .btn:hover{transform:translateY(-1px); box-shadow:0 6px 14px rgba(0,0,0,.08);}
+  .btn.primary{background:var(--brand); color:#fff; border-color:transparent}
+  .btn.ghost{background:#f8fafc}
+  .floating-top{
+   position:fixed; bottom:24px; right:24px; z-index:1000; display:none;
+  }
+  footer{
+   margin-top:28px; padding:18px; text-align:center; color:#374151; background:linear-gradient(90deg, var(--soft3), var(--soft2));
+   border-radius:var(--radius);
+  }
+  .contact{
+   margin-top:12px; font-weight:600;
+  }
+  .contact a{ color:#0f766e; text-decoration:underline; }
+  /* Responsive tweaks */
+  @media (min-width:640px){
+   .line{ grid-template-columns: 1fr 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce){
+   *{scroll-behavior:auto !important}
+   .nav-links a:hover, .btn:hover, .line:hover{ transform:none }
+  }
+  /* Accessibility helpers */
+  .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0}
+  /* Clear section separators */
+  .divider{ height:1px; background:#e5e7eb; margin:16px 0; }
+ </style>
+</head>
+<body>
+  <nav aria-label="Primary">
+  <div class="nav-inner">
+   <div class="brand" aria-label="Site Name">Crack Current Affairs • CrackCA</div>
+   <div class="nav-links" role="navigation">
+    <a href="index.html">Home</a>
+    <a href="quiz.html">Quiz</a>
+    <a href="donation.html">Donation</a>
+    <a href="contact.html">Contact</a>
+   </div>
+  </div>
+ </nav>
+
+ <main>
+  <header class="page-header">
+   <h1>16-August-2025</h1>
+   <div class="meta" aria-label="Page meta">
+    <span class="badge">UPSC CSE • Notes</span>
+    <span class="badge">GS II / Social Justice</span>
+   </div>
+  </header>
+
+  <article aria-labelledby="article-title">
+   <div class="article-head">
+    <h2 id="article-title">No Matter What Sex, a Couple is a Couple</h2>
+    <div class="meta">
+     <span class="badge">Source: Economic Times</span>
+     <span class="badge">Published: 16 Aug 2025</span>
+     <span class="badge readtime" id="read-time" aria-live="polite">Read time: calculating…</span>
+    </div>
+    <div class="controls" role="group" aria-label="Article controls">
+     <button class="btn ghost" id="toggle-lang" aria-pressed="false">Language Switch (Show/Hide Hindi)</button>
+     <a class="btn primary" href="index.html" id="back-home-top">Back to Home</a>
+    </div>
+   </div>
+
+   <div class="article-body" id="content-root">
+        <section class="alt1" aria-labelledby="ctx">
+     <h2 id="ctx">Context / संदर्भ</h2>
+
+     <div class="line">
+      <p class="en" data-lang="en"><strong>2018:</strong> Supreme Court struck down Section 377, a 158-year-old colonial law that criminalised same-sex relations.</p>
+      <p class="hi" lang="hi"> <strong>2018:</strong> सुप्रीम कोर्ट ने धारा 377, 158 साल पुराने औपनिवेशिक कानून को रद्द किया जिसने समलैंगिक संबंधों को अपराध घोषित किया था।</p>
+     </div>
+
+     <div class="line">
+      <p class="en" data-lang="en"><strong>2023:</strong> Supreme Court declined to legalise same-sex marriage, leaving the matter to Parliament.</p>
+      <p class="hi" lang="hi"><strong>2023:</strong> सुप्रीम कोर्ट ने समलैंगिक विवाह को वैध बनाने से इनकार करते हुए मामला संसद पर छोड़ दिया।</p>
+     </div>
+
+     <div class="line">
+      <p class="en" data-lang="en"><em><u>Current Issue:</u></em> Same-sex couples continue to face financial, legal, and social inequities due to lack of legal recognition.</p>
+      <p class="hi" lang="hi"><em><u>वर्तमान मुद्दा:</u></em> कानूनी मान्यता के अभाव में समलैंगिक जोड़ों को आर्थिक, कानूनी और सामाजिक असमानताओं का सामना करना पड़ता है।</p>
+     </div>
+    </section>
+
+    <section class="alt2" aria-labelledby="key-issues">
+     <h2 id="key-issues">Key Issues / प्रमुख मुद्दे</h2>
+
+     <h3>1) Legal &amp; Constitutional / कानूनी और संवैधानिक</h3>
+     <div class="line">
+      <p class="en" data-lang="en"><strong>Article 14 – Equal Protection:</strong> Denial of marital recognition undermines equality for same-sex couples.</p>
+      <p class="hi" lang="hi"><strong>अनुच्छेद 14 – समान संरक्षण:</strong> वैवाहिक मान्यता से इनकार समलैंगिक जोड़ों के लिए समानता को कमजोर करता है।</p>
+     </div>
+
+     <div class="line">
+      <p class="en" data-lang="en"><strong>Tax Provision Challenge:</strong> Bombay High Court has admitted a plea against taxation on gifts between same-sex partners.</p>
+      <p class="hi" lang="hi"><strong>कर प्रावधान चुनौती:</strong> बॉम्बे हाईकोर्ट ने समलैंगिक साझेदारों के बीच उपहारों पर कराधान के खिलाफ याचिका स्वीकार की है।</p>
+     </div>
+
+     <div class="line">
+      <p class="en" data-lang="en">The <em><u>2018 verdict</u></em> decriminalised homosexuality but did not ensure equal rights in marriage, inheritance, or family law.</p>
+      <p class="hi" lang="hi"><em><u>2018 का फैसला</u></em> समलैंगिकता का अपराधीकरण समाप्त करता है, पर विवाह, उत्तराधिकार व पारिवारिक कानून में समान अधिकार सुनिश्चित नहीं करता।</p>
+     </div>
+
+     <h3>2) Financial &amp; Economic / वित्तीय और आर्थिक</h3>
+     <div class="line">
+      <p class="en" data-lang="en"><strong>Banking Access:</strong> Finance Ministry (2024) says joint accounts and nominations are not restricted for LGBTQI persons; yet readiness gaps persist.</p>
+      <p class="hi" lang="hi"><strong>बैंकिंग पहुँच:</strong> वित्त मंत्रालय (2024) के अनुसार LGBTQI व्यक्तियों के लिए संयुक्त खाते/नामांकन पर कोई प्रतिबंध नहीं; फिर भी व्यवस्था में कमी बनी हुई है।</p>
+     </div>
+
+     <div class="line">
+      <p class="en" data-lang="en"><strong>Succession &amp; Inheritance:</strong> Religion-specific succession laws favour legally recognised relationships, creating hurdles for partners.</p>
+      <p class="hi" lang="hi"><strong>उत्तराधिकार:</strong> धर्म-आधारित उत्तराधिकार कानून कानूनी रूप से मान्यता प्राप्त संबंधों का पक्ष लेते हैं, जिससे साझेदारों को बाधाएँ आती हैं।</p>
+     </div>
+
+     <div class="line">
+      <p class="en" data-lang="en"><strong>Taxation Inequities:</strong> Gifts between same-sex partners can be taxed, unlike benefits available to married couples.</p>
+      <p class="hi" lang="hi"><strong>कर असमानताएँ:</strong> समलैंगिक साझेदारों के बीच उपहारों पर कर लग सकता है, जबकि विवाहित जोड़ों को लाभ प्राप्त होते हैं।</p>
+     </div>
+
+     <h3>3) Social Implications / सामाजिक निहितार्थ</h3>
+     <div class="line">
+      <p class="en" data-lang="en">Everyday concerns remain unresolved—property transfer, medical consent, pension, adoption, and next-of-kin authorisations.</p>
+      <p class="hi" lang="hi">दैनिक चिंताएँ—संपत्ति हस्तांतरण, चिकित्सीय सहमति, पेंशन, गोद लेना और निकट संबंधी अधिकार—अब भी अनसुलझी हैं।</p>
+     </div>
+
+     <div class="line">
+      <p class="en" data-lang="en">Decriminalisation was historic; without legal recognition of relationships, its impact is a <em><u>half-measure</u></em>.</p>
+      <p class="hi" lang="hi">गैर-अपराधीकरण ऐतिहासिक था; पर कानूनी मान्यता के बिना इसका प्रभाव <em><u>आधा-अधूरा</u></em> ही है।</p>
+     </div>
+    </section>
+
+    <section class="alt3" aria-labelledby="stance">
+     <h2 id="stance">Government &amp; Judiciary Stance / सरकार व न्यायपालिका</h2>
+
+     <div class="line">
+      <p class="en" data-lang="en"><strong>Supreme Court (2023):</strong> Deferred marriage equality to Parliament.</p>
+      <p class="hi" lang="hi"><strong>सुप्रीम कोर्ट (2023):</strong> विवाह समानता को संसद के लिए स्थगित किया।</p>
+     </div>
+
+     <div class="line">
+      <p class="en" data-lang="en"><strong>Parliament:</strong> No law yet on same-sex marriage.</p>
+      <p class="hi" lang="hi"><strong>संसद:</strong> समलैंगिक विवाह पर अभी तक कानून नहीं।</p>
+     </div>
+
+     <div class="line">
+      <p class="en" data-lang="en"><strong>Finance Ministry (2024):</strong> Acknowledged non-discrimination in banking norms.</p>
+      <p class="hi" lang="hi"><strong>वित्त मंत्रालय (2024):</strong> बैंकिंग मानदंडों में गैर-भेदभाव को स्वीकार किया।</p>
+     </div>
+    </section>
+
+    <section class="alt4" aria-labelledby="way-forward">
+     <h2 id="way-forward">Way Forward / आगे की राह</h2>
+
+     <div class="line">
+      <p class="en" data-lang="en"><strong>1) Legislative Reform:</strong> Debate and legislate marriage equality.</p>
+      <p class="hi" lang="hi"><strong>1) विधायी सुधार:</strong> विवाह समानता पर बहस और कानून।</p>
+     </div>
+
+     <div class="line">
+      <p class="en" data-lang="en"><strong>2) Interim Solutions:</strong> Amend succession and tax laws to remove discriminatory provisions.</p>
+      <p class="hi" lang="hi"><strong>2) अंतरिम समाधान:</strong> उत्तराधिकार व कर कानूनों से भेदभावपूर्ण प्रावधान हटाएँ।</p>
+     </div>
+
+     <div class="line">
+      <p class="en" data-lang="en"><strong>3) Financial Inclusion:</strong> Encourage banks and insurers to design inclusive products.</p>
+      <p class="hi" lang="hi"><strong>3) वित्तीय समावेशन:</strong> बैंकों व बीमाकर्ताओं को समावेशी उत्पाद विकसित करने के निर्देश।</p>
+     </div>
+
+     <div class="line">
+      <p class="en" data-lang="en"><strong>4) Judicial Oversight:</strong> Courts to safeguard equality pending legislation.</p>
+      <p class="hi" lang="hi"><strong>4) न्यायिक निगरानी:</strong> कानून बनने तक न्यायालयों द्वारा समानता की रक्षा।</p>
+     </div>
+
+     <div class="line">
+      <p class="en" data-lang="en"><strong>5) Public Awareness:</strong> Sensitisation and education to address prejudice.</p>
+      <p class="hi" lang="hi"><strong>5) जन जागरूकता:</strong> पूर्वाग्रह घटाने हेतु संवेदनशीलता व शिक्षा।</p>
+     </div>
+    </section>
+
+    <section class="alt1" aria-labelledby="upsc">
+     <h2 id="upsc">UPSC Relevance / यूपीएससी प्रासंगिकता</h2>
+
+     <div class="line">
+      <p class="en" data-lang="en"><strong>GS Paper II:</strong> Constitution, rights issues, judiciary vs legislature, governance.</p>
+      <p class="hi" lang="hi"><strong>सामान्य अध्ययन II:</strong> संविधान, अधिकार मुद्दे, न्यायपालिका बनाम विधायिका, शासन।</p>
+     </div>
+
+     <div class="line">
+      <p class="en" data-lang="en"><strong>GS Paper I:</strong> Social justice, vulnerable groups, LGBTQI rights.</p>
+      <p class="hi" lang="hi"><strong>सामान्य अध्ययन I:</strong> सामाजिक न्याय, कमजोर समूह, LGBTQI अधिकार।</p>
+     </div>
+
+     <div class="line">
+      <p class="en" data-lang="en"><strong>Essay/Ethics:</strong> Equality, dignity, and human rights.</p>
+      <p class="hi" lang="hi"><strong>निबंध/नैतिकता:</strong> समानता, गरिमा और मानवाधिकार।</p>
+     </div>
+    </section>
+
+    <section class="alt2" aria-labelledby="crux">
+     <h2 id="crux">Crux / सारांश</h2>
+     <div class="line">
+      <p class="en" data-lang="en">Unless Parliament addresses the legal and financial inequities, the 2018 verdict will remain a symbolic half-measure—progressive in principle but inadequate in practice for LGBTQI citizens.</p>
+      <p class="hi" lang="hi">जब तक संसद कानूनी और वित्तीय असमानताओं का समाधान नहीं करती, 2018 का फैसला प्रतीकात्मक आधा-अधूरा उपाय ही रहेगा—सिद्धांततः प्रगतिशील पर व्यवहार में अपर्याप्त।</p>
+     </div>
+    </section>
+
+    <div class="divider" role="separator" aria-hidden="true"></div>
+
+    <section class="alt3" aria-labelledby="contact">
+     <h2 id="contact">Contact</h2>
+     <p class="contact">Contact us on WhatsApp: <a href="https://wa.me/918168305050" target="_blank" rel="noopener">+91-8168305050</a></p>
+    </section>
+
+    <div class="controls" style="justify-content:center; margin-top:18px;">
+     <a class="btn primary" href="index.html">Back to Home</a>
+    </div>
+   </div>
+  </article>
+
+  <footer role="contentinfo" aria-label="Footer">
+   © 2025 Crack Current Affairs (CrackCA). All rights reserved.
+  </footer>
+ </main>
+
+  <button class="btn primary floating-top" id="to-top" aria-label="Scroll to top">↑ Top</button>
+
+ <script>
+  // Smooth scroll behavior
+  document.documentElement.style.scrollBehavior = 'smooth';
+
+  // Language switch: toggle Hindi visibility
+  const toggleLangBtn = document.getElementById('toggle-lang');
+  let hindiVisible = false;
+  const toggleHindi = () => {
+   document.querySelectorAll('.hi').forEach(el => {
+    el.style.display = hindiVisible ? 'none' : 'block';
+   });
+   hindiVisible = !hindiVisible;
+   toggleLangBtn.textContent = hindiVisible ? 'Language Switch (Show/Hide English)' : 'Language Switch (Show/Hide Hindi)';
+   toggleLangBtn.setAttribute('aria-pressed', String(hindiVisible));
+  };
+  toggleLangBtn.addEventListener('click', toggleHindi);
+    toggleHindi(); // Call on page load to hide Hindi initially.
+
+  // Read time: English only (~200 wpm)
+  const computeReadTime = () => {
+   const engText = Array.from(document.querySelectorAll('[data-lang="en"]')).map(el => el.textContent).join(' ');
+   const words = engText.trim().split(/\s+/).filter(Boolean).length;
+   const minutes = Math.max(1, Math.round(words / 200));
+   const rt = document.getElementById('read-time');
+   rt.textContent = `Estimated read time: ${minutes} min`;
+   rt.title = `${words} words (English only)`;
+  };
+  computeReadTime();
+
+  // Scroll-to-top visibility & action
+  const toTopBtn = document.getElementById('to-top');
+  const onScroll = () => {
+   if (window.scrollY > 300) {
+    toTopBtn.style.display = 'inline-block';
+   } else {
+    toTopBtn.style.display = 'none';
+   }
+  };
+  window.addEventListener('scroll', onScroll);
+  toTopBtn.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+  // Markdown-like replacements (2.4, 2.5, 2.6) — utility applied to any future dynamic inserts
+  function formatText(t){
+   // Replace headings ## ### ####
+   t = t.replace(/^####\s+(.*)$/gmi, '<h3>$1</h3>');
+   t = t.replace(/^###\s+(.*)$/gmi, '<h2>$1</h2>');
+   t = t.replace(/^##\s+(.*)$/gmi, '<h1>$1</h1>');
+   // Bold (**text**) => <strong>
+   t = t.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+   // Single *text* => italic + underline
+   t = t.replace(/\*(.+?)\*/g, '<em><u>$1</u></em>');
+   return t;
+  }
+  // Example of how you'd apply it if you were injecting raw lines later:
+  // document.querySelectorAll('.line .en, .line .hi').forEach(p => p.innerHTML = formatText(p.innerHTML));
+
+  // Ensure color contrast: if system is in high-contrast mode, add a class (best-effort)
+  const mediaHC = window.matchMedia('(forced-colors: active)');
+  if (mediaHC.matches) document.body.classList.add('forced-colors');
+ </script>
+</body>
+</html>

@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>16-Aug-25</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="UPSC CSE-focused current affairs note: Highlights from PM’s 79th Independence Day Address, its economic, social, and defense implications for India." />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
+    <style>
+        :root{
+            --bg:#ffffff;
+            --text:#202124;
+            --muted:#5f6368;
+            --brand:#2563eb;
+            --accent:#10b981;
+            --soft1:#e0f2fe; /* light blue */
+            --soft2:#fef3c7; /* light amber */
+            --soft3:#dcfce7; /* light green */
+            --soft4:#fae8ff; /* light purple */
+            --line-hover:#fff7ed; /* warm hover */
+            --card:#ffffff;
+            --shadow:0 8px 24px rgba(0,0,0,0.08);
+            --radius:18px;
+            --max:1100px;
+        }
+        *{box-sizing:border-box}
+        html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Roboto, system-ui, -apple-system, Segoe UI, Arial, sans-serif;line-height:1.6}
+        /* Fixed Top Nav */
+        nav{
+            position:fixed; top:0; left:0; right:0; z-index:1000;
+            background:linear-gradient(90deg, var(--soft1), var(--soft2), var(--soft4));
+            border-bottom:1px solid #e5e7eb;
+            backdrop-filter:saturate(140%) blur(6px);
+        }
+        .nav-inner{
+            max-width:var(--max); margin:0 auto; display:flex; align-items:center; gap:16px; padding:12px 16px;
+        }
+        .brand{
+            font-weight:800; letter-spacing:.3px; color:#111827;
+        }
+        .nav-links{display:flex; gap:10px; flex-wrap:wrap; margin-left:auto}
+        .nav-links a{
+            text-decoration:none; color:#111827; font-weight:600; padding:8px 12px; border-radius:12px;
+            transition:transform .15s ease, background-color .2s ease;
+        }
+        .nav-links a:hover{background:#ffffffaa; transform:translateY(-1px)}
+        main{max-width:var(--max); margin:0 auto; padding:96px 16px 48px;} /* top padding for fixed nav */
+        header.page-header{
+            background:linear-gradient(135deg, var(--soft3), var(--soft1));
+            padding:24px; border-radius:var(--radius); box-shadow:var(--shadow); margin-bottom:20px;
+        }
+        header.page-header h1{margin:0; font-family:Merriweather, serif; font-size:clamp(22px, 4vw, 36px)}
+        .meta{
+            display:flex; flex-wrap:wrap; gap:10px; margin-top:8px; color:var(--muted); font-size:.95rem
+        }
+        .badge{background:#fff; border:1px solid #e5e7eb; padding:4px 10px; border-radius:999px}
+        .readtime{background:var(--soft2); border:1px dashed #f59e0b}
+        article{
+            background:var(--card); border:1px solid #eef2f7; border-radius:var(--radius); box-shadow:var(--shadow);
+            overflow:hidden;
+        }
+        .article-head{
+            padding:20px 20px 0 20px; border-bottom:1px solid #f1f5f9;
+        }
+        .article-head h2{
+            margin:0 0 10px 0; font-size:clamp(20px,3.6vw,30px); font-family:Merriweather, serif;
+        }
+        .article-body{ padding: 0 20px 20px 20px;}
+        section{ padding:16px; margin:14px 0; background: #fcfcff; border:1px solid #eef2ff; border-radius:14px}
+        section.alt1{ background:var(--soft4);}
+        section.alt2{ background:var(--soft1);}
+        section.alt3{ background:var(--soft2);}
+        section.alt4{ background:var(--soft3);}
+        .line{
+            display:grid; grid-template-columns: 1fr; gap:6px;
+            padding:12px 14px; margin:8px 0; border-radius:12px; background:#fff; border:1px solid #eef2f7;
+            transition: background-color .2s ease, transform .12s ease;
+        }
+        .line:hover{ background: var(--line-hover); transform: translateY(-1px);}
+        .en{font-weight:500}
+        .hi{opacity:.95}
+        .controls{display:flex; flex-wrap:wrap; gap:10px; margin:14px 0;}
+        .btn{
+            appearance:none; border:1px solid #cbd5e1; background:#fff; padding:10px 14px; border-radius:12px; cursor:pointer; font-weight:600;
+            transition:transform .12s ease, box-shadow .2s ease, background .2s ease;
+            box-shadow: 0 2px 0 rgba(0,0,0,.05);
+        }
+        .btn:hover{transform:translateY(-1px); box-shadow:0 6px 14px rgba(0,0,0,.08);}
+        .btn.primary{background:var(--brand); color:#fff; border-color:transparent}
+        .btn.ghost{background:#f8fafc}
+        .floating-top{
+            position:fixed; bottom:24px; right:24px; z-index:1000; display:none;
+        }
+        footer{
+            margin-top:28px; padding:18px; text-align:center; color:#374151; background:linear-gradient(90deg, var(--soft3), var(--soft2));
+            border-radius:var(--radius);
+        }
+        .contact{
+            margin-top:12px; font-weight:600;
+        }
+        .contact a{ color:#0f766e; text-decoration:underline; }
+        /* Responsive tweaks */
+        @media (min-width:640px){
+            .line{ grid-template-columns: 1fr 1fr; }
+        }
+        @media (prefers-reduced-motion: reduce){
+            *{scroll-behavior:auto !important}
+            .nav-links a:hover, .btn:hover, .line:hover{ transform:none }
+        }
+        /* Accessibility helpers */
+        .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0}
+        /* Clear section separators */
+        .divider{ height:1px; background:#e5e7eb; margin:16px 0; }
+    </style>
+</head>
+<body>
+    <nav aria-label="Primary">
+        <div class="nav-inner">
+            <div class="brand" aria-label="Site Name">Crack Current Affairs • CrackCA</div>
+            <div class="nav-links" role="navigation">
+                <a href="index.html">Home</a>
+                <a href="quiz.html">Quiz</a>
+                <a href="donation.html">Donation</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <header class="page-header">
+            <h1>16-August-2025</h1>
+            <div class="meta" aria-label="Page meta">
+                <span class="badge">UPSC CSE • Current Affairs Notes</span>
+                <span class="badge">GS II, GS III, GS I / Polity & Economy</span>
+            </div>
+        </header>
+
+        <article aria-labelledby="article-title">
+            <div class="article-head">
+                <h2 id="article-title">Highlights from PM’s 79th Independence Day Address</h2>
+                <div class="meta">
+                    <span class="badge">Source: pmindia.gov.in</span>
+                    <span class="badge">Published: 16 Aug 2025</span>
+                    <span class="badge readtime" id="read-time" aria-live="polite">Read time: calculating…</span>
+                </div>
+                <div class="controls" role="group" aria-label="Article controls">
+                    <button class="btn ghost" id="toggle-lang" aria-pressed="false">Language Switch (Show/Hide Hindi)</button>
+                    <a class="btn primary" href="index.html" id="back-home-top">Back to Home</a>
+                </div>
+            </div>
+
+            <div class="article-body" id="content-root">
+                <section class="alt1" aria-labelledby="ctx">
+                    <h2 id="ctx">Context / संदर्भ</h2>
+                    <div class="line">
+                        <p class="en" data-lang="en">Delivered on <strong>15 August 2025</strong> from Red Fort; lasted <strong>103 minutes</strong> (longest so far).</p>
+                        <p class="hi" lang="hi">15 अगस्त 2025 को लाल किले से दिया गया; <strong>103 मिनट</strong> (अब तक का सबसे लंबा) समय।</p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en">Vision: <strong>Viksit Bharat 2047</strong> – a developed India, self-reliant, innovative, inclusive, globally competitive.</p>
+                        <p class="hi" lang="hi">विजन: <strong>विकसित भारत 2047</strong> - एक विकसित भारत, आत्मनिर्भर, नवोन्मेषी, समावेशी और विश्व स्तर पर प्रतिस्पर्धी।</p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en">Themes: <strong>Self-reliance, innovation, citizen empowerment, national security, economic growth, and cultural pride.</strong></p>
+                        <p class="hi" lang="hi">विषय: <strong>आत्मनिर्भरता, नवोन्मेष, नागरिक सशक्तिकरण, राष्ट्रीय सुरक्षा, आर्थिक विकास और सांस्कृतिक गौरव।</strong></p>
+                    </div>
+                </section>
+                
+                <div class="divider"></div>
+
+                <section class="alt2" aria-labelledby="key-themes">
+                    <h2 id="key-themes">Key Themes / मुख्य विषय</h2>
+                    
+                    <h3>1. Viksit Bharat 2047 Vision</h3>
+                    <div class="line">
+                        <p class="en" data-lang="en">Target: <strong>$10 trillion economy</strong> by 2047.</p>
+                        <p class="hi" lang="hi">लक्ष्य: <strong>2047 तक 10 ट्रिलियन डॉलर की अर्थव्यवस्था</strong>।</p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en">Pillars: <strong>Self-reliance, innovation, citizen empowerment.</strong></p>
+                        <p class="hi" lang="hi">स्तंभ: <strong>आत्मनिर्भरता, नवोन्मेष, नागरिक सशक्तिकरण।</strong></p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en">Focus sectors: Defence, semiconductors, clean energy, agriculture, digital sovereignty, youth empowerment.</p>
+                        <p class="hi" lang="hi">फोकस क्षेत्र: रक्षा, अर्धचालक, स्वच्छ ऊर्जा, कृषि, डिजिटल संप्रभुता, युवा सशक्तिकरण।</p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en">Emphasis on: <strong>Reforms → Performance → Transformation.</strong></p>
+                        <p class="hi" lang="hi">ज़ोर: <strong>सुधार → प्रदर्शन → परिवर्तन।</strong></p>
+                    </div>
+                    
+                    <h3>2. Self-Reliance (Atmanirbharta)</h3>
+                    <div class="line">
+                        <p class="en" data-lang="en">From defence to energy, India must shed external dependence.</p>
+                        <p class="hi" lang="hi">रक्षा से लेकर ऊर्जा तक, भारत को बाहरी निर्भरता से मुक्ति पानी होगी।</p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en">“Vocal for Local” campaign → visible adoption (e.g., Swadeshi boards).</p>
+                        <p class="hi" lang="hi">"वोकल फॉर लोकल" अभियान → प्रत्यक्ष स्वीकृति (जैसे, स्वदेशी बोर्ड)।</p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en">Inspiration from <strong><em><u>COVID-19 vaccine self-reliance.</u></em></strong></p>
+                        <p class="hi" lang="hi"><strong><u><em>कोविड-19 वैक्सीन आत्मनिर्भरता</em></u></strong> से प्रेरणा।</p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en">Launch of <strong>National Manufacturing Mission</strong>, <strong>National Deepwater Exploration Mission</strong> (energy).</p>
+                        <p class="hi" lang="hi"><strong>राष्ट्रीय विनिर्माण मिशन</strong>, <strong>राष्ट्रीय गहरे पानी में अन्वेषण मिशन</strong> (ऊर्जा) का शुभारंभ।</p>
+                    </div>
+                    
+                    <h3>3. Governance & Reforms</h3>
+                    <div class="line">
+                        <p class="en" data-lang="en"><strong>Task Force for Next-Gen Reforms</strong> → cut compliance, simplify laws, reduce startup/MSME burdens.</p>
+                        <p class="hi" lang="hi"><strong>अगली पीढ़ी के सुधारों के लिए कार्य बल</strong> → अनुपालन में कमी, कानूनों को सरल बनाना, स्टार्टअप/एमएसएमई का बोझ कम करना।</p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en">Abolished <strong><em><u>40,000 compliances</u></em></strong> + repealed <strong><em><u>1,500 outdated laws.</u></em></strong></p>
+                        <p class="hi" lang="hi"><strong><u><em>40,000 अनुपालन समाप्त</em></u></strong> + <strong><u><em>1,500 पुराने कानूनों को निरस्त किया गया।</em></u></strong></p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en"><strong>Bharatiya Nyay Sanhita</strong> replaces colonial penal codes.</p>
+                        <p class="hi" lang="hi"><strong>भारतीय न्याय संहिता</strong> औपनिवेशिक दंड संहिताओं का स्थान लेती है।</p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en"><strong>DBT revolution</strong> lifted 25 crore people out of poverty (neo–middle class).</p>
+                        <p class="hi" lang="hi"><strong>डीबीटी क्रांति</strong> ने 25 करोड़ लोगों को गरीबी (नव-मध्यम वर्ग) से बाहर निकाला।</p>
+                    </div>
+                    
+                    <h3>4. Defence & Security</h3>
+                    <div class="line">
+                        <p class="en" data-lang="en"><strong>Operation Sindoor:</strong> Showcased defence self-reliance using Made-in-India weapons.</p>
+                        <p class="hi" lang="hi"><strong>ऑपरेशन सिंदूर:</strong> भारत में निर्मित हथियारों का उपयोग करके रक्षा क्षेत्र में आत्मनिर्भरता का प्रदर्शन।</p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en">India rejects <strong>nuclear blackmail</strong>; firm response to terrorism.</p>
+                        <p class="hi" lang="hi">भारत ने <strong>परमाणु ब्लैकमेल</strong> को खारिज किया; आतंकवाद का कड़ा जवाब।</p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en">Launch of <strong>Mission Sudarshan Chakra</strong> → advanced indigenous deterrence system.</p>
+                        <p class="hi" lang="hi"><strong>मिशन सुदर्शन चक्र</strong> का शुभारंभ → उन्नत स्वदेशी निवारक प्रणाली।</p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en">By 2035 → nationwide <strong>security shield</strong> for public places.</p>
+                        <p class="hi" lang="hi">2035 तक → सार्वजनिक स्थानों के लिए राष्ट्रव्यापी <strong>सुरक्षा कवच</strong>।</p>
+                    </div>
+                    
+                    <h3>5. Economy & Finance</h3>
+                    <div class="line">
+                        <p class="en" data-lang="en"><strong>GST Reform (Diwali 2025):</strong> Two-tier regime (5% + 18%) with 40% for sin goods.</p>
+                        <p class="hi" lang="hi"><strong>जीएसटी सुधार (दिवाली 2025):</strong> दो-स्तरीय व्यवस्था (5% + 18%), जिसमें 40% हानिकारक वस्तुओं के लिए।</p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en"><strong>Income tax exemption up to ₹12 lakh.</strong></p>
+                        <p class="hi" lang="hi"><strong>₹12 लाख तक आयकर छूट।</strong></p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en">“Zero Defect, Zero Effect” → quality exports.</p>
+                        <p class="hi" lang="hi">"शून्य दोष, शून्य प्रभाव" → गुणवत्तापूर्ण निर्यात।</p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en">Emphasis on <strong>fiscal discipline</strong> amidst global instability.</p>
+                        <p class="hi" lang="hi">वैश्विक अस्थिरता के बीच <strong>राजकोषीय अनुशासन</strong> पर ज़ोर।</p>
+                    </div>
+
+                    <h3>6. Agriculture & Farmers</h3>
+                    <div class="line">
+                        <p class="en" data-lang="en">India: <strong>#1 in milk, pulses, jute; #2 in rice, wheat, cotton, fruits, vegetables.</strong></p>
+                        <p class="hi" lang="hi">भारत: <strong>दूध, दालों, जूट में #1; चावल, गेहूँ, कपास, फल, सब्जियों में #2।</strong></p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en">Agricultural exports cross ₹4 lakh crore.</p>
+                        <p class="hi" lang="hi">कृषि निर्यात ₹4 लाख करोड़ के पार।</p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en"><strong>PM Dhan-Dhanya Krishi Yojana</strong> for 100 backward districts.</p>
+                        <p class="hi" lang="hi"><strong>100 पिछड़े जिलों के लिए प्रधानमंत्री धन-धान्य कृषि योजना।</strong></p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en">Emphasis on <strong>domestic fertilizer production</strong> for sovereignty.</p>
+                        <p class="hi" lang="hi">संप्रभुता के लिए <strong>घरेलू उर्वरक उत्पादन</strong> पर ज़ोर।</p>
+                    </div>
+
+                    <h3>7. Energy & Resources</h3>
+                    <div class="line">
+                        <p class="en" data-lang="en"><strong>Mission Green Hydrogen</strong> + clean energy milestone (50% by 2025).</p>
+                        <p class="hi" lang="hi"><strong>मिशन ग्रीन हाइड्रोजन</strong> + स्वच्छ ऊर्जा का लक्ष्य (2025 तक 50%)।</p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en">Solar capacity ↑ 30x in 11 years.</p>
+                        <p class="hi" lang="hi">सौर क्षमता ↑ 11 वर्षों में 30 गुना।</p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en"><strong>10 new nuclear reactors operational; 10x increase by 2047.</strong></p>
+                        <p class="hi" lang="hi"><strong>10 नए परमाणु रिएक्टर चालू; 2047 तक 10 गुना वृद्धि।</strong></p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en"><strong>National Critical Minerals Mission</strong> → 1,200 sites exploration.</p>
+                        <p class="hi" lang="hi"><strong>राष्ट्रीय महत्वपूर्ण खनिज मिशन</strong> → 1,200 स्थलों की खोज।</p>
+                    </div>
+
+                    <h3>8. Science, Technology & Space</h3>
+                    <div class="line">
+                        <p class="en" data-lang="en">Indigenous <strong>semiconductor chips by 2025.</strong></p>
+                        <p class="hi" lang="hi">2025 तक स्वदेशी <strong>सेमीकंडक्टर चिप्स</strong>।</p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en">AI, cybersecurity, deep-tech innovation push.</p>
+                        <p class="hi" lang="hi">कृत्रिम बुद्धिमत्ता, साइबर सुरक्षा, गहन तकनीकी नवाचार को बढ़ावा।</p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en"><strong>Aatmanirbhar Gaganyaan</strong> & indigenous space station plan.</p>
+                        <p class="hi" lang="hi"><strong>आत्मनिर्भर गगनयान</strong> और स्वदेशी अंतरिक्ष स्टेशन योजना।</p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en">Over <strong>300 startups</strong> in space technology.</p>
+                        <p class="hi" lang="hi">अंतरिक्ष प्रौद्योगिकी में <strong>300 से अधिक स्टार्टअप</strong>।</p>
+                    </div>
+
+                    <h3>9. Social Justice & Welfare</h3>
+                    <div class="line">
+                        <p class="en" data-lang="en">Saturation approach: ensure <strong>universal access</strong> to welfare schemes.</p>
+                        <p class="hi" lang="hi">संतृप्ति दृष्टिकोण: कल्याणकारी योजनाओं तक <strong>सार्वभौमिक पहुँच</strong> सुनिश्चित करना।</p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en">“Lakhpati Didi” → 3 crore women targeted for higher incomes.</p>
+                        <p class="hi" lang="hi">"लखपति दीदी" → 3 करोड़ महिलाओं की आय बढ़ाने का लक्ष्य।</p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en"><strong>Namo Drone Didi</strong> → women-led agri-tech revolution.</p>
+                        <p class="hi" lang="hi"><strong>नमो ड्रोन दीदी</strong> → महिलाओं के नेतृत्व वाली कृषि-तकनीकी क्रांति।</p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en">Reduced Maoist-affected districts from <strong><em><u>125 → 20.</u></em></strong></p>
+                        <p class="hi" lang="hi">माओवाद प्रभावित जिलों की संख्या <strong><u><em>125 से घटाकर 20</em></u></strong> की गई।</p>
+                    </div>
+
+                    <h3>10. Employment & Youth</h3>
+                    <div class="line">
+                        <p class="en" data-lang="en"><strong>PM Viksit Bharat Rozgar Yojana:</strong> ₹1 lakh crore scheme, ₹15,000 benefit for new employees, targeting <strong>3 crore youth.</strong></p>
+                        <p class="hi" lang="hi"><strong>प्रधानमंत्री विकासशील भारत रोज़गार योजना:</strong> ₹1 लाख करोड़ की योजना, नए कर्मचारियों को ₹15,000 का लाभ, <strong>3 करोड़ युवाओं को लक्षित।</strong></p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en">Youth urged to develop <strong>social media platforms, digital infra, jet engines.</strong></p>
+                        <p class="hi" lang="hi">युवाओं से <strong>सोशल मीडिया प्लेटफ़ॉर्म, डिजिटल इन्फ्रास्ट्रक्चर, जेट इंजन</strong> विकसित करने का आग्रह।</p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en"><strong>National Sports Policy + Khelo India</strong> to harness youth talent.</p>
+                        <p class="hi" lang="hi"><strong>युवा प्रतिभाओं का दोहन करने के लिए राष्ट्रीय खेल नीति + खेलो इंडिया।</strong></p>
+                    </div>
+
+                    <h3>11. Culture & Heritage</h3>
+                    <div class="line">
+                        <p class="en" data-lang="en">Pride in heritage: 350th martyrdom of <strong>Guru Tegh Bahadur Ji</strong>, 150th birth anniversary of <strong>Birsa Munda.</strong></p>
+                        <p class="hi" lang="hi">विरासत पर गर्व: <strong>गुरु तेग बहादुर जी</strong> की 350वीं शहादत, <strong>बिरसा मुंडा</strong> की 150वीं जयंती।</p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en">Classical language status: Marathi, Assamese, Bangla, Pali, Prakrit.</p>
+                        <p class="hi" lang="hi">शास्त्रीय भाषा का दर्जा: मराठी, असमिया, बांग्ला, पाली, प्राकृत।</p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en"><strong>Gyan Bharatam Mission</strong> → digitise manuscripts & texts.</p>
+                        <p class="hi" lang="hi"><strong>ज्ञान भारतम मिशन</strong> → पांडुलिपियों और ग्रंथों का डिजिटलीकरण।</p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en">Celebration of <strong><em><u>RSS centenary</u></em></strong> and unity through diversity.</p>
+                        <p class="hi" lang="hi"><strong><u><em>आरएसएस शताब्दी</em></u></strong> और विविधता में एकता का उत्सव।</p>
+                    </div>
+
+                    <h3>12. Health & Society</h3>
+                    <div class="line">
+                        <p class="en" data-lang="en">Warning against <strong>obesity</strong>; call to reduce cooking oil use.</p>
+                        <p class="hi" lang="hi"><strong>मोटापे</strong> के प्रति चेतावनी; खाना पकाने के तेल का उपयोग कम करने का आह्वान।</p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en">Strengthening India as <strong><em><u>pharmacy of the world</u></em></strong> → R&D in medicines, vaccines.</p>
+                        <p class="hi" lang="hi"><strong><u><em>भारत को विश्व की फार्मेसी</em></u></strong> के रूप में सुदृढ़ बनाना → दवाओं और टीकों में अनुसंधान एवं विकास।</p>
+                    </div>
+                </section>
+                
+                <div class="divider"></div>
+
+                <section class="alt3" aria-labelledby="upsc">
+                    <h2 id="upsc">UPSC Relevance / यूपीएससी प्रासंगिकता</h2>
+                    <div class="line">
+                        <p class="en" data-lang="en"><strong>GS Paper II:</strong> Governance, constitutional reforms, self-reliance, federalism (GST).</p>
+                        <p class="hi" lang="hi"><strong>सामान्य अध्ययन प्रश्नपत्र II:</strong> शासन, संवैधानिक सुधार, आत्मनिर्भरता, संघवाद (जीएसटी)।</p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en"><strong>GS Paper III:</strong> Economy (GST, tax, fiscal policy), defence, space, renewable energy, agriculture, employment.</p>
+                        <p class="hi" lang="hi"><strong>सामान्य अध्ययन प्रश्नपत्र III:</strong> अर्थव्यवस्था (जीएसटी, कर, राजकोषीय नीति), रक्षा, अंतरिक्ष, नवीकरणीय ऊर्जा, कृषि, रोज़गार।</p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en"><strong>GS Paper I:</strong> Poverty alleviation, social justice, women empowerment, cultural heritage.</p>
+                        <p class="hi" lang="hi"><strong>सामान्य अध्ययन प्रश्नपत्र I:</strong> गरीबी उन्मूलन, सामाजिक न्याय, महिला सशक्तिकरण, सांस्कृतिक विरासत।</p>
+                    </div>
+                    <div class="line">
+                        <p class="en" data-lang="en"><strong>Essay/Ethics:</strong> Self-reliance, unity, role of innovation in nation-building.</p>
+                        <p class="hi" lang="hi"><strong>निबंध/नैतिकता:</strong> आत्मनिर्भरता, एकता, राष्ट्र निर्माण में नवाचार की भूमिका।</p>
+                    </div>
+                </section>
+
+                <section class="alt4" aria-labelledby="crux">
+                    <h2 id="crux">Crux / सारांश</h2>
+                    <div class="line">
+                        <p class="en" data-lang="en">PM Modi’s 79th Independence Day address was a <strong>comprehensive vision statement for Viksit Bharat 2047</strong>, rooted in self-reliance, innovation, defence autonomy, economic reforms, social justice, and cultural pride — with specific policies across ministries to achieve global competitiveness and inclusive growth.</p>
+                        <p class="hi" lang="hi">प्रधानमंत्री मोदी का 79वें स्वतंत्रता दिवस का संबोधन <strong>विकसित भारत 2047</strong> के लिए एक व्यापक विज़न स्टेटमेंट था, जो आत्मनिर्भरता, नवाचार, रक्षा स्वायत्तता, आर्थिक सुधार, सामाजिक न्याय और सांस्कृतिक गौरव पर आधारित था - जिसमें वैश्विक प्रतिस्पर्धा और समावेशी विकास हासिल करने के लिए विभिन्न मंत्रालयों की विशिष्ट नीतियाँ शामिल थीं।</p>
+                    </div>
+                </section>
+
+                <div class="divider"></div>
+
+                <section class="alt3" aria-labelledby="contact">
+                    <h2 id="contact">Contact</h2>
+                    <p class="contact">Contact us on WhatsApp: <a href="https://wa.me/918168305050" target="_blank" rel="noopener">+91-8168305050</a></p>
+                </section>
+
+                <div class="controls" style="justify-content:center; margin-top:18px;">
+                    <a class="btn primary" href="index.html">Back to Home</a>
+                </div>
+            </div>
+        </article>
+
+        <footer role="contentinfo" aria-label="Footer">
+            © 2025 Crack Current Affairs (CrackCA). All rights reserved.
+        </footer>
+    </main>
+
+    <button class="btn primary floating-top" id="to-top" aria-label="Scroll to top">↑ Top</button>
+
+    <script>
+        // Smooth scroll behavior
+        document.documentElement.style.scrollBehavior = 'smooth';
+
+        // Language switch: toggle Hindi visibility
+        const toggleLangBtn = document.getElementById('toggle-lang');
+        const hindiLines = document.querySelectorAll('.hi');
+
+        // Initially hide all Hindi lines
+        hindiLines.forEach(el => el.style.display = 'none');
+        
+        // Add click listener
+        toggleLangBtn.addEventListener('click', () => {
+            const isHindiVisible = toggleLangBtn.getAttribute('aria-pressed') === 'true';
+            const newVisibility = !isHindiVisible;
+            
+            hindiLines.forEach(el => {
+                el.style.display = newVisibility ? 'block' : 'none';
+            });
+            
+            toggleLangBtn.setAttribute('aria-pressed', newVisibility.toString());
+        });
+
+        // Read time: English only (~200 wpm)
+        const computeReadTime = () => {
+            const engText = Array.from(document.querySelectorAll('[data-lang="en"]')).map(el => el.textContent).join(' ');
+            const words = engText.trim().split(/\s+/).filter(Boolean).length;
+            const minutes = Math.max(1, Math.round(words / 200));
+            const rt = document.getElementById('read-time');
+            rt.textContent = `Estimated read time: ${minutes} min`;
+            rt.title = `${words} words (English only)`;
+        };
+        computeReadTime();
+
+        // Scroll-to-top visibility & action
+        const toTopBtn = document.getElementById('to-top');
+        const onScroll = () => {
+            if (window.scrollY > 300) {
+                toTopBtn.style.display = 'inline-block';
+            } else {
+                toTopBtn.style.display = 'none';
+            }
+        };
+        window.addEventListener('scroll', onScroll);
+        toTopBtn.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+    </script>
+</body>
+</html>
