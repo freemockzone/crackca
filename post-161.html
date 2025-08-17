@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>17-Aug-25</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --light-bg: #fff;
+            --light-primary: #1a73e8;
+            --light-secondary: #3c4043;
+            --light-hover: #e8f0fe;
+            --light-border: #dadce0;
+            --dark-bg: #1e1e1e;
+            --dark-primary: #8ab4f8;
+            --dark-secondary: #bdc1c6;
+            --dark-hover: #333;
+            --dark-border: #5f6368;
+            --font-main: 'Roboto', sans-serif;
+            --font-headings: 'Noto Sans', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-bg);
+            color: var(--light-secondary);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body.dark-mode {
+            background-color: var(--dark-bg);
+            color: var(--dark-secondary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                grid-template-columns: 280px 1fr;
+            }
+        }
+
+        /* --- Header & Navigation --- */
+        .top-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--light-bg);
+            border-bottom: 1px solid var(--light-border);
+            padding: 10px 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        body.dark-mode .top-header {
+            background-color: var(--dark-bg);
+            border-bottom: 1px solid var(--dark-border);
+        }
+
+        .header-content {
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-left h1 {
+            font-family: var(--font-headings);
+            font-size: 1.5rem;
+            margin: 0;
+            color: var(--light-primary);
+            transition: color 0.3s;
+        }
+        body.dark-mode .header-left h1 {
+            color: var(--dark-primary);
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            flex-grow: 1;
+            justify-content: flex-end;
+        }
+
+        .header-right nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .header-right nav li {
+            margin-right: 20px;
+        }
+
+        .header-right nav a {
+            color: var(--light-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        body.dark-mode .header-right nav a {
+            color: var(--dark-secondary);
+        }
+
+        .header-right nav a:hover {
+            color: var(--light-primary);
+        }
+        body.dark-mode .header-right nav a:hover {
+            color: var(--dark-primary);
+        }
+
+        .toggle-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: var(--light-secondary);
+            margin-left: 20px;
+            transition: color 0.3s;
+        }
+        body.dark-mode .toggle-button {
+            color: var(--dark-secondary);
+        }
+        .toggle-button:hover {
+            color: var(--light-primary);
+        }
+        body.dark-mode .toggle-button:hover {
+            color: var(--dark-primary);
+        }
+
+        /* --- Main Content Layout --- */
+        main {
+            padding-top: 80px;
+            grid-column: 1 / -1;
+        }
+        @media (min-width: 768px) {
+            main {
+                grid-column: 2 / 3;
+            }
+        }
+
+        aside.sidebar {
+            background-color: var(--light-hover);
+            padding: 20px;
+            border-radius: 8px;
+            position: sticky;
+            top: 80px;
+            max-height: calc(100vh - 100px);
+            overflow-y: auto;
+            transition: background-color 0.3s;
+        }
+        body.dark-mode aside.sidebar {
+            background-color: var(--dark-hover);
+        }
+
+        @media (min-width: 768px) {
+            aside.sidebar {
+                grid-column: 1 / 2;
+                position: sticky;
+                top: 80px;
+                max-height: calc(100vh - 100px);
+            }
+        }
+        
+        .toc h3, .sidebar-section h3 {
+            font-family: var(--font-headings);
+            color: var(--light-primary);
+            border-bottom: 2px solid var(--light-primary);
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            transition: color 0.3s, border-color 0.3s;
+        }
+        body.dark-mode .toc h3, body.dark-mode .sidebar-section h3 {
+            color: var(--dark-primary);
+            border-bottom: 2px solid var(--dark-primary);
+        }
+        
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: var(--light-secondary);
+            display: block;
+            padding: 8px 0;
+            transition: color 0.2s, background-color 0.2s;
+            border-radius: 4px;
+        }
+        body.dark-mode .toc a {
+            color: var(--dark-secondary);
+        }
+
+        .toc a:hover {
+            color: var(--light-primary);
+            background-color: var(--light-hover);
+        }
+        body.dark-mode .toc a:hover {
+            color: var(--dark-primary);
+            background-color: var(--dark-hover);
+        }
+
+        /* --- Article Content --- */
+        article header h1 {
+            font-family: var(--font-headings);
+            font-size: 2.5rem;
+            color: var(--light-primary);
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        body.dark-mode article header h1 {
+            color: var(--dark-primary);
+        }
+
+        .article-meta {
+            font-style: italic;
+            font-size: 0.9rem;
+            color: #777;
+            margin-bottom: 20px;
+        }
+        body.dark-mode .article-meta {
+            color: #aaa;
+        }
+
+        .read-time {
+            font-weight: 500;
+        }
+
+        .content-section {
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--light-border);
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        body.dark-mode .content-section {
+            background-color: #2a2a2a;
+            border-color: var(--dark-border);
+        }
+
+        .english-content {
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+            border-bottom: 2px dashed #ddd;
+        }
+        body.dark-mode .english-content {
+            border-bottom-color: #555;
+        }
+        .hindi-content {
+            margin-top: 20px;
+        }
+
+        .line {
+            padding: 10px;
+            margin-bottom: 5px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+        .line:hover {
+            background-color: var(--light-hover);
+        }
+        body.dark-mode .line:hover {
+            background-color: var(--dark-hover);
+        }
+        
+        h1, h2, h3 {
+            font-family: var(--font-headings);
+            margin-top: 40px;
+            margin-bottom: 15px;
+        }
+        
+        h1 {
+            font-size: 2rem;
+            color: var(--light-primary);
+            transition: color 0.3s;
+        }
+        body.dark-mode h1 {
+            color: var(--dark-primary);
+        }
+        h2 {
+            font-size: 1.75rem;
+        }
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        strong {
+            color: var(--light-primary);
+            transition: color 0.3s;
+        }
+        body.dark-mode strong {
+            color: var(--dark-primary);
+        }
+
+        i {
+            font-style: italic;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+        th, td {
+            border: 1px solid var(--light-border);
+            padding: 12px;
+            text-align: left;
+            transition: border-color 0.3s;
+        }
+        body.dark-mode th, body.dark-mode td {
+            border: 1px solid var(--dark-border);
+        }
+        th {
+            background-color: var(--light-hover);
+            font-weight: 700;
+        }
+        body.dark-mode th {
+            background-color: var(--dark-hover);
+        }
+
+        /* --- Feature Sections --- */
+        .section-box {
+            background-color: var(--light-hover);
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 30px;
+            transition: background-color 0.3s;
+        }
+        body.dark-mode .section-box {
+            background-color: var(--dark-hover);
+        }
+        
+        .mcq-question {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--light-border);
+            transition: border-color 0.3s;
+        }
+        body.dark-mode .mcq-question {
+            border-bottom: 1px solid var(--dark-border);
+        }
+
+        .mcq-question h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+        }
+        
+        .mcq-options label {
+            display: block;
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            padding: 8px;
+            border-radius: 4px;
+        }
+        .mcq-options label:hover {
+            background-color: rgba(0, 115, 255, 0.1);
+        }
+        body.dark-mode .mcq-options label:hover {
+            background-color: rgba(138, 180, 248, 0.1);
+        }
+
+        .mcq-answer {
+            margin-top: 10px;
+            font-weight: 700;
+            color: var(--light-primary);
+            display: none;
+            transition: color 0.3s;
+        }
+        body.dark-mode .mcq-answer {
+            color: var(--dark-primary);
+        }
+        
+        .flashcard {
+            background-color: var(--light-bg);
+            border: 1px solid var(--light-border);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        body.dark-mode .flashcard {
+            background-color: var(--dark-bg);
+            border: 1px solid var(--dark-border);
+        }
+
+        .flashcard .question {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--light-primary);
+            transition: color 0.3s;
+        }
+        body.dark-mode .flashcard .question {
+            color: var(--dark-primary);
+        }
+
+        .flashcard .answer {
+            margin-top: 15px;
+            font-style: italic;
+            display: none;
+            color: var(--light-secondary);
+        }
+        body.dark-mode .flashcard .answer {
+            color: var(--dark-secondary);
+        }
+
+        .flashcard button {
+            background-color: var(--light-primary);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: background-color 0.3s;
+        }
+        body.dark-mode .flashcard button {
+            background-color: var(--dark-primary);
+            color: var(--dark-bg);
+        }
+
+        .flashcard button:hover {
+            background-color: #0056b3;
+        }
+        body.dark-mode .flashcard button:hover {
+            background-color: #5d8eff;
+        }
+
+        /* --- Footer & Buttons --- */
+        footer {
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid var(--light-border);
+            margin-top: 40px;
+            color: #999;
+            font-size: 0.9rem;
+            transition: border-color 0.3s;
+        }
+        body.dark-mode footer {
+            border-top: 1px solid var(--dark-border);
+            color: #777;
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .action-buttons button, .action-buttons a {
+            background-color: var(--light-primary);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        body.dark-mode .action-buttons button, body.dark-mode .action-buttons a {
+            background-color: var(--dark-primary);
+            color: var(--dark-bg);
+        }
+        
+        .action-buttons button:hover, .action-buttons a:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        body.dark-mode .action-buttons button:hover, body.dark-mode .action-buttons a:hover {
+            background-color: #5d8eff;
+        }
+        
+        #scrollToTopBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--light-primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            z-index: 900;
+        }
+        body.dark-mode #scrollToTopBtn {
+            background-color: var(--dark-primary);
+            color: var(--dark-bg);
+        }
+        #scrollToTopBtn:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+        body.dark-mode #scrollToTopBtn:hover {
+            background-color: #5d8eff;
+        }
+        
+        #progress-bar {
+            position: fixed;
+            top: 61px;
+            left: 0;
+            height: 4px;
+            background-color: var(--light-primary);
+            width: 0%;
+            z-index: 999;
+            transition: background-color 0.3s;
+        }
+        body.dark-mode #progress-bar {
+            background-color: var(--dark-primary);
+        }
+        
+        .whatsapp-link {
+            text-decoration: none;
+            color: var(--light-primary);
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .whatsapp-link:hover {
+            text-decoration: underline;
+        }
+        body.dark-mode .whatsapp-link {
+            color: var(--dark-primary);
+        }
+        
+        .hindi-content {
+            font-family: 'Noto Sans', sans-serif;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div id="progress-bar"></div>
+
+    <header class="top-header">
+        <div class="header-content">
+            <div class="header-left">
+                <h1>17-August-2025</h1>
+            </div>
+            <div class="header-right">
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="quiz.html">Quiz</a></li>
+                        <li><a href="donation.html">Donation</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <button id="mode-toggle" class="toggle-button" aria-label="Toggle Dark Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <div class="toc">
+                <h3>Table of Contents</h3>
+                <ul></ul>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3>Quick Recap</h3>
+                <div id="quick-recap-content"></div>
+            </div>
+        </aside>
+
+        <main>
+            <article>
+                <header>
+                    <h1><strong id="article-title">NISAR Mission: ISRO-NASA Collaboration</strong></h1>
+                    <p class="article-meta">
+                        Source: Indian Express | Publication date: August 16, 2025
+                        <span class="read-time" id="read-time"></span>
+                    </p>
+                </header>
+                
+                <section>
+                    <div class="content-section english-content" lang="en">
+                        <h2 id="introduction-en">1. Introduction</h2>
+                        <p class="line">
+                            * <strong>NISAR</strong> stands for <strong>NASA-ISRO Synthetic Aperture Radar</strong>.
+                        </p>
+                        <p class="line">
+                            * It is the <strong>first joint satellite mission</strong> between the <strong>Indian Space Research Organisation (ISRO)</strong> and the <strong>United States’ NASA</strong>.
+                        </p>
+                        <p class="line">
+                            * Launched on <strong>30 July 2025</strong> from <strong>Satish Dhawan Space Centre, Sriharikota, Andhra Pradesh</strong>.
+                        </p>
+                        <p class="line">
+                            * Inserted into a <i>sun-synchronous orbit (SSO)</i>.
+                        </p>
+                        <p class="line">
+                            * <strong>Weight:</strong> 2.8 tonnes; <strong>Cost:</strong> $1.3 billion → most expensive Earth observation satellite ever built.
+                        </p>
+
+                        ---
+
+                        <h2 id="objectives-en">2. Objectives of NISAR</h2>
+                        <p class="line">
+                            * To <strong>study Earth’s landforms</strong>—solid, liquid, and frozen.
+                        </p>
+                        <p class="line">
+                            * To monitor:
+                        </p>
+                        <ul>
+                            <li class="line"><i>Ice sheets and glaciers</i></li>
+                            <li class="line"><i>Forest coverage</i></li>
+                            <li class="line"><i>Soil moisture</i></li>
+                            <li class="line"><i>Oceans</i></li>
+                            <li class="line"><i>Earthquakes</i></li>
+                            <li class="line"><i>Volcanic activity</i></li>
+                        </ul>
+                        <p class="line">
+                            * Provides <strong>high-resolution imaging in all weather conditions</strong>, even through clouds.
+                        </p>
+
+                        ---
+
+                        <h2 id="features-en">3. Key Features</h2>
+                        <h3 id="antenna-en">Antenna</h3>
+                        <p class="line">
+                            * <strong>Deployment:</strong> Step-wise unfurling of a <strong>39-feet diameter antenna reflector</strong> successfully completed in space.
+                        </p>
+                        <p class="line">
+                            * Antenna enables radar imaging of Earth for precise data collection.
+                        </p>
+                        <h3 id="radar-en">Radar Systems</h3>
+                        <p class="line">
+                            * <strong>Dual Synthetic Aperture Radars (SAR):</strong>
+                        </p>
+                        <ul>
+                            <li class="line">1. <strong>L-band SAR</strong> – penetrates dense vegetation, tracks small surface changes.</li>
+                            <li class="line">2. <strong>S-band SAR</strong> – provides high-resolution imaging.</li>
+                        </ul>
+                        <p class="line">
+                            * Capable of <strong>all-weather, day-night Earth observation</strong>.
+                        </p>
+                        <p class="line">
+                            * Images the Earth <i>once every 12 days</i>.
+                        </p>
+
+                        ---
+
+                        <h2 id="phases-en">4. Mission Phases</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Phase</th>
+                                    <th>Duration</th>
+                                    <th>Activities</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Engineering / Calibration Phase</strong></td>
+                                    <td>65 days (till early Oct)</td>
+                                    <td>Preliminary tests, calibration of instruments, fine-tuning antenna.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Science Phase</strong></td>
+                                    <td>Day 70 onwards (mid-Oct)</td>
+                                    <td>Collection of first full-frame scientific data, checking data quality.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Scientific Commissioning Phase</strong></td>
+                                    <td>Day 90 (early Nov)</td>
+                                    <td>Full-fledged mission operations, data dissemination to scientific community.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        ---
+
+                        <h2 id="significance-en">5. Significance</h2>
+                        <p class="line">
+                            * <strong>Technological:</strong> First large-scale ISRO-NASA joint radar satellite.
+                        </p>
+                        <p class="line">
+                            * <strong>Environmental & Disaster Management:</strong>
+                        </p>
+                        <ul>
+                            <li class="line">Helps in <strong>natural disaster monitoring</strong> (earthquakes, floods, volcanic activity).</li>
+                            <li class="line">Facilitates <strong>infrastructure planning</strong> and <strong>food security monitoring</strong>.</li>
+                        </ul>
+                        <p class="line">
+                            * <strong>Scientific Contribution:</strong>
+                        </p>
+                        <ul>
+                            <li class="line">Understanding <strong>climate change effects</strong> on ice sheets, glaciers, and forests.</li>
+                            <li class="line">Precise tracking of <strong>oceanic and land dynamics</strong>.</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-section hindi-content" lang="hi">
+                        <h2 id="introduction-hi">1. परिचय</h2>
+                        <p class="line">
+                            * <strong>निसार</strong> का अर्थ है <strong>नासा-इसरो सिंथेटिक अपर्चर रडार</strong>।
+                        </p>
+                        <p class="line">
+                            * यह <strong>भारतीय अंतरिक्ष अनुसंधान संगठन (इसरो)</strong> और <strong>संयुक्त राज्य अमेरिका के नासा</strong> के बीच <strong>पहला संयुक्त उपग्रह मिशन</strong> है।
+                        </p>
+                        <p class="line">
+                            * <strong>30 जुलाई 2025</strong> को <strong>सतीश धवन अंतरिक्ष केंद्र, श्रीहरिकोटा, आंध्र प्रदेश</strong> से प्रक्षेपित किया गया।
+                        </p>
+                        <p class="line">
+                            * <i>सूर्य-समकालिक कक्षा (SSO)</i> में स्थापित किया गया।
+                        </p>
+                        <p class="line">
+                            * <strong>भार:</strong> 2.8 टन; <strong>लागत:</strong> 1.3 बिलियन डॉलर → अब तक का सबसे महंगा पृथ्वी अवलोकन उपग्रह।
+                        </p>
+
+                        ---
+
+                        <h2 id="objectives-hi">2. निसार के उद्देश्य</h2>
+                        <p class="line">
+                            * पृथ्वी की भू-आकृतियों का अध्ययन करना**—ठोस, द्रव और जमी हुई।
+                        </p>
+                        <p class="line">
+                            * निगरानी करना:
+                        </p>
+                        <ul>
+                            <li class="line">हिम चादरें और हिमनद</li>
+                            <li class="line">वन आच्छादन</li>
+                            <li class="line">मृदा नमी</li>
+                            <li class="line">महासागर</li>
+                            <li class="line">भूकंप</li>
+                            <li class="line">ज्वालामुखी गतिविधि</li>
+                        </ul>
+                        <p class="line">
+                            * सभी मौसमों में, यहाँ तक कि बादलों के बीच भी, <strong>उच्च-रिज़ॉल्यूशन इमेजिंग प्रदान करता है</strong>।
+                        </p>
+
+                        ---
+
+                        <h2 id="features-hi">3. मुख्य विशेषताएँ</h2>
+                        <h3 id="antenna-hi">एंटीना</h3>
+                        <p class="line">
+                            * <strong>तैनाती:</strong> अंतरिक्ष में <strong>39 फीट व्यास वाले एंटीना रिफ्लेक्टर</strong> का चरणबद्ध तरीके से खुलना सफलतापूर्वक पूरा हुआ।
+                        </p>
+                        <p class="line">
+                            * एंटीना सटीक डेटा संग्रह के लिए पृथ्वी की रडार इमेजिंग को सक्षम बनाता है।
+                        </p>
+                        <h3 id="radar-hi">रडार प्रणालियाँ</h3>
+                        <p class="line">
+                            * <strong>दोहरे सिंथेटिक अपर्चर रडार (SAR):</strong>
+                        </p>
+                        <ul>
+                            <li class="line">1. <strong>L-बैंड SAR</strong> – घनी वनस्पतियों में प्रवेश करता है, सतह के छोटे-छोटे परिवर्तनों पर नज़र रखता है।</li>
+                            <li class="line">2. <strong>एस-बैंड एसएआर</strong> - उच्च-रिज़ॉल्यूशन इमेजिंग प्रदान करता है।</li>
+                        </ul>
+                        <p class="line">
+                            * <strong>सभी मौसमों में, दिन-रात पृथ्वी का अवलोकन करने में सक्षम</strong>।
+                        </p>
+                        <p class="line">
+                            * पृथ्वी की तस्वीरें <i>हर 12 दिन में एक बार</i>।
+                        </p>
+
+                        ---
+
+                        <h2 id="phases-hi">4. मिशन चरण</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>चरण</th>
+                                    <th>अवधि</th>
+                                    <th>गतिविधियाँ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>इंजीनियरिंग / अंशांकन चरण</strong></td>
+                                    <td>65 दिन (अक्टूबर के आरंभ तक)</td>
+                                    <td>प्रारंभिक परीक्षण, उपकरणों का अंशांकन, एंटीना का फ़ाइन-ट्यूनिंग।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>विज्ञान चरण</strong></td>
+                                    <td>दिन 70 से आगे (मध्य अक्टूबर)</td>
+                                    <td>पहले पूर्ण-फ़्रेम वैज्ञानिक डेटा का संग्रह, डेटा की गुणवत्ता की जाँच।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>वैज्ञानिक कमीशनिंग चरण</strong></td>
+                                    <td>दिन 90 (नवंबर के आरंभ में)</td>
+                                    <td>पूर्ण मिशन संचालन, वैज्ञानिक समुदाय को डेटा का प्रसार।</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        ---
+
+                        <h2 id="significance-hi">5. महत्व</h2>
+                        <p class="line">
+                            * <strong>तकनीकी:</strong> पहला बड़े पैमाने का इसरो-नासा संयुक्त रडार उपग्रह।
+                        </p>
+                        <p class="line">
+                            * <strong>पर्यावरण एवं आपदा प्रबंधन:</strong>
+                        </p>
+                        <ul>
+                            <li class="line">प्राकृतिक आपदा निगरानी (भूकंप, बाढ़, ज्वालामुखी गतिविधि) में सहायता करता है।</li>
+                            <li class="line">बुनियादी ढाँचा नियोजन और खाद्य सुरक्षा निगरानी को सुगम बनाता है।</li>
+                        </ul>
+                        <p class="line">
+                            * <strong>वैज्ञानिक योगदान:</strong>
+                        </p>
+                        <ul>
+                            <li class="line">जलवायु परिवर्तन के बर्फ की चादरों, ग्लेशियरों और जंगलों पर पड़ने वाले प्रभावों को समझना।</li>
+                            <li class="line">समुद्री और भूमि गतिशीलता का सटीक पता लगाना।</li>
+                        </ul>
+                    </div>
+                    
+                    <h2 id="mains-questions">7. Mains Related Questions</h2>
+                    <div class="section-box">
+                        <div class="line" lang="en">
+                            <strong>GS-III:</strong> “Discuss the significance of Earth observation satellites in disaster management and climate monitoring. Comment with reference to NISAR.”
+                        </div>
+                        <div class="line" lang="hi">
+                            <strong>GS-III:</strong> “आपदा प्रबंधन और जलवायु निगरानी में पृथ्वी अवलोकन उपग्रहों के महत्व पर चर्चा कीजिए। NISAR के संदर्भ में टिप्पणी कीजिए।”
+                        </div>
+                        <div class="line" lang="en">
+                            <strong>GS-III:</strong> “Examine the importance of international collaboration in space missions with examples from ISRO-NASA partnership.”
+                        </div>
+                        <div class="line" lang="hi">
+                            <strong>GS-III:</strong> “इसरो-नासा साझेदारी के उदाहरणों के साथ अंतरिक्ष अभियानों में अंतर्राष्ट्रीय सहयोग के महत्व का परीक्षण कीजिए।”
+                        </div>
+                        <div class="line" lang="en">
+                            <strong>GS-III:</strong> “Analyse how advanced satellite missions like NISAR contribute to India’s scientific and strategic capabilities.”
+                        </div>
+                        <div class="line" lang="hi">
+                            <strong>GS-III:</strong> “विश्लेषण कीजिए कि NISAR जैसे उन्नत उपग्रह मिशन भारत की वैज्ञानिक और सामरिक क्षमताओं में किस प्रकार योगदान करते हैं।”
+                        </div>
+                    </div>
+                    
+                    <h2 id="prelims-mcqs">8. Prelims MCQs</h2>
+                    <div class="section-box" id="mcqs-section"></div>
+
+                    <h2 id="flashcards">9. Flashcards</h2>
+                    <div class="section-box" id="flashcards-section"></div>
+                    
+                    <p>
+                        Contact us on WhatsApp: <a href="https://wa.me/918168305050" class="whatsapp-link" target="_blank">+91-8168305050</a>
+                    </p>
+                </section>
+            </article>
+
+            <div class="action-buttons">
+                <button id="print-btn"><i class="fas fa-print"></i> Print</button>
+                <button id="share-btn"><i class="fas fa-share-alt"></i> Share</button>
+                <button id="audio-btn"><i class="fas fa-volume-up"></i> Audio</button>
+                <a href="index.html" class="button back-home"><i class="fas fa-home"></i> Back to Home</a>
+            </div>
+        </main>
+    </div>
+
+    <button id="scrollToTopBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+
+    <footer>
+        <p>© 2025 Crack Current Affairs (CrackCA). All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const articleContent = document.querySelector('.english-content');
+            const englishContentText = articleContent.innerText;
+            const readTimeEl = document.getElementById('read-time');
+            const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+            const modeToggleBtn = document.getElementById('mode-toggle');
+            const toc = document.querySelector('.toc ul');
+            const progressBar = document.getElementById('progress-bar');
+            
+            const mcqData = [
+                {
+                    question: "NISAR is a collaboration between:",
+                    options: ["ISRO & ESA", "ISRO & NASA", "ISRO & JAXA", "ISRO & Roscosmos"],
+                    answer: "b) ISRO & NASA",
+                    hindiQuestion: "NISAR निम्नलिखित के बीच एक सहयोग है:",
+                    hindiOptions: ["a) इसरो और ESA", "b) इसरो और NASA", "c) इसरो और JAXA", "d) इसरो और रोस्कोस्मोस"]
+                },
+                {
+                    question: "What is the orbit of NISAR?",
+                    options: ["Geostationary", "Low Earth Orbit", "Sun-Synchronous Orbit", "Polar Orbit"],
+                    answer: "c) Sun-Synchronous Orbit",
+                    hindiQuestion: "NISAR की कक्षा क्या है?",
+                    hindiOptions: ["a) भूस्थिर", "b) निम्न पृथ्वी कक्षा", "c) सूर्य-तुल्यकालिक कक्षा", "d) ध्रुवीय कक्षा"]
+                },
+                {
+                    question: "NISAR’s radar system includes:",
+                    options: ["Only L-band SAR", "Only S-band SAR", "Both L-band and S-band SAR", "C-band SAR"],
+                    answer: "c) Both L-band and S-band SAR",
+                    hindiQuestion: "NISAR की रडार प्रणाली में शामिल हैं:",
+                    hindiOptions: ["a) केवल L-बैंड SAR", "b) केवल S-बैंड SAR", "c) L-बैंड और S-बैंड दोनों SAR", "d) C-बैंड SAR"]
+                },
+                {
+                    question: "NISAR’s primary objective is to:",
+                    options: ["Study Mars surface", "Study Earth’s landforms and track environmental changes", "Detect extraterrestrial signals", "Launch communication satellites"],
+                    answer: "b) Study Earth’s landforms and track environmental changes",
+                    hindiQuestion: "NISAR का प्राथमिक उद्देश्य है:",
+                    hindiOptions: ["a) मंगल ग्रह की सतह का अध्ययन", "b) पृथ्वी की भू-आकृतियों का अध्ययन और पर्यावरणीय परिवर्तनों पर नज़र रखना", "c) बाह्यग्रहीय संकेतों का पता लगाना", "d) संचार उपग्रह प्रक्षेपित करना"]
+                },
+                {
+                    question: "Antenna diameter of NISAR satellite is:",
+                    options: ["25 feet", "39 feet", "50 feet", "15 feet"],
+                    answer: "b) 39 feet",
+                    hindiQuestion: "NISAR उपग्रह का एंटीना व्यास है:",
+                    hindiOptions: ["a) 25 फीट", "b) 39 फीट", "c) 50 फीट", "d) 15 फीट"]
+                }
+            ];
+
+            const flashcardData = [
+                {
+                    question: "What does NISAR stand for?",
+                    answer: "NASA-ISRO Synthetic Aperture Radar.",
+                    hindiQuestion: "NISAR का क्या अर्थ है?",
+                    hindiAnswer: "NASA-ISRO सिंथेटिक अपर्चर रडार।"
+                },
+                {
+                    question: "When was NISAR launched?",
+                    answer: "30 July 2025.",
+                    hindiQuestion: "NISAR कब प्रक्षेपित किया गया था?",
+                    hindiAnswer: "30 जुलाई 2025।"
+                },
+                {
+                    question: "What is the cost and weight of NISAR?",
+                    answer: "$1.3 billion and 2.8 tonnes.",
+                    hindiQuestion: "NISAR की लागत और वजन क्या है?",
+                    hindiAnswer: "1.3 बिलियन डॉलर और 2.8 टन।"
+                },
+                {
+                    question: "What is the significance of L-band SAR?",
+                    answer: "Penetrates dense vegetation and tracks small surface changes.",
+                    hindiQuestion: "L-बैंड SAR का क्या महत्व है?",
+                    hindiAnswer: "यह घनी वनस्पतियों में प्रवेश करता है और सतह पर होने वाले छोटे-छोटे परिवर्तनों पर नज़र रखता है।"
+                },
+                {
+                    question: "What is the significance of S-band SAR?",
+                    answer: "Provides high-resolution all-weather imaging.",
+                    hindiQuestion: "एस-बैंड एसएआर का क्या महत्व है?",
+                    hindiAnswer: "सभी मौसमों में उच्च-रिज़ॉल्यूशन वाली तस्वीरें प्रदान करता है।"
+                },
+                {
+                    question: "What is the diameter of NISAR’s antenna reflector?",
+                    answer: "39 feet.",
+                    hindiQuestion: "एनआईएसएआर के एंटीना रिफ्लेक्टर का व्यास कितना है?",
+                    hindiAnswer: "39 फीट।"
+                },
+                {
+                    question: "When will NISAR start its full-fledged science operations?",
+                    answer: "Mid-October 2025 (after 70-day engineering phase).",
+                    hindiQuestion: "एनआईएसएआर अपने पूर्ण वैज्ञानिक कार्य कब शुरू करेगा?",
+                    hindiAnswer: "मध्य अक्टूबर 2025 (70-दिवसीय इंजीनियरिंग चरण के बाद)।"
+                },
+                {
+                    question: "Why is NISAR important for disaster management?",
+                    answer: "It monitors earthquakes, floods, volcanic activity, and helps in infrastructure planning and food security.",
+                    hindiQuestion: "आपदा प्रबंधन के लिए एनआईएसएआर क्यों महत्वपूर्ण है?",
+                    hindiAnswer: "यह भूकंप, बाढ़, ज्वालामुखी गतिविधि की निगरानी करता है और बुनियादी ढाँचे की योजना और खाद्य सुरक्षा में मदद करता है।"
+                }
+            ];
+
+            // Utility Functions
+            function wordCount(text) {
+                return text.split(/\s+/).filter(word => word.length > 0).length;
+            }
+
+            function calculateReadTime() {
+                const wordsPerMinute = 200;
+                let totalWords = wordCount(englishContentText);
+                const minutes = Math.ceil(totalWords / wordsPerMinute);
+                readTimeEl.textContent = ` • ${minutes} min read`;
+            }
+
+            function createTOC() {
+                const headings = document.querySelectorAll('.english-content h2, .english-content h3');
+                headings.forEach(heading => {
+                    const li = document.createElement('li');
+                    const a = document.createElement('a');
+                    const textContent = heading.textContent;
+                    const id = heading.id;
+                    a.href = `#${id}`;
+                    a.textContent = textContent;
+                    li.appendChild(a);
+                    toc.appendChild(li);
+                });
+            }
+
+            function handleScroll() {
+                // Scroll to top button
+                if (window.scrollY > 200) {
+                    scrollToTopBtn.style.display = 'block';
+                } else {
+                    scrollToTopBtn.style.display = 'none';
+                }
+                
+                // Progress bar
+                const fullHeight = document.body.scrollHeight - window.innerHeight;
+                const progress = (window.scrollY / fullHeight) * 100;
+                progressBar.style.width = `${progress}%`;
+            }
+
+            function populateMCQs() {
+                const mcqSection = document.getElementById('mcqs-section');
+                mcqData.forEach((mcq, index) => {
+                    const mcqDiv = document.createElement('div');
+                    mcqDiv.classList.add('mcq-question');
+                    mcqDiv.innerHTML = `
+                        <h4 lang="en"><strong>${index + 1}.</strong> ${mcq.question}</h4>
+                        <div class="mcq-options" lang="en">
+                            ${mcq.options.map((option, i) => `
+                                <label><input type="radio" name="mcq-${index}" value="${option}"> ${String.fromCharCode(97 + i)}) ${option}</label>
+                            `).join('')}
+                        </div>
+                        <h4 lang="hi"><strong>${index + 1}.</strong> ${mcq.hindiQuestion}</h4>
+                        <div class="mcq-options" lang="hi">
+                            ${mcq.hindiOptions.map((option, i) => `
+                                <label><input type="radio" name="mcq-${index}" value="${option}"> ${option}</label>
+                            `).join('')}
+                        </div>
+                        <div class="mcq-answer" id="answer-mcq-${index}">Correct Answer: <span lang="en">${mcq.answer}</span> | <span lang="hi">${mcq.hindiOptions[mcq.options.indexOf(mcq.answer.split(') ')[1])]})</span></div>
+                    `;
+                    mcqDiv.addEventListener('change', () => {
+                        const answerDiv = document.getElementById(`answer-mcq-${index}`);
+                        answerDiv.style.display = 'block';
+                    });
+                    mcqSection.appendChild(mcqDiv);
+                });
+            }
+
+            function populateFlashcards() {
+                const flashcardSection = document.getElementById('flashcards-section');
+                flashcardData.forEach((card, index) => {
+                    const cardDiv = document.createElement('div');
+                    cardDiv.classList.add('flashcard');
+                    cardDiv.innerHTML = `
+                        <div class="question" lang="en"><strong>Q${index + 1}:</strong> ${card.question}</div>
+                        <div class="question" lang="hi"><strong>प्रश्न ${index + 1}:</strong> ${card.hindiQuestion}</div>
+                        <div class="answer" lang="en"><strong>A${index + 1}:</strong> ${card.answer}</div>
+                        <div class="answer" lang="hi"><strong>उत्तर ${index + 1}:</strong> ${card.hindiAnswer}</div>
+                        <button onclick="this.parentNode.querySelectorAll('.answer').forEach(el => el.style.display = 'block'); this.style.display = 'none';">Show Answer</button>
+                    `;
+                    flashcardSection.appendChild(cardDiv);
+                });
+            }
+            
+            function populateQuickRecap() {
+                const recapSection = document.getElementById('quick-recap-content');
+                const recapItems = [
+                    { en: "Name: NISAR (NASA-ISRO Synthetic Aperture Radar)", hi: "नाम: निसार (नासा-इसरो सिंथेटिक अपर्चर रडार)" },
+                    { en: "Launch Date: 30 July 2025", hi: "प्रक्षेपण तिथि: 30 जुलाई 2025" },
+                    { en: "Launch Site: Satish Dhawan Space Centre, Sriharikota", hi: "प्रक्षेपण स्थल: सतीश धवन अंतरिक्ष केंद्र, श्रीहरिकोटा" },
+                    { en: "Orbit: Sun-synchronous", hi: "कक्षा: सूर्य-तुल्यकालिक" },
+                    { en: "Weight & Cost: 2.8 tonnes, $1.3 billion", hi: "भार और लागत: 2.8 टन, 1.3 बिलियन डॉलर" },
+                    { en: "Objective: Monitor Earth’s landforms, climate, and natural disasters", hi: "उद्देश्य: पृथ्वी की भू-आकृतियों, जलवायु और प्राकृतिक आपदाओं की निगरानी" },
+                    { en: "Radar Systems: Dual SAR (L-band and S-band)", hi: "रडार प्रणालियाँ: दोहरी SAR (L-बैंड और S-बैंड)" },
+                    { en: "Antenna: 39-feet diameter reflector", hi: "एंटीना: 39-फ़ीट व्यास वाला परावर्तक" },
+                    { en: "Science Phase: Starts mid-October 2025", hi: "विज्ञान चरण: अक्टूबर 2025 के मध्य में शुरू" },
+                    { en: "Commissioning: Early November 2025", hi: "कमीशनिंग: नवंबर 2025 की शुरुआत में" }
+                ];
+                
+                recapItems.forEach(item => {
+                    const div = document.createElement('div');
+                    div.classList.add('line');
+                    div.innerHTML = `<span lang="en">${item.en}</span><br><span lang="hi">${item.hi}</span>`;
+                    recapSection.appendChild(div);
+                });
+            }
+
+            // Event Listeners
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            window.addEventListener('scroll', handleScroll);
+
+            modeToggleBtn.addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+                const isDarkMode = document.body.classList.contains('dark-mode');
+                modeToggleBtn.innerHTML = isDarkMode ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+            });
+            
+            document.getElementById('print-btn').addEventListener('click', () => window.print());
+            document.getElementById('share-btn').addEventListener('click', () => {
+                if (navigator.share) {
+                    navigator.share({
+                        title: document.title,
+                        url: window.location.href
+                    }).catch(console.error);
+                } else {
+                    alert('Share feature not supported on this browser.');
+                }
+            });
+            document.getElementById('audio-btn').addEventListener('click', () => {
+                const text = articleContent.innerText;
+                if ('speechSynthesis' in window) {
+                    const utterance = new SpeechSynthesisUtterance(text);
+                    window.speechSynthesis.speak(utterance);
+                } else {
+                    alert('Text-to-speech not supported in this browser.');
+                }
+            });
+
+            // Initial calls
+            calculateReadTime();
+            createTOC();
+            populateMCQs();
+            populateFlashcards();
+            populateQuickRecap();
+        });
+    </script>
+</body>
+</html>

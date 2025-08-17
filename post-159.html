@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>17-Aug-25</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+--light-bg: #f5f7fa;
+--dark-bg: #1c1c1c;
+--light-text: #333;
+--dark-text: #f5f7fa;
+--primary-color: #007bff;
+--secondary-color: #6c757d;
+--link-color: #0056b3;
+--accent-color-light: #e0f7fa;
+--accent-color-dark: #2a3a47;
+--hover-light: #e6f2ff;
+--hover-dark: #3a4a5a;
+}
+
+    body {
+        font-family: 'Noto Sans', sans-serif;
+        background-color: var(--light-bg);
+        color: var(--light-text);
+        line-height: 1.6;
+        margin: 0;
+        padding-top: 60px; /* Space for fixed header */
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    body.dark-mode {
+        background-color: var(--dark-bg);
+        color: var(--dark-text);
+    }
+
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    /* --- Header and Navigation --- */
+    header {
+        background-color: white;
+        color: var(--primary-color);
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        transition: background-color 0.3s, box-shadow 0.3s;
+    }
+
+    body.dark-mode header {
+        background-color: var(--accent-color-dark);
+        box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+    }
+
+    nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 20px;
+    }
+
+    nav a {
+        text-decoration: none;
+        color: var(--primary-color);
+        font-weight: bold;
+        transition: color 0.3s;
+    }
+
+    body.dark-mode nav a {
+        color: #8ab4f8; /* A lighter blue for dark mode */
+    }
+
+    nav a:hover {
+        text-decoration: underline;
+    }
+
+    .header-date {
+        font-size: 1.5em;
+        margin: 0;
+        color: var(--secondary-color);
+    }
+
+    body.dark-mode .header-date {
+        color: #9aa0a6; /* A lighter grey for dark mode */
+    }
+
+    /* --- Article Content --- */
+    article {
+        background-color: white;
+        padding: 40px;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s, box-shadow 0.3s;
+    }
+
+    body.dark-mode article {
+        background-color: var(--dark-bg);
+        box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+    }
+
+    .article-meta {
+        color: var(--secondary-color);
+        font-style: italic;
+        margin-bottom: 20px;
+        transition: color 0.3s;
+    }
+
+    body.dark-mode .article-meta {
+        color: #9aa0a6;
+    }
+
+    .line {
+        padding: 8px 0;
+        transition: background-color 0.3s;
+    }
+
+    .line:hover {
+        background-color: var(--hover-light);
+    }
+
+    body.dark-mode .line:hover {
+        background-color: var(--hover-dark);
+    }
+
+    /* --- Headings --- */
+    h1, h2, h3 {
+        font-family: 'Roboto', sans-serif;
+        color: var(--primary-color);
+        margin: 0; /* Fix for extra space */
+        padding: 0; /* Fix for extra space */
+    }
+
+    body.dark-mode h1, body.dark-mode h2, body.dark-mode h3 {
+        color: #8ab4f8;
+    }
+
+    h1 { font-size: 2em; }
+    h2 { font-size: 1.5em; }
+    h3 { font-size: 1.2em; }
+    
+    p {
+        margin: 0; /* Fix for extra space */
+        padding: 0; /* Fix for extra space */
+    }
+
+    /* --- Table Styling --- */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: left;
+    }
+    th {
+        background-color: var(--primary-color);
+        color: white;
+    }
+    tr:nth-child(even) {
+        background-color: var(--accent-color-light);
+    }
+    body.dark-mode tr:nth-child(even) {
+        background-color: var(--accent-color-dark);
+    }
+    body.dark-mode th {
+        background-color: var(--secondary-color);
+    }
+    strong {
+        font-weight: 700;
+        color: var(--link-color);
+    }
+
+    body.dark-mode strong {
+        color: #c9e0ff;
+    }
+
+    /* --- Custom Styles for Markups --- */
+    .underline-italic-bold {
+        font-style: italic;
+        font-weight: bold;
+        text-decoration: underline;
+    }
+
+    /* --- Floating Buttons --- */
+    .floating-buttons {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        z-index: 999;
+    }
+
+    .floating-btn {
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        font-size: 1.5em;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        display: none; /* Initially hidden */
+        transition: opacity 0.3s, transform 0.3s;
+    }
+
+    .floating-btn:hover {
+        transform: scale(1.1);
+    }
+
+    .lang-switch-btn, .dark-mode-btn {
+        background-color: var(--secondary-color);
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.3s;
+        font-weight: bold;
+    }
+
+    .lang-switch-btn:hover, .dark-mode-btn:hover {
+        background-color: var(--link-color);
+        transform: scale(1.05);
+    }
+
+    /* --- Footer --- */
+    footer {
+        text-align: center;
+        padding: 20px;
+        margin-top: 40px;
+        color: var(--secondary-color);
+        border-top: 1px solid #ccc;
+        transition: color 0.3s;
+    }
+
+    body.dark-mode footer {
+        color: #9aa0a6;
+        border-top-color: #555;
+    }
+
+    .contact-link {
+        font-weight: bold;
+        text-decoration: none;
+        color: var(--link-color);
+        transition: color 0.3s;
+    }
+
+    .contact-link:hover {
+        text-decoration: underline;
+    }
+
+    body.dark-mode .contact-link {
+        color: #8ab4f8;
+    }
+    
+    /* --- Read Time and Progress Bar --- */
+    .read-time {
+        text-align: right;
+        font-size: 0.9em;
+        color: var(--secondary-color);
+        margin-top: -10px;
+        margin-bottom: 20px;
+    }
+
+    .progress-container {
+        width: 100%;
+        height: 5px;
+        background: #ccc;
+        margin-bottom: 20px;
+    }
+
+    .progress-bar {
+        height: 5px;
+        background: var(--primary-color);
+        width: 0%;
+    }
+
+    /* --- Mobile-first Design --- */
+    @media (max-width: 768px) {
+        .container {
+            padding: 10px;
+        }
+
+        header {
+            flex-direction: column;
+            padding: 10px;
+            height: auto;
+            position: relative;
+            box-shadow: none;
+            padding-top: 0;
+        }
+
+        nav ul {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .header-date {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        article {
+            padding: 20px;
+        }
+        
+        .floating-buttons {
+            right: 10px;
+            bottom: 10px;
+        }
+        
+        .floating-btn {
+            width: 45px;
+            height: 45px;
+        }
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+            <li><a href="donation.html">Donation</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <h1 class="header-date">17-August-2025</h1>
+</header>
+
+<div class="container">
+    <article>
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <h1 id="articleTitle">Jan Vishwas 2.0: Overview of Proposed Bill (2025)</h1>
+        <div class="article-meta">
+            Source: Indian Express | Publication date: 17-August-2025
+        </div>
+        <div class="read-time" id="readTime"></div>
+
+        <div class="content-section" id="english-content">
+            <div class="line">
+                <h2>Context:</h2>
+            </div>
+            <div class="line">
+                <p>* The <strong>Union Cabinet</strong> has approved the <strong>Jan Vishwas (Amendment of Provisions) Bill, 2025</strong>, which is set to be introduced in the <strong>Lok Sabha</strong>.</p>
+            </div>
+            <div class="line">
+                <p>* The Bill aims at <strong>decriminalising minor offences</strong>, <strong>rationalising penalties</strong>, and promoting <strong>trust-based governance</strong>.</p>
+            </div>
+            <div class="line">
+                <p>* It builds on the <strong>Jan Vishwas Act 2023</strong>, which decriminalised over <strong>180 legal provisions</strong>. Jan Vishwas 2.0 aims to decriminalise <strong>100+ more provisions</strong>.</p>
+            </div>
+
+            <hr>
+
+            <div class="line">
+                <h2>Key Features of Jan Vishwas 2.0</h2>
+            </div>
+            <div class="line">
+                <h3>1. Improvement Notice Mechanism:</h3>
+            </div>
+            <div class="line">
+                <p>* <strong>First-time offences</strong> will not attract penalties. Instead, an <strong>“improvement notice”</strong> will be issued.</p>
+            </div>
+            <div class="line">
+                <p>* Provides <strong>opportunity for rectification</strong> within a stipulated period.</p>
+            </div>
+            <div class="line">
+                <p>* Shifts from <strong>“penalise on first detection”</strong> (Jan Vishwas 1.0) to <strong>“inform–correct–penalise”</strong> model.</p>
+            </div>
+            <div class="line">
+                <h3>2. Penalty Structure:</h3>
+            </div>
+            <div class="line">
+                <p>* <strong>Second offence onwards</strong>: Penalties same as those for first offence in 1.0.</p>
+            </div>
+            <div class="line">
+                <p>* <strong>Subsequent offences</strong>: Fines increase, subject to <strong>maximum caps</strong> defined under respective sections.</p>
+            </div>
+            <div class="line">
+                <h3>3. Scope of Application:</h3>
+            </div>
+            <div class="line">
+                <p>* Improvement notice applies to <strong>multiple sections</strong> across various laws.</p>
+            </div>
+            <div class="line">
+                <p>* Retains <strong>decriminalisation</strong> while ensuring <strong>deterrence</strong> for repeated violations.</p>
+            </div>
+            <div class="line">
+                <h3>4. Objective:</h3>
+            </div>
+            <div class="line">
+                <p>* Promote <strong>ease of doing business</strong>.</p>
+            </div>
+            <div class="line">
+                <p>* Encourage <strong>voluntary compliance</strong>.</p>
+            </div>
+            <div class="line">
+                <p>* Reduce <strong>fear of punitive action</strong> for minor, unintentional mistakes.</p>
+            </div>
+
+            <hr>
+
+            <div class="line">
+                <h2>Examples from Previous Amendments (Jan Vishwas 1.0 / 2023)</h2>
+            </div>
+            <div class="line">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Act</th>
+                            <th>Section</th>
+                            <th>Original Provision</th>
+                            <th>Change in Jan Vishwas 2023</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Food Corporations Act, 1964</td>
+                            <td>41</td>
+                            <td>Misuse of FCI’s name punishable by <strong>6 months imprisonment or Rs 1,000 fine</strong></td>
+                            <td>Provision removed completely</td>
+                        </tr>
+                        <tr>
+                            <td>Indian Forest Act, 1927</td>
+                            <td>33</td>
+                            <td><strong>Imprisonment up to 6 months</strong> for tree felling or cattle damage</td>
+                            <td>Imprisonment removed; <strong>Rs 500 fine retained</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <hr>
+
+            <div class="line">
+                <h2>Government’s Perspective:</h2>
+            </div>
+            <div class="line">
+                <p>* PM Modi (Independence Day 2025) highlighted the need to <strong>abolish outdated laws</strong> that criminalise minor actions.</p>
+            </div>
+            <div class="line">
+                <p>* Jan Vishwas 2.0 aligns with <strong>ease of living</strong>, <strong>trust-based governance</strong>, and <strong>reducing unnecessary incarceration</strong>.</p>
+            </div>
+            <div class="line">
+                <p>* The model emphasizes <strong>prevention and correction</strong> rather than immediate punishment.</p>
+            </div>
+
+            <hr>
+
+            <div class="line">
+                <h2>Significance for UPSC Aspirants:</h2>
+            </div>
+            <div class="line">
+                <h3>1. Governance and Reforms:</h3>
+            </div>
+            <div class="line">
+                <p>* Example of <strong>decriminalisation and legal simplification</strong> under India’s governance reforms.</p>
+            </div>
+            <div class="line">
+                <p>* Strengthens <strong>citizen-friendly administration</strong>.</p>
+            </div>
+            <div class="line">
+                <h3>2. Ease of Doing Business:</h3>
+            </div>
+            <div class="line">
+                <p>* Reduction of <strong>regulatory burden</strong> and <strong>fear of penal action</strong> encourages entrepreneurship.</p>
+            </div>
+            <div class="line">
+                <h3>3. Rule of Law and Compliance:</h3>
+            </div>
+            <div class="line">
+                <p>* Introduces <strong>inform–correct–penalise</strong> principle, balancing <strong>deterrence and compliance</strong>.</p>
+            </div>
+            <div class="line">
+                <h3>4. Policy Implications:</h3>
+            </div>
+            <div class="line">
+                <p>* Could influence reforms in other regulatory sectors.</p>
+            </div>
+            <div class="line">
+                <p>* Model for <strong>trust-based governance</strong> in both central and state laws.</p>
+            </div>
+
+            <hr>
+
+            <div class="line">
+                <h2>Conclusion:</h2>
+            </div>
+            <div class="line">
+                <p>Jan Vishwas 2.0 marks a <strong>paradigm shift</strong> in India’s legal framework by:</p>
+            </div>
+            <div class="line">
+                <p>* Promoting <strong>voluntary compliance</strong> over punitive action.</p>
+            </div>
+            <div class="line">
+                <p>* Decriminalising minor offences while <strong>retaining deterrence</strong> for repeated violations.</p>
+            </div>
+            <div class="line">
+                <p>* Supporting India’s goal of <strong>ease of doing business</strong> and <strong>citizen-centric governance</strong>.</p>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="content-section" id="hindi-content">
+            <div class="line" lang="hi">
+                <h2>संदर्भ:</h2>
+            </div>
+            <div class="line" lang="hi">
+                <p>* **केंद्रीय मंत्रिमंडल** ने **जन विश्वास (प्रावधानों में संशोधन) विधेयक, 2025** को मंज़ूरी दे दी है, जिसे **लोकसभा** में पेश किया जाना है।</p>
+            </div>
+            <div class="line" lang="hi">
+                <p>* इस विधेयक का उद्देश्य **छोटे अपराधों को अपराधमुक्त करना**, **दंड को युक्तिसंगत बनाना** और **विश्वास-आधारित शासन** को बढ़ावा देना है।</p>
+            </div>
+            <div class="line" lang="hi">
+                <p>* यह **जन विश्वास अधिनियम 2023** पर आधारित है, जिसने **180 से ज़्यादा क़ानूनी प्रावधानों** को अपराधमुक्त किया था। जन विश्वास 2.0 का लक्ष्य **100 से ज़्यादा प्रावधानों को अपराधमुक्त करना** है।</p>
+            </div>
+
+            <hr>
+
+            <div class="line" lang="hi">
+                <h2>जन विश्वास 2.0 की मुख्य विशेषताएँ</h2>
+            </div>
+            <div class="line" lang="hi">
+                <h3>1. सुधार सूचना तंत्र:</h3>
+            </div>
+            <div class="line" lang="hi">
+                <p>* **पहली बार किए गए अपराधों** पर दंड नहीं लगेगा। इसके बजाय, एक **“सुधार सूचना”** जारी की जाएगी।</p>
+            </div>
+            <div class="line" lang="hi">
+                <p>* यह निर्धारित अवधि के भीतर **सुधार का अवसर** प्रदान करता है।</p>
+            </div>
+            <div class="line" lang="hi">
+                <p>* **“पहली बार पता चलने पर दंड”** (जन विश्वास 1.0) से **“सूचित करें-सुधारें-दंडित करें”** मॉडल में बदलाव।</p>
+            </div>
+            <div class="line" lang="hi">
+                <h3>2. दंड संरचना:</h3>
+            </div>
+            <div class="line" lang="hi">
+                <p>* **दूसरे अपराध के बाद**: दंड 1.0 में पहले अपराध के समान ही होंगे।</p>
+            </div>
+            <div class="line" lang="hi">
+                <p>* **बाद के अपराध**: संबंधित धाराओं के तहत निर्धारित **अधिकतम सीमा** के अधीन, जुर्माना बढ़ता है।</p>
+            </div>
+            <div class="line" lang="hi">
+                <h3>3. आवेदन का दायरा:</h3>
+            </div>
+            <div class="line" lang="hi">
+                <p>* सुधार नोटिस विभिन्न कानूनों की **कई धाराओं** पर लागू होता है।</p>
+            </div>
+            <div class="line" lang="hi">
+                <p>* बार-बार उल्लंघनों के लिए **निवारण** सुनिश्चित करते हुए **अपराधीकरण** को बरकरार रखता है।</p>
+            </div>
+            <div class="line" lang="hi">
+                <h3>4. उद्देश्य:</h3>
+            </div>
+            <div class="line" lang="hi">
+                <p>* **व्यापार करने में आसानी** को बढ़ावा देना।</p>
+            </div>
+            <div class="line" lang="hi">
+                <p>* **स्वैच्छिक अनुपालन** को प्रोत्साहित करना।</p>
+            </div>
+            <div class="line" lang="hi">
+                <p>* छोटी-मोटी, अनजाने में हुई गलतियों के लिए **दंडात्मक कार्रवाई के डर** को कम करना।</p>
+            </div>
+
+            <hr>
+
+            <div class="line" lang="hi">
+                <h2>पिछले संशोधनों के उदाहरण (जन विश्वास 1.0 / 2023)</h2>
+            </div>
+            <div class="line" lang="hi">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>अधिनियम</th>
+                            <th>धारा</th>
+                            <th>मूल प्रावधान</th>
+                            <th>जन विश्वास 2023 में परिवर्तन</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>खाद्य निगम अधिनियम, 1964</td>
+                            <td>41</td>
+                            <td>एफसीआई के नाम का दुरुपयोग करने पर <strong>6 महीने की कैद या 1,000 रुपये का जुर्माना</strong></td>
+                            <td>प्रावधान पूरी तरह से हटा दिया गया</td>
+                        </tr>
+                        <tr>
+                            <td>भारतीय वन अधिनियम, 1927</td>
+                            <td>33</td>
+                            <td><strong>पेड़ों की कटाई या मवेशियों को नुकसान पहुँचाने पर 6 महीने तक की कैद</strong></td>
+                            <td>कैद की सज़ा हटाई गई; <strong>500 रुपये का जुर्माना बरकरार</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <hr>
+
+            <div class="line" lang="hi">
+                <h2>सरकार का दृष्टिकोण:</h2>
+            </div>
+            <div class="line" lang="hi">
+                <p>* प्रधानमंत्री मोदी (स्वतंत्रता दिवस 2025) ने **पुराने कानूनों को खत्म करने** की ज़रूरत पर ज़ोर दिया जो छोटी-मोटी गतिविधियों को आपराधिक बनाते हैं।</p>
+            </div>
+            <div class="line" lang="hi">
+                <p>* जन विश्वास 2.0 **जीवन को आसान बनाने**, **विश्वास-आधारित शासन** और **अनावश्यक कारावास को कम करने** के साथ संरेखित है।</p>
+            </div>
+            <div class="line" lang="hi">
+                <p>* यह मॉडल तत्काल सज़ा के बजाय **रोकथाम और सुधार** पर ज़ोर देता है।</p>
+            </div>
+
+            <hr>
+
+            <div class="line" lang="hi">
+                <h2>यूपीएससी उम्मीदवारों के लिए महत्व:</h2>
+            </div>
+            <div class="line" lang="hi">
+                <h3>1. शासन और सुधार:</h3>
+            </div>
+            <div class="line" lang="hi">
+                <p>* भारत के शासन सुधारों के अंतर्गत **अपराधीकरण और कानूनी सरलीकरण** का उदाहरण।</p>
+            </div>
+            <div class="line" lang="hi">
+                <p>* **नागरिक-हितैषी प्रशासन** को मज़बूत करता है।</p>
+            </div>
+            <div class="line" lang="hi">
+                <h3>2. व्यापार करने में आसानी:</h3>
+            </div>
+            <div class="line" lang="hi">
+                <p>* **नियामक बोझ** और **दंडात्मक कार्रवाई के डर** में कमी से उद्यमिता को प्रोत्साहन मिलता है।</p>
+            </div>
+            <div class="line" lang="hi">
+                <h3>3. कानून का शासन और अनुपालन:</h3>
+            </div>
+            <div class="line" lang="hi">
+                <p>* **सूचित करें-सही करें-दंडित करें** सिद्धांत लागू करता है, **निवारण और अनुपालन** में संतुलन स्थापित करता है।</p>
+            </div>
+            <div class="line" lang="hi">
+                <h3>4. नीतिगत निहितार्थ:</h3>
+            </div>
+            <div class="line" lang="hi">
+                <p>* अन्य नियामक क्षेत्रों में सुधारों को प्रभावित कर सकता है।</p>
+            </div>
+            <div class="line" lang="hi">
+                <p>* केंद्र और राज्य दोनों कानूनों में **विश्वास-आधारित शासन** का मॉडल।</p>
+            </div>
+
+            <hr>
+
+            <div class="line" lang="hi">
+                <h2>निष्कर्ष:</h2>
+            </div>
+            <div class="line" lang="hi">
+                <p>जन विश्वास 2.0 भारत के कानूनी ढाँचे में एक **आदर्श बदलाव** का प्रतीक है:</p>
+            </div>
+            <div class="line" lang="hi">
+                <p>* दंडात्मक कार्रवाई की बजाय **स्वैच्छिक अनुपालन** को बढ़ावा देना।</p>
+            </div>
+            <div class="line" lang="hi">
+                <p>* बार-बार उल्लंघन करने पर **निवारक उपाय** बरकरार रखते हुए छोटे अपराधों को गैर-अपराधी बनाना।</p>
+            </div>
+            <div class="line" lang="hi">
+                <p>* भारत के **व्यापार करने में आसानी** और **नागरिक-केंद्रित शासन** के लक्ष्य का समर्थन करना।</p>
+            </div>
+        </div>
+
+        <p class="contact-us-text">
+            Contact us for any query: <a class="contact-link" href="[https://wa.me/918168305050](https://wa.me/918168305050)" target="_blank">+91-8168305050</a>
+        </p>
+
+        <a href="index.html" class="back-home-btn" style="display: block; text-align: center; margin-top: 20px;">
+            <button class="lang-switch-btn">Back to Home</button>
+        </a>
+
+    </article>
+</div>
+
+<div class="floating-buttons">
+    <button id="scrollToTopBtn" class="floating-btn">↑</button>
+    <button id="langSwitchBtn" class="lang-switch-btn">Switch to Hindi</button>
+    <button id="darkModeBtn" class="dark-mode-btn">Dark Mode</button>
+</div>
+
+<footer>
+    <p>© 2025 Crack Current Affairs (CrackCA). All rights reserved.</p>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // **FIXED LOGIC**: Put all interactive elements inside this block
+        // to ensure they exist before we try to attach listeners.
+        const langSwitchBtn = document.getElementById('langSwitchBtn');
+        const darkModeBtn = document.getElementById('darkModeBtn');
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+        const englishContent = document.getElementById('english-content');
+        const hindiContent = document.getElementById('hindi-content');
+        const body = document.body;
+        const content = document.querySelector('article');
+
+        // Replace custom markups first
+        let innerHTML = content.innerHTML;
+        innerHTML = innerHTML.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        innerHTML = innerHTML.replace(/\*(.*?)\*/g, '<span class="underline-italic-bold">$1</span>');
+        innerHTML = innerHTML.replace(/####\s(.*?)\s/g, '<h3>$1</h3>');
+        innerHTML = innerHTML.replace(/###\s(.*?)\s/g, '<h2>$1</h2>');
+        innerHTML = innerHTML.replace(/##\s(.*?)\s/g, '<h1>$1</h1>');
+        content.innerHTML = innerHTML;
+
+        // Language Switch
+        let isEnglish = true;
+        hindiContent.style.display = 'none';
+
+        langSwitchBtn.addEventListener('click', () => {
+            isEnglish = !isEnglish;
+            if (isEnglish) {
+                englishContent.style.display = 'block';
+                hindiContent.style.display = 'none';
+                langSwitchBtn.innerText = 'Switch to Hindi';
+            } else {
+                englishContent.style.display = 'none';
+                hindiContent.style.display = 'block';
+                langSwitchBtn.innerText = 'Switch to English';
+            }
+        });
+
+        // Dark Mode Toggle
+        darkModeBtn.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            if (body.classList.contains('dark-mode')) {
+                darkModeBtn.innerText = 'Light Mode';
+            } else {
+                darkModeBtn.innerText = 'Dark Mode';
+            }
+        });
+
+        // Read Time Calculation
+        function calculateReadTime() {
+            const englishText = document.getElementById('english-content').innerText;
+            const wordsPerMinute = 200;
+            const wordCount = englishText.split(/\s+/).filter(word => word.length > 0).length;
+            const readTime = Math.ceil(wordCount / wordsPerMinute);
+            document.getElementById('readTime').innerText = `~${readTime} min read`;
+        }
+        calculateReadTime();
+
+        // Scroll to Top Button
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.style.display = 'block';
+            } else {
+                scrollToTopBtn.style.display = 'none';
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Progress Bar
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>17-Aug-25</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --light-bg: #f9fbfb;
+            --dark-bg: #1a1a1a;
+            --primary-color: #004d40; /* Dark Teal */
+            --secondary-color: #557a95; /* Muted Blue */
+            --accent-color: #f2e8b2; /* Soft Gold */
+            --text-color: #333333;
+            --dark-text-color: #e0e0e0;
+            --hover-bg: #e8f5e9;
+            --link-color: #d9534f; /* Burnt Orange */
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.8;
+            margin: 0;
+            padding-top: 70px; /* Space for fixed header */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: var(--light-bg);
+            padding: 20px 40px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-family: 'Merriweather', serif;
+            color: var(--primary-color);
+            font-size: 2em;
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--link-color);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 30px;
+            background-color: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+            border-radius: 10px;
+        }
+
+        .article-header {
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .article-header h1 {
+            font-family: 'Merriweather', serif;
+            color: var(--primary-color);
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        .article-meta {
+            color: var(--secondary-color);
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .read-time {
+            color: var(--link-color);
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .content-line {
+            padding: 15px 0;
+            border-bottom: 1px solid #e0e0e0;
+            transition: background-color 0.3s;
+        }
+
+        .content-line:last-child {
+            border-bottom: none;
+        }
+
+        .content-line:hover {
+            background-color: var(--hover-bg);
+        }
+
+        .content-line p {
+            margin: 0;
+        }
+
+        .content-line h2, .content-line h3, .content-line h4 {
+            font-family: 'Merriweather', serif;
+            color: var(--primary-color);
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        .content-line h2 { font-size: 2em; }
+        .content-line h3 { font-size: 1.7em; }
+        .content-line h4 { font-size: 1.4em; }
+
+        .content-line strong {
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
+        .underline-italic-bold {
+            font-style: italic;
+            font-weight: bold;
+            text-decoration: underline;
+            color: var(--link-color);
+        }
+
+        .contact-us {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px dashed #ccc;
+            color: var(--text-color);
+        }
+
+        .contact-us a {
+            color: var(--link-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-us a:hover {
+            text-decoration: underline;
+        }
+
+        .back-to-home {
+            display: block;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .back-to-home button {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .back-to-home button:hover {
+            background-color: var(--link-color);
+            transform: translateY(-2px);
+        }
+
+        .scroll-to-top {
+            display: none;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            font-size: 1.5em;
+            cursor: pointer;
+            opacity: 0.8;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: opacity 0.3s ease, transform 0.2s ease;
+        }
+
+        .scroll-to-top:hover {
+            opacity: 1;
+            transform: translateY(-3px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            margin-top: 50px;
+            color: var(--secondary-color);
+            background-color: var(--light-bg);
+            border-top: 1px solid #eee;
+        }
+
+        /* --- Additional Features --- */
+        .dark-mode-toggle {
+            position: fixed;
+            top: 90px;
+            right: 30px;
+            background-color: var(--accent-color);
+            color: var(--text-color);
+            border: none;
+            padding: 12px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9em;
+            z-index: 999;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .dark-mode-toggle:hover {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        body.dark-mode {
+            background-color: var(--dark-bg);
+            color: var(--dark-text-color);
+        }
+
+        body.dark-mode header {
+            background-color: var(--dark-bg);
+            box-shadow: 0 2px 10px rgba(255, 255, 255, 0.05);
+        }
+
+        body.dark-mode nav a {
+            color: #b0c9d7;
+        }
+
+        body.dark-mode .container {
+            background-color: #222;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+        }
+
+        body.dark-mode .article-header {
+            border-bottom-color: #555;
+        }
+
+        body.dark-mode .content-line {
+            border-bottom-color: #444;
+        }
+
+        body.dark-mode .content-line:hover {
+            background-color: #333;
+        }
+
+        body.dark-mode .article-header h1,
+        body.dark-mode .content-line h2,
+        body.dark-mode .content-line h3,
+        body.dark-mode .content-line h4 {
+            color: #e0f2f1; /* Lighter teal for dark mode */
+        }
+
+        body.dark-mode .scroll-to-top {
+            background-color: #e0f2f1;
+            color: var(--dark-bg);
+        }
+
+        body.dark-mode footer {
+            background-color: var(--dark-bg);
+            color: #999;
+            border-top-color: #555;
+        }
+
+        .toc {
+            background-color: var(--light-bg);
+            border: 1px solid #e0e0e0;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            max-height: 350px;
+            overflow-y: auto;
+        }
+
+        .toc h2 {
+            font-family: 'Merriweather', serif;
+            color: var(--primary-color);
+            font-size: 1.5em;
+            margin-top: 0;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 1em;
+            display: block;
+            padding: 8px 0;
+            transition: color 0.3s ease;
+        }
+
+        .toc a:hover {
+            color: var(--link-color);
+        }
+
+        body.dark-mode .toc {
+            background-color: #222;
+            border-color: #444;
+        }
+
+        body.dark-mode .toc h2 {
+            color: #e0f2f1;
+            border-bottom-color: #555;
+        }
+
+        body.dark-mode .toc a {
+            color: var(--dark-text-color);
+        }
+
+        .progress-container {
+            width: 100%;
+            height: 5px;
+            background: #e0e0e0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1001;
+        }
+
+        .progress-bar {
+            height: 5px;
+            background: var(--link-color);
+            width: 0%;
+        }
+
+        .quick-recap {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+
+        .quick-recap h3 {
+            font-family: 'Merriweather', serif;
+            color: var(--primary-color);
+            margin-top: 0;
+            font-size: 1.8em;
+        }
+
+        .quick-recap ul {
+            padding-left: 20px;
+        }
+
+        body.dark-mode .quick-recap {
+            background-color: #444;
+            color: var(--dark-text-color);
+        }
+
+        body.dark-mode .quick-recap h3 {
+            color: #e0f2f1;
+        }
+
+        .mains-questions, .mcqs, .flashcards {
+            margin-bottom: 40px;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background-color: var(--light-bg);
+        }
+
+        body.dark-mode .mains-questions, body.dark-mode .mcqs, body.dark-mode .flashcards {
+            background-color: #222;
+            border-color: #444;
+        }
+
+        .mains-questions h3, .mcqs h3, .flashcards h3 {
+            font-family: 'Merriweather', serif;
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+
+        body.dark-mode .mains-questions h3, body.dark-mode .mcqs h3, body.dark-mode .flashcards h3 {
+            color: #e0f2f1;
+        }
+
+        .mcqs ol, .mains-questions ol {
+            padding-left: 20px;
+        }
+
+        .mcqs .answer {
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
+        .flashcards .card {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            background-color: white;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .flashcards .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        body.dark-mode .flashcards .card {
+            background-color: #333;
+            border-color: #555;
+            color: var(--dark-text-color);
+        }
+
+        .flashcards .question {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        body.dark-mode .flashcards .question {
+            color: #e0f2f1;
+        }
+
+        .flashcards .answer {
+            color: var(--secondary-color);
+        }
+
+        .print-share {
+            margin-top: 30px;
+            text-align: right;
+        }
+
+        .print-share button {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-left: 15px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .print-share button:hover {
+            background-color: var(--link-color);
+            transform: translateY(-2px);
+        }
+
+        .audio-mode {
+            position: fixed;
+            bottom: 80px;
+            right: 30px;
+            background-color: var(--accent-color);
+            color: var(--text-color);
+            padding: 12px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9em;
+            z-index: 999;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .audio-mode:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            body { padding-top: 120px; }
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 15px;
+            }
+            header h1 {
+                margin-bottom: 10px;
+            }
+            nav ul {
+                flex-direction: column;
+                gap: 12px;
+            }
+            .container {
+                padding: 20px;
+            }
+            .toc {
+                padding: 15px;
+            }
+            .scroll-to-top, .dark-mode-toggle, .audio-mode {
+                font-size: 1em;
+                padding: 10px 15px;
+                width: auto;
+                height: auto;
+                border-radius: 5px;
+            }
+            .scroll-to-top { bottom: 20px; right: 20px; }
+            .dark-mode-toggle { bottom: 70px; right: 20px; }
+            .audio-mode { bottom: 120px; right: 20px; }
+            .print-share { text-align: center; }
+            .print-share button { margin: 10px 5px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="donation.html">Donation</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <h1>17-August-2025</h1>
+    </header>
+
+    <button class="dark-mode-toggle" id="darkModeToggle">Dark Mode</button>
+    <button class="audio-mode" id="audioModeToggle">Audio Mode</button>
+
+    <div class="container">
+        <div class="article-header">
+            <h1 id="article-title">Eco-sensitive Western Ghats: Hindalco Bauxite Mine, Kolhapur</h1>
+            <div class="article-meta">
+                Source: Indian Express | Publication date: 17-August-2025
+            </div>
+            <div class="read-time" id="readTime"></div>
+        </div>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul id="toc-list"></ul>
+        </div>
+
+        <article>
+            <section id="quick-recap" class="quick-recap">
+                <h3>Quick Recap:</h3>
+                <p><strong>Context:</strong></p>
+                <div class="content-line">
+                    <p>* The Forest Advisory Committee (FAC) of the Environment Ministry declined **Stage-II/final approval** for Hindalco Industries Ltd’s bauxite mine in Kolhapur, Maharashtra.</p>
+                </div>
+                <div class="content-line">
+                    <p>* Reason: The mine falls under **Eco-Sensitive Areas (ESA)** of the **Western Ghats**.</p>
+                </div>
+                <p><strong>Key Points:</strong></p>
+                <div class="content-line">
+                    <ol>
+                        <li>**Legal and Environmental Status:**</li>
+                        <div class="content-line">
+                            <p>* Kolhapur mine falls in a *conservation reserve* declared in **March 2021**.</p>
+                        </div>
+                        <div class="content-line">
+                            <p>* Rich in biodiversity: **Elephants, Indian gaur, sambhar, deer, porcupine, leopard, tiger**.</p>
+                        </div>
+                        <div class="content-line">
+                            <p>* **No valid mining lease** currently exists. Original lease expired in 1998; 50-year validity ended in 2018.</p>
+                        </div>
+                        <li>**Project Timeline:**</li>
+                        <div class="content-line">
+                            <p>* In-principle forest approval: **2009**</p>
+                        </div>
+                        <div class="content-line">
+                            <p>* Environmental clearance: **Jan 2014**</p>
+                        </div>
+                        <div class="content-line">
+                            <p>* Rights of Forest Resources certificate: **Not obtained**</p>
+                        </div>
+                        <div class="content-line">
+                            <p>* Mining activity: **Not commenced**</p>
+                        </div>
+                        <li>**FAC Observations:**</li>
+                        <div class="content-line">
+                            <p>* Mining in Western Ghats ESA is **prohibited**.</p>
+                        </div>
+                        <div class="content-line">
+                            <p>* The mining lease lies in a **conservation reserve**.</p>
+                        </div>
+                        <div class="content-line">
+                            <p>* Compensatory afforestation changes and diversion of **16 ha** (actual 9.05 ha) cannot be approved.</p>
+                        </div>
+                        <li>**Policy Context:**</li>
+                        <div class="content-line">
+                            <p>* **Environment Ministry’s 2024 draft notification:** complete ban on **mining, quarrying, sand mining** in ESAs.</p>
+                        </div>
+                        <div class="content-line">
+                            <p>* Maharashtra: **17,340 sq km** proposed as ESA; 211 villages in Kolhapur included.</p>
+                        </div>
+                        <div class="content-line">
+                            <p>* 2024 draft: total **56,825.7 sq km of Western Ghats** declared ecologically sensitive across six states.</p>
+                        </div>
+                        <li>**Dispute:**</li>
+                        <div class="content-line">
+                            <p>* Maharashtra Govt argued pre-2013 consideration.</p>
+                        </div>
+                        <div class="content-line">
+                            <p>* Centre maintained ESA notifications and lease validity issues are binding.</p>
+                        </div>
+                    </ol>
+                </div>
+                <p><strong>Takeaways:</strong></p>
+                <div class="content-line">
+                    <p>* Intersection of *environmental governance*, *mineral rights*, *biodiversity conservation*, and *federal-state relations*.</p>
+                </div>
+                <div class="content-line">
+                    <p>* Example of *FAC’s role* in balancing industrial projects and ecological protection.</p>
+                </div>
+                <div class="content-line">
+                    <p>* Western Ghats ESAs: *Legal instruments* for conservation under Environment Ministry draft notifications.</p>
+                </div>
+            </section>
+
+            <section id="mains-questions" class="mains-questions">
+                <h3>Mains-Related Questions</h3>
+                <div class="content-line">
+                    <p><strong>GS Paper 3 (Environment, Biodiversity, Economy):</strong></p>
+                </div>
+                <ol>
+                    <div class="content-line">
+                        <li>Discuss the importance of Eco-Sensitive Areas (ESAs) in biodiversity conservation in India. Illustrate with the example of the Western Ghats.</li>
+                    </div>
+                    <div class="content-line">
+                        <li>Critically analyse the role of the Forest Advisory Committee (FAC) in forest diversion projects and its impact on industrial development.</li>
+                    </div>
+                    <div class="content-line">
+                        <li>How does mining in ecologically sensitive zones impact biodiversity and local communities? Evaluate the policy measures taken to address this.</li>
+                    </div>
+                    <div class="content-line">
+                        <li>Examine the challenges in implementing Western Ghats ESA notifications, considering federal-state conflicts in environmental governance.</li>
+                    </div>
+                </ol>
+                <div class="content-line">
+                    <p><strong>GS Paper 2 (Polity, Governance):</strong></p>
+                </div>
+                <ol start="5">
+                    <div class="content-line">
+                        <li>Analyse the Centre-State tensions in environmental regulation in the context of Western Ghats ESA notifications.</li>
+                    </div>
+                </ol>
+            </section>
+
+            <section id="mcqs" class="mcqs">
+                <h3>MCQs with Answers</h3>
+                <ol>
+                    <div class="content-line">
+                        <li><p><strong>Which of the following species are reported in the Mogalgad mining area, Kolhapur?</strong></p>
+                            <ol type="a">
+                                <li>Asiatic Lion</li>
+                                <li>Indian Gaur</li>
+                                <li>Tiger</li>
+                                <li>Snow Leopard</li>
+                            </ol>
+                            <p class="answer"><strong>Answer:</strong> b) Indian Gaur, c) Tiger</p>
+                        </li>
+                    </div>
+                    <div class="content-line">
+                        <li><p><strong>Under which Act does the mining lease validity of 50 years from the date of grant apply?</strong></p>
+                            <ol type="a">
+                                <li>Environment Protection Act, 1986</li>
+                                <li>Mines and Minerals (Development and Regulation) Act, 2015</li>
+                                <li>Wildlife Protection Act, 1972</li>
+                                <li>Forest Conservation Act, 1980</li>
+                            </ol>
+                            <p class="answer"><strong>Answer:</strong> b) Mines and Minerals (Development and Regulation) Act, 2015</p>
+                        </li>
+                    </div>
+                    <div class="content-line">
+                        <li><p><strong>As per 2024 draft notification, what is the status of mining in Western Ghats ESAs?</strong></p>
+                            <ol type="a">
+                                <li>Mining allowed under special permits</li>
+                                <li>Complete ban on mining, quarrying, and sand mining</li>
+                                <li>Mining allowed only for bauxite</li>
+                                <li>Mining allowed with State government approval</li>
+                            </ol>
+                            <p class="answer"><strong>Answer:</strong> b) Complete ban on mining, quarrying, and sand mining</p>
+                        </li>
+                    </div>
+                    <div class="content-line">
+                        <li><p><strong>The Kolhapur mining lease in question was initially granted in:</strong></p>
+                            <ol type="a">
+                                <li>1958</li>
+                                <li>1968</li>
+                                <li>1978</li>
+                                <li>1988</li>
+                            </ol>
+                            <p class="answer"><strong>Answer:</strong> b) 1968</p>
+                        </li>
+                    </div>
+                    <div class="content-line">
+                        <li><p><strong>Total Western Ghats area proposed as ESA in 2024 draft notification:</strong></p>
+                            <ol type="a">
+                                <li>17,340 sq km</li>
+                                <li>56,825.7 sq km</li>
+                                <li>60,000 sq km</li>
+                                <li>40,500 sq km</li>
+                            </ol>
+                            <p class="answer"><strong>Answer:</strong> b) 56,825.7 sq km</p>
+                        </li>
+                    </div>
+                </ol>
+            </section>
+
+            <section id="flashcards" class="flashcards">
+                <h3>Flashcards</h3>
+                <div class="card">
+                    <p class="question">Q1: What is an Eco-Sensitive Area (ESA)?</p>
+                    <p class="answer">A: An ESA is a designated area around protected zones (like national parks) to conserve biodiversity and regulate activities harmful to the environment.</p>
+                </div>
+                <div class="card">
+                    <p class="question">Q2: What is the role of FAC in forest diversion projects?</p>
+                    <p class="answer">A: FAC recommends Stage-II/final forest approvals for projects involving diversion of forest land, balancing development and conservation.</p>
+                </div>
+                <div class="card">
+                    <p class="question">Q3: Why was Hindalco’s Kolhapur mine denied Stage-II/final approval?</p>
+                    <p class="answer">A: Due to its location in a conservation reserve, invalid mining lease, and prohibition of mining in Western Ghats ESA.</p>
+                </div>
+                <div class="card">
+                    <p class="question">Q4: What species are present in the Kolhapur mining site?</p>
+                    <p class="answer">A: Elephants, Indian gaur, sambhar, deer, porcupine, leopard, tiger.</p>
+                </div>
+                <div class="card">
+                    <p class="question">Q5: When did the original mining lease for Kolhapur expire?</p>
+                    <p class="answer">A: Original lease granted in 1968; expired in 1998; 50-year validity ended in 2018.</p>
+                </div>
+                <div class="card">
+                    <p class="question">Q6: What does the 2024 Western Ghats draft notification propose?</p>
+                    <p class="answer">A: Complete ban on mining, quarrying, and sand mining in ESAs; phasing out of existing mines.</p>
+                </div>
+                <div class="card">
+                    <p class="question">Q7: How much area was proposed for diversion in Hindalco mine?</p>
+                    <p class="answer">A: 16.00 hectares (actual diverted: 9.05 hectares)</p>
+                </div>
+                <div class="card">
+                    <p class="question">Q8: How many villages in Kolhapur are proposed as ESA under 2024 draft?</p>
+                    <p class="answer">A: 211 villages</p>
+                </div>
+            </section>
+
+            <section id="hindi-content">
+                <hr>
+                <div class="content-line">
+                    <h3 id="hindi-title">पारिस्थितिकी-संवेदनशील पश्चिमी घाट: हिंडाल्को बॉक्साइट खदान, कोल्हापुर</h3>
+                </div>
+                <div class="content-line" lang="hi">
+                    <h4>संक्षेप में:</h4>
+                </div>
+                <div class="content-line" lang="hi">
+                    <p><strong>संदर्भ:</strong></p>
+                    <ul>
+                        <li><p>पर्यावरण मंत्रालय की वन सलाहकार समिति (FAC) ने महाराष्ट्र के कोल्हापुर में हिंडाल्को इंडस्ट्रीज लिमिटेड की बॉक्साइट खदान के लिए **चरण-II/अंतिम अनुमोदन** देने से इनकार कर दिया।</p></li>
+                        <li><p>कारण: यह खदान **पश्चिमी घाट** के **पारिस्थितिकी-संवेदनशील क्षेत्रों (ESA)** के अंतर्गत आती है।</p></li>
+                    </ul>
+                </div>
+                <div class="content-line" lang="hi">
+                    <p><strong>मुख्य बिंदु:</strong></p>
+                    <ol>
+                        <li>**कानूनी और पर्यावरणीय स्थिति:**</li>
+                        <ul>
+                            <li><p>कोल्हापुर खदान *मार्च 2021* में घोषित **संरक्षण रिजर्व** में आती है।</p></li>
+                            <li><p>जैव विविधता से समृद्ध: **हाथी, भारतीय गौर, सांभर, हिरण, साही, तेंदुआ, बाघ**।</p></li>
+                            <li><p>**वर्तमान में कोई वैध खनन पट्टा** मौजूद नहीं है। मूल पट्टा 1998 में समाप्त हो गया; 50 साल की वैधता 2018 में समाप्त हुई।</p></li>
+                        </ul>
+                        <li>**परियोजना समय-सीमा:**</li>
+                        <ul>
+                            <li><p>सैद्धांतिक वन अनुमोदन: **2009**</p></li>
+                            <li><p>पर्यावरणीय मंज़ूरी: **जनवरी 2014**</p></li>
+                            <li><p>वन संसाधन अधिकार प्रमाणपत्र: **प्राप्त नहीं**</p></li>
+                            <li><p>खनन गतिविधि: **शुरू नहीं**</p></li>
+                        </ul>
+                        <li>**FAC अवलोकन:**</li>
+                        <ul>
+                            <li><p>पश्चिमी घाट ESA में खनन **निषिद्ध** है।</p></li>
+                            <li><p>खनन पट्टा एक **संरक्षण रिज़र्व** में स्थित है।</p></li>
+                            <li><p>प्रतिपूरक वनीकरण परिवर्तन और **16 हेक्टेयर** (वास्तविक 9.05 हेक्टेयर) भूमि का डायवर्जन स्वीकृत नहीं किया जा सकता।</p></li>
+                        </ul>
+                        <li>**नीतिगत संदर्भ:**</li>
+                        <ul>
+                            <li><p>**पर्यावरण मंत्रालय की 2024 की मसौदा अधिसूचना:** ईएसए में **खनन, उत्खनन, रेत खनन** पर पूर्ण प्रतिबंध।</p></li>
+                            <li><p>महाराष्ट्र: **17,340 वर्ग किमी** ईएसए के रूप में प्रस्तावित; कोल्हापुर के 211 गाँव शामिल।</p></li>
+                            <li><p>2024 का मसौदा: छह राज्यों में कुल **56,825.7 वर्ग किमी पश्चिमी घाट** को पारिस्थितिक रूप से संवेदनशील घोषित किया गया।</p></li>
+                        </ul>
+                        <li>**विवाद:**</li>
+                        <ul>
+                            <li><p>महाराष्ट्र सरकार ने 2013 से पहले विचार किए जाने का तर्क दिया।</p></li>
+                            <li><p>केंद्र ने कहा कि ईएसए अधिसूचनाएँ और पट्टे की वैधता के मुद्दे बाध्यकारी हैं।</p></li>
+                        </ul>
+                    </ol>
+                </div>
+                <div class="content-line" lang="hi">
+                    <p><strong>मुख्य बिंदु:</strong></p>
+                    <ul>
+                        <li><p><strong>पर्यावरण शासन</strong>, **खनिज अधिकार**, **जैव विविधता संरक्षण**, और **संघीय-राज्य संबंधों** का अंतर्संबंध।</p></li>
+                        <li><p>औद्योगिक परियोजनाओं और पारिस्थितिक संरक्षण के बीच संतुलन बनाने में *एफएसी की भूमिका* का उदाहरण।</p></li>
+                        <li><p>पश्चिमी घाट ईएसए: पर्यावरण मंत्रालय की मसौदा अधिसूचनाओं के अंतर्गत संरक्षण के लिए *कानूनी उपकरण*।</p></li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="hindi-mains" class="mains-questions">
+                <div class="content-line" lang="hi">
+                    <h4>मुख्य परीक्षा से संबंधित प्रश्न</h4>
+                </div>
+                <ol>
+                    <div class="content-line" lang="hi">
+                        <li>भारत में जैव विविधता संरक्षण में पारिस्थितिक रूप से संवेदनशील क्षेत्रों (ईएसए) के महत्व पर चर्चा कीजिए। पश्चिमी घाट के उदाहरण से इसे स्पष्ट कीजिए।</li>
+                    </div>
+                    <div class="content-line" lang="hi">
+                        <li>वन परिवर्तन परियोजनाओं में वन सलाहकार समिति (एफएसी) की भूमिका और औद्योगिक विकास पर इसके प्रभाव का आलोचनात्मक विश्लेषण कीजिए।</li>
+                    </div>
+                    <div class="content-line" lang="hi">
+                        <li>पारिस्थितिक रूप से संवेदनशील क्षेत्रों में खनन जैव विविधता और स्थानीय समुदायों को कैसे प्रभावित करता है? इसके समाधान के लिए अपनाए गए नीतिगत उपायों का मूल्यांकन कीजिए।</li>
+                    </div>
+                    <div class="content-line" lang="hi">
+                        <li>पर्यावरणीय शासन में संघीय-राज्य संघर्षों को ध्यान में रखते हुए, पश्चिमी घाट ईएसए अधिसूचनाओं के कार्यान्वयन में आने वाली चुनौतियों का परीक्षण कीजिए।</li>
+                    </div>
+                    <div class="content-line" lang="hi">
+                        <li>पश्चिमी घाट ईएसए अधिसूचनाओं के संदर्भ में पर्यावरण विनियमन में केंद्र-राज्य तनाव का विश्लेषण करें।</li>
+                    </div>
+                </ol>
+            </section>
+
+            <section id="hindi-mcqs" class="mcqs">
+                <div class="content-line" lang="hi">
+                    <h4>उत्तर सहित बहुविकल्पीय प्रश्न</h4>
+                </div>
+                <ol>
+                    <div class="content-line" lang="hi">
+                        <li><strong>कोल्हापुर के मोगलगढ़ खनन क्षेत्र में निम्नलिखित में से कौन सी प्रजातियाँ पाई जाती हैं?</strong>
+                            <ol type="a">
+                                <li>एशियाई शेर</li>
+                                <li>भारतीय गौर</li>
+                                <li>बाघ</li>
+                                <li>हिम तेंदुआ</li>
+                            </ol>
+                            <p class="answer"><strong>उत्तर:</strong> b) भारतीय गौर, c) बाघ</p>
+                        </li>
+                    </div>
+                    <div class="content-line" lang="hi">
+                        <li><strong>किस अधिनियम के तहत खनन पट्टे की वैधता अनुदान की तिथि से 50 वर्ष तक लागू होती है?</strong>
+                            <ol type="a">
+                                <li>पर्यावरण संरक्षण अधिनियम, 1986</li>
+                                <li>खान एवं खनिज (विकास एवं विनियमन) अधिनियम, 2015</li>
+                                <li>वन्यजीव संरक्षण अधिनियम, 1972</li>
+                                <li>वन संरक्षण अधिनियम, 1980</li>
+                            </ol>
+                            <p class="answer"><strong>उत्तर:</strong> b) खान एवं खनिज (विकास एवं विनियमन) अधिनियम, 2015</p>
+                        </li>
+                    </div>
+                    <div class="content-line" lang="hi">
+                        <li><strong>2024 की मसौदा अधिसूचना के अनुसार, पश्चिमी घाट के ईएसए में खनन की स्थिति क्या है?</strong>
+                            <ol type="a">
+                                <li>खनन की अनुमति विशेष अनुमति के तहत</li>
+                                <li>खनन, उत्खनन और रेत खनन पर पूर्ण प्रतिबंध</li>
+                                <li>केवल बॉक्साइट के लिए खनन की अनुमति</li>
+                                <li>राज्य सरकार की स्वीकृति से खनन की अनुमति</li>
+                            </ol>
+                            <p class="answer"><strong>उत्तर:</strong> b) खनन, उत्खनन और रेत खनन पर पूर्ण प्रतिबंध</p>
+                        </li>
+                    </div>
+                    <div class="content-line" lang="hi">
+                        <li><strong>प्रश्नाधीन कोल्हापुर खनन पट्टा आरंभ में कब प्रदान किया गया था:</strong>
+                            <ol type="a">
+                                <li>1958</li>
+                                <li>1968</li>
+                                <li>1978</li>
+                                <li>1988</li>
+                            </ol>
+                            <p class="answer"><strong>उत्तर:</strong> b) 1968</p>
+                        </li>
+                    </div>
+                    <div class="content-line" lang="hi">
+                        <li><strong>2024 के मसौदा अधिसूचना में ईएसए के रूप में प्रस्तावित कुल पश्चिमी घाट क्षेत्र:</strong>
+                            <ol type="a">
+                                <li>17,340 वर्ग किमी</li>
+                                <li>56,825.7 वर्ग किमी</li>
+                                <li>60,000 वर्ग किमी</li>
+                                <li>40,500 वर्ग किमी</li>
+                            </ol>
+                            <p class="answer"><strong>उत्तर:</strong> b) 56,825.7 वर्ग किमी</p>
+                        </li>
+                    </div>
+                </ol>
+            </section>
+
+            <section id="hindi-flashcards" class="flashcards">
+                <div class="content-line" lang="hi">
+                    <h4>फ़्लैशकार्ड</h4>
+                </div>
+                <div class="card" lang="hi">
+                    <p class="question">प्रश्न 1: पारिस्थितिक-संवेदनशील क्षेत्र (ESA) क्या है?</p>
+                    <p class="answer">उत्तर: पारिस्थितिक-संवेदनशील क्षेत्र (ESA) जैव विविधता के संरक्षण और पर्यावरण के लिए हानिकारक गतिविधियों को नियंत्रित करने के लिए संरक्षित क्षेत्रों (जैसे राष्ट्रीय उद्यान) के आसपास निर्दिष्ट क्षेत्र है।</p>
+                </div>
+                <div class="card" lang="hi">
+                    <p class="question">प्रश्न 2: वन परिवर्तन परियोजनाओं में FAC की क्या भूमिका है?</p>
+                    <p class="answer">उत्तर: FAC, वन भूमि के परिवर्तन, विकास और संरक्षण के बीच संतुलन बनाने वाली परियोजनाओं के लिए चरण-II/अंतिम वन अनुमोदन की सिफारिश करता है।</p>
+                </div>
+                <div class="card" lang="hi">
+                    <p class="question">प्रश्न 3: हिंडाल्को की कोल्हापुर खदान को चरण-II/अंतिम अनुमोदन क्यों नहीं दिया गया?</p>
+                    <p class="answer">उत्तर: एक संरक्षण रिजर्व में स्थित होने, अवैध खनन पट्टे और पश्चिमी घाट ESA में खनन पर प्रतिबंध के कारण।</p>
+                </div>
+                <div class="card" lang="hi">
+                    <p class="question">प्रश्न 4: कोल्हापुर खनन स्थल में कौन सी प्रजातियाँ मौजूद हैं?</p>
+                    <p class="answer">उत्तर: हाथी, भारतीय गौर, सांभर, हिरण, साही, तेंदुआ, बाघ।</p>
+                </div>
+                <div class="card" lang="hi">
+                    <p class="question">प्रश्न 5: कोल्हापुर के लिए मूल खनन पट्टा कब समाप्त हुआ?</p>
+                    <p class="answer">उत्तर: मूल पट्टा 1968 में प्रदान किया गया था; 1998 में समाप्त हो गया; 50-वर्षीय वैधता 2018 में समाप्त हो गई।</p>
+                </div>
+                <div class="card" lang="hi">
+                    <p class="question">प्रश्न 6: 2024 के पश्चिमी घाट मसौदा अधिसूचना में क्या प्रस्तावित है?</p>
+                    <p class="answer">उत्तर: ईएसए में खनन, उत्खनन और रेत खनन पर पूर्ण प्रतिबंध; मौजूदा खदानों को चरणबद्ध तरीके से बंद करना।</p>
+                </div>
+                <div class="card" lang="hi">
+                    <p class="question">प्रश्न 7: हिंडाल्को खदान में कितने क्षेत्र को मोड़ने का प्रस्ताव था?</p>
+                    <p class="answer">उत्तर: 16.00 हेक्टेयर (वास्तविक मोड़: 9.05 हेक्टेयर)</p>
+                </div>
+                <div class="card" lang="hi">
+                    <p class="question">प्रश्न 8: 2024 के मसौदे के तहत कोल्हापुर में कितने गाँवों को ईएसए के रूप में प्रस्तावित किया गया है?</p>
+                    <p class="answer">उत्तर: 211 गाँव</p>
+                </div>
+            </section>
+        </article>
+        
+        <p class="contact-us">
+            Contact us for any query: <a href="https://wa.me/918168305050" target="_blank">+91-8168305050</a>
+        </p>
+
+        <a href="index.html" class="back-to-home">
+            <button>Back to Home</button>
+        </a>
+
+        <div class="print-share">
+            <button onclick="window.print()">Print</button>
+            <button id="shareButton">Share</button>
+        </div>
+    </div>
+
+    <button id="scrollToTopBtn" class="scroll-to-top">↑</button>
+
+    <footer>
+        <p>© 2025 Crack Current Affairs (CrackCA). All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // **DOM Element Selections**
+            const body = document.body;
+            const article = document.querySelector('article');
+            const tocList = document.getElementById('toc-list');
+            const readTimeEl = document.getElementById('readTime');
+            const progressBar = document.getElementById('progressBar');
+            const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+            const darkModeToggle = document.getElementById('darkModeToggle');
+            const shareButton = document.getElementById('shareButton');
+
+            // **Initial Setup & Content Processing**
+            const processContent = () => {
+                const elements = article.querySelectorAll('.content-line p, .content-line li');
+                let wordCount = 0;
+                elements.forEach(el => {
+                    const text = el.textContent;
+                    // **Markdown Replacement**
+                    el.innerHTML = text
+                        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                        .replace(/\*(.*?)\*/g, '<span class="underline-italic-bold">$1</span>');
+                    wordCount += text.split(/\s+/).filter(word => word.length > 0).length;
+                });
+
+                // **Read Time Calculation**
+                const wordsPerMinute = 200;
+                const readTime = Math.ceil(wordCount / wordsPerMinute);
+                readTimeEl.textContent = `~${readTime} min read`;
+            };
+            processContent();
+
+            // **Dynamic Table of Contents (TOC)**
+            const generateTOC = () => {
+                const headings = article.querySelectorAll('h3, h4');
+                headings.forEach((heading, index) => {
+                    const id = `heading-${index}`;
+                    heading.id = id;
+                    const li = document.createElement('li');
+                    const a = document.createElement('a');
+                    a.href = `#${id}`;
+                    a.textContent = heading.textContent;
+                    li.appendChild(a);
+                    tocList.appendChild(li);
+                });
+            };
+            generateTOC();
+
+            // **Scroll-Based Features**
+            window.addEventListener('scroll', () => {
+                const scrollTop = document.documentElement.scrollTop || body.scrollTop;
+                const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (scrollTop / scrollHeight) * 100;
+                progressBar.style.width = scrolled + '%';
+
+                if (scrollTop > 300) {
+                    scrollToTopBtn.style.display = 'block';
+                } else {
+                    scrollToTopBtn.style.display = 'none';
+                }
+            });
+
+            // **Button Event Listeners**
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            darkModeToggle.addEventListener('click', () => {
+                body.classList.toggle('dark-mode');
+                if (body.classList.contains('dark-mode')) {
+                    darkModeToggle.textContent = 'Light Mode';
+                } else {
+                    darkModeToggle.textContent = 'Dark Mode';
+                }
+            });
+
+            // **Share Functionality**
+            if (navigator.share) {
+                shareButton.addEventListener('click', () => {
+                    navigator.share({
+                        title: document.getElementById('article-title').textContent,
+                        text: 'Check out this UPSC Current Affairs article!',
+                        url: window.location.href,
+                    }).catch(console.error);
+                });
+            } else {
+                shareButton.style.display = 'none'; // Hide button if not supported
+            }
+        });
+    </script>
+</body>
+</html>

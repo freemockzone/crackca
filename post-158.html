@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>17-Aug-25</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        :root {
+            /* Light Mode Colors */
+            --light-bg-primary: #eef2f7;
+            --light-bg-secondary: #fff;
+            --light-text-color: #333;
+            --light-heading-color: #2e4057;
+            --light-accent-color: #4a69bd;
+            --light-hover-bg: #f4f6f9;
+            --light-border: #e0e0e0;
+            --light-shadow: rgba(0, 0, 0, 0.05);
+
+            /* Dark Mode Colors */
+            --dark-bg-primary: #1a1a2e;
+            --dark-bg-secondary: #242440;
+            --dark-text-color: #e0e0e0;
+            --dark-heading-color: #ffbe76;
+            --dark-accent-color: #8c8cd9;
+            --dark-hover-bg: #323250;
+            --dark-border: #444;
+            --dark-shadow: rgba(255, 255, 255, 0.05);
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--light-bg-primary);
+            color: var(--light-text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body.dark-mode {
+            background-color: var(--dark-bg-primary);
+            color: var(--dark-text-color);
+        }
+
+        body.dark-mode .content-card,
+        body.dark-mode .sidebar {
+            background-color: var(--dark-bg-secondary);
+            color: var(--dark-text-color);
+        }
+
+        body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, body.dark-mode h4, body.dark-mode strong {
+            color: var(--dark-heading-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        header {
+            width: 100%;
+            background-color: var(--light-bg-secondary);
+            padding: 20px 0;
+            border-bottom: 1px solid var(--light-border);
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px var(--light-shadow);
+        }
+
+        body.dark-mode header {
+            background-color: var(--dark-bg-secondary);
+            border-bottom: 1px solid var(--dark-border);
+            box-shadow: 0 2px 5px var(--dark-shadow);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--light-text-color);
+            padding: 10px 15px;
+            font-weight: 600;
+            transition: color 0.3s, background-color 0.3s;
+            border-radius: 5px;
+        }
+
+        body.dark-mode nav ul li a {
+            color: var(--dark-text-color);
+        }
+        
+        nav ul li a:hover {
+            color: var(--light-accent-color);
+            background-color: var(--light-hover-bg);
+        }
+
+        body.dark-mode nav ul li a:hover {
+            color: var(--dark-accent-color);
+            background-color: var(--dark-hover-bg);
+        }
+
+        .main-content {
+            flex: 1 1 70%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .sidebar {
+            flex: 1 1 25%;
+            background-color: var(--light-bg-secondary);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px var(--light-shadow);
+        }
+
+        .content-card {
+            background-color: var(--light-bg-secondary);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px var(--light-shadow);
+        }
+        
+        body.dark-mode .content-card {
+            box-shadow: 0 0 10px var(--dark-shadow);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--light-heading-color);
+            font-weight: 700;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+        
+        .article-title {
+            font-size: 2.5rem;
+            margin-top: 0;
+        }
+
+        .article-meta {
+            font-size: 0.9em;
+            color: #777;
+            margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        body.dark-mode .article-meta {
+            color: #bbb;
+        }
+
+        .content-line {
+            padding: 5px 10px;
+            margin: 0;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .content-line:hover {
+            background-color: var(--light-hover-bg);
+        }
+        
+        body.dark-mode .content-line:hover {
+            background-color: var(--dark-hover-bg);
+        }
+
+        .bold-underline-italic {
+            font-weight: bold;
+            font-style: italic;
+            text-decoration: underline;
+        }
+
+        .floating-buttons {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 100;
+        }
+
+        .btn {
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s, transform 0.2s;
+            background-color: var(--light-accent-color);
+            color: #fff;
+        }
+        
+        body.dark-mode .btn {
+            background-color: var(--dark-accent-color);
+            color: #333;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .progress-container {
+            position: sticky;
+            top: 0;
+            height: 8px;
+            width: 100%;
+            background-color: var(--light-border);
+            z-index: 1000;
+        }
+
+        body.dark-mode .progress-container {
+            background-color: var(--dark-border);
+        }
+
+        .progress-bar {
+            height: 8px;
+            background-color: var(--light-accent-color);
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+        body.dark-mode .progress-bar {
+            background-color: var(--dark-accent-color);
+        }
+
+        footer {
+            width: 100%;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+            border-top: 1px solid var(--light-border);
+            color: #777;
+        }
+
+        body.dark-mode footer {
+            border-top: 1px solid var(--dark-border);
+            color: #bbb;
+        }
+
+        /* Section Specific Styles */
+        .sidebar h3 {
+            margin-top: 0;
+            border-bottom: 2px solid var(--light-accent-color);
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+        
+        body.dark-mode .sidebar h3 {
+            border-bottom: 2px solid var(--dark-accent-color);
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 10px;
+        }
+        
+        .sidebar ul li a {
+            text-decoration: none;
+            color: var(--light-text-color);
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+
+        body.dark-mode .sidebar ul li a {
+            color: var(--dark-text-color);
+        }
+
+        .sidebar ul li a:hover {
+            color: var(--light-accent-color);
+        }
+
+        body.dark-mode .sidebar ul li a:hover {
+            color: var(--dark-accent-color);
+        }
+        
+        .flashcard-question, .flashcard-answer {
+            background-color: var(--light-hover-bg);
+            border: 1px solid var(--light-border);
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        body.dark-mode .flashcard-question, body.dark-mode .flashcard-answer {
+            background-color: var(--dark-hover-bg);
+            border: 1px solid var(--dark-border);
+        }
+
+        .flashcard-answer {
+            display: none;
+            color: var(--light-text-color);
+        }
+        
+        body.dark-mode .flashcard-answer {
+            color: var(--dark-text-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            .main-content, .sidebar {
+                flex: 1 1 100%;
+            }
+            .floating-buttons {
+                bottom: 10px;
+                right: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="progress-container">
+        <div class="progress-bar"></div>
+    </div>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="donation.html">Donation</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- Main Content Section -->
+        <main class="main-content">
+            <div class="content-card">
+                <h1 class="article-title" id="article-title"></h1>
+                <div class="article-meta">
+                    <span id="article-source"></span>
+                    <span id="article-date"></span>
+                    <span id="read-time"></span>
+                </div>
+
+                <div id="article-body"></div>
+            </div>
+
+            <!-- Interactive Sections -->
+            <div class="content-card" id="mcqs-section">
+                <h3></h3>
+                <div id="mcq-content"></div>
+            </div>
+
+            <div class="content-card" id="flashcards-section">
+                <h3></h3>
+                <div id="flashcard-content"></div>
+            </div>
+
+            <div class="content-card" id="notes-section">
+                <h3></h3>
+                <textarea placeholder="" rows="5" style="width: 100%;"></textarea>
+            </div>
+
+            <div class="content-card" id="extra-features-section">
+                <h3></h3>
+                <div class="button-row" style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <button class="btn" id="print-btn"><i class="fas fa-print"></i></button>
+                    <button class="btn" id="share-btn"><i class="fas fa-share-alt"></i></button>
+                    <button class="btn" id="audio-btn"><i class="fas fa-volume-up"></i></button>
+                    <button class="btn" id="recap-btn">Quick Recap</button>
+                </div>
+            </div>
+
+        </main>
+        
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div id="toc-section">
+                <h3></h3>
+                <div id="toc-list"></div>
+            </div>
+
+            <div id="pyq-section">
+                <h3></h3>
+                <div id="pyq-links"></div>
+            </div>
+            
+            <div id="mains-section">
+                <h3></h3>
+                <div id="mains-prompts"></div>
+            </div>
+        </aside>
+    </div>
+
+    <div class="floating-buttons">
+        <button id="lang-switch-btn" class="btn">Lang: Hindi</button>
+        <button id="dark-mode-btn" class="btn"><i class="fas fa-moon"></i></button>
+        <button id="scroll-to-top-btn" class="btn" style="display: none;"><i class="fas fa-arrow-up"></i></button>
+    </div>
+
+    <footer>
+        <p>© 2025 Crack Current Affairs (CrackCA). All rights reserved.</p>
+    </footer>
+
+    <script>
+        const content = {
+            english: {
+                title: "Encounter of Surya Hansda: Tribal Welfare Leader Killed in Jharkhand",
+                source: "Source: pmindia.gov.in",
+                date: "Publication Date: 17-Aug-2025",
+                body: [
+                    "## Encounter of Surya Hansda: <strong>Tribal Welfare Leader Killed in Jharkhand</strong>",
+                    "### 1. Background",
+                    "<strong>Surya Hansda</strong> (45) was a tribal leader from <strong>Lalmatia village, Boarijor block, Godda district, Jharkhand</strong>.",
+                    "Known for social work: ran a school ‘<em>Chand Bhairav Raja Raj</em>’ providing <strong>free education and hostel facilities</strong> for Adivasi children (350 students enrolled, CBSE-affiliated).",
+                    "Education: Graduate in English from Sahibganj College; studied at <strong>St. John’s Missionary School</strong>.",
+                    "Early career: Worked with <strong>Eastern Coalfields Limited (ECL)</strong> as compensation for land acquisition.",
+                    "### 2. Political Career",
+                    "Entered politics in 2009; changed parties multiple times:",
+                    "Initially associated with <strong>BJP</strong>, later <strong>Jharkhand Vikas Morcha (JVM)</strong>.",
+                    "Contested <strong>Borio Assembly seat</strong> multiple times (2009, 2014, 2019, 2024) but never won.",
+                    "In 2024, joined <strong>Jharkhand Loktantrik Krantikari Morcha (JLKM)</strong> after being denied BJP ticket.",
+                    "Advocated <strong>Adivasi rights</strong>, especially regarding land compensation.",
+                    "### 3. Encounter and Controversy",
+                    "Killed in a police “<em>encounter</em>” on <strong>10 August 2025</strong>.",
+                    "Police narrative:",
+                    "Hansda allegedly involved in <strong>criminal cases</strong>: murder, attempt to murder, kidnapping, extortion, illegal arms possession, rioting.",
+                    "Encounter followed a firing incident at <strong>ECL mining area</strong> and <strong>truck arson in Sahibganj</strong>.",
+                    "Police claimed Hansda snatched a rifle and tried to flee, causing firing.",
+                    "Family and local accounts:",
+                    "Hansda was typhoid-ill, hands and legs tied, offered to surrender.",
+                    "Body allegedly shows <strong>burn marks and signs of beating</strong>.",
+                    "Community mourns; his school lost a founder and mentor.",
+                    "### 4. Political and Legal Responses",
+                    "<strong>BJP leaders</strong> (Babulal Marandi, Arjun Munda) demanded <strong>CBI probe</strong>, citing contradictions in police accounts.",
+                    "<strong>JLKM</strong> questions police procedure: why not <strong>arrest, charge-sheet, and trial</strong> if he was accused?",
+                    "Jharkhand government handed probe to <strong>CID</strong>.",
+                    "Incident raises concerns over <strong>due process</strong>, <strong>police accountability</strong>, and <strong>Adivasi marginalization</strong>.",
+                    "### 5. Socio-Economic Significance",
+                    "Hansda’s death highlights <strong>tribal welfare issues</strong>:",
+                    "Education: His school offered opportunities to children from <strong>remote, economically weaker Adivasi families</strong>.",
+                    "Land rights: Advocated for <strong>fair compensation for tribal land acquisition</strong>.",
+                    "Community sees encounter as <strong>targeted suppression of Adivasi voices</strong>.",
+                    "Raises larger questions of:",
+                    "<strong>Rule of law vs. police encounters</strong>",
+                    "<strong>Political influence in law enforcement</strong>",
+                    "<strong>Socio-political rights of marginalized communities</strong>",
+                    "### 6. Key Points for UPSC",
+                    "<strong>Case Study of Encounter Politics</strong>: Illustrates conflict between police claims and local narratives; can be linked to <strong>Human Rights, Rule of Law, and Tribal Rights</strong>.",
+                    "<strong>Tribal Education & Empowerment</strong>: Hansda’s work underscores role of <strong>grassroots leaders in education</strong> and social upliftment.",
+                    "<strong>Judicial and Administrative Oversight</strong>: Importance of <strong>CBI/CID probes</strong> in alleged encounter deaths.",
+                    "<strong>Political Dynamics</strong>: Highlights <strong>party switching, regional politics, and tribal representation in Jharkhand</strong>.",
+                    "### 7. Keywords/Concepts",
+                    "Encounter killing, Adivasi welfare, Jharkhand politics, tribal education, land rights, police accountability, rule of law, CBI probe, marginalization.",
+                    "<strong>Potential Mains/Prelims Linkages:</strong>",
+                    "<strong>Governance & Polity</strong>: Article 21 (Right to Life), police encounters, accountability.",
+                    "<strong>Society</strong>: Tribal development, education, social justice, minority rights.",
+                    "<strong>GS Paper 2/3</strong>: Human rights violations, role of law enforcement, socio-economic development initiatives.",
+                    "<strong>Contact us on WhatsApp: +91-8168305050</strong>"
+                ],
+                mcqs: {
+                    title: "MCQs for Practice",
+                    question: "Q1: Surya Hansda was a tribal leader from which state?",
+                    options: ["A) Chhattisgarh", "B) Jharkhand", "C) Odisha", "D) Madhya Pradesh"],
+                    answer: "B"
+                },
+                flashcards: {
+                    title: "Flashcards",
+                    cards: [
+                        { q: "What was the name of the school run by Surya Hansda?", a: "Chand Bhairav Raja Raj." },
+                        { q: "Which political parties did Surya Hansda associate with?", a: "BJP, Jharkhand Vikas Morcha (JVM), and Jharkhand Loktantrik Krantikari Morcha (JLKM)." }
+                    ]
+                },
+                notes: {
+                    title: "My Notes",
+                    placeholder: "Write your notes here..."
+                },
+                toc: {
+                    title: "Table of Contents"
+                },
+                pyq: {
+                    title: "PYQ Links"
+                },
+                mains: {
+                    title: "Mains Prompts"
+                },
+                recap: {
+                    title: "Quick Recap"
+                }
+            },
+            hindi: {
+                title: "सूर्या हांसदा का एनकाउंटर: झारखंड में आदिवासी कल्याण नेता की हत्या",
+                source: "स्रोत: pmindia.gov.in",
+                date: "प्रकाशन तिथि: 17-अगस्त-2025",
+                body: [
+                    "## सूर्या हांसदा का एनकाउंटर: <strong>झारखंड में आदिवासी कल्याण नेता की हत्या</strong>",
+                    "### 1. पृष्ठभूमि",
+                    "<strong>सूर्या हांसदा</strong> (45) झारखंड के <strong>गोड्डा जिले के बोआरीजोर ब्लॉक के लालमटिया गाँव</strong> के एक आदिवासी नेता थे।",
+                    "सामाजिक कार्यों के लिए जाने जाते थे: आदिवासी बच्चों के लिए निःशुल्क शिक्षा और छात्रावास की सुविधा प्रदान करने वाला एक स्कूल ‘<em>चाँद भैरव राजा राज</em>’ चलाते थे (350 छात्र नामांकित, सीबीएसई से संबद्ध)।",
+                    "शिक्षा: साहिबगंज कॉलेज से अंग्रेजी में स्नातक; <strong>सेंट जॉन्स मिशनरी स्कूल</strong> से पढ़ाई की।",
+                    "प्रारंभिक करियर: भूमि अधिग्रहण के मुआवजे के रूप में <strong>ईस्टर्न कोलफील्ड्स लिमिटेड (ईसीएल)</strong> के साथ काम किया।",
+                    "### 2. राजनीतिक करियर",
+                    "2009 में राजनीति में प्रवेश किया; कई बार दल बदले:",
+                    "शुरुआत में <strong>भाजपा</strong> से जुड़े, बाद में <strong>झारखंड विकास मोर्चा (JVM)</strong> से जुड़े।",
+                    "<strong>बोरियो विधानसभा सीट</strong> से कई बार चुनाव लड़ा (2009, 2014, 2019, 2024) लेकिन कभी जीत नहीं पाए।",
+                    "2024 में, भाजपा से टिकट न मिलने पर <strong>झारखंड लोकतांत्रिक क्रांतिकारी मोर्चा (JLKM)</strong> में शामिल हो गए।",
+                    "<strong>आदिवासी अधिकारों</strong> की वकालत की, खासकर भूमि मुआवजे के संबंध में।",
+                    "### 3. मुठभेड़ और विवाद",
+                    "10 अगस्त 2025 को पुलिस “<em>मुठभेड़</em>” में मारे गए।",
+                    "पुलिस का बयान:",
+                    "हांसदा कथित तौर पर <strong>आपराधिक मामलों</strong> में शामिल थे: हत्या, हत्या का प्रयास, अपहरण, जबरन वसूली, अवैध हथियार रखना, दंगा।",
+                    "मुठभेड़ ईसीएल <strong>खनन क्षेत्र में गोलीबारी</strong> की घटना और <strong>साहिबगंज में ट्रक में आग</strong> लगाने की घटना के बाद हुई।",
+                    "पुलिस ने दावा किया कि हंसदा ने एक राइफल छीन ली और भागने की कोशिश की, जिससे गोलीबारी हुई।",
+                    "परिवार और स्थानीय बयान:",
+                    "हंसदा टाइफाइड से पीड़ित थे, उनके हाथ-पैर बंधे हुए थे और उन्होंने आत्मसमर्पण करने की पेशकश की थी।",
+                    "शरीर पर कथित तौर पर <strong>जलने के निशान और मारपीट के निशान</strong> दिखाई दे रहे हैं।",
+                    "समुदाय शोक में है; उनके स्कूल ने एक संस्थापक और मार्गदर्शक खो दिया।",
+                    "### 4. राजनीतिक और कानूनी प्रतिक्रियाएँ",
+                    "<strong>भाजपा नेताओं</strong> (बाबूलाल मरांडी, अर्जुन मुंडा) ने पुलिस के बयानों में विरोधाभास का हवाला देते हुए <strong>सीबीआई जांच</strong> की मांग की।",
+                    "<strong>जेएलकेएम</strong> ने पुलिस कार्यप्रणाली पर सवाल उठाए: अगर उन पर आरोप लगाया गया था तो गिरफ्तारी, आरोप-पत्र और मुकदमा क्यों नहीं?",
+                    "झारखंड सरकार ने जांच <strong>सीआईडी</strong> को सौंप दी।",
+                    "घटना <strong>उचित प्रक्रिया</strong>, <strong>पुलिस की जवाबदेही</strong>, और <strong>आदिवासी हाशिए पर धकेले जाने</strong> पर चिंताएँ उठाती है।",
+                    "### 5. सामाजिक-आर्थिक महत्व",
+                    "हंसदा की मृत्यु <strong>आदिवासी कल्याण के मुद्दों</strong> को उजागर करती है:",
+                    "शिक्षा: उनके स्कूल ने <strong>दूरस्थ, आर्थिक रूप से कमज़ोर आदिवासी परिवारों</strong> के बच्चों को अवसर प्रदान किए।",
+                    "भूमि अधिकार: <strong>आदिवासी भूमि अधिग्रहण के लिए उचित मुआवज़े</strong> की वकालत की।",
+                    "समुदाय मुठभेड़ को <strong>आदिवासी आवाज़ों के लक्षित दमन</strong> के रूप में देखता है।",
+                    "बड़े सवाल उठाता है:",
+                    "<strong>कानून का शासन बनाम पुलिस मुठभेड़</strong>",
+                    "<strong>कानून प्रवर्तन में राजनीतिक प्रभाव</strong>",
+                    "<strong>हाशिए पर पड़े समुदायों के सामाजिक-राजनीतिक अधिकार</strong>",
+                    "### 6. यूपीएससी के लिए मुख्य बिंदु",
+                    "<strong>मुठभेड़ की राजनीति का केस स्टडी</strong>: पुलिस के दावों और स्थानीय आख्यानों के बीच संघर्ष को दर्शाता है; इसे <strong>मानवाधिकार, कानून का शासन और जनजातीय अधिकारों</strong> से जोड़ा जा सकता है।",
+                    "<strong>जनजातीय शिक्षा एवं सशक्तिकरण</strong>: हंसदा का कार्य <strong>शिक्षा</strong> और सामाजिक उत्थान में जमीनी स्तर के नेताओं की भूमिका को रेखांकित करता है।",
+                    "<strong>न्यायिक और प्रशासनिक निगरानी</strong>: कथित मुठभेड़ मौतों में <strong>सीबीआई/सीआईडी जाँच</strong> का महत्व।",
+                    "<strong>राजनीतिक गतिशीलता</strong>: <strong>झारखंड में दल-बदल, क्षेत्रीय राजनीति और जनजातीय प्रतिनिधित्व</strong> पर प्रकाश डालता है।",
+                    "### 7. कीवर्ड/अवधारणाएँ",
+                    "मुठभेड़ में हत्या, आदिवासी कल्याण, झारखंड की राजनीति, जनजातीय शिक्षा, भूमि अधिकार, पुलिस जवाबदेही, कानून का शासन, सीबीआई जाँच, हाशिए पर होना।",
+                    "<strong>मुख्य/प्रारंभिक परीक्षा के संभावित संबंध:</strong>",
+                    "<strong>शासन और राजनीति</strong>: अनुच्छेद 21 (जीवन का अधिकार), पुलिस मुठभेड़, जवाबदेही।",
+                    "<strong>समाज</strong>: जनजातीय विकास, शिक्षा, सामाजिक न्याय, अल्पसंख्यक अधिकार।",
+                    "<strong>सामान्य अध्ययन प्रश्नपत्र 2/3</strong>: मानवाधिकार उल्लंघन, कानून प्रवर्तन की भूमिका, सामाजिक-आर्थिक विकास पहल।",
+                    "<strong>व्हाट्सएप पर हमसे संपर्क करें: +91-8168305050</strong>"
+                ],
+                mcqs: {
+                    title: "अभ्यास के लिए बहुविकल्पीय प्रश्न",
+                    question: "Q1: सूर्या हांसदा किस राज्य के आदिवासी नेता थे?",
+                    options: ["A) छत्तीसगढ़", "B) झारखंड", "C) ओडिशा", "D) मध्य प्रदेश"],
+                    answer: "B"
+                },
+                flashcards: {
+                    title: "फ्लैशकार्ड",
+                    cards: [
+                        { q: "सूर्या हांसदा द्वारा चलाए गए स्कूल का नाम क्या था?", a: "चाँद भैरव राजा राज।" },
+                        { q: "सूर्या हांसदा किन राजनीतिक दलों से जुड़े थे?", a: "भाजपा, झारखंड विकास मोर्चा (JVM), और झारखंड लोकतांत्रिक क्रांतिकारी मोर्चा (JLKM)।" }
+                    ]
+                },
+                notes: {
+                    title: "मेरे नोट्स",
+                    placeholder: "अपने नोट्स यहां लिखें..."
+                },
+                toc: {
+                    title: "विषय-सूची"
+                },
+                pyq: {
+                    title: "पिछले वर्ष के प्रश्न"
+                },
+                mains: {
+                    title: "मुख्य परीक्षा प्रश्न"
+                },
+                recap: {
+                    title: "त्वरित सारांश"
+                }
+            }
+        };
+
+        let currentLang = 'english';
+
+        const markdownToHtml = (markdown, isHindi) => {
+            let html = '';
+            const lines = markdown.split('\n').filter(line => line.trim() !== '');
+
+            lines.forEach(line => {
+                let processedLine = line.trim();
+
+                if (processedLine.startsWith('####')) {
+                    const text = processedLine.substring(4).trim();
+                    html += `<h4 class="content-line"><span lang="${isHindi ? 'hi' : 'en'}">${text}</span></h4>`;
+                } else if (processedLine.startsWith('###')) {
+                    const text = processedLine.substring(3).trim();
+                    html += `<h3 class="content-line"><span lang="${isHindi ? 'hi' : 'en'}">${text}</span></h3>`;
+                } else if (processedLine.startsWith('##')) {
+                    const text = processedLine.substring(2).trim();
+                    html += `<h2 class="content-line"><span lang="${isHindi ? 'hi' : 'en'}">${text}</span></h2>`;
+                } else {
+                    processedLine = processedLine.replace(/<strong>(.*?)<\/strong>/g, '<strong>$1</strong>');
+                    processedLine = processedLine.replace(/<em>(.*?)<\/em>/g, '<em>$1</em>');
+                    html += `<p class="content-line"><span lang="${isHindi ? 'hi' : 'en'}">${processedLine}</span></p>`;
+                }
+            });
+            return html;
+        };
+
+        const renderContent = (lang) => {
+            const data = content[lang];
+            const isHindi = lang === 'hindi';
+            document.getElementById('article-title').innerHTML = data.title;
+            document.getElementById('article-source').innerHTML = data.source;
+            document.getElementById('article-date').innerHTML = data.date;
+            document.getElementById('article-body').innerHTML = markdownToHtml(data.body.join('\n'), isHindi);
+            
+            // Render interactive sections
+            document.querySelector('#mcqs-section h3').innerHTML = data.mcqs.title;
+            const mcqHtml = `<p>${data.mcqs.question}</p>` +
+                data.mcqs.options.map((opt, i) => `<p><input type="radio" name="q1" value="${String.fromCharCode(65 + i)}"> ${opt}</p>`).join('') +
+                `<button class="btn check-answer">Check Answer</button><p class="answer-feedback"></p>`;
+            document.getElementById('mcq-content').innerHTML = mcqHtml;
+
+            document.querySelector('#flashcards-section h3').innerHTML = data.flashcards.title;
+            const flashcardHtml = data.flashcards.cards.map(card => `
+                <div class="flashcard-container">
+                    <div class="flashcard-question">${card.q}</div>
+                    <div class="flashcard-answer">${card.a}</div>
+                </div>
+            `).join('');
+            document.getElementById('flashcard-content').innerHTML = flashcardHtml;
+
+            document.querySelector('#notes-section h3').innerHTML = data.notes.title;
+            document.querySelector('#notes-section textarea').placeholder = data.notes.placeholder;
+
+            document.querySelector('#extra-features-section h3').innerHTML = isHindi ? 'अतिरिक्त विशेषताएं' : 'Extra Features';
+            document.querySelector('#toc-section h3').innerHTML = data.toc.title;
+            document.querySelector('#pyq-section h3').innerHTML = data.pyq.title;
+            document.querySelector('#mains-section h3').innerHTML = data.mains.title;
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderContent(currentLang);
+
+            // Read Time Calculation (English only)
+            const englishText = content.english.body.join(' ');
+            const wordCount = englishText.split(/\s+/).length;
+            const wordsPerMinute = 200;
+            const readTime = Math.ceil(wordCount / wordsPerMinute);
+            document.getElementById('read-time').textContent = `Read Time: ${readTime} min`;
+
+            // Language Switch
+            document.getElementById('lang-switch-btn').addEventListener('click', () => {
+                currentLang = currentLang === 'english' ? 'hindi' : 'english';
+                renderContent(currentLang);
+                document.getElementById('lang-switch-btn').textContent = currentLang === 'english' ? 'Lang: Hindi' : 'Lang: English';
+            });
+
+            // Dark Mode
+            document.getElementById('dark-mode-btn').addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+            });
+
+            // Scroll to Top
+            const scrollToTopBtn = document.getElementById('scroll-to-top-btn');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    scrollToTopBtn.style.display = 'block';
+                } else {
+                    scrollToTopBtn.style.display = 'none';
+                }
+            });
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // Progress Bar
+            window.addEventListener('scroll', () => {
+                const scrollTop = document.documentElement.scrollTop;
+                const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrollPercentage = (scrollTop / scrollHeight) * 100;
+                document.querySelector('.progress-bar').style.width = scrollPercentage + '%';
+            });
+
+            // Dynamic event listeners for content that gets re-rendered
+            document.addEventListener('click', (event) => {
+                if (event.target.classList.contains('flashcard-question')) {
+                    event.target.nextElementSibling.style.display = 'block';
+                }
+                if (event.target.classList.contains('check-answer')) {
+                    const selectedOption = document.querySelector('input[name="q1"]:checked');
+                    const answerFeedback = document.querySelector('.answer-feedback');
+                    if (selectedOption) {
+                        if (selectedOption.value === content[currentLang].mcqs.answer) {
+                            answerFeedback.textContent = currentLang === 'english' ? 'Correct! The answer is Jharkhand.' : 'सही! उत्तर झारखंड है।';
+                            answerFeedback.style.color = 'green';
+                        } else {
+                            answerFeedback.textContent = currentLang === 'english' ? 'Incorrect. Please try again.' : 'गलत है। कृपया पुनः प्रयास करें।';
+                            answerFeedback.style.color = 'red';
+                        }
+                    } else {
+                        answerFeedback.textContent = currentLang === 'english' ? 'Please select an option.' : 'कृपया एक विकल्प चुनें।';
+                        answerFeedback.style.color = 'orange';
+                    }
+                }
+            });
+
+            // Share functionality
+            document.getElementById('share-btn').addEventListener('click', () => {
+                if (navigator.share) {
+                    navigator.share({
+                        title: document.title,
+                        url: window.location.href
+                    }).then(() => {
+                        console.log('Thanks for sharing!');
+                    }).catch(console.error);
+                } else {
+                    alert('Sharing is not supported on this device/browser. Please copy the URL manually.');
+                }
+            });
+
+            // Audio Mode (Text-to-Speech)
+            document.getElementById('audio-btn').addEventListener('click', () => {
+                const articleText = document.getElementById('article-body').innerText;
+                const utterance = new SpeechSynthesisUtterance(articleText);
+                speechSynthesis.speak(utterance);
+            });
+            
+            // Initial TOC and other side panel content
+            // Note: For simplicity, this is not dynamic but a full implementation would update with lang change
+            const sections = document.querySelectorAll('h3, h4');
+            const tocList = document.getElementById('toc-list');
+            sections.forEach(section => {
+                const id = section.textContent.trim().replace(/\s+/g, '-').toLowerCase().replace(/[^a-z0-9-]/g, '');
+                section.id = id;
+                const li = document.createElement('li');
+                const a = document.createElement('a');
+                a.href = `#${id}`;
+                a.textContent = section.textContent.trim();
+                li.appendChild(a);
+                tocList.appendChild(li);
+            });
+        });
+    </script>
+</body>
+</html>
