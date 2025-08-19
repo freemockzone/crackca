@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description"
+        content="UPSC-ready article: IISc study on GLUT trafficking and diabetes therapy prospects. Read time, TOC, dark mode, MCQs, flashcards, recap, print/share, audio mode." />
+    <title>19-Aug-25</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Merriweather:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #ffffff;
+            --fg: #111827;
+            --muted: #6b7280;
+            --brand: #6366f1;
+            --brand-2: #06b6d4;
+            --line: #f1f5f9;
+            --accent: #ecfeff;
+            --hover: #f8fafc;
+            --card: #ffffff;
+        }
+
+        .dark {
+            --bg: #0b1020;
+            --fg: #e5e7eb;
+            --muted: #a1a1aa;
+            --brand: #8b5cf6;
+            --brand-2: #22d3ee;
+            --line: #111827;
+            --accent: #0b1b2a;
+            --hover: #101826;
+            --card: #0f172a;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--fg);
+            font-family: Roboto, system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+            line-height: 1.6
+        }
+
+        .topbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 16px;
+            background: linear-gradient(90deg, var(--brand), var(--brand-2));
+            color: #fff;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, .15)
+        }
+
+        .brand {
+            display: flex;
+            gap: 10px;
+            align-items: center
+        }
+
+        .brand h1 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: .3px
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 16px;
+            font-weight: 500;
+            white-space: nowrap
+        }
+
+        nav a:hover {
+            text-decoration: underline
+        }
+
+        .controls {
+            display: flex;
+            gap: 8px;
+            align-items: center
+        }
+
+        .btn {
+            border: 0;
+            border-radius: 999px;
+            padding: 8px 12px;
+            background: rgba(255, 255, 255, .15);
+            color: #fff;
+            cursor: pointer;
+            font-weight: 600
+        }
+
+        .btn:hover {
+            background: rgba(255, 255, 255, .25)
+        }
+
+        .progress {
+            position: fixed;
+            top: 52px;
+            left: 0;
+            height: 4px;
+            background: var(--brand-2);
+            width: 0;
+            z-index: 999
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 88px auto 120px;
+            padding: 0 16px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 18px
+        }
+
+        @media(min-width:980px) {
+            main {
+                grid-template-columns: 260px 1fr
+            }
+        }
+
+        .toc {
+            position: sticky;
+            top: 88px;
+            max-height: 70vh;
+            overflow-y: auto;
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 12px
+        }
+
+        .toc h3 {
+            margin: 0 0 8px;
+            font-size: 16px
+        }
+
+        .toc a {
+            display: block;
+            padding: 6px 8px;
+            border-radius: 8px;
+            color: var(--fg);
+            text-decoration: none
+        }
+
+        .toc a:hover {
+            background: var(--hover)
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            padding: 18px
+        }
+
+        header.article-header h1 {
+            font-family: Merriweather, serif;
+            font-size: 26px;
+            margin: .2rem 0 .6rem
+        }
+
+        .meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            color: var(--muted);
+            font-size: 14px
+        }
+
+        .readtime {
+            font-weight: 700;
+            color: var(--brand)
+        }
+
+        .dual {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px
+        }
+
+        @media(min-width:900px) {
+            .dual {
+                grid-template-columns: 1fr 1fr
+            }
+        }
+
+        .panel {
+            border: 1px dashed var(--line);
+            border-radius: 16px;
+            padding: 14px
+        }
+
+        .panel h2 {
+            margin-top: .2rem
+        }
+
+        .panel[lang="hi"] {
+            font-family: "Noto Sans", Roboto, system-ui, sans-serif
+        }
+
+        .line {
+            padding: 6px 8px;
+            border-radius: 10px;
+            transition: background .2s
+        }
+
+        .line:hover {
+            background: var(--accent)
+        }
+
+        h1,
+        h2,
+        h3 {
+            scroll-margin-top: 88px
+        }
+
+        h2 {
+            border-left: 4px solid var(--brand);
+            padding-left: 8px
+        }
+
+        #toTop {
+            position: fixed;
+            right: 16px;
+            bottom: 16px;
+            display: none;
+            padding: 12px 14px;
+            border-radius: 999px;
+            background: var(--brand);
+            color: #fff;
+            border: 0;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .2)
+        }
+
+        #toTop:hover {
+            filter: brightness(1.05)
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 16px
+        }
+
+        .action-btn {
+            padding: 10px 14px;
+            border-radius: 12px;
+            border: 1px solid var(--line);
+            background: var(--hover);
+            cursor: pointer
+        }
+
+        .mcq {
+            margin-top: 10px
+        }
+
+        .mcq .q {
+            font-weight: 700
+        }
+
+        .mcq .opt {
+            display: block;
+            margin: 6px 0;
+            padding: 8px 10px;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            cursor: pointer
+        }
+
+        .mcq .opt.correct {
+            border-color: #16a34a
+        }
+
+        .mcq .opt.wrong {
+            border-color: #dc2626
+        }
+
+        .mcq .opt.correct:after {
+            content: " ✅";
+        }
+
+        .mcq .opt.wrong:after {
+            content: " ❌";
+        }
+
+        .flashcards {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px
+        }
+
+        @media(min-width:720px) {
+            .flashcards {
+                grid-template-columns: 1fr 1fr
+            }
+        }
+
+        .card-flip {
+            perspective: 1000px
+        }
+
+        .flip-inner {
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform .5s
+        }
+
+        .flip-face {
+            backface-visibility: hidden;
+            position: relative;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 16px;
+            min-height: 90px
+        }
+
+        .flip-back {
+            position: absolute;
+            inset: 0;
+            transform: rotateY(180deg)
+        }
+
+        .card-flip.flip .flip-inner {
+            transform: rotateY(180deg)
+        }
+
+        footer {
+            padding: 30px 16px;
+            border-top: 1px solid var(--line);
+            text-align: center;
+            color: var(--muted)
+        }
+
+        .back-home {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 10px 16px;
+            border-radius: 999px;
+            background: var(--brand-2);
+            color: #003;
+            text-decoration: none;
+            font-weight: 700
+        }
+
+        @media print {
+
+            .topbar,
+            #toTop,
+            .progress,
+            .toc,
+            .controls,
+            .actions {
+                display: none !important
+            }
+
+            main {
+                margin: 0;
+                grid-template-columns: 1fr
+            }
+
+            body {
+                background: #fff;
+                color: #000
+            }
+
+            a {
+                color: #000
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="topbar" role="navigation" aria-label="Main">
+        <div class="brand">
+            <h1>19-August-2025</h1>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="quiz.html">Quiz</a>
+            <a href="donation.html">Donation</a>
+            <a href="contact.html">Contact</a>
+            <div class="controls">
+                <button class="btn" id="darkToggle" title="Toggle Dark Mode">🌓</button>
+                <button class="btn" id="printBtn" title="Print">🖨️</button>
+                <button class="btn" id="shareBtn" title="Share">📤</button>
+                <button class="btn" id="audioBtn" title="Audio Mode (English)">🔊</button>
+            </div>
+        </nav>
+    </div>
+    <div class="progress" id="progress"></div>
+
+    <main>
+        <aside class="toc card" aria-label="Table of contents">
+            <h3>Contents</h3>
+            <div id="tocList"></div>
+        </aside>
+
+        <article class="card" id="article">
+            <header class="article-header">
+                <h1 id="articleTitle">New Findings on Diabetes Treatment – IISc Study</h1>
+                <div class="meta">
+                    <span><strong>Source:</strong> The Hindu</span>
+                    <span><strong>Publication date:</strong> <time datetime="2025-08-18">18 August 2025</time></span>
+                    <span class="readtime" id="readTime">Read time: —</span>
+                </div>
+            </header>
+
+            <section aria-labelledby="recap-title">
+                <h2 id="recap-title">Quick Recap</h2>
+                <ul id="recapList" class="line"></ul>
+            </section>
+
+            <section class="dual" aria-label="Article content (English above, Hindi below)">
+                <div class="panel" id="englishPanel" aria-labelledby="en-title">
+                    <h2 id="en-title">Complete English Text</h2>
+                    <div id="englishContent"></div>
+                </div>
+                <div class="panel" id="hindiPanel" aria-labelledby="hi-title" lang="hi">
+                    <h2 id="hi-title">पूरा हिंदी पाठ</h2>
+                    <div id="hindiContent"></div>
+                </div>
+            </section>
+
+            <section aria-labelledby="mains-title">
+                <h2 id="mains-title">Mains Practice Prompts</h2>
+                <ol class="line">
+                    <li class="line">Discuss how disruptions in glucose transporter trafficking can influence public
+                        health strategies for Type‑2 diabetes management in India. (250 words)</li>
+                    <li class="line">Explain the role of basic science research (e.g., live‑cell imaging) in informing
+                        evidence‑based policymaking for non‑communicable diseases. (250 words)</li>
+                </ol>
+            </section>
+
+            <section aria-labelledby="mcq-title">
+                <h2 id="mcq-title">MCQs (Check your understanding)</h2>
+                <div class="mcq card line" data-answer="b">
+                    <div class="q">1) In human pancreatic beta cells, the primary glucose transporter is:</div>
+                    <label class="opt"><input type="radio" name="q1"> GLUT2</label>
+                    <label class="opt" data-key="b"><input type="radio" name="q1"> GLUT1</label>
+                    <label class="opt"><input type="radio" name="q1"> SGLT1</label>
+                    <label class="opt"><input type="radio" name="q1"> SGLT2</label>
+                </div>
+                <div class="mcq card line" data-answer="c">
+                    <div class="q">2) The study highlights that impaired GLUT cycling in Type‑2 diabetes primarily
+                        affects:</div>
+                    <label class="opt"><input type="radio" name="q2"> Glucagon secretion</label>
+                    <label class="opt"><input type="radio" name="q2"> Beta‑cell proliferation</label>
+                    <label class="opt" data-key="c"><input type="radio" name="q2"> Glucose uptake and insulin
+                        release</label>
+                    <label class="opt"><input type="radio" name="q2"> Mitochondrial DNA replication</label>
+                </div>
+                <div class="mcq card line" data-answer="a">
+                    <div class="q">3) GLUT internalisation described in the study occurs via:</div>
+                    <label class="opt" data-key="a"><input type="radio" name="q3"> Clathrin‑mediated endocytosis</label>
+                    <label class="opt"><input type="radio" name="q3"> Caveolin‑independent diffusion</label>
+                    <label class="opt"><input type="radio" name="q3"> Nuclear pore transport</label>
+                    <label class="opt"><input type="radio" name="q3"> Exocytotic vesicle fusion</label>
+                </div>
+            </section>
+
+            <section aria-labelledby="flash-title">
+                <h2 id="flash-title">Flashcards</h2>
+                <div class="flashcards">
+                    <div class="card-flip line" tabindex="0">
+                        <div class="flip-inner">
+                            <div class="flip-face"><strong>GLUT1 vs GLUT2</strong><br>Primary transporter: Humans—GLUT1;
+                                Mice—GLUT2. Click/tap to flip.</div>
+                            <div class="flip-face flip-back">Species difference matters in translating animal studies to
+                                human therapy design.</div>
+                        </div>
+                    </div>
+                    <div class="card-flip line" tabindex="0">
+                        <div class="flip-inner">
+                            <div class="flip-face"><strong>Clathrin‑mediated endocytosis</strong><br>Mechanism for GLUT
+                                cycling.</div>
+                            <div class="flip-face flip-back">Disruption here can reduce glucose uptake and blunt insulin
+                                release.</div>
+                        </div>
+                    </div>
+                    <div class="card-flip line" tabindex="0">
+                        <div class="flip-inner">
+                            <div class="flip-face"><strong>Therapeutic Avenue</strong><br>Target pre‑entry trafficking.
+                            </div>
+                            <div class="flip-face flip-back">Restoring GLUT movement could improve beta‑cell
+                                responsiveness.</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section aria-labelledby="contact-title">
+                <h2 id="contact-title">Contact us</h2>
+                <p class="line">Have doubts or suggestions? <a href="https://wa.me/918168305050" target="_blank"
+                        rel="noopener">WhatsApp us at +91‑8168305050</a>.</p>
+                <div class="actions">
+                    <a class="back-home" href="index.html">← Back to Home</a>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <footer>
+        © 2025 Crack Current Affairs (CrackCA). All rights reserved.
+    </footer>
+
+    <button id="toTop" aria-label="Scroll to top">↑</button>
+
+    <script defer>
+        const englishNotes = `# **New Findings on Diabetes Treatment – IISc Study**
+
+## **Context**
+
+* A new study by the **Indian Institute of Science (IISc), Bengaluru** has revealed critical insights into how glucose enters pancreatic beta cells, with **potential therapeutic implications for Type-2 diabetes treatment**.
+
+---
+
+## **Key Highlights of the Study**
+
+1. **Glucose Uptake & Insulin Release**
+
+    * Body has a **molecular traffic system** to manage glucose surge post-meal.
+    * **Pancreatic beta cells**: absorb glucose and trigger **insulin release**.
+    * **Glucose Transporters (GLUTs)**: proteins that move to beta cell surface when blood glucose rises → facilitate glucose entry → initiate insulin release.
+
+2. **Species Difference**
+
+    * Humans: **GLUT1** is the primary glucose transporter in beta cells.
+    * Mice: **GLUT2** plays this role.
+
+3. **Findings in Type-2 Diabetes**
+
+    * Process of GLUTs reaching the membrane is **disrupted in diabetic conditions**.
+    * Leads to **defective glucose uptake** → reduced insulin release.
+    * Restoring proper GLUT function could open **new therapeutic avenues**.
+
+4. **Mechanism Studied**
+
+    * **Live-cell imaging** used to track GLUT1 & GLUT2 movement.
+    * In healthy cells: GLUTs rapidly move to cell membrane when glucose rises.
+    * GLUTs cycle in & out through **clathrin-mediated endocytosis** (internalisation via clathrin protein-coated pockets).
+    * In Type-2 diabetes: this cycling is impaired.
+
+---
+
+## **Significance of the Research**
+
+* **Novel focus**: Most past studies examined post-glucose entry; this research looks at **pre-entry stage**.
+* Provides a **new therapeutic target** for managing Type-2 diabetes.
+* Could help design **drug interventions** aimed at improving GLUT movement to restore normal insulin release.
+
+---
+
+## **Relevance for UPSC**
+
+* **GS Paper 2 (Health)**: Advances in diabetes treatment, public health importance.
+* **GS Paper 3 (Science & Tech)**: Application of biotechnology & cell imaging in disease management.
+* **Essay/Interview**: Illustrates role of **basic science research** in addressing lifestyle diseases.
+
+---
+
+✅ **Takeaway**: The IISc study identifies **GLUT dysfunction in Type-2 diabetes** as a crucial factor, highlighting **restoration of glucose entry mechanisms** as a possible pathway for **new diabetes therapies**.`;
+
+        const hindiNotes = `# **मधुमेह के उपचार पर नए निष्कर्ष - IISc अध्ययन**
+
+## **संदर्भ**
+
+* **भारतीय विज्ञान संस्थान (IISc), बेंगलुरु** द्वारा किए गए एक नए अध्ययन ने इस बारे में महत्वपूर्ण जानकारी दी है कि ग्लूकोज अग्नाशय की बीटा कोशिकाओं में कैसे प्रवेश करता है, और इसके **टाइप-2 मधुमेह के उपचार के लिए संभावित चिकित्सीय निहितार्थ** हैं।
+
+---
+
+## **अध्ययन के मुख्य अंश**
+
+1. **ग्लूकोज अवशोषण और इंसुलिन उत्सर्जन**
+
+*भोजन के बाद ग्लूकोज की वृद्धि को नियंत्रित करने के लिए शरीर में एक **आणविक यातायात प्रणाली** होती है।
+* **अग्नाशय की बीटा कोशिकाएं**: ग्लूकोज को अवशोषित करती हैं और **इंसुलिन उत्सर्जन** को सक्रिय करती हैं।
+* **ग्लूकोज ट्रांसपोर्टर (GLUTs)**: प्रोटीन जो रक्त शर्करा बढ़ने पर बीटा कोशिका की सतह पर जाते हैं → ग्लूकोज के प्रवेश को सुगम बनाते हैं → इंसुलिन उत्सर्जन शुरू करते हैं।
+
+2. **प्रजातियों में अंतर**
+
+* मनुष्य: **GLUT1** बीटा कोशिकाओं में प्राथमिक ग्लूकोज़ वाहक है।
+* चूहे: **GLUT2** यह भूमिका निभाता है।
+
+3. **टाइप-2 मधुमेह में निष्कर्ष**
+
+* मधुमेह की स्थिति में GLUTs के झिल्ली तक पहुँचने की प्रक्रिया **बाधित** हो जाती है।
+* इससे **गलत ग्लूकोज़ अवशोषण** → कम इंसुलिन स्राव होता है।
+* GLUT के उचित कार्य को बहाल करने से **नए चिकित्सीय रास्ते** खुल सकते हैं।
+
+4. **अध्ययनित क्रियाविधि**
+
+* **जीवित कोशिका इमेजिंग** का उपयोग GLUT1 और GLUT2 की गति को ट्रैक करने के लिए किया जाता है।
+* स्वस्थ कोशिकाओं में: ग्लूकोज़ बढ़ने पर GLUTs तेज़ी से कोशिका झिल्ली की ओर बढ़ते हैं।
+* GLUTs क्लैथ्रिन-मध्यस्थ एंडोसाइटोसिस (क्लैथ्रिन प्रोटीन-लेपित पॉकेट्स के माध्यम से आंतरिककरण) के माध्यम से अंदर और बाहर चक्रित होते हैं।
+* टाइप-2 मधुमेह में: यह चक्रण बाधित होता है।
+
+---
+
+## **शोध का महत्व**
+
+* **नवीन फोकस**: अधिकांश पिछले अध्ययनों में ग्लूकोज प्रवेश के बाद की स्थिति की जाँच की गई थी; यह शोध प्रवेश-पूर्व चरण** पर केंद्रित है।
+* टाइप-2 मधुमेह के प्रबंधन के लिए एक **नया चिकित्सीय लक्ष्य** प्रदान करता है।
+* सामान्य इंसुलिन स्राव को बहाल करने के लिए GLUT गति में सुधार लाने के उद्देश्य से **औषधि हस्तक्षेप** को डिज़ाइन करने में मदद कर सकता है।
+
+---
+
+## **यूपीएससी के लिए प्रासंगिकता**
+
+* **सामान्य अध्ययन पेपर 2 (स्वास्थ्य)**: मधुमेह उपचार में प्रगति, जन स्वास्थ्य महत्व।
+* **सामान्य अध्ययन पेपर 3 (विज्ञान और प्रौद्योगिकी)**: रोग प्रबंधन में जैव प्रौद्योगिकी और कोशिका इमेजिंग का अनुप्रयोग।
+* **निबंध/साक्षात्कार**: जीवनशैली से जुड़ी बीमारियों से निपटने में **बुनियादी विज्ञान अनुसंधान** की भूमिका को दर्शाता है।
+
+---
+
+✅ **मुख्य संदेश**: IISc अध्ययन **टाइप‑2 मधुमेह में GLUT विकार** को महत्वपूर्ण कारक के रूप में पहचानता है और **ग्लूकोज़ प्रवेश तंत्र** की बहाली को **नई उपचार रणनीतियों** के संभावित मार्ग के रूप में रेखांकित करता है।`;
+
+        function applyReplacements(text) {
+            text = text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+            text = text.replace(/(^|\s)\*(?!\s)([^*]+?)\*(?=\s|$)/g, (m, p1, p2) => `${p1}<em><u>${p2}</u></em>`);
+            text = text.replace(/^####\s*(.+)$/gm, '<h3 class="line">$1</h3>');
+            text = text.replace(/^###\s*(.+)$/gm, '<h2 class="line">$1</h2>');
+            text = text.replace(/^##\s*(.+)$/gm, '<h1 class="line">$1</h1>');
+            text = text.replace(/^#\s*(.+)$/gm, '<h1 class="line">$1</h1>');
+            text = text.replace(/^---$/gm, '<hr>');
+            text = text.replace(/(^\s*\d+\.\s+.*$|^\s*\*\s+.*$)+/gms, (block) => {
+                const lines = block.split('\n').filter(Boolean);
+                let listHtml = '';
+                const isOrdered = lines[0].trim().match(/^\d+\./);
+                const listTag = isOrdered ? 'ol' : 'ul';
+
+                lines.forEach(line => {
+                    const content = line.trim().replace(/^\d+\.\s+|^[*]\s+/, '');
+                    listHtml += `<li class="line">${content}</li>`;
+                });
+                return `<${listTag}>${listHtml}</${listTag}>`;
+            });
+            text = text.replace(/<hr>(\s*<[ul|ol])/g, '<hr>\n$1');
+            text = text.split(/\n\n+/).map(p => {
+                if (p.match(/<h[1-3]|<ul|<ol|<hr>/) || p.startsWith('<hr>')) return p;
+                return `<p class="line">${p.trim()}</p>`;
+            }).join('\n\n');
+            return text;
+        }
+
+        function fillContent() {
+            const enHTML = applyReplacements(englishNotes);
+            const hiHTML = applyReplacements(hindiNotes);
+            document.getElementById('englishContent').innerHTML = enHTML;
+            document.getElementById('hindiContent').innerHTML = hiHTML;
+
+            const article = document.getElementById('article');
+            const headings = article.querySelectorAll('h1, h2, h3');
+            const toc = document.getElementById('tocList');
+            headings.forEach((h, i) => {
+                if (!h.id) {
+                    h.id = 'h-' + i;
+                }
+                const a = document.createElement('a');
+                a.href = '#' + h.id;
+                a.textContent = h.textContent;
+                toc.appendChild(a);
+            });
+
+            const keyBullets = Array.from(document.querySelectorAll('#englishContent ul li')).slice(0, 6).map(li => li.textContent);
+            const recap = document.getElementById('recapList');
+            recap.innerHTML = keyBullets.map(t => `<li>${t}</li>`).join('');
+
+            const enTextOnly = document.getElementById('englishContent').innerText;
+            const wpm = 200;
+            const words = enTextOnly.trim().split(/\s+/).filter(Boolean).length;
+            const mins = Math.max(1, Math.round(words / wpm));
+            document.getElementById('readTime').textContent = `Read time: ${mins} min`;
+        }
+
+        const darkToggle = document.getElementById('darkToggle');
+        const preferred = localStorage.getItem('crackca-theme');
+        if (preferred === 'dark') {
+            document.documentElement.classList.add('dark');
+        }
+        darkToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('crackca-theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+        });
+
+        document.getElementById('printBtn').addEventListener('click', () => window.print());
+        document.getElementById('shareBtn').addEventListener('click', async () => {
+            try {
+                if (navigator.share) {
+                    await navigator.share({
+                        title: document.title,
+                        text: 'IISc study on diabetes – CrackCA',
+                        url: location.href
+                    });
+                } else {
+                    await navigator.clipboard.writeText(location.href);
+                    alert('Link copied to clipboard!');
+                }
+            } catch (e) {
+                console.warn(e)
+            }
+        });
+
+        const audioBtn = document.getElementById('audioBtn');
+        audioBtn.addEventListener('click', () => {
+            const synth = window.speechSynthesis;
+            if (!synth) return alert('Speech not supported');
+            synth.cancel();
+            const text = document.getElementById('englishContent').innerText;
+            const utter = new SpeechSynthesisUtterance(text);
+            utter.rate = 1;
+            utter.pitch = 1;
+            utter.lang = 'en-IN';
+            synth.speak(utter);
+        });
+
+        const toTop = document.getElementById('toTop');
+        toTop.addEventListener('click', () => window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        }));
+        window.addEventListener('scroll', () => {
+            toTop.style.display = window.scrollY > 200 ? 'block' : 'none';
+            const doc = document.documentElement;
+            const scrolled = (doc.scrollTop) / (doc.scrollHeight - doc.clientHeight);
+            document.getElementById('progress').style.width = (scrolled * 100) + '%';
+        });
+
+        document.querySelectorAll('.mcq').forEach(block => {
+            block.addEventListener('change', e => {
+                const key = block.dataset.answer;
+                block.querySelectorAll('.opt').forEach((opt) => {
+                    const letter = opt.dataset.key || '';
+                    opt.classList.remove('correct', 'wrong');
+                    if (opt.querySelector('input').checked) {
+                        opt.classList.add(letter === key ? 'correct' : 'wrong');
+                    }
+                })
+            })
+        });
+
+        document.querySelectorAll('.card-flip').forEach(card => {
+            card.addEventListener('click', () => card.classList.toggle('flip'));
+            card.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    card.classList.toggle('flip');
+                }
+            });
+        });
+
+        fillContent();
+    </script>
+</body>
+
+</html>

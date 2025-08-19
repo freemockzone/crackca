@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>19-Aug-25</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Merriweather:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary-bg-color: #f4f4f4;
+            --secondary-bg-color: #fff;
+            --text-color: #333;
+            --link-color: #007bff;
+            --hover-bg-color: #e2f4f1;
+            /* A light, calming green */
+            --header-bg-color: #1a237e;
+            /* Deep Indigo */
+            --header-text-color: #fff;
+            --footer-bg-color: #1a237e;
+            --footer-text-color: #fff;
+        }
+
+        /* Dark Mode */
+        body.dark-mode {
+            --primary-bg-color: #121212;
+            --secondary-bg-color: #1e1e1e;
+            --text-color: #e0e0e0;
+            --link-color: #4da6ff;
+            --hover-bg-color: #2b3a4a;
+            --header-bg-color: #000;
+            --header-text-color: #fff;
+            --footer-bg-color: #000;
+            --footer-text-color: #fff;
+        }
+
+        /* Basic Styles */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Merriweather', serif;
+            line-height: 1.6;
+            margin: 0;
+            background-color: var(--primary-bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+            position: relative;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--header-bg-color);
+            color: var(--header-text-color);
+            padding: 1em 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo h1 {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding-left: 1em;
+            font-size: 1.5em;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        nav li {
+            margin-right: 1.5em;
+        }
+
+        nav a {
+            color: var(--header-text-color);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ccc;
+        }
+
+        /* Main Container & Article */
+        main {
+            padding-top: 5em;
+            /* Space for the fixed header */
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background-color: var(--secondary-bg-color);
+            padding: 2em;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2em;
+        }
+
+        /* Progress Bar */
+        #progress-bar {
+            position: fixed;
+            top: 4.5em;
+            /* Just below the header */
+            left: 0;
+            width: 0;
+            height: 4px;
+            background-color: var(--link-color);
+            z-index: 999;
+        }
+
+        /* Article content styling */
+        article h1,
+        article h2,
+        article h3 {
+            font-family: 'Roboto', sans-serif;
+            color: #1a237e;
+            /* Deep Indigo for headings */
+        }
+
+        .dark-mode article h1,
+        .dark-mode article h2,
+        .dark-mode article h3 {
+            color: #b39ddb;
+            /* Lighter shade for dark mode */
+        }
+
+        .article-meta {
+            font-size: 0.9em;
+            color: #777;
+            margin-bottom: 2em;
+        }
+
+        .read-time {
+            font-style: italic;
+            color: #555;
+            margin-top: 0.5em;
+        }
+
+        .line {
+            padding: 0.5em 0;
+            transition: background-color 0.3s;
+        }
+
+        .line:hover {
+            background-color: var(--hover-bg-color);
+        }
+
+        /* New CSS for the ** text and bolding */
+        strong {
+            font-weight: bold;
+        }
+
+        .important-text {
+            color: #ff4500;
+            /* A vibrant orange for keywords */
+        }
+
+        em {
+            font-style: italic;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        .english-line {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .hindi-line {
+            font-family: 'Noto Sans', sans-serif;
+        }
+
+        /* TOC & Quick Recap */
+        .sidebar {
+            background-color: var(--secondary-bg-color);
+            padding: 1em;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 1.5em;
+        }
+
+        .sidebar h3 {
+            margin-top: 0;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 0.5em;
+            color: #1a237e;
+        }
+
+        .dark-mode .sidebar h3 {
+            color: #b39ddb;
+        }
+
+        #toc ul,
+        #recap ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #toc a {
+            text-decoration: none;
+            color: var(--link-color);
+            display: block;
+            padding: 0.3em 0;
+        }
+
+        /* Make Quick Recap Scrollable */
+        #recap-content {
+            max-height: 150px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        .dark-mode #recap-content {
+            border-color: #555;
+        }
+
+
+        /* Interactive Elements */
+        .floating-btn {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            background-color: var(--link-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5em;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: none;
+            z-index: 1001;
+            transition: opacity 0.3s;
+        }
+
+        .scroll-to-top {
+            right: 20px;
+            bottom: 80px;
+        }
+
+        .mode-toggle {
+            right: 20px;
+            bottom: 20px;
+        }
+
+        .bottom-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 2em;
+        }
+
+        .button {
+            padding: 10px 20px;
+            background-color: var(--link-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
+            font-family: 'Roboto', sans-serif;
+            font-weight: bold;
+            margin: 0 10px;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Q&A Section */
+        .qa-section {
+            background-color: var(--primary-bg-color);
+            border-left: 4px solid var(--link-color);
+            padding: 1em;
+            margin: 2em 0;
+            border-radius: 4px;
+        }
+
+        .question {
+            font-weight: bold;
+            margin-bottom: 0.5em;
+            cursor: pointer;
+        }
+
+        .answer {
+            display: none;
+            margin-top: 0.5em;
+            font-style: italic;
+            color: #555;
+        }
+
+        .dark-mode .answer {
+            color: #aaa;
+        }
+
+        .correct-answer {
+            color: green;
+        }
+
+        .incorrect-answer {
+            color: red;
+        }
+
+        .explanation {
+            font-size: 0.9em;
+            margin-top: 0.5em;
+        }
+
+        /* Print/Share Buttons */
+        .print-share-buttons {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 1em;
+        }
+
+        .print-share-buttons button {
+            background: none;
+            border: 1px solid #ccc;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-left: 10px;
+        }
+
+        .print-share-buttons button:hover {
+            background-color: #eee;
+        }
+
+        .dark-mode .print-share-buttons button {
+            border-color: #555;
+            color: var(--text-color);
+        }
+
+        .dark-mode .print-share-buttons button:hover {
+            background-color: #333;
+        }
+
+        /* Flashcards */
+        .flashcard-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 2em;
+        }
+
+        .flashcard {
+            background-color: #f0f8ff;
+            /* Light blue */
+            border: 1px solid #cceeff;
+            border-radius: 8px;
+            width: 250px;
+            height: 150px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .flashcard-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .flashcard.flipped .flashcard-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flashcard-front,
+        .flashcard-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1em;
+            box-sizing: border-box;
+            font-size: 1.1em;
+        }
+
+        .flashcard-front {
+            background-color: #f0f8ff;
+            color: #333;
+        }
+
+        .flashcard-back {
+            background-color: #90ee90;
+            /* Light green */
+            color: #333;
+            transform: rotateY(180deg);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--footer-bg-color);
+            color: var(--footer-text-color);
+            text-align: center;
+            padding: 1em 0;
+            font-size: 0.9em;
+        }
+
+        /* Media Queries for Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding-top: 1em;
+            }
+
+            header .logo h1 {
+                padding-left: 0;
+                text-align: center;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav li {
+                margin: 0.5em;
+            }
+
+            .container {
+                padding: 1em;
+                margin: 1em;
+            }
+
+            .scroll-to-top,
+            .mode-toggle {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <h1>19-August-2025</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="donation.html">Donation</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><button id="mode-toggle" class="button"
+                        style="background-color:transparent; border:1px solid white;">🌙</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="progress-bar"></div>
+
+    <main>
+        <article class="container">
+            <h1 id="article-title">Alert Against Amoebic Meningoencephalitis in Kozhikode (Kerala)</h1>
+            <div class="article-meta">
+                <p><strong>Source:</strong> The Hindu | <strong>Publication Date:</strong> 19-August-2025</p>
+                <p class="read-time">Estimated Read Time: <span id="read-time-display"></span></p>
+            </div>
+
+            <div class="print-share-buttons">
+                <button onclick="window.print()">🖨️ Print</button>
+                <button onclick="shareArticle()">🔗 Share</button>
+            </div>
+
+            <div class="sidebar">
+                <h3 style="cursor: pointer;" onclick="toggleRecap()">Quick Recap 🔄</h3>
+                <div id="recap-content">
+                    <p><strong>Recap:</strong> The Kerala Health Department issued an alert for Primary Amoebic
+                        Meningoencephalitis (PAM) in Kozhikode after three cases, including one death. The disease is
+                        caused by the "brain-eating amoeba" <strong>Naegleria fowleri</strong>, which infects people
+                        through contaminated water entering the nose. Children are particularly vulnerable. Prevention
+                        involves avoiding stagnant water and using nose clips while swimming. The alert stresses the
+                        importance of public awareness and preventive hygiene for this rare but fatal disease.</p>
+                </div>
+            </div>
+
+            <section id="table-of-contents" class="sidebar">
+                <h3>Table of Contents</h3>
+                <ul id="toc"></ul>
+            </section>
+
+            <div class="full-text">
+                <section class="english-text">
+                    <h2 id="context-en">Context</h2>
+                    <p>Kerala Health Department (Kozhikode district) has issued an <strong
+                            class="important-text">alert</strong> after reporting <strong class="important-text">three
+                            cases</strong> of <strong class="important-text">Primary Amoebic Meningoencephalitis
+                            (PAM)</strong>, including one death.</p>
+                    <p>Awareness campaigns launched to prevent further spread.</p>
+                    <hr>
+                    <h1 id="about-pam-en">About Primary Amoebic Meningoencephalitis (PAM)</h1>
+                    <h3>1. Causative Agent</h3>
+                    <p>Caused by <strong class="important-text">Naegleria fowleri</strong>, a <strong
+                            class="important-text">free-living amoeba</strong>.</p>
+                    <p>Popularly called the <strong class="important-text">“brain-eating amoeba.”</strong></p>
+                    <h3>2. Transmission</h3>
+                    <p>Infection occurs when <strong class="important-text">contaminated water enters through the
+                            nose</strong> during swimming or bathing in <strong
+                            class="important-text">stagnant/unhygienic waterbodies</strong>>.</p>
+                    <p>Amoeba travels via <strong class="important-text">olfactory nerves (cribriform plate)</strong> →
+                        reaches the <strong class="important-text">brain</strong>.</p>
+                    <p>Can also enter via <strong class="important-text">eardrum</strong>.</p>
+                    <p><strong class="important-text">Not transmitted person-to-person.</strong></p>
+                    <h3>3. Vulnerability</h3>
+                    <p><strong class="important-text">Children</strong> more at risk → cribriform plate more porous than
+                        in adults.</p>
+                    <p>Those with <strong class="important-text">nasal/ear surgeries</strong> also at higher risk.</p>
+                    <hr>
+                    <h1 id="symptoms-en">Symptoms</h1>
+                    <p>Appear within <strong class="important-text">5-10 days</strong> of infection.</p>
+                    <p><strong class="important-text">Early symptoms</strong>: Severe headache, fever, nausea, vomiting,
+                        stiff neck, light sensitivity.</p>
+                    <p><strong class="important-text">Children-specific signs</strong>: Loss of appetite, inactivity,
+                        preferring to lie in bed.</p>
+                    <p><strong class="important-text">Severe stage</strong>: Memory loss, epilepsy, fainting, altered
+                        consciousness.</p>
+                    <hr>
+                    <h1 id="mortality-en">Mortality</h1>
+                    <p>PAM has a <strong class="important-text">very high fatality rate</strong> worldwide.</p>
+                    <p>Prompt medical attention is crucial, but treatment options remain limited.</p>
+                    <hr>
+                    <h1 id="preventive-en">Preventive Measures</h1>
+                    <p>Avoid <strong class="important-text">swimming/bathing in stagnant or unhygienic waters</strong>.
+                    </p>
+                    <p>Use <strong class="important-text">nose clips</strong> while swimming.</p>
+                    <p>People with <strong class="important-text">ear/nose surgeries</strong> should avoid water
+                        exposure.</p>
+                    <p>Public advised to <strong class="important-text">inform doctors</strong> if fever develops after
+                        bathing in ponds/lakes.</p>
+                    <p>Awareness campaigns being conducted (e.g., <strong class="important-text">Thamarassery
+                            region</strong> where 9-year-old died).</p>
+                    <hr>
+                    <h1 id="upsc-en">Significance for UPSC</h1>
+                    <p><strong class="important-text">GS Paper 2 (Health)</strong>: Public health management, rare
+                        infectious diseases.</p>
+                    <p><strong class="important-text">GS Paper 3 (Science & Tech)</strong>: Pathogen biology, role of
+                        environment in disease spread.</p>
+                    <p><strong class="important-text">Essay/Interview</strong>: Illustrates <strong
+                            class="important-text">emerging infectious diseases</strong>, community awareness, and
+                        preventive healthcare strategies.</p>
+                    <hr>
+                    <h1 id="takeaway-en">Takeaway</h1>
+                    <p>✅ The Kozhikode alert highlights the <strong class="important-text">deadly risk of Naegleria
+                            fowleri infection (PAM)</strong>, stressing the importance of <strong
+                            class="important-text">public awareness, preventive hygiene, and environmental
+                            safeguards</strong> against rare but fatal diseases.</p>
+                </section>
+
+                <section class="hindi-text" lang="hi">
+                    <hr>
+                    <h2 id="context-hi">संदर्भ</h2>
+                    <p>केरल स्वास्थ्य विभाग (कोझिकोड ज़िला) ने <strong class="important-text">प्राथमिक अमीबिक
+                            मेनिंगोएन्सेफलाइटिस (पीएएम)</strong> के <strong class="important-text">तीन मामले</strong>
+                        सामने आने के बाद <strong class="important-text">चेतावनी</strong> जारी की है, जिसमें एक मौत भी
+                        शामिल है।</p>
+                    <p>इसके आगे प्रसार को रोकने के लिए जागरूकता अभियान शुरू किए गए हैं।</p>
+                    <hr>
+                    <h1 id="about-pam-hi">प्राथमिक अमीबिक मेनिंगोएन्सेफलाइटिस (पीएएम) के बारे में</h1>
+                    <h3>1. कारक कारक</h3>
+                    <p><strong class="important-text">नेगलेरिया फाउलेरी</strong>, एक <strong
+                            class="important-text">मुक्त-जीवित अमीबा</strong> के कारण होता
+                        है।</p>
+                    <p>इसे लोकप्रिय रूप से <strong class="important-text">"दिमाग खाने वाला अमीबा" कहा जाता है।</strong>
+                    </p>
+                    <h3>2. संक्रमण</h3>
+                    <p>संक्रमण तब होता है जब <strong class="important-text">स्थिर/अस्वच्छ जलाशयों</strong> में तैरने या
+                        नहाने के दौरान <strong class="important-text">दूषित पानी नाक के माध्यम से</strong> प्रवेश करता
+                        है।</p>
+                    <p>अमीबा <strong class="important-text">घ्राण तंत्रिकाओं (क्रिब्रीफॉर्म प्लेट)</strong> के माध्यम से
+                        <strong class="important-text">मस्तिष्क</strong> तक पहुँचता है।
+                    </p>
+                    <p><strong class="important-text">कान के पर्दे</strong> के माध्यम से भी प्रवेश कर सकता है।</p>
+                    <p><strong class="important-text">व्यक्ति-से-व्यक्ति में संचारित नहीं होता।</strong></p>
+                    <h3>3. भेद्यता</h3>
+                    <p><strong class="important-text">बच्चों</strong> को ज़्यादा ख़तरा → क्रिब्रीफॉर्म प्लेट वयस्कों की
+                        तुलना में ज़्यादा छिद्रयुक्त होती है।</p>
+                    <p><strong class="important-text">नाक/कान की सर्जरी</strong> कराने वालों को भी ज़्यादा ख़तरा होता
+                        है।</p>
+                    <hr>
+                    <h1 id="symptoms-hi">लक्षण</h1>
+                    <p>संक्रमण के <strong class="important-text">5-10 दिनों</strong> के भीतर दिखाई देते हैं।</p>
+                    <p><strong class="important-text">शुरुआती लक्षण</strong>: तेज़ सिरदर्द, बुखार, मतली, उल्टी, गर्दन
+                        में अकड़न, प्रकाश के प्रति संवेदनशीलता।</p>
+                    <p><strong class="important-text">बच्चों में विशिष्ट लक्षण</strong>: भूख न लगना, निष्क्रियता, बिस्तर
+                        पर लेटे रहना पसंद करना।</p>
+                    <p><strong class="important-text">गंभीर अवस्था</strong>: स्मृति हानि, मिर्गी, बेहोशी, चेतना में
+                        परिवर्तन।</p>
+                    <hr>
+                    <h1 id="mortality-hi">मृत्यु दर</h1>
+                    <p>दुनिया भर में PAM की मृत्यु दर <strong class="important-text">बहुत अधिक</strong> है।</p>
+                    <p>तुरंत चिकित्सा सहायता ज़रूरी है, लेकिन उपचार के विकल्प सीमित हैं।</p>
+                    <hr>
+                    <h1 id="preventive-hi">निवारक उपाय</h1>
+                    <p><strong class="important-text">स्थिर या अस्वच्छ पानी में तैरने/नहाने</strong> से बचें।</p>
+                    <p>तैरते समय <strong class="important-text">नाक क्लिप</strong> का प्रयोग करें।</p>
+                    <p><strong class="important-text">कान/नाक की सर्जरी</strong> वाले लोगों को पानी के संपर्क में आने से
+                        बचना चाहिए।</p>
+                    <p>लोगों को सलाह दी जाती है कि अगर तालाबों/झीलों में नहाने के बाद बुखार हो जाए तो <strong
+                            class="important-text">डॉक्टरों को सूचित करें</strong>।</p>
+                    <p>जागरूकता अभियान चलाए जा रहे हैं (उदाहरण के लिए, <strong class="important-text">थमारास्सेरी
+                            क्षेत्र</strong> जहाँ 9 वर्षीय बच्चे की मृत्यु हो गई)।</p>
+                    <hr>
+                    <h1 id="upsc-hi">यूपीएससी के लिए महत्व</h1>
+                    <p><strong class="important-text">सामान्य अध्ययन प्रश्नपत्र 2 (स्वास्थ्य)</strong>: जन स्वास्थ्य
+                        प्रबंधन, दुर्लभ संक्रामक रोग।</p>
+                    <p><strong class="important-text">सामान्य अध्ययन प्रश्नपत्र 3 (विज्ञान एवं प्रौद्योगिकी)</strong>:
+                        रोगजनक जीव विज्ञान, रोग प्रसार में पर्यावरण की भूमिका।</p>
+                    <p><strong class="important-text">निबंध/साक्षात्कार</strong>: <strong class="important-text">उभरते
+                            संक्रामक रोग</strong>, सामुदायिक जागरूकता और निवारक स्वास्थ्य देखभाल रणनीतियों को दर्शाता
+                        है।</p>
+                    <hr>
+                    <h1 id="takeaway-hi">मुख्य बात</h1>
+                    <p>✅ कोझिकोड अलर्ट <strong class="important-text">नेगलेरिया फाउलेरी संक्रमण (पीएएम)</strong> के घातक
+                        जोखिम पर प्रकाश डालता है, और दुर्लभ लेकिन घातक रोगों के विरुद्ध <strong
+                            class="important-text">जन जागरूकता, निवारक स्वच्छता और पर्यावरणीय सुरक्षा उपायों</strong> के
+                        महत्व पर बल देता है।</p>
+                </section>
+            </div>
+
+
+            <section>
+                <h3>Mains Prompts</h3>
+                <p><strong>1.</strong> "Discuss the challenges faced by public health systems in managing rare and
+                    emerging infectious diseases, using the case of Primary Amoebic Meningoencephalitis (PAM) as an
+                    example. What preventive measures and public awareness strategies can be employed to mitigate such
+                    risks?"</p>
+                <p><strong>2.</strong> "Analyze the intersection of environmental factors and public health, with a
+                    specific focus on waterborne diseases. How can India's public health infrastructure be strengthened
+                    to address the risks posed by pathogens like <em>Naegleria fowleri</em>?"</p>
+            </section>
+
+            <hr>
+
+            <section class="qa-section">
+                <h3>Quick MCQs</h3>
+                <div class="qa-item">
+                    <p class="question" onclick="toggleAnswer(this)">1. Primary Amoebic Meningoencephalitis (PAM) is
+                        caused by:</p>
+                    <div class="answer">
+                        <label><input type="radio" name="q1" value="A"> A virus</label><br>
+                        <label><input type="radio" name="q1" value="B"> A bacterium</label><br>
+                        <label><input type="radio" name="q1" value="C"> A free-living amoeba</label><br>
+                        <label><input type="radio" name="q1" value="D"> A fungus</label><br>
+                        <button onclick="checkAnswer(this, 'C')">Check Answer</button>
+                        <p class="explanation"></p>
+                    </div>
+                </div>
+
+                <div class="qa-item">
+                    <p class="question" onclick="toggleAnswer(this)">2. How does the causative agent of PAM typically
+                        enter the human body?</p>
+                    <div class="answer">
+                        <label><input type="radio" name="q2" value="A"> Through contaminated food</label><br>
+                        <label><input type="radio" name="q2" value="B"> Through a mosquito bite</label><br>
+                        <label><input type="radio" name="q2" value="C"> Through nasal passage from contaminated
+                            water</label><br>
+                        <label><input type="radio" name="q2" value="D"> Through cuts and wounds</label><br>
+                        <button onclick="checkAnswer(this, 'C')">Check Answer</button>
+                        <p class="explanation"></p>
+                    </div>
+                </div>
+            </section>
+
+            <hr>
+
+            <section>
+                <h3>Flashcards 🧠</h3>
+                <div class="flashcard-container">
+                    <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                        <div class="flashcard-inner">
+                            <div class="flashcard-front">
+                                <p><strong>Front:</strong> What is Primary Amoebic Meningoencephalitis (PAM)?</p>
+                            </div>
+                            <div class="flashcard-back">
+                                <p><strong>Back:</strong> A rare and fatal brain infection caused by the free-living
+                                    amoeba, <em>Naegleria fowleri</em>.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                        <div class="flashcard-inner">
+                            <div class="flashcard-front">
+                                <p><strong>Front:</strong> How is <em>Naegleria fowleri</em> transmitted?</p>
+                            </div>
+                            <div class="flashcard-back">
+                                <p><strong>Back:</strong> When contaminated water enters the nose, usually during
+                                    swimming in stagnant waterbodies.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h3>Audio Mode 🎧</h3>
+                <button class="button" onclick="speakText()">Play Audio</button>
+                <button class="button" onclick="stopAudio()">Stop Audio</button>
+            </section>
+
+            <section>
+                <div class="contact-info">
+                    <p>Contact us: <a href="https://wa.me/918168305050" target="_blank">WhatsApp: +91-8168305050</a></p>
+                </div>
+            </section>
+
+            <div class="bottom-buttons">
+                <a href="index.html" class="button">Back to Home</a>
+            </div>
+        </article>
+    </main>
+
+    <button id="scroll-to-top" class="floating-btn scroll-to-top" title="Scroll to Top">⬆️</button>
+
+    <footer>
+        <p>© 2025 Crack Current Affairs (CrackCA). All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const articleContent = document.querySelector('.full-text');
+            const englishContent = document.querySelector('.english-text');
+            const readTimeDisplay = document.getElementById('read-time-display');
+            const scrollToTopBtn = document.getElementById('scroll-to-top');
+            const progressBar = document.getElementById('progress-bar');
+            const articleTitle = document.getElementById('article-title');
+            const toc = document.getElementById('toc');
+            const modeToggleBtn = document.getElementById('mode-toggle');
+
+            // 3.1 & 3.2 Read Time Calculation
+            const englishText = englishContent.textContent;
+            const wordCount = englishText.split(/\s+/).filter(word => word.length > 0).length;
+            const readTime = Math.ceil(wordCount / 200);
+            readTimeDisplay.textContent = `${readTime} min read`;
+
+            // 4.1 Scroll to Top Button
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    scrollToTopBtn.style.display = 'block';
+                } else {
+                    scrollToTopBtn.style.display = 'none';
+                }
+                updateProgressBar();
+            });
+
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // Progress Bar
+            function updateProgressBar() {
+                const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const scrollPosition = window.scrollY;
+                const progress = (scrollPosition / scrollHeight) * 100;
+                progressBar.style.width = `${progress}%`;
+            }
+
+            // TOC Generation (Table of Contents)
+            function generateTOC() {
+                const sections = document.querySelectorAll('.english-text h1, .english-text h2, .english-text h3');
+                sections.forEach(heading => {
+                    const id = heading.textContent.trim().replace(/\s+/g, '-').replace(/[^a-zA-Z0-9-]/g, '').toLowerCase() + '-en';
+                    heading.id = id;
+                    const li = document.createElement('li');
+                    const a = document.createElement('a');
+                    a.href = `#${id}`;
+                    a.textContent = heading.textContent;
+                    li.appendChild(a);
+                    toc.appendChild(li);
+                });
+            }
+            generateTOC();
+
+            // Dark Mode
+            modeToggleBtn.addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+                const isDarkMode = document.body.classList.contains('dark-mode');
+                modeToggleBtn.textContent = isDarkMode ? '☀️' : '🌙';
+            });
+
+            // Quick Recap
+            window.toggleRecap = () => {
+                const recapSection = document.getElementById('recap-content');
+                recapSection.style.display = recapSection.style.display === 'block' ? 'none' : 'block';
+            };
+
+            // Audio Mode
+            let utterance = null;
+            const synthesis = window.speechSynthesis;
+
+            window.speakText = () => {
+                if (synthesis.speaking) {
+                    return;
+                }
+                const text = englishContent.textContent.replace(/[\n\r\t]+/g, ' ').replace(/\s\s+/g, ' ').trim();
+                utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'en-US';
+                synthesis.speak(utterance);
+            };
+
+            window.stopAudio = () => {
+                if (synthesis.speaking) {
+                    synthesis.cancel();
+                }
+            };
+
+            // Flashcards
+            const flashcards = document.querySelectorAll('.flashcard');
+            flashcards.forEach(card => {
+                card.addEventListener('click', () => {
+                    card.classList.toggle('flipped');
+                });
+            });
+
+            // MCQs
+            window.toggleAnswer = (questionElement) => {
+                const answerElement = questionElement.nextElementSibling;
+                if (answerElement.style.display === 'block') {
+                    answerElement.style.display = 'none';
+                } else {
+                    answerElement.style.display = 'block';
+                }
+            };
+
+            window.checkAnswer = (button, correctAnswer) => {
+                const parent = button.parentElement;
+                const radios = parent.querySelectorAll('input[type="radio"]');
+                const explanation = parent.querySelector('.explanation');
+
+                let selectedAnswer = null;
+                radios.forEach(radio => {
+                    if (radio.checked) {
+                        selectedAnswer = radio.value;
+                    }
+                });
+
+                if (selectedAnswer === correctAnswer) {
+                    explanation.textContent = 'Correct Answer! ✅';
+                    explanation.style.color = 'green';
+                } else {
+                    explanation.textContent = 'Incorrect Answer. Please try again.';
+                    explanation.style.color = 'red';
+                }
+            };
+
+            // Share button functionality
+            window.shareArticle = () => {
+                if (navigator.share) {
+                    navigator.share({
+                        title: articleTitle.textContent,
+                        text: `Read this important news article for UPSC aspirants: ${articleTitle.textContent}`,
+                        url: window.location.href,
+                    }).catch(console.error);
+                } else {
+                    alert('Web Share API is not supported in your browser.');
+                }
+            };
+
+            // Initial calls
+            updateProgressBar();
+        });
+    </script>
+</body>
+
+</html>
